@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>MMCTP</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Le styles -->
+<link href="./css/bootstrap.css" rel="stylesheet">
+<style>
+body {
+padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
+<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]> <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]--><!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="./ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="./ico/favicon.png">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span><span class="icon-bar"></span> </a> <a class="brand" href="#">MMCTP</a>
+<div class="nav-collapse collapse">
+<ul class="nav">
+<li><a href="./index.html">Home</a></li>
+<li class="active"><a href="#">Features</a></li>
+<li><a href="./changes.html">Latest Changes</a></li>
+<li><a href="./download.html">Download</a></li>
+<li><a href="./course.html">Course</a></li>
+<li><a href="./contact.html">Contact</a></li>
+</ul>
+</div>
+<!--/.nav-collapse --> </div>
+</div>
+</div>
+<div class="container">
+<h3>MMCTP features</h3>
+What makes MMCTP unique is the ability to transform DICOM data into MC
+input files ready for submission on one or many computer cluster with
+the click of a single button. MMCTP will track the progress of
+submitted jobs and download completed dose simulation files.
+<p>MMCTP is modular and separates classes into their rightful
+domain. Treatment planning classes store DICOM data, while MC classes
+store methods and variables for MC data and processing. Various MC
+classes have been coded within MMCTP to allow the user to fully
+visualize the MC data in its native form and make changes to the data.
+These classes have been coded to read MC data into MMCTP and write MC
+data back to its native format. A number of automated script have been
+written to transform treatment planning data into MC input data. These
+scripts can be user-dependant and are specific to the physical
+properties of the device being modelled and the MC module that
+characterizes the device. A number of scripts have already been coded
+for devices from: Varain, TomoTherapy, Elekta, and Siemens.
+</p>
+<p>To obtain the full benefit of MMCTP, a user might be required
+to make changes to the automated scripts. In most situations, MMCTP can
+already read and write specific MC component modules, which greatly
+reduces the process of creating a new automated script for a specific
+device.
+</p>
+<h4>Here is a summered list of current features</h4>
+<p class="paragraph_style_1"><br>
+</p>
+<p class="paragraph_style_2">Monte Carlo Dose Calculations<span class="style_1"><br>
+</span></p>
+<ol>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Generation of input files
+and automatic submission for BEAMnrc, DOSXYZnrc, XVMC, and Cutout<br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>BEAMnrc integration: <br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Read/modify/write header
+sources: <span class="style_2">0, 1, 3, 19, 21<br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Read/write CMs: <span class="style_2">APPLICAT, BLOCK, DYNVMLC, DYNJAWS, JAWS,
+WEDG, SLABS, FLAT, MLC,VARMLC, TOMOMLC<br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Automated scripts based on
+beam properties: <span class="style_2">Varian
+(jaws dynamic or static, 120 leaf MLC dynamic or static), Siemens
+(jaws, MLC static), Tomotherapy (jaws, MLC), and Elektra (Jaws, MLC
+static)<br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Other: <span class="style_2">DBS script to update cone radius, phasespace
+database, determine the number of histories based on a specific
+particle density</span><br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>DOSXYZnrc integration:<br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Read/modify/write header
+sources:<span class="style_2"> 1, 2, 3, 8, 9, 11 (McGill
+Source), 21, 22<br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Automated scripts: <span class="style_2">Determine the number of histories for a
+specific uncertainty, generate EGSPhant file<br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Other:<span class="style_2"> EGSPhant viewer, </span><br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>VMC integration: <br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Read/modify/write:<span class="style_2"> All VMC options</span><br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Cutout Integration:<span class="style_3"><br>
+</span></p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 64px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_4"><span style="color: rgb(255, 38, 0); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Compatible with BEAMnrc
+phase-space files and DOSXYZnrc patient transport for electron MC<br>
+</p>
+</li>
+</ol>
+<p class="paragraph_style_5"><span class="style_4"><br>
+</span></p>
+<p class="paragraph_style_6">Import and export options
+include <span class="style_1"><br>
+</span></p>
+<ol>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_7"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>RTOG, CADPlan and DICOM
+import of images, structures, plans, and dose distributions. <br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_7"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>DICOM RT dose export, and
+ASCII text file export of DVH files.<span class="style_3"><br>
+</span></p>
+</li>
+</ol>
+<p class="paragraph_style_8"><span class="style_3"><br>
+</span></p>
+<p class="paragraph_style_2">Visualization options<span class="style_1"><br>
+</span></p>
+<ol>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>2D axial, sagittal or
+coronal view isodose and colourwash transparency settings for images,
+contours and dose distributions<br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_3"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>3D
+beam’s eye view and room’s eye view for images, contours, and beam
+geometry settings (e.g., jaws, MLC, couch, table and gantry rotation)<span class="style_3"><br>
+</span></p>
+</li>
+</ol>
+<p class="paragraph_style_9"><br>
+</p>
+<p class="paragraph_style_2">Treatment planning <span class="style_1"><br>
+</span></p>
+<ol>
+<li style="line-height: 16px; margin-top: -5px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_10"><span style="color: rgb(4, 51, 255); font-size: 28px; opacity: 1; position: relative; top: 6px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Add, delete edit external
+beam properties (e.g., treatment unit, energy, jaw settings and MLC
+leaves)<br>
+</p>
+</li>
+<li style="line-height: 16px; margin-top: -5px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_10"><span style="color: rgb(4, 51, 255); font-size: 28px; opacity: 1; position: relative; top: 6px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Structure contouring and
+editing tools<br>
+</p>
+</li>
+<li style="line-height: 17px; margin-top: -2px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_11"><span style="color: rgb(4, 51, 255); font-family: 'ArialMT','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 4px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>Dose Painter for QA<br>
+</p>
+</li>
+</ol>
+<p class="paragraph_style_9"><br>
+</p>
+<p class="paragraph_style_2">Dose analysis<span class="style_1"><br>
+</span></p>
+<ol>
+<li style="line-height: 16px; margin-top: -6px; padding-left: 15px; text-indent: -14px;" class="full-width">
+<p style="text-indent: -14px;" class="paragraph_style_7"><span style="color: rgb(4, 51, 255); font-family: 'Helvetica','Arial',sans-serif; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 400; opacity: 1; position: relative; top: 7px;" class="Bullet">•</span><span style="width: 4px;" class="inline-block"></span>DVH calculator and dose
+distribution operations (e.g., addition, subtraction, multiplication
+and division of dose distributions)<br>
+</p>
+</li>
+</ol>
+</div>
+<div style="height: 1155px; line-height: 1155px;" class="spacer"> </div>
+<!-- /container --><!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap-transition.js"></script>
+<script src="./js/bootstrap-alert.js"></script>
+<script src="./js/bootstrap-modal.js"></script>
+<script src="./js/bootstrap-dropdown.js"></script>
+<script src="./js/bootstrap-scrollspy.js"></script>
+<script src="./js/bootstrap-tab.js"></script>
+<script src="./js/bootstrap-tooltip.js"></script>
+<script src="./js/bootstrap-popover.js"></script>
+<script src="./js/bootstrap-button.js"></script>
+<script src="./js/bootstrap-collapse.js"></script>
+<script src="./js/bootstrap-carousel.js"></script>
+<script src="./js/bootstrap-typeahead.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37152312-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body></html>
