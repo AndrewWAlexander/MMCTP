@@ -446,7 +446,7 @@ Protected Class Class_DICOM_File
 		      Exit
 		    end
 		    
-		     // Readin String values
+		    // Readin String values
 		    valueString = thismemblock.stringValue(bytePos, One_Element.length )
 		    
 		    if thismemblock.byte(bytePos + One_Element.length - 1) = 0 then // if there is a null character on the end, get rid of it
@@ -486,7 +486,7 @@ Protected Class Class_DICOM_File
 		    if TS_Implicit=False Then 
 		      
 		      // VR  describe the data type and format of that Data Element's
-		       // read the VR
+		      // read the VR
 		      One_Element.VR = chr(thisMemblock.byte(bytePos)) + chr(thisMemblock.byte(bytePos + 1))
 		      bytePos = bytePos + 2
 		      if StrComp(One_Element.VR ,"OB",0)=0 or _ // if it is explicit VR and a 4 byte VR
@@ -827,7 +827,7 @@ Protected Class Class_DICOM_File
 		      ee.VR  = "SS" or _
 		      ee.VR  = "ST" or _
 		      ee.VR  = "TM" or _
-		       ee.VR  ="UI" or _
+		      ee.VR  ="UI" or _
 		      ee.VR  = "US" or _
 		      ee.VR  = "XS"  then
 		      
@@ -861,8 +861,8 @@ Protected Class Class_DICOM_File
 		      
 		      
 		    elseif  ee.Tag_a="0028" and  ee.Tag_b="0002"  or _ // Rows  
-		       ee.Tag_a="0028" and  ee.Tag_b="0010"  or _ // Rows
-		       ee.Tag_a="0028" and  ee.Tag_b="0011"  or _ // Rows
+		      ee.Tag_a="0028" and  ee.Tag_b="0010"  or _ // Rows
+		      ee.Tag_a="0028" and  ee.Tag_b="0011"  or _ // Rows
 		      ee.Tag_a="0028" and  ee.Tag_b="0100"  or _ // Rows
 		      ee.Tag_a="0028" and  ee.Tag_b="0101"  or _ // Rows
 		      ee.Tag_a="0028" and  ee.Tag_b="0102"  or _ // Rows

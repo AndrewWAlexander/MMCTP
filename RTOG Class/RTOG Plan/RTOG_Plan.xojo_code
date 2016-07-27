@@ -274,8 +274,8 @@ Protected Class RTOG_Plan
 		  Dim BS as Class_DICOM_Plan_BeamSequence
 		  Dim gMLC as Class_Linacs_MLC
 		  Dim linac as Class_Linacs_One
-		  Dim k,x,h,i,rtp,t as Integer
-		  Dim MLC_found,MLC_match,linac_found,d_check as Boolean
+		  Dim k,x,h,i,rtp,j,t as Integer
+		  Dim MLC_found,MLC_match,linac_found,d_check,app_found as Boolean
 		  Dim temp,points(-1) as String
 		  Dim bcon as Class_Block
 		  Dim bpair as Class_Block_Pairs
@@ -764,11 +764,39 @@ Protected Class RTOG_Plan
 		      next
 		    end
 		    
+		    
+		    // Check that the Applicator is added to the linac
+		    if one_beam.Aperture_ID<>"" Then
+		      app_found=False
+		      for k=0 to UBound(gLinacs.All_Linacs)
+		        if gLinacs.All_Linacs(k).Energy= one_beam.Beam_Energy and gLinacs.All_Linacs(k).Mode= one_beam.Beam_Mode and gLinacs.All_Linacs(k).RT_name= one_beam.RT_name Then
+		          // We have a match
+		          
+		          for j=0 to UBound(gLinacs.All_Linacs(k).Applicator)
+		            if gLinacs.All_Linacs(k).Applicator(j)=one_beam.Aperture_ID Then 
+		              app_found=True
+		            end
+		          Next 
+		          
+		          if app_found=False Then
+		            gLinacs.All_Linacs(k).Applicator.Append one_beam.Aperture_ID
+		            gLinacs.Write_Linacs
+		          end
+		        end
+		        
+		      next
+		      
+		    end
+		    
+		    
+		    
+		    
 		    if one_beam.MLC.Sinogram_Parser=1 Then
 		      one_beam=Tomo_Sinogram_Parser(one_beam)
 		    end
 		    Beam.append one_beam
 		  next // loop for each beam i
+		  
 		  
 		  
 		  
@@ -2223,7 +2251,7 @@ Protected Class RTOG_Plan
 		        MsgBox("Error within method split dynamic fields")
 		        Return
 		      end
-		       
+		      
 		    else
 		      c_index=i
 		      
@@ -2937,7 +2965,7 @@ Protected Class RTOG_Plan
 		  Col=Beam(fieldnum).Collimator
 		  Col.StrFile=""
 		  
-		   Col.NumFields=UBound(Col.Fields)+1
+		  Col.NumFields=UBound(Col.Fields)+1
 		  if Col.NumFields<=1 Then
 		    Return
 		  end

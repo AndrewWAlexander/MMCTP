@@ -332,7 +332,7 @@ Inherits Thread
 		          ss.ReferencedSOPClassUID = file.Elements(i).value // Plan
 		          
 		        elseif file.Elements(i).tag_a="300C" and file.Elements(i).tag_b="0020"  then // Referenced Fraction Group Sequence
-		           rf=new Class_DICOM_ReferencedFractionGroupSequence
+		          rf=new Class_DICOM_ReferencedFractionGroupSequence
 		          ss.ReferencedFractionGroupSequence=rf
 		          for i=i to UBound(file.Elements)
 		            if file.Elements(i).value="END OF SEQUENCE" and file.Elements(i).VM=2  Then
@@ -1303,6 +1303,10 @@ Inherits Thread
 		          
 		        elseif file.Elements(i).tag_a="300A" and file.Elements(i).tag_b="00C6"  then // radiation type
 		          bs.RadiationType=file.Elements(i).value
+		          
+		        elseif file.Elements(i).tag_a="300A" and file.Elements(i).tag_b="00C7"  then // High-Dose Technique Type
+		          bs.High_Dose_Technique=file.Elements(i).value
+		          
 		          
 		        elseif file.Elements(i).tag_a="300A" and file.Elements(i).tag_b="00CE"  then // Treatment Delivery type
 		          bs.TreatmentDeliveryType=file.Elements(i).value
@@ -2829,14 +2833,14 @@ Inherits Thread
 		    ee.Tag_b="0016"
 		    ee.Value=RT_Images(i).SOPClassUID
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0018"
 		    ee.Value=RT_Images(i).SOPInstanceUID
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
@@ -2850,21 +2854,21 @@ Inherits Thread
 		    ee.Tag_b="0021"
 		    ee.Value=RT_Images(i).SeriesDate
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0022"
 		    ee.Value=RT_Images(i).AcquisitionDate
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Images(i).StudyTime
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
@@ -2878,7 +2882,7 @@ Inherits Thread
 		    ee.Tag_b="0032"
 		    ee.Value=RT_Images(i).AcquisitionTime
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
@@ -2892,21 +2896,21 @@ Inherits Thread
 		    ee.Tag_b="0060"
 		    ee.Value=RT_Images(i).Modality
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0070"
 		    ee.Value=RT_Images(i).Manufacturer
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0090"
 		    ee.Value=RT_Images(i).ReferringPhysician
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0008"
@@ -2934,7 +2938,7 @@ Inherits Thread
 		    ee.Tag_b="2111"
 		    ee.Value=RT_Images(i).DerivationDescription
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0010"
@@ -2969,21 +2973,21 @@ Inherits Thread
 		    ee.Tag_b="0040"
 		    ee.Value=RT_Images(i).sex
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0010"
 		    ee.Tag_b="1010"
 		    ee.Value=RT_Images(i).Age
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Images(i).AcquisitionGroupLength
 		    found=ee.Update
-		     
+		    
 		    ee=new Class_DICOM_Element
 		    File.Elements.Append ee
 		    ee.Tag_a="0018"
