@@ -63,7 +63,7 @@ Protected Class Class_BEAM_CM_SLABS
 		  cm.text.Append Format(RMAX_CM,"-0.0####")+", RMAX"
 		  cm.text.Append Title_CM
 		  cm.text.Append Format(N_SLABS,"#")+", n_slabs"
-		  cm.text.Append Format(Zmin,"-0.0#####")+", distance"
+		  cm.text.Append Format(Zmin,"-0.0##########")+", distance"
 		  for i=1 to N_SLABS
 		    cm.text.Append Format(Zthink(i-1),"-0.0####")+", "+Format(ECUT(i-1),"-0.0###")+", "+Format(PCUT(i-1),"-0.0###")+", "+Format(Dose_Zone(i-1),"#")+", "+Format(IRegion_Bit(i-1),"#")+", "+Format(Esave(i-1),"-0.0###")
 		    cm.text.Append Medium_In(i-1)
