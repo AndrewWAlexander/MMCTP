@@ -5,3 +5,5 @@ DebugMMCTP/DebugMMCTP Libs/Shell.dll
 DebugMMCTP/DebugMMCTP Libs/msvcp140.dll
 DebugMMCTP/DebugMMCTP Libs/XojoGUIFramework32.dll
 DebugMMCTP/DebugMMCTP Libs/XML.dll
+DebugMMCTP/DebugMMCTP Libs/SQLiteDatabase.dll
+DebugMMCTP/DebugMMCTP Libs/vcruntime140.dll
