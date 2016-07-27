@@ -83,6 +83,73 @@ Changes</a></li>
 
 <ol>
 
+
+<li>9.1.5 Updates July 2016
+<ul>
+	<li> Changes to how DOSXYZnrc 3ddose files are read-in. Memory block read-in by chunks vs whole file. This allows MMCTP to load large >500 MB 3ddose files.</li>
+	<li>Bug fix for loading large McGillRT patients, that push the limit of the system. Error msg will now stop, and warn user of this limit</li>
+</ul>
+</li>
+
+<li>9.1.5 Updates 2016
+<ul>
+	<li> DOSXYZnrc logic update to submit source 20 and 21 jobs to queue</li>
+	<li>DOSXYZnrc EGSphant viewer bug fix</li>
+	<li> DYN/SYN JAW step and shoot and dynamic file read-in for template loading</li>
+	<li> MLC type, forced to be DYNAMIC/STATIC/Step and Shoot</li>
+</ul>
+</li>
+
+<li>9.0.6 Updates 2015
+<ul>
+	<li> BEAMnrc to read and write SYNC CM</li>
+	<li> DOSXYZnrc source 21 read, write, and logic to create dynamic gantry positions for VMAT simulations</li>
+	<li> Remote Shell configuration for local window machines. MMCTP can now copy files to the BEAMnrc folder and DOSXYZnrc folders on a local window install that is running MMCTP and EGSnrc. </li>
+<li> Bug fixes for error msg window popups from threads</li>
+</ul>
+</li>
+
+<li>9.0.5 Updates 2015
+<ul>
+	<li> Changes from Binary read/write as directed by XoJo Deprecations</li>
+<li> Fix for MLCE & MLCQ BEAMnrc CM to write interger for leaf types</li>
+</ul>
+</li>
+
+<li>9.0.4 Updates 2015
+<ul>
+	<li>Bug fix on method to split dynamic fields into static step and shoot fields. Renormalization of MLC subfields to values between 0.0-1.0</li>
+	<li> Bug fix on method to read-in BEAMnrc CM DYNVMLC leaf positions for when groups are used to define leaf positions. MMCTP will now propagate the group leaf position to individual leaf positions</li>
+</ul>
+</li>
+
+<li>9.0.3 Updates 2015
+<ul>
+	<li> Bug fix for auto queue to determine queue name for various job lengths.</li>
+	<li>Direct DICOM import option for a plan file</li>
+</ul>
+</li>
+
+<li>9.0 Updates 2014
+<ul>
+	<li> lots of changes made to compile MMCTP in XoJo</li>
+	<li>Changes to how threads update window objects</li>
+</ul>
+</li>
+
+<li>8.9.8 Updates 2013
+<ul>
+	<li> Dynamic field (IMRT, VMAT) subfield segregation into static fields</li>
+	<li>DICOM plan export option for conventional linac plans</li>
+	<li>DICOM structure export option		</li>
+	<li>bug fix dose normailization value index error in inverse planning window</li>
+</ul>
+</li>
+
+
+
+
+
 <li> 8.9.7 Updates 2013
 <ul>
 <li>Window and Level presets for CT images</li>
