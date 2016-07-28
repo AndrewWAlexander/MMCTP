@@ -2,7 +2,6 @@
 Begin Window Window_DOSXYZ_Maininputs_source8
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -86,7 +85,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -129,7 +128,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -172,7 +171,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
@@ -205,7 +204,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
@@ -240,7 +239,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
@@ -275,7 +274,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
@@ -310,7 +309,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
@@ -346,7 +345,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
@@ -376,7 +375,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
@@ -412,7 +411,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
@@ -442,7 +441,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
@@ -487,7 +486,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       Mask            =   ""
       Password        =   False
       ReadOnly        =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   13
       TabPanelIndex   =   0
       TabStop         =   True
@@ -530,7 +529,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       Mask            =   ""
       Password        =   False
       ReadOnly        =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
@@ -563,7 +562,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
@@ -596,7 +595,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
@@ -625,7 +624,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   18
       TabPanelIndex   =   0
       TabStop         =   True
@@ -670,7 +669,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockRight       =   False
       LockTop         =   False
       RequiresSelection=   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   False
       ScrollBarVertical=   True
       SelectionType   =   0
@@ -706,7 +705,7 @@ Begin Window Window_DOSXYZ_Maininputs_source8
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   19
       TabPanelIndex   =   0
@@ -796,10 +795,14 @@ End
 		      Listbox_Theta.AddRow(str(dosxyz_input.theta(i)))
 		      Listbox_Theta.CellType(i,0)=3
 		      
-		      Listbox_Theta.Cell(i,1)=str(dosxyz_input.phi(i))
+		      if UBound(dosxyz_input.phi)>=i Then
+		        Listbox_Theta.Cell(i,1)=str(dosxyz_input.phi(i))
+		      end
 		      Listbox_Theta.CellType(i,1)=3
 		      
-		      Listbox_Theta.Cell(i,2)=str(dosxyz_input.pang(i))
+		      if UBound(dosxyz_input.pang)>=i Then
+		        Listbox_Theta.Cell(i,2)=str(dosxyz_input.pang(i))
+		      end
 		      Listbox_Theta.CellType(i,2)=3
 		    Next
 		    

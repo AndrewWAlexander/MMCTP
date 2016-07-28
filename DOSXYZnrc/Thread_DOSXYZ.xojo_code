@@ -183,7 +183,7 @@ Inherits Thread
 		    
 		    w_t=0
 		    //loop for all 3ddose files and find total W
-		     for i=0 to UBound(beams)
+		    for i=0 to UBound(beams)
 		      w_t=w_t+gRTOG.Plan(Plan_Index).Beam(beams(i)).Number_of_Tx*gRTOG.Plan(Plan_Index).Beam(beams(i)).mu*gRTOG.Plan(Plan_Index).Beam(beams(i)).Beam_Weight
 		    next
 		    
@@ -1527,7 +1527,7 @@ Inherits Thread
 		      Return False
 		    end
 		    
-		  elseif DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=2 Then
+		  elseif DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=2 or DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 Then
 		    tt=gBEAM.egs_Get_Directory(beam)
 		    if gBEAM.Beams(beam).egs_Shell_Index>-1 and gBEAM.Beams(beam).egs_Shell_Index<=UBound(gShells.Shells) Then
 		      cc = new Class_MMCTP_Commands
@@ -1853,7 +1853,7 @@ Inherits Thread
 		  gg=DOSXYZ(egsphant_index).DOSXYZ_Input(first_dose)
 		  
 		  if gg.IMAX<0 Then
-		     // Assume it's a X profile
+		    // Assume it's a X profile
 		    profile.TYPE=2
 		    for k=0 to ddd.nx-1
 		      pp = new Class_Points
@@ -1885,8 +1885,8 @@ Inherits Thread
 		      ssd=gRTOG.Plan(Plan_Index).Beam(first_dose).Nominal_Isocenter+ddd.boundaryZ(0)
 		      depth=gRTOG.Plan(Plan_Index).Beam(first_dose).Nominal_Isocenter-ssd+ddd.boundaryZ(1)+(ddd.boundaryZ(1+1)-ddd.boundaryZ(1))/2
 		      gOutput.Add_Value(out, error,"DOSXYZnrc", gRTOG.Plan(Plan_Index).Beam(first_dose).RT_name,gRTOG.Plan(Plan_Index).Beam(first_dose).beam_energy,_
-		       gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).x1+gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).x2,_
-		       gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).y1+gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).y2,_
+		      gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).x1+gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).x2,_
+		      gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).y1+gRTOG.Plan(Plan_Index).Beam(first_dose).collimator.fields(0).y2,_
 		      ssd,depth,DOSXYZ(egsphant_index).DOSXYZ_Input(first_dose).dos_shell,gRTOG.Plan(Plan_Index).Beam(first_dose).beam_mode)
 		    end
 		    profile.SSD=ssd
@@ -2376,6 +2376,13 @@ Inherits Thread
 		    else
 		      egsinp.FILNAM=BEAMnrc_directoy+MC_file_name+str(beam+1)+".egsphsp1" //doing it again
 		    end
+		    
+		    
+		    // Write code for multi direction path 
+		    // Update 2016 AA
+		    
+		    
+		    
 		  end
 		  
 		  DOSXYZ(egsphant_index).Write_DOSXYZ_Input(beam)
