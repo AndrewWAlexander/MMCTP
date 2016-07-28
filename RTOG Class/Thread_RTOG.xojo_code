@@ -518,7 +518,7 @@ Inherits Thread
 		                    pp=new RTOG_Structure_Point
 		                    pp.z=CDbl(NthField(sss.ROIContourSequence(i).ContourSequence(x).data,"\",3))/10
 		                    if gPref.DICOM_IN_Inverse Then// Why do we need this section of code???
-		                       //Loop with -1
+		                      //Loop with -1
 		                      pp.z=-1*CDbl(NthField(sss.ROIContourSequence(i).ContourSequence(x).data,"\",3))/10
 		                    end
 		                    
@@ -678,7 +678,7 @@ Inherits Thread
 		  
 		  // Assign SOP Instance UID
 		  if dose.SOP_Instance_UID="" Then
-		     // Unique UID name for file Source code from MATLAB
+		    // Unique UID name for file Source code from MATLAB
 		    dose.SOP_Instance_UID=dicom.UID_Make
 		  end
 		  dicomD.MediaStorageSOPInstanceUID=dose.SOP_Instance_UID
@@ -1022,7 +1022,7 @@ Inherits Thread
 		  dicomP.SOPInstanceUID=gRTOG.Plan(Planidex).DICOM_SOPInstanceUID
 		  // Assign SOP Instance UID
 		  if dicomP.SOPInstanceUID="" Then
-		     // Unique UID name for file Source code from MATLAB
+		    // Unique UID name for file Source code from MATLAB
 		    dicomP.SOPInstanceUID=dicom.UID_Make
 		  end
 		  dicomp.MediaStorageSOPInstanceUID=dicomP.SOPInstanceUID
@@ -2292,6 +2292,8 @@ Inherits Thread
 		  gRTOG.Plan(planto).Beam(k).FLEC.y1=gRTOG.Plan(Plan).Beam(Beam).FLEC.y1
 		  gRTOG.Plan(planto).Beam(k).FLEC.y2=gRTOG.Plan(Plan).Beam(Beam).FLEC.y2
 		  
+		  // Update new beam to the same number of collimator fields as original beam
+		  ReDim gRTOG.Plan(planto).Beam(k).Collimator.Fields(UBound(gRTOG.Plan(Plan).Beam(Beam).Collimator.fields))
 		  
 		  for i=0 to UBound(gRTOG.Plan(Plan).Beam(Beam).Collimator.fields)
 		    gRTOG.Plan(planto).Beam(k).Collimator.Fields(i)=new Class_Collimator_Fields
@@ -4963,7 +4965,7 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
-			InitialValue="1.0\\0.0\\0.0\\0.0\\1.0\\0.0"
+			InitialValue="1.0\\\\0.0\\\\0.0\\\\0.0\\\\1.0\\\\0.0"
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
