@@ -678,7 +678,7 @@ Inherits Thread
 		  
 		  // Assign SOP Instance UID
 		  if dose.SOP_Instance_UID="" Then
-		     // Unique UID name for file Source code from MATLAB
+		    // Unique UID name for file Source code from MATLAB
 		    dose.SOP_Instance_UID=dicom.UID_Make
 		  end
 		  dicomD.MediaStorageSOPInstanceUID=dose.SOP_Instance_UID
@@ -1023,6 +1023,7 @@ Inherits Thread
 		  // Assign SOP Instance UID
 		  if dicomP.SOPInstanceUID="" Then
 		     // Unique UID name for file Source code from MATLAB
+		    // Unique UID name for file Source code from MATLAB
 		    dicomP.SOPInstanceUID=dicom.UID_Make
 		  end
 		  dicomp.MediaStorageSOPInstanceUID=dicomP.SOPInstanceUID
@@ -4963,7 +4964,7 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
-			InitialValue="1.0\\0.0\\0.0\\0.0\\1.0\\0.0"
+			InitialValue="1.0\\\\0.0\\\\0.0\\\\0.0\\\\1.0\\\\0.0"
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
