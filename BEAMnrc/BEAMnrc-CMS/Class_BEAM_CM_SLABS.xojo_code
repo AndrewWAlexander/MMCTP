@@ -6,7 +6,7 @@ Protected Class Class_BEAM_CM_SLABS
 		  // Readin SLAB CM
 		  //
 		  //-----------------------------------------
-		  Dim temp as String
+		  Dim temp,dval as String
 		  Dim k,i,index,num_slabs,x as integer
 		  Dim bottom as Single
 		  //-----------------------------------------
@@ -22,7 +22,8 @@ Protected Class Class_BEAM_CM_SLABS
 		  N_SLABS=val(NthField(temp,",",1))
 		  temp=text(0)
 		  text.Remove 0
-		  Zmin=val(NthField(temp,",",1))
+		  dval=Trim(NthField(temp,",",1)
+		  Zmin=val(dval)
 		  
 		  ReDim Zthink(N_SLABS-1)
 		  ReDim ECUT(N_SLABS-1)
@@ -109,7 +110,7 @@ Protected Class Class_BEAM_CM_SLABS
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Zmin As Single
+		Zmin As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
