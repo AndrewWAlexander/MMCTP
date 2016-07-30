@@ -421,7 +421,7 @@ Protected Module Globals
 		  //
 		  // 2015
 		  // Update to look for correct queue time
-		   // Bug fix for other clusters found by William Davis and Cody Crewson
+		  // Bug fix for other clusters found by William Davis and Cody Crewson
 		  //--------------------------------------------
 		  Dim i,queue,times1(-1), ftime,k as Integer
 		  
@@ -723,7 +723,7 @@ Protected Module Globals
 		  
 		  
 		  
-		   // Determine Shell
+		  // Determine Shell
 		  sh_index=gBEAM.Beams(beam_index).egs_Shell_Index
 		  linac_index=gBEAM.Beams(beam_index).egs_linac_index
 		  
@@ -929,7 +929,7 @@ Protected Module Globals
 		        // Look for a beam using that shell
 		        for x=0 to UBound(dd.DOSXYZ_Input) // X variable for each beam
 		          if dd.DOSXYZ_Input(x).dos_calculate Then
-		            if dd.DOSXYZ_Input(x).isource=2 or dd.DOSXYZ_Input(x).isource=20  Then // For Phase Space sources only
+		            if dd.DOSXYZ_Input(x).isource=2 or dd.DOSXYZ_Input(x).isource=20 or dd.DOSXYZ_Input(x).isource=8  Then // For Phase Space sources only
 		              if (gBEAM.egs_Get_Directory(x)  and  ((gBEAM.Beams(x).egs_progress=100 and gBEAM.Beams(x).egs_AddPhsp_Finished) or gBEAM.Beams(x).egs_Phsp_link)) Then
 		                
 		                if dd.DOSXYZ_Input(x).dos_Shell=sname  Then
@@ -1061,7 +1061,7 @@ Protected Module Globals
 		                if gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).run_started = false and gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_progress = 0 and gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_test_run_now = false  and dd.DOSXYZ_Input(x).dos_full_run=False then
 		                  // We have a dosxyznrc simulation that has not been started
 		                  if gBEAM.egs_Search_for_Opening(x,2,sname) Then
-		                     Job_submited=True
+		                    Job_submited=True
 		                    if dd.DOSXYZ_Input(x).dos_CPU_time=0 Then // Run test run
 		                      gDOSXYZ.dosxyz_Run_Test(i,x)
 		                    else // Run beam
@@ -1086,8 +1086,8 @@ Protected Module Globals
 		                if gBEAM.egs_Get_Directory(x)  and gRTOG.Plan(Plan_Index).Beam(x).beam_mode="FLEC" and ((gBEAM.Beams(x).egs_progress=100 and gBEAM.Beams(x).egs_AddPhsp_Finished) or gBEAM.Beams(x).egs_Phsp_link) Then
 		                  // Rerun BEAMnrc on available shell
 		                  if gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).run_started = false and _
-		                     gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_progress = 0  and _
-		                     gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_test_run_now = false  and _
+		                    gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_progress = 0  and _
+		                    gDOSXYZ.DOSXYZ(i).DOSXYZ_Input(x).dos_test_run_now = false  and _
 		                    dd.DOSXYZ_Input(x).dos_full_run=False and  _
 		                    ((gShells.Shells(gBEAM.Beams(x).egs_Shell_Index).MaxJobs-gShells.Shells(gBEAM.Beams(x).egs_Shell_Index).ActiveJobs)<0 or gShells.Shells(gBEAM.Beams(x).egs_Shell_Index).online=false) then
 		                    // We have a dosxyznrc simulation that has not been started
