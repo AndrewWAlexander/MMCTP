@@ -2162,6 +2162,33 @@ Inherits Thread
 		      theta=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Gantry_Angle
 		      phi=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).couch_Angle
 		      phicol=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Collimator_Angle
+		      
+		      egsinp.nset=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)+1 // Number of control points
+		      ReDim egsinp.DYNARC(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.muIndex(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.theta(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.isox(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.isoy(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.isoz(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.phi(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.phicol(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      ReDim egsinp.dsources(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      
+		      
+		      // Populate arrays
+		      for i=0 to UBound(egsinp.DYNARC)
+		        egsinp.DYNARC(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
+		        egsinp.muIndex(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
+		        egsinp.phi(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).couch_angle
+		        egsinp.phicol(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).Collimator_Angle
+		        egsinp.theta(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).gantry_angle
+		        egsinp.isox(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.x
+		        egsinp.isoy(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.z
+		        egsinp.isoz(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.y
+		        egsinp.dsources(i)=egsinp.dsource
+		      Next
+		      
+		      
 		    end
 		  end
 		  // ===Isocenter DOSxyz=========
@@ -2277,6 +2304,10 @@ Inherits Thread
 		      gBEAM.egs_Uploadfiles(BEAM)
 		    end
 		    
+		    
+		    
+		    
+		    
 		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=9 then// FOr lib source
 		      ReDim egsinp.theta(0)
 		      ReDim egsinp.phi(0)
@@ -2293,31 +2324,7 @@ Inherits Thread
 		        egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc/"+name2
 		      end
 		      
-		      egsinp.nset=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)+1 // Number of control points
 		      
-		      ReDim egsinp.DYNARC(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.muIndex(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.theta(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isox(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isoy(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isoz(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.phi(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.phicol(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.dsources(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      
-		      
-		      // Populate arrays
-		      for i=0 to UBound(egsinp.DYNARC)
-		        egsinp.DYNARC(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
-		        egsinp.muIndex(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
-		        egsinp.phi(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).couch_angle
-		        egsinp.phicol(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).Collimator_Angle
-		        egsinp.theta(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).gantry_angle
-		        egsinp.isox(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.x
-		        egsinp.isoy(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.z
-		        egsinp.isoz(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.y
-		        egsinp.dsources(i)=egsinp.dsource
-		      Next
 		      
 		      if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 Then // Only for Tomo Source
 		        DOSXYZ(egsphant_index).Write_DOSXYZ_Input_Arc(beam)
@@ -2381,7 +2388,22 @@ Inherits Thread
 		    // Write code for multi direction path 
 		    // Update 2016 AA
 		    
-		    
+		    if egsinp.MMCTP_auto Then
+		      egsinp.nang=-1
+		      ReDim egsinp.ivary(0)
+		      ReDim egsinp.angfixed(0)
+		      ReDim egsinp.angmin(0)
+		      ReDim egsinp.angmax(0)
+		      ReDim egsinp.ngang(0)
+		      ReDim egsinp.pgang(0)
+		      
+		      egsinp.ivary(0)=1 // 1 for varying theta
+		      egsinp.angfixed(0)=phi
+		      egsinp.angmin(0)=theta
+		      egsinp.angmax(0)=egsinp.theta(UBound(egsinp.theta))
+		      egsinp.ngang(0)=300
+		      egsinp.pgang(0)=1
+		    end
 		    
 		  end
 		  
