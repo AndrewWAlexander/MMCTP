@@ -179,6 +179,68 @@ Protected Class Class_BEAM
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function egs_Input_CM_CONSTAK(CM as Class_Beam_Inputfile_CMs) As boolean
+		  //--------------------------------------------
+		  // Method to find the right CONSTAK Applicator  CM
+		  // 
+		  //
+		  //--------------------------------------------
+		  Dim temp,text(-1),app_id,prefix,label as String
+		  Dim f as FolderItem
+		  Dim ts as TextInputStream
+		  Dim un,mac,win,i as Integer
+		  //--------------------------------------------
+		  app_id=gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID
+		  
+		  
+		  for i=0 to UBound(gLinacs.All_Linacs(egs_linac_index).Applicator)
+		    if app_id=gLinacs.All_Linacs(egs_linac_index).Applicator(i) Then
+		      prefix=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorCM(i)
+		      label=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorLabel(i)
+		    end
+		  Next
+		  
+		  if cm.CM_Identifier=Label Then
+		    
+		    if app_id<>"" Then
+		      app_id=prefix+"-"+app_id
+		      
+		      f=gPref.BEAMnrc_fi
+		      f=f.Child(app_id+".egsinp")
+		      if f.Exists =False Then
+		        gBEAM.egs_msg.append "Error in CM CONSTAK ! Could not find file : "+f.Name
+		        Return False
+		      end
+		      
+		      ts=f.OpenAsTextFile
+		      temp=ts.ReadAll
+		      ts.Close
+		      
+		      un=CountFields(temp,EndOfLine.UNIX)
+		      mac=CountFields(temp,EndOfLine.Macintosh)
+		      win=CountFields(temp,EndOfLine.Windows)
+		      
+		      if mac>un Then
+		        text=Split(temp,EndOfLine.Macintosh)
+		      elseif Win>un Then
+		        text=Split(temp,EndOfLine.Windows)
+		      else
+		        text=Split(temp,EndOfLine.UNIX)
+		      end
+		      
+		      text.remove 0
+		      
+		      cm.CONESTAK.Read(text,label)
+		      
+		    end
+		    
+		  end
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub egs_Input_CM_DYNJAWS(dd as Class_BEAM_CM_DYNJAWS, bversion as String)
 		  //------------------------------------------
 		  // Update DYNJAW CM
@@ -2382,7 +2444,7 @@ Protected Class Class_BEAM
 		  Dim beam_output as FolderItem
 		  Dim temp,file_name as String
 		  Dim write_ts as TextOutputStream
-		  Dim good as Boolean
+		  Dim good,mm as Boolean
 		  Dim i,k as Integer
 		  //====================================
 		  
@@ -2467,7 +2529,11 @@ Protected Class Class_BEAM
 		      Inputfile.CMs(i).ARCCHM.Write(Inputfile.CMs(i))
 		      
 		    elseif Inputfile.CMs(i).CM_Names="CONESTAK" Then
+		      mm=egs_Input_CM_CONSTAK(Inputfile.CMs(i))
+		      // Write settings to text
 		      Inputfile.CMs(i).CONESTAK.Write(Inputfile.CMs(i))
+		      
+		      
 		      
 		    elseif Inputfile.CMs(i).CM_Names="VARMLC" Then
 		      egs_Input_CM_VARMLC(Inputfile.CMs(i))

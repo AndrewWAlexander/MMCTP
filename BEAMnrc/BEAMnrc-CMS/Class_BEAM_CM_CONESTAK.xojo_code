@@ -109,7 +109,7 @@ Protected Class Class_BEAM_CM_CONESTAK
 		  cm.text.Append Format(cm.CONESTAK.Rmax,"-#.0##")+", RMAX"
 		  cm.text.Append cm.CONESTAK.Title_CM
 		  
-		  cm.text.Append Format(cm.CONESTAK.Zmin,"-#.###")+", "+Format(cm.CONESTAK.RBN,"-#.###")+", ZMIN, RBN"
+		  cm.text.Append Format(cm.CONESTAK.Zmin,"-#.#####")+", "+Format(cm.CONESTAK.RBN,"-#.###")+", ZMIN, RBN"
 		  
 		  cm.text.Append Format(cm.CONESTAK.ISCM_MAX,"-#")+", NUMBER OF LAYERS"
 		  
@@ -279,6 +279,7 @@ Protected Class Class_BEAM_CM_CONESTAK
 			Name="Med_in_wall"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -311,6 +312,7 @@ Protected Class Class_BEAM_CM_CONESTAK
 			Name="Title_CM"
 			Group="Behavior"
 			Type="string"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

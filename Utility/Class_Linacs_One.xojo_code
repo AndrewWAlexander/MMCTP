@@ -5,6 +5,14 @@ Protected Class Class_Linacs_One
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		BEAMnrcApplicatorCM(-1) As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		BEAMnrcApplicatorLabel(-1) As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Energy As String
 	#tag EndProperty
 
