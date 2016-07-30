@@ -2,7 +2,6 @@
 Begin Window Window_dose
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window Window_dose
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -86,7 +85,7 @@ Begin Window Window_dose
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -129,7 +128,7 @@ Begin Window Window_dose
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
@@ -162,7 +161,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
@@ -197,7 +196,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
@@ -232,7 +231,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   9
       TabPanelIndex   =   0
@@ -267,7 +266,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
@@ -312,7 +311,7 @@ Begin Window Window_dose
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
@@ -345,7 +344,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
@@ -380,7 +379,7 @@ Begin Window Window_dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   13
       TabPanelIndex   =   0
@@ -413,7 +412,7 @@ Begin Window Window_dose
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
@@ -442,7 +441,7 @@ Begin Window Window_dose
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   15
       TabPanelIndex   =   0
       TabStop         =   True
@@ -469,7 +468,7 @@ Begin Window Window_dose
       LockRight       =   True
       LockTop         =   False
       Maximum         =   100
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   "12"
       TabPanelIndex   =   0
       TabStop         =   True
@@ -494,7 +493,7 @@ Begin Window Window_dose
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
@@ -537,7 +536,7 @@ Begin Window Window_dose
          LockRight       =   False
          LockTop         =   False
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   True
          ScrollBarVertical=   True
          SelectionType   =   0
@@ -587,7 +586,7 @@ Begin Window Window_dose
          LockRight       =   False
          LockTop         =   False
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   True
          ScrollBarVertical=   True
          SelectionType   =   0
@@ -623,7 +622,7 @@ Begin Window Window_dose
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   4
          TabPanelIndex   =   0
          TabStop         =   True
@@ -650,7 +649,7 @@ Begin Window Window_dose
             LockRight       =   False
             LockTop         =   False
             Multiline       =   True
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   0
@@ -686,7 +685,7 @@ Begin Window Window_dose
             Maximum         =   100
             Minimum         =   0
             PageStep        =   20
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   0
             TabPanelIndex   =   0
             TabStop         =   True
@@ -714,7 +713,7 @@ Begin Window Window_dose
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   3
          TabPanelIndex   =   0
          TabStop         =   True
@@ -741,7 +740,7 @@ Begin Window Window_dose
             LockRight       =   False
             LockTop         =   False
             Multiline       =   True
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   0
@@ -777,7 +776,7 @@ Begin Window Window_dose
             Maximum         =   100
             Minimum         =   0
             PageStep        =   20
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   1
             TabPanelIndex   =   0
             TabStop         =   True
@@ -815,7 +814,7 @@ Begin Window Window_dose
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   0
          TabStop         =   True
@@ -848,7 +847,7 @@ Begin Window Window_dose
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
@@ -893,7 +892,7 @@ Begin Window Window_dose
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   0
          TabStop         =   True
@@ -926,7 +925,7 @@ Begin Window Window_dose
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0

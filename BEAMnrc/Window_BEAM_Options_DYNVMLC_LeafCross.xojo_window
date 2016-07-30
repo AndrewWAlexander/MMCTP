@@ -42,7 +42,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -71,7 +71,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
@@ -106,7 +106,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -141,7 +141,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -176,7 +176,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
@@ -221,7 +221,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   4
          TabPanelIndex   =   0
          TabStop         =   True
@@ -264,7 +264,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
@@ -307,7 +307,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   0
          TabStop         =   True
@@ -350,7 +350,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   9
          TabPanelIndex   =   0
          TabStop         =   True
@@ -383,7 +383,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
@@ -428,7 +428,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   0
          TabStop         =   True
@@ -471,7 +471,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   12
          TabPanelIndex   =   0
          TabStop         =   True
@@ -514,7 +514,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   0
          TabStop         =   True
@@ -547,7 +547,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
@@ -592,7 +592,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   15
          TabPanelIndex   =   0
          TabStop         =   True
@@ -635,7 +635,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   16
          TabPanelIndex   =   0
          TabStop         =   True
@@ -678,7 +678,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   17
          TabPanelIndex   =   0
          TabStop         =   True
@@ -711,7 +711,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
@@ -756,7 +756,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   20
          TabPanelIndex   =   0
          TabStop         =   True
@@ -799,7 +799,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   21
          TabPanelIndex   =   0
          TabStop         =   True
@@ -832,7 +832,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
@@ -877,7 +877,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   23
          TabPanelIndex   =   0
          TabStop         =   True
@@ -920,7 +920,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   24
          TabPanelIndex   =   0
          TabStop         =   True
@@ -963,7 +963,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   25
          TabPanelIndex   =   0
          TabStop         =   True
@@ -996,7 +996,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   26
          TabPanelIndex   =   0
@@ -1041,7 +1041,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   27
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1084,7 +1084,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   28
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1127,7 +1127,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   29
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1159,7 +1159,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1198,7 +1198,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1241,7 +1241,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1284,7 +1284,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1317,7 +1317,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
@@ -1352,7 +1352,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
@@ -1387,7 +1387,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
@@ -1422,7 +1422,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
@@ -1467,7 +1467,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1500,7 +1500,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
@@ -1545,7 +1545,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   9
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1578,7 +1578,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
@@ -1623,7 +1623,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1656,7 +1656,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
@@ -1701,7 +1701,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1734,7 +1734,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
@@ -1779,7 +1779,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   15
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1812,7 +1812,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
@@ -1857,7 +1857,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   17
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1890,7 +1890,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
@@ -1935,7 +1935,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   19
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1968,7 +1968,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   20
          TabPanelIndex   =   0
@@ -2013,7 +2013,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   21
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2046,7 +2046,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
@@ -2091,7 +2091,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   23
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2124,7 +2124,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   24
          TabPanelIndex   =   0
@@ -2169,7 +2169,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   25
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2202,7 +2202,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   26
          TabPanelIndex   =   0
@@ -2247,7 +2247,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   27
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2280,7 +2280,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   28
          TabPanelIndex   =   0
@@ -2325,7 +2325,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   29
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2368,7 +2368,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   31
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2401,7 +2401,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   32
          TabPanelIndex   =   0
@@ -2446,7 +2446,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   33
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2479,7 +2479,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   34
          TabPanelIndex   =   0
@@ -2524,7 +2524,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   35
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2557,7 +2557,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   36
          TabPanelIndex   =   0
@@ -2602,7 +2602,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   37
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2635,7 +2635,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   38
          TabPanelIndex   =   0
@@ -2680,7 +2680,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   39
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2713,7 +2713,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   40
          TabPanelIndex   =   0
@@ -2758,7 +2758,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   41
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2791,7 +2791,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   42
          TabPanelIndex   =   0
@@ -2836,7 +2836,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   43
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2869,7 +2869,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   44
          TabPanelIndex   =   0
@@ -2914,7 +2914,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   45
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2947,7 +2947,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   46
          TabPanelIndex   =   0
@@ -2992,7 +2992,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   47
          TabPanelIndex   =   0
          TabStop         =   True
@@ -3025,7 +3025,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   48
          TabPanelIndex   =   0
@@ -3071,7 +3071,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -3114,7 +3114,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -3157,7 +3157,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -3190,7 +3190,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
@@ -3226,7 +3226,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafCross
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True

@@ -2,7 +2,6 @@
 Begin Window Window_DOSXYZ_Maininputs
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -76,7 +75,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Global electron cutoff energy - ECUT (MeV)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -154,7 +152,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Global photon cutoff energy - PCUT (MeV)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -263,7 +260,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Print 20 highest doses"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -388,7 +384,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -497,7 +492,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Incident particle"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -563,7 +557,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Source type"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -629,7 +622,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Maximum CPU time (hours)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -707,7 +699,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "RNG seed 1"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -785,7 +776,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "# times to recyle each partice in phase space source"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -863,7 +853,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "RNG seed 2"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -941,7 +930,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Incident beam size (source 2, 4 or 8)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1125,7 +1113,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "ESAVE (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1160,7 +1147,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Medium of region outside phantom"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1226,7 +1212,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Range rejection"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1292,7 +1277,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   26
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Thickness of region outside phantom is"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1358,7 +1342,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Run Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1455,7 +1438,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "'HOWFARLESS'"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1595,7 +1577,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Photon Splitting Number"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1692,7 +1673,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   38
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Output restart data"
       TextAlign       =   0
       TextColor       =   &c00000000

@@ -2910,7 +2910,7 @@ Inherits Canvas
 		      Next
 		    next
 		    
-		     //Draw 2nd Isodose lines
+		    //Draw 2nd Isodose lines
 		    for i=0 to UBound(Isolines_Saved)
 		      for j=0 to UBound(Isolines_Saved(i).Line)
 		        Display.graphics.ForeColor=Isolines_Saved(i).Line(j).Colour

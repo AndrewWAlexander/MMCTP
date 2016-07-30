@@ -12,7 +12,6 @@ Protected Class Class_Linacs_MLC
 		#tag Note
 			// 1 Y
 			// 0 X
-			
 		#tag EndNote
 		LeafDirection As Integer
 	#tag EndProperty

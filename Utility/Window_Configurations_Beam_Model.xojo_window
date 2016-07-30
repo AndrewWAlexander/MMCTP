@@ -2,7 +2,6 @@
 Begin Window Window_Configurations_Beam_Model
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -3101,7 +3100,7 @@ End
 		      ReDim Linac.Wedges(i-1)
 		      for i=0 to UBound(Linac.Wedges)
 		        if Linac.Wedges(i)=nil Then
-		           Linac.Wedges(i)=new Class_Linacs_Wedge
+		          Linac.Wedges(i)=new Class_Linacs_Wedge
 		        end
 		      Next
 		      Linac_Pop_PhotonWedges

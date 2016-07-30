@@ -2,7 +2,6 @@
 Begin Window Window_CADPLAN_to_Dose
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -45,7 +44,7 @@ Begin Window Window_CADPLAN_to_Dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   0
       TabPanelIndex   =   0
@@ -80,7 +79,7 @@ Begin Window Window_CADPLAN_to_Dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -126,7 +125,7 @@ Begin Window Window_CADPLAN_to_Dose
       Multiline       =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   ""
       ScrollbarVertical=   "True"
       Styled          =   ""
@@ -173,7 +172,7 @@ Begin Window Window_CADPLAN_to_Dose
       Multiline       =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   ""
       ScrollbarVertical=   "True"
       Styled          =   ""
@@ -209,7 +208,7 @@ Begin Window Window_CADPLAN_to_Dose
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
@@ -255,7 +254,7 @@ Begin Window Window_CADPLAN_to_Dose
       Multiline       =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   ""
       ScrollbarVertical=   "True"
       Styled          =   ""
@@ -292,7 +291,7 @@ Begin Window Window_CADPLAN_to_Dose
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True

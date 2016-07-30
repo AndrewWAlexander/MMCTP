@@ -45,7 +45,7 @@ Begin Window Window_BEAM_Options_MLC
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -85,7 +85,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -128,7 +128,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -161,7 +161,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
@@ -196,7 +196,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
@@ -241,7 +241,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -274,7 +274,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
@@ -307,7 +307,7 @@ Begin Window Window_BEAM_Options_MLC
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
@@ -334,7 +334,7 @@ Begin Window Window_BEAM_Options_MLC
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -363,7 +363,7 @@ Begin Window Window_BEAM_Options_MLC
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -405,7 +405,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
@@ -438,7 +438,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
@@ -483,7 +483,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
@@ -516,7 +516,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
@@ -551,7 +551,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
@@ -586,7 +586,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
@@ -621,7 +621,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   29
       TabPanelIndex   =   0
@@ -656,7 +656,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   30
       TabPanelIndex   =   0
@@ -691,7 +691,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
@@ -736,7 +736,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   32
       TabPanelIndex   =   0
       TabStop         =   True
@@ -769,7 +769,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   33
       TabPanelIndex   =   0
@@ -804,7 +804,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   34
       TabPanelIndex   =   0
@@ -849,7 +849,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   36
       TabPanelIndex   =   0
       TabStop         =   True
@@ -892,7 +892,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   37
       TabPanelIndex   =   0
       TabStop         =   True
@@ -935,7 +935,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   38
       TabPanelIndex   =   0
       TabStop         =   True
@@ -978,7 +978,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1021,7 +1021,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1064,7 +1064,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1107,7 +1107,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   42
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1150,7 +1150,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   43
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1193,7 +1193,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   44
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1227,7 +1227,7 @@ Begin Window Window_BEAM_Options_MLC
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   52
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1257,7 +1257,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   53
       TabPanelIndex   =   0
@@ -1302,7 +1302,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   54
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1345,7 +1345,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   55
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1378,7 +1378,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   56
       TabPanelIndex   =   0
@@ -1423,7 +1423,7 @@ Begin Window Window_BEAM_Options_MLC
       Mask            =   ""
       Password        =   False
       ReadOnly        =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   57
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1456,7 +1456,7 @@ Begin Window Window_BEAM_Options_MLC
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   58
       TabPanelIndex   =   0

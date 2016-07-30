@@ -58,7 +58,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafOpenings
       LockRight       =   True
       LockTop         =   True
       RequiresSelection=   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   False
       ScrollBarVertical=   True
       SelectionType   =   0
@@ -95,7 +95,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafOpenings
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -126,7 +126,7 @@ Begin Window Window_BEAM_Options_DYNVMLC_LeafOpenings
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True

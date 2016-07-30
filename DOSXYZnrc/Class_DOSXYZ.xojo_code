@@ -158,7 +158,7 @@ Protected Class Class_DOSXYZ
 		          DOSXYZ_Input(a).dos_test_histories=Val(NthField(Temp,"=",2))
 		          
 		          
-		         ElseIf InStr(Temp,"% error of test histories")>0 Then
+		        ElseIf InStr(Temp,"% error of test histories")>0 Then
 		          DOSXYZ_Input(a).dos_error_math_error=Val(NthField(Temp,"=",2))
 		          
 		        ElseIf InStr(Temp,"Num hist for %error test")>0 Then
@@ -184,7 +184,7 @@ Protected Class Class_DOSXYZ
 		          
 		          
 		          
-		           
+		          
 		        ElseIf InStr(Temp,"Pegs file")>0 Then
 		          DOSXYZ_Input(a).dos_pegs_file=Trim(NthField(Temp,"=",2))
 		          

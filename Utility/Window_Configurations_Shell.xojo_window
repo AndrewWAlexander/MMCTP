@@ -2,7 +2,6 @@
 Begin Window Window_Configurations_Shell
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -4064,7 +4063,7 @@ End
 		  elseif ss.batch="pbs" Then
 		    PopupMenu_Batch.ListIndex=4
 		  elseif ss.batch="SLURM" Then
-		     PopupMenu_Batch.ListIndex=5
+		    PopupMenu_Batch.ListIndex=5
 		  end
 		  
 		  

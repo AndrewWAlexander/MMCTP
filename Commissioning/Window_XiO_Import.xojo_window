@@ -2,7 +2,6 @@
 Begin Window Window_XiO_Import
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -1411,7 +1410,7 @@ End
 		  end
 		  
 		  pp.Label=pp.Algorithm+", "+str(Data.Graphs(k).DPTH)
-		      Window_Commisssioning.Update_Profile
+		  Window_Commisssioning.Update_Profile
 		End Sub
 	#tag EndMethod
 

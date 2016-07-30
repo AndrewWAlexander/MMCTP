@@ -2,7 +2,6 @@
 Begin Window Window_Import_Changes
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window Window_Import_Changes
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -74,7 +73,7 @@ Begin Window Window_Import_Changes
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -113,7 +112,7 @@ Begin Window Window_Import_Changes
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -156,7 +155,7 @@ Begin Window Window_Import_Changes
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -199,7 +198,7 @@ Begin Window Window_Import_Changes
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
          TabStop         =   True
@@ -232,7 +231,7 @@ Begin Window Window_Import_Changes
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
@@ -267,7 +266,7 @@ Begin Window Window_Import_Changes
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
@@ -302,7 +301,7 @@ Begin Window Window_Import_Changes
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
@@ -347,7 +346,7 @@ Begin Window Window_Import_Changes
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
@@ -380,7 +379,7 @@ Begin Window Window_Import_Changes
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
@@ -417,7 +416,7 @@ Begin Window Window_Import_Changes
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True

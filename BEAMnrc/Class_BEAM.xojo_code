@@ -240,7 +240,7 @@ Protected Class Class_BEAM
 		  
 		  cc=gRTOG.Plan(Plan_Index).Beam(beam_number).collimator
 		  
-		   // Z positions of x and y jaw pairs
+		  // Z positions of x and y jaw pairs
 		  for i=0 to dj.ISCM_MAX-1
 		    if i>-1 and i<=UBound(dj.DYN_Openings) Then
 		      if dj.XY_Choice(i)="Y" Then // Y Jaw
@@ -1736,7 +1736,7 @@ Protected Class Class_BEAM
 		    Elseif Inputfile.MONOEN=1 Then //1 Spectrum
 		      // Update Spectrum file path
 		      
-		       i=CountFields(Inputfile.Filnam,"/")
+		      i=CountFields(Inputfile.Filnam,"/")
 		      if i>0 Then
 		        temp=Trim(NthField(Inputfile.Filnam,"/",i))
 		        temp2=Trim(NthField(Inputfile.Filnam,"/",i-1))
@@ -2176,14 +2176,14 @@ Protected Class Class_BEAM
 		      Inputfile.NSC_PLANES=Val(NthField(temp," ",1))
 		      ReDim Inputfile.NSC(Inputfile.NSC_PLANES-1)
 		      for k=0 to Inputfile.NSC_PLANES-1
-		         Inputfile.NSC(k)=new Class_BEAM_Inputfile_NSC_Planes
-		         Inputfile.NSC(k).IPLANE_to_CM=Val(NthField(temp," ",2+k))
+		        Inputfile.NSC(k)=new Class_BEAM_Inputfile_NSC_Planes
+		        Inputfile.NSC(k).IPLANE_to_CM=Val(NthField(temp," ",2+k))
 		      next
 		      for k=0 to Inputfile.NSC_PLANES-1
 		        i=i+1+k
 		        temp=wholefile(i)
-		         Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
-		         Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
+		        Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
+		        Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
 		        if  Inputfile.NSC(k).NSC_ZONES>0 Then
 		          
 		          if  Inputfile.NSC(k).MZONE_TYPE=2 Then // For Grids
@@ -2589,7 +2589,7 @@ Protected Class Class_BEAM
 
 	#tag Property, Flags = &h0
 		#tag Note
-			value = "CPUTIME per history" within egslog file 
+			value = "CPUTIME per history" within egslog file
 		#tag EndNote
 		egs_CPU_time_per_hist As single = 0
 	#tag EndProperty

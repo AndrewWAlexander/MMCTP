@@ -130,7 +130,7 @@ Protected Class Class_XiO_Graph
 
 	#tag Property, Flags = &h0
 		#tag Note
-			// 
+			//
 			1 Axial profile
 			2 Sagital profile
 			3 Coronal profile

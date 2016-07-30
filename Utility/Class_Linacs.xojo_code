@@ -217,7 +217,7 @@ Protected Class Class_Linacs
 		  for i=0 to UBound(All_Linacs)
 		    if UBound(All_Linacs(i).MC_BEAMnrc_path)>= num Then
 		      
-		       All_Linacs(i).MC_BEAMnrc_path.remove num
+		      All_Linacs(i).MC_BEAMnrc_path.remove num
 		      All_Linacs(i).MC_dosxyz_dose.remove num
 		      All_Linacs(i).MC_VMC_dose.remove num
 		    end

@@ -845,7 +845,7 @@ Inherits Canvas
 	#tag Method, Flags = &h0
 		Sub Redraw()
 		  Display=New Picture(me.Width,me.Height,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		                                                                                    //I don't know what makes this a improvement, but if it's proper practice, okay then
+		  //I don't know what makes this a improvement, but if it's proper practice, okay then
 		  
 		  if Display=nil Then
 		    Return

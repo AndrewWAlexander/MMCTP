@@ -2,7 +2,6 @@
 Begin Window Window_EMET_Setup
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -991,7 +990,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   23
+            TabIndex        =   "23"
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   542
@@ -2413,7 +2412,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   1
+            TabIndex        =   "1"
             TabPanelIndex   =   2
             TabStop         =   True
             Top             =   383
@@ -3703,7 +3702,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   7
+            TabIndex        =   "7"
             TabPanelIndex   =   1
             TabStop         =   True
             Top             =   70
@@ -7527,7 +7526,7 @@ End
 		        z_low=z_low+0.5
 		      end
 		      
-		       
+		      
 		      // Find Z_high
 		      for i=z_index To UBound(pp)
 		        if (pp(i).Iso_Z-onep.Iso_Z)<=4 Then

@@ -2,7 +2,6 @@
 Begin Window Window_Licence
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   True
@@ -57,7 +56,7 @@ Begin Window Window_Licence
       Mask            =   ""
       Multiline       =   True
       ReadOnly        =   True
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   False
       ScrollbarVertical=   True
       Styled          =   False
@@ -93,7 +92,7 @@ Begin Window Window_Licence
       LockRight       =   True
       LockTop         =   True
       Multiline       =   True
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -112,19 +111,20 @@ Begin Window Window_Licence
    End
    Begin Line Line1
       BorderWidth     =   1
-      Height          =   0
+      Enabled         =   True
+      Height          =   50
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
       LineColor       =   &c00000000
       LockedInPosition=   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   "2"
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   100
+      Top             =   0
       Visible         =   True
-      Width           =   605
+      Width           =   100
       X1              =   0
       X2              =   605
       Y1              =   100
@@ -148,7 +148,7 @@ Begin Window Window_Licence
       LockRight       =   False
       LockTop         =   False
       Multiline       =   True
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
@@ -183,7 +183,7 @@ Begin Window Window_Licence
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
@@ -216,7 +216,7 @@ Begin Window Window_Licence
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -247,7 +247,7 @@ Begin Window Window_Licence
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True

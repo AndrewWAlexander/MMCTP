@@ -2,7 +2,6 @@
 Begin Window Window_Excel_Import
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -603,7 +602,7 @@ End
 		  pp.Pointb.z_cm=pp.Points(UBound(pp.Points)).z_cm
 		  
 		  gProfiles.One_Profile.Append pp
-		      Window_Commisssioning.Update_Profile
+		  Window_Commisssioning.Update_Profile
 		  
 		  
 		  Exception err as NilObjectException

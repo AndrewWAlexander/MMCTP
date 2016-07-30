@@ -294,7 +294,7 @@ Inherits Thread
 		    MMCTP_Shell_Run.All.Append cc
 		    
 		    
-		     hh=egs_Get_Directory(Beam)
+		    hh=egs_Get_Directory(Beam)
 		    temp=str(beam+1)
 		    temp=MC_file_name+temp+"_* "+MC_file_name+temp+".* "+MC_file_name+temp+"*djaws "
 		    cc.command= "rm -f "+temp
@@ -508,7 +508,7 @@ Inherits Thread
 		  
 		  if Beams(beam).egs_linac_index=-1 Then
 		    Errors.append "Error : beam "+str(beam+1)+" is not defined within the list of linacs" //Changed to "Errors.append" by William Davis to avert crashing due to exception
-		     Beams(beam).Beamnrc_error=True
+		    Beams(beam).Beamnrc_error=True
 		    Return False
 		  end
 		  
@@ -837,7 +837,7 @@ Inherits Thread
 		  While ts.EOF=False
 		    
 		    Temp=ts.ReadLine
-		     a=val(NthField(Temp," ",2))-1
+		    a=val(NthField(Temp," ",2))-1
 		    
 		    if a<=UBound(Beams) and a>-1 Then
 		      if InStr(Temp,"Number of jobs")>0 Then

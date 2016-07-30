@@ -198,7 +198,7 @@ Protected Class Class_DVH_One
 
 	#tag Property, Flags = &h0
 		#tag Note
-			//Volume of One Pixel 
+			//Volume of One Pixel
 		#tag EndNote
 		pixelvolume As double
 	#tag EndProperty

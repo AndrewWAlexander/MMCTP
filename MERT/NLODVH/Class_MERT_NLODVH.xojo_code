@@ -600,19 +600,17 @@ Protected Class Class_MERT_NLODVH
 
 	#tag Property, Flags = &h0
 		#tag Note
-			1 
+			1
 			Grad
 			
-			2 
-			SA.  
+			2
+			SA.
 			
-			3 
+			3
 			Jaw
 			
 			4
 			NLO
-			
-			
 		#tag EndNote
 		Previous_WeightType As Integer
 	#tag EndProperty

@@ -2,7 +2,6 @@
 Begin Window Window_Configurations_CTModels
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -43,7 +42,7 @@ Begin Window Window_Configurations_CTModels
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -82,7 +81,7 @@ Begin Window Window_Configurations_CTModels
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -115,7 +114,7 @@ Begin Window Window_Configurations_CTModels
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -150,7 +149,7 @@ Begin Window Window_Configurations_CTModels
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -195,7 +194,7 @@ Begin Window Window_Configurations_CTModels
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   3
          TabPanelIndex   =   0
          TabStop         =   True
@@ -238,7 +237,7 @@ Begin Window Window_Configurations_CTModels
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   0
          TabStop         =   True
@@ -271,7 +270,7 @@ Begin Window Window_Configurations_CTModels
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
@@ -320,7 +319,7 @@ Begin Window Window_Configurations_CTModels
          LockRight       =   True
          LockTop         =   True
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
@@ -369,7 +368,7 @@ Begin Window Window_Configurations_CTModels
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -402,7 +401,7 @@ Begin Window Window_Configurations_CTModels
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -432,7 +431,7 @@ Begin Window Window_Configurations_CTModels
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
@@ -468,7 +467,7 @@ Begin Window Window_Configurations_CTModels
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True

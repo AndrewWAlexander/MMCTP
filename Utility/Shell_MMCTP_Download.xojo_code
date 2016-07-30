@@ -72,7 +72,7 @@ Inherits Shell
 		      WriteLine gg.command
 		      
 		    elseif gg.exit_done=False Then
-		       gg.exit_done=True
+		      gg.exit_done=True
 		      WriteLine "exit"
 		    end
 		    

@@ -269,7 +269,7 @@ Protected Class Class_BEAM_CM_DYNVMLC
 		  
 		  // Full leaves
 		  CM.text.Append Format(Full.LeafWidth,"-0.0####") +", "+ Format(Full.WTongue,"-0.0####") +", "+ Format(Full.Wgroove,"-0.0####")_
-		   +", "+ Format(Full.WTIP,"-0.0####") +", "+ Format(Full.WrailTop,"-0.0####") +", "+ Format(Full.Wrailbot,"-0.0####") _
+		  +", "+ Format(Full.WTIP,"-0.0####") +", "+ Format(Full.WrailTop,"-0.0####") +", "+ Format(Full.Wrailbot,"-0.0####") _
 		  +", "+ Format(Full.ZTip,"-0.0#####") +", "+ Format(Full.Zleaf,"-0.0#####") +", "+ Format(Full.ZTongue,"-0.0#####") _
 		  +", "+ Format(Full.ZGroove,"-0.0#####") +", "+ Format(Full.Zholetop,"-0.0#####") +", "+ Format(Full.ZHoleBot,"-0.0#####")_
 		  +", "+ Format(Full.Holepos,"-0.0####") +", "+ Format(Full.Zrailtop,"-0.0####") +", "+ Format(Full.Zrailbot,"-0.0####")
@@ -285,7 +285,7 @@ Protected Class Class_BEAM_CM_DYNVMLC
 		  
 		  CM.text.Append Format(Isocenter.LeafWidth,"-0.0####") +", "+ Format(Isocenter.WTongue,"-0.0####") +", "+ Format(Isocenter.Wgroove,"-0.0####") +", "+ _
 		  Format(Isocenter.WTIP,"-0.0####") +", "+ Format(Isocenter.WrailTop,"-0.0####") +", "+ Format(Isocenter.Wrailbot,"-0.0####") +", "+_
-		   Format(Isocenter.ZTip,"-0.0###") +", "+ Format(Isocenter.Zleaf,"-0.0###") +", "+ Format(Isocenter.ZTongue,"-0.0####")+", "+ _
+		  Format(Isocenter.ZTip,"-0.0###") +", "+ Format(Isocenter.Zleaf,"-0.0###") +", "+ Format(Isocenter.ZTongue,"-0.0####")+", "+ _
 		  Format(Isocenter.ZGroove,"-0.0####")+", "+ Format(Isocenter.Zholetop,"-0.0####")+", "+ Format(Isocenter.ZHoleBot,"-0.0####")+", "+ _ 
 		  Format(Isocenter.HolePos_Iso,"-0.0####")+", "+ Format(Isocenter.Zrailtop,"-0.0####")+", "+ Format(Isocenter.Zrailbot,"-0.0####")
 		  

@@ -71,7 +71,7 @@ Protected Class Class_EGSnrc_Inputs
 		    elseif InStr(temp,"Electron impact ionization")>0 then
 		      me.Electronimpactionization=trim(NthField(Temp,"=",2))
 		      
-		     elseif InStr(temp,"Photon cross sections")>0 then
+		    elseif InStr(temp,"Photon cross sections")>0 then
 		      me.Photoncrosssections=trim(NthField(Temp,"=",2))
 		      
 		    elseif InStr(temp,"Photon cross-sections output")>0 then

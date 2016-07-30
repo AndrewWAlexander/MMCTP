@@ -2,7 +2,6 @@
 Begin Window Window_BEAM_MainInputs
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -2381,7 +2380,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		     BEAM.IZLAST= me.ListIndex
+		    BEAM.IZLAST= me.ListIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2549,7 +2548,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		   popupbrem=False
+		  popupbrem=False
 		  
 		  me.ListIndex=-1
 		  popupbrem=True

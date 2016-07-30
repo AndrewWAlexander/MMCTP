@@ -2,7 +2,6 @@
 Begin Window Window_DOSXYZ_Maininputs_source11
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False

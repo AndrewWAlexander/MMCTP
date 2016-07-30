@@ -2,7 +2,6 @@
 Begin Window Window_EMET_Run
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -7971,13 +7970,14 @@ Begin Window Window_EMET_Run
       End
    End
    Begin Timer Timer1
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
       Mode            =   2
       Period          =   10000
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
    End
 End
 #tag EndWindow
@@ -8428,7 +8428,7 @@ End
 		    if gopt.IPbeams(i).Use Then
 		      if (CheckBox_BeamFilter_Description.Value and gopt.IPbeams(i).Beam_Description=PopupMenu_Filter_Description.Text) or CheckBox_BeamFilter_Description.Value=False  then
 		        if (CheckBox_BeamFilter_Energy.Value and gopt.IPbeams(i).Energy=PopupMenu_Filter_Energy.Text) or   CheckBox_BeamFilter_Energy.Value=False then
-		           if (CheckBox_BeamFilter_Gantry.Value and Format(gopt.IPbeams(i).Gantry_Angle,"-#.##")=PopupMenu_Filter_Gantry.Text) or  CheckBox_BeamFilter_Gantry.Value=False then
+		          if (CheckBox_BeamFilter_Gantry.Value and Format(gopt.IPbeams(i).Gantry_Angle,"-#.##")=PopupMenu_Filter_Gantry.Text) or  CheckBox_BeamFilter_Gantry.Value=False then
 		            if (CheckBox_BeamFilter_Mode.Value and gopt.IPbeams(i).Mode=PopupMenu_Filter_Mode.Text) or  CheckBox_BeamFilter_Mode.Value=False   Then
 		              if (CheckBox_BeamFilter_Isocenter.Value and Format(gopt.IPbeams(i).Iso_X,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_y,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_z,"-#.##")=PopupMenu_Filter_Iso.Text) or  CheckBox_BeamFilter_Isocenter.Value=False Then
 		                total_MU_Grad=total_MU_Grad+gopt.IPbeams(i).MUs_Grad

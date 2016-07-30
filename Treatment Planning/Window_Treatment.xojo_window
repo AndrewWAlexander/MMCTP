@@ -2,7 +2,6 @@
 Begin Window Window_Treatment
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -3829,7 +3828,7 @@ End
 		  newb=new RTOG_Beam_Geometry
 		  newb.MLC=new Class_MLC
 		  newb.Collimator=new Class_Collimator
-		   
+		  
 		  
 		  ff=False
 		  
@@ -4456,8 +4455,8 @@ End
 		          
 		          
 		        elseif gRTOG.Points(m).X_cm=gRTOG.Plan(i).Dose(k).Points(m).x_cm and _
-		           gRTOG.Points(m).y_cm=gRTOG.Plan(i).Dose(k).Points(m).y_cm and _
-		           gRTOG.Points(m).z_cm=gRTOG.Plan(i).Dose(k).Points(m).z_cm  then
+		          gRTOG.Points(m).y_cm=gRTOG.Plan(i).Dose(k).Points(m).y_cm and _
+		          gRTOG.Points(m).z_cm=gRTOG.Plan(i).Dose(k).Points(m).z_cm  then
 		          
 		          
 		        else // Must recalculate dose values

@@ -668,7 +668,7 @@ Protected Class Class_Preference
 	#tag Property, Flags = &h0
 		#tag Note
 			// 0 for no interpolation
-			// 1 to interpolate 
+			// 1 to interpolate
 		#tag EndNote
 		Dose_Interpolate As Integer = 0
 	#tag EndProperty

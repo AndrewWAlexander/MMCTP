@@ -253,7 +253,7 @@ Protected Class Class_VMC
 		      ss.BEAMWEIGHT=val(value)
 		      
 		    elseif label="-BREM-PHOTONS" Then
-		       ss.BremPhotons=True
+		      ss.BremPhotons=True
 		      
 		    elseif label="-DEVICE-TYPE" Then
 		      ss.DEVICETYPE=val(value)

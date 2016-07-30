@@ -44,7 +44,7 @@ Begin Window Window_Export_DICOM
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
@@ -76,7 +76,7 @@ Begin Window Window_Export_DICOM
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -108,7 +108,7 @@ Begin Window Window_Export_DICOM
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
@@ -140,7 +140,7 @@ Begin Window Window_Export_DICOM
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
@@ -173,7 +173,7 @@ Begin Window Window_Export_DICOM
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
