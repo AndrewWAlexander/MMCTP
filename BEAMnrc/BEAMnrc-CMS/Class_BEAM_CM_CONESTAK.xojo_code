@@ -96,8 +96,40 @@ Protected Class Class_BEAM_CM_CONESTAK
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub write()
+		Sub write(cm as Class_BEAM_Inputfile_CMs)
+		  //-------------------------------------
+		  // Write CONESTAK CM
+		  //
+		  //-------------------------------------
+		  Dim i ,k as Integer
+		  //-------------------------------------
 		  
+		  ReDim cm.text(-1)
+		  
+		  cm.text.Append Format(cm.CONESTAK.Rmax,"-#.0##")+", RMAX"
+		  cm.text.Append cm.CONESTAK.Title_CM
+		  
+		  cm.text.Append Format(cm.CONESTAK.Zmin,"-#.###")+", "+Format(cm.CONESTAK.RBN,"-#.###")+", ZMIN, RBN"
+		  
+		  cm.text.Append Format(cm.CONESTAK.ISCM_MAX,"-#")+", NUMBER OF LAYERS"
+		  
+		  for i=0 to (cm.CONESTAK.ISCM_MAX-1)
+		    cm.text.Append Format(cm.CONESTAK.Zthick(i),"-#.###")+", "+Format(cm.CONESTAK.Rmin(i),"-#.###")+", "+Format(cm.CONESTAK.Rmax_lay(i),"-#.###")+","
+		  Next
+		  
+		  if cm.CONESTAK.RBN<> 0 Then
+		    cm.text.Append Format(cm.CONESTAK.ECUT_wall,"-#.###")+", "+Format(cm.CONESTAK.PCUT_wall,"-#.###")+", "+Format(cm.CONESTAK.Dose_Zone_wall,"#")+", "+Format(cm.CONESTAK.IRegion_to_bit_wall,"#")+","
+		    cm.text.Append cm.CONESTAK.Med_in_wall
+		  end
+		  
+		  
+		  for i=0 to (cm.CONESTAK.ISCM_MAX-1)
+		    cm.text.Append Format(cm.CONESTAK.ECUT(i),"-#.###")+", "+Format(cm.CONESTAK.PCUT(i),"-#.###")+", "+Format(cm.CONESTAK.Dose_Zone(i),"#")+", "+Format(cm.CONESTAK.IRegion_to_bit(i),"#")+","
+		    cm.text.Append cm.CONESTAK.Med_in(i)
+		    
+		    cm.text.Append Format(cm.CONESTAK.ECUT_out(i),"-#.###")+", "+Format(cm.CONESTAK.PCUT_out(i),"-#.###")+", "+Format(cm.CONESTAK.Dose_Zone_out(i),"#")+", "+Format(cm.CONESTAK.IRegion_to_bit_out(i),"#")+","
+		    cm.text.Append cm.CONESTAK.Med_in_out(i)
+		  Next
 		End Sub
 	#tag EndMethod
 
@@ -129,8 +161,6 @@ Protected Class Class_BEAM_CM_CONESTAK
 	#tag Property, Flags = &h0
 		#tag Note
 			Med_in_wall As Integer
-			
-			
 		#tag EndNote
 		IRegion_to_bit(-1) As Integer
 	#tag EndProperty
@@ -138,8 +168,6 @@ Protected Class Class_BEAM_CM_CONESTAK
 	#tag Property, Flags = &h0
 		#tag Note
 			Med_in_wall As Integer
-			
-			
 		#tag EndNote
 		IRegion_to_bit_out(-1) As Integer
 	#tag EndProperty
@@ -147,8 +175,6 @@ Protected Class Class_BEAM_CM_CONESTAK
 	#tag Property, Flags = &h0
 		#tag Note
 			Med_in_wall As Integer
-			
-			
 		#tag EndNote
 		IRegion_to_bit_wall As Integer
 	#tag EndProperty
@@ -216,10 +242,30 @@ Protected Class Class_BEAM_CM_CONESTAK
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Dose_Zone_wall"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ECUT_wall"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IRegion_to_bit_wall"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ISCM_MAX"
+			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -230,16 +276,41 @@ Protected Class Class_BEAM_CM_CONESTAK
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Med_in_wall"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PCUT_wall"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RBN"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Rmax"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Title_CM"
+			Group="Behavior"
+			Type="string"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -251,7 +322,7 @@ Protected Class Class_BEAM_CM_CONESTAK
 		#tag ViewProperty
 			Name="Zmin"
 			Group="Behavior"
-			Type="Integer"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

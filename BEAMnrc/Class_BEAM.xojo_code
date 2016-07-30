@@ -2466,6 +2466,8 @@ Protected Class Class_BEAM
 		    elseif Inputfile.CMs(i).CM_Names="ARCCHM" Then
 		      Inputfile.CMs(i).ARCCHM.Write(Inputfile.CMs(i))
 		      
+		    elseif Inputfile.CMs(i).CM_Names="CONESTAK" Then
+		      Inputfile.CMs(i).CONESTAK.Write(Inputfile.CMs(i))
 		      
 		    elseif Inputfile.CMs(i).CM_Names="VARMLC" Then
 		      egs_Input_CM_VARMLC(Inputfile.CMs(i))
