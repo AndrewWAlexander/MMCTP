@@ -25,6 +25,10 @@ Protected Class Class_BEAM_Inputfile_CMs
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		CONESTAK As Class_BEAM_CM_CONESTAK
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		DYNJAWS As Class_BEAM_CM_DYNJAWS
 	#tag EndProperty
 

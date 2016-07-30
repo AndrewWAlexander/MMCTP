@@ -106,6 +106,11 @@ Protected Class Class_BEAM_Inputfile
 		      oneCM.ARCCHM=new Class_BEAM_CM_ARCCHM
 		      oneCM.ARCCHM.Read(OneCM.text)
 		      
+		    ElseIf CMs(x).CM_Names="CONESTAK" Then //---------------------------------------------------------------
+		      oneCM=CMs(x)
+		      oneCM.CONESTAK=new Class_BEAM_CM_CONESTAK
+		      oneCM.CONESTAK.Read(OneCM.text,CMs(x).CM_Identifier)
+		      
 		      
 		    end
 		  next
