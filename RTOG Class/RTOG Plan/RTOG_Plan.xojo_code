@@ -1645,18 +1645,22 @@ Protected Class RTOG_Plan
 		  num_beams=-1
 		  num_dose=-1
 		  
+		  
 		  for i=1 to f.Count
 		    if f.Item(i)<> nil Then
 		      if f.Item(i).Visible Then
 		        if InStr(f.Item(i).Name,".Beam")>0 then
 		          num_beams=num_beams+1
 		        elseif InStr(f.Item(i).Name,".Dose")>0 and InStr(f.Item(i).Name,".Dose.pnts")=0 Then
-		          num_dose=num_dose+1
-		          doses.Append f.Item(i).Name
+		          if gPref.McGillRT_Dose_Skip=False Then
+		            num_dose=num_dose+1
+		            doses.Append f.Item(i).Name
+		          end
 		        end
 		      end
 		    end
 		  next
+		  
 		  
 		  //Return
 		  

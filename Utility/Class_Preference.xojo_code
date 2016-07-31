@@ -727,6 +727,10 @@ Protected Class Class_Preference
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		McGillRT_Dose_Skip As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		rtogfi As folderitem
 	#tag EndProperty
 
