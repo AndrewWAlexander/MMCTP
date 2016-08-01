@@ -752,9 +752,9 @@ Begin Window Window_Configurations_Beam_Model
          Left            =   477
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   3
@@ -871,9 +871,9 @@ Begin Window Window_Configurations_Beam_Model
             Left            =   487
             LockBottom      =   False
             LockedInPosition=   False
-            LockLeft        =   False
-            LockRight       =   False
-            LockTop         =   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
             RequiresSelection=   False
             Scope           =   0
             ScrollbarHorizontal=   False
