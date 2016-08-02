@@ -1037,7 +1037,7 @@ Inherits Application
 		  
 		  gTimer_Refresh=new Class_MMCTP_Timer_Refresh
 		  gTimer_Run=new Class_MMCTP_Timer_Run
-		   gTimer_Download=new Class_MMCTP_Timer_Download
+		  gTimer_Download=new Class_MMCTP_Timer_Download
 		  gTimer_PW=new Class_MMCTP_Timer_ProgressWindow
 		  gTimer_Windows=new Class_MMCTP_Timer_Windows
 		  gTimer_PW.Enabled=True
