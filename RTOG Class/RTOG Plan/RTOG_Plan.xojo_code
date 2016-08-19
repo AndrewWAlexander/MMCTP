@@ -780,6 +780,8 @@ Protected Class RTOG_Plan
 		          
 		          if app_found=False Then
 		            gLinacs.All_Linacs(k).Applicator.Append one_beam.Aperture_ID
+		            gLinacs.All_Linacs(k).BEAMnrcApplicatorCM.Append ""
+		            gLinacs.All_Linacs(k).BEAMnrcApplicatorLabel.Append ""
 		            gLinacs.Write_Linacs
 		          end
 		        end
