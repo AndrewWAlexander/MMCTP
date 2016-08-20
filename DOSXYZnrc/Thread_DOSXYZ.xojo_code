@@ -2142,6 +2142,27 @@ Inherits Thread
 		  end
 		  
 		  
+		  
+		  
+		  // Calculate Distance from Phsp scoring plane to Isocenter
+		  if egsinp.MMCTP_auto Then
+		    if dosxyznrc_link=1 Then// For BEAMnrc link
+		      if egsinp.isource=2 or egsinp.isource=8 or egsinp.isource=9 or egsinp.isource=11 or egsinp.isource=20 or egsinp.isource=21 Then
+		        // Find last scoring plane
+		        scoring=gBEAM.Beams(BEAM).Inputfile.NSC_PLANES-1
+		        if scoring>=0 and scoring<=UBound(gBEAM.Beams(BEAM).Inputfile.Nsc) Then
+		          cm_index=gBEAM.Beams(BEAM).Inputfile.NSC(scoring).IPLANE_to_CM-1
+		          if cm_index<= UBound(gBEAM.Beams(BEAM).Inputfile.CMs) and cm_index>=0 Then
+		            egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-gBEAM.Beams(BEAM).Inputfile.CMs(cm_index).Bottom_z
+		          end
+		        end
+		      end
+		    elseif dosxyznrc_link=2 Then// For Cutout link
+		      egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-95
+		    end
+		  end
+		  
+		  
 		  // ===Isocenter DOSxyz=========
 		  // Find new iso and angle values
 		  // If auto MMCTP is on, otherwise, use user values
@@ -2195,23 +2216,7 @@ Inherits Thread
 		  
 		  
 		  
-		  // Calculate Distance from Phsp scoring plane to Isocenter
-		  if egsinp.MMCTP_auto Then
-		    if dosxyznrc_link=1 Then// For BEAMnrc link
-		      if egsinp.isource=2 or egsinp.isource=8 or egsinp.isource=9 or egsinp.isource=11 or egsinp.isource=20 or egsinp.isource=21 Then
-		        // Find last scoring plane
-		        scoring=gBEAM.Beams(BEAM).Inputfile.NSC_PLANES-1
-		        if scoring>=0 and scoring<=UBound(gBEAM.Beams(BEAM).Inputfile.Nsc) Then
-		          cm_index=gBEAM.Beams(BEAM).Inputfile.NSC(scoring).IPLANE_to_CM-1
-		          if cm_index<= UBound(gBEAM.Beams(BEAM).Inputfile.CMs) and cm_index>=0 Then
-		            egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-gBEAM.Beams(BEAM).Inputfile.CMs(cm_index).Bottom_z
-		          end
-		        end
-		      end
-		    elseif dosxyznrc_link=2 Then// For Cutout link
-		      egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-95
-		    end
-		  end
+		  
 		  
 		  // Get BEAM directory
 		  if not dosxyz_get_shell_Variables(egsphant_index,beam) Then

@@ -140,6 +140,7 @@ Protected Class Class_DICOM_Plan_BeamSequence
 			Name="High_Dose_Technique"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

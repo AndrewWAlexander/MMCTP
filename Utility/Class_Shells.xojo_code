@@ -457,14 +457,14 @@ Protected Class Class_Shells
 		#tag ViewProperty
 			Name="plink"
 			Group="Behavior"
-			InitialValue="C:\\\\"
+			InitialValue="C:\\\\\\\\"
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="pscp"
 			Group="Behavior"
-			InitialValue="C:\\\\"
+			InitialValue="C:\\\\\\\\"
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

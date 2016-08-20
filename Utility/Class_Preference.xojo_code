@@ -890,6 +890,12 @@ Protected Class Class_Preference
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="McGillRT_Dose_Skip"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
