@@ -151,6 +151,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "BEAM simulation:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -289,6 +290,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "input file:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -366,6 +368,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   13
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "pegs data:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -443,6 +446,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "e split"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -520,6 +524,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Number of control points"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -677,6 +682,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   34
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "the_vcu_code"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -753,6 +759,7 @@ Begin Window Window_DOSXYZ_Maininputs_source21
       Selectable      =   False
       TabIndex        =   36
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "the_vcu_input_file"
       TextAlign       =   0
       TextColor       =   &c00000000

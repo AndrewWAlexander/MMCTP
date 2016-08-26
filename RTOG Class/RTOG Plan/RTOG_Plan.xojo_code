@@ -423,6 +423,16 @@ Protected Class RTOG_Plan
 		        one_beam.SSD=bs.ControlPointSequence(x).SSD/10
 		        one_beam.Collimator.fields(0).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
 		        
+		        
+		        if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
+		          one_beam.Collimator.fields(x).ARC_Direction=1
+		        elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
+		          one_beam.Collimator.fields(x).ARC_Direction=0
+		        else
+		          one_beam.Collimator.fields(x).ARC_Direction=2
+		        end
+		        
+		        
 		        // Look for Linac
 		        linac_found=False
 		        for k=0 to UBound(gLinacs.All_Linacs)
@@ -541,6 +551,14 @@ Protected Class RTOG_Plan
 		            one_beam.Collimator.fields(x).isocenter=new Class_isocenter
 		            one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
 		            one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
+		            
+		            if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
+		              one_beam.Collimator.fields(x).ARC_Direction=1
+		            elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
+		              one_beam.Collimator.fields(x).ARC_Direction=0
+		            else
+		              one_beam.Collimator.fields(x).ARC_Direction=2
+		            end
 		            
 		            if bs.ControlPointSequence(x).IsocenterPosition="" Then
 		              one_beam.Collimator.fields(x).isocenter.x=isopoint.X
@@ -1067,6 +1085,7 @@ Protected Class RTOG_Plan
 		          if Instr(reading(0),"MUs")>0 then
 		            beam_Geometry.MU = val(reading(1))
 		          end
+		          
 		          if Instr(reading(0),"SSD")>0 then
 		            beam_Geometry.SSD = val(reading(1))
 		          end
@@ -1441,38 +1460,39 @@ Protected Class RTOG_Plan
 		    if Coll.Fields(i-1).isocenter=nil Then
 		      coll.Fields(i-1).isocenter=new Class_isocenter
 		    end
+		  Next
+		  
+		  While ts.EOF=False
+		    line=ts.ReadLine
 		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).Index=val(NthField(line,":",2))
+		    i=Val(NthField(line, " ",2))
 		    
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).X1=val(NthField(line,":",2))
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).X2=val(NthField(line,":",2))
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).y1=val(NthField(line,":",2))
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).y2=val(NthField(line,":",2))
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).isocenter.x=val(NthField(line,":",2))
-		    line=ts.ReadLine
-		    coll.fields(i-1).isocenter.y=val(NthField(line,":",2))
-		    line=ts.ReadLine
-		    coll.fields(i-1).isocenter.z=val(NthField(line,":",2))
-		    
-		    line=ts.ReadLine
-		    coll.fields(i-1).Gantry_Angle=val(NthField(line,":",2))
-		    line=ts.ReadLine
-		    coll.fields(i-1).Couch_Angle=val(NthField(line,":",2))
-		    line=ts.ReadLine
-		    coll.fields(i-1).Collimator_Angle=val(NthField(line,":",2))
-		    
-		  next
+		    if InStr(line,"ARC")>0 Then
+		      coll.fields(i-1).ARC_Direction = val(NthField(line,":",2))
+		    elseif InStr(line,"Collimator")>0 Then
+		      coll.fields(i-1).Collimator_Angle=val(NthField(line,":",2))
+		    elseif InStr(line,"Gantry")>0 Then
+		      coll.fields(i-1).Gantry_Angle=val(NthField(line,":",2))
+		    elseif InStr(line,"Couch")>0 Then
+		      coll.fields(i-1).Couch_Angle=val(NthField(line,":",2))
+		    elseif InStr(line,"Index")>0 Then
+		      coll.fields(i-1).Index=val(NthField(line,":",2))
+		    elseif InStr(line,"X1")>0 Then
+		      coll.fields(i-1).X1=val(NthField(line,":",2))
+		    elseif InStr(line,"X2")>0 Then
+		      coll.fields(i-1).X2=val(NthField(line,":",2))
+		    elseif InStr(line,"Y1")>0 Then
+		      coll.fields(i-1).Y1=val(NthField(line,":",2))
+		    elseif InStr(line,"Y2")>0 Then
+		      coll.fields(i-1).Y2=val(NthField(line,":",2))
+		    elseif InStr(line,"Iso X ")>0 Then
+		      coll.fields(i-1).isocenter.x=val(NthField(line,":",2))
+		    elseif InStr(line,"Iso Y ")>0 Then
+		      coll.fields(i-1).isocenter.y=val(NthField(line,":",2))
+		    elseif InStr(line,"Iso Z ")>0 Then
+		      coll.fields(i-1).isocenter.z=val(NthField(line,":",2))
+		    end
+		  Wend
 		  ts.Close
 		End Sub
 	#tag EndMethod
@@ -2801,6 +2821,7 @@ Protected Class RTOG_Plan
 		  spaces(ts,"NUMBER REPRESENTATION", 31, (beam(k).number_Representation))
 		  spaces(ts,"PLAN ID", 31, (Plan_ID))
 		  spaces(ts,"PLAN NAME", 31, (Plan_Name))
+		  //spaces(ts,"ARC DIRECTION", 31, Format(beam(k).ARC_Direction,"#"))
 		  
 		  //---------FLEC
 		  if beam(k).Beam_Mode="FLEC" then
@@ -3006,6 +3027,8 @@ Protected Class RTOG_Plan
 		    Col.StrFile=Col.StrFile+"Field "+ff+" Gantry :"+ Format(col.fields(i-1).Gantry_Angle,"-#.####")+local_endline
 		    Col.StrFile=Col.StrFile+"Field "+ff+" Couch :"+ Format(col.fields(i-1).Couch_Angle,"-#.####")+local_endline
 		    Col.StrFile=Col.StrFile+"Field "+ff+" Collimator :"+ Format(col.fields(i-1).Collimator_Angle,"-#.####")+local_endline
+		    Col.StrFile=Col.StrFile+"Field "+ff+" ARC Direction :"+ Format(col.fields(i-1).ARC_Direction,"#")+local_endline
+		    
 		    ts.Write Col.StrFile
 		    Col.StrFile=""
 		  next
