@@ -2103,9 +2103,9 @@ Inherits Thread
 		  //
 		  //-------------------------------------------
 		  Dim BEAMnrc_directoy, name, temp,bversion,name2 as string
-		  Dim gamma, col, p, phi, theta, direction, phicol, test As Single
+		  Dim gamma, col, p, direction,test As Single
 		  Dim egsinp as Class_DOSXYZ_input
-		  Dim k, cm_index,i,scoring as Integer
+		  Dim k, count,counter, cm_index, i, scoring  as Integer
 		  Dim good as Boolean
 		  //-------------------------------------------
 		  
@@ -2160,29 +2160,41 @@ Inherits Thread
 		    elseif dosxyznrc_link=2 Then// For Cutout link
 		      egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-95
 		    end
-		  end
-		  
-		  
-		  // ===Isocenter DOSxyz=========
-		  // Find new iso and angle values
-		  // If auto MMCTP is on, otherwise, use user values
-		  if egsinp.MMCTP_auto Then
+		    
+		    
+		    
+		    // ===Isocenter DOSxyz=========
+		    // Find new iso and angle values
+		    // If auto MMCTP is on, otherwise, use user values
+		    ReDim egsinp.theta(0)
+		    ReDim egsinp.isox(0)
+		    ReDim egsinp.isoy(0)
+		    ReDim egsinp.isoz(0)
+		    ReDim egsinp.phi(0)
+		    ReDim egsinp.phicol(0)
+		    
 		    if egsinp.dos_Non_CT Then
+		      egsinp.isox(0)=0
+		      egsinp.isoy(0)=0
+		      egsinp.isoz(0)=0
+		      
 		      egsinp.xiso=0
 		      egsinp.yiso=0
 		      egsinp.ziso=0
 		      //======Theta, Phi, Phicol==============
-		      theta=180
-		      phi=0
-		      phicol=0
+		      egsinp.theta(0)=180
+		      egsinp.phi(0)=0
+		      egsinp.phicol(0)=0
+		      
 		    else // For CT based phantom simulation
+		      
+		      //======Theta, Phi, Phicol==============
+		      egsinp.phi(0)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).couch_Angle
+		      egsinp.theta(0)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Gantry_Angle
+		      egsinp.phicol(0)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Collimator_Angle
 		      egsinp.xiso=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).isocenter.x
 		      egsinp.yiso=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).isocenter.z
 		      egsinp.ziso=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).isocenter.y
-		      //======Theta, Phi, Phicol==============
-		      theta=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Gantry_Angle
-		      phi=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).couch_Angle
-		      phicol=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Collimator_Angle
 		      
 		      egsinp.nset=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)+1 // Number of control points
 		      ReDim egsinp.DYNARC(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
@@ -2210,9 +2222,46 @@ Inherits Thread
 		      Next
 		      
 		      
+		      // Determine ARC directions and theta values
+		      count=0
+		      counter=0
+		      for k=0 to UBound(egsinp.DYNARC)-1
+		        if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=0  Then // For clockwise motion
+		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle > gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
+		            count=count+1
+		          end
+		          egsinp.theta(k+1)=egsinp.theta(k+1)+(count*360)
+		        elseif gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=1  Then // For counter clockwise motion
+		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle< gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
+		            counter=counter+1
+		          end
+		        end
+		      Next
+		      
+		      
+		      if counter>0 Then
+		        for k=0 to UBound(egsinp.DYNARC)-1
+		          
+		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=1  Then // For counter clockwise motion
+		            egsinp.theta(k)=egsinp.theta(k)+(counter*360)
+		            
+		            if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle< gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
+		              counter=counter-1
+		            end
+		            
+		            
+		            
+		          end
+		          
+		        Next
+		      end
+		      
+		      
+		      
+		      
 		    end
-		  end
-		  // ===Isocenter DOSxyz=========
+		    
+		  end // ===Isocenter DOSxyz=========
 		  
 		  
 		  
@@ -2309,32 +2358,25 @@ Inherits Thread
 		      gBEAM.egs_Uploadfiles(BEAM)
 		    end
 		    
+		  end
+		  
+		  
+		  if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=9 then// For lib source
 		    
 		    
+		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21 then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
+		    // Make ARC file redim all arrays
 		    
-		    
-		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=9 then// FOr lib source
-		      ReDim egsinp.theta(0)
-		      ReDim egsinp.phi(0)
-		      egsinp.phi(0)=phi
-		      egsinp.theta(0)=theta
-		      egsinp.phicol(0)=phicol
-		      
-		    elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21 then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
-		      // Make ARC file redim all arrays
-		      
-		      if cc.shell.OS=3 Then
-		        egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc\"+name2
-		      else
-		        egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc/"+name2
-		      end
-		      
-		      
-		      
-		      if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 Then // Only for Tomo Source
-		        DOSXYZ(egsphant_index).Write_DOSXYZ_Input_Arc(beam)
-		      end
+		    if cc.shell.OS=3 Then
+		      egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc\"+name2
+		    else
+		      egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc/"+name2
 		    end
+		    
+		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 Then // Only for Tomo Source
+		      DOSXYZ(egsphant_index).Write_DOSXYZ_Input_Arc(beam)
+		    end
+		    
 		    
 		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=1 Then// Parallel Rectangular Beam Incident from Any Direction
 		    if egsinp.enflag=0 or egsinp.enflag=1 Then
@@ -2343,25 +2385,20 @@ Inherits Thread
 		    end
 		    
 		    
-		    ReDim egsinp.theta(0)
-		    ReDim egsinp.phi(0)
-		    egsinp.phi(0)=phi
-		    egsinp.theta(0)=theta
-		    egsinp.phicol(0)=phicol
 		    
-		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=2 Then// we are using a phase space file
+		    
+		    
+		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=2  or _
+		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20  or _
+		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 Then// we are using a phase space file
+		    BEAMnrc_directoy=gBEAM.cc.dir
+		    
+		    
 		    if egsinp.enflag=2 or egsinp.enflag=3 Then
-		      
 		    else
 		      egsinp.enflag=2
 		    end
-		    if egsinp.MMCTP_auto Then
-		      ReDim egsinp.theta(0)
-		      ReDim egsinp.phi(0)
-		      egsinp.phi(0)=phi
-		      egsinp.theta(0)=theta
-		      egsinp.phicol(0)=phicol
-		    end
+		    
 		    // If we are using a phsp link
 		    if egsinp.MMCTP_auto Then
 		      if dosxyznrc_link=1 Then
@@ -2376,39 +2413,32 @@ Inherits Thread
 		        cc.dir=cc.Shell.egsnrc_folder_path+"cutoutmp/"
 		        egsinp.FILNAM=cc.dir+MC_file_name+str(beam+1)+"-cutout.egsphsp1"
 		      end
-		    end
+		      
+		      if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 Then // we are using a phase space file from multi directions
+		        
+		        // Write code for multi direction path 
+		        // Update 2016 AA
+		        
+		        egsinp.nang=-1
+		        ReDim egsinp.ivary(0)
+		        ReDim egsinp.angfixed(0)
+		        ReDim egsinp.angmin(0)
+		        ReDim egsinp.angmax(0)
+		        ReDim egsinp.ngang(0)
+		        ReDim egsinp.pgang(0)
+		        
+		        egsinp.ivary(0)=1 // 1 for varying theta
+		        egsinp.angfixed(0)=egsinp.phi(0) 
+		        egsinp.angmin(0)=egsinp.theta(0) 
+		        egsinp.angmax(0)=egsinp.theta(UBound(egsinp.theta))
+		        egsinp.ngang(0)=300
+		        egsinp.pgang(0)=1
+		        
+		      end
+		    end // End auto MMCTP update
+		    
 		    
 		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=3 Then // we are using a point source
-		    
-		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 Then // we are using a phase space file from multi directions
-		    egsinp.enflag=2
-		    // If we are using a phsp link
-		    if gBEAM.Beams(beam).egs_Phsp_link then
-		      egsinp.FILNAM=BEAMnrc_directoy+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis
-		    else
-		      egsinp.FILNAM=BEAMnrc_directoy+MC_file_name+str(beam+1)+".egsphsp1" //doing it again
-		    end
-		    
-		    
-		    // Write code for multi direction path 
-		    // Update 2016 AA
-		    
-		    if egsinp.MMCTP_auto Then
-		      egsinp.nang=-1
-		      ReDim egsinp.ivary(0)
-		      ReDim egsinp.angfixed(0)
-		      ReDim egsinp.angmin(0)
-		      ReDim egsinp.angmax(0)
-		      ReDim egsinp.ngang(0)
-		      ReDim egsinp.pgang(0)
-		      
-		      egsinp.ivary(0)=1 // 1 for varying theta
-		      egsinp.angfixed(0)=phi
-		      egsinp.angmin(0)=theta
-		      egsinp.angmax(0)=egsinp.theta(UBound(egsinp.theta))
-		      egsinp.ngang(0)=300
-		      egsinp.pgang(0)=1
-		    end
 		    
 		  end
 		  

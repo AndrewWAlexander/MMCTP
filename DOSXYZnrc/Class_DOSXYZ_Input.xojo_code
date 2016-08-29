@@ -337,6 +337,10 @@ Protected Class Class_DOSXYZ_Input
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		i_muidx_out As Single = 1
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		JL As Integer
 	#tag EndProperty
 
@@ -518,6 +522,10 @@ Protected Class Class_DOSXYZ_Input
 
 	#tag Property, Flags = &h0
 		the_pegs_file As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		the_shared_lib As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

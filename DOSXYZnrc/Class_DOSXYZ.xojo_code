@@ -994,6 +994,14 @@ Protected Class Class_DOSXYZ
 		    
 		    file=file+egsinp.path11+EndOfLine.UNIX
 		    
+		  elseif DOSXYZ_Input(beam).isource=20  Then // : Synchronized phase space source
+		    
+		    file=file+Format(egsinp.IQIN,"-#")+", "+Format(DOSXYZ_Input(beam).isource,"#")+",  "+ Format(egsinp.nset,"-#")+", "+Format(DOSXYZ_Input(beam).i_dbs,"#")+ ", "+Format(egsinp.r_dbs,"#")+", "+Format(egsinp.ssd_dbs,"#")+", "+ Format(egsinp.z_dbs,"#")+", "+ Format(egsinp.e_split,"#")+", "+ Format(egsinp.i_muidx_out,"#.#####")+EndOfLine.UNIX
+		    
+		    
+		    for i=0 to (egsinp.nset-1)
+		      file=file+Format(egsinp.isox(i),"-#.########")+", "+Format(egsinp.isoy(i),"-#.########")+", "+Format(egsinp.isoz(i),"-#.########")+", "+Format(egsinp.theta(i),"-#.########")+", "+Format(egsinp.phi(i),"-#.########")+", "+Format(egsinp.phicol(i),"-#.########")+", "+Format(egsinp.dsources(i),"-#.########")+", "+Format(egsinp.muIndex(i),"-#.########")+", "+EndOfLine.UNIX
+		    Next
 		    
 		    
 		  elseif DOSXYZ_Input(beam).isource=21  Then // Synchronized BEAM treatment head simulation
@@ -1024,7 +1032,7 @@ Protected Class Class_DOSXYZ
 		    // Name of file conatining phase space data
 		    File=file+egsinp.FILNAM+EndOfLine.UNIX
 		    
-		  elseif (egsinp.enflag=2 or egsinp.enflag=3) and (egsinp.isource=21 or egsinp.isource=9 or egsinp.isource=11 ) Then // Shared lib source
+		  elseif (egsinp.enflag=2 or egsinp.enflag=3) and (egsinp.isource=21 or egsinp.isource=20 or egsinp.isource=9 or egsinp.isource=11 ) Then // Shared lib source
 		    
 		    if (egsinp.isource=21) Then
 		      if Len(egsinp.the_vcu_code)<2 Then
@@ -1032,7 +1040,10 @@ Protected Class Class_DOSXYZ
 		        egsinp.the_vcu_input_file="0"
 		      end
 		      File=file+egsinp.the_beam_code+", "+egsinp.the_input_file+", "+egsinp.the_pegs_file+", "+egsinp.the_vcu_code+", "+egsinp.the_vcu_input_file+ EndOfLine.UNIX
+		    elseif egsinp.isource=20 Then
+		      File=file+egsinp.the_shared_lib +", "+egsinp.FILNAM+", "+egsinp.the_input_file+EndOfLine.UNIX
 		    else
+		      
 		      File=file+egsinp.the_beam_code+", "+egsinp.the_input_file+", "+egsinp.the_pegs_file+EndOfLine.UNIX
 		    end
 		  end
