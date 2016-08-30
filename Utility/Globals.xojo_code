@@ -1003,8 +1003,10 @@ Protected Module Globals
 		                exit for x // go to next shell
 		              end 
 		              
-		            elseif dd.DOSXYZ_Input(x).isource=9 or dd.DOSXYZ_Input(x).isource=11 or dd.DOSXYZ_Input(x).isource=21 Then // For Lib sources only
-		              
+		            elseif dd.DOSXYZ_Input(x).isource=9 or dd.DOSXYZ_Input(x).isource=10 or _
+		              dd.DOSXYZ_Input(x).isource=20 or dd.DOSXYZ_Input(x).isource=11 or _
+		              dd.DOSXYZ_Input(x).isource=21 Then // For Lib sources only
+		              //AAA
 		              if dd.DOSXYZ_Input(x).dos_Shell=sname or dd.DOSXYZ_Input(x).AutoShell Then
 		                
 		                // We have a dosxyznrc simulation using this shell, or simulation can run on any shell

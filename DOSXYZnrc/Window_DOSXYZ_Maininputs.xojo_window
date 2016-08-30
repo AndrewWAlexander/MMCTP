@@ -75,7 +75,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Global electron cutoff energy - ECUT (MeV)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -153,7 +152,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Global photon cutoff energy - PCUT (MeV)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -262,7 +260,6 @@ Begin Window Window_DOSXYZ_Maininputs
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Print 20 highest doses"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -387,7 +384,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -496,7 +492,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Incident particle"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -562,7 +557,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Source type"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -628,7 +622,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Maximum CPU time (hours)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -706,7 +699,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "RNG seed 1"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -784,7 +776,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "# times to recyle each partice in phase space source"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -862,7 +853,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "RNG seed 2"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -940,7 +930,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Incident beam size (source 2, 4 or 8)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1124,7 +1113,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "ESAVE (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1159,7 +1147,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Medium of region outside phantom"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1225,7 +1212,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Range rejection"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1291,7 +1277,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   26
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Thickness of region outside phantom is"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1357,7 +1342,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Run Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1454,7 +1438,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "'HOWFARLESS'"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1594,7 +1577,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Photon Splitting Number"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1691,7 +1673,6 @@ Begin Window Window_DOSXYZ_Maininputs
       Selectable      =   False
       TabIndex        =   38
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Output restart data"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1755,6 +1736,7 @@ End
 		  PopupMenu_source.AddRow "3 - Point source from front" 
 		  PopupMenu_source.AddRow "8 - Phase-Space Source Incident from Multiple Directions"
 		  PopupMenu_source.AddRow "9 - BEAM treatment head simulation"
+		  PopupMenu_source.AddRow "10 - Full BEAMnrc Treatment Head Simulation Incident from Multiple Directions"
 		  PopupMenu_source.AddRow "11 - TOMOBEAM treatment head simulation"
 		  PopupMenu_source.AddRow "20 - Simulation through moving MLC with multiple variable settins"
 		  PopupMenu_source.AddRow "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
@@ -1836,13 +1818,15 @@ End
 		    
 		  elseif dosxyz_input.isource=9 Then
 		    PopupMenu_source.ListIndex=4
+		  elseif dosxyz_input.isource=10 Then
+		    PopupMenu_source.ListIndex=5
 		    
 		  elseif dosxyz_input.isource=11 Then
-		    PopupMenu_source.ListIndex=5
-		  elseif dosxyz_input.isource=20 Then
 		    PopupMenu_source.ListIndex=6
-		  elseif dosxyz_input.isource=21 Then
+		  elseif dosxyz_input.isource=20 Then
 		    PopupMenu_source.ListIndex=7
+		  elseif dosxyz_input.isource=21 Then
+		    PopupMenu_source.ListIndex=8
 		    
 		  end
 		  
@@ -2058,13 +2042,17 @@ End
 		      Window_DOSXYZ_Maininputs_source9.Show
 		      
 		    elseif me.ListIndex=5 Then
+		      dosxyz_input.isource=10
+		      Window_DOSXYZ_Maininputs_source10.Show
+		      
+		    elseif me.ListIndex=6 Then
 		      dosxyz_input.isource=11
 		      Window_DOSXYZ_Maininputs_source11.Show
 		      
-		    elseif me.ListIndex=6 Then //20 - Simulation through moving MLC with multiple variable settins"
+		    elseif me.ListIndex=7 Then //20 - Simulation through moving MLC with multiple variable settins"
 		      dosxyz_input.isource=20
 		      
-		    elseif me.ListIndex=7 Then // "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
+		    elseif me.ListIndex=8 Then // "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
 		      dosxyz_input.isource=21
 		      Window_DOSXYZ_Maininputs_source21.Show
 		      
