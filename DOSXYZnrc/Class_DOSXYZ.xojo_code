@@ -582,7 +582,15 @@ Protected Class Class_DOSXYZ
 		  elseif one_file.isource=21 or one_file.isource=20 Then // Tony Popescu and Julio Lobo source
 		    one_file.nset=val(NthField(temp,",",3))
 		    one_file.i_dbs=val(NthField(temp,",",4))
-		    one_file.e_split=val(NthField(temp,",",5))
+		    if one_file.isource=21 Then
+		      one_file.e_split=val(NthField(temp,",",5))
+		    else
+		      one_file.r_dbs=val(NthField(temp,",",5))
+		      one_file.ssd_dbs=val(NthField(temp,",",6))
+		      one_file.z_dbs=val(NthField(temp,",",7))
+		      one_file.e_split=val(NthField(temp,",",8))
+		      one_file.i_muidx_out=val(NthField(temp,",",9))
+		    end
 		    
 		    ReDim one_file.isox(one_file.nset-1)
 		    ReDim one_file.isoy(one_file.nset-1)
@@ -634,15 +642,21 @@ Protected Class Class_DOSXYZ
 		    // Phsp space file name
 		    one_file.FILNAM=temp
 		    
-		  elseif one_file.enflag=2 and (one_file.isource=9 or one_file.isource=11 or one_file.isource=21 or one_file.isource=10) Then
+		  elseif one_file.enflag=2 and (one_file.isource=9 or one_file.isource=11 or one_file.isource=21 or one_file.isource=20 or one_file.isource=10) Then
 		    // BEAMnrc source 
-		    one_file.the_beam_code=Trim(NthField(temp,",",1))
-		    one_file.the_input_file=Trim(NthField(temp,",",2))
-		    one_file.the_pegs_file=Trim(NthField(temp,",",3))
-		    one_file.the_vcu_code=Trim(NthField(temp,",",4))
-		    one_file.the_vcu_input_file=Trim(NthField(temp,",",5))
+		    
+		    if one_file.isource=20  Then
+		      one_file.the_shared_lib=Trim(NthField(temp,",",1))
+		      one_file.FILNAM=Trim(NthField(temp,",",2))
+		      one_file.the_input_file=Trim(NthField(temp,",",3))
+		    else
+		      one_file.the_beam_code=Trim(NthField(temp,",",1))
+		      one_file.the_input_file=Trim(NthField(temp,",",2))
+		      one_file.the_pegs_file=Trim(NthField(temp,",",3))
+		      one_file.the_vcu_code=Trim(NthField(temp,",",4))
+		      one_file.the_vcu_input_file=Trim(NthField(temp,",",5))
+		    end
 		  end
-		  
 		  
 		  //Record SC3c
 		  if one_file.enflag=3 Then

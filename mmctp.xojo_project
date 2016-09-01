@@ -81,6 +81,7 @@ Window=Window_DOSXYZ_Maininputs_source9;DOSXYZnrc/Window_DOSXYZ_Maininputs_sourc
 Window=Window_DOSXYZ_Maininputs_source10;DOSXYZnrc/Window_DOSXYZ_Maininputs_source10.xojo_window;&h1FCBF7FF;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_source11;DOSXYZnrc/Window_DOSXYZ_Maininputs_source11.xojo_window;&h43A6A4E;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_source21;DOSXYZnrc/Window_DOSXYZ_Maininputs_source21.xojo_window;&h3B2117FF;&h1D71EDCC;false
+Window=Window_DOSXYZ_Maininputs_source20;DOSXYZnrc/Window_DOSXYZ_Maininputs_source20.xojo_window;&h207CB7FF;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_Thickness;DOSXYZnrc/Window_DOSXYZ_Maininputs_Thickness.xojo_window;&h32B42248;&h1D71EDCC;false
 Class=Thread_DOSXYZ;DOSXYZnrc/Thread_DOSXYZ.xojo_code;&h2D02BDA4;&h1D71EDCC;false
 Class=Class_DOSXYZ;DOSXYZnrc/Class_DOSXYZ.xojo_code;&h2F388300;&h1D71EDCC;false

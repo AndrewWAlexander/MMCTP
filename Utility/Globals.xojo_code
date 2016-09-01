@@ -929,7 +929,7 @@ Protected Module Globals
 		        // Look for a beam using that shell
 		        for x=0 to UBound(dd.DOSXYZ_Input) // X variable for each beam
 		          if dd.DOSXYZ_Input(x).dos_calculate Then
-		            if dd.DOSXYZ_Input(x).isource=2 or dd.DOSXYZ_Input(x).isource=20 or dd.DOSXYZ_Input(x).isource=8  Then // For Phase Space sources only
+		            if dd.DOSXYZ_Input(x).isource=2  or dd.DOSXYZ_Input(x).isource=8  Then // For Phase Space sources only
 		              if (gBEAM.egs_Get_Directory(x)  and  ((gBEAM.Beams(x).egs_progress=100 and gBEAM.Beams(x).egs_AddPhsp_Finished) or gBEAM.Beams(x).egs_Phsp_link)) Then
 		                
 		                if dd.DOSXYZ_Input(x).dos_Shell=sname  Then

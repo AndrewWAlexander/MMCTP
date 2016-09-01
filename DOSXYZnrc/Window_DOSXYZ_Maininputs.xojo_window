@@ -2051,6 +2051,7 @@ End
 		      
 		    elseif me.ListIndex=7 Then //20 - Simulation through moving MLC with multiple variable settins"
 		      dosxyz_input.isource=20
+		      Window_DOSXYZ_Maininputs_source20.Show
 		      
 		    elseif me.ListIndex=8 Then // "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
 		      dosxyz_input.isource=21

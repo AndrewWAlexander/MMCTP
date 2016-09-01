@@ -2338,6 +2338,7 @@ Inherits Thread
 		        Return False
 		      end
 		      
+		      egsinp.the_shared_lib=BEAMnrc_directoy
 		      egsinp.the_beam_code=BEAMnrc_directoy
 		      if gBEAM.Beams(beam).egs_pegs_file="" Then
 		        MC_Get_Linac_Properties_BEAMnrc_Pegsfile(Beam)
@@ -3097,7 +3098,11 @@ Inherits Thread
 		  
 		  // Determine which shell to use for isource 1,9
 		  if DOSXYZ(egs_index).DOSXYZ_Input(beam).autoshell Then
-		    if (DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=1 or DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=9 or DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=11) Then
+		    if (DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=1 or _
+		      DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=20 or  _
+		      DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=21 or  _
+		      DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=9 or _
+		      DOSXYZ(egs_index).DOSXYZ_Input(beam).isource=11) Then
 		      found=False
 		      for v=0 to UBound(gShells.Shells)
 		        if gShells.Shells(v).online Then
