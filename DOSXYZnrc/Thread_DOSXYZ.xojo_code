@@ -2385,15 +2385,10 @@ Inherits Thread
 		  
 		  // If we are using a phsp link
 		  if egsinp.MMCTP_auto Then
-		    if dosxyznrc_link=1 Then // For BEAMnrc link
-		      if gBEAM.Beams(beam).egs_Phsp_link then
-		        egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
-		      else
-		        egsinp.FILNAM=gBEAM.cc.dir+MC_file_name+str(beam+1)+".egsphsp1" //"/" between directoy and phsp name removed by William Davis
-		      end
-		      
-		      
-		    elseif dosxyznrc_link=2 Then // For Cutout simulations
+		    
+		    egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
+		    
+		    if dosxyznrc_link=2 Then // For Cutout simulations
 		      cc.dir=cc.Shell.egsnrc_folder_path+"cutoutmp/"
 		      egsinp.FILNAM=cc.dir+MC_file_name+str(beam+1)+"-cutout.egsphsp1"
 		    end

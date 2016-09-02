@@ -108,7 +108,7 @@ Inherits Thread
 		  //
 		  //---------------------------
 		  Dim f as FolderItem
-		  Dim location(-1),path,command,line,temp,egs_jobq as String
+		  Dim location(-1),path,command,line,temp,egs_jobq, i_iaea , istart, iscore,file_extension as String
 		  Dim ts as TextOutputStream
 		  Dim i as integer
 		  Dim good as Boolean
@@ -131,9 +131,19 @@ Inherits Thread
 		  // Assume there are no longer any jobs running
 		  gBEAM.Beams(beam).egs_BEAMnrc_active_jobs=0
 		  
+		  if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		    i_iaea="1"
+		  else
+		    i_iaea="0"
+		  end
+		  istart="1"
+		  iscore="1"
+		  
+		  file_extension=".egsphsp1"
+		  
 		  //remove any old phsp files, addphsp and delete w files and addphsp log
-		  line= "rm -f "+temp+".egsphsp1"+transfer_endline+_
-		  "addphsp "+temp+ " "+temp+" "+Format(gBEAM.beams(beam).egs_jobs,"#")+ " 1 1 > "+temp+".addphsptxt"
+		  line= "rm -f "+temp+file_extension+transfer_endline+_
+		  "addphsp "+temp+ " "+temp+" "+Format(gBEAM.beams(beam).egs_jobs,"#")+ " "+istart+" "+iscore+" "+i_iaea+" > "+temp+".addphsptxt"
 		  
 		  //Looks to me like this is the section that runs Addphsp.  In Shell Refresh, there's no evidence that this section ever happens.
 		  //Is this actually being sent to the command line?  Well, obviously it's not, but is the command to make it do so here?
@@ -235,7 +245,7 @@ Inherits Thread
 		  //Removing previous egsrun beams
 		  //
 		  //--------------------------------------
-		  Dim temp ,sql as String
+		  Dim temp ,phspname,sql as String
 		  Dim hh,record_found as Boolean
 		  Dim bb as RTOG_Beam_Geometry
 		  Dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
@@ -282,7 +292,16 @@ Inherits Thread
 		    beams(beam).egs_phsp_size=0
 		    Beams(beam).egs_phsp_num_particles=0
 		    Beams(beam).egs_phsp_num_photons=0
-		    beams(beam).egs_phsp_name=MC_file_name+str(beam+1)+".egsphsp1"
+		    
+		    
+		    if Beams(beam).Inputfile.IO_OPT=4 Then
+		      phspname=".1.IAEAphsp"
+		    else
+		      phspname=".egsphsp1"
+		    end
+		    beams(beam).egs_phsp_name=MC_file_name+str(beam+1)+phspname
+		    
+		    
 		    Beams(beam).egs_Start_Time=""
 		    Beams(beam).egs_Sim_Time=0
 		    
@@ -658,10 +677,23 @@ Inherits Thread
 
 	#tag Method, Flags = &h0
 		Sub egs_Initialize_One(num as Integer)
+		  Dim phspname as String
+		  
+		  
 		  Beams(num)=new Class_Beam
 		  Beams(num).Inputfile=new Class_Beam_Inputfile
 		  Beams(num).Inputfile.EGSnrc=new Class_EGSnrc_Inputs
-		  Beams(num).egs_phsp_name=MC_file_name+str(num+1)+".egsphsp1"
+		  
+		  
+		  if Beams(num).Inputfile.IO_OPT=4 Then
+		    phspname=".1.IAEAphsp"
+		  else
+		    phspname=".egsphsp1"
+		  end
+		  
+		  Beams(num).egs_phsp_name=MC_file_name+str(num+1)+phspname
+		  
+		  
 		  Beams(num).beam_number=num
 		  Beams(num).egs_auto_shell=egs_auto_shell
 		  Beams(num).egs_Phsp_Search=egs_auto_phsp
@@ -1019,7 +1051,7 @@ Inherits Thread
 		    Return
 		  end
 		  cc.beam_num=Window_BEAM_Phsp_Information.beam_index
-		  cc.command=cc.shell.listfiles +" *.egsphsp*"
+		  cc.command=cc.shell.listfiles +" *.egsphsp* *.1.IAEAphsp"
 		  cc.egs_phsp_list=True
 		  MMCTP_Shell_Refresh.All.Append cc
 		End Sub
@@ -1181,7 +1213,7 @@ Inherits Thread
 		  // else
 		  // returns that the phsp file dose not exist
 		  //------------------------------------------------------
-		  dim beam_num,inpfilename as string
+		  dim beam_num,inpfilename,phspname as string
 		  dim good as Boolean
 		  '========================================
 		  
@@ -1192,7 +1224,15 @@ Inherits Thread
 		    Return
 		  end
 		  if gBEAM.beams(beam).egs_phsp_link=False Then
-		    inpfilename=MC_file_name+beam_num+".egsphsp1"
+		    
+		    if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		      phspname=".1.IAEAphsp"
+		    else
+		      phspname=".egsphsp1"
+		    end
+		    
+		    
+		    inpfilename=MC_file_name+beam_num+phspname
 		  else
 		    inpfilename=gBEAM.beams(beam).egs_phsp_name
 		  end
@@ -1476,7 +1516,7 @@ Inherits Thread
 		  //
 		  //
 		  //====================================================
-		  dim tmpstr,inpfilename,path,temp,location(-1)  as string
+		  dim tmpstr,inpfilename,path,temp,location(-1),phspname  as string
 		  dim good as Boolean
 		  Dim f as FolderItem
 		  Dim ts as TextOutputStream
@@ -1485,7 +1525,15 @@ Inherits Thread
 		  good=egs_Get_Directory(beam)
 		  
 		  if gBEAM.beams(beam).egs_phsp_link=False Then
-		    inpfilename=MC_file_name+str(beam+1)+".egsphsp1"
+		    
+		    if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		      phspname=".1.IAEAphsp"
+		    else
+		      phspname=".egsphsp1"
+		    end
+		    
+		    
+		    inpfilename=MC_file_name+str(beam+1)+phspname
 		  else
 		    inpfilename=gBEAM.beams(beam).egs_phsp_name
 		  end
