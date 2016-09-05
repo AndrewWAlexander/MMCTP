@@ -934,6 +934,64 @@ Inherits Canvas
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Make_ColourWash(value as Single,dmin as Single, dmax as Single) As Integer
+		  //-----------------------------------------------------
+		  // Method to draw Axial Dose properties
+		  //
+		  //-----------------------------------------------------
+		  dim tmpint as integer
+		  dim rangecw,h as Single
+		  //==========================
+		  
+		  
+		  
+		  
+		  if gVis.Colourwash_options Then
+		    rangecw=gVis.ColourWashMax-gVis.ColourWashMin
+		  else
+		    rangecw=dmax-dmin
+		  end
+		  
+		  if rangecw=0 then
+		    tmpint=0
+		  else
+		    
+		    if gVis.Colourwash_options Then
+		      h=value-gVis.ColourWashMin
+		      
+		      if h<gVis.ColourWashMin Then
+		        h=0
+		      elseif h>gVis.ColourWashMax Then
+		        h=gVis.ColourWashMax
+		        tmpint=255
+		      else
+		        tmpint=abs(Round(255*h/rangecw))
+		      end
+		      
+		      if tmpint>255 Then
+		        tmpint=255
+		      end
+		      
+		      
+		    else
+		      h=value-dmin
+		      
+		      tmpint=abs(Round(255*h/rangecw))
+		      if tmpint>255 or tmpint<0 Then
+		        tmpint=0
+		      end
+		    end
+		    
+		    
+		    
+		  end
+		  
+		  
+		  Return tmpint
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Make_Dose_Axial()
 		  //-----------------------------------------------------
 		  // Method to draw Axial Dose properties
@@ -1051,15 +1109,7 @@ Inherits Canvas
 		  gg = Pic_Dose.graphics
 		  for i=0 to thedose.Size_of_Dimension2-1
 		    for j=0 to thedose.Size_of_Dimension1-1
-		      //testv=Z(j,i)
-		      if (thedose.Dmax-thedose.Dmin)=0 then
-		        tmpint=0
-		      else
-		        tmpint=abs(Round((255*(Z(j,i)-thedose.Dmin)/(thedose.Dmax-thedose.Dmin))))
-		      end
-		      if tmpint>255 or tmpint<0 Then
-		        tmpint=0
-		      end
+		      tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
 		      if Window_Treatment.colour_wash=2 then
 		        gg.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		      else
