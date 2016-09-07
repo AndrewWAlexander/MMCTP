@@ -1223,19 +1223,7 @@ Inherits Canvas
 		      gg = Pic_Dose.graphics
 		      for i=0 to dose.Size_of_Dimension3-1
 		        for j=0 to dose.Size_of_Dimension1-1
-		          
-		          
-		          if dose.Dmax-dose.Dmin=0 then
-		            tmpint=0
-		          else
-		            tmpint=abs(Round((255*(Z(j,i)-dose.Dmin)/(dose.Dmax-dose.Dmin))))
-		          end
-		          
-		          if tmpint>255 or tmpint<0 Then
-		            tmpint=0
-		            
-		          end
-		          
+		          tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
 		          if Window_Treatment.colour_wash=2 then
 		            gg.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		          else
@@ -1640,16 +1628,7 @@ Inherits Canvas
 		        if Pic_Dose<> Nil Then
 		          for i=0 to dose.Size_of_Dimension3-1
 		            for j=0 to dose.Size_of_Dimension2-1
-		              
-		              if dose.Dmax-dose.Dmin=0 then
-		                tmpint=0
-		              else
-		                tmpint=abs(Round((255*(Z(j,i)-dose.Dmin)/(dose.Dmax-dose.Dmin))))
-		              end
-		              if tmpint>255 or tmpint<0 Then
-		                tmpint=0
-		              end
-		              
+		              tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
 		              if Window_Treatment.colour_wash=2 then
 		                Pic_Dose.Graphics.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		              else
