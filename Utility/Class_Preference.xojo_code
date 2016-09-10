@@ -203,13 +203,7 @@ Protected Class Class_Preference
 		      modstr=trim(NthField(tempstr,":=",2))
 		      
 		      try
-		        if TargetWindows Then
-		          f= new FolderItem(modstr, FolderItem.PathTypeShell)
-		        else
-		          f= new FolderItem(modstr, FolderItem.PathTypeNative)
-		        end
-		        
-		        
+		        f= new FolderItem(modstr, FolderItem.PathTypeShell)
 		      Exception err as RuntimeException
 		        Errors.Append "Error within read preference folders/files"
 		        

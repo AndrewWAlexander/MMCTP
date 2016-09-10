@@ -346,8 +346,13 @@ Window=Window_ColourWash;Treatment Planning/Window_ColourWash.xojo_window;&h6041
 AppMenuBar=MenuBar_Main
 MajorVersion=9
 MinorVersion=1
+<<<<<<< HEAD:mmctp.xojo_project
 SubVersion=8
 NonRelease=474
+=======
+SubVersion=6
+NonRelease=475
+>>>>>>> master:mmctpvmain_9.1.6.xojo_project
 Release=2
 InfoVersion=
 LongVersion=
@@ -357,12 +362,12 @@ WinInternalName=
 WinProductName=McGill Monte Carlo Treatment Planning
 WinFileDescription=
 AutoIncrementVersionInformation=True
-BuildFlags=&h910
+BuildFlags=&h4900
 BuildLanguage=&h1
 DebugLanguage=&h1
 Region=0
 WindowsName=MMCTP
-MacCarbonMachName=MMCTP11
+MacCarbonMachName=MMCTP
 LinuxX86Name=MMCTP
 MacCreator=????
 MDI=1
