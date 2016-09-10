@@ -2,7 +2,6 @@
 Begin Window Window_Configurations_DOSXYZnrcSettings
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -43,7 +42,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -72,7 +71,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   8
          TabPanelIndex   =   0
@@ -104,7 +103,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   12
          TabPanelIndex   =   0
@@ -136,7 +135,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   13
          TabPanelIndex   =   0
@@ -168,7 +167,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   14
          TabPanelIndex   =   0
@@ -200,7 +199,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   18
          TabPanelIndex   =   0
@@ -232,7 +231,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   22
          TabPanelIndex   =   0
@@ -264,7 +263,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   25
          TabPanelIndex   =   0
@@ -306,7 +305,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   26
          TabPanelIndex   =   0
          TabStop         =   True
@@ -338,7 +337,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -367,7 +366,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
@@ -399,7 +398,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -430,7 +429,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -473,7 +472,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   True
          ScrollBarVertical=   True
          SelectionType   =   0
@@ -508,7 +507,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
@@ -535,7 +534,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -564,7 +563,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -593,7 +592,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
          TabStop         =   True
@@ -623,7 +622,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   21
       TabPanelIndex   =   0
       TabStop         =   True
@@ -662,7 +661,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
          TabStop         =   True
@@ -695,7 +694,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -730,7 +729,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -775,7 +774,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   3
          TabPanelIndex   =   0
          TabStop         =   True
@@ -818,7 +817,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   4
          TabPanelIndex   =   0
          TabStop         =   True
@@ -851,7 +850,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
@@ -896,7 +895,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
@@ -929,7 +928,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
@@ -964,7 +963,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
@@ -1009,7 +1008,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   9
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1052,7 +1051,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   10
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1085,7 +1084,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   11
          TabPanelIndex   =   0
@@ -1119,7 +1118,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   22
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1162,7 +1161,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          LockRight       =   False
          LockTop         =   False
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0

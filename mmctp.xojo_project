@@ -1,5 +1,5 @@
 Type=Desktop
-RBProjectVersion=2016.02
+RBProjectVersion=2016.021
 MinIDEVersion=20070100
 Folder=Utility;Utility;&h22CC0B19;&h0;false
 Window=Window_About;Utility/Window_About.xojo_window;&hBCB54000;&h22CC0B19;false
@@ -78,7 +78,10 @@ Window=Window_DOSXYZ_Maininputs_source2;DOSXYZnrc/Window_DOSXYZ_Maininputs_sourc
 Window=Window_DOSXYZ_Maininputs_source3;DOSXYZnrc/Window_DOSXYZ_Maininputs_source3.xojo_window;&h58690D9B;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_source8;DOSXYZnrc/Window_DOSXYZ_Maininputs_source8.xojo_window;&h3D4722CD;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_source9;DOSXYZnrc/Window_DOSXYZ_Maininputs_source9.xojo_window;&h45694014;&h1D71EDCC;false
+Window=Window_DOSXYZ_Maininputs_source10;DOSXYZnrc/Window_DOSXYZ_Maininputs_source10.xojo_window;&h1FCBF7FF;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_source11;DOSXYZnrc/Window_DOSXYZ_Maininputs_source11.xojo_window;&h43A6A4E;&h1D71EDCC;false
+Window=Window_DOSXYZ_Maininputs_source21;DOSXYZnrc/Window_DOSXYZ_Maininputs_source21.xojo_window;&h3B2117FF;&h1D71EDCC;false
+Window=Window_DOSXYZ_Maininputs_source20;DOSXYZnrc/Window_DOSXYZ_Maininputs_source20.xojo_window;&h207CB7FF;&h1D71EDCC;false
 Window=Window_DOSXYZ_Maininputs_Thickness;DOSXYZnrc/Window_DOSXYZ_Maininputs_Thickness.xojo_window;&h32B42248;&h1D71EDCC;false
 Class=Thread_DOSXYZ;DOSXYZnrc/Thread_DOSXYZ.xojo_code;&h2D02BDA4;&h1D71EDCC;false
 Class=Class_DOSXYZ;DOSXYZnrc/Class_DOSXYZ.xojo_code;&h2F388300;&h1D71EDCC;false
@@ -337,13 +340,19 @@ Class=Class_MMCTP_Timer_Windows;Utility/Class_MMCTP_Timer_Windows.xojo_code;&h3D
 Class=Class_MMCTP_Timer_ProgressWindow;Utility/Class_MMCTP_Timer_ProgressWindow.xojo_code;&h44C94FFF;&h22CC0B19;false
 Class=Class_BEAM_CM_ARCCHM;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_ARCCHM.xojo_code;&h3BD567FF;&h39B4467D;false
 Class=Class_BEAM_CM_SYNCMLCE;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_SYNCMLCE.xojo_code;&h71485DA4;&h39B4467D;false
-Window=Window_DOSXYZ_Maininputs_source21;DOSXYZnrc/Window_DOSXYZ_Maininputs_source21.xojo_window;&h3B2117FF;&h1D71EDCC;false
 Class=CustomReportField;Utility/CustomReportField.xojo_code;&h2103FFFF;&h22CC0B19;false
+Class=Class_BEAM_CM_CONESTAK;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_CONESTAK.xojo_code;&h786E07FF;&h39B4467D;false
+Window=Window_ColourWash;Treatment Planning/Window_ColourWash.xojo_window;&h60417FF;&h628F7F8;false
 AppMenuBar=MenuBar_Main
 MajorVersion=9
 MinorVersion=1
+<<<<<<< HEAD:mmctp.xojo_project
+SubVersion=8
+NonRelease=474
+=======
 SubVersion=6
 NonRelease=475
+>>>>>>> master:mmctpvmain_9.1.6.xojo_project
 Release=2
 InfoVersion=
 LongVersion=
@@ -364,7 +373,7 @@ MacCreator=????
 MDI=1
 MDICaption=MMCTP
 DefaultEncoding=&h8000100
-AppIcon=mmctpvmain_9.xojo_resources;&h157F4
+AppIcon=mmctp.xojo_resources;&h157F4
 OSXBundleID=com.mycompany.MMCTP
 DebuggerCommandLine=
 UseGDIPlus=False

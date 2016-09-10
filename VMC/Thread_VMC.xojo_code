@@ -10,7 +10,7 @@ Inherits Thread
 		  Dim good as Boolean
 		  
 		  While vmc_adddose or vmc_DMX_make or vmc_status or vmc_run
-		     
+		    
 		    
 		    if vmc_run Then
 		      
@@ -850,7 +850,7 @@ Inherits Thread
 		  dz=vv.DMX.Del_Z
 		  
 		  memblock=new MemoryBlock(vv.DMX.X_num*vv.DMX.Y_num*vv.DMX.Z_num*4)  //4 bytes floats
-		   //Above line changed to "new MemoryBlock" by William Davis when newmemoryBlock was found to have been deprecated
+		  //Above line changed to "new MemoryBlock" by William Davis when newmemoryBlock was found to have been deprecated
 		  memblock.littleEndian=false
 		  
 		  max=-1000000

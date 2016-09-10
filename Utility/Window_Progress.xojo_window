@@ -2,7 +2,6 @@
 Begin Window Window_Progress
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   False
    Compatibility   =   ""
    Composite       =   False
@@ -77,7 +76,7 @@ Begin Window Window_Progress
       LockTop         =   False
       Maximum         =   100
       Scope           =   0
-      TabIndex        =   1
+      TabIndex        =   "1"
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   90

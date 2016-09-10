@@ -2,7 +2,6 @@
 Begin Window Window_Transfer
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   False
    Compatibility   =   ""
    Composite       =   False

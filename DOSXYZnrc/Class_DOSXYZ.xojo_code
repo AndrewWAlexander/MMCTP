@@ -158,7 +158,7 @@ Protected Class Class_DOSXYZ
 		          DOSXYZ_Input(a).dos_test_histories=Val(NthField(Temp,"=",2))
 		          
 		          
-		         ElseIf InStr(Temp,"% error of test histories")>0 Then
+		        ElseIf InStr(Temp,"% error of test histories")>0 Then
 		          DOSXYZ_Input(a).dos_error_math_error=Val(NthField(Temp,"=",2))
 		          
 		        ElseIf InStr(Temp,"Num hist for %error test")>0 Then
@@ -184,7 +184,7 @@ Protected Class Class_DOSXYZ
 		          
 		          
 		          
-		           
+		          
 		        ElseIf InStr(Temp,"Pegs file")>0 Then
 		          DOSXYZ_Input(a).dos_pegs_file=Trim(NthField(Temp,"=",2))
 		          
@@ -501,7 +501,7 @@ Protected Class Class_DOSXYZ
 		    one_file.yinu=val(NthField(temp,",",6))
 		    one_file.ssd=val(NthField(temp,",",7))
 		    
-		  elseif one_file.isource=8 Then //Phase-Space Source Incident from Multiple Directions 
+		  elseif one_file.isource=8 or one_file.isource=10 Then //Phase-Space, or sharelib Source Incident from Multiple Directions 
 		    one_file.xiso=val(NthField(temp,",",3))
 		    one_file.yiso=val(NthField(temp,",",4))
 		    one_file.ziso=val(NthField(temp,",",5))
@@ -582,7 +582,15 @@ Protected Class Class_DOSXYZ
 		  elseif one_file.isource=21 or one_file.isource=20 Then // Tony Popescu and Julio Lobo source
 		    one_file.nset=val(NthField(temp,",",3))
 		    one_file.i_dbs=val(NthField(temp,",",4))
-		    one_file.e_split=val(NthField(temp,",",5))
+		    if one_file.isource=21 Then
+		      one_file.e_split=val(NthField(temp,",",5))
+		    else
+		      one_file.r_dbs=val(NthField(temp,",",5))
+		      one_file.ssd_dbs=val(NthField(temp,",",6))
+		      one_file.z_dbs=val(NthField(temp,",",7))
+		      one_file.e_split=val(NthField(temp,",",8))
+		      one_file.i_muidx_out=val(NthField(temp,",",9))
+		    end
 		    
 		    ReDim one_file.isox(one_file.nset-1)
 		    ReDim one_file.isoy(one_file.nset-1)
@@ -634,15 +642,21 @@ Protected Class Class_DOSXYZ
 		    // Phsp space file name
 		    one_file.FILNAM=temp
 		    
-		  elseif one_file.enflag=2 and (one_file.isource=9 or one_file.isource=11 or one_file.isource=21) Then
+		  elseif one_file.enflag=2 and (one_file.isource=9 or one_file.isource=11 or one_file.isource=21 or one_file.isource=20 or one_file.isource=10) Then
 		    // BEAMnrc source 
-		    one_file.the_beam_code=Trim(NthField(temp,",",1))
-		    one_file.the_input_file=Trim(NthField(temp,",",2))
-		    one_file.the_pegs_file=Trim(NthField(temp,",",3))
-		    one_file.the_vcu_code=Trim(NthField(temp,",",4))
-		    one_file.the_vcu_input_file=Trim(NthField(temp,",",5))
+		    
+		    if one_file.isource=20  Then
+		      one_file.the_shared_lib=Trim(NthField(temp,",",1))
+		      one_file.FILNAM=Trim(NthField(temp,",",2))
+		      one_file.the_input_file=Trim(NthField(temp,",",3))
+		    else
+		      one_file.the_beam_code=Trim(NthField(temp,",",1))
+		      one_file.the_input_file=Trim(NthField(temp,",",2))
+		      one_file.the_pegs_file=Trim(NthField(temp,",",3))
+		      one_file.the_vcu_code=Trim(NthField(temp,",",4))
+		      one_file.the_vcu_input_file=Trim(NthField(temp,",",5))
+		    end
 		  end
-		  
 		  
 		  //Record SC3c
 		  if one_file.enflag=3 Then
@@ -952,12 +966,17 @@ Protected Class Class_DOSXYZ
 		    
 		    
 		    
-		  elseif DOSXYZ_Input(beam).isource=8 Then// we are using a phase space file from multi directions
-		    file=file+Format(egsinp.IQIN,"-#")+", 8, "+Format(egsinp.xiso,"-#.##")+", "+Format(egsinp.yiso,"-#.##")+", "+Format(egsinp.ziso,"-#.##")+_
-		    ", "+Format(egsinp.nang,"-#")+", "+Format(egsinp.dsource,"-#")+", "+ Format(egsinp.phicol(0),"-#.##")+_
-		    ", "+ Format(egsinp.i_dbs,"#")+", "+ Format(egsinp.r_dbs,"#.##")+", "+ Format(egsinp.ssd_dbs,"#.##")+", "+ Format(egsinp.z_dbs,"#.##")+_
-		    ", "+ Format(egsinp.e_split,"#")+EndOfLine.UNIX
+		  elseif DOSXYZ_Input(beam).isource=8 or DOSXYZ_Input(beam).isource=10 Then// we are using a phase space file from multi directions
 		    
+		    if DOSXYZ_Input(beam).isource=8 Then
+		      file=file+Format(egsinp.IQIN,"-#")+", "+Format(egsinp.isource,"#")+", "+Format(egsinp.xiso,"-#.##")+", "+Format(egsinp.yiso,"-#.##")+", "+Format(egsinp.ziso,"-#.##")+_
+		      ", "+Format(egsinp.nang,"-#")+", "+Format(egsinp.dsource,"-#")+", "+ Format(egsinp.phicol(0),"-#.##")+_
+		      ", "+ Format(egsinp.i_dbs,"#")+", "+ Format(egsinp.r_dbs,"#.##")+", "+ Format(egsinp.ssd_dbs,"#.##")+", "+ Format(egsinp.z_dbs,"#.##")+_
+		      ", "+ Format(egsinp.e_split,"#")+EndOfLine.UNIX
+		    elseif DOSXYZ_Input(beam).isource=10 Then
+		      file=file+Format(egsinp.IQIN,"-#")+", "+Format(egsinp.isource,"#")+", "+Format(egsinp.xiso,"-#.##")+", "+Format(egsinp.yiso,"-#.##")+", "+Format(egsinp.ziso,"-#.##")+_
+		      ", "+Format(egsinp.nang,"-#")+", "+Format(egsinp.dsource,"-#")+", "+ Format(egsinp.phicol(0),"-#.##")+", "+ Format(egsinp.i_dbs,"#") +", "+ Format(egsinp.e_split,"#")+EndOfLine.UNIX
+		    end
 		    
 		    // nang The number of incident theta-phi pairs or, if negative, then abs(nang) is the number
 		    // of groups of incident theta-phi pairs, where, within a group, all theta-phi pairs have
@@ -987,14 +1006,17 @@ Protected Class Class_DOSXYZ
 		    +", "+Format(egsinp.phi(0),"-#.##")+", "+Format(egsinp.dsource,"-#")+", "+ Format(egsinp.phicol(0),"-#.##")+", "+ Format(egsinp.i_dbs,"#")+", "+ Format(egsinp.e_split,"#")+EndOfLine.UNIX
 		    
 		    
-		    
 		  elseif DOSXYZ_Input(beam).isource=11  Then // We are using a Tomo lib source
 		    file=file+Format(egsinp.IQIN,"-#")+", 11, "+Format(egsinp.xiso,"-#.##")+", "+Format(egsinp.yiso,"-#.##")+", "+Format(egsinp.ziso,"-#.##")+", "+Format(egsinp.tomo_phi,"-#.##")_
 		    +", "+Format(egsinp.dsource,"-#.##")+", "+Format(egsinp.tomo_phicol,"-#.##")+", "+ Format(egsinp.i_dbs,"-#")+", "+ Format(egsinp.e_split,"#")+", "+ Format(egsinp.tomo_ipp,"#.##")+", "+ Format(egsinp.tomo_pitch,"-#.##")+", "+Format(egsinp.tomo_field_width,"-#.##")+EndOfLine.UNIX
-		    
 		    file=file+egsinp.path11+EndOfLine.UNIX
 		    
+		  elseif DOSXYZ_Input(beam).isource=20  Then // : Synchronized phase space source
+		    file=file+Format(egsinp.IQIN,"-#")+", "+Format(DOSXYZ_Input(beam).isource,"#")+",  "+ Format(egsinp.nset,"-#")+", "+Format(DOSXYZ_Input(beam).i_dbs,"#")+ ", "+Format(egsinp.r_dbs,"#")+", "+Format(egsinp.ssd_dbs,"#")+", "+ Format(egsinp.z_dbs,"#")+", "+ Format(egsinp.e_split,"#")+", "+ Format(egsinp.i_muidx_out,"#.#####")+EndOfLine.UNIX
 		    
+		    for i=0 to (egsinp.nset-1)
+		      file=file+Format(egsinp.isox(i),"-#.########")+", "+Format(egsinp.isoy(i),"-#.########")+", "+Format(egsinp.isoz(i),"-#.########")+", "+Format(egsinp.theta(i),"-#.########")+", "+Format(egsinp.phi(i),"-#.########")+", "+Format(egsinp.phicol(i),"-#.########")+", "+Format(egsinp.dsources(i),"-#.########")+", "+Format(egsinp.muIndex(i),"-#.########")+", "+EndOfLine.UNIX
+		    Next
 		    
 		  elseif DOSXYZ_Input(beam).isource=21  Then // Synchronized BEAM treatment head simulation
 		    file=file+Format(egsinp.IQIN,"-#")+",  "+Format(DOSXYZ_Input(beam).isource,"#")+ ", "+Format(egsinp.nset,"#")+", "+Format(egsinp.i_dbs,"#")+", "+ Format(egsinp.e_split,"#")+EndOfLine.UNIX
@@ -1024,7 +1046,7 @@ Protected Class Class_DOSXYZ
 		    // Name of file conatining phase space data
 		    File=file+egsinp.FILNAM+EndOfLine.UNIX
 		    
-		  elseif (egsinp.enflag=2 or egsinp.enflag=3) and (egsinp.isource=21 or egsinp.isource=9 or egsinp.isource=11 ) Then // Shared lib source
+		  elseif (egsinp.enflag=2 or egsinp.enflag=3) and (egsinp.isource=21 or egsinp.isource=20 or egsinp.isource=9 or egsinp.isource=11 or egsinp.isource=10) Then // Shared lib source
 		    
 		    if (egsinp.isource=21) Then
 		      if Len(egsinp.the_vcu_code)<2 Then
@@ -1032,6 +1054,8 @@ Protected Class Class_DOSXYZ
 		        egsinp.the_vcu_input_file="0"
 		      end
 		      File=file+egsinp.the_beam_code+", "+egsinp.the_input_file+", "+egsinp.the_pegs_file+", "+egsinp.the_vcu_code+", "+egsinp.the_vcu_input_file+ EndOfLine.UNIX
+		    elseif egsinp.isource=20 Then
+		      File=file+egsinp.the_shared_lib +", "+egsinp.FILNAM+", "+egsinp.the_input_file+EndOfLine.UNIX
 		    else
 		      File=file+egsinp.the_beam_code+", "+egsinp.the_input_file+", "+egsinp.the_pegs_file+EndOfLine.UNIX
 		    end

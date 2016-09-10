@@ -119,7 +119,9 @@ Protected Class Class_Linacs
 		        angles=temp
 		        for k=1 to p
 		          temp=trim(NthField(angles,"&",k))
-		          ff.Applicator.Append Temp
+		          ff.Applicator.Append NthField(Temp,"-!-",1)
+		          ff.BEAMnrcApplicatorCM.Append NthField(Temp,"-!-",2)
+		          ff.BEAMnrcApplicatorLabel.Append NthField(Temp,"-!-",3)
 		        next
 		      end
 		      
@@ -217,7 +219,7 @@ Protected Class Class_Linacs
 		  for i=0 to UBound(All_Linacs)
 		    if UBound(All_Linacs(i).MC_BEAMnrc_path)>= num Then
 		      
-		       All_Linacs(i).MC_BEAMnrc_path.remove num
+		      All_Linacs(i).MC_BEAMnrc_path.remove num
 		      All_Linacs(i).MC_dosxyz_dose.remove num
 		      All_Linacs(i).MC_VMC_dose.remove num
 		    end
@@ -241,7 +243,6 @@ Protected Class Class_Linacs
 		  
 		  file=""
 		  for i=0 to UBound( gLinacs.All_Linacs)
-		    
 		    file=file+gLinacs.All_Linacs(i).Mode+","
 		    file=file+gLinacs.All_Linacs(i).RT_name+","
 		    file=file+gLinacs.All_Linacs(i).Energy+","
@@ -271,10 +272,11 @@ Protected Class Class_Linacs
 		    '// Fill Applicators
 		    name=""
 		    for x=0 to UBound( gLinacs.All_Linacs(i).Applicator)
-		      if x=UBound( gLinacs.All_Linacs(i).Applicator) Then
-		        name=name+gLinacs.All_Linacs(i).Applicator(x)
+		      subname=gLinacs.All_Linacs(i).Applicator(x)+"-!-"+gLinacs.All_Linacs(i).BEAMnrcApplicatorCM(x)+"-!-"+gLinacs.All_Linacs(i).BEAMnrcApplicatorLabel(x)
+		      if x=UBound(gLinacs.All_Linacs(i).Applicator) Then
+		        name=name+subname
 		      else
-		        name=name+gLinacs.All_Linacs(i).Applicator(x)+"&"
+		        name=name+subname+"&"
 		      end
 		    next
 		    file=file+name+","
@@ -319,7 +321,6 @@ Protected Class Class_Linacs
 		    next
 		    file=file+name+","
 		    
-		    
 		    file=file+Format(gLinacs.All_Linacs(i).MC_BEAMnrc_part_density,"#")+","
 		    
 		    file=file+gLinacs.All_Linacs(i).MLC.MLC_Name+","
@@ -327,10 +328,8 @@ Protected Class Class_Linacs
 		    // Update STT table
 		    file=file+gLinacs.All_Linacs(i).STT_Table+","
 		    
-		    
 		    // Update Linac Type
 		    file=file+Format(gLinacs.All_Linacs(i).Type,"#")+local_endline
-		    
 		    
 		  next
 		  

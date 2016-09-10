@@ -53,7 +53,7 @@ Protected Class Class_Profile_One
 		    
 		    if (Get_Value_at_i(i)<= Pvalue and Pvalue<=Get_Value_at_i(i+1)) or  (Get_Value_at_i(i)>= Pvalue and Pvalue >=Get_Value_at_i(i+1)) Then
 		      
-		       //3D Interpolate along a line
+		      //3D Interpolate along a line
 		      
 		      distance_x=x-Points(i).x_cm
 		      distance_y=y-Points(i).y_cm
@@ -490,7 +490,7 @@ Protected Class Class_Profile_One
 		    if (Points(i).x_cm<= x and x<=Points(i+1).x_cm) or  (Points(i).x_cm>= x and x >=Points(i+1).x_cm) Then
 		      if (Points(i).y_cm<= y and y<=Points(i+1).y_cm) or (Points(i).y_cm>= y and y>=Points(i+1).y_cm) Then
 		        if (Points(i).z_cm<= z and z<=Points(i+1).z_cm) or (Points(i).z_cm>= z and z>=Points(i+1).z_cm) or dz=0 Then
-		           //3D Interpolate along a line
+		          //3D Interpolate along a line
 		          
 		          distance_x=x-Points(i).x_cm
 		          distance_y=y-Points(i).y_cm
@@ -994,7 +994,6 @@ Protected Class Class_Profile_One
 			// 0 = Measured
 			
 			// 1 = Calculated
-			
 		#tag EndNote
 		Source_TYPE As Integer
 	#tag EndProperty

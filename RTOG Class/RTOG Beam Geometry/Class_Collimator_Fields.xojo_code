@@ -1,6 +1,14 @@
 #tag Class
 Protected Class Class_Collimator_Fields
 	#tag Property, Flags = &h0
+		#tag Note
+			// 0 = clockwise
+			// 1 = counter clockwise
+		#tag EndNote
+		ARC_Direction As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Collimator_Angle As Single
 	#tag EndProperty
 
@@ -38,6 +46,12 @@ Protected Class Class_Collimator_Fields
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="ARC_Direction"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Collimator_Angle"
 			Group="Behavior"

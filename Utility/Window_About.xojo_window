@@ -2,7 +2,6 @@
 Begin Window Window_About
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -91,13 +90,14 @@ Begin Window Window_About
       Width           =   505
    End
    Begin Timer Timer1
+      Enabled         =   True
       Index           =   -2147483648
       InitialParent   =   ""
       LockedInPosition=   False
       Mode            =   2
       Period          =   20
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
    End
    Begin Label StaticText_CR
       AutoDeactivate  =   True

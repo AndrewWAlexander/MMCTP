@@ -2,7 +2,6 @@
 Begin Window Window_DOSXYZ_Maininputs_source21
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -794,7 +793,44 @@ End
 		    CheckBox_FAT_DBS.Value=False
 		  end
 		  
+		  UpdateListbox
+		  
+		  EditField_esplit.Text=Format(dosxyz_input.e_split,"-#")
+		  EditField_BEAM_exe.Text=dosxyz_input.the_beam_code
+		  EditField_BEAM_Inputfile.Text=dosxyz_input.the_input_file
+		  EditField_Pegs.Text=dosxyz_input.the_pegs_file
+		  EditField_num_control.Text=Format(dosxyz_input.nset,"#")
+		  
+		  PopupMenu_LatchBitFilter.DeleteAllRows
+		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=0"
+		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=1"
+		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=2"
+		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=3"
+		  
+		  PopupMenu_LatchBitFilter.ListIndex=dosxyz_input.I_bit_filter
+		  
+		  EditField_vcu_code.Text=dosxyz_input.the_vcu_code
+		  EditField_vcu_file.Text=dosxyz_input.the_vcu_input_file
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub UpdateListbox()
+		  Dim i as Integer
+		  
+		  Listbox_Points.DeleteAllRows
+		  
 		  Listbox_Points.ColumnCount=8
+		  
+		  Listbox_Points.ColumnType(0)=3
+		  Listbox_Points.ColumnType(1)=3
+		  Listbox_Points.ColumnType(2)=3
+		  Listbox_Points.ColumnType(3)=3
+		  Listbox_Points.ColumnType(4)=3
+		  Listbox_Points.ColumnType(5)=3
+		  Listbox_Points.ColumnType(6)=3
+		  Listbox_Points.ColumnType(7)=3
 		  
 		  for i=0 to (dosxyz_input.nset-1)
 		    Listbox_Points.AddRow
@@ -821,25 +857,8 @@ End
 		  Listbox_Points.heading(6)="D-Source"
 		  Listbox_Points.heading(7)="MU Index"
 		  
-		  
-		  EditField_esplit.Text=Format(dosxyz_input.e_split,"-#")
-		  EditField_BEAM_exe.Text=dosxyz_input.the_beam_code
-		  EditField_BEAM_Inputfile.Text=dosxyz_input.the_input_file
-		  EditField_Pegs.Text=dosxyz_input.the_pegs_file
-		  EditField_num_control.Text=Format(dosxyz_input.nset,"#")
-		  
-		  PopupMenu_LatchBitFilter.DeleteAllRows
-		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=0"
-		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=1"
-		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=2"
-		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=3"
-		  
-		  PopupMenu_LatchBitFilter.ListIndex=dosxyz_input.I_bit_filter
-		  
-		  EditField_vcu_code.Text=dosxyz_input.the_vcu_code
-		  EditField_vcu_file.Text=dosxyz_input.the_vcu_input_file
 		End Sub
-	#tag EndEvent
+	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
@@ -920,7 +939,24 @@ End
 #tag Events EditField_num_control
 	#tag Event
 		Sub TextChange()
+		  Dim i as Integer
+		  
 		  dosxyz_input.nset=val(me.Text)
+		  i=dosxyz_input.nset-1
+		  if dosxyz_input.nset>0 Then
+		    
+		    ReDim dosxyz_input.isox(i) 
+		    ReDim dosxyz_input.isoy(i) 
+		    ReDim dosxyz_input.isoz(i) 
+		    ReDim dosxyz_input.theta(i) 
+		    ReDim dosxyz_input.phi(i) 
+		    ReDim dosxyz_input.phicol(i) 
+		    ReDim dosxyz_input.dsources(i) 
+		    ReDim dosxyz_input.muIndex(i) 
+		    
+		    
+		  end
+		  UpdateListbox
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -928,6 +964,20 @@ End
 	#tag Event
 		Sub Change()
 		  dosxyz_input.I_bit_filter=me.ListIndex
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Listbox_Points
+	#tag Event
+		Sub CellTextChange(row as Integer, column as Integer)
+		  dosxyz_input.isox(row) =val( Listbox_Points.Cell(row,0))
+		  dosxyz_input.isoy(row) =val( Listbox_Points.Cell(row,1))
+		  dosxyz_input.isoz(row) = val(Listbox_Points.Cell(row,2))
+		  dosxyz_input.theta(row) = val(Listbox_Points.Cell(row,3))
+		  dosxyz_input.phi(row) = val(Listbox_Points.Cell(row,4))
+		  dosxyz_input.phicol(row) = val(Listbox_Points.Cell(row,5))
+		  dosxyz_input.dsources(row) =val( Listbox_Points.Cell(row,6))
+		  dosxyz_input.muIndex(row) = val(Listbox_Points.Cell(row,7))
 		End Sub
 	#tag EndEvent
 #tag EndEvents

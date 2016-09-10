@@ -1,17 +1,17 @@
 #tag Window
-Begin Window Window_Plan_Info
+Begin Window Window_ColourWash
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
-   Frame           =   0
+   Frame           =   3
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   593
+   Height          =   160
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   False
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -21,16 +21,17 @@ Begin Window Window_Plan_Info
    MinHeight       =   64
    MinimizeButton  =   True
    MinWidth        =   64
-   Placement       =   0
-   Resizeable      =   True
-   Title           =   "Plan Information"
+   Placement       =   1
+   Resizeable      =   False
+   Title           =   "Colourwash options"
    Visible         =   True
-   Width           =   570
-   Begin TabPanel TabPanel1
+   Width           =   352
+   Begin GroupBox GroupBox1
       AutoDeactivate  =   True
       Bold            =   False
+      Caption         =   "Colourwash Properties"
       Enabled         =   True
-      Height          =   559
+      Height          =   120
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -41,179 +42,170 @@ Begin Window Window_Plan_Info
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Panels          =   ""
       Scope           =   0
-      SmallTabs       =   False
-      TabDefinition   =   "Plan Information\rDose Calculations"
-      TabIndex        =   44
+      TabIndex        =   15
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   14
+      Top             =   20
       Underline       =   False
-      Value           =   0
       Visible         =   True
-      Width           =   530
-      Begin GroupBox GroupBox_MC_Plan
+      Width           =   312
+      Begin Label StaticText3
          AutoDeactivate  =   True
          Bold            =   False
-         Caption         =   "Run status for current plan"
+         DataField       =   ""
+         DataSource      =   ""
          Enabled         =   True
-         Height          =   307
+         Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "TabPanel1"
+         InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   37
+         Left            =   40
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
+         Multiline       =   False
          Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   2
-         TabStop         =   True
+         Selectable      =   False
+         TabIndex        =   5
+         TabPanelIndex   =   0
+         Text            =   "Maxdose value"
+         TextAlign       =   0
+         TextColor       =   &c00000000
          TextFont        =   "System"
-         TextSize        =   0.0
+         TextSize        =   12.0
          TextUnit        =   0
-         Top             =   254
+         Top             =   84
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
-         Width           =   496
-         Begin Listbox Listbox_MC_Running
-            AutoDeactivate  =   True
-            AutoHideScrollbars=   True
-            Bold            =   False
-            Border          =   True
-            ColumnCount     =   5
-            ColumnsResizable=   False
-            ColumnWidths    =   ""
-            DataField       =   ""
-            DataSource      =   ""
-            DefaultRowHeight=   -1
-            Enabled         =   True
-            EnableDrag      =   False
-            EnableDragReorder=   False
-            GridLinesHorizontal=   0
-            GridLinesVertical=   0
-            HasHeading      =   True
-            HeadingIndex    =   -1
-            Height          =   263
-            HelpTag         =   ""
-            Hierarchical    =   False
-            Index           =   -2147483648
-            InitialParent   =   "GroupBox_MC_Plan"
-            InitialValue    =   ""
-            Italic          =   False
-            Left            =   49
-            LockBottom      =   True
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   True
-            LockTop         =   True
-            RequiresSelection=   False
-            Scope           =   0
-            ScrollbarHorizontal=   False
-            ScrollBarVertical=   True
-            SelectionType   =   0
-            TabIndex        =   1
-            TabPanelIndex   =   2
-            TabStop         =   True
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   288
-            Underline       =   False
-            UseFocusRing    =   True
-            Visible         =   True
-            Width           =   472
-            _ScrollOffset   =   0
-            _ScrollWidth    =   -1
-         End
+         Width           =   91
       End
-      Begin PushButton PushButton_DOSXYZ_ReloadDefaults
+      Begin TextField EditField_ColourMax
+         AcceptTabs      =   False
+         Alignment       =   0
          AutoDeactivate  =   True
-         Bold            =   False
-         ButtonStyle     =   "0"
-         Cancel          =   False
-         Caption         =   "Reload MC default settings for plan beams (input files and MMCTP settings)"
-         Default         =   False
-         Enabled         =   True
-         Height          =   40
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "TabPanel1"
-         Italic          =   False
-         Left            =   37
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   2
-         TabStop         =   True
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   189
-         Underline       =   False
-         Visible         =   True
-         Width           =   496
-      End
-      Begin Listbox Listbox_Plan
-         AutoDeactivate  =   True
-         AutoHideScrollbars=   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
          Bold            =   False
          Border          =   True
-         ColumnCount     =   2
-         ColumnsResizable=   False
-         ColumnWidths    =   ""
+         CueText         =   ""
          DataField       =   ""
          DataSource      =   ""
-         DefaultRowHeight=   -1
          Enabled         =   True
-         EnableDrag      =   False
-         EnableDragReorder=   False
-         GridLinesHorizontal=   0
-         GridLinesVertical=   0
-         HasHeading      =   True
-         HeadingIndex    =   -1
-         Height          =   506
+         Format          =   ""
+         Height          =   22
          HelpTag         =   ""
-         Hierarchical    =   False
          Index           =   -2147483648
-         InitialParent   =   "TabPanel1"
-         InitialValue    =   ""
+         InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   30
-         LockBottom      =   True
+         Left            =   139
+         LimitText       =   0
+         LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         RequiresSelection=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
          Scope           =   0
-         ScrollbarHorizontal=   False
-         ScrollBarVertical=   True
-         SelectionType   =   0
-         TabIndex        =   0
-         TabPanelIndex   =   1
+         TabIndex        =   6
+         TabPanelIndex   =   0
          TabStop         =   True
+         Text            =   "2"
+         TextColor       =   &c00000000
          TextFont        =   "System"
-         TextSize        =   0.0
+         TextSize        =   12.0
          TextUnit        =   0
-         Top             =   52
+         Top             =   83
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   510
-         _ScrollOffset   =   0
-         _ScrollWidth    =   -1
+         Width           =   80
+      End
+      Begin TextField EditField_ColourMin
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   139
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   0
+         TabIndex        =   7
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   "2"
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   12.0
+         TextUnit        =   0
+         Top             =   56
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   80
+      End
+      Begin Label StaticText2
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   40
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   8
+         TabPanelIndex   =   0
+         Text            =   "Mindose value"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   12.0
+         TextUnit        =   0
+         Top             =   57
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   93
       End
    End
 End
@@ -222,119 +214,37 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Close()
-		  app.which_window_planinfo=False
-		  
-		  gRTOG.Plan(Plan_Index).Write_McGill_Plan(gRTOG.Plan(Plan_Index).Path)
+		  Window_Treatment.window_canvas_refresh
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub Open()
-		  app.which_window_planinfo=True
+		  EditField_ColourMax.text=Format(gvis.ColourWashMax,"#.####e")
+		  EditField_ColourMin.text=Format(gvis.ColourWashMin,"#.####e")
 		  
-		  MC_Count_Number_Jobs
-		  Listbox_MC_Running.Heading(0)="Shell"
-		  Listbox_MC_Running.Heading(1)="BEAMnrc Jobs"
-		  Listbox_MC_Running.Heading(2)="DOSXYZnrc Jobs"
-		  Listbox_MC_Running.Heading(3)="VMC Jobs"
-		  Listbox_MC_Running.Heading(4)="On-line?"
-		  
-		  MC_Jobs_Open
-		  
-		  
-		  Listbox_Plan.DeleteAllRows
-		  
-		  
-		  if UBound(gRTOG.Plan)>-1 Then
-		    Listbox_Plan.AddRow ( "Plan name", gRTOG.Plan(Plan_Index).Plan_Name)
-		  else
-		    Window_Plan_Info.Close
-		  End
-		  Listbox_Plan.ColumnType(1)=3
-		  Listbox_Plan.AddRow ( "SOP Instance UID", gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID)
-		  Listbox_Plan.AddRow ( "Plan Series UID", gRTOG.Plan(Plan_Index).DICOM_SeriesInstanceUID)
-		  Listbox_Plan.AddRow ( "Plan Series Description", gRTOG.Plan(Plan_Index).SeriesDescription)
-		  Listbox_Plan.AddRow ( "Plan Series Number", str(gRTOG.Plan(Plan_Index).DICOM_SeriesNumber))
-		  Listbox_Plan.AddRow ( "Plan Date", gRTOG.Plan(Plan_Index).Plan_Date)
-		  Listbox_Plan.AddRow ( "Rlan Time", gRTOG.Plan(Plan_Index).Plan_Time)
-		  Listbox_Plan.AddRow ( "Reviewer Name", gRTOG.Plan(Plan_Index).ReviewerName)
-		  Listbox_Plan.AddRow ( "Review Date", gRTOG.Plan(Plan_Index).ReviewDate)
-		  Listbox_Plan.AddRow ( "Review Time", gRTOG.Plan(Plan_Index).ReviewTime)
-		  Listbox_Plan.AddRow ( "Approval Status", gRTOG.Plan(Plan_Index).ApprovalStatus)
 		End Sub
 	#tag EndEvent
 
 
-	#tag Method, Flags = &h0
-		Sub MC_Jobs_Open()
-		  Dim i as Integer
-		  
-		  
-		  Listbox_MC_Running.DeleteAllRows
-		  
-		  
-		  if UBound(gRTOG.Plan)>-1 Then
-		    //EditField_CurrentPlan.Text=gRTOG.Plan(Plan_Index).Plan_ID+ " "+gRTOG.Plan(Plan_Index).Plan_Name
-		    for i=0 to UBound(gShells.Shells)
-		      Listbox_MC_Running.AddRow gShells.Shells(i).title
-		      if gBEAM<> nil Then
-		        Listbox_MC_Running.Cell(i,1)=str(gShells.Shells(i).BeamnrcJobs)
-		      end
-		      if gDOSXYZ<> nil Then
-		        Listbox_MC_Running.Cell(i,2)=str(gShells.Shells(i).DosxyznrcJobs)
-		      end
-		      if gVMC<> nil Then
-		        Listbox_MC_Running.Cell(i,3)=str(gShells.Shells(i).VMCJobs)
-		      end
-		      Listbox_MC_Running.CellType(i,4)=2
-		      Listbox_MC_Running.CellCheck(i,4)=gShells.Shells(i).online
-		    next
-		  end
-		  
-		End Sub
-	#tag EndMethod
-
-
 	#tag Property, Flags = &h0
-		Untitled As Integer
+		Iso As Class_Iso_Dose_Settings
 	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events Listbox_MC_Running
+#tag Events EditField_ColourMax
 	#tag Event
-		Sub CellAction(row As Integer, column As Integer)
-		  if column=4 Then
-		    gShells.Shells(row).online=me.CellCheck(row,column)
-		  end
+		Sub TextChange()
+		  gvis.ColourWashMax=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton_DOSXYZ_ReloadDefaults
+#tag Events EditField_ColourMin
 	#tag Event
-		Sub Action()
-		  Dim i as Integer
-		  
-		  if Plan_Index>=0 Then
-		    for i=0 to UBound(gRTOG.Plan(Plan_Index).Beam)
-		      MC_Get_Linac_Properties(i)
-		    next
-		  end
-		  
-		  MC_Save_settings
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events Listbox_Plan
-	#tag Event
-		Sub CellTextChange(row as Integer, column as Integer)
-		  if row=4 Then
-		    
-		    gRTOG.Plan(Plan_Index).DICOM_SeriesNumber=Val(me.Cell(row,column))
-		    
-		  end
-		  
+		Sub TextChange()
+		  gvis.ColourWashMin=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -551,11 +461,6 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Untitled"
-		Group="Behavior"
-		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"

@@ -2,7 +2,6 @@
 Begin Window Window_Treatment
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -361,7 +360,7 @@ Begin Window Window_Treatment
       TextUnit        =   0
       Top             =   537
       Underline       =   False
-      Value           =   3
+      Value           =   4
       Visible         =   True
       Width           =   1247
       Begin BevelButton BevelButton_DoseProfile_Properties
@@ -683,7 +682,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   73
          TabPanelIndex   =   4
-         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -718,7 +716,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   78
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -753,7 +750,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   9
-         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -978,7 +974,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   8
-            TabStop         =   True
             Text            =   "Point 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1013,7 +1008,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   8
-            TabStop         =   True
             Text            =   "Point 2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1423,7 +1417,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   6
-         TabStop         =   True
          Text            =   "DVH bins:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1502,7 +1495,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   6
-         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2021,7 +2013,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
-            TabStop         =   True
             Text            =   "Window"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2112,7 +2103,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   5
-            TabStop         =   True
             Text            =   "Scale Top %"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2190,7 +2180,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   5
-            TabStop         =   True
             Text            =   "Level"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2464,7 +2453,6 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   3
-         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2712,7 +2700,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   7
-            TabStop         =   True
             Text            =   "Min dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2747,7 +2734,6 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   7
-            TabStop         =   True
             Text            =   "Max dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2967,7 +2953,6 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   1
                   TabPanelIndex   =   7
-                  TabStop         =   True
                   Text            =   "Volume (%)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -3002,7 +2987,6 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   2
                   TabPanelIndex   =   7
-                  TabStop         =   True
                   Text            =   "Dose (Gy)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -3344,7 +3328,6 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   8
                TabPanelIndex   =   7
-               TabStop         =   True
                Text            =   "Plus/minus image pixel"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -3612,7 +3595,6 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   2
                TabPanelIndex   =   7
-               TabStop         =   True
                Text            =   "=cGy"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -3829,7 +3811,7 @@ End
 		  newb=new RTOG_Beam_Geometry
 		  newb.MLC=new Class_MLC
 		  newb.Collimator=new Class_Collimator
-		   
+		  
 		  
 		  ff=False
 		  
@@ -4456,8 +4438,8 @@ End
 		          
 		          
 		        elseif gRTOG.Points(m).X_cm=gRTOG.Plan(i).Dose(k).Points(m).x_cm and _
-		           gRTOG.Points(m).y_cm=gRTOG.Plan(i).Dose(k).Points(m).y_cm and _
-		           gRTOG.Points(m).z_cm=gRTOG.Plan(i).Dose(k).Points(m).z_cm  then
+		          gRTOG.Points(m).y_cm=gRTOG.Plan(i).Dose(k).Points(m).y_cm and _
+		          gRTOG.Points(m).z_cm=gRTOG.Plan(i).Dose(k).Points(m).z_cm  then
 		          
 		          
 		        else // Must recalculate dose values
@@ -5280,7 +5262,6 @@ End
 		    if old_d<>dose_index  then
 		      gVis.Iso.Calculate_Values
 		      Window_canvas_refresh_Dose
-		      
 		    end
 		  end
 		  
@@ -6568,6 +6549,30 @@ End
 		Sub Action()
 		  Window_canvas_refresh_Dose
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		  Dim s as String
+		  Dim i,last as Integer
+		  
+		  s="Set min/max,Use default"
+		  last= CountFields(s,",")
+		  For i=1 to last
+		    base.Append (new MenuItem(NthField(s,",",i)))
+		  Next
+		End Function
+	#tag EndEvent
+	#tag Event
+		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		  Select case hitItem.Text
+		  case "Set min/max"
+		    Window_ColourWash.Show
+		    gVis.Colourwash_options=True
+		  Case  "Use default"
+		    gVis.Colourwash_options=False
+		    
+		  end Select
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events CheckBox_Iso

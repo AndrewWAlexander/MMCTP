@@ -74,6 +74,68 @@ Protected Class Class_BEAM
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function egs_Input_CM_ARCCHM(CM as Class_Beam_Inputfile_CMs) As boolean
+		  //--------------------------------------------
+		  // Method to find the right ARCCHM Applicator  CM
+		  // 
+		  //
+		  //--------------------------------------------
+		  Dim temp,text(-1),app_id,prefix,label as String
+		  Dim f as FolderItem
+		  Dim ts as TextInputStream
+		  Dim un,mac,win,i as Integer
+		  //--------------------------------------------
+		  app_id=gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID
+		  
+		  
+		  for i=0 to UBound(gLinacs.All_Linacs(egs_linac_index).Applicator)
+		    if app_id=gLinacs.All_Linacs(egs_linac_index).Applicator(i) Then
+		      prefix=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorCM(i)
+		      label=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorLabel(i)
+		    end
+		  Next
+		  
+		  if cm.CM_Identifier=Label Then
+		    
+		    if app_id<>"" Then
+		      app_id=prefix+"-"+app_id
+		      
+		      f=gPref.BEAMnrc_fi
+		      f=f.Child(app_id+".egsinp")
+		      if f.Exists =False Then
+		        gBEAM.egs_msg.append "Error in CM ARCCHM ! Could not find file : "+f.Name
+		        Return False
+		      end
+		      
+		      ts=f.OpenAsTextFile
+		      temp=ts.ReadAll
+		      ts.Close
+		      
+		      un=CountFields(temp,EndOfLine.UNIX)
+		      mac=CountFields(temp,EndOfLine.Macintosh)
+		      win=CountFields(temp,EndOfLine.Windows)
+		      
+		      if mac>un Then
+		        text=Split(temp,EndOfLine.Macintosh)
+		      elseif Win>un Then
+		        text=Split(temp,EndOfLine.Windows)
+		      else
+		        text=Split(temp,EndOfLine.UNIX)
+		      end
+		      
+		      text.remove 0
+		      
+		      cm.ARCCHM.Read(text)
+		      
+		    end
+		    
+		  end
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub egs_Input_CM_BLOCK(CM as Class_Beam_Inputfile_CMs)
 		  //--------------------------------------------
 		  // Update BLOCK CM Applicator
@@ -179,6 +241,68 @@ Protected Class Class_BEAM
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function egs_Input_CM_CONSTAK(CM as Class_Beam_Inputfile_CMs) As boolean
+		  //--------------------------------------------
+		  // Method to find the right CONSTAK Applicator  CM
+		  // 
+		  //
+		  //--------------------------------------------
+		  Dim temp,text(-1),app_id,prefix,label as String
+		  Dim f as FolderItem
+		  Dim ts as TextInputStream
+		  Dim un,mac,win,i as Integer
+		  //--------------------------------------------
+		  app_id=gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID
+		  
+		  
+		  for i=0 to UBound(gLinacs.All_Linacs(egs_linac_index).Applicator)
+		    if app_id=gLinacs.All_Linacs(egs_linac_index).Applicator(i) Then
+		      prefix=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorCM(i)
+		      label=gLinacs.All_Linacs(egs_linac_index).BEAMnrcApplicatorLabel(i)
+		    end
+		  Next
+		  
+		  if cm.CM_Identifier=Label Then
+		    
+		    if app_id<>"" Then
+		      app_id=prefix+"-"+app_id
+		      
+		      f=gPref.BEAMnrc_fi
+		      f=f.Child(app_id+".egsinp")
+		      if f.Exists =False Then
+		        gBEAM.egs_msg.append "Error in CM CONSTAK ! Could not find file : "+f.Name
+		        Return False
+		      end
+		      
+		      ts=f.OpenAsTextFile
+		      temp=ts.ReadAll
+		      ts.Close
+		      
+		      un=CountFields(temp,EndOfLine.UNIX)
+		      mac=CountFields(temp,EndOfLine.Macintosh)
+		      win=CountFields(temp,EndOfLine.Windows)
+		      
+		      if mac>un Then
+		        text=Split(temp,EndOfLine.Macintosh)
+		      elseif Win>un Then
+		        text=Split(temp,EndOfLine.Windows)
+		      else
+		        text=Split(temp,EndOfLine.UNIX)
+		      end
+		      
+		      text.remove 0
+		      
+		      cm.CONESTAK.Read(text,label)
+		      
+		    end
+		    
+		  end
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub egs_Input_CM_DYNJAWS(dd as Class_BEAM_CM_DYNJAWS, bversion as String)
 		  //------------------------------------------
 		  // Update DYNJAW CM
@@ -240,7 +364,7 @@ Protected Class Class_BEAM
 		  
 		  cc=gRTOG.Plan(Plan_Index).Beam(beam_number).collimator
 		  
-		   // Z positions of x and y jaw pairs
+		  // Z positions of x and y jaw pairs
 		  for i=0 to dj.ISCM_MAX-1
 		    if i>-1 and i<=UBound(dj.DYN_Openings) Then
 		      if dj.XY_Choice(i)="Y" Then // Y Jaw
@@ -1736,7 +1860,7 @@ Protected Class Class_BEAM
 		    Elseif Inputfile.MONOEN=1 Then //1 Spectrum
 		      // Update Spectrum file path
 		      
-		       i=CountFields(Inputfile.Filnam,"/")
+		      i=CountFields(Inputfile.Filnam,"/")
 		      if i>0 Then
 		        temp=Trim(NthField(Inputfile.Filnam,"/",i))
 		        temp2=Trim(NthField(Inputfile.Filnam,"/",i-1))
@@ -2176,14 +2300,14 @@ Protected Class Class_BEAM
 		      Inputfile.NSC_PLANES=Val(NthField(temp," ",1))
 		      ReDim Inputfile.NSC(Inputfile.NSC_PLANES-1)
 		      for k=0 to Inputfile.NSC_PLANES-1
-		         Inputfile.NSC(k)=new Class_BEAM_Inputfile_NSC_Planes
-		         Inputfile.NSC(k).IPLANE_to_CM=Val(NthField(temp," ",2+k))
+		        Inputfile.NSC(k)=new Class_BEAM_Inputfile_NSC_Planes
+		        Inputfile.NSC(k).IPLANE_to_CM=Val(NthField(temp," ",2+k))
 		      next
 		      for k=0 to Inputfile.NSC_PLANES-1
 		        i=i+1+k
 		        temp=wholefile(i)
-		         Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
-		         Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
+		        Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
+		        Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
 		        if  Inputfile.NSC(k).NSC_ZONES>0 Then
 		          
 		          if  Inputfile.NSC(k).MZONE_TYPE=2 Then // For Grids
@@ -2382,7 +2506,7 @@ Protected Class Class_BEAM
 		  Dim beam_output as FolderItem
 		  Dim temp,file_name as String
 		  Dim write_ts as TextOutputStream
-		  Dim good as Boolean
+		  Dim good,mm as Boolean
 		  Dim i,k as Integer
 		  //====================================
 		  
@@ -2464,7 +2588,14 @@ Protected Class Class_BEAM
 		      Inputfile.CMs(i).MLC.Write_String(Inputfile.CMs(i))
 		      
 		    elseif Inputfile.CMs(i).CM_Names="ARCCHM" Then
+		      mm=egs_Input_CM_ARCCHM(Inputfile.CMs(i))
 		      Inputfile.CMs(i).ARCCHM.Write(Inputfile.CMs(i))
+		      
+		    elseif Inputfile.CMs(i).CM_Names="CONESTAK" Then
+		      mm=egs_Input_CM_CONSTAK(Inputfile.CMs(i))
+		      // Write settings to text
+		      Inputfile.CMs(i).CONESTAK.Write(Inputfile.CMs(i))
+		      
 		      
 		      
 		    elseif Inputfile.CMs(i).CM_Names="VARMLC" Then
@@ -2589,7 +2720,7 @@ Protected Class Class_BEAM
 
 	#tag Property, Flags = &h0
 		#tag Note
-			value = "CPUTIME per history" within egslog file 
+			value = "CPUTIME per history" within egslog file
 		#tag EndNote
 		egs_CPU_time_per_hist As single = 0
 	#tag EndProperty

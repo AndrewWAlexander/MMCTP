@@ -2,7 +2,6 @@
 Begin Window Window_Eclipse_Import
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -1228,7 +1227,7 @@ End
 		    pp.Distance=Sqrt(x*x+y*y+z*z)
 		    gProfiles.One_Profile.Append pp
 		  end
-		      Window_Commisssioning.Update_Profile
+		  Window_Commisssioning.Update_Profile
 		End Sub
 	#tag EndMethod
 

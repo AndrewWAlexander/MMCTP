@@ -15,24 +15,24 @@ Protected Class Class_BEAM_CM_MLC
 		  // BEAMnrc CM is for MLC STATIC
 		  if UBound(text)>=8 Then
 		    RMAX_CM=val(NthField(( text(0)),",",1))
-		     text.Remove 0
+		    text.Remove 0
 		    Title_CM=Trim( text(0))
-		     text.Remove 0
+		    text.Remove 0
 		    // Orient 0, for leaves parallel to Y direction
 		    // Orient 1, for leaves parallel to X direction
-		     IDMLFC_MLC=val(NthField(( text(0)),",",1))
-		     text.Remove 0
-		     ZMIN=val(NthField(( text(0)),",",1))
-		     text.Remove 0
-		     ZThick=val(NthField(( text(0)),",",1))
-		     text.Remove 0
-		     Num_leaf=val(NthField(( text(0)),",",1))
-		     TWIDTH_MLC=val(NthField(( text(0)),",",2))
-		     text.Remove 0
-		     zfocus_sides=val(NthField(( text(0)),",",1))
-		     text.Remove 0
-		     zfocus_ends=val(NthField(( text(0)),",",1))
-		     text.Remove 0
+		    IDMLFC_MLC=val(NthField(( text(0)),",",1))
+		    text.Remove 0
+		    ZMIN=val(NthField(( text(0)),",",1))
+		    text.Remove 0
+		    ZThick=val(NthField(( text(0)),",",1))
+		    text.Remove 0
+		    Num_leaf=val(NthField(( text(0)),",",1))
+		    TWIDTH_MLC=val(NthField(( text(0)),",",2))
+		    text.Remove 0
+		    zfocus_sides=val(NthField(( text(0)),",",1))
+		    text.Remove 0
+		    zfocus_ends=val(NthField(( text(0)),",",1))
+		    text.Remove 0
 		  end
 		  
 		  k=0
@@ -43,8 +43,8 @@ Protected Class Class_BEAM_CM_MLC
 		      Exit
 		    end
 		    temp= text(0)
-		     text.Remove 0
-		     Field.Append ff
+		    text.Remove 0
+		    Field.Append ff
 		    ff.Neg=val(NthField(temp,",",1))
 		    ff.Pos=val(NthField(temp,",",2))
 		    ff.Num=val(NthField(temp,",",3))
@@ -56,26 +56,26 @@ Protected Class Class_BEAM_CM_MLC
 		  
 		  if UBound( text)>=3 Then
 		    temp= text(0)
-		     text.Remove 0
-		     Ecut_inside_collimator =val(NthField(temp,",",1))
-		     Pcut_inside_collimator=val(NthField(temp,",",2))
-		     Dose_Zone_inside_collimator=val(NthField(temp,",",3))
-		     IRegion_to_bit_inside_collimator=val(NthField(temp,",",4))
+		    text.Remove 0
+		    Ecut_inside_collimator =val(NthField(temp,",",1))
+		    Pcut_inside_collimator=val(NthField(temp,",",2))
+		    Dose_Zone_inside_collimator=val(NthField(temp,",",3))
+		    IRegion_to_bit_inside_collimator=val(NthField(temp,",",4))
 		    
 		    temp= text(0)
-		     text.Remove 0
-		     Med_inside_collimator=Trim(temp)
+		    text.Remove 0
+		    Med_inside_collimator=Trim(temp)
 		    
 		    temp= text(0)
-		     text.Remove 0
-		     Ecut_collimator_leaves=val(NthField(temp,",",1))
-		     Pcut_collimator_Leaves=val(NthField(temp,",",2))
-		     Dose_Zone_collimator_Leaves=val(NthField(temp,",",3))
-		     IRegion_to_bit_collimator_Leaves=val(NthField(temp,",",4))
+		    text.Remove 0
+		    Ecut_collimator_leaves=val(NthField(temp,",",1))
+		    Pcut_collimator_Leaves=val(NthField(temp,",",2))
+		    Dose_Zone_collimator_Leaves=val(NthField(temp,",",3))
+		    IRegion_to_bit_collimator_Leaves=val(NthField(temp,",",4))
 		    
 		    temp= text(0)
-		     text.Remove 0
-		     Med_collimator_leaves=Trim(temp)
+		    text.Remove 0
+		    Med_collimator_leaves=Trim(temp)
 		  end
 		  
 		  

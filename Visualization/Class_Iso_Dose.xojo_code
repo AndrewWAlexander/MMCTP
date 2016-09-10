@@ -347,12 +347,11 @@ Protected Class Class_Iso_Dose
 
 	#tag Property, Flags = &h0
 		#tag Note
-			// 
+			//
 			
-			1 = Absolute 
+			1 = Absolute
 			2 = Relative max dose
 			3 = Isodose
-			
 		#tag EndNote
 		Show_Type As Integer = 1
 	#tag EndProperty

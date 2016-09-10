@@ -51,7 +51,6 @@ Protected Class Class_Optimization_Projections_One
 	#tag Property, Flags = &h0
 		#tag Note
 			Largest Field size in Z for the current beam
-			
 		#tag EndNote
 		Max_Z_Field_Opening As single
 	#tag EndProperty

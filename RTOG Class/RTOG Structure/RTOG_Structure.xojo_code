@@ -423,7 +423,7 @@ Protected Class RTOG_Structure
 		                poly.PointWithin_OtherPoly=True
 		                poly.PolyIsWithin_Index=bb
 		              end
-		             end
+		            end
 		          next
 		        next
 		        if Poly.PointWithin_OtherPoly Then // Sub area

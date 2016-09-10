@@ -2,7 +2,6 @@
 Begin Window Window_Configurations_Beam_Model
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -54,7 +53,7 @@ Begin Window Window_Configurations_Beam_Model
       TextUnit        =   0
       Top             =   77
       Underline       =   False
-      Value           =   1
+      Value           =   2
       Visible         =   True
       Width           =   888
       Begin GroupBox GroupBox_Linac_MC
@@ -750,7 +749,7 @@ Begin Window Window_Configurations_Beam_Model
       Begin GroupBox GroupBox_Linac_Electrons
          AutoDeactivate  =   True
          Bold            =   False
-         Caption         =   "Electron Applicators"
+         Caption         =   "Applicators"
          Enabled         =   True
          Height          =   186
          HelpTag         =   ""
@@ -760,9 +759,9 @@ Begin Window Window_Configurations_Beam_Model
          Left            =   477
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   3
@@ -857,7 +856,7 @@ Begin Window Window_Configurations_Beam_Model
             AutoHideScrollbars=   True
             Bold            =   False
             Border          =   True
-            ColumnCount     =   2
+            ColumnCount     =   4
             ColumnsResizable=   False
             ColumnWidths    =   ""
             DataField       =   ""
@@ -880,9 +879,9 @@ Begin Window Window_Configurations_Beam_Model
             Left            =   487
             LockBottom      =   False
             LockedInPosition=   False
-            LockLeft        =   False
-            LockRight       =   False
-            LockTop         =   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
             RequiresSelection=   False
             Scope           =   0
             ScrollbarHorizontal=   False
@@ -2526,6 +2525,10 @@ End
 		    Listbox_Linac_applicators.AddRow str(i+1)
 		    Listbox_Linac_applicators.Cell(i,1)= Linac.Applicator(i)
 		    Listbox_Linac_applicators.CellType(i,1)=3
+		    Listbox_Linac_applicators.Cell(i,2)= Linac.BEAMnrcApplicatorCM(i)
+		    Listbox_Linac_applicators.CellType(i,2)=3
+		    Listbox_Linac_applicators.Cell(i,3)= Linac.BEAMnrcApplicatorLabel(i)
+		    Listbox_Linac_applicators.CellType(i,3)=3
 		  next
 		End Sub
 	#tag EndMethod
@@ -2784,6 +2787,8 @@ End
 		    Listbox_Linac_applicators.DeleteAllRows
 		    Listbox_Linac_applicators.Heading(0)="Number"
 		    Listbox_Linac_applicators.Heading(1)="Size #x#"
+		    Listbox_Linac_applicators.Heading(2)="BEAMnrc CM name"
+		    Listbox_Linac_applicators.Heading(3)="BEAMnrc CM label"
 		    
 		    EditField_Linac_App.Text=str(UBound(Linac.Applicator)+1)
 		    Linac_Applicator
@@ -3101,7 +3106,7 @@ End
 		      ReDim Linac.Wedges(i-1)
 		      for i=0 to UBound(Linac.Wedges)
 		        if Linac.Wedges(i)=nil Then
-		           Linac.Wedges(i)=new Class_Linacs_Wedge
+		          Linac.Wedges(i)=new Class_Linacs_Wedge
 		        end
 		      Next
 		      Linac_Pop_PhotonWedges
@@ -3192,6 +3197,8 @@ End
 		    i=i-1
 		    if i>=0 Then
 		      ReDim Linac.Applicator(i)
+		      ReDim Linac.BEAMnrcApplicatorCM(i)
+		      ReDim Linac.BEAMnrcApplicatorLabel(i)
 		    end
 		    Linac_Applicator
 		  end
@@ -3204,9 +3211,14 @@ End
 		  dim i as Integer
 		  
 		  i=row
-		  if column=1 Then
-		    if i>=0 and i<=UBound(Linac.Applicator) Then
-		      Linac.Applicator(i)=Trim(me.Cell(row,1))
+		  if i>=0 and i<=UBound(Linac.Applicator) Then
+		    
+		    if column=1 Then
+		      Linac.Applicator(i)=Trim(me.Cell(row,column))
+		    elseif column=2 Then
+		      Linac.BEAMnrcApplicatorCM(i)=Trim(me.Cell(row,column))
+		    elseif column=3 Then
+		      Linac.BEAMnrcApplicatorLabel(i)=Trim(me.Cell(row,column))
 		    end
 		  end
 		End Sub

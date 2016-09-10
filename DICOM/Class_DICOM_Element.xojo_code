@@ -25,24 +25,24 @@ Protected Class Class_DICOM_Element
 		    
 		  else // For all other types of elements
 		    if  VR = "AE" or _  //if string data
-		       VR  = "AS" or _
-		       VR  = "AT" or _
-		       VR  = "CS" or _
-		       VR  = "DA" or _
-		       VR  = "DS" or _
-		       VR  = "DT" or _
-		       VR  = "FL" or _
-		       VR  = "FD" or _
-		       VR  = "IS" or _
-		       VR  = "LO" or _
-		       VR  = "LT" or _
-		       VR  = "PN" or _
-		       VR  = "SH" or  _
-		       VR  = "SL" or _
-		       VR  = "SS" or _
-		       VR  = "ST" or _
-		       VR  = "TM" or _
-		       VR  ="UI"  or _ 
+		      VR  = "AS" or _
+		      VR  = "AT" or _
+		      VR  = "CS" or _
+		      VR  = "DA" or _
+		      VR  = "DS" or _
+		      VR  = "DT" or _
+		      VR  = "FL" or _
+		      VR  = "FD" or _
+		      VR  = "IS" or _
+		      VR  = "LO" or _
+		      VR  = "LT" or _
+		      VR  = "PN" or _
+		      VR  = "SH" or  _
+		      VR  = "SL" or _
+		      VR  = "SS" or _
+		      VR  = "ST" or _
+		      VR  = "TM" or _
+		      VR  ="UI"  or _ 
 		      Info="Proprietary Tag"  then
 		      
 		      tt=LenB( Value)
@@ -268,27 +268,27 @@ Protected Class Class_DICOM_Element
 		      // search for the element number
 		      // give up at the end of the array (i = 1720)
 		    else // if it could not be found, assume it is a proprietary tag
-		       Info ="Proprietary Tag"
-		       sup_string = ""
-		       VR = ""
+		      Info ="Proprietary Tag"
+		      sup_string = ""
+		      VR = ""
 		    end if
 		  end if
 		  
 		  if gENotFound = false then // if the group was found
 		    if i = 1720 then // if it searched until the end of the file and never found the element
 		      gENotFound = true // show that the element was not found and assume it is a proprietary tag
-		       info = "Proprietary Tag"
-		       sup_string = ""
-		       VR = ""
+		      info = "Proprietary Tag"
+		      sup_string = ""
+		      VR = ""
 		    else // if the group and element were found
-		       VR = gDICOM.dictionary(i, 1)
-		       info = gDICOM.dictionary(i, 2)
-		       sup_string = gDICOM.dictionary(i, 3)
+		      VR = gDICOM.dictionary(i, 1)
+		      info = gDICOM.dictionary(i, 2)
+		      sup_string = gDICOM.dictionary(i, 3)
 		    end if
 		  else // if it could not be found, assume it is a proprietary tag
-		     info = "Proprietary Tag"
-		     sup_string = ""
-		     VR = ""
+		    info = "Proprietary Tag"
+		    sup_string = ""
+		    VR = ""
 		  end if
 		  
 		  Return gENotFound

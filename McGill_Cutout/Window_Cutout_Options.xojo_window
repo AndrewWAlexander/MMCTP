@@ -2,7 +2,6 @@
 Begin Window Window_Cutout_Options
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False

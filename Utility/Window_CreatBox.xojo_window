@@ -2,7 +2,6 @@
 Begin Window Window_CreatBox
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window Window_CreatBox
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
@@ -76,7 +75,7 @@ Begin Window Window_CreatBox
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
@@ -109,7 +108,7 @@ Begin Window Window_CreatBox
       LockRight       =   False
       LockTop         =   True
       Panels          =   ""
-      Scope           =   "0"
+      Scope           =   0
       SmallTabs       =   False
       TabDefinition   =   "Patient Info\rImage Size\rHU values"
       TabIndex        =   24
@@ -139,7 +138,7 @@ Begin Window Window_CreatBox
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   1
          TabStop         =   True
@@ -168,7 +167,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   1
@@ -203,7 +202,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
@@ -238,7 +237,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   1
@@ -283,7 +282,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   3
             TabPanelIndex   =   1
             TabStop         =   True
@@ -326,7 +325,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   4
             TabPanelIndex   =   1
             TabStop         =   True
@@ -369,7 +368,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   5
             TabPanelIndex   =   1
             TabStop         =   True
@@ -402,7 +401,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   True
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   1
@@ -447,7 +446,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   7
             TabPanelIndex   =   1
             TabStop         =   True
@@ -491,7 +490,7 @@ Begin Window Window_CreatBox
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   3
          TabStop         =   True
@@ -522,7 +521,7 @@ Begin Window Window_CreatBox
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   2
          TabStop         =   True
@@ -551,7 +550,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
@@ -596,7 +595,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   3
             TabPanelIndex   =   2
             TabStop         =   True
@@ -639,7 +638,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   4
             TabPanelIndex   =   2
             TabStop         =   True
@@ -682,7 +681,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   5
             TabPanelIndex   =   2
             TabStop         =   True
@@ -725,7 +724,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   6
             TabPanelIndex   =   2
             TabStop         =   True
@@ -768,7 +767,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   7
             TabPanelIndex   =   2
             TabStop         =   True
@@ -811,7 +810,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   8
             TabPanelIndex   =   2
             TabStop         =   True
@@ -844,7 +843,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   2
@@ -879,7 +878,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   10
             TabPanelIndex   =   2
@@ -914,7 +913,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   11
             TabPanelIndex   =   2
@@ -949,7 +948,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   2
@@ -984,7 +983,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   2
@@ -1029,7 +1028,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   14
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1062,7 +1061,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   15
             TabPanelIndex   =   2
@@ -1097,7 +1096,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   16
             TabPanelIndex   =   2
@@ -1142,7 +1141,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   17
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1185,7 +1184,7 @@ Begin Window Window_CreatBox
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   18
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1218,7 +1217,7 @@ Begin Window Window_CreatBox
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   19
             TabPanelIndex   =   2
@@ -1252,7 +1251,7 @@ Begin Window Window_CreatBox
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   3
          TabStop         =   True
@@ -1281,7 +1280,7 @@ Begin Window Window_CreatBox
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   4
          TabPanelIndex   =   3
          TabStop         =   True
@@ -1326,7 +1325,7 @@ Begin Window Window_CreatBox
          LockRight       =   False
          LockTop         =   True
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0

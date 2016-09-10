@@ -427,7 +427,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		          end
 		        next
 		        if found=False then
-		           Materials.append temp
+		          Materials.append temp
 		        end
 		      end
 		    next

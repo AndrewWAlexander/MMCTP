@@ -2,7 +2,6 @@
 Begin Window Window_Beam_Properties
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -106,7 +105,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Treatment machine"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -141,7 +139,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam energy"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -355,7 +352,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam modality"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -390,7 +386,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   14
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam description"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -425,7 +420,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   15
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -460,7 +454,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   18
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam applicator:"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -569,7 +562,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   21
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Applicator Type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -663,7 +655,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge Angle"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -698,7 +689,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge Orientation"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -793,7 +783,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge ID"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1207,7 +1196,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Field Type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1242,7 +1230,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Number of fields"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1320,7 +1307,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Index of field"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1457,7 +1443,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Model"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1476,7 +1461,7 @@ Begin Window Window_Beam_Properties
          Bold            =   False
          Caption         =   "Angles"
          Enabled         =   True
-         Height          =   53
+         Height          =   94
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "TabPanel"
@@ -1497,7 +1482,7 @@ Begin Window Window_Beam_Properties
          Top             =   150
          Underline       =   False
          Visible         =   True
-         Width           =   593
+         Width           =   592
          Begin Label StaticText9
             AutoDeactivate  =   True
             Bold            =   False
@@ -1520,7 +1505,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Collimator (deg)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1555,7 +1539,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Gantry (deg)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1590,7 +1573,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Couch (deg)\r\r"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1732,6 +1714,64 @@ Begin Window Window_Beam_Properties
             Visible         =   True
             Width           =   64
          End
+         Begin RadioButton RadioButton_ARC_Counter
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Counter Clockwise ARC"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox_Angles"
+            Italic          =   False
+            Left            =   211
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   4
+            TabPanelIndex   =   2
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   208
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   159
+         End
+         Begin RadioButton RadioButton_ARC_Clockwise
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Clockwise ARC"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox_Angles"
+            Italic          =   False
+            Left            =   40
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   5
+            TabPanelIndex   =   2
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   208
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   112
+         End
       End
       Begin GroupBox GroupBox_Cut_Para
          AutoDeactivate  =   True
@@ -1856,7 +1896,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Cut Out Thicknes:"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -1891,7 +1930,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "cm"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1954,7 +1992,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Shape Preview:"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2033,7 +2070,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Number of fields"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2111,7 +2147,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Field Type"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2174,7 +2209,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Index of field"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2235,7 +2269,7 @@ Begin Window Window_Beam_Properties
          Bold            =   False
          Caption         =   "Isocenter"
          Enabled         =   True
-         Height          =   59
+         Height          =   50
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "TabPanel"
@@ -2253,10 +2287,53 @@ Begin Window Window_Beam_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   208
+         Top             =   248
          Underline       =   False
          Visible         =   True
          Width           =   592
+         Begin TextField EditField_Iso_X
+            AcceptTabs      =   False
+            Alignment       =   0
+            AutoDeactivate  =   True
+            AutomaticallyCheckSpelling=   False
+            BackColor       =   &cFFFFFF00
+            Bold            =   False
+            Border          =   True
+            CueText         =   ""
+            DataField       =   ""
+            DataSource      =   ""
+            Enabled         =   True
+            Format          =   ""
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox_Isocenter"
+            Italic          =   False
+            Left            =   135
+            LimitText       =   0
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   False
+            LockRight       =   False
+            LockTop         =   False
+            Mask            =   ""
+            Password        =   False
+            ReadOnly        =   False
+            Scope           =   0
+            TabIndex        =   0
+            TabPanelIndex   =   2
+            TabStop         =   True
+            Text            =   ""
+            TextColor       =   &c00000000
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   265
+            Underline       =   False
+            UseFocusRing    =   False
+            Visible         =   True
+            Width           =   50
+         End
       End
       Begin GroupBox GroupBox1
          AutoDeactivate  =   True
@@ -2281,7 +2358,7 @@ Begin Window Window_Beam_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   274
+         Top             =   306
          Underline       =   False
          Visible         =   True
          Width           =   593
@@ -2303,7 +2380,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox1"
             Italic          =   False
-            Left            =   230
+            Left            =   252
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2322,11 +2399,11 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   304
+            Top             =   336
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
-            Width           =   80
+            Width           =   58
          End
          Begin Label StaticText18
             AutoDeactivate  =   True
@@ -2350,18 +2427,17 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Nominal Isocenter Distance (cm)"
             TextAlign       =   2
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   304
+            Top             =   336
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   178
+            Width           =   191
          End
          Begin TextField EditField_SSD
             AcceptTabs      =   False
@@ -2400,7 +2476,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   304
+            Top             =   336
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2428,14 +2504,13 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Source to Skin distance (SSD) (cm)"
             TextAlign       =   2
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   304
+            Top             =   336
             Transparent     =   False
             Underline       =   False
             Visible         =   True
@@ -2464,7 +2539,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   13
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "MU Backscatter % (all fields)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2525,7 +2599,7 @@ Begin Window Window_Beam_Properties
          Bold            =   False
          Caption         =   "Field Size"
          Enabled         =   True
-         Height          =   376
+         Height          =   347
          HelpTag         =   ""
          Index           =   -2147483648
          InitialParent   =   "TabPanel"
@@ -2543,7 +2617,7 @@ Begin Window Window_Beam_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   349
+         Top             =   378
          Underline       =   False
          Visible         =   True
          Width           =   593
@@ -2565,7 +2639,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   269
+            Left            =   265
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2584,7 +2658,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2612,18 +2686,17 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X 2"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   25
+            Width           =   28
          End
          Begin TextField EditField_X1
             AcceptTabs      =   False
@@ -2643,7 +2716,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   172
+            Left            =   178
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2662,11 +2735,11 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
-            Width           =   50
+            Width           =   44
          End
          Begin Label StaticText25
             AutoDeactivate  =   True
@@ -2690,14 +2763,13 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X 1"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
@@ -2721,7 +2793,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   88
+            Left            =   81
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2740,7 +2812,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2768,18 +2840,17 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   45
+            Width           =   38
          End
          Begin Label StaticText27
             AutoDeactivate  =   True
@@ -2803,18 +2874,17 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   11
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   47
+            Width           =   38
          End
          Begin TextField EditField_FieldY
             AcceptTabs      =   False
@@ -2834,7 +2904,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   377
+            Left            =   372
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2853,7 +2923,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2881,14 +2951,13 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y 1"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
@@ -2912,7 +2981,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   467
+            Left            =   466
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2931,7 +3000,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2959,18 +3028,17 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y 2"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "Arial"
             TextSize        =   12.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   27
+            Width           =   28
          End
          Begin TextField EditField_Y2
             AcceptTabs      =   False
@@ -2990,7 +3058,7 @@ Begin Window Window_Beam_Properties
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Italic          =   False
-            Left            =   552
+            Left            =   555
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -3009,7 +3077,7 @@ Begin Window Window_Beam_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   375
+            Top             =   404
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -3023,21 +3091,21 @@ Begin Window Window_Beam_Properties
             DoubleBuffer    =   False
             Enabled         =   True
             EraseBackground =   True
-            Height          =   293
+            Height          =   264
             HelpTag         =   ""
             Index           =   -2147483648
             InitialParent   =   "GroupBox_FieldSize"
             Left            =   143
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
-            LockLeft        =   False
-            LockRight       =   False
-            LockTop         =   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
             Scope           =   0
             TabIndex        =   14
             TabPanelIndex   =   2
             TabStop         =   True
-            Top             =   416
+            Top             =   445
             Transparent     =   True
             UseFocusRing    =   True
             Visible         =   True
@@ -3136,7 +3204,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Fraction number"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3171,7 +3238,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "MUs"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3292,7 +3358,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Dose rate"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3370,7 +3435,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam weight"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3448,7 +3512,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Fraction dose"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3461,49 +3524,6 @@ Begin Window Window_Beam_Properties
             Visible         =   True
             Width           =   127
          End
-      End
-      Begin TextField EditField_Iso_X
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "TabPanel"
-         Italic          =   False
-         Left            =   124
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   14
-         TabPanelIndex   =   2
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   235
-         Underline       =   False
-         UseFocusRing    =   False
-         Visible         =   True
-         Width           =   50
       End
       Begin TextField EditField_Iso_Y
          AcceptTabs      =   False
@@ -3542,7 +3562,7 @@ Begin Window Window_Beam_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   235
+         Top             =   266
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -3585,7 +3605,7 @@ Begin Window Window_Beam_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   235
+         Top             =   266
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -3613,14 +3633,13 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "X (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
          TextFont        =   "Arial"
          TextSize        =   12.0
          TextUnit        =   0
-         Top             =   235
+         Top             =   266
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -3648,14 +3667,13 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Y (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
          TextFont        =   "Arial"
          TextSize        =   12.0
          TextUnit        =   0
-         Top             =   235
+         Top             =   266
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -3683,14 +3701,13 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Z (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
          TextFont        =   "Arial"
          TextSize        =   12.0
          TextUnit        =   0
-         Top             =   235
+         Top             =   266
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -3750,7 +3767,6 @@ Begin Window Window_Beam_Properties
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Beam Number"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -4501,6 +4517,7 @@ End
 		  EditField_JAW_type.Text=beam.Collimator.Type
 		  Geometry_populate_Field
 		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -4531,6 +4548,18 @@ End
 		  EditField_JAW_type.Text=beam.Collimator.Type
 		  EditField_JAW_field_index.Text=Format(beam.Collimator.Fields(jaw_field).Index,"-#.######")
 		  Accessories_Jaw_Draw
+		  
+		  if beam.Collimator.Fields(jaw_field).ARC_Direction=0 Then
+		    RadioButton_ARC_Clockwise.Value=True
+		  elseif beam.Collimator.Fields(jaw_field).ARC_Direction=1 Then
+		    RadioButton_ARC_Counter.Value=True
+		  else
+		    RadioButton_ARC_Clockwise.Value=False
+		    RadioButton_ARC_Counter.Value=False
+		    
+		  end
+		  
+		  
 		  donothing=False
 		  
 		End Sub
@@ -5013,6 +5042,24 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events RadioButton_ARC_Counter
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    beam.Collimator.Fields(jaw_field).ARC_Direction=1
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_ARC_Clockwise
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    beam.Collimator.Fields(jaw_field).ARC_Direction=0
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events PushButton_Electron_Cutout
 	#tag Event
 		Sub Action()
@@ -5139,6 +5186,13 @@ End
 		  if UBound(beam.Collimator.Fields)>-1 and jaw_field>=0 and jaw_field<=UBound(beam.Collimator.Fields) Then
 		    beam.Collimator.Fields(jaw_field).Index = val(me.text)
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_Iso_X
+	#tag Event
+		Sub TextChange()
+		  beam.Collimator.Fields(jaw_field).isocenter.X=val(me.text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -5368,13 +5422,6 @@ End
 	#tag Event
 		Sub TextChange()
 		  beam.Rx_Dose=val(me.text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_Iso_X
-	#tag Event
-		Sub TextChange()
-		  beam.Collimator.Fields(jaw_field).isocenter.X=val(me.text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

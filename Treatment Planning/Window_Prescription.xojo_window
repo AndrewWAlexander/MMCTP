@@ -2,7 +2,6 @@
 Begin Window Window_Prescription
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -447,7 +446,7 @@ Begin Window Window_Prescription
          LockTop         =   False
          Maximum         =   100
          Scope           =   0
-         TabIndex        =   7
+         TabIndex        =   "7"
          TabPanelIndex   =   1
          TabStop         =   True
          Top             =   695

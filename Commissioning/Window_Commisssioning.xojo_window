@@ -1679,7 +1679,7 @@ End
 		  
 		  if me.ColumnCount>=10 and column=Index_Colour and row>=0 and row<=(me.ListCount-1)Then
 		    pindex=val(me.Cell(row,Index_gProfile_Index))
-		     if pindex>=0 and pindex<=UBound(gProfiles.One_Profile) Then
+		    if pindex>=0 and pindex<=UBound(gProfiles.One_Profile) Then
 		      g.ForeColor=gProfiles.One_Profile(pindex).Colour
 		      g.FillRect 0,0,g.Width,g.Height
 		    end
@@ -2048,7 +2048,7 @@ End
 #tag Events BevelButton_Analyse
 	#tag Event
 		Sub Action()
-		   Dim i as Integer
+		  Dim i as Integer
 		  Dim pp as Class_Profile_One
 		  
 		  Canvas_Graph.Analysis = new Window_Profile_analysis

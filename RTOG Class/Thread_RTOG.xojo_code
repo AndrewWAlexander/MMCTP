@@ -304,6 +304,9 @@ Inherits Thread
 		        DICOM_ImageOrientationPatient=DICOM.RT_Images(i).ImageOrientationPatient
 		        FrameOfReferenceUID=DICOM.RT_Images(i).FrameOfReferenceUID
 		        StudyID=DICOM.RT_Images(i).StudyID
+		        While InStr(StudyID,"""")>0 
+		          StudyID=Replace(StudyID,"""","-")
+		        Wend
 		        SeriesNumber=DICOM.RT_Images(i).SeriesNumber
 		        Patient_Name=Replace(Patient_Name,String_Separate,"-")
 		        Patient_Surname=Replace(Patient_Surname,String_Separate,"-")
@@ -4965,7 +4968,7 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
-			InitialValue="1.0\\\\0.0\\\\0.0\\\\0.0\\\\1.0\\\\0.0"
+			InitialValue="1.0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\0.0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\0.0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\0.0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\1.0\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\0.0"
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

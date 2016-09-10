@@ -2,7 +2,6 @@
 Begin Window Window_Profile_analysis
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -1121,7 +1120,7 @@ End
 		  
 		  EditField_Chi.Text=Format(pp.Chi,"-#.##")
 		  if app.which_window_Commission Then
-		        Window_Commisssioning.Update_Profile
+		    Window_Commisssioning.Update_Profile
 		  end
 		End Sub
 	#tag EndEvent
@@ -1229,7 +1228,7 @@ End
 		            
 		            
 		            //gProfiles.One_Profile.append pp
-		               // Window_Commisssioning.Update_Profile
+		            // Window_Commisssioning.Update_Profile
 		            //Exit for  i
 		          end
 		        Next

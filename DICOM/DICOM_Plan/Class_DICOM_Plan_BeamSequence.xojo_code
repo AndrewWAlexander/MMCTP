@@ -37,6 +37,10 @@ Protected Class Class_DICOM_Plan_BeamSequence
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		High_Dose_Technique As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		InstitutionalDepartmentName As String
 	#tag EndProperty
 
@@ -131,6 +135,12 @@ Protected Class Class_DICOM_Plan_BeamSequence
 			Group="Behavior"
 			InitialValue="1.0"
 			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="High_Dose_Technique"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

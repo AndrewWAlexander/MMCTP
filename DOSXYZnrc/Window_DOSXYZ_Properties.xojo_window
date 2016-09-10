@@ -2,7 +2,6 @@
 Begin Window Window_DOSXYZ_Properties
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -76,7 +75,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -169,7 +167,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -336,7 +333,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "PEGS file"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -457,7 +453,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   11
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Total CPU time estimate"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -578,7 +573,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   13
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number of jobs"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -613,7 +607,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Desired Uncer (%)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -691,7 +684,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Calibration dose"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -726,7 +718,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   20
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Dose to water"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -835,7 +826,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   23
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number of histories"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -944,7 +934,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   34
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "MU backscatter correction %"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1070,7 +1059,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number of test histories"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1255,7 +1243,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Total CPU time estimate"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1290,7 +1277,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Average % error of doses >  0.500 of max dose:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1389,7 +1375,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number of histories"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1424,7 +1409,6 @@ Begin Window Window_DOSXYZ_Properties
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "CPU time per history (s)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1621,9 +1605,13 @@ End
 		  CheckBox_Downloaded.Value=dosxyz.DOSXYZ_Input(beam).dos_3ddose_downloaded
 		  CheckBox_AutoShell.Value=dosxyz.DOSXYZ_Input(beam).AutoShell
 		  
-		  if DOSXYZ.DOSXYZ_Input(beam).isource=9 or DOSXYZ.DOSXYZ_Input(beam).isource=11 or DOSXYZ.DOSXYZ_Input(beam).isource=21 or DOSXYZ.DOSXYZ_Input(beam).isource=20 Then
+		  if DOSXYZ.DOSXYZ_Input(beam).isource=9 or  _
+		    DOSXYZ.DOSXYZ_Input(beam).isource=11 or _
+		    DOSXYZ.DOSXYZ_Input(beam).isource=21 or _
+		    DOSXYZ.DOSXYZ_Input(beam).isource=10 or _
+		    DOSXYZ.DOSXYZ_Input(beam).isource=20 Then
 		    RadioButton_lib.Value=True
-		  elseif DOSXYZ.DOSXYZ_Input(beam).isource=2  Then
+		  elseif DOSXYZ.DOSXYZ_Input(beam).isource=2  or DOSXYZ.DOSXYZ_Input(beam).isource=8 Then
 		    RadioButton_phsp.Value=True
 		  else
 		    RadioButton_other.Value=True

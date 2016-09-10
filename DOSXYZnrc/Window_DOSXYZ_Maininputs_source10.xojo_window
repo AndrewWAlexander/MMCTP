@@ -1,5 +1,5 @@
 #tag Window
-Begin Window Window_DOSXYZ_Maininputs_source2
+Begin Window Window_DOSXYZ_Maininputs_source10
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
@@ -9,7 +9,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   472
+   Height          =   626
    ImplicitInstance=   True
    LiveResize      =   False
    MacProcID       =   0
@@ -23,10 +23,10 @@ Begin Window Window_DOSXYZ_Maininputs_source2
    MinWidth        =   64
    Placement       =   0
    Resizeable      =   True
-   Title           =   "Source 2 options"
+   Title           =   "Source 10 options"
    Visible         =   True
-   Width           =   584
-   Begin PushButton PushButton1
+   Width           =   810
+   Begin PushButton PushButton_Close
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
@@ -39,7 +39,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   252
+      Left            =   365
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   False
@@ -52,10 +52,241 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   432
+      Top             =   586
       Underline       =   False
       Visible         =   True
       Width           =   80
+   End
+   Begin TextField EditField_DBS_splittingR
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      CueText         =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   308
+      LimitText       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Mask            =   ""
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   2
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   81
+      Underline       =   False
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   257
+   End
+   Begin TextField EditField_ssd_DBS
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      CueText         =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   308
+      LimitText       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Mask            =   ""
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   109
+      Underline       =   False
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   257
+   End
+   Begin TextField EditField_Z_scored
+      AcceptTabs      =   False
+      Alignment       =   0
+      AutoDeactivate  =   True
+      AutomaticallyCheckSpelling=   False
+      BackColor       =   &cFFFFFF00
+      Bold            =   False
+      Border          =   True
+      CueText         =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Format          =   ""
+      Height          =   22
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   308
+      LimitText       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Mask            =   ""
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   139
+      Underline       =   False
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   257
+   End
+   Begin Label StaticText12
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   72
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      Text            =   "DBS splitting field radius (cm)"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   82
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   208
+   End
+   Begin Label StaticText13
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   72
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      Text            =   "Z where source scored (cm)"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   140
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   208
+   End
+   Begin Label StaticText14
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   72
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      Text            =   "SSD of splitting field (cm)"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   110
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   208
    End
    Begin Label StaticText15
       AutoDeactivate  =   True
@@ -79,14 +310,13 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Phase-space file, score last Z"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   48
+      Top             =   254
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -104,7 +334,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       InitialParent   =   ""
       InitialValue    =   ""
       Italic          =   False
-      Left            =   302
+      Left            =   303
       ListIndex       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -118,7 +348,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   48
+      Top             =   254
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -145,14 +375,13 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Phase-space data redistribute"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   115
+      Top             =   286
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -184,7 +413,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   115
+      Top             =   286
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -211,20 +440,19 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Isocenter (x,y,z) "
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   150
+      Top             =   191
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   253
    End
-   Begin TextField EditField_Isocenter_X
+   Begin TextField EditField_Isocenter
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -251,7 +479,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       LockTop         =   False
       Mask            =   ""
       Password        =   False
-      ReadOnly        =   False
+      ReadOnly        =   True
       Scope           =   0
       TabIndex        =   13
       TabPanelIndex   =   0
@@ -261,11 +489,11 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   149
+      Top             =   190
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   76
+      Width           =   257
    End
    Begin TextField EditField_dsource
       AcceptTabs      =   False
@@ -294,7 +522,7 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       LockTop         =   False
       Mask            =   ""
       Password        =   False
-      ReadOnly        =   False
+      ReadOnly        =   True
       Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
@@ -304,11 +532,11 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   82
+      Top             =   220
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   262
+      Width           =   257
    End
    Begin Label StaticText19
       AutoDeactivate  =   True
@@ -332,65 +560,130 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Distance from source to isocenter (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   83
+      Top             =   221
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   253
    End
-   Begin TextField EditField_theta
-      AcceptTabs      =   False
-      Alignment       =   0
+   Begin RadioButton RadioButton_pairs
       AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
       Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
+      Caption         =   "Theta-Phi pairs"
       Enabled         =   True
-      Format          =   ""
-      Height          =   22
+      Height          =   20
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   302
-      LimitText       =   0
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   320
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   148
+   End
+   Begin RadioButton RadioButton_groups
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Theta-Phi groups"
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   180
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
       Scope           =   0
       TabIndex        =   18
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   183
+      Top             =   320
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   148
+   End
+   Begin Listbox Listbox_Theta
+      AutoDeactivate  =   True
+      AutoHideScrollbars=   True
+      Bold            =   False
+      Border          =   True
+      ColumnCount     =   1
+      ColumnsResizable=   False
+      ColumnWidths    =   ""
+      DataField       =   ""
+      DataSource      =   ""
+      DefaultRowHeight=   -1
+      Enabled         =   True
+      EnableDrag      =   False
+      EnableDragReorder=   False
+      GridLinesHorizontal=   0
+      GridLinesVertical=   0
+      HasHeading      =   True
+      HeadingIndex    =   -1
+      Height          =   222
+      HelpTag         =   ""
+      Hierarchical    =   False
+      Index           =   -2147483648
+      InitialParent   =   ""
+      InitialValue    =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      RequiresSelection=   False
+      Scope           =   0
+      ScrollbarHorizontal=   False
+      ScrollBarVertical=   True
+      SelectionType   =   0
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   352
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   76
+      Width           =   770
+      _ScrollOffset   =   0
+      _ScrollWidth    =   -1
    End
-   Begin Label StaticText18
+   Begin CheckBox CheckBox_DBS
       AutoDeactivate  =   True
       Bold            =   False
+      Caption         =   "DBS used in source"
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
@@ -405,567 +698,19 @@ Begin Window Window_DOSXYZ_Maininputs_source2
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Multiline       =   False
       Scope           =   0
-      Selectable      =   False
+      State           =   0
       TabIndex        =   19
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Angles (theta,phi,coll) "
-      TextAlign       =   0
-      TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   184
-      Transparent     =   False
+      Top             =   37
       Underline       =   False
+      Value           =   False
       Visible         =   True
-      Width           =   253
-   End
-   Begin TextField EditField_Phsp
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   95
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   20
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   14
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   469
-   End
-   Begin Label StaticText20
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   21
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Phsp path"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   16
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   63
-   End
-   Begin GroupBox GroupBox1
-      AutoDeactivate  =   True
-      Bold            =   False
-      Caption         =   "DBS in Source"
-      Enabled         =   True
-      Height          =   191
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Scope           =   0
-      TabIndex        =   22
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   217
-      Underline       =   False
-      Visible         =   True
-      Width           =   544
-      Begin TextField EditField_DBS_splittingR
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   323
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   285
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   214
-      End
-      Begin TextField EditField_ssd_DBS
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   323
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   324
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   214
-      End
-      Begin TextField EditField_Z_scored
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   323
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   2
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   362
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   214
-      End
-      Begin Label StaticText12
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   87
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   3
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   "DBS splitting field radius (cm)"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   286
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   208
-      End
-      Begin Label StaticText13
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   87
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   4
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   "Z where source scored (cm)"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   363
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   208
-      End
-      Begin Label StaticText14
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   87
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   5
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   "SSD of splitting field (cm)"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   325
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   208
-      End
-      Begin CheckBox CheckBox_DBS
-         AutoDeactivate  =   True
-         Bold            =   False
-         Caption         =   "DBS used in source"
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
-         Italic          =   False
-         Left            =   35
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Scope           =   0
-         State           =   0
-         TabIndex        =   6
-         TabPanelIndex   =   0
-         TabStop         =   True
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   254
-         Underline       =   False
-         Value           =   False
-         Visible         =   True
-         Width           =   196
-      End
-   End
-   Begin TextField EditField_Isocenter_Y
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   391
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   23
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   149
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   79
-   End
-   Begin TextField EditField_Isocenter_Z
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   490
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   24
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   149
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   74
-   End
-   Begin TextField EditField_phi
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   391
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   25
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   182
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   76
-   End
-   Begin TextField EditField_coll
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   490
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   False
-      LockTop         =   False
-      Mask            =   ""
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   26
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   183
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   76
+      Width           =   199
    End
 End
 #tag EndWindow
@@ -984,26 +729,8 @@ End
 		  EditField_DBS_splittingR.Text=Format(dosxyz_input.r_dbs,"#.###")
 		  EditField_ssd_DBS.Text=Format(dosxyz_input.ssd_dbs,"#.###")
 		  EditField_Z_scored.Text=Format(dosxyz_input.z_dbs,"#.###")
-		  EditField_Isocenter_X.Text=Format(dosxyz_input.xiso,"-#.###")
-		  EditField_Isocenter_Y.Text=Format(dosxyz_input.yiso,"-#.###")
-		  EditField_Isocenter_Z.Text=Format(dosxyz_input.ziso,"-#.###")
-		  
-		  
+		  EditField_Isocenter.Text=Format(dosxyz_input.xiso,"-#.###")+", "+Format(dosxyz_input.yiso,"-#.###")+", "+Format(dosxyz_input.ziso,"-#.###")
 		  EditField_dsource.Text=Format(dosxyz_input.dsource,"#.###")
-		  EditField_Phsp.Text=dosxyz_input.FILNAM
-		  
-		  if UBound(dosxyz_input.theta)=-1 Then
-		    ReDim dosxyz_input.theta(0)
-		  end
-		  
-		  if UBound(dosxyz_input.phi)=-1 Then
-		    ReDim dosxyz_input.phi(0)
-		  end
-		  
-		  
-		  EditField_theta.Text=Format(dosxyz_input.theta(0),"-#.###")
-		  EditField_phi.Text=Format(dosxyz_input.phi(0),"-#.###")
-		  EditField_coll.Text=Format(dosxyz_input.phicol(0),"-#.###")
 		  
 		  
 		  PopupMenu_ScoreLastZ.DeleteAllRows
@@ -1021,12 +748,110 @@ End
 		  PopupMenu_phasespace.AddRow "redistribute"
 		  PopupMenu_phasespace.ListIndex=dosxyz_input.ISMOOTH
 		  
+		  if dosxyz_input.nang>-1 Then
+		    RadioButton_pairs.Value=True
+		  else
+		    RadioButton_groups.Value=True
+		    
+		  end
 		  
-		  
+		  PopListbox
 		  do_nothing=False
 		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub PopListbox()
+		  Dim i as Integer
+		  
+		  
+		  
+		  Listbox_Theta.DeleteAllRows
+		  
+		  
+		  // For pairs
+		  if dosxyz_input.nang>0 Then
+		    Listbox_Theta.ColumnCount=3
+		    
+		    Listbox_Theta.ColumnType(0)=3
+		    Listbox_Theta.ColumnType(1)=3
+		    Listbox_Theta.ColumnType(2)=3
+		    
+		    
+		    Listbox_Theta.Heading(0)="Theta (degrees)"
+		    Listbox_Theta.Heading(1)="Phi (degrees)"
+		    Listbox_Theta.Heading(2)="Probability"
+		    
+		    for i=0 to UBound(dosxyz_input.theta)
+		      Listbox_Theta.AddRow(str(dosxyz_input.theta(i)))
+		      Listbox_Theta.CellType(i,0)=3
+		      
+		      if UBound(dosxyz_input.phi)>=i Then
+		        Listbox_Theta.Cell(i,1)=str(dosxyz_input.phi(i))
+		      end
+		      Listbox_Theta.CellType(i,1)=3
+		      
+		      if UBound(dosxyz_input.pang)>=i Then
+		        Listbox_Theta.Cell(i,2)=str(dosxyz_input.pang(i))
+		      end
+		      Listbox_Theta.CellType(i,2)=3
+		    Next
+		    
+		    
+		    
+		    
+		    
+		    // For groups
+		  Else
+		    Listbox_Theta.ColumnCount=7
+		    
+		    Listbox_Theta.ColumnType(0)=2
+		    Listbox_Theta.ColumnType(1)=2
+		    Listbox_Theta.ColumnType(2)=3
+		    Listbox_Theta.ColumnType(3)=3
+		    Listbox_Theta.ColumnType(4)=3
+		    Listbox_Theta.ColumnType(5)=3
+		    Listbox_Theta.ColumnType(6)=3
+		    
+		    
+		    
+		    
+		    Listbox_Theta.Heading(0)="vary phi"
+		    Listbox_Theta.Heading(1)="vary theta"
+		    Listbox_Theta.Heading(2)="fixed angle"
+		    Listbox_Theta.Heading(3)="min angle"
+		    Listbox_Theta.Heading(4)="max angle"
+		    Listbox_Theta.Heading(5)="number of beams"
+		    Listbox_Theta.Heading(6)="probability"
+		    
+		    
+		    for i=0 to UBound(dosxyz_input.ivary)
+		      Listbox_Theta.AddRow ""
+		      
+		      if dosxyz_input.ivary(i)=1 then
+		        Listbox_Theta.CellCheck(i,1)=True
+		        Listbox_Theta.CellCheck(i,0)=False
+		      else
+		        Listbox_Theta.CellCheck(i,1)=False
+		        Listbox_Theta.CellCheck(i,0)=True
+		      end if
+		      
+		      
+		      
+		      Listbox_Theta.Cell(i,2)=Format(dosxyz_input.angfixed(i),"-#.##")
+		      Listbox_Theta.Cell(i,3)=Format(dosxyz_input.angmin(i),"-#.##")
+		      Listbox_Theta.Cell(i,4)=Format(dosxyz_input.angmax(i),"-#.##")
+		      Listbox_Theta.Cell(i,5)=Format(dosxyz_input.ngang(i),"#")
+		      Listbox_Theta.Cell(i,6)=Format(dosxyz_input.pgang(i),"-#.##")
+		    Next
+		    
+		    
+		    
+		  end
+		End Sub
+	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
@@ -1040,10 +865,31 @@ End
 
 #tag EndWindowCode
 
-#tag Events PushButton1
+#tag Events PushButton_Close
 	#tag Event
 		Sub Action()
-		  Window_DOSXYZ_Maininputs_source2.Close
+		  Window_DOSXYZ_Maininputs_source10.Close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_DBS_splittingR
+	#tag Event
+		Sub TextChange()
+		  dosxyz_input.r_dbs=val(me.Text)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_ssd_DBS
+	#tag Event
+		Sub TextChange()
+		  dosxyz_input.ssd_dbs=val(me.Text)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_Z_scored
+	#tag Event
+		Sub TextChange()
+		  dosxyz_input.z_dbs=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1069,13 +915,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_Isocenter_X
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.xiso=val(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events EditField_dsource
 	#tag Event
 		Sub TextChange()
@@ -1083,38 +922,153 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_theta
+#tag Events RadioButton_pairs
 	#tag Event
-		Sub TextChange()
-		  dosxyz_input.theta(0)=val(me.Text)
+		Sub Action()
+		  dosxyz_input.nang=(UBound(dosxyz_input.theta)+1)
+		  
+		  
+		  
+		  PopListbox
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_Phsp
+#tag Events RadioButton_groups
 	#tag Event
-		Sub TextChange()
-		  dosxyz_input.FILNAM=Trim(me.Text)
+		Sub Action()
+		  dosxyz_input.nang=-1*(UBound(dosxyz_input.angfixed)+1)
+		  PopListbox
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_DBS_splittingR
+#tag Events Listbox_Theta
 	#tag Event
-		Sub TextChange()
-		  dosxyz_input.r_dbs=val(me.Text)
+		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		  dim MI as MenuItem
+		  
+		  MI = New MenuItem
+		  MI.Text = "Add row"
+		  base.Append MI
+		  MI = New MenuItem
+		  MI.Text = "Delete row"
+		  base.Append MI
+		End Function
+	#tag EndEvent
+	#tag Event
+		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		  Dim i as Integer
+		  
+		  Select Case hitItem.Text
+		    
+		  Case "Add row"
+		    if RadioButton_pairs.Value Then
+		      dosxyz_input.theta.Append 0
+		      dosxyz_input.phi.Append 0
+		      dosxyz_input.pang.Append 1
+		      dosxyz_input.nang=dosxyz_input.nang+1
+		      
+		    else
+		      dosxyz_input.nang=dosxyz_input.nang-1
+		      dosxyz_input.angfixed.Append 0
+		      dosxyz_input.angmax.Append 0
+		      dosxyz_input.angmin.Append 0
+		      dosxyz_input.pgang.Append 1
+		      dosxyz_input.ngang.Append 2
+		      dosxyz_input.ivary.Append 0
+		      
+		      
+		      
+		    end
+		    PopListbox
+		    
+		    
+		    
+		  Case "Delete row"
+		    i=MsgBox("Are you sure you want to delete plan "+chr(13)+gRTOG.Plan(Plan_Index).Plan_ID +"?",1,"Warning")
+		    
+		    if RadioButton_pairs.Value Then
+		      dosxyz_input.theta.Remove me.ListIndex
+		      dosxyz_input.phi.Remove me.ListIndex
+		      dosxyz_input.pang.Remove me.ListIndex
+		      dosxyz_input.nang=dosxyz_input.nang-1
+		      
+		    else
+		      dosxyz_input.nang=dosxyz_input.nang+1
+		      dosxyz_input.angfixed.Remove me.ListIndex
+		      dosxyz_input.angmax.Remove me.ListIndex
+		      dosxyz_input.angmin.Remove me.ListIndex
+		      dosxyz_input.pgang.Remove me.ListIndex
+		      dosxyz_input.ngang.Remove me.ListIndex
+		      dosxyz_input.ivary.Remove me.ListIndex
+		    end
+		    PopListbox
+		    
+		    
+		    
+		    
+		  end Select
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub CellTextChange(row as Integer, column as Integer)
+		  if RadioButton_pairs.Value Then
+		    
+		    dosxyz_input.theta(row)=Val(me.Cell(row,0))
+		    dosxyz_input.phi(row)=Val(me.Cell(row,1))
+		    dosxyz_input.pang(row)=Val(me.Cell(row,2))
+		    
+		    
+		    
+		    
+		    
+		    
+		  else
+		    dosxyz_input.angfixed(row)=Val(me.Cell(row,2))
+		    dosxyz_input.angmax(row)=Val(me.Cell(row,4))
+		    dosxyz_input.angmin(row)=Val(me.Cell(row,3))
+		    dosxyz_input.ngang(row)=Val(me.Cell(row,5))
+		    dosxyz_input.pgang(row)=Val(me.Cell(row,6))
+		    
+		    
+		    
+		    
+		    
+		  end
 		End Sub
 	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_ssd_DBS
 	#tag Event
-		Sub TextChange()
-		  dosxyz_input.ssd_dbs=val(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_Z_scored
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.z_dbs=val(me.Text)
+		Sub CellAction(row As Integer, column As Integer)
+		  if RadioButton_groups.Value Then
+		    
+		    if column=0 Then
+		      if me.CellCheck(row,0) Then
+		        dosxyz_input.ivary(row)=0
+		        me.CellCheck(row,1)=False
+		      end
+		      
+		      if me.CellCheck(row,0) =False Then
+		        dosxyz_input.ivary(row)=1
+		        me.CellCheck(row,1)=True
+		      end
+		      
+		      
+		    end
+		    
+		    if column=1 Then
+		      if me.CellCheck(row,1) Then
+		        dosxyz_input.ivary(row)=1
+		        me.CellCheck(row,0)=False
+		      end
+		      
+		      if me.CellCheck(row,1) =False Then
+		        dosxyz_input.ivary(row)=0
+		        me.CellCheck(row,0)=True
+		      end
+		      
+		      
+		    end
+		    
+		  end
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1126,34 +1080,6 @@ End
 		  else
 		    dosxyz_input.i_dbs=0
 		  end
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_Isocenter_Y
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.yiso=val(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_Isocenter_Z
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.ziso=val(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_phi
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.phi(0)=val(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_coll
-	#tag Event
-		Sub TextChange()
-		  dosxyz_input.phicol(0)=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

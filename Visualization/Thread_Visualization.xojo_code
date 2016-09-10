@@ -678,6 +678,18 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		ColourWashMax As Single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		ColourWashMin As Single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Colourwash_options As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		colour_map_hot(256) As color
 	#tag EndProperty
 
@@ -799,6 +811,16 @@ Inherits Thread
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="ColourWashMax"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ColourWashMin"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true

@@ -2,7 +2,6 @@
 Begin Window Window_VMC_AdvancedOptions
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -74,7 +73,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   15
       TabPanelIndex   =   0
       TabStop         =   True
@@ -103,7 +102,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -138,7 +137,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
@@ -183,7 +182,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   4
          TabPanelIndex   =   0
          TabStop         =   True
@@ -216,7 +215,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   13
          TabPanelIndex   =   0
@@ -261,7 +260,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   0
          TabStop         =   True
@@ -304,7 +303,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   0
          TabStop         =   True
@@ -347,7 +346,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   0
          TabStop         =   True
@@ -381,7 +380,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   14
          TabPanelIndex   =   0
          TabStop         =   True
@@ -412,7 +411,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   8
          TabPanelIndex   =   0
          TabStop         =   True
@@ -442,7 +441,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -487,7 +486,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   8
          TabPanelIndex   =   0
          TabStop         =   True
@@ -520,7 +519,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   0
@@ -565,7 +564,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   9
          TabPanelIndex   =   0
          TabStop         =   True
@@ -608,7 +607,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   0
          TabStop         =   True
@@ -651,7 +650,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   10
          TabPanelIndex   =   0
          TabStop         =   True
@@ -684,7 +683,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   True
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -729,7 +728,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   12
          TabPanelIndex   =   0
          TabStop         =   True
@@ -761,7 +760,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
@@ -800,7 +799,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -843,7 +842,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -886,7 +885,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -929,7 +928,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -972,7 +971,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1005,7 +1004,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -1040,7 +1039,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -1075,7 +1074,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -1110,7 +1109,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -1145,7 +1144,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -1178,7 +1177,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   True
          LockRight       =   True
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1217,7 +1216,7 @@ Begin Window Window_VMC_AdvancedOptions
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   13
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1260,7 +1259,7 @@ Begin Window Window_VMC_AdvancedOptions
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   15
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1293,7 +1292,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   0
@@ -1338,7 +1337,7 @@ Begin Window Window_VMC_AdvancedOptions
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   16
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1371,7 +1370,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   0
@@ -1416,7 +1415,7 @@ Begin Window Window_VMC_AdvancedOptions
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   17
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1449,7 +1448,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockRight       =   False
             LockTop         =   False
             Multiline       =   False
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   0
@@ -1484,7 +1483,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockRight       =   True
             LockTop         =   True
             Multiline       =   True
-            Scope           =   "0"
+            Scope           =   0
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   0
@@ -1529,7 +1528,7 @@ Begin Window Window_VMC_AdvancedOptions
             Mask            =   ""
             Password        =   False
             ReadOnly        =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   14
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1560,7 +1559,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   11
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1589,7 +1588,7 @@ Begin Window Window_VMC_AdvancedOptions
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            Scope           =   "0"
+            Scope           =   0
             TabIndex        =   12
             TabPanelIndex   =   0
             TabStop         =   True
@@ -1631,7 +1630,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1664,7 +1663,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
@@ -1709,7 +1708,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1752,7 +1751,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   14
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1795,7 +1794,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   15
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1828,7 +1827,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
@@ -1873,7 +1872,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   17
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1906,7 +1905,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
@@ -1942,7 +1941,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   19
          TabPanelIndex   =   0
          TabStop         =   True
@@ -1972,7 +1971,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   20
          TabPanelIndex   =   0
@@ -2017,7 +2016,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   21
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2050,7 +2049,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
@@ -2085,7 +2084,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   23
          TabPanelIndex   =   0
@@ -2121,7 +2120,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   24
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2151,7 +2150,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         Scope           =   "0"
+         Scope           =   0
          State           =   0
          TabIndex        =   25
          TabPanelIndex   =   0
@@ -2193,7 +2192,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   26
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2226,7 +2225,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   27
          TabPanelIndex   =   0
@@ -2271,7 +2270,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   28
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2304,7 +2303,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   29
          TabPanelIndex   =   0
@@ -2349,7 +2348,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   30
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2382,7 +2381,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   31
          TabPanelIndex   =   0
@@ -2417,7 +2416,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   32
          TabPanelIndex   =   0
@@ -2452,7 +2451,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   False
          LockTop         =   False
          Multiline       =   False
-         Scope           =   "0"
+         Scope           =   0
          Selectable      =   False
          TabIndex        =   33
          TabPanelIndex   =   0
@@ -2497,7 +2496,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   34
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2540,7 +2539,7 @@ Begin Window Window_VMC_AdvancedOptions
          Mask            =   ""
          Password        =   False
          ReadOnly        =   False
-         Scope           =   "0"
+         Scope           =   0
          TabIndex        =   35
          TabPanelIndex   =   0
          TabStop         =   True
@@ -2575,7 +2574,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -2603,7 +2602,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   18
       TabPanelIndex   =   0
       TabStop         =   True
@@ -2646,7 +2645,7 @@ Begin Window Window_VMC_AdvancedOptions
          LockRight       =   True
          LockTop         =   True
          RequiresSelection=   False
-         Scope           =   "0"
+         Scope           =   0
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
@@ -2683,7 +2682,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       State           =   0
       TabIndex        =   19
       TabPanelIndex   =   0
@@ -2716,7 +2715,7 @@ Begin Window Window_VMC_AdvancedOptions
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
@@ -3215,33 +3214,33 @@ End
 		  if DoNothing=False Then
 		    
 		    if PopupMenu_DeviceType.ListIndex=0 Then
-		       vmc_inputfile.DEVICETYPE=-3 
+		      vmc_inputfile.DEVICETYPE=-3 
 		    elseif PopupMenu_DeviceType.ListIndex=1 Then
 		      vmc_inputfile.DEVICETYPE=-2
 		    elseif PopupMenu_DeviceType.ListIndex=2 Then
 		      vmc_inputfile.DEVICETYPE=0
 		    elseif PopupMenu_DeviceType.ListIndex=3 Then
-		       vmc_inputfile.DEVICETYPE=1
+		      vmc_inputfile.DEVICETYPE=1
 		    elseif PopupMenu_DeviceType.ListIndex=4 Then
-		       vmc_inputfile.DEVICETYPE=2 
+		      vmc_inputfile.DEVICETYPE=2 
 		    elseif PopupMenu_DeviceType.ListIndex=5 Then
-		       vmc_inputfile.DEVICETYPE=3 
+		      vmc_inputfile.DEVICETYPE=3 
 		    elseif PopupMenu_DeviceType.ListIndex=6 Then
 		      vmc_inputfile.DEVICETYPE=10
 		    elseif PopupMenu_DeviceType.ListIndex=7 Then
-		       vmc_inputfile.DEVICETYPE=100
+		      vmc_inputfile.DEVICETYPE=100
 		    elseif PopupMenu_DeviceType.ListIndex=8 Then
-		       vmc_inputfile.DEVICETYPE=101 
+		      vmc_inputfile.DEVICETYPE=101 
 		    elseif PopupMenu_DeviceType.ListIndex= 9 Then
-		       vmc_inputfile.DEVICETYPE=110 
+		      vmc_inputfile.DEVICETYPE=110 
 		    elseif PopupMenu_DeviceType.ListIndex=10 Then
-		       vmc_inputfile.DEVICETYPE=200
+		      vmc_inputfile.DEVICETYPE=200
 		    elseif PopupMenu_DeviceType.ListIndex=11 Then
-		       vmc_inputfile.DEVICETYPE=2001
+		      vmc_inputfile.DEVICETYPE=2001
 		    elseif PopupMenu_DeviceType.ListIndex=12 Then
-		       vmc_inputfile.DEVICETYPE=202
+		      vmc_inputfile.DEVICETYPE=202
 		    elseif PopupMenu_DeviceType.ListIndex=13 Then
-		       vmc_inputfile.DEVICETYPE=2003
+		      vmc_inputfile.DEVICETYPE=2003
 		    elseif PopupMenu_DeviceType.ListIndex=14 Then
 		      vmc_inputfile.DEVICETYPE=11
 		      // Beam head electron

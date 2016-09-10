@@ -658,13 +658,13 @@ Protected Class Class_MERT_GradDVH
 			0
 			Value
 			
-			1 
+			1
 			Grad
 			
-			2 
-			SA.  
+			2
+			SA.
 			
-			3 
+			3
 			Jaw
 			
 			4
@@ -672,8 +672,6 @@ Protected Class Class_MERT_GradDVH
 			
 			5
 			Auto
-			
-			
 		#tag EndNote
 		WeightType As Integer
 	#tag EndProperty

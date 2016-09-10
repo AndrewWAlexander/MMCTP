@@ -2,7 +2,6 @@
 Begin Window Window_3DView
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -29,6 +28,7 @@ Begin Window Window_3DView
    Width           =   745
    Begin Rb3dSpace_MMCTP Canvas_3D
       canvas_scale    =   0.0
+      Enabled         =   True
       Index           =   0
       InitialParent   =   ""
       JAW_Index       =   0
@@ -39,7 +39,7 @@ Begin Window Window_3DView
       mLastY          =   0
       MLC_Index       =   0
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
       Untitled1       =   0
    End
    Begin TabPanel TabPanel1

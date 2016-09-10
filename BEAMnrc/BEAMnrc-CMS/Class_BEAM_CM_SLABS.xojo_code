@@ -6,7 +6,7 @@ Protected Class Class_BEAM_CM_SLABS
 		  // Readin SLAB CM
 		  //
 		  //-----------------------------------------
-		  Dim temp as String
+		  Dim temp,dval as String
 		  Dim k,i,index,num_slabs,x as integer
 		  Dim bottom as Single
 		  //-----------------------------------------
@@ -22,7 +22,8 @@ Protected Class Class_BEAM_CM_SLABS
 		  N_SLABS=val(NthField(temp,",",1))
 		  temp=text(0)
 		  text.Remove 0
-		  Zmin=val(NthField(temp,",",1))
+		  dval=Trim(NthField(temp,",",1))
+		  Zmin=val(dval)
 		  
 		  ReDim Zthink(N_SLABS-1)
 		  ReDim ECUT(N_SLABS-1)
@@ -63,7 +64,7 @@ Protected Class Class_BEAM_CM_SLABS
 		  cm.text.Append Format(RMAX_CM,"-0.0####")+", RMAX"
 		  cm.text.Append Title_CM
 		  cm.text.Append Format(N_SLABS,"#")+", n_slabs"
-		  cm.text.Append Format(Zmin,"-0.0#####")+", distance"
+		  cm.text.Append Format(Zmin,"-0.0##########")+", distance"
 		  for i=1 to N_SLABS
 		    cm.text.Append Format(Zthink(i-1),"-0.0####")+", "+Format(ECUT(i-1),"-0.0###")+", "+Format(PCUT(i-1),"-0.0###")+", "+Format(Dose_Zone(i-1),"#")+", "+Format(IRegion_Bit(i-1),"#")+", "+Format(Esave(i-1),"-0.0###")
 		    cm.text.Append Medium_In(i-1)
@@ -109,7 +110,7 @@ Protected Class Class_BEAM_CM_SLABS
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Zmin As Single
+		Zmin As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -173,7 +174,7 @@ Protected Class Class_BEAM_CM_SLABS
 			Name="Zmin"
 			Group="Behavior"
 			InitialValue="0"
-			Type="Single"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -1,10 +1,19 @@
+DebugMMCTP/DebugMMCTP.exe
 DebugMMCTP/DebugMMCTP Libs/Appearance Pak.dll
+DebugMMCTP/DebugMMCTP Libs/RegEx.dll
+DebugMMCTP/DebugMMCTP Libs/Shell.dll
+DebugMMCTP/DebugMMCTP Libs/msvcp140.dll
+DebugMMCTP/DebugMMCTP Libs/XojoGUIFramework32.dll
 DebugMMCTP/DebugMMCTP Libs/XML.dll
 DebugMMCTP/DebugMMCTP Libs/SQLiteDatabase.dll
-MMCTP.debug.app/Contents/Frameworks/XojoFramework.framework/Versions/A/_CodeSignature/CodeResources
-
+DebugMMCTP/DebugMMCTP Libs/vcruntime140.dll
+.mmctpvmain_9.xojo_uistate
+.mmctpvmain_9.xojo_uistate
+.mmctpvmain_9.xojo_uistate
 *.xojo_uistate
-
 *.xojo_uistate
-
-*.xojo_uistate
+.mmctpvmain_9.xojo_uistate
+.mmctpvmain_9.xojo_uistate
+.mmctpvmain_9.xojo_uistate
+DebugMMCTP/DebugMMCTP Libs/vccorlib140.dll
+.mmctpvmain_9.xojo_uistate

@@ -2,7 +2,6 @@
 Begin Window Window_DICOM_View
    BackColor       =   &c00000000
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -59,7 +58,7 @@ Begin Window Window_DICOM_View
       LockRight       =   True
       LockTop         =   True
       RequiresSelection=   False
-      Scope           =   "0"
+      Scope           =   0
       ScrollbarHorizontal=   True
       ScrollBarVertical=   True
       SelectionType   =   0
@@ -96,7 +95,7 @@ Begin Window Window_DICOM_View
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
