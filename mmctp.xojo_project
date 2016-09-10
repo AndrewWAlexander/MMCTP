@@ -345,14 +345,9 @@ Class=Class_BEAM_CM_CONESTAK;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_CONESTAK.xojo_cod
 Window=Window_ColourWash;Treatment Planning/Window_ColourWash.xojo_window;&h60417FF;&h628F7F8;false
 AppMenuBar=MenuBar_Main
 MajorVersion=9
-MinorVersion=1
-<<<<<<< HEAD:mmctp.xojo_project
-SubVersion=8
-NonRelease=474
-=======
-SubVersion=6
+MinorVersion=2
+SubVersion=0
 NonRelease=475
->>>>>>> master:mmctpvmain_9.1.6.xojo_project
 Release=2
 InfoVersion=
 LongVersion=

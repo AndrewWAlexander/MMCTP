@@ -105,39 +105,13 @@ Inherits Application
 		  
 		  if TargetWin32 then
 		    local_endline=EndOfLine.Windows
-		    // Look for Quesa dll
-		    f=SpecialFolder.Windows
-		    f= f.Child("Quesa.dll")
-		    if f= Nil Then
-		      MsgBox("Please install Quesa at "+f.ShellPath)
-		      Quit
-		    end
-		    
-		    if f.Exists=False Then
-		      MsgBox("Please install Quesa at "+f.ShellPath)
-		      Quit
-		    end
-		    
 		    App.MDIWindow.Height=720
 		    App.MDIWindow.Width=1200
-		    
 		    if Screen(0)<>nil Then
 		      App.MDIWindow.Top= Screen(0).height/2 - App.MDIWindow.height/2
 		      App.MDIWindow.Left = screen(0).Width/2 - (App.MDIWindow.Width/2)
 		    end
-		    
-		    
 		  elseif TargetMacOS then
-		    // Look for Quesa dll
-		    f= Volume(0).Child("Library").Child("Frameworks").Child("Quesa.framework")
-		    if f= Nil Then
-		      MsgBox("Please install Quesa at "+f.ShellPath)
-		      Quit
-		    end
-		    if f.Exists=False Then
-		      MsgBox("Please install Quesa at "+f.ShellPath)
-		      Quit
-		    end
 		    local_endline=EndOfLine.Macintosh
 		  else
 		    local_endline=EndOfLine.unix
