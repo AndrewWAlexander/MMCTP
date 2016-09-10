@@ -53,7 +53,7 @@ Begin Window Window_Beam_Properties
       TextUnit        =   0
       Top             =   40
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   625
       Begin GroupBox GroupBox6
@@ -4706,10 +4706,10 @@ End
 		  end
 		  beam.Beam_Energy=PopupMenu_E_BE.Text
 		  
-		  if gRTOG.Plan(Plan_Index).Beam(beam_index).beam_mode<>"PHOTON"  Then
-		    PopupMenu_E_BA.Enabled=True
-		    General_pop_applicator
-		  end
+		  //if gRTOG.Plan(Plan_Index).Beam(beam_index).beam_mode<>"PHOTON"  Then
+		  PopupMenu_E_BA.Enabled=True
+		  General_pop_applicator
+		  //end
 		  beam.Aperture_ID=""
 		  
 		  jj=beam.Read_MLC_Model
