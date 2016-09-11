@@ -2151,6 +2151,7 @@ Inherits Thread
 		  
 		  // Calculate Distance from Phsp scoring plane to Isocenter
 		  if egsinp.MMCTP_auto Then
+		    
 		    if dosxyznrc_link=1 Then// For BEAMnrc link
 		      if egsinp.isource=2 or egsinp.isource=8 or egsinp.isource=9 or egsinp.isource=11 or egsinp.isource=20 or egsinp.isource=21 or egsinp.isource=10 Then
 		        // Find last scoring plane
@@ -2167,8 +2168,13 @@ Inherits Thread
 		        end
 		      end
 		      
+		      egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
+		      
+		      
 		    elseif dosxyznrc_link=2 Then// For Cutout link
 		      egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter-95
+		      cc.dir=cc.Shell.egsnrc_folder_path+"cutoutmp/"
+		      egsinp.FILNAM=cc.dir+MC_file_name+str(beam+1)+"-cutout.egsphsp1"
 		    end
 		    
 		    
@@ -2261,6 +2267,25 @@ Inherits Thread
 		  end // ===Isocenter DOSxyz=========
 		  
 		  
+		  if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 or gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=10 Then // we are using a phase space file from multi directions
+		    // Write code for multi direction path 
+		    // Update 2016 AA
+		    egsinp.nang=-1
+		    ReDim egsinp.ivary(0)
+		    ReDim egsinp.angfixed(0)
+		    ReDim egsinp.angmin(0)
+		    ReDim egsinp.angmax(0)
+		    ReDim egsinp.ngang(0)
+		    ReDim egsinp.pgang(0)
+		    egsinp.ivary(0)=1 // 1 for varying theta
+		    egsinp.angfixed(0)=egsinp.phi(0) 
+		    egsinp.angmin(0)=egsinp.theta(0) 
+		    egsinp.angmax(0)=egsinp.theta(UBound(egsinp.theta))
+		    egsinp.ngang(0)=300
+		    egsinp.pgang(0)=1
+		  end
+		  
+		  
 		  
 		  // Get BEAM directory
 		  if not dosxyz_get_shell_Variables(egsphant_index,beam) Then
@@ -2296,32 +2321,6 @@ Inherits Thread
 		      else
 		        egsinp.mode=2
 		      end
-		    end
-		    //Number of times to split charged particles as soon as they enter the phantom
-		    //geometry. Split particles have their weight reduced by a factor of 1/e split. This
-		    //is only used in conjunction with photon splitting (n split, see Section 8.16) and
-		    //prevents higher-weight contaminant electrons from compromising statistics in photon
-		    //beams. For maximum eﬃciency, it is suggested that you set e split=n split, the
-		    //photon splitting number.
-		    egsinp.e_split=egsinp.n_split
-		  end
-		  
-		  
-		  
-		  // If we are using a Lib source or a phsp source or multi source
-		  if (gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=9 or _
-		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or _
-		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=10 or _
-		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 or _
-		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21) and egsinp.MMCTP_auto  Then
-		    // We are using a Lib source 
-		    // Determine the BEAMnrc code, inputfile, pegs file
-		    if egsinp.enflag=2 or egsinp.enflag=3 Then
-		      
-		    else
-		      egsinp.enflag=2
-		    end
-		    if dosxyznrc_link=1 Then // FOr BEAMnrc sim linking
 		      
 		      // Get the BEAMnrc folder name for the BEAMnrc simulation
 		      if gBEAM.cc.shell.OS=3 Then
@@ -2343,6 +2342,7 @@ Inherits Thread
 		        Return False
 		      end
 		      
+		      
 		      egsinp.the_shared_lib=BEAMnrc_directoy
 		      egsinp.the_beam_code=BEAMnrc_directoy
 		      if gBEAM.Beams(beam).egs_pegs_file="" Then
@@ -2350,16 +2350,42 @@ Inherits Thread
 		      end
 		      egsinp.the_pegs_file=gBEAM.Beams(beam).egs_pegs_file
 		      egsinp.the_input_file=MC_file_name+Str(beam+1)
-		      //Make BEAMnrc Inputfile
-		      good=gBEAM.Beams(beam).Write_Inputfile(bversion)
-		      gBEAM.egs_Uploadfiles(BEAM)
+		      
+		      if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace Then
+		        egsinp.the_shared_lib="0"
+		        egsinp.the_input_file="0"
+		      end
 		    end
-		    
+		    //Number of times to split charged particles as soon as they enter the phantom
+		    //geometry. Split particles have their weight reduced by a factor of 1/e split. This
+		    //is only used in conjunction with photon splitting (n split, see Section 8.16) and
+		    //prevents higher-weight contaminant electrons from compromising statistics in photon
+		    //beams. For maximum eﬃciency, it is suggested that you set e split=n split, the
+		    //photon splitting number.
+		    egsinp.e_split=egsinp.n_split
 		  end
 		  
 		  
-		  if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21 then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
-		    // Make ARC file redim all arrays
+		  
+		  
+		  
+		  
+		  if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=1 Then// Parallel Rectangular Beam Incident from Any Direction
+		    if egsinp.enflag=0 or egsinp.enflag=1 Then
+		    else
+		      egsinp.enflag=0
+		    end
+		    
+		    
+		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or _
+		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=10 or _
+		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21or _
+		     (gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False) then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
+		    
+		    if egsinp.enflag=2 or egsinp.enflag=3 Then
+		    else
+		      egsinp.enflag=2
+		    end
 		    
 		    if cc.shell.OS=3 Then
 		      egsinp.path11=cc.shell.egsnrc_folder_path+"dosxyznrc\"+name2
@@ -2372,54 +2398,21 @@ Inherits Thread
 		    end
 		    
 		    
-		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=1 Then// Parallel Rectangular Beam Incident from Any Direction
-		    if egsinp.enflag=0 or egsinp.enflag=1 Then
-		    else
-		      egsinp.enflag=0
-		    end
+		    //Make BEAMnrc Inputfile
+		    good=gBEAM.Beams(beam).Write_Inputfile(bversion)
+		    gBEAM.egs_Uploadfiles(BEAM)
+		    
+		    
 		    
 		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=2  or _
-		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20  or _
+		    (gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace)  or _
 		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 Then// we are using a phase space file
-		    
 		    if egsinp.enflag=2 or egsinp.enflag=3 Then
 		    else
 		      egsinp.enflag=2
 		    end
 		  end
 		  
-		  // If we are using a phsp link
-		  if egsinp.MMCTP_auto Then
-		    
-		    egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
-		    
-		    if dosxyznrc_link=2 Then // For Cutout simulations
-		      cc.dir=cc.Shell.egsnrc_folder_path+"cutoutmp/"
-		      egsinp.FILNAM=cc.dir+MC_file_name+str(beam+1)+"-cutout.egsphsp1"
-		    end
-		    
-		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=8 or gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=10 Then // we are using a phase space file from multi directions
-		      
-		      // Write code for multi direction path 
-		      // Update 2016 AA
-		      
-		      egsinp.nang=-1
-		      ReDim egsinp.ivary(0)
-		      ReDim egsinp.angfixed(0)
-		      ReDim egsinp.angmin(0)
-		      ReDim egsinp.angmax(0)
-		      ReDim egsinp.ngang(0)
-		      ReDim egsinp.pgang(0)
-		      
-		      egsinp.ivary(0)=1 // 1 for varying theta
-		      egsinp.angfixed(0)=egsinp.phi(0) 
-		      egsinp.angmin(0)=egsinp.theta(0) 
-		      egsinp.angmax(0)=egsinp.theta(UBound(egsinp.theta))
-		      egsinp.ngang(0)=300
-		      egsinp.pgang(0)=1
-		      
-		    end
-		  end // End auto MMCTP update
 		  
 		  
 		  
@@ -2621,6 +2614,14 @@ Inherits Thread
 		      else
 		        dosxyznrc_bs_cor=False
 		      end
+		      
+		    elseif InStr(oneline,"Isource20-as-phasespace")> 0 Then
+		      if InStr(oneline,"yes")> 0 Then
+		        dosxyz_defaultsource20_as_phasespace=True
+		      else
+		        dosxyz_defaultsource20_as_phasespace=False
+		      end
+		      
 		      
 		    elseif InStr(oneline,"MinDosxyzJobs")> 0 Then
 		      dosxyz_min_number_of_Jobs=val(NthField(oneline,"=",2))
@@ -3496,7 +3497,12 @@ Inherits Thread
 		  Spaces(ts,"AutojobnumbertimerSec",40,Format(dosxyz_autojobtimer_sec,"#"))
 		  Spaces(ts,"DefaultIDAT",40,Format(dosxyz_defaultIDAT,"#"))
 		  
-		  
+		  if dosxyz_defaultsource20_as_phasespace Then
+		    ss="yes"
+		  else
+		    ss="no"
+		  end
+		  Spaces(ts,"Isource20-as-phasespace",40,ss)
 		  
 		  // Write all default EGSPhant files which are auto made
 		  temp=""
@@ -3660,6 +3666,10 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		dosxyz_defaultsource20_as_phasespace As Boolean = true
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		dosxyz_desired_average_error As single = 1
 	#tag EndProperty
 
@@ -3804,6 +3814,12 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="2"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="dosxyz_defaultsource20_as_phasespace"
+			Group="Behavior"
+			InitialValue="true"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="dosxyz_desired_average_error"

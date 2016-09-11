@@ -1609,9 +1609,9 @@ End
 		    DOSXYZ.DOSXYZ_Input(beam).isource=11 or _
 		    DOSXYZ.DOSXYZ_Input(beam).isource=21 or _
 		    DOSXYZ.DOSXYZ_Input(beam).isource=10 or _
-		    DOSXYZ.DOSXYZ_Input(beam).isource=20 Then
+		    (DOSXYZ.DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False) Then
 		    RadioButton_lib.Value=True
-		  elseif DOSXYZ.DOSXYZ_Input(beam).isource=2  or DOSXYZ.DOSXYZ_Input(beam).isource=8 Then
+		  elseif DOSXYZ.DOSXYZ_Input(beam).isource=2  or DOSXYZ.DOSXYZ_Input(beam).isource=8 or (DOSXYZ.DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=True)Then
 		    RadioButton_phsp.Value=True
 		  else
 		    RadioButton_other.Value=True

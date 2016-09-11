@@ -9,7 +9,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   501
+   Height          =   575
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -31,17 +31,17 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       Bold            =   False
       Caption         =   "MMCTP DOSXYZnrc Settings"
       Enabled         =   True
-      Height          =   242
+      Height          =   315
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   False
-      LockTop         =   False
+      LockTop         =   True
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -320,6 +320,38 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Visible         =   True
          Width           =   77
       End
+      Begin CheckBox CheckBox_MC_DOS_source20
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   "isource 20 format as shared lib"
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox4"
+         Italic          =   False
+         Left            =   32
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Scope           =   0
+         State           =   0
+         TabIndex        =   27
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   486
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         Width           =   265
+      End
    End
    Begin GroupBox GroupBox1
       AutoDeactivate  =   True
@@ -418,7 +450,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
       Bold            =   False
       Caption         =   "EGSPhant files"
       Enabled         =   True
-      Height          =   242
+      Height          =   320
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -458,7 +490,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          GridLinesVertical=   0
          HasHeading      =   True
          HeadingIndex    =   -1
-         Height          =   196
+         Height          =   267
          HelpTag         =   ""
          Hierarchical    =   False
          Index           =   -2147483648
@@ -466,11 +498,11 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          InitialValue    =   ""
          Italic          =   False
          Left            =   429
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
-         LockLeft        =   False
+         LockLeft        =   True
          LockRight       =   False
-         LockTop         =   False
+         LockTop         =   True
          RequiresSelection=   False
          Scope           =   0
          ScrollbarHorizontal=   True
@@ -698,7 +730,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number test hist"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -733,7 +764,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Minimum # of jobs"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -854,7 +884,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Default Output #"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -932,7 +961,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Default Source Num"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -967,7 +995,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Default # of jobs"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1088,7 +1115,6 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   11
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Average Uncer (%):"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1240,6 +1266,10 @@ End
 		    EditField_DOSxyz_MinNumJobs.Text=Format(gDOSXYZ.dosxyz_min_number_of_Jobs,"#")
 		    EditField_DOSxyz_defaultIDAT.Text=Format(gDOSXYZ.dosxyz_defaultIDAT,"#")
 		    
+		    
+		    if gDOSXYZ.dosxyz_defaultsource20_as_phasespace =False Then
+		      CheckBox_MC_DOS_source20.Value=True
+		    end
 		    
 		    if gDOSXYZ.dosxyznrc_link=1 Then
 		      RadioButton_MC_Dos_Beam.Value=True
@@ -1413,6 +1443,21 @@ End
 		Sub TextChange()
 		  if gDOSXYZ<> nil and DoNothing = False Then
 		    gDOSXYZ.dosxyz_autojobtimer_sec=Val(me.Text)
+		    gDOSXYZ.Dosxyz_write
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events CheckBox_MC_DOS_source20
+	#tag Event
+		Sub Action()
+		  if gDOSXYZ<>Nil and DoNothing=False Then
+		    
+		    if me.Value=False Then
+		      gDOSXYZ.dosxyz_defaultsource20_as_phasespace=True
+		    Else 
+		      gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False
+		    end
 		    gDOSXYZ.Dosxyz_write
 		  end
 		End Sub
