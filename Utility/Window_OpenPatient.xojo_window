@@ -247,7 +247,6 @@ Begin Window Window_OpenPatient
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Filter:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -282,7 +281,6 @@ Begin Window Window_OpenPatient
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Current folder:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -608,6 +606,9 @@ End
 		  dim fi as FolderItem
 		  dim opfi as new SelectFolderDialog
 		  
+		  
+		  Window_OpenPatient.Close
+		  
 		  opfi.InitialDirectory=gPref.McGillfi
 		  opfi.Title="Select McGill Folder"
 		  opfi.ActionButtonCaption = "Select"
@@ -615,20 +616,13 @@ End
 		  
 		  fi=opfi.ShowModalWithin(Self)
 		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
 		  if fi<>nil then //fi.Exists then
 		    gPref.McGillfi=fi
 		    gpref.Write_Pref
 		    patientlistupdate
 		  end if
 		  
-		  
+		  Window_OpenPatient.Show
 		End Sub
 	#tag EndEvent
 #tag EndEvents
