@@ -1007,7 +1007,7 @@ Protected Module Globals
 		              
 		            elseif dd.DOSXYZ_Input(x).isource=9 or dd.DOSXYZ_Input(x).isource=10 or _
 		              (dd.DOSXYZ_Input(x).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False) or _
-		              or dd.DOSXYZ_Input(x).isource=11 or _
+		              dd.DOSXYZ_Input(x).isource=11 or _
 		              dd.DOSXYZ_Input(x).isource=21 Then // For Lib sources only
 		              //AAA
 		              if dd.DOSXYZ_Input(x).dos_Shell=sname or dd.DOSXYZ_Input(x).AutoShell Then
