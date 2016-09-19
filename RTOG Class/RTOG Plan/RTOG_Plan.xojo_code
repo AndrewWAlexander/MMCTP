@@ -922,6 +922,11 @@ Protected Class RTOG_Plan
 		    temp=lines(i)
 		    if inStr(temp,"Target:")>0 Then
 		      orindex=val(NthField(temp," ",2))-1
+		      
+		      if orindex>UBound(aa) or orindex<0 Then
+		        Return
+		      end
+		      
 		      if InStr(Temp,"Yes")>0 Then
 		        aa(orindex).Use_Min_Dose=True
 		      else

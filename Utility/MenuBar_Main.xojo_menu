@@ -223,7 +223,7 @@ Begin Menu MenuBar_Main
          End
          Begin MenuItem FileConfigurationsBeamnrc
             SpecialMenu = 0
-            Text = "Beamnrc settings"
+            Text = "BEAMnrc settings"
             Index = -2147483648
             AutoEnable = True
             Visible = True
