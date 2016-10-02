@@ -235,6 +235,224 @@ Protected Class Class_DICOM_File
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Header_Read_Element_Info()
+		  //======================================
+		  //this method takes the input group and element and assigns
+		  //the proper VR, information and supplement number
+		  //======================================
+		  Dim numLine,j, i as integer
+		  Dim groupElement,Info,element,group  as string
+		  Dim gENotFound as Boolean
+		  //=======================================
+		  
+		  for j=0 to UBound(Elements)
+		    element=Elements(j).Tag_b
+		    group=Elements(j).Tag_a
+		    groupElement = group  +element
+		    
+		    gENotFound = false // assume for now that the group and element will be found
+		    
+		    if left(groupElement, 6) = "002031" then // this covers any tag 002031xx
+		      i = 580
+		      
+		    elseif left(groupElement, 6) = "002804" then // this covers any tag 002804xx
+		      if right(element, 1) = "0" then // 002804x0
+		        i = 648
+		      elseif right(element, 1) = "1" then // 002804x1
+		        i = 649
+		      elseif right(element, 1) = "2" then // 002804x2
+		        i = 650
+		      elseif right(element, 1) = "3" then // 002804x3
+		        i = 651
+		      else
+		        gENotFound = true
+		      end if
+		      
+		    elseif left(groupElement, 6) = "002808" then // this covers any tag 002808xx
+		      if right(element, 1) = "0" then // 002808x0
+		        i = 661
+		      elseif right(element, 1) = "2" then // 002808x2
+		        i = 662
+		      elseif right(element, 1) = "3" then // 002804x3
+		        i = 663
+		      elseif right(element, 1) = "4" then // 002804x4
+		        i = 664
+		      elseif right(element, 1) = "8" then // 002804x8
+		        i = 665
+		      else
+		        gENotFound = true
+		      end if
+		      
+		    elseif left(groupElement, 6) = "100000" and groupElement <> "10000000" then
+		      // 100000xx but not 10000000
+		      if right(element, 1) = "0" then // 100000x0
+		        i = 1071
+		      elseif right(element, 1) = "1" then // 100000x1
+		        i = 1072
+		      elseif right(element, 1) = "2" then // 100000x2
+		        i = 1073
+		      elseif right(element, 1) = "3" then // 100000x3
+		        i = 1074
+		      elseif right(element, 1) = "4" then // 100000x4
+		        i = 1075
+		      elseif right(element, 1) = "5" then // 100000x5
+		        i = 1076
+		      else
+		        gENotFound = true
+		      end if
+		      
+		    elseif group = "1010" and element <> "0000" then
+		      // 1010xxxx but not 10100000
+		      i = 1078
+		      
+		    elseif left(group, 2) = "50" or left(group, 2) = "60" then
+		      if left(group, 2) = "50" then // 50xxxxxx
+		        numLine = 1630
+		      else // 60xxxxxx
+		        numLine = 1664
+		      end if
+		      
+		      i = numLine - 1
+		      do
+		        i = i + 1
+		      loop until i = 1720 or element = right(gDICOM.dictionary(i, 0), 2)
+		      // find the right element
+		      
+		    elseif left(group, 2) = "7F" and group <> "7FE0" then // 7Fxxxxxx but not 7FE0xxxx
+		      if element = "0000" then // 7Fxx0000
+		        i = 1710
+		      elseif element = "0010" then // 7Fxx0010
+		        i = 1711
+		      elseif element = "0011" then // 7Fxx0011
+		        i = 1712
+		      elseif element = "0020" then // 7Fxx0020
+		        i = 1713
+		      elseif element = "0030" then // 7Fxx0030
+		        i = 1714
+		      elseif element = "0040" then // 7Fxx0040
+		        i = 1715
+		      else
+		        gENotFound = true
+		      end if
+		      
+		    else // any other group
+		      if group = "0000" then
+		        numLine = 0 // start searching for the element beginning on this line
+		      elseif group = "0002" then
+		        numLine = 46
+		      elseif group = "0004" then
+		        numLine = 56
+		      elseif group = "0008" then
+		        numLine = 75
+		      elseif group = "0010" then
+		        numLine = 186
+		      elseif group = "0018" then
+		        numLine = 219
+		      elseif group = "0020" then
+		        numLine = 533
+		      elseif group = "0028" then
+		        numLine = 590
+		      elseif group = "0032" then
+		        numLine = 720
+		      elseif group = "0038" then
+		        numLine = 746
+		      elseif group = "003A" then
+		        numLine = 768
+		      elseif group = "0040" then
+		        numLine = 793
+		      elseif group = "0050" then
+		        numLine = 927
+		      elseif group = "0054" then
+		        numLine = 937
+		      elseif group = "0060" then
+		        numLine = 1015
+		      elseif group = "0070" then
+		        numLine = 1022
+		      elseif group = "0088" then
+		        numLine = 1062
+		      elseif group = "1000" then
+		        numLine = 1070
+		      elseif group = "1010" then
+		        numLine = 1077
+		      elseif group = "2000" then
+		        numLine = 1079
+		      elseif group = "2010" then
+		        numLine = 1101
+		      elseif group = "2020" then
+		        numLine = 1128
+		      elseif group = "2030" then
+		        numLine = 1140
+		      elseif group = "2040" then
+		        numLine = 1143
+		      elseif group = "2050" then
+		        numLine = 1156
+		      elseif group = "2100" then
+		        numLine = 1159
+		      elseif group = "2110" then
+		        numLine = 1170
+		      elseif group = "2120" then
+		        numLine = 1175
+		      elseif group = "2130" then
+		        numLine = 1178
+		      elseif group = "3002" then
+		        numLine = 1187
+		      elseif group = "3004" then
+		        numLine = 1205
+		      elseif group = "3006" then
+		        numLine = 1227
+		      elseif group = "3008" then
+		        numLine = 1271
+		      elseif group = "300A" then
+		        numLine = 1346
+		      elseif group = "300C" then
+		        numLine = 1570
+		      elseif group = "300E" then
+		        numLine = 1595
+		      elseif group = "4000" then
+		        numLine = 1599
+		      elseif group = "4008" then
+		        numLine = 1602
+		      elseif group = "5400" then
+		        numLine = 1657
+		      elseif group = "7FE0" then
+		        numLine = 1705
+		      elseif left(group, 2) = "7F" then
+		        numLine = 1710
+		      elseif group = "FFFC" then
+		        numLine = 1716
+		      else
+		        gENotFound = true // if the group number was not in the dictionary
+		      end if
+		      
+		      
+		      if gENotFound = false then // if the group number was found
+		        i = numLine - 1
+		        do
+		          i = i + 1
+		        loop until i = 1720 or groupElement = gDICOM.dictionary(i, 0)
+		        // search for the element number
+		        // give up at the end of the array (i = 1720)
+		      else // if it could not be found, assume it is a proprietary tag
+		        Info ="Proprietary Tag"
+		      end if
+		    end if
+		    
+		    if gENotFound = false then // if the group was found
+		      if i = 1720 then // if it searched until the end of the file and never found the element
+		        gENotFound = true // show that the element was not found and assume it is a proprietary tag
+		        Info= "Proprietary Tag"
+		      else // if the group and element were found
+		        Info = gDICOM.dictionary(i, 2)
+		      end if
+		    else // if it could not be found, assume it is a proprietary tag
+		      Info = "Proprietary Tag"
+		    end if
+		    Elements(j).Info=Info
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Header_Read_Element_Tag()
 		  //==============================
 		  // Populate Array of Elements
