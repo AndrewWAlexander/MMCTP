@@ -795,16 +795,22 @@ Inherits Application
 		Function Help_Manual() As Boolean Handles Help_Manual.Action
 			Dim f as FolderItem
 			
-			
+			// Open pdf on local PC, if configuations folder is available
 			F=gPref.Config_fi
+			if f.Exists Then
 			f=f.Parent
 			f=f.Child("00-MMCTPUsersManual.pdf")
-			
 			if f.Exists Then
 			Application.OpenDocument(f)
 			f.Launch
-			
 			end
+			end
+			
+			
+			// Show MMCTP manual on webpage
+			ShowURL("https://andrewwalexander.github.io/MMCTP/download/MMCTPUsersManual.pdf")
+			
+			
 			Return True
 			
 		End Function
@@ -959,6 +965,8 @@ Inherits Application
 			dd=new Class_DICOM_File
 			
 			mm=dd.Load_One_DICOM_file(f)
+			dd.Header_Read_Element_Info
+			
 			if mm Then
 			dd.Header_Display
 			end
