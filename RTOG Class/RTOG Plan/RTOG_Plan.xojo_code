@@ -614,7 +614,18 @@ Protected Class RTOG_Plan
 		        // Update the Beam limiting Devices JAWs and MLC control points
 		        for k=0 to UBound(bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence)
 		          BLDPS=bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence(k)
-		          if InStr(BLDPS.RTBeamLimitingDevice,"MLCX" )>0 or  InStr(BLDPS.RTBeamLimitingDevice,"MLCY" )>0  Then //Update the MLC control points
+		          
+		          
+		          
+		          if InStr(BLDPS.RTBeamLimitingDevice,"X")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            one_beam.Collimator.fields(x).X1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
+		            one_beam.Collimator.fields(x).X2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
+		          elseif InStr(BLDPS.RTBeamLimitingDevice,"Y")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            one_beam.Collimator.fields(x).Y1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
+		            one_beam.Collimator.fields(x).Y2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
+		            
+		            
+		          elseif InStr(BLDPS.RTBeamLimitingDevice,"MLCX" )>0 or  InStr(BLDPS.RTBeamLimitingDevice,"MLCY" )>0  Then //Update the MLC control points
 		            
 		            one_beam.MLC.NumberofFields=one_beam.MLC.NumberofFields+1
 		            //one_beam.MLC.NumberofLeaves=CountFields(BLDPS.LeafjawPositions,"\")
