@@ -2104,7 +2104,14 @@ Inherits Thread
 		  
 		  
 		  f=gPref.BEAMnrc_fi
+		  if f=nil Then
+		    Return
+		  end
 		  f=f.Child("BEAM-Settings.txt")
+		  if f=Nil Then
+		    Return
+		  end
+		  
 		  
 		  ts=f.CreateTextFile
 		  While ts=nil
