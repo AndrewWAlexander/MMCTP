@@ -233,6 +233,14 @@ Inherits Application
 	#tag EndMenuHandler
 
 	#tag MenuHandler
+		Function File_Close_Patient() As Boolean Handles File_Close_Patient.Action
+			
+			Return app.MMCTP_Clean_up
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
 		Function File_DoseInformation() As Boolean Handles File_DoseInformation.Action
 			Window_Dose_Info.Show
 			
@@ -1001,6 +1009,55 @@ Inherits Application
 		    MMCTP_Version_Update_7
 		  end
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function MMCTP_Clean_up() As Boolean
+		  //-------------------------------
+		  // Method to close current patient
+		  // shut down all running scripts of current patient
+		  //
+		  //-------------------------------
+		  MMCTP_Shell_Refresh.Close
+		  MMCTP_Shell_Run.Close
+		  
+		  
+		  ReDim MMCTP_Shell_Refresh.All(-1)
+		  ReDim MMCTP_Shell_Run.All(-1)
+		  
+		  // Kill gvis runs
+		  if gvis<>Nil then
+		    if gVis.Contours<> nil Then
+		      gVis.Contours.kill
+		      gVis.contours=nil
+		    end
+		    gvis.kill
+		    ReDim gvis.scans(-1)
+		    gvis=nil
+		  end
+		  gvis=new Thread_Visualization
+		  
+		  
+		  if App.which_window_TreatmentPlanning  then
+		    Window_Treatment.Close
+		    if app.which_window_TreatmentPlanning=False Then
+		      gRTOG=nil
+		    else
+		      Return false
+		      
+		    end
+		    
+		    
+		    
+		  elseif App.which_window_Contouring  then
+		    Window_Contouring.Close
+		    gRTOG=nil
+		  end
+		  
+		  
+		  
+		  Return true
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

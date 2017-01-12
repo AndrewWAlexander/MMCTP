@@ -401,55 +401,6 @@ End
 
 
 	#tag Method, Flags = &h0
-		Function clean_up() As Boolean
-		  //-------------------------------
-		  // Method to close current patient
-		  // shut down all running scripts of current patient
-		  //
-		  //-------------------------------
-		  MMCTP_Shell_Refresh.Close
-		  MMCTP_Shell_Run.Close
-		  
-		  
-		  ReDim MMCTP_Shell_Refresh.All(-1)
-		  ReDim MMCTP_Shell_Run.All(-1)
-		  
-		  // Kill gvis runs
-		  if gvis<>Nil then
-		    if gVis.Contours<> nil Then
-		      gVis.Contours.kill
-		      gVis.contours=nil
-		    end
-		    gvis.kill
-		    ReDim gvis.scans(-1)
-		    gvis=nil
-		  end
-		  gvis=new Thread_Visualization
-		  
-		  
-		  if App.which_window_TreatmentPlanning  then
-		    Window_Treatment.Close
-		    if app.which_window_TreatmentPlanning=False Then
-		      gRTOG=nil
-		    else
-		      Return false
-		      
-		    end
-		    
-		    
-		    
-		  elseif App.which_window_Contouring  then
-		    Window_Contouring.Close
-		    gRTOG=nil
-		  end
-		  
-		  
-		  
-		  Return true
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Open_Patient()
 		  Dim f as FolderItem
 		  Dim name, pname as string
@@ -469,7 +420,7 @@ End
 		    f=f.child(pname).Child(name)
 		    if f<>nil Then
 		      if f.Exists =true then
-		        if clean_up then
+		        if app.mmctp_clean_up then
 		          gRTOG= new Thread_RTOG
 		          app.MMCTP_Open_Patient(f)
 		        end
