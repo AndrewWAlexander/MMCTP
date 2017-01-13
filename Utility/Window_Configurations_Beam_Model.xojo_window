@@ -35,7 +35,7 @@ Begin Window Window_Configurations_Beam_Model
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   17
+      Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -53,7 +53,7 @@ Begin Window Window_Configurations_Beam_Model
       TextUnit        =   0
       Top             =   77
       Underline       =   False
-      Value           =   2
+      Value           =   3
       Visible         =   True
       Width           =   888
       Begin GroupBox GroupBox_Linac_MC
@@ -66,7 +66,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   33
+         Left            =   36
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -88,7 +88,7 @@ Begin Window Window_Configurations_Beam_Model
             AutoHideScrollbars=   True
             Bold            =   False
             Border          =   True
-            ColumnCount     =   4
+            ColumnCount     =   5
             ColumnsResizable=   True
             ColumnWidths    =   ""
             DataField       =   ""
@@ -108,7 +108,7 @@ Begin Window Window_Configurations_Beam_Model
             InitialParent   =   "GroupBox_Linac_MC"
             InitialValue    =   ""
             Italic          =   False
-            Left            =   42
+            Left            =   45
             LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
@@ -151,7 +151,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   230
+            Left            =   233
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -187,7 +187,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   42
+            Left            =   45
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -198,7 +198,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "BEAMnrc particle density"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -222,7 +221,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   42
+            Left            =   45
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -233,7 +232,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "BEAMnrc input file (wth ext)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -264,7 +262,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   230
+            Left            =   233
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -307,7 +305,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   230
+            Left            =   233
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -343,7 +341,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_MC"
             Italic          =   False
-            Left            =   42
+            Left            =   45
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -354,7 +352,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "BEAMnrc pegs file (no ext)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -378,7 +375,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   36
+         Left            =   39
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -413,7 +410,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   250
+            Left            =   253
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -449,7 +446,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   46
+            Left            =   49
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -460,7 +457,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Number of Wedges"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -498,7 +494,7 @@ Begin Window Window_Configurations_Beam_Model
             InitialParent   =   "GroupBox_Linac_Wedges"
             InitialValue    =   ""
             Italic          =   False
-            Left            =   46
+            Left            =   49
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -541,7 +537,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   250
+            Left            =   253
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -577,7 +573,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   48
+            Left            =   51
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -588,7 +584,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Number of wedge orientations"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -613,7 +608,7 @@ Begin Window Window_Configurations_Beam_Model
             InitialParent   =   "GroupBox_Linac_Wedges"
             InitialValue    =   ""
             Italic          =   False
-            Left            =   250
+            Left            =   253
             ListIndex       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -643,7 +638,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   48
+            Left            =   51
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -654,7 +649,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -678,7 +672,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   48
+            Left            =   51
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -689,7 +683,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedges Angle"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -720,7 +713,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Wedges"
             Italic          =   False
-            Left            =   250
+            Left            =   253
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -756,7 +749,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   477
+         Left            =   480
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -791,7 +784,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Electrons"
             Italic          =   False
-            Left            =   670
+            Left            =   673
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -827,7 +820,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Electrons"
             Italic          =   False
-            Left            =   487
+            Left            =   490
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -838,7 +831,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Number of Applicators"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -876,7 +868,7 @@ Begin Window Window_Configurations_Beam_Model
             InitialParent   =   "GroupBox_Linac_Electrons"
             InitialValue    =   ""
             Italic          =   False
-            Left            =   487
+            Left            =   490
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
@@ -912,7 +904,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   34
+         Left            =   37
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -939,7 +931,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox1"
             Italic          =   False
-            Left            =   51
+            Left            =   54
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   True
@@ -967,7 +959,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   62
+               Left            =   65
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   False
@@ -978,7 +970,6 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   0
                TabPanelIndex   =   2
-               TabStop         =   True
                Text            =   "Number of leafpairs or binary leaves:"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1009,7 +1000,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   322
+               Left            =   325
                LimitText       =   0
                LockBottom      =   False
                LockedInPosition=   False
@@ -1052,7 +1043,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   155
+               Left            =   158
                LimitText       =   0
                LockBottom      =   False
                LockedInPosition=   False
@@ -1088,7 +1079,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   62
+               Left            =   65
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   False
@@ -1099,7 +1090,6 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   3
                TabPanelIndex   =   2
-               TabStop         =   True
                Text            =   "MLC Name:"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1137,7 +1127,7 @@ Begin Window Window_Configurations_Beam_Model
                InitialParent   =   "GroupBox15"
                InitialValue    =   ""
                Italic          =   False
-               Left            =   62
+               Left            =   65
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   False
@@ -1172,7 +1162,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   62
+               Left            =   65
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1201,7 +1191,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   204
+               Left            =   207
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1238,7 +1228,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   322
+               Left            =   325
                LimitText       =   0
                LockBottom      =   False
                LockedInPosition=   False
@@ -1274,7 +1264,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   65
+               Left            =   68
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   False
@@ -1285,7 +1275,6 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   8
                TabPanelIndex   =   2
-               TabStop         =   True
                Text            =   "Abutting leaf air gap (cm)"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1308,7 +1297,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   405
+               Left            =   408
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1335,7 +1324,7 @@ Begin Window Window_Configurations_Beam_Model
                   Index           =   -2147483648
                   InitialParent   =   "GroupBox16"
                   Italic          =   False
-                  Left            =   418
+                  Left            =   421
                   LockBottom      =   False
                   LockedInPosition=   False
                   LockLeft        =   True
@@ -1365,7 +1354,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   405
+               Left            =   408
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1392,7 +1381,7 @@ Begin Window Window_Configurations_Beam_Model
                   Index           =   -2147483648
                   InitialParent   =   "GroupBox17"
                   Italic          =   False
-                  Left            =   418
+                  Left            =   421
                   LockBottom      =   False
                   LockedInPosition=   False
                   LockLeft        =   True
@@ -1421,7 +1410,7 @@ Begin Window Window_Configurations_Beam_Model
                   Index           =   -2147483648
                   InitialParent   =   "GroupBox17"
                   Italic          =   False
-                  Left            =   418
+                  Left            =   421
                   LockBottom      =   False
                   LockedInPosition=   False
                   LockLeft        =   True
@@ -1451,7 +1440,7 @@ Begin Window Window_Configurations_Beam_Model
                Index           =   -2147483648
                InitialParent   =   "GroupBox15"
                Italic          =   False
-               Left            =   418
+               Left            =   421
                LockBottom      =   False
                LockedInPosition=   False
                LockLeft        =   True
@@ -1483,7 +1472,7 @@ Begin Window Window_Configurations_Beam_Model
             InitialParent   =   "GroupBox1"
             InitialValue    =   ""
             Italic          =   False
-            Left            =   51
+            Left            =   54
             ListIndex       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -1525,7 +1514,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox1"
             Italic          =   False
-            Left            =   374
+            Left            =   377
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -1569,7 +1558,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox1"
             Italic          =   False
-            Left            =   528
+            Left            =   531
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -1602,7 +1591,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   34
+         Left            =   37
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1613,7 +1602,6 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "MLC name for linac"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1638,7 +1626,7 @@ Begin Window Window_Configurations_Beam_Model
          InitialParent   =   "TabPanel_All"
          InitialValue    =   ""
          Italic          =   False
-         Left            =   186
+         Left            =   189
          ListIndex       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -1669,7 +1657,7 @@ Begin Window Window_Configurations_Beam_Model
          InitialParent   =   "TabPanel_All"
          InitialValue    =   ""
          Italic          =   False
-         Left            =   223
+         Left            =   226
          ListIndex       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -1699,7 +1687,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   45
+         Left            =   48
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1710,7 +1698,6 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Beam Mode:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1741,7 +1728,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   223
+         Left            =   226
          LimitText       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -1777,7 +1764,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   45
+         Left            =   48
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1788,7 +1775,6 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Linac name:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1819,7 +1805,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   223
+         Left            =   226
          LimitText       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -1855,7 +1841,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   45
+         Left            =   48
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1866,7 +1852,6 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1889,7 +1874,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   45
+         Left            =   48
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -1916,7 +1901,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -1945,7 +1930,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -1974,7 +1959,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -2003,7 +1988,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -2032,7 +2017,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -2061,7 +2046,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Linac_Type"
             Italic          =   False
-            Left            =   60
+            Left            =   63
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -2091,7 +2076,7 @@ Begin Window Window_Configurations_Beam_Model
          Index           =   -2147483648
          InitialParent   =   "TabPanel_All"
          Italic          =   False
-         Left            =   36
+         Left            =   39
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -2119,7 +2104,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox10"
             Italic          =   False
-            Left            =   46
+            Left            =   49
             LockBottom      =   False
             LockedInPosition=   False
             LockLeft        =   False
@@ -2130,7 +2115,6 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Varian 60 deg Dynamic Wedge STT file"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2161,7 +2145,7 @@ Begin Window Window_Configurations_Beam_Model
             Index           =   -2147483648
             InitialParent   =   "GroupBox10"
             Italic          =   False
-            Left            =   46
+            Left            =   49
             LimitText       =   0
             LockBottom      =   False
             LockedInPosition=   False
@@ -2303,7 +2287,6 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Beam Energy:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2369,7 +2352,6 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Linac Name:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2435,7 +2417,6 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Beam Mode:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2689,7 +2670,7 @@ End
 	#tag Method, Flags = &h0
 		Sub Linac_Pop()
 		  //---------------------------
-		  //
+		  // Update for BEAMnrc phsp file name
 		  //
 		  //---------------------------
 		  Dim  i as Integer
@@ -2698,6 +2679,8 @@ End
 		  
 		  
 		  DoNothing=True
+		  // Update for BEAMnrc phsp file name
+		  
 		  
 		  ListBox_Linacs_MC.DeleteAllRows
 		  
@@ -2705,13 +2688,15 @@ End
 		  ListBox_Linacs_MC.ColumnType(1)=3
 		  ListBox_Linacs_MC.ColumnType(2)=3
 		  ListBox_Linacs_MC.ColumnType(3)=3
+		  ListBox_Linacs_MC.ColumnType(4)=3
 		  
 		  
 		  ListBox_Linacs_MC.Heading(0)="Shell"
 		  ListBox_Linacs_MC.Heading(1)="BEAMnrc folder name"
 		  ListBox_Linacs_MC.Heading(2)="DOSXYZnrc dose value"
 		  ListBox_Linacs_MC.Heading(3)="VMC dose value"
-		  ListBox_Linacs_MC.ColumnWidths="20%,50%,30%,30%"
+		  ListBox_Linacs_MC.Heading(4)="BEAMnrc phsp file name"
+		  ListBox_Linacs_MC.ColumnWidths="20%,20%,20%,20%,20%"
 		  
 		  if Linac<> Nil Then
 		    for i=0 to UBound(Linac.MC_BEAMnrc_path)
@@ -2719,6 +2704,8 @@ End
 		      ListBox_Linacs_MC.Cell(i,1) = Linac.MC_BEAMnrc_path(i)
 		      ListBox_Linacs_MC.Cell(i,2)=Format(Linac.MC_dosxyz_dose(i),"-#.######e")
 		      ListBox_Linacs_MC.Cell(i,3)=Format(Linac.MC_VMC_dose(i),"-#.######e")
+		      ListBox_Linacs_MC.Cell(i,4)=Linac.MC_BEAMnrc_phsp_file(i)
+		      
 		    Next
 		    
 		    if Name_Change =False Then
@@ -3018,6 +3005,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
+		  // Update for source 20 phsp file 2017
+		  
 		  if DoNothing Then
 		    Return
 		  end
@@ -3031,6 +3020,9 @@ End
 		    
 		  elseif column=3 Then
 		    Linac.MC_VMC_dose(row)=val(me.Cell(row,3))
+		    
+		  elseif column=4 Then
+		    Linac.MC_BEAMnrc_phsp_file(row)=Trim(me.Cell(row,4))
 		    
 		    
 		  end

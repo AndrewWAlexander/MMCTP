@@ -2106,6 +2106,7 @@ Inherits Thread
 		  // 2012 - Alexander
 		  // Auto MMCTP Update change to non-CT phantom
 		  //
+		  // Update for isource 20 phsp shared lib runs 2017
 		  //-------------------------------------------
 		  Dim BEAMnrc_directoy, name, temp,bversion,name2 as string
 		  Dim gamma, col, p, direction,test As Single
@@ -2153,9 +2154,17 @@ Inherits Thread
 		  if egsinp.MMCTP_auto Then
 		    
 		    if dosxyznrc_link=1 Then// For BEAMnrc link
+		      
+		      if egsinp.isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False Then
+		        egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_BEAMnrc_Source_phsp_name //"/" between directoy and phsp name removed by William Davis 
+		      else
+		        egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
+		      end
+		      
+		      
 		      if egsinp.isource=2 or egsinp.isource=8 or egsinp.isource=9 or egsinp.isource=11 or egsinp.isource=20 or egsinp.isource=21 or egsinp.isource=10 Then
 		        // Find last scoring plane
-		        if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		        if gBEAM.Beams(beam).Inputfile.IO_OPT=4 and  InStr(egsinp.FILNAM,"IAEAphsp")>0 Then
 		          egsinp.dsource=gRTOG.Plan(Plan_Index).Beam(beam).Nominal_Isocenter
 		        else
 		          scoring=gBEAM.Beams(BEAM).Inputfile.NSC_PLANES-1
@@ -2167,8 +2176,6 @@ Inherits Thread
 		          end
 		        end
 		      end
-		      
-		      egsinp.FILNAM=gBEAM.cc.dir+gBEAM.Beams(beam).egs_Phsp_name //"/" between directoy and phsp name removed by William Davis 
 		      
 		      
 		    elseif dosxyznrc_link=2 Then// For Cutout link
@@ -2352,6 +2359,7 @@ Inherits Thread
 		      egsinp.the_input_file=MC_file_name+Str(beam+1)
 		      
 		      if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace Then
+		        // for non shared lib or source model runs. Reset those values to 0 
 		        egsinp.the_shared_lib="0"
 		        egsinp.the_input_file="0"
 		      end
@@ -2380,7 +2388,7 @@ Inherits Thread
 		  elseif gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 or _
 		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=10 or _
 		    gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=21or _
-		     (gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False) then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
+		    (gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 and gDOSXYZ.dosxyz_defaultsource20_as_phasespace=False) then// FOr lib Tomo source  or Synchronized BEAM Simulation Source
 		    
 		    if egsinp.enflag=2 or egsinp.enflag=3 Then
 		    else
@@ -2395,6 +2403,12 @@ Inherits Thread
 		    
 		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 Then // Only for Tomo Source
 		      DOSXYZ(egsphant_index).Write_DOSXYZ_Input_Arc(beam)
+		    end
+		    
+		    
+		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 Then
+		      
+		      
 		    end
 		    
 		    

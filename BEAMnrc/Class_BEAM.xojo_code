@@ -2713,6 +2713,13 @@ Protected Class Class_BEAM
 
 	#tag Property, Flags = &h0
 		#tag Note
+			Name of phsp file
+		#tag EndNote
+		egs_BEAMnrc_Source_Phsp_name As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
 			flag set true is calculation has started
 		#tag EndNote
 		egs_BEAMnrc_started As boolean

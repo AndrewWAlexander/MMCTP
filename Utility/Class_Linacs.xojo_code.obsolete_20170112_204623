@@ -2,13 +2,11 @@
 Protected Class Class_Linacs
 	#tag Method, Flags = &h0
 		Sub Initialize(num as Integer)
-		  // Update for BEAMnrc phsp file source 2017
 		  Dim i as Integer
 		  
 		  ReDim All_Linacs(num).MC_dosxyz_dose(UBound(gShells.Shells))
 		  ReDim All_Linacs(num).MC_BEAMnrc_path(UBound(gShells.Shells))
 		  ReDim All_Linacs(num).MC_VMC_dose(UBound(gShells.Shells))
-		  ReDim All_Linacs(num).MC_BEAMnrc_path(UBound(gShells.Shells))
 		  
 		  
 		  for i=0 to UBound(All_Linacs(num).MC_dosxyz_dose)
@@ -23,7 +21,6 @@ Protected Class Class_Linacs
 		  //---------------------------------
 		  // Read the BEAM.pref configuation file
 		  // Occurs once, when the program starts up
-		  //  Update for BEAMnrc phsp file 2017
 		  //---------------------------------
 		  Dim ts as TextInputStream
 		  Dim temp,rotations,angles,readline as string
@@ -49,9 +46,7 @@ Protected Class Class_Linacs
 		      
 		      ReDim ff.MC_dosxyz_dose(UBound(gShells.Shells))
 		      ReDim ff.MC_BEAMnrc_path(UBound(gShells.Shells))
-		      ReDim ff.MC_BEAMnrc_phsp_file(UBound(gShells.Shells))
 		      ReDim ff.MC_VMC_dose(UBound(gShells.Shells))
-		      
 		      for i=0 to UBound(gShells.Shells)
 		        ff.MC_dosxyz_dose(i)=1
 		        ff.MC_VMC_dose(i)=1
@@ -72,27 +67,19 @@ Protected Class Class_Linacs
 		      next
 		      
 		      
-		      
-		      
 		      ff.MC_BEAMnrc_input_file=trim(NthField(readline,",",8))
-		      
-		      temp=trim(NthField(readline,",",9))
-		      for i=0 to UBound(gShells.Shells)
-		        ff.MC_BEAMnrc_phsp_file(i)=Trim(NthField(temp,"&",i+1))
-		      next
-		      
 		      ff.MC_BEAMnrc_pegs4=trim(NthField(readline,",",10))
 		      
 		      
 		      temp=trim(NthField(readline,",",11))
 		      for i=0 to UBound(gShells.Shells)
+		        
 		        ff.MC_dosxyz_dose(i)=val(NthField(temp,"&",i+1))
 		        if ff.MC_dosxyz_dose(i)=0 Then 
 		          ff.MC_dosxyz_dose(i)=1
 		        end
+		        
 		      next
-		      
-		      
 		      
 		      temp=trim(NthField(readline,",",12))
 		      for i=0 to UBound(gShells.Shells)
@@ -245,7 +232,7 @@ Protected Class Class_Linacs
 		  //--------------------------------
 		  // Write the BEAM.pref configuation file
 		  //
-		  // updated for BEAMnrc phsp file 2017
+		  //
 		  //--------------------------------
 		  Dim ts as TextOutputStream
 		  Dim file,path,infile,name,subname as string
@@ -308,19 +295,7 @@ Protected Class Class_Linacs
 		    
 		    
 		    file=file+gLinacs.All_Linacs(i).MC_BEAMnrc_input_file+","
-		    
-		    
-		    '// Fill MC BEAMnrc phsp file path
-		    name=""
-		    for x=0 to UBound(gShells.Shells)
-		      if x=  UBound(gShells.Shells) Then
-		        name=name+gLinacs.All_Linacs(i).MC_BEAMnrc_phsp_file(x)
-		      else
-		        name=name+gLinacs.All_Linacs(i).MC_BEAMnrc_phsp_file(x)+"&"
-		      end
-		    next
-		    file=file+name+","
-		    
+		    file=file+"Empty,"
 		    file=file+gLinacs.All_Linacs(i).MC_BEAMnrc_pegs4+","
 		    
 		    

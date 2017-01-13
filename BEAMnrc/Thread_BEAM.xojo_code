@@ -488,6 +488,8 @@ Inherits Thread
 		  // link between beam variables and linac settings
 		  // link between beam variables and BEAMnrc settings
 		  // link between beam variables and DOS,VMC settings
+		  
+		  // Updated for DOSXYZnrc isource 20 phsp file runs 2017
 		  //-------------------------------------------------
 		  dim i,x as integer
 		  dim name,energy,mode,temp as String
@@ -538,6 +540,8 @@ Inherits Thread
 		    // Update the BEAMnrc directory
 		    Beams(beam).egs_BEAMnrc_dir=""
 		    Beams(beam).egs_BEAMnrc_dir=gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_path(Beams(beam).egs_Shell_Index)
+		    Beams(beam).egs_BEAMnrc_Source_phsp_name=gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_phsp_file(Beams(beam).egs_Shell_Index)
+		    
 		    
 		    if Beams(beam).egs_BEAMnrc_dir="" Then
 		      Errors.append "Error : beam "+str(beam+1)+" is not configured on shell "+gShells.Shells(Beams(Beam).egs_Shell_Index).title //Changed to "Errors.append" by William Davis to prevent crash due to exception

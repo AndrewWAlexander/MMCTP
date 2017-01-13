@@ -33,6 +33,10 @@ Protected Class Class_Linacs_One
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		MC_BEAMnrc_phsp_file(-1) As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		MC_dosxyz_dose(-1) As double
 	#tag EndProperty
 
