@@ -360,7 +360,7 @@ Begin Window Window_Treatment
       TextUnit        =   0
       Top             =   537
       Underline       =   False
-      Value           =   4
+      Value           =   6
       Visible         =   True
       Width           =   1247
       Begin BevelButton BevelButton_DoseProfile_Properties
@@ -5212,30 +5212,12 @@ End
 		  
 		  // No threads running
 		  if gBEAM.State=4 and gVMC.State=4 and gDOSXYZ.State=4 and UBound(MMCTP_Shell_Refresh.All)=-1 and UBound(MMCTP_Shell_Run.All)=-1 and UBound(MMCTP_Download.All)=-1 then
-		    
-		    
 		    Plan_Index=temp_plan_index
-		    
-		    // FInd dose index
-		    s=ListBox_Plan.Cell(ListBox_Plan.ListIndex,3)
-		    if len(s)=0 Then
-		      dose_index=-1
-		    else
-		      dose_index=val(s)
-		    end
-		    
-		    
-		    if old_d<>dose_index or old<>Plan_Index  then
-		      gVis.Iso.Calculate_Values
-		      Window_canvas_refresh_Dose
-		    end
-		    
 		    'Do updates if things changed
 		    if old<>plan_index then
 		      MC_Open_settings(plan_index)
 		      beam_update_beam
 		    end
-		    
 		    
 		    
 		  else // threads ARE  running do not change the planindex
@@ -5249,22 +5231,33 @@ End
 		        end
 		      next
 		    end
-		    
-		    'FInd dose index
-		    s=ListBox_Plan.Cell(ListBox_Plan.ListIndex,3)
-		    if len(s)=0 Then
-		      dose_index=-1
-		    else
-		      dose_index=val(s)
-		    end
-		    
-		    
-		    if old_d<>dose_index  then
-		      gVis.Iso.Calculate_Values
-		      Window_canvas_refresh_Dose
-		    end
 		  end
 		  
+		  
+		  'FInd dose index
+		  s=ListBox_Plan.Cell(ListBox_Plan.ListIndex,3)
+		  if len(s)=0 Then
+		    dose_index=-1
+		  else
+		    dose_index=val(s)
+		  end
+		  
+		  
+		  if old_d<>dose_index or old<>Plan_Index   then
+		    if UBound(gRTOG.Plan(Plan_Index).Dose)>=Window_Treatment.dose_index and Window_Treatment.dose_index >=0 Then
+		      Window_Treatment.Canvas_Top.thedose=gRTOG.plan(plan_index).dose(Window_Treatment.dose_index)
+		      Window_Treatment.Canvas_Left.thedose=gRTOG.plan(plan_index).dose(Window_Treatment.dose_index)
+		      Window_Treatment.Canvas_Right.thedose=gRTOG.plan(plan_index).dose(Window_Treatment.dose_index)
+		      gVis.Iso.Calculate_Values
+		    else
+		      Window_Treatment.Canvas_Top.thedose=Nil
+		      Window_Treatment.Canvas_Left.thedose=Nil
+		      Window_Treatment.Canvas_Right.thedose=Nil
+		    end
+		    Window_canvas_refresh_Dose
+		  end
+		  
+		  // 1st generate a 2D dose plane
 		  
 		  
 		End Sub

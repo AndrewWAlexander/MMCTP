@@ -1014,12 +1014,7 @@ Inherits Canvas
 		    Return
 		  end 
 		  
-		  // 1st generate a 2D dose plane
-		  if UBound(gRTOG.Plan(Plan_Index).Dose)>=Window_Treatment.dose_index Then
-		    thedose=gRTOG.plan(plan_index).dose(Window_Treatment.dose_index)
-		  else
-		    Return
-		  end
+		  
 		  
 		  
 		  

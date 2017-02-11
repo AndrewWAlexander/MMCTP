@@ -3,7 +3,7 @@ Protected Class Class_Iso_Dose
 	#tag Method, Flags = &h0
 		Sub Calculate_Values()
 		  //---------------------------------------
-		  // 
+		  //  Update the normalization value for isodose lines
 		  //
 		  //---------------------------------------
 		  Dim iso_x,iso_y,iso_z as Single
