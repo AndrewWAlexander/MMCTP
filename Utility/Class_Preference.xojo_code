@@ -370,6 +370,15 @@ Protected Class Class_Preference
 		        DVH_clean=False
 		      end
 		      
+		      
+		    elseif instr(tempstr,"DICOMRTFileFormat")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      if modstr="0" Then
+		        DICOM_Format=0
+		      else
+		        DICOM_Format=1
+		      end
+		      
 		    end if
 		  wend
 		  ts.Close
@@ -576,6 +585,11 @@ Protected Class Class_Preference
 		  else
 		    ts.writeline "DICOMRTAnonymize := No"
 		  end
+		  
+		  
+		  ts.writeline "DICOMRTFileFormat := "+Str(DICOM_Format)
+		  
+		  
 		  
 		  ts.close
 		End Sub

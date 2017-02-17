@@ -53,7 +53,7 @@ Begin Window Window_Configurations_TPS_System
       TextUnit        =   0
       Top             =   8
       Underline       =   False
-      Value           =   5
+      Value           =   3
       Visible         =   True
       Width           =   1093
       Begin GroupBox GroupBox2
@@ -256,7 +256,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "McGill RT Folder"
          TextAlign       =   0
          TextColor       =   &cFF000000
@@ -377,7 +376,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "DICOM Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -455,7 +453,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "CADPLAN Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -533,7 +530,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "RTOG Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -611,7 +607,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   9
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "BEAMnrc input Folder"
          TextAlign       =   0
          TextColor       =   &cFF000000
@@ -909,7 +904,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "VMC Folder"
          TextAlign       =   0
          TextColor       =   &c99663300
@@ -1031,7 +1025,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Commissioning Data folder"
          TextAlign       =   0
          TextColor       =   &c00FF0000
@@ -1153,7 +1146,6 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   21
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "McGill Cutout folder"
          TextAlign       =   0
          TextColor       =   &c99663300
@@ -2170,7 +2162,6 @@ Begin Window Window_Configurations_TPS_System
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
-            TabStop         =   True
             Text            =   "Strucutre Z slice aligment parameter (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000

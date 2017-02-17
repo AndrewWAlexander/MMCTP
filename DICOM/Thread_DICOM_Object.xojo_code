@@ -3894,54 +3894,54 @@ Inherits Thread
 		    file=new Class_DICOM_File
 		    dose=RT_Doses(i)
 		    
-		    if gPref.DICOM_Format=0 Then
-		      // FileMetaInfoGroupLength
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0000"
-		      cc=ee.Update
-		      File.Elements.Append ee
-		      
-		      // FileMetaInfoVersion
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0001"
-		      ee.Value="256"
-		      cc=ee.Update
-		      File.Elements.Append ee
-		      
-		      // MediaStorageSOPClassUID
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0002"
-		      ee.Value=dose.MediaStorageSOPClassUID
-		      cc=ee.Update
-		      File.Elements.Append ee
-		      
-		      // MediaStorageSOPInstanceUID
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0003"
-		      ee.Value=dose.MediaStorageSOPInstanceUID
-		      cc=ee.Update
-		      File.Elements.Append ee
-		      
-		      // TransferSyntax
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0010"
-		      ee.Value=dose.TransferSyntaxUID
-		      cc=ee.Update
-		      File.Elements.Append ee
-		      
-		      // ImplementationClassUID
-		      ee= new Class_DICOM_Element
-		      ee.Tag_a="0002"
-		      ee.Tag_b="0012"
-		      ee.Value=dose.ImplementationClassUID
-		      cc=ee.Update
-		      File.Elements.Append ee
-		    end
+		    
+		    // FileMetaInfoGroupLength
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0000"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // FileMetaInfoVersion
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0001"
+		    ee.Value="256"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0002"
+		    ee.Value=dose.MediaStorageSOPClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPInstanceUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0003"
+		    ee.Value=dose.MediaStorageSOPInstanceUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // TransferSyntax
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0010"
+		    ee.Value=dose.TransferSyntaxUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // ImplementationClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0012"
+		    ee.Value=dose.ImplementationClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
 		    
 		    // Image type
 		    ee= new Class_DICOM_Element
@@ -4397,6 +4397,7 @@ Inherits Thread
 		    
 		    // Reference plan sequence
 		    if UBound(dose.ReferencedRTPSequence)>-1 Then
+		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300C"
 		      ee.Tag_b="0002"
@@ -4497,7 +4498,7 @@ Inherits Thread
 		    cc=ee.Update
 		    
 		    File.UID_Name=dose.SOPInstanceUID
-		    File.TempName="RTDOSE_"+File.UID_Name
+		    File.TempName="RTDOSE_"+File.UID_Name+".dcm"
 		    File.file=MainFolder.Child(file.TempName)
 		    File.Write_DICOM
 		  next
@@ -4943,9 +4944,9 @@ Inherits Thread
 		    if gPref.DICOM_FileStructure=2 Then
 		      //XiO format
 		      File.TempName=Replace(RT_Images(i).PatientName,"^","_")
-		      File.TempName="CTI."+RT_Images(i).PatientID+"."+RT_Images(i).StudyID+"."+str(RT_Images(i).InstanceNumber)+"."+File.TempName
+		      File.TempName="CTI."+RT_Images(i).PatientID+"."+RT_Images(i).StudyID+"."+str(RT_Images(i).InstanceNumber)+"."+File.TempName+".dcm"
 		    else
-		      File.TempName="CT_"+File.UID_Name
+		      File.TempName="CT_"+File.UID_Name+".dcm"
 		    end
 		    
 		    File.file=MainFolder.Child(file.TempName)
@@ -6615,7 +6616,7 @@ Inherits Thread
 		    File.Elements.Append ee
 		    
 		    File.UID_Name=planclass.SOPInstanceUID
-		    File.TempName="RTPLAN_"+File.UID_Name
+		    File.TempName="RTPLAN_"+File.UID_Name+".dcm"
 		    File.file=MainFolder.Child(file.TempName)
 		    File.Write_DICOM
 		  next
@@ -7368,7 +7369,7 @@ Inherits Thread
 		    
 		    
 		    File.UID_Name=RT_Structures(i).SOPInstanceUID
-		    File.TempName="RTSTRUCT_"+File.UID_Name
+		    File.TempName="RTSTRUCT_"+File.UID_Name+".dcm"
 		    File.file=MainFolder.Child(file.TempName)
 		    File.Write_DICOM
 		  Next
