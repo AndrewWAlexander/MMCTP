@@ -4433,10 +4433,12 @@ Inherits Thread
 		        File.Elements.Append ee
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
+		        cc=File.Elements(item_level1_index).Update
 		        length_level1=length_level1+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=length_level1
+		      File.Elements(level1_index).Sequence_Length=length_level1
+		      cc=File.Elements(level1_index).Update
 		    end
 		    
 		    
@@ -4478,11 +4480,12 @@ Inherits Thread
 		        File.Elements.Append ee
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
+		        cc=File.Elements(item_level1_index).Update
 		        length_level1=length_level1+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=length_level1
-		      
+		      File.Elements(level1_index).Sequence_Length=length_level1
+		      cc=File.Elements(level1_index).Update
 		    end
 		    
 		    // PixelData
@@ -4494,6 +4497,14 @@ Inherits Thread
 		    for k=0 to UBound(ee.PixelData)
 		      ee.PixelData(k)=dose.PixelData(k)
 		    next
+		    if gPref.DICOM_Bytes=16 Then // 2 bytes per point
+		      // 2 bytes per point
+		      ee.Value_length=2*(UBound(ee.PixelData)+1)
+		    else
+		      // 4 bytes per point
+		      ee.Value_length=4*(UBound(ee.PixelData)+1)
+		    end
+		    
 		    File.Elements.Append ee
 		    cc=ee.Update
 		    
@@ -5282,7 +5293,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0000"
 		    ee.Value="8   "
-		    ee.length=LenB(ee.Value)
+		    ee.Value_length=LenB(ee.Value)
 		    File.Elements.Append ee
 		    cc=ee.Update
 		    
@@ -5597,12 +5608,12 @@ Inherits Thread
 		        end
 		        
 		        // Attach final length to item
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        
 		        level1_length=level1_length+item_level1_length+8
 		      Next
 		      // Asign level 1 length to element
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -5749,21 +5760,21 @@ Inherits Thread
 		            
 		          end
 		          // Add final length to item
-		          File.Elements(item_level2_index).length=item_level2_length
+		          File.Elements(item_level2_index).Value_length=item_level2_length
 		          // Add item length to level length 
 		          level2_length=level2_length+item_level2_length+8
 		        Next
 		        // Asign level 2 length to sequence
-		        File.Elements(level2_index).length=level2_length
+		        File.Elements(level2_index).Value_length=level2_length
 		        // Add level 2 length to level 1
 		        item_level1_length=item_level1_length+level2_length+8
 		        
 		        // Add final le
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
 		      // Asign level 1 length to element
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    
@@ -5843,7 +5854,7 @@ Inherits Thread
 		        ee.Tag_b="00B6"
 		        ee.Value="1"
 		        cc=ee.Update
-		        ee.length=templength
+		        ee.Value_length=templength
 		        File.Elements.Append ee
 		        level2_length=0
 		        level2_index=UBound(File.Elements)
@@ -5899,10 +5910,10 @@ Inherits Thread
 		          end
 		          
 		          // Assign value length to item, and update level 2 length
-		          File.Elements(item_level2_index).length=item_level2_length
+		          File.Elements(item_level2_index).Value_length=item_level2_length
 		          level2_length=level2_length+item_level2_length+8
 		        Next
-		        File.Elements(level2_index).length=level2_length
+		        File.Elements(level2_index).Value_length=level2_length
 		        item_level1_length=item_level1_length+level2_length+8
 		        
 		        // Beam number
@@ -6100,12 +6111,12 @@ Inherits Thread
 		              
 		              
 		              // Assign value length to item, and update level 3 length
-		              File.Elements(item_level3_index).length=item_level3_length
+		              File.Elements(item_level3_index).Value_length=item_level3_length
 		              level3_length=level3_length+item_level3_length+8
 		              
 		            Next
 		            
-		            File.Elements(level3_index).length=level3_length
+		            File.Elements(level3_index).Value_length=level3_length
 		            item_level2_length=item_level2_length+level3_length+8
 		          end
 		          
@@ -6285,10 +6296,10 @@ Inherits Thread
 		          end
 		          
 		          // Assign value length to item, and update level 2 length
-		          File.Elements(item_level2_index).length=item_level2_length
+		          File.Elements(item_level2_index).Value_length=item_level2_length
 		          level2_length=level2_length+item_level2_length+8
 		        Next
-		        File.Elements(level2_index).length=level2_length
+		        File.Elements(level2_index).Value_length=level2_length
 		        item_level1_length=item_level1_length+level2_length+8
 		        
 		        
@@ -6324,10 +6335,10 @@ Inherits Thread
 		        end
 		        
 		        // Add final value length of item level 1 to element
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    //--------------End -Beam Sequence------------------------------------------------------------------------------------
 		    
@@ -6429,17 +6440,17 @@ Inherits Thread
 		            cc=ee.Update  
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
-		            File.Elements(item_level2_index).length=item_level2_length
+		            File.Elements(item_level2_index).Value_length=item_level2_length
 		            level2_length=level2_length+item_level2_length+8
 		          Next
-		          File.Elements(level2_index).length=level2_length
+		          File.Elements(level2_index).Value_length=level2_length
 		          item_level1_length=item_level1_length+level2_length+8
 		        end
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    //--------------End Patient Setup Sequence------------------------------------------------------------------------------------
 		    
@@ -6490,10 +6501,10 @@ Inherits Thread
 		        File.Elements.Append ee
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -6533,10 +6544,10 @@ Inherits Thread
 		        File.Elements.Append ee
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -7016,28 +7027,28 @@ Inherits Thread
 		                    found=ee.Update
 		                    item_level4_length=item_level4_length+ee.Element_Length
 		                    
-		                    File.Elements(item_level4_index).length=item_level4_length
+		                    File.Elements(item_level4_index).Value_length=item_level4_length
 		                    level4_length=level4_length+item_level4_length+8
 		                  Next
-		                  File.Elements(level4_index).length=level4_length
+		                  File.Elements(level4_index).Value_length=level4_length
 		                  item_level3_length=item_level3_length+level4_length+8
 		                end
-		                File.Elements(item_level3_index).length=item_level3_length
+		                File.Elements(item_level3_index).Value_length=item_level3_length
 		                level3_length=level3_length+item_level3_length+8
 		              Next
-		              File.Elements(level3_index).length=level3_length
+		              File.Elements(level3_index).Value_length=level3_length
 		              item_level2_length=item_level2_length+level3_length+8
 		            end
-		            File.Elements(item_level2_index).length=item_level2_length
+		            File.Elements(item_level2_index).Value_length=item_level2_length
 		            level2_length=level2_length+item_level2_length+8
 		          Next
-		          File.Elements(level2_index).length=level2_length
+		          File.Elements(level2_index).Value_length=level2_length
 		          item_level1_length=item_level1_length+level2_length+8
 		        end
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    
@@ -7095,10 +7106,10 @@ Inherits Thread
 		        found=ee.Update
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    
@@ -7191,10 +7202,10 @@ Inherits Thread
 		                found=ee.Update
 		                item_level3_length=item_level3_length+ee.Element_Length
 		                
-		                File.Elements(item_level3_index).length=item_level3_length
+		                File.Elements(item_level3_index).Value_length=item_level3_length
 		                level3_length=level3_length+item_level3_length+8
 		              Next
-		              File.Elements(level3_index).length=level3_length
+		              File.Elements(level3_index).Value_length=level3_length
 		              item_level2_length=item_level2_length+level3_length+8
 		            end
 		            
@@ -7239,10 +7250,10 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            
-		            File.Elements(item_level2_index).length=item_level2_length
+		            File.Elements(item_level2_index).Value_length=item_level2_length
 		            level2_length=level2_length+item_level2_length+8
 		          Next
-		          File.Elements(level2_index).length=level2_length
+		          File.Elements(level2_index).Value_length=level2_length
 		          item_level1_length=item_level1_length+level2_length+8
 		        end
 		        
@@ -7256,10 +7267,10 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    
@@ -7352,19 +7363,19 @@ Inherits Thread
 		            found=ee.Update
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
-		            File.Elements(item_level2_index).length=item_level2_length
+		            File.Elements(item_level2_index).Value_length=item_level2_length
 		            level2_length=level2_length+item_level2_length+8
 		          Next
 		          
-		          File.Elements(level2_index).length=level2_length
+		          File.Elements(level2_index).Value_length=level2_length
 		          item_level1_length=item_level1_length+level2_length+8
 		          
 		        end
 		        
-		        File.Elements(item_level1_index).length=item_level1_length
+		        File.Elements(item_level1_index).Value_length=item_level1_length
 		        level1_length=level1_length+item_level1_length+8
 		      Next
-		      File.Elements(level1_index).length=level1_length
+		      File.Elements(level1_index).Value_length=level1_length
 		    end
 		    
 		    

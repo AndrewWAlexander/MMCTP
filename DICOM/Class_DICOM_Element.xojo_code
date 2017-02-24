@@ -16,12 +16,14 @@ Protected Class Class_DICOM_Element
 		      // Long 4 bytes
 		      Value_Length=4*(UBound( PixelData)+1)
 		    end
-		    Element_Length=Header_Length+Value_Length+4
 		    
 		  elseif  Tag_a="0028" and  Tag_b="0009"   then // Frame Pointer
 		    // Long 4 bytes
 		    Value_Length=4
-		    Element_Length=Header_Length+Value_Length+4
+		    
+		  elseif VR="SQ" or (Tag_a= "FFFE"and Tag_b = "E000") Then
+		    Value_length=0
+		    Value=Str(Sequence_Length)
 		    
 		  else // For all other types of elements
 		    if  VR = "AE" or _  //if string data
@@ -53,16 +55,14 @@ Protected Class Class_DICOM_Element
 		      
 		      // Long 4 bytes
 		      Value_Length=tt
-		      Element_Length=Header_Length+Value_Length+4
 		      
-		    elseif  VR= "US" or  VR  = "XS"  Then
+		    elseif  VR= "US" or  VR  = "XS" or  VR  = "OB"  Then
 		      Value_Length=2
-		      Element_Length=Header_Length+Value_Length+4
 		      
 		    else // if numeric data
 		      Value_Length=4
-		      Element_Length=Header_Length+Value_Length+4
 		    end
+		    Element_Length=Header_Length+Value_Length+4
 		  end
 		  
 		  
@@ -255,6 +255,8 @@ Protected Class Class_DICOM_Element
 		      numLine = 1710
 		    elseif group = "FFFC" then
 		      numLine = 1716
+		    elseif group = "FFFE" then
+		      numLine = 1717
 		    else
 		      gENotFound = true // if the group number was not in the dictionary
 		    end if
@@ -323,15 +325,15 @@ Protected Class Class_DICOM_Element
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		length As Integer
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
 		Name As string
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		PixelData(-1) As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Sequence_Length As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -400,16 +402,15 @@ Protected Class Class_DICOM_Element
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="length"
-			Group="Behavior"
-			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Sequence_Length"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

@@ -8,7 +8,7 @@ Protected Class Class_Linacs
 		  ReDim All_Linacs(num).MC_dosxyz_dose(UBound(gShells.Shells))
 		  ReDim All_Linacs(num).MC_BEAMnrc_path(UBound(gShells.Shells))
 		  ReDim All_Linacs(num).MC_VMC_dose(UBound(gShells.Shells))
-		  ReDim All_Linacs(num).MC_BEAMnrc_path(UBound(gShells.Shells))
+		  ReDim All_Linacs(num).MC_BEAMnrc_phsp_file(UBound(gShells.Shells))
 		  
 		  
 		  for i=0 to UBound(All_Linacs(num).MC_dosxyz_dose)

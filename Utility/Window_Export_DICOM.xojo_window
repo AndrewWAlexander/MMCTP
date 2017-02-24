@@ -203,6 +203,9 @@ End
 		  if CheckBox_Plan.Value Then
 		    if Plan_Index>=0 Then
 		      if UBound(gRTOG.Plan)>=Plan_Index Then
+		        if gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID="" Then
+		          gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=gDICOM.UID_Make
+		        end
 		        gRTOG.Convert_McGillRT2DICOM_RTPlan(Plan_Index)
 		      end
 		    end

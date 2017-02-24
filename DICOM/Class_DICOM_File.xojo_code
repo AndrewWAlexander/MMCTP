@@ -203,7 +203,7 @@ Protected Class Class_DICOM_File
 		    ww.Listbox_DICOM.Cell(i,5)=Elements(i).Value
 		    ww.Listbox_DICOM.CellType(i,5)=3
 		    ww.Listbox_DICOM.Cell(i,6)=str(Elements(i).byte_position)
-		    ww.Listbox_DICOM.Cell(i,7)=str(Elements(i).length)
+		    ww.Listbox_DICOM.Cell(i,7)=str(Elements(i).Value_Length)
 		  next
 		  ww.Title="DICOM file : "+file.Name
 		End Sub
@@ -236,214 +236,12 @@ Protected Class Class_DICOM_File
 		  //this method takes the input group and element and assigns
 		  //the proper VR, information and supplement number
 		  //======================================
-		  Dim numLine,j, i as integer
-		  Dim groupElement,Info,element,group  as string
 		  Dim gENotFound as Boolean
+		  Dim i as Integer
 		  //=======================================
 		  
-		  for j=0 to UBound(Elements)
-		    element=Elements(j).Tag_b
-		    group=Elements(j).Tag_a
-		    groupElement = group  +element
-		    
-		    gENotFound = false // assume for now that the group and element will be found
-		    
-		    if left(groupElement, 6) = "002031" then // this covers any tag 002031xx
-		      i = 580
-		      
-		    elseif left(groupElement, 6) = "002804" then // this covers any tag 002804xx
-		      if right(element, 1) = "0" then // 002804x0
-		        i = 648
-		      elseif right(element, 1) = "1" then // 002804x1
-		        i = 649
-		      elseif right(element, 1) = "2" then // 002804x2
-		        i = 650
-		      elseif right(element, 1) = "3" then // 002804x3
-		        i = 651
-		      else
-		        gENotFound = true
-		      end if
-		      
-		    elseif left(groupElement, 6) = "002808" then // this covers any tag 002808xx
-		      if right(element, 1) = "0" then // 002808x0
-		        i = 661
-		      elseif right(element, 1) = "2" then // 002808x2
-		        i = 662
-		      elseif right(element, 1) = "3" then // 002804x3
-		        i = 663
-		      elseif right(element, 1) = "4" then // 002804x4
-		        i = 664
-		      elseif right(element, 1) = "8" then // 002804x8
-		        i = 665
-		      else
-		        gENotFound = true
-		      end if
-		      
-		    elseif left(groupElement, 6) = "100000" and groupElement <> "10000000" then
-		      // 100000xx but not 10000000
-		      if right(element, 1) = "0" then // 100000x0
-		        i = 1071
-		      elseif right(element, 1) = "1" then // 100000x1
-		        i = 1072
-		      elseif right(element, 1) = "2" then // 100000x2
-		        i = 1073
-		      elseif right(element, 1) = "3" then // 100000x3
-		        i = 1074
-		      elseif right(element, 1) = "4" then // 100000x4
-		        i = 1075
-		      elseif right(element, 1) = "5" then // 100000x5
-		        i = 1076
-		      else
-		        gENotFound = true
-		      end if
-		      
-		    elseif group = "1010" and element <> "0000" then
-		      // 1010xxxx but not 10100000
-		      i = 1078
-		      
-		    elseif left(group, 2) = "50" or left(group, 2) = "60" then
-		      if left(group, 2) = "50" then // 50xxxxxx
-		        numLine = 1630
-		      else // 60xxxxxx
-		        numLine = 1664
-		      end if
-		      
-		      i = numLine - 1
-		      do
-		        i = i + 1
-		      loop until i = 1720 or element = right(gDICOM.dictionary(i, 0), 2)
-		      // find the right element
-		      
-		    elseif left(group, 2) = "7F" and group <> "7FE0" then // 7Fxxxxxx but not 7FE0xxxx
-		      if element = "0000" then // 7Fxx0000
-		        i = 1710
-		      elseif element = "0010" then // 7Fxx0010
-		        i = 1711
-		      elseif element = "0011" then // 7Fxx0011
-		        i = 1712
-		      elseif element = "0020" then // 7Fxx0020
-		        i = 1713
-		      elseif element = "0030" then // 7Fxx0030
-		        i = 1714
-		      elseif element = "0040" then // 7Fxx0040
-		        i = 1715
-		      else
-		        gENotFound = true
-		      end if
-		      
-		    else // any other group
-		      if group = "0000" then
-		        numLine = 0 // start searching for the element beginning on this line
-		      elseif group = "0002" then
-		        numLine = 46
-		      elseif group = "0004" then
-		        numLine = 56
-		      elseif group = "0008" then
-		        numLine = 75
-		      elseif group = "0010" then
-		        numLine = 186
-		      elseif group = "0018" then
-		        numLine = 219
-		      elseif group = "0020" then
-		        numLine = 533
-		      elseif group = "0028" then
-		        numLine = 590
-		      elseif group = "0032" then
-		        numLine = 720
-		      elseif group = "0038" then
-		        numLine = 746
-		      elseif group = "003A" then
-		        numLine = 768
-		      elseif group = "0040" then
-		        numLine = 793
-		      elseif group = "0050" then
-		        numLine = 927
-		      elseif group = "0054" then
-		        numLine = 937
-		      elseif group = "0060" then
-		        numLine = 1015
-		      elseif group = "0070" then
-		        numLine = 1022
-		      elseif group = "0088" then
-		        numLine = 1062
-		      elseif group = "1000" then
-		        numLine = 1070
-		      elseif group = "1010" then
-		        numLine = 1077
-		      elseif group = "2000" then
-		        numLine = 1079
-		      elseif group = "2010" then
-		        numLine = 1101
-		      elseif group = "2020" then
-		        numLine = 1128
-		      elseif group = "2030" then
-		        numLine = 1140
-		      elseif group = "2040" then
-		        numLine = 1143
-		      elseif group = "2050" then
-		        numLine = 1156
-		      elseif group = "2100" then
-		        numLine = 1159
-		      elseif group = "2110" then
-		        numLine = 1170
-		      elseif group = "2120" then
-		        numLine = 1175
-		      elseif group = "2130" then
-		        numLine = 1178
-		      elseif group = "3002" then
-		        numLine = 1187
-		      elseif group = "3004" then
-		        numLine = 1205
-		      elseif group = "3006" then
-		        numLine = 1227
-		      elseif group = "3008" then
-		        numLine = 1271
-		      elseif group = "300A" then
-		        numLine = 1346
-		      elseif group = "300C" then
-		        numLine = 1570
-		      elseif group = "300E" then
-		        numLine = 1595
-		      elseif group = "4000" then
-		        numLine = 1599
-		      elseif group = "4008" then
-		        numLine = 1602
-		      elseif group = "5400" then
-		        numLine = 1657
-		      elseif group = "7FE0" then
-		        numLine = 1705
-		      elseif left(group, 2) = "7F" then
-		        numLine = 1710
-		      elseif group = "FFFC" then
-		        numLine = 1716
-		      else
-		        gENotFound = true // if the group number was not in the dictionary
-		      end if
-		      
-		      
-		      if gENotFound = false then // if the group number was found
-		        i = numLine - 1
-		        do
-		          i = i + 1
-		        loop until i = 1720 or groupElement = gDICOM.dictionary(i, 0)
-		        // search for the element number
-		        // give up at the end of the array (i = 1720)
-		      else // if it could not be found, assume it is a proprietary tag
-		        Info ="Proprietary Tag"
-		      end if
-		    end if
-		    
-		    if gENotFound = false then // if the group was found
-		      if i = 1720 then // if it searched until the end of the file and never found the element
-		        gENotFound = true // show that the element was not found and assume it is a proprietary tag
-		        Info= "Proprietary Tag"
-		      else // if the group and element were found
-		        Info = gDICOM.dictionary(i, 2)
-		      end if
-		    else // if it could not be found, assume it is a proprietary tag
-		      Info = "Proprietary Tag"
-		    end if
-		    Elements(j).Info=Info
+		  for i=0 to UBound(Elements)
+		    gENotFound=Elements(i).Header_PickVRAndinfo
 		  Next
 		End Sub
 	#tag EndMethod
@@ -533,7 +331,7 @@ Protected Class Class_DICOM_File
 		    'else
 		    //Break
 		    One_Element.Value = "VR not handled"
-		    bytePos = bytePos + One_Element.length // these VR's have not been handled
+		    bytePos = bytePos + One_Element.Value_length // these VR's have not been handled
 		    //end
 		    
 		  elseif One_Element.VR="SQ" then
@@ -541,7 +339,7 @@ Protected Class Class_DICOM_File
 		    One_Element.VM = 1
 		    // the VM is 1 for a sequence
 		    
-		    sq_length.Append One_Element.length
+		    sq_length.Append One_Element.Value_length
 		    sq.Append bytePos
 		    // add a new row that says "BEGINNING OF SEQUENCE"
 		    
@@ -556,9 +354,9 @@ Protected Class Class_DICOM_File
 		    // (since you can have sequences inside sequences)
 		    
 		  elseif One_Element.VR= "OB" then
-		    One_Element.VM=One_Element.length/2 // the VM equals the number of integers
+		    One_Element.VM=One_Element.Value_length/2 // the VM equals the number of integers
 		    
-		    if bytePos+One_Element.length>=thismemblock.Size then
+		    if bytePos+One_Element.Value_length>=thismemblock.Size then
 		      exit
 		    end if
 		    
@@ -574,9 +372,9 @@ Protected Class Class_DICOM_File
 		    
 		    
 		  elseif One_Element.VR = "UL" or One_Element.VR = "SL" then
-		    One_Element.VM=One_Element.length/4 // the VM equals the number of integers
+		    One_Element.VM=One_Element.Value_length/4 // the VM equals the number of integers
 		    
-		    if bytePos+One_Element.length >=thismemblock.Size then
+		    if bytePos+One_Element.Value_length >=thismemblock.Size then
 		      exit
 		    end if
 		    
@@ -593,8 +391,8 @@ Protected Class Class_DICOM_File
 		    end if
 		    
 		  elseif One_Element.VR = "US" or One_Element.VR = "XS" then // XS is not in the dictionary but I am guessing that it is treated like US
-		    One_Element.VM=One_Element.length  / 2 // VM equals the number of integers
-		    if bytePos+One_Element.length >=thismemblock.Size then
+		    One_Element.VM=One_Element.Value_length  / 2 // VM equals the number of integers
+		    if bytePos+One_Element.Value_length >=thismemblock.Size then
 		      exit
 		    end if
 		    
@@ -609,9 +407,9 @@ Protected Class Class_DICOM_File
 		    end if
 		    
 		  elseif One_Element.VR= "SS" then 'if e_length <= 60 then // only put the value if the VM is 30 or less
-		    One_Element.VM =One_Element.length/2
+		    One_Element.VM =One_Element.Value_length/2
 		    
-		    if bytePos+One_Element.length >=thismemblock.Size then
+		    if bytePos+One_Element.Value_length >=thismemblock.Size then
 		      exit
 		    end if
 		    
@@ -633,7 +431,7 @@ Protected Class Class_DICOM_File
 		    // Pixel Data is not read into element class
 		    One_Element.Name = "Pixel Data"
 		    One_Element.VM = 3
-		    bytePos = bytePos + One_Element.length
+		    bytePos = bytePos + One_Element.Value_length
 		    
 		    
 		  elseif One_Element.Tag_a="0028"  and One_Element.Tag_b="0009"    Then
@@ -655,20 +453,20 @@ Protected Class Class_DICOM_File
 		    bytePos = bytePos + 2
 		    One_Element.Value=valueString
 		    
-		  elseif One_Element.length>0 and One_Element.VR<>"UNN" then // these elements have text as their value (not numbers)
-		    if bytePos+One_Element.length> thismemblock.Size Then // There is an error, can't read properly
+		  elseif One_Element.Value_length>0 and One_Element.VR<>"UNN" then // these elements have text as their value (not numbers)
+		    if bytePos+One_Element.Value_length> thismemblock.Size Then // There is an error, can't read properly
 		      Exit
 		    end
 		    
 		    // Readin String values
-		    valueString = thismemblock.stringValue(bytePos, One_Element.length )
+		    valueString = thismemblock.stringValue(bytePos, One_Element.Value_length )
 		    
-		    if thismemblock.byte(bytePos + One_Element.length - 1) = 0 then // if there is a null character on the end, get rid of it
+		    if thismemblock.byte(bytePos + One_Element.Value_length - 1) = 0 then // if there is a null character on the end, get rid of it
 		      valueString = left(valueString, len(valueString) - 1)
 		    end if
 		    One_Element.VM = countFields(valueString, "\") // the VM equals the number of fields separated by backslashes
 		    One_Element.Value = Trim(valueString)
-		    bytePos = bytePos + One_Element.length
+		    bytePos = bytePos + One_Element.Value_length
 		  end
 		End Sub
 	#tag EndMethod
@@ -686,13 +484,13 @@ Protected Class Class_DICOM_File
 		  
 		  if One_Element.Tag_a="FFFE"  and One_Element.Tag_b="E000" Then
 		    'There are three special SQ related Data Elements that are not ruled by the VR encoding rules conveyed by the Transfer Syntax
-		    One_Element.length = thismemblock.long(bytePos) // this is the length of this item
+		    One_Element.Value_length = thismemblock.long(bytePos) // this is the length of this item
 		    bytePos = bytePos + 4
 		    
 		    
 		  elseif One_Element.Tag_a="FFFE"  and One_Element.Tag_b="E00D" Then
 		    'There are three special SQ related Data Elements that are not ruled by the VR encoding rules conveyed by the Transfer Syntax
-		    One_Element.length = thismemblock.long(bytePos) // this is the length of this item
+		    One_Element.Value_length = thismemblock.long(bytePos) // this is the length of this item
 		    bytePos = bytePos + 4
 		    
 		    
@@ -714,7 +512,7 @@ Protected Class Class_DICOM_File
 		        bytePos = bytePos + 2
 		        // these VR's have an additional 2 bytes after the letters that are not used
 		        
-		        One_Element.length  = thismemblock.long(bytePos) // the next 4 bytes indicate the length of the entire sequence
+		        One_Element.Value_length  = thismemblock.long(bytePos) // the next 4 bytes indicate the length of the entire sequence
 		        bytePos = bytePos + 4
 		        
 		        
@@ -742,7 +540,7 @@ Protected Class Class_DICOM_File
 		        StrComp(One_Element.VR, "XS" ,0)=0  then
 		        
 		        
-		        One_Element.length = thismemblock.ushort(bytePos)
+		        One_Element.Value_length = thismemblock.ushort(bytePos)
 		        // all other VR's show the length of the value of the element through a short integer
 		        bytePos = bytePos + 2
 		        
@@ -759,7 +557,7 @@ Protected Class Class_DICOM_File
 		      gENotFound=One_Element.Header_PickVRAndinfo
 		      
 		      if bytePos<=(thismemblock.Size-4) Then
-		        One_Element.length=thismemblock.long(bytePos)
+		        One_Element.Value_length=thismemblock.long(bytePos)
 		        bytePos = bytePos + 4
 		      end if
 		    end if
@@ -916,16 +714,15 @@ Protected Class Class_DICOM_File
 
 	#tag Method, Flags = &h0
 		Sub Update_Group_Length()
-		  Dim i,lenght,index as Integer
+		  Dim i,lenght,index,tt as Integer
 		  Dim ss as String
 		  Dim kk as Boolean
+		  Dim ee as Class_DICOM_Element
 		  
 		  
 		  index=-1
 		  lenght=0
 		  for i =0 to UBound(Elements)
-		    
-		    
 		    if Elements(i).Tag_b="0000" Then
 		      if index<>-1 Then
 		        Elements(index).Value=Format(lenght,"#")
@@ -941,11 +738,9 @@ Protected Class Class_DICOM_File
 		      kk=Elements(index).Update
 		    end
 		    
-		    if Elements(i).length<0 Then
+		    if Elements(i).Value_length<0 Then
 		      Break
 		    end
-		    
-		    
 		  Next
 		End Sub
 	#tag EndMethod
@@ -953,7 +748,7 @@ Protected Class Class_DICOM_File
 	#tag Method, Flags = &h0
 		Sub Write_DICOM()
 		  //---------------------------------------------------------
-		  //
+		  // New format for writing DICOM files
 		  //---------------------------------------------------------
 		  Dim bb as BinaryStream
 		  Dim ee as Class_DICOM_Element
@@ -962,9 +757,17 @@ Protected Class Class_DICOM_File
 		  //---------------------------------------------------------
 		  
 		  
+		  if gPref.DICOM_Format=0 Then
+		    TS_Implicit=True
+		  else
+		    TS_Implicit=False
+		  end
+		  
+		  
 		  if file.Exists Then
 		    file.Delete
 		  end
+		  
 		  
 		  Update_Group_Length
 		  
@@ -980,442 +783,140 @@ Protected Class Class_DICOM_File
 		  next
 		  bb.Position=128
 		  bb.Write "DICM"
-		  bb.LittleEndian=True
-		  
-		  Write_Explicit_Header(bb)
-		  
 		  
 		  
 		  PW_Show=true
 		  PW_StaticText="Writing DICOM file : "+file.Name
 		  PW_Progress=0
 		  PW_Progress_Max=UBound(Elements)
-		  
-		  
-		  
-		  if gPref.DICOM_Format=0 Then
-		    Write_Implicit(bb)
-		  else
-		    Write_Explicit(bb)
-		  end
-		  
+		  Write_Elements(bb)
 		  bb.Close
 		  PW_Show=false
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Write_Explicit(bb as BinaryStream)
+		Sub Write_Elements(bb as BinaryStream)
 		  //----------------------------------
-		  // Write a DICOM file from the populated  
-		  // Elements(-1)
+		  // Write a DICOM Element to file
+		  // Loop over all Elements
+		  // 
+		  // Created Feb 2017 by AA
 		  //----------------------------------
 		  Dim ee as Class_DICOM_Element
 		  Dim i,x,tt as Integer
 		  Dim temp,temp1,tempa,tempb,fname as String
 		  //----------------------------------
 		  
-		  
-		  
-		  
 		  for x=0 to UBound(Elements)
-		    if Elements(x).Tag_a<>"0002" Then
-		      PW_Progress=x
-		      
-		      ee=Elements(x)
-		      temp=Right(ee.Tag_a,2)
-		      
-		      bb.WriteInt8 val("&h"+Right(ee.Tag_a,2))
-		      bb.WriteInt8 val("&h"+left(ee.Tag_a,2))
-		      bb.WriteInt8 val("&h"+Right(ee.Tag_b,2))
-		      bb.WriteInt8 val("&h"+Left(ee.Tag_b,2))
-		      if Len(ee.VR)>0 Then
+		    PW_Progress=x
+		    ee=Elements(x)
+		    ee.byte_position=bb.Position
+		    
+		    if ee.Tag_a="300C" and ee.Tag_b="0002" Then
+		      x=x
+		    end
+		    
+		    if ee.VR="SQ" Then
+		      x=x
+		    end
+		    
+		    
+		    bb.WriteInt8 val("&h"+Right(ee.Tag_a,2))
+		    bb.WriteInt8 val("&h"+left(ee.Tag_a,2))
+		    bb.WriteInt8 val("&h"+Right(ee.Tag_b,2))
+		    bb.WriteInt8 val("&h"+Left(ee.Tag_b,2))
+		    
+		    // Write VR and element value length
+		    if gPref.DICOM_Format=1 or Elements(x).Tag_a="0002" Then
+		      // Write VR
+		      if Len(ee.VR)>0 and ee.VR<>"NONE"  Then
 		        bb.WriteInt8 Asc(Left(ee.VR,1))
 		        bb.WriteInt8 Asc(Right(ee.VR,1))
 		      end
-		      
-		      if  ee.Tag_a="0028" and  ee.Tag_b="0009"   then // Frame Pointer  
-		        // Write 2 bytes
-		        bb.WriteInt16 4
-		        
-		        // Write frame pointer
-		        tempb=Right(ee.Value,4)
-		        tempa=Left(ee.Value,4)
-		        bb.WriteInt8 val("&h"+Right(tempa,2))
-		        bb.WriteInt8 val("&h"+left(tempa,2))
-		        bb.WriteInt8 val("&h"+Right(tempb,2))
-		        bb.WriteInt8 val("&h"+Left(tempb,2))
-		        
-		      elseif ee.Tag_a="7FE0" and ee.Tag_b="0010" Then // Pixel Data
-		        // 2 bytes for length
-		        bb.WriteInt16 ee.length
-		        
-		        if gPref.DICOM_Bytes=16 Then // 2 bytes per point
-		          // 2 bytes per point
-		          ee.length=2*(UBound(ee.PixelData)+1)
-		        else
-		          // 4 bytes per point
-		          ee.length=4*(UBound(ee.PixelData)+1)
-		        end
-		        
-		        // 4 bytes for length
-		        bb.WriteInt32 ee.length
-		        
-		        PW_StaticText="Writing DICOM file : "+file.Name+chr(13)+"Pixel data please wait..."
-		        Window_Progress.StaticText.Refresh
-		        
-		        if gPref.DICOM_Bytes=16 Then // 2 bytes per point
-		          for i=0 to UBound(ee.PixelData)
-		            bb.WriteInt16 ee.PixelData(i)
-		          next
-		        else
-		          for i=0 to UBound(ee.PixelData)
-		            bb.WriteInt32 ee.PixelData(i)
-		          next
-		        end
-		        
-		        
-		      elseif  ee.Tag_a="0028" and  ee.Tag_b="0002"  or _ // Rows  
-		        ee.Tag_a="0028" and  ee.Tag_b="0010"  or _ // Rows
-		        ee.Tag_a="0028" and  ee.Tag_b="0011"  or _ // Rows
-		        ee.Tag_a="0028" and  ee.Tag_b="0100"  or _ // Rows
-		        ee.Tag_a="0028" and  ee.Tag_b="0101"  or _ // Rows
-		        ee.Tag_a="0028" and  ee.Tag_b="0102"  or _ // Rows
-		        ee.Tag_a="0028" and  ee.Tag_b="0103"  Then
-		        
-		        //  2 bytes
-		        bb.WriteInt16 2
-		        
-		        // Write value
-		        bb.WriteInt16 val(ee.Value)
-		        
-		        
-		        
-		        
-		      elseif  ee.Tag_a="300C" and ee.Tag_b="0002" or _
-		        ee.Tag_a="300C" and ee.Tag_b="0080" or _
-		        ee.Tag_a="300C" and ee.Tag_b="0060" Then
-		        //Sequence
-		        
-		        // Write 4 bytes
-		        bb.WriteInt16 0
-		        
-		        bb.WriteInt32 (ee.length)
-		        
-		        if bb.LittleEndian Then
-		          bb.WriteInt8 (&hFE) // 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&hFF) // 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&h00) // 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&hE0) // 2015 WriteByte changed to WriteInt8
-		          //Header_formatHex(thisMemblock.byte(bytePos + 1)) + Header_formatHex(thismemblock.byte(bytePos)) = "FFFE" 
-		          //Header_formatHex(thisMemblock.byte(bytePos + 3)) + Header_formatHex(thismemblock.byte(bytePos + 2)) = "E000" 
-		        else
-		          bb.WriteInt8 (&hFF)// 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&hFE)// 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&hE0)// 2015 WriteByte changed to WriteInt8
-		          bb.WriteInt8 (&h00)// 2015 WriteByte changed to WriteInt8
-		          //Header_formatHex(thisMemblock.byte(bytePos)) + Header_formatHex(thismemblock.byte(bytePos + 1)) = "FFFE" 
-		          //Header_formatHex(thisMemblock.byte(bytePos + 2)) + Header_formatHex(thismemblock.byte(bytePos + 3)) = "E000"
-		        end
-		        bb.WriteInt32 (ee.length-8)
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		      elseif ee.Vr="" Then
-		        
-		        tt=LenB(ee.Value)
-		        if tt mod 2 >0 Then
-		          tt=tt+1
-		          ee.Value=ee.Value+" "
-		        end
-		        
-		        // Long 4 bytes
-		        bb.WriteInt32 tt
-		        bb.Write ee.Value
-		        
-		        
-		        
-		      elseif ee.VR="OB" Then
-		        
-		        bb.WriteInt8 0
-		        bb.WriteInt8 0
-		        // Long 4 bytes
-		        bb.WriteInt32 2
-		        bb.WriteInt16 val(ee.Value)
-		        
-		      elseif ee.VR  = "AE" or _  
-		        ee.VR  = "AS" or _
-		        ee.VR  = "AT" or _
-		        ee.VR  = "CS" or _
-		        ee.VR  = "DA" or _
-		        ee.VR  = "DS" or _
-		        ee.VR  = "DT" or _
-		        ee.VR  = "FL" or _
-		        ee.VR  = "FD" or _
-		        ee.VR  = "IS" or _
-		        ee.VR  = "LO" or _
-		        ee.VR  = "LT" or _
-		        ee.VR  = "PN" or _
-		        ee.VR  = "SH" or  _
-		        ee.VR  = "SL" or _
-		        ee.VR  = "SS" or _
-		        ee.VR  = "ST" or _
-		        ee.VR  = "TM" or _
-		        ee.VR  ="UI" or _
-		        ee.VR  = "US" or _
-		        ee.VR  = "XS"  then
-		        
-		        // Short 2 bytes
-		        tt=LenB(ee.Value)
-		        if tt mod 2 >0 Then
-		          tt=tt+1
-		          ee.Value=ee.Value+" "
-		        end 
-		        
-		        temp=ee.Value
-		        bb.WriteInt16 tt
-		        bb.Write temp
-		        
-		      elseif ee.VR="UL" Then
-		        // Short 2 bytes
-		        bb.WriteInt16 4
-		        bb.WriteInt32 val(ee.Value)
-		        
-		        
-		      end
 		    end
-		  next
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Write_Explicit_Header(bb as BinaryStream)
-		  //----------------------------------
-		  // Write a DICOM file from the populated  
-		  // Elements(-1) for 0002 TAG elements
-		  //----------------------------------
-		  Dim ee as Class_DICOM_Element
-		  Dim i,x,tt as Integer
-		  Dim temp,temp1,tempa,tempb,fname as String
-		  //----------------------------------
-		  
-		  
-		  
-		  
-		  for x=0 to UBound(Elements)
-		    if Elements(x).Tag_a="0002" Then
-		      PW_Progress=x
-		      
-		      ee=Elements(x)
-		      temp=Right(ee.Tag_a,2)
-		      
-		      bb.WriteInt8 val("&h"+Right(ee.Tag_a,2))
-		      bb.WriteInt8 val("&h"+left(ee.Tag_a,2))
-		      bb.WriteInt8 val("&h"+Right(ee.Tag_b,2))
-		      bb.WriteInt8 val("&h"+Left(ee.Tag_b,2))
-		      if Len(ee.VR)>0 Then
-		        bb.WriteInt8 Asc(Left(ee.VR,1))
-		        bb.WriteInt8 Asc(Right(ee.VR,1))
-		      end
-		      
-		      if ee.VR="OB" Then
-		        
-		        bb.WriteInt8 0
-		        bb.WriteInt8 0
-		        // Long 4 bytes
-		        bb.WriteInt32 2
-		        bb.WriteInt16 val(ee.Value)
-		        
-		      elseif ee.VR  = "AE" or _  
-		        ee.VR  = "AS" or _
-		        ee.VR  = "AT" or _
-		        ee.VR  = "CS" or _
-		        ee.VR  = "DA" or _
-		        ee.VR  = "DS" or _
-		        ee.VR  = "DT" or _
-		        ee.VR  = "FL" or _
-		        ee.VR  = "FD" or _
-		        ee.VR  = "IS" or _
-		        ee.VR  = "LO" or _
-		        ee.VR  = "LT" or _
-		        ee.VR  = "PN" or _
-		        ee.VR  = "SH" or  _
-		        ee.VR  = "SL" or _
-		        ee.VR  = "SS" or _
-		        ee.VR  = "ST" or _
-		        ee.VR  = "TM" or _
-		        ee.VR  ="UI" or _
-		        ee.VR  = "US" or _
-		        ee.VR  = "XS"  then
-		        
-		        // Short 2 bytes
-		        tt=LenB(ee.Value)
-		        if tt mod 2 >0 Then
-		          tt=tt+1
-		          ee.Value=ee.Value+" "
-		        end 
-		        
-		        temp=ee.Value
-		        bb.WriteInt16 tt
-		        bb.Write temp
-		        
-		      elseif ee.VR="UL" Then
-		        // Short 2 bytes
-		        bb.WriteInt16 4
-		        bb.WriteInt32 val(ee.Value)
-		        
-		      elseif ee.Vr="" Then
-		        
-		        tt=LenB(ee.Value)
-		        if tt mod 2 >0 Then
-		          tt=tt+1
-		          ee.Value=ee.Value+" "
-		        end
-		        
-		        // Long 4 bytes
-		        bb.WriteInt32 tt
-		        bb.Write ee.Value
-		      end
+		    
+		    if ee.VR="OB" Then
+		      bb.WriteInt8 0
+		      bb.WriteInt8 0
 		    end
-		  next
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Write_Implicit(bb as BinaryStream)
-		  //----------------------------------
-		  // Write a DICOM file from the populated  
-		  // Elements(-1)
-		  //----------------------------------
-		  Dim ee as Class_DICOM_Element
-		  Dim i,x,tt as Integer
-		  Dim temp,temp1,tempa,tempb,fname as String
-		  //----------------------------------
-		  
-		  
-		  
-		  
-		  for x=0 to UBound(Elements)
-		    if Elements(x).Tag_a<>"0002" Then
-		      
-		      //UBound(Elements)
-		      PW_Progress=x
-		      
-		      
-		      ee=Elements(x)
-		      temp=Right(ee.Tag_a,2)
-		      
-		      if bb.LittleEndian Then
-		        bb.WriteInt8 val("&h"+Right(ee.Tag_a,2))
-		        bb.WriteInt8 val("&h"+left(ee.Tag_a,2))
-		        bb.WriteInt8 val("&h"+Right(ee.Tag_b,2))
-		        bb.WriteInt8 val("&h"+Left(ee.Tag_b,2))
+		    
+		    if (ee.Tag_a<>"FFFE" and ee.Tag_b<>"E000") Then
+		      if (gPref.DICOM_Format=1 or ee.Tag_a="0002") and  Len(ee.VR)>0 and ee.VR<>"OB" and ee.VR<>"NONE"  Then
+		        bb.WriteInt16 (ee.Value_length)
 		      else
-		        Break
-		        bb.WriteInt8 (&hFF) // 2015 change from write Byte
-		        bb.WriteInt8 (&hFE)// 2015 change from write Byte
-		        bb.WriteInt8 (&hE0)// 2015 change from write Byte
-		        bb.WriteInt8 (&h00)// 2015 change from write Byte
-		        //Header_formatHex(thisMemblock.byte(bytePos)) + Header_formatHex(thismemblock.byte(bytePos + 1)) = "FFFE"
-		        //Header_formatHex(thisMemblock.byte(bytePos + 2)) + Header_formatHex(thismemblock.byte(bytePos + 3)) = "E000"
+		        // Long 4 bytes
+		        if ee.VR<>"SQ" Then
+		          bb.WriteInt32 (ee.Value_length)
+		        end
+		      end
+		    end
+		    
+		    
+		    
+		    
+		    // Write value data
+		    if ee.Tag_a="7FE0" and ee.Tag_b="0010" Then // Pixel Data
+		      
+		      if gPref.DICOM_Format=1 then
+		        bb.WriteInt32 (ee.Value_length)
 		      end
 		      
-		      if ee.Tag_a="7FE0" and ee.Tag_b="0010" Then // Pixel Data
-		        if gPref.DICOM_Bytes=16 Then // 2 bytes per point
-		          ee.length=2*(UBound(ee.PixelData)+1)
+		      PW_StaticText="Writing DICOM file : "+file.Name+chr(13)+"Pixel data please wait..."
+		      Window_Progress.StaticText.Refresh(False)
+		      PW_Progress_Max= 100
+		      for i=0 to UBound(ee.PixelData)
+		        if gPref.DICOM_Bytes=16 Then
+		          bb.WriteInt16 ee.PixelData(i)
 		        else
-		          // Long 4 bytes
-		          ee.length=4*(UBound(ee.PixelData)+1)
+		          bb.WriteInt32 ee.PixelData(i)
 		        end
-		        bb.WriteInt32 ee.length
-		        PW_StaticText="Writing DICOM file : "+file.Name+chr(13)+"Pixel data please wait..."
-		        Window_Progress.StaticText.Refresh(False)
-		        PW_Progress_Max= 100
-		        for i=0 to UBound(ee.PixelData)
-		          if gPref.DICOM_Bytes=16 Then
-		            bb.WriteInt16 ee.PixelData(i)
-		          else
-		            bb.WriteInt32 ee.PixelData(i)
-		          end
-		          if i mod 100 = 0 Then
-		            PW_Progress=100*i/UBound(ee.PixelData)
-		            
-		          end
-		        next
-		        
-		        PW_Progress_Max=UBound(Elements)
-		        
-		      elseif ee.Tag_a="0028" and ee.Tag_b="0009"   then // Frame Pointer  
-		        // Long 4 bytes
-		        bb.WriteInt32 4
-		        tempb=Right(ee.Value,4)
-		        tempa=Left(ee.Value,4)
-		        bb.WriteInt8 val("&h"+Right(tempa,2))
-		        bb.WriteInt8 val("&h"+left(tempa,2))
-		        bb.WriteInt8 val("&h"+Right(tempb,2))
-		        bb.WriteInt8 val("&h"+Left(tempb,2))
-		        
-		      elseif ee.Tag_a="300C" and ee.Tag_b="0002" or _
-		        ee.Tag_a="300A" and ee.Tag_b="0010" or _
-		        ee.Tag_a="300A" and ee.Tag_b="0070" or _
-		        ee.Tag_a="300A" and ee.Tag_b="00B0" or _
-		        ee.Tag_a="300C" and ee.Tag_b="0060" or _
-		        ee.Tag_a="300C" and ee.Tag_b="0004" or _
-		        ee.Tag_a="300C" and ee.Tag_b="0080" or _
-		        ee.vr="SQ"  Then
-		        //Sequence
-		        bb.WriteInt32 (ee.length)
-		        
-		      Elseif ee.Tag_a="FFFE" and ee.Tag_b="E000" Then
-		        // Write new item within sequence
-		        bb.WriteInt32 (ee.length)
-		        
-		      else // For all other types of elements
-		        if ee.VR = "AE" or _  //if string data
-		          ee.VR  = "AS" or _
-		          ee.VR  = "AT" or _
-		          ee.VR  = "CS" or _
-		          ee.VR  = "DA" or _
-		          ee.VR  = "DS" or _
-		          ee.VR  = "DT" or _
-		          ee.VR  = "FL" or _
-		          ee.VR  = "FD" or _
-		          ee.VR  = "IS" or _
-		          ee.VR  = "LO" or _
-		          ee.VR  = "LT" or _
-		          ee.VR  = "PN" or _
-		          ee.VR  = "SH" or  _
-		          ee.VR  = "SL" or _
-		          ee.VR  = "SS" or _
-		          ee.VR  = "ST" or _
-		          ee.VR  = "TM" or _
-		          ee.VR  ="UI"  or _
-		          ee.Info="Proprietary Tag"  then
-		          
-		          // Long 4 bytes
-		          bb.WriteInt32 ee.Value_Length
-		          
-		          // Get position of bstream
-		          bytePos=bb.Position
-		          bb.Write ee.Value
-		          // Update bstream position
-		          bb.Position=bytePos+ee.Value_Length
-		          
-		        elseif ee.VR= "US" or ee.VR  = "XS"  Then
-		          bb.WriteInt32 2
-		          bb.WriteUInt16 val(ee.Value)
-		          
-		        else // if numeric data
-		          tt=val(ee.Value)
-		          bb.WriteInt32 4
-		          bb.WriteInt32 tt
+		        if i mod 100 = 0 Then
+		          PW_Progress=100*i/UBound(ee.PixelData)
 		        end
+		      next
+		      
+		      PW_Progress_Max=UBound(Elements)
+		      
+		    elseif ee.Tag_a="0028" and ee.Tag_b="0009"   then // Frame Pointer  
+		      // Write frame pointer
+		      
+		      tempb=Right(ee.Value,4)
+		      tempa=Left(ee.Value,4)
+		      bb.WriteInt8 val("&h"+Right(tempa,2))
+		      bb.WriteInt8 val("&h"+left(tempa,2))
+		      bb.WriteInt8 val("&h"+Right(tempb,2))
+		      bb.WriteInt8 val("&h"+Left(tempb,2))
+		      
+		    else // For all other types of elements
+		      if ee.VR = "AE" or _  //if string data
+		        ee.VR  = "AS" or _
+		        ee.VR  = "AT" or _
+		        ee.VR  = "CS" or _
+		        ee.VR  = "DA" or _
+		        ee.VR  = "DS" or _
+		        ee.VR  = "DT" or _
+		        ee.VR  = "FL" or _
+		        ee.VR  = "FD" or _
+		        ee.VR  = "IS" or _
+		        ee.VR  = "LO" or _
+		        ee.VR  = "LT" or _
+		        ee.VR  = "PN" or _
+		        ee.VR  = "SH" or  _
+		        ee.VR  = "SL" or _
+		        ee.VR  = "SS" or _
+		        ee.VR  = "ST" or _
+		        ee.VR  = "TM" or _
+		        ee.VR  ="UI"  or _
+		        ee.Info="Proprietary Tag"  then
+		        bb.Write ee.Value
+		        
+		      elseif ee.VR= "US" or ee.VR  = "XS" or ee.VR= "OB" Then
+		        bb.WriteUInt16 val(ee.Value)
+		        
+		      else // if numeric data
+		        tt=val(ee.Value)
+		        bb.WriteInt32 tt
 		      end
 		    end
 		  next
