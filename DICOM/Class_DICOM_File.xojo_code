@@ -863,7 +863,6 @@ Protected Class Class_DICOM_File
 		      end
 		      
 		      PW_StaticText="Writing DICOM file : "+file.Name+chr(13)+"Pixel data please wait..."
-		      Window_Progress.StaticText.Refresh(False)
 		      PW_Progress_Max= 100
 		      for i=0 to UBound(ee.PixelData)
 		        if gPref.DICOM_Bytes=16 Then

@@ -894,6 +894,7 @@ End
 		      fname=ListBox_import.cell(ListBox_import.listindex,0)
 		      DICOM.Import_ID=id_string
 		      DICOM.Import_Name=fname
+		      Dicom.TaskNum=1
 		      DICOM.Run
 		      DICOM=nil
 		      
