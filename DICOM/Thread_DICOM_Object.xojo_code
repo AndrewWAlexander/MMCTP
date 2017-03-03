@@ -8,7 +8,47 @@ Inherits Thread
 		  elseif TaskNum=0 Then
 		    DICOM_Transfer
 		  elseif TaskNum=3 Then
+		    
+		    
+		    if Export_Images Then
+		      gRTOG.Convert_McGillRT2DICOM_RTImage
+		    end
+		    
+		    if Export_Plan Then
+		      if Plan_Index>=0 Then
+		        if UBound(gRTOG.Plan)>=Plan_Index Then
+		          if gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID="" Then
+		            gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=gDICOM.UID_Make
+		          end
+		          gRTOG.Convert_McGillRT2DICOM_RTPlan(Plan_Index)
+		        end
+		      end
+		    end
+		    
+		    if Export_Dose Then
+		      if Window_Treatment.dose_index>=0 and Plan_Index>=0 Then
+		        if UBound(gRTOG.Plan)>=Plan_Index Then
+		          if UBound(gRTOG.Plan(Plan_Index).Dose)>=Window_Treatment.dose_index Then
+		            gRTOG.Convert_McGillRT2DICOM_RTDose(Plan_Index,gRTOG.plan(plan_index).dose(Window_Treatment.dose_index))
+		          end
+		        end
+		      end
+		      
+		    end
+		    
+		    if Export_Structures Then
+		      if UBound(gRTOG.Structures)>=0 Then
+		        gRTOG.Convert_McGillRT2DICOM_RTStructures
+		      end
+		    end
+		    
 		    Write
+		    
+		    ReDim RT_Doses(-1)
+		    ReDim RT_Images(-1)
+		    ReDim RT_Plan(-1)
+		    ReDim RT_Structures(-1)
+		    
 		  end
 		End Sub
 	#tag EndEvent
@@ -199,6 +239,24 @@ Inherits Thread
 		  
 		  
 		  Write
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Export()
+		  Get_Dir
+		  if MainFolder=nil Then
+		    Return
+		  end
+		  
+		  TaskNum=3
+		  Run
+		  
+		  
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -3871,10 +3929,12 @@ Inherits Thread
 	#tag Method, Flags = &h0
 		Sub Write()
 		  // Write the DICOM format into data elements
+		  PW_Show=true
 		  Write_DICOM_Elements_Image
 		  Write_DICOM_Elements_Structure
 		  Write_DICOM_Elements_Plan
 		  Write_DICOM_Elements_Dose
+		  PW_Show=false
 		End Sub
 	#tag EndMethod
 
@@ -4531,9 +4591,7 @@ Inherits Thread
 		  Dim ee as Class_DICOM_Element
 		  //================================================
 		  
-		  if MainFolder=Nil Then
-		    Return
-		  end
+		  
 		  
 		  for i=0 to UBound(RT_Images) // look for Image .dcm files
 		    File=new Class_DICOM_File
@@ -6687,9 +6745,6 @@ Inherits Thread
 		  Dim cs as Class_DICOM_Structure_ContourSequence
 		  //================================================
 		  
-		  if MainFolder=Nil Then
-		    Return
-		  end
 		  
 		  
 		  for i=0 to UBound(RT_Structures) // look for Image .dcm files
@@ -7452,6 +7507,22 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Export_Dose As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Images As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Plan As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Structures As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		File As Class_DICOM_File
 	#tag EndProperty
 
@@ -7526,6 +7597,30 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="0"
 			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Dose"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Images"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Plan"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Structures"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Import_ID"

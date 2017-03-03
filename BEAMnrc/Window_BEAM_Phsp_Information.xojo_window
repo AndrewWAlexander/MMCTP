@@ -75,6 +75,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Beam Number"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -109,6 +110,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Beam Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -143,6 +145,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Beam Mode"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -177,6 +180,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -211,6 +215,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -245,6 +250,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -279,6 +285,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "X Jaws"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -313,6 +320,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Wedge"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -347,6 +355,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Y Jaws"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -381,6 +390,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   9
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Linac Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -415,6 +425,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -449,6 +460,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -483,6 +495,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -517,6 +530,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -579,6 +593,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "File Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -613,6 +628,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Phase Space Size Bytes"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -647,6 +663,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Phsp Linked"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -681,6 +698,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -715,6 +733,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -749,6 +768,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -783,6 +803,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Linked file"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -817,6 +838,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -851,6 +873,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "File Found"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -885,6 +908,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Untitled"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1114,6 +1138,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "Filter"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1234,6 +1259,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "< with >"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1423,6 +1449,7 @@ Begin Window Window_BEAM_Phsp_Information
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "Replace"
          TextAlign       =   0
          TextColor       =   &c00000000

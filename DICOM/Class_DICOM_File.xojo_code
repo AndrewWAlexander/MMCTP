@@ -785,13 +785,13 @@ Protected Class Class_DICOM_File
 		  bb.Write "DICM"
 		  
 		  
-		  PW_Show=true
+		  
 		  PW_StaticText="Writing DICOM file : "+file.Name
 		  PW_Progress=0
 		  PW_Progress_Max=UBound(Elements)
 		  Write_Elements(bb)
 		  bb.Close
-		  PW_Show=false
+		  
 		End Sub
 	#tag EndMethod
 
@@ -807,6 +807,9 @@ Protected Class Class_DICOM_File
 		  Dim i,x,tt as Integer
 		  Dim temp,temp1,tempa,tempb,fname as String
 		  //----------------------------------
+		  
+		  PW_Progress_Max=UBound(Elements)
+		  PW_StaticText="Writing DICOM file : "+file.Name+chr(13)
 		  
 		  for x=0 to UBound(Elements)
 		    PW_Progress=x
@@ -870,12 +873,15 @@ Protected Class Class_DICOM_File
 		        else
 		          bb.WriteInt32 ee.PixelData(i)
 		        end
-		        if i mod 100 = 0 Then
+		        if i mod 25 = 0 Then
 		          PW_Progress=100*i/UBound(ee.PixelData)
 		        end
 		      next
 		      
 		      PW_Progress_Max=UBound(Elements)
+		      PW_Progress=x
+		      PW_StaticText="Writing DICOM file : "+file.Name+chr(13)
+		      
 		      
 		    elseif ee.Tag_a="0028" and ee.Tag_b="0009"   then // Frame Pointer  
 		      // Write frame pointer

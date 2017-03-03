@@ -122,6 +122,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "the shared lib"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -199,6 +200,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "input file:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -276,6 +278,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   13
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "FILNAM"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -353,6 +356,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Number of control points"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -479,6 +483,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   38
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "i dbs"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -555,6 +560,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   40
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "r dbs"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -631,6 +637,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   42
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "ssd dbs"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -707,6 +714,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   44
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "z dbs"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -783,6 +791,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   46
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "e split"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -859,6 +868,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Selectable      =   False
       TabIndex        =   48
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "i muidx out "
       TextAlign       =   0
       TextColor       =   &c00000000

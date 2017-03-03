@@ -822,6 +822,12 @@ Inherits Thread
 			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Colourwash_options"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

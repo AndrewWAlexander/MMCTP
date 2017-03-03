@@ -247,6 +247,7 @@ Begin Window Window_OpenPatient
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Filter:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -281,6 +282,7 @@ Begin Window Window_OpenPatient
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Current folder:"
       TextAlign       =   0
       TextColor       =   &c00000000
