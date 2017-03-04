@@ -464,7 +464,7 @@ Inherits Thread
 		  Dim  h,h_prime,slope,b,y as double
 		  Dim i,m_index,k as Integer
 		  Dim rsting as String
-		  
+		  //---------------------------------------------
 		  
 		  h=ctnum
 		  k=UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
@@ -473,39 +473,30 @@ Inherits Thread
 		    h=-1000
 		  end
 		  
-		  // CT model has not been defined
-		  if k<=-1 Then
-		    
-		    Return rsting+Format(y,"-#.###")
-		  end
-		  
-		  if h<=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l then
-		    m_index=0
-		    h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l
-		    
-		  ElseIf h >= gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h Then
-		    m_index=k
-		    h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_h
-		    
-		  Else
-		    m_index=-1
-		    for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
-		      if h< gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
-		        m_index=i
-		      end
-		    next
-		  end
-		  
-		  
-		  rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
-		  slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
-		  /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
-		  
-		  b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
-		  y=slope*h+b
-		  
-		  if InStr(rsting,"LUNG")>0 Then
-		    rsting=rsting
+		  if k<=-1 Then // CT model has not been defined
+		    rsting="CT-Model-Not-Found_"
+		    y=-1000000
+		  else
+		    // CT model found!
+		    if h<=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l then
+		      m_index=0
+		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l
+		    ElseIf h >= gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h Then
+		      m_index=k
+		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_h
+		    Else
+		      m_index=-1
+		      for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
+		        if h< gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
+		          m_index=i
+		        end
+		      next
+		    end
+		    rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
+		    slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
+		    /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
+		    b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
+		    y=slope*h+b
 		  end
 		  
 		  Return rsting+Format(y,"-#.###")
@@ -1060,11 +1051,10 @@ Inherits Thread
 		Sub dosxyz_EGSPhant_Make_CT(index as Integer)
 		  //---------------------------------------------------
 		  // 2nd level method
-		  // Method to generate egsphant file based on user input
+		  // Method to generate egsphant file based on 
+		  // user input and a CT to density curve
 		  //
 		  // 
-		  //
-		  //
 		  //---------------------------------------------------
 		  Dim i, j, k, p, maskval ,cvalue,order,material_value as integer
 		  Dim x,y,z,density_value as Single
@@ -1109,7 +1099,6 @@ Inherits Thread
 		    
 		    if ee.nx<=0 or ee.ny<=0 or ee.nz<=0 Then
 		      Errors.append "Error Making EGSPhant file" //Changed to Errors.append by William Davis to avoid crash due to exception
-		      
 		      Return
 		    end
 		    
