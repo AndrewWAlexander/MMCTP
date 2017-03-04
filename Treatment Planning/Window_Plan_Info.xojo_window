@@ -36,10 +36,10 @@ Begin Window Window_Plan_Info
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       Panels          =   ""
       Scope           =   0
@@ -53,7 +53,7 @@ Begin Window Window_Plan_Info
       TextUnit        =   0
       Top             =   14
       Underline       =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   530
       Begin GroupBox GroupBox_MC_Plan
@@ -67,11 +67,11 @@ Begin Window Window_Plan_Info
          InitialParent   =   "TabPanel1"
          Italic          =   False
          Left            =   37
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   2
@@ -224,7 +224,11 @@ End
 		Sub Close()
 		  app.which_window_planinfo=False
 		  
-		  gRTOG.Plan(Plan_Index).Write_McGill_Plan(gRTOG.Plan(Plan_Index).Path)
+		  if SaveChange=True Then
+		    gRTOG.Plan(Plan_Index).Write_McGill_Plan_RP
+		    Window_Treatment.Window_Update_Plan
+		  end
+		  
 		End Sub
 	#tag EndEvent
 
@@ -250,6 +254,9 @@ End
 		  else
 		    Window_Plan_Info.Close
 		  End
+		  Listbox_Plan.Heading(0)="Plan Settings"
+		  Listbox_Plan.Heading(1)="Current Status"
+		  
 		  Listbox_Plan.ColumnType(1)=3
 		  Listbox_Plan.AddRow ( "SOP Instance UID", gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID)
 		  Listbox_Plan.AddRow ( "Plan Series UID", gRTOG.Plan(Plan_Index).DICOM_SeriesInstanceUID)
@@ -296,7 +303,7 @@ End
 
 
 	#tag Property, Flags = &h0
-		Untitled As Integer
+		SaveChange As Boolean = false
 	#tag EndProperty
 
 
@@ -329,11 +336,52 @@ End
 #tag Events Listbox_Plan
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  if row=4 Then
+		  if row=0 Then
+		    gRTOG.Plan(Plan_Index).Plan_Name=Trim(me.Cell(row,column))
+		    SaveChange=True
+		  elseif row=1 then
+		    gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=Trim(me.Cell(row,column))
+		    SaveChange=True
 		    
+		  elseif row=2 then
+		    SaveChange=True
+		    
+		    gRTOG.Plan(Plan_Index).DICOM_SeriesInstanceUID=Trim(me.Cell(row,column))
+		  elseif row=3 then
+		    gRTOG.Plan(Plan_Index).SeriesDescription=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=4 then
 		    gRTOG.Plan(Plan_Index).DICOM_SeriesNumber=Val(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=5 then
+		    gRTOG.Plan(Plan_Index).Plan_Date=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=6 then
+		    gRTOG.Plan(Plan_Index).Plan_Time=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=7 then
+		    gRTOG.Plan(Plan_Index).ReviewerName=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=8 then
+		    gRTOG.Plan(Plan_Index).ReviewDate=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=9 then
+		    gRTOG.Plan(Plan_Index).ReviewTime=Trim(me.Cell(row,column))
+		    SaveChange=True
+		    
+		  elseif row=10 then
+		    gRTOG.Plan(Plan_Index).ApprovalStatus=Trim(me.Cell(row,column))
+		    SaveChange=True
 		    
 		  end
+		  
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -539,6 +587,12 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="SaveChange"
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
@@ -551,11 +605,6 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Untitled"
-		Group="Behavior"
-		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"

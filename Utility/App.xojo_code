@@ -511,7 +511,6 @@ Inherits Application
 			gg=gRTOG.Add_Plan
 			Plan_Index=UBound(gRTOG.Plan)
 			if gRTOG.Plan(Plan_Index).Import_DICOM_Plan(dd.RT_Plan(0),cdbl(NthField(gRTOG.DICOM_ImageOrientationPatient,"\",1)),cdbl(NthField(gRTOG.DICOM_ImageOrientationPatient,"\",5)),  dd ) Then
-			
 			gRTOG.Plan(Plan_Index).Write_McGill_Plan(gRTOG.path)
 			Window_Treatment.Window_Update_Plan()
 			end

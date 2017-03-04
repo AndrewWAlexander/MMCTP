@@ -3151,7 +3151,12 @@ Protected Class RTOG_Plan
 	#tag Method, Flags = &h0
 		Sub Write_McGill_Plan(gpath as FolderItem)
 		  //---------------------------
-		  // Write the Plan text
+		  // Write the Plan files
+		  // Including:
+		  // Plan text file
+		  // RT Plan file
+		  // RT Dose files
+		  // DV Contraint file
 		  //
 		  //---------------------------
 		  Dim temp as String
@@ -3168,15 +3173,29 @@ Protected Class RTOG_Plan
 		  f=f.Child(temp)
 		  f.CreateAsFolder
 		  Path=f
-		  
-		  
-		  
+		  Write_McGill_Plan_RP
 		  Write_McGill_Beam
 		  for k=0 to UBound(Dose)
 		    Write_McGill_Dose(k)
 		  next
-		  
 		  Write_DV_Contraints_String
+		  
+		  PW_Show=false
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Write_McGill_Plan_RP()
+		  //---------------------------
+		  // Write the Plan text file
+		  //
+		  //---------------------------
+		  Dim temp as String
+		  Dim f as FolderItem
+		  Dim k as Integer
+		  Dim ts as TextOutputStream
+		  //---------------------------
+		  
 		  
 		  f=Path
 		  f=f.Child("RP.dir")
@@ -3201,8 +3220,6 @@ Protected Class RTOG_Plan
 		      ts.Close
 		    end
 		  End if
-		  
-		  PW_Show=false
 		End Sub
 	#tag EndMethod
 
