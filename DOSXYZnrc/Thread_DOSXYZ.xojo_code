@@ -460,6 +460,9 @@ Inherits Thread
 		  // Algorithm to interpolate CT number to density
 		  // Uses the CT Calibration file
 		  //
+		  // Updated March 2017 by AA
+		  // Michael Martyn reported bug issue on
+		  // CT values not being assigned properly 
 		  //---------------------------------------------
 		  Dim  h,h_prime,slope,b,y as double
 		  Dim i,m_index,k as Integer
@@ -487,10 +490,15 @@ Inherits Thread
 		    Else
 		      m_index=-1
 		      for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
-		        if h< gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
+		        if h<= gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
 		          m_index=i
 		        end
 		      next
+		      if m_index=-1 Then
+		        rsting="CT-HU-Value-Not-Found-In-Range_"
+		        y=-1000000
+		        Return rsting+Format(y,"-#.###")
+		      end
 		    end
 		    rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
 		    slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
@@ -498,7 +506,6 @@ Inherits Thread
 		    b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
 		    y=slope*h+b
 		  end
-		  
 		  Return rsting+Format(y,"-#.###")
 		End Function
 	#tag EndMethod
