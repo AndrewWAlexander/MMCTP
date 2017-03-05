@@ -91,7 +91,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Bremstrahlung Splitting"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -157,7 +156,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -192,7 +190,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Untitled"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -227,7 +224,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Global electron cutoff energy - ECUT (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -293,7 +289,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Global photon cutoff energy - PCUT (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -371,7 +366,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Electron range rejection"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -480,7 +474,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Z of front of 1st CM to reference plane (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -632,7 +625,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   18
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Initial RNG seed 1"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -710,7 +702,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Initial RNG seed 2"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -745,7 +736,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Run Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -873,7 +863,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Source Number"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -939,7 +928,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Score Last Z"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -974,7 +962,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "IWATCH Output"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1071,7 +1058,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Output Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1137,7 +1123,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   33
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Incident particle"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1203,7 +1188,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "RNG Seed Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1238,7 +1222,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   36
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Medium"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1347,7 +1330,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   39
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Store Data Array"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1413,7 +1395,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   41
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "LATCH Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1491,7 +1472,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Max CPU Hours"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1557,7 +1537,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Split electrons or photons at CM"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1592,7 +1571,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Global electron cutoff (ESAVE_GLOBAL, range rejection, MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1658,7 +1636,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   47
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Photon forcing"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1755,7 +1732,6 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   49
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Number of scoring planes"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2596,9 +2572,9 @@ End
 		      Window_BEAM_Options_SLABS.Show
 		    elseif BEAM.CMs(i).CM_Names="JAWS" Then
 		      Window_BEAM_Options_JAWS.Show
-		    elseif BEAM.CMs(i).CM_Names="DYNJAWS" Then
+		    elseif BEAM.CMs(i).CM_Names="DYNJAWS" or BEAM.CMs(i).CM_Names="SYNCJAWS"  Then
 		      Window_BEAM_Options_DYNJAWS.Show
-		    elseif BEAM.CMs(i).CM_Names="DYNVMLC" Then
+		    elseif BEAM.CMs(i).CM_Names="DYNVMLC" or BEAM.CMs(i).CM_Names="SYNCVMLC"  Then
 		      Window_BEAM_Options_DYNVMLC.Show
 		    elseif BEAM.CMs(i).CM_Names="MLC" Then
 		      Window_BEAM_Options_MLC.Show
