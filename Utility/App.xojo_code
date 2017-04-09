@@ -1063,6 +1063,10 @@ Inherits Application
 		Sub MMCTP_Open()
 		  // Open MMCTP Settings
 		  
+		  if MMCTP_Open Then
+		    Return
+		  end
+		  
 		  gShells = new Class_Shells
 		  gShells.Read_login
 		  
@@ -1110,7 +1114,7 @@ Inherits Application
 		  
 		  Window_OpenPatient.Show
 		  
-		  
+		  MMCTP_Open=True
 		End Sub
 	#tag EndMethod
 
@@ -1460,6 +1464,10 @@ Inherits Application
 
 	#tag Property, Flags = &h0
 		Error_Msg(-1) As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MMCTP_Open As boolean = false
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
