@@ -194,6 +194,10 @@ Inherits Canvas
 		  end
 		  
 		  
+		  Image_Value=Format(RTOG_Image_Interpolate(mouse_xcm,mouse_ycm,mouse_zcm),"-#")
+		  
+		  
+		  
 		  if Keyboard.AsyncKeyDown(49) then'Pan
 		    Return True
 		    
@@ -2110,7 +2114,7 @@ Inherits Canvas
 		    if  Plan_Index >-1 and UBound(gRTOG.Plan) >= Plan_Index and Window_Treatment.dose_index>-1  then // removed By A Alexander Feb/2013 don't think this is needed "or Window_Treatment.BevelButton_DosePaint_on.value"
 		      if Window_Treatment.dose_index<= UBound(gRTOG.Plan(Plan_Index).Dose)  then //removed or Window_Treatment.BevelButton_DosePaint_on.value
 		        TheDose=gRTOG.Plan(plan_index).Dose(Window_Treatment.dose_index)
-		        Display.Graphics.drawstring "Dose ("+Format(mouse_xcm,"-#.##")+", "+Format(mouse_ycm,"-#.##")+", "+Format(mouse_zcm,"-#.##") +") : "+Dose_Value+" "+TheDose.Dose_Units+ " "+Dose_Error+" %", 10,72
+		        Display.Graphics.drawstring "Dose ("+Format(mouse_xcm,"-#.##")+", "+Format(mouse_ycm,"-#.##")+", "+Format(mouse_zcm,"-#.##") +") : "+Dose_Value+" "+TheDose.Dose_Units+ " "+Dose_Error+" %", 10,84
 		        
 		        if Val(Format(TheDose.dmax,"-#.###"))=0 Then
 		          maxdose=Format(TheDose.dmax,"-#.###e")
@@ -2124,8 +2128,8 @@ Inherits Canvas
 		          mindose=Format(TheDose.dmin,"-#.####")
 		        end
 		        
-		        Display.Graphics.drawstring "Max Dose : "+maxdose+" "+TheDose.Dose_Units,10,84
-		        Display.Graphics.drawstring "Min Dose : "+mindose+" "+TheDose.Dose_Units, 10,96
+		        Display.Graphics.drawstring "Max Dose : "+maxdose+" "+TheDose.Dose_Units,10,96
+		        Display.Graphics.drawstring "Min Dose : "+mindose+" "+TheDose.Dose_Units, 10,108
 		      end
 		    end
 		    
@@ -2533,6 +2537,7 @@ Inherits Canvas
 		  Display.Graphics.drawstring "Z ("+str(canvas_slice+1)+"/"+str(UBound(gvis.scans)+1)+") : "+Format(gRTOG.Scan(canvas_slice).Z_Value,"-#.##")+ " cm", 10,36
 		  Display.Graphics.drawstring "X ("+Format((mouse_xcm-gVis.xoff_set)/gvis.scale_width+1,"-#")+"/"+str(gvis.nx)+") : "+format(mouse_xcm,"-##.##") + " cm ", 10,48
 		  Display.Graphics.drawstring "Y ("+Format((mouse_ycm-gVis.yoff_set)/gvis.scale_height+1,"-#")+"/"+str(gvis.ny)+") :"+format(mouse_ycm,"-##.##") + " cm" , 10,60
+		  Display.Graphics.drawstring "Pixel Value "+Image_Value, 10,72
 		  
 		  
 		  if gRTOG.PatientPosition="HFS" Then
@@ -3284,6 +3289,10 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Image_Value As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		initial_WL As Integer
 	#tag EndProperty
 
@@ -3567,6 +3576,11 @@ Inherits Canvas
 			Group="Appearance"
 			Type="String"
 			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Image_Value"
+			Group="Behavior"
+			Type="string"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
