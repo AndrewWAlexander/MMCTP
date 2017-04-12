@@ -2863,11 +2863,11 @@ End
 		  
 		  CheckBox_DICOMImport.Value=gPref.DICOM_IN_Inverse
 		  
-		  if TargetWin32 Then
+		  if TargetWindows Then
 		    RadioButton_DVH_UseGraphics.Enabled=False
 		  end
 		  
-		  if gPref.dvh_calc=0 and not TargetWin32 Then
+		  if gPref.dvh_calc=0 and not TargetWindows Then
 		    RadioButton_DVH_UseGraphics.Value=True
 		  elseif gPref.dvh_calc=1 Then
 		    RadioButton_DVH_IsWithin.Value=True
@@ -3058,11 +3058,11 @@ End
 		  TextField_DICOM_Import_Structure_Slice.Text=Format(gPref.DICOM_In_Structure_Slice_Assigment,"-#.###e")
 		  
 		  
-		  if TargetWin32 Then
+		  if TargetWindows Then
 		    RadioButton_DVH_UseGraphics.Enabled=False
 		  end
 		  
-		  if gPref.dvh_calc=0 and not TargetWin32 Then
+		  if gPref.dvh_calc=0 and not TargetWindows Then
 		    RadioButton_DVH_UseGraphics.Value=True
 		  elseif gPref.dvh_calc=1 Then
 		    RadioButton_DVH_IsWithin.Value=True

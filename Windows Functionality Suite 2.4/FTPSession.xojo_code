@@ -3,7 +3,7 @@ Protected Class FTPSession
 Inherits InternetSession
 	#tag Method, Flags = &h0
 		Sub Connect(url as String, username as String, password as String)
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function InternetConnectA Lib "WinInet" ( handle as Integer, server as CString, _
 		    port as Integer, username as CString, password as CString, servic as Integer, flags as Integer, _
 		    context as Integer ) as Integer
@@ -50,7 +50,7 @@ Inherits InternetSession
 		    return
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpCreateDirectoryW Lib "WinInet" ( handle as Integer, name as WString ) as Boolean
 		    Soft Declare Function FtpCreateDirectoryA Lib "WinInet" ( handle as Integer, name as CString ) as Boolean
 		    
@@ -78,7 +78,7 @@ Inherits InternetSession
 		    return ""
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpGetCurrentDirectoryW Lib "WinInet" ( handle as Integer, buf as Ptr, ByRef size as Integer ) as Boolean
 		    Soft Declare Function FtpGetCurrentDirectoryA Lib "WinInet" ( handle as Integer, buf as Ptr, ByRef size as Integer ) as Boolean
 		    
@@ -112,7 +112,7 @@ Inherits InternetSession
 		    return
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpSetCurrentDirectoryW Lib "WinInet" ( handle as Integer, dir as WString ) as Boolean
 		    Soft Declare Function FtpSetCurrentDirectoryA Lib "WinInet" ( handle as Integer, dir as CString ) as Boolean
 		    
@@ -140,7 +140,7 @@ Inherits InternetSession
 		    return
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpRemoveDirectoryW Lib "WinInet" ( handle as Integer, name as WString ) as Boolean
 		    Soft Declare Function FtpRemoveDirectoryA Lib "WinInet" ( handle as Integer, name as CString ) as Boolean
 		    
@@ -168,7 +168,7 @@ Inherits InternetSession
 		    return
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpDeleteFileW Lib "WinInet" ( handle as Integer, name as WString ) as Boolean
 		    Soft Declare Function FtpDeleteFileA Lib "WinInet" ( handle as Integer, name as CString ) as Boolean
 		    
@@ -218,7 +218,7 @@ Inherits InternetSession
 		    return nil
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpFindFirstFileW Lib "WinInet" ( handle as Integer, search as WString, data as Ptr, _
 		    flags as Integer, context as Integer ) as Integer
 		    Soft Declare Function FtpFindFirstFileA Lib "WinInet" ( handle as Integer, search as CString, data as Ptr, _
@@ -262,7 +262,7 @@ Inherits InternetSession
 		    local = local.Child( remoteName )
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpGetFileW Lib "WinInet" ( handle as Integer, remote as WString, local as WString, _
 		    fail as Boolean, attribs as Integer, flags as Integer, context as Integer ) as Boolean
 		    Soft Declare Function FtpGetFileA Lib "WinInet" ( handle as Integer, remote as WString, local as WString, _
@@ -313,7 +313,7 @@ Inherits InternetSession
 		  
 		  dim flags as Integer = TransferType
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpPutFileA Lib "WinInet" ( handle as Integer, localFile as CString, remoteFile as CString, _
 		    flags as Integer, context as Integer ) as Boolean
 		    Soft Declare Function FtpPutFileW Lib "WinInet" ( handle as Integer, localFile as WString, remoteFile as WString, _
@@ -373,7 +373,7 @@ Inherits InternetSession
 		    return
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function FtpRenameFileW Lib "WinInet" ( handle as Integer, old as WString, newName as WString ) as Boolean
 		    Soft Declare Function FtpRenameFileA Lib "WinInet" ( handle as Integer, old as CString, newName as CString ) as Boolean
 		    
@@ -394,7 +394,7 @@ Inherits InternetSession
 
 	#tag Method, Flags = &h1
 		Protected Sub SetLocalDirectory(dir as FolderItem)
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function SetCurrentDirectoryA Lib "Kernel32" ( dir as CString ) as Boolean
 		    Soft Declare Function SetCurrentDirectoryW Lib "Kernel32" ( dir as WString ) as Boolean
 		    

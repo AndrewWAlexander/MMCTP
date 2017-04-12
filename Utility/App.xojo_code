@@ -103,7 +103,7 @@ Inherits Application
 		  
 		  AutoQuit=False
 		  
-		  if TargetWin32 then
+		  if TargetWindows then
 		    local_endline=EndOfLine.Windows
 		    App.MDIWindow.Height=720
 		    App.MDIWindow.Width=1200
@@ -1576,6 +1576,12 @@ Inherits Application
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MMCTP_Open"
+			Group="Behavior"
+			InitialValue="false"
+			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Previous_Version"

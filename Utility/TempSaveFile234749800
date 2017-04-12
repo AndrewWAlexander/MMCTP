@@ -13,6 +13,7 @@ Protected Class Class_Preference
 		  Dim ss as String
 		  //-------------------
 		  
+		  MsgBox("Initialize")
 		  
 		  // Initialize the main MMCTP folders
 		  cadplanfi=new FolderItem
@@ -30,8 +31,8 @@ Protected Class Class_Preference
 		  if fi.Exists Then
 		    Config_fi=fi
 		  else // Could not find Configurations folder
-		    MsgBox("MMCTP not installed. Application could not find folder : "+fi.Name+chr(13)+"At location : "+fi.ShellPath)
-		    Quit
+		    //MsgBox("MMCTP not installed, could not find folder : "+fi.Name+chr(13)+"At location : "+fi.ShellPath)
+		    //Quit
 		  end
 		  
 		  // Open MMCTP settings
