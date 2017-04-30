@@ -66,34 +66,41 @@ Protected Class Class_DICOM_File
 		  
 		  
 		  thismemblock.littleEndian = true // group 2 is always in little endian
-		  do until thismemblock.byte(bytePos+1)> 2 or thismemblock.byte(bytePos) > 2
+		  do until thismemblock.byte(bytePos+1)> 2 or thismemblock.byte(bytePos) > 2 
 		    Header_Read_Whole(bytePos+1)
+		    if bytePos=thismemblock.Size Then
+		      Exit
+		    end
 		  loop
 		  
 		  
 		  thismemblock.littleEndian = false // assume big endian for now
-		  if (thismemblock.byte(bytePos + 1) = 8 or thismemblock.byte(bytePos + 1) = 4) and thismemblock.byte(bytePos + 2) >= 0 then
-		    // if in big endian it found the group number to be 4 or 8, it must be big endian
-		    thismemblock.littleEndian = false
-		    defaultLittleEndian = false
-		    gotEndian = true // we now have the proper endian value
-		  else // if it was not read properly in big endian, try little endian
-		    thismemblock.littleEndian = true
-		    defaultLittleEndian = true
-		    gotEndian = false // we still are not sure of the endian value
-		  end if
 		  
-		  if gotEndian = false then // if we still do not have the endian value
-		    if (thismemblock.byte(bytePos) = 8 or thismemblock.byte(bytePos) = 4) and _
-		      thismemblock.byte(bytePos + 2) >= 0 then
-		      // if in little endian it found the group  number to be 4 or 8, it must be little endian
+		  if (bytePos+1) < thismemblock.Size  Then
+		    if (thismemblock.byte(bytePos + 1) = 8 or thismemblock.byte(bytePos + 1) = 4) and thismemblock.byte(bytePos + 2) >= 0 then
+		      // if in big endian it found the group number to be 4 or 8, it must be big endian
+		      thismemblock.littleEndian = false
+		      defaultLittleEndian = false
+		      gotEndian = true // we now have the proper endian value
+		    else // if it was not read properly in big endian, try little endian
 		      thismemblock.littleEndian = true
 		      defaultLittleEndian = true
-		      gotEndian = true // we now have the proper endian value
-		    else // if it was not read properly in big or little endian, there must be a problem
-		      gotEndian = false
+		      gotEndian = false // we still are not sure of the endian value
 		    end if
-		  end if
+		    
+		    if gotEndian = false then // if we still do not have the endian value
+		      if (thismemblock.byte(bytePos) = 8 or thismemblock.byte(bytePos) = 4) and _
+		        thismemblock.byte(bytePos + 2) >= 0 then
+		        // if in little endian it found the group  number to be 4 or 8, it must be little endian
+		        thismemblock.littleEndian = true
+		        defaultLittleEndian = true
+		        gotEndian = true // we now have the proper endian value
+		      else // if it was not read properly in big or little endian, there must be a problem
+		        gotEndian = false
+		      end if
+		    end if
+		  end
+		  
 		  
 		  if gotEndian = false then // if we still do not have the endian value
 		    i = -1

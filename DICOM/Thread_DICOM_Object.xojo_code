@@ -5049,6 +5049,55 @@ Inherits Thread
 		    file=new Class_DICOM_File
 		    planclass=RT_Plan(i)
 		    
+		    
+		    // FileMetaInfoGroupLength
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0000"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // FileMetaInfoVersion
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0001"
+		    ee.Value="256"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0002"
+		    ee.Value=planclass.MediaStorageSOPClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPInstanceUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0003"
+		    ee.Value=planclass.MediaStorageSOPInstanceUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // TransferSyntax
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0010"
+		    ee.Value=planclass.TransferSyntaxUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // ImplementationClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0012"
+		    ee.Value=planclass.ImplementationClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    
 		    // Identifying group length
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="0008"
@@ -5199,6 +5248,7 @@ Inherits Thread
 		    ee.Value=planclass.Manufacturer_Model_Name
 		    File.Elements.Append ee
 		    cc=ee.Update
+		    
 		    //----------------------------------------------------
 		    
 		    // Patient Group Length
