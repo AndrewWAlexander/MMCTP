@@ -47,7 +47,7 @@ Protected Class Class_DICOM_Element
 		      VR  ="UI"  or _ 
 		      Info="Proprietary Tag"  then
 		      
-		      tt=LenB( Value)
+		      tt=LenB(Value)
 		      if tt mod 2 >0 Then
 		        tt=tt+1
 		        Value=Value+" "

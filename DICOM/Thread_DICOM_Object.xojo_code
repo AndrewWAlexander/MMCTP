@@ -5399,13 +5399,14 @@ Inherits Thread
 		    
 		    //-----------------------------------------------
 		    // Length Tomo Proprietary
-		    ee= new Class_DICOM_Element
-		    ee.Tag_a="300A"
-		    ee.Tag_b="0000"
-		    ee.Value="8   "
-		    ee.Value_length=LenB(ee.Value)
-		    File.Elements.Append ee
-		    cc=ee.Update
+		    if gPref.DICOM_FileStructure=1 Then
+		      ee= new Class_DICOM_Element
+		      ee.Tag_a="300A"
+		      ee.Tag_b="0000"
+		      ee.Value="8   "
+		      File.Elements.Append ee
+		      cc=ee.Update
+		    end
 		    
 		    // Plan Label
 		    ee= new Class_DICOM_Element
@@ -6592,15 +6593,15 @@ Inherits Thread
 		    end
 		    //--------------End Patient Setup Sequence------------------------------------------------------------------------------------
 		    
-		    
-		    // Tomo Proprietary Tag
-		    ee= new Class_DICOM_Element
-		    ee.Tag_a="300C"
-		    ee.Tag_b="0000"
-		    ee.Value="    "
-		    cc=ee.Update
-		    File.Elements.Append ee
-		    
+		    if gPref.DICOM_FileStructure=1 Then
+		      // Tomo Proprietary Tag
+		      ee= new Class_DICOM_Element
+		      ee.Tag_a="300C"
+		      ee.Tag_b="0000"
+		      ee.Value="    "
+		      cc=ee.Update
+		      File.Elements.Append ee
+		    end
 		    //---------------------------------------------------------------------------------------------------
 		    // Reference Structure Set sequence
 		    if UBound(planclass.ReferencedStructureSetSequence)>-1 Then
