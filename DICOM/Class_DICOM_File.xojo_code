@@ -753,6 +753,23 @@ Protected Class Class_DICOM_File
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Update_Item_Length(i_index as Integer)
+		  //-----------------------------------------
+		  // Method to calculate item and sequence length of DICOM files
+		  //------------------------------------------
+		  Dim i,lenght as Integer
+		  Dim j as Boolean
+		  
+		  lenght=0
+		  for i =(i_index+1) to UBound(Elements)
+		    lenght=lenght+Elements(i).Element_Length
+		  Next
+		  Elements(i_index).Sequence_Length=lenght
+		  j=Elements(i_index).Update
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Write_DICOM()
 		  //---------------------------------------------------------
 		  // New format for writing DICOM files
