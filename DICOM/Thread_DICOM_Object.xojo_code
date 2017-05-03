@@ -326,7 +326,7 @@ Inherits Thread
 		  Dim f as FolderItem
 		  Dim inp as TextInputStream
 		  Dim line, wholefile as String
-		  Dim i as Integer
+		  Dim i,ll as Integer
 		  
 		  
 		  
@@ -1537,6 +1537,8 @@ Inherits Thread
 		  "30020029,3RT,IS,1,FractionNumber,"+ EndOfLine + _
 		  "30020030,3RT,SQ,1,ExposureSequence,"+ EndOfLine + _
 		  "30020032,3RT,DS,1,MetersetExposure,"+ EndOfLine + _
+		  "30020050,3RT,SQ,1,PrimaryFluence Mode Sequence,"+ EndOfLine + _
+		  "30020051,3RT,CS,1,Fluence Mode,"+ EndOfLine + _
 		  "30040001,3RT,CS,1,DVHType,"+ EndOfLine + _
 		  "30040002,3RT,CS,1,DoseUnits,"+ EndOfLine + _
 		  "30040004,3RT,CS,1,DoseType,"+ EndOfLine + _
@@ -2055,11 +2057,22 @@ Inherits Thread
 		  
 		  
 		  
-		  for i = 0 to 1719
+		  
+		  
+		  ll=CountFieldsB(wholefile,EndOfLine)-1
+		  
+		  
+		  ReDim dictionary(ll, 0)
+		  ReDim dictionary(ll, 1)
+		  ReDim dictionary(ll, 2)
+		  ReDim dictionary(ll, 3)
+		  
+		  
+		  for i = 0 to ll
 		    line = NthField(wholefile,EndOfLine,i+1)
 		    dictionary(i, 0) = NthField(line, ",", 1)    // group and element
-		    dictionary(i, 1) = NthField(line,",", 3)    // VR
-		    dictionary(i, 2) = NthField(line, ",", 5)  // Info
+		    dictionary(i, 1) = NthField(line,",", 3)     // VR
+		    dictionary(i, 2) = NthField(line, ",", 5)    // Info
 		    dictionary(i, 3) = NthField(line, ",", 2)    // Supplement
 		  next
 		  
@@ -5907,6 +5920,39 @@ Inherits Thread
 		        cc=ee.Update  
 		        
 		        
+		        //-----Primary fluence mode
+		        ee= new Class_DICOM_Element
+		        ee.Tag_a="3002"
+		        ee.Tag_b="0050"
+		        ee.Value="1"
+		        cc=ee.Update
+		        File.Elements.Append ee
+		        level2_index=UBound(File.Elements)
+		        for c=0 to UBound(planclass.BeamSequence(k).FluenceModeSQ)
+		          // New  Flence sequence item
+		          ee= new Class_DICOM_Element
+		          ee.Tag_a="FFFE"
+		          ee.Tag_b="E000"
+		          File.Elements.Append ee
+		          cc=ee.Update  
+		          item_level2_index=UBound(File.Elements)
+		          
+		          ee= new Class_DICOM_Element
+		          ee.Tag_a="3002"
+		          ee.Tag_b="0051"
+		          ee.Value=planclass.BeamSequence(k).FluenceModeSQ(c).FluenceMode
+		          File.Elements.Append ee
+		          cc=ee.Update  
+		          
+		          File.Update_Item_Length(item_level2_index)
+		        Next
+		        File.Update_Item_Length(level2_index)
+		        //---End primary fluence mode
+		        
+		        
+		        
+		        
+		        
 		        // Manufacturer's model name
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="300A"
@@ -6470,7 +6516,7 @@ Inherits Thread
 		        
 		      Next
 		      File.Update_item_length(level1_index)
-		            
+		      
 		      
 		    end
 		    //--------------End -Beam Sequence------------------------------------------------------------------------------------
