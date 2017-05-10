@@ -486,7 +486,7 @@ Inherits Thread
 		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l
 		    ElseIf h >= gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h Then
 		      m_index=k
-		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_h
+		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h
 		    Else
 		      m_index=-1
 		      for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
@@ -494,17 +494,23 @@ Inherits Thread
 		          m_index=i
 		        end
 		      next
-		      if m_index=-1 Then
-		        rsting="CT-HU-Value-Not-Found-In-Range_"
-		        y=-1000000
-		        Return rsting+Format(y,"-#.###")
-		      end
 		    end
-		    rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
-		    slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
-		    /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
-		    b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
-		    y=slope*h+b
+		    if m_index=-1 Then
+		      rsting="CT-HU-Value-Not-Found-In-Range_"
+		      y=-1000000
+		    else
+		      rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
+		      
+		      if gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l Then
+		        slope=0
+		      else
+		        slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
+		        /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
+		      end
+		      b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
+		      y=slope*h+b
+		    end
+		    
 		  end
 		  Return rsting+Format(y,"-#.###")
 		End Function

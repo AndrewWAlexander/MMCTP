@@ -57,41 +57,6 @@ Begin Window Window_CreatBox
       Visible         =   True
       Width           =   144
    End
-   Begin Label StaticText14
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   25
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   21
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "This windows allows the user to creat a mock McGill RT patient based on the values below"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   532
-   End
    Begin TabPanel TabPanel1
       AutoDeactivate  =   True
       Bold            =   False
@@ -119,7 +84,7 @@ Begin Window Window_CreatBox
       TextUnit        =   0
       Top             =   53
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   532
       Begin GroupBox GroupBox1
@@ -169,9 +134,8 @@ Begin Window Window_CreatBox
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   0
+            TabIndex        =   4
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Patient Name"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -204,9 +168,8 @@ Begin Window Window_CreatBox
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   1
+            TabIndex        =   5
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Patient Surname"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -239,9 +202,8 @@ Begin Window Window_CreatBox
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   2
+            TabIndex        =   6
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Patient ID"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -283,7 +245,7 @@ Begin Window Window_CreatBox
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
-            TabIndex        =   3
+            TabIndex        =   2
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   "00000001"
@@ -326,7 +288,7 @@ Begin Window Window_CreatBox
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
-            TabIndex        =   4
+            TabIndex        =   1
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   "Box"
@@ -369,7 +331,7 @@ Begin Window Window_CreatBox
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
-            TabIndex        =   5
+            TabIndex        =   0
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   "Physics"
@@ -403,9 +365,8 @@ Begin Window Window_CreatBox
             Multiline       =   True
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   6
+            TabIndex        =   7
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Patient Position"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -447,7 +408,7 @@ Begin Window Window_CreatBox
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
-            TabIndex        =   7
+            TabIndex        =   3
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   "HFS"
@@ -554,7 +515,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "nz (Number of voxels in z)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -847,7 +807,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "ny (Number of voxels in y)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -882,7 +841,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   10
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "nx (Number of voxels in x)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -917,7 +875,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   11
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "dy (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -952,7 +909,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "dx (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -987,7 +943,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "dz (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1065,7 +1020,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   15
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "coordiante 1st y (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1100,7 +1054,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   16
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "coordiante 1st x (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1221,7 +1174,6 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   19
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "coordiante 1st z (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1343,6 +1295,40 @@ Begin Window Window_CreatBox
          _ScrollOffset   =   0
          _ScrollWidth    =   -1
       End
+   End
+   Begin Label StaticText14
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   25
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   21
+      TabPanelIndex   =   0
+      Text            =   "This windows allows the user to creat a mock McGill RT patient based on the values below"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   20
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   532
    End
 End
 #tag EndWindow

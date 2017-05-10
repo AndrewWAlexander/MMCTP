@@ -400,7 +400,7 @@ Protected Class Class_Preference
 	#tag Method, Flags = &h0
 		Sub Read_Settings()
 		  //-----------------------------------
-		  // 
+		  //  Read settings file for default folders
 		  //
 		  //-----------------------------------
 		  Dim fi as FolderItem
@@ -424,14 +424,14 @@ Protected Class Class_Preference
 		  end
 		  
 		  // Set all folders to default locations
-		  cadplanfi=Settings_fi
 		  mcgillfi=SpecialFolder.Documents.Child("McGillRT")
-		  DICOMfi=Settings_fi
-		  rtogfi=Settings_fi
-		  BEAMnrc_fi=Settings_fi
-		  VMC_fi=Settings_fi
-		  McGillCutout=Settings_fi
-		  Commission_fi=Settings_fi
+		  cadplanfi=mcgillfi
+		  DICOMfi=mcgillfi
+		  rtogfi=mcgillfi
+		  BEAMnrc_fi=mcgillfi
+		  VMC_fi=mcgillfi
+		  McGillCutout=mcgillfi
+		  Commission_fi=mcgillfi
 		  Linacs_file=Settings_fi.child("BEAM.pref")
 		  
 		  fi=Settings_fi.Child("pref.txt")
