@@ -3800,7 +3800,7 @@ End
 	#tag Method, Flags = &h0
 		Sub Beam_Merge()
 		  //-----------------------------------------------------------
-		  //
+		  // Method to combine more than one field into a single field
 		  //
 		  //-----------------------------------------------------------
 		  Dim i,bbn(-1),k,index_b(-1),index_subf(-1),bindex,ffindex as Integer
