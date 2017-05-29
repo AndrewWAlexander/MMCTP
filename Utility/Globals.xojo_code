@@ -1644,7 +1644,9 @@ Protected Module Globals
 		  temp=(z-gRTOG.Scan(0).Z_Value)/gRTOG.Scan(0).Slice_Thickness
 		  min_index=Floor(temp)
 		  max_index=Ceil(temp)
-		  //Update July 2010!!!!
+		  if max_index>UBound(gRTOG.Scan) Then
+		    max_index=UBound(gRTOG.Scan)
+		  end
 		  
 		  
 		  Redim z_index(0)
