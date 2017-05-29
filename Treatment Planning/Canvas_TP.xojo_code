@@ -2534,7 +2534,7 @@ Inherits Canvas
 		  //----------------Draw Legend
 		  Display.Graphics.foreColor=&c00FFFF
 		  Display.Graphics.textSize=10
-		  Display.Graphics.drawstring "Z ("+str(canvas_slice+1)+"/"+str(UBound(gvis.scans)+1)+") : "+Format(gRTOG.Scan(canvas_slice).Z_Value,"-#.##")+ " cm", 10,36
+		  Display.Graphics.drawstring "Z ("+str(canvas_slice+1)+"/"+str(UBound(gvis.scans)+1)+") : "+Format(gRTOG.Scan(canvas_slice).Z_Value,"-#.###")+ " cm", 10,36
 		  Display.Graphics.drawstring "X ("+Format((mouse_xcm-gVis.xoff_set)/gvis.scale_width+1,"-#")+"/"+str(gvis.nx)+") : "+format(mouse_xcm,"-##.##") + " cm ", 10,48
 		  Display.Graphics.drawstring "Y ("+Format((mouse_ycm-gVis.yoff_set)/gvis.scale_height+1,"-#")+"/"+str(gvis.ny)+") :"+format(mouse_ycm,"-##.##") + " cm" , 10,60
 		  Display.Graphics.drawstring "Pixel Value "+Image_Value, 10,72
