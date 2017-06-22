@@ -21,6 +21,10 @@ Protected Class Class_DOSXYZ_Input
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		calflag As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		DENSITY As single
 	#tag EndProperty
 
@@ -1261,6 +1265,7 @@ Protected Class Class_DOSXYZ_Input
 			Name="the_shared_lib"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="the_vcu_code"
