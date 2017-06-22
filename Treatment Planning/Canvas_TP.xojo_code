@@ -1668,7 +1668,7 @@ Inherits Canvas
 		    Return
 		  end
 		  
-		  Pic_Image=NewPicture(size_x,size_y,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		  Pic_Image=New Picture(size_x,size_y,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		  
 		  if Pic_Image=nil Then
 		    Return

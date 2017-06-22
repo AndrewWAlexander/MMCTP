@@ -1,5 +1,5 @@
 Type=Desktop
-RBProjectVersion=2016.03
+RBProjectVersion=2017.011
 MinIDEVersion=20070100
 Folder=Utility;Utility;&h22CC0B19;&h0;false
 Window=Window_About;Utility/Window_About.xojo_window;&hBCB54000;&h22CC0B19;false
@@ -373,5 +373,6 @@ OSXBundleID=com.mycompany.MMCTP
 DebuggerCommandLine=
 UseGDIPlus=False
 UseBuildsFolder=True
+CopyRedistNextToWindowsEXE=False
 IsWebProject=False
 OptimizationLevel=0
