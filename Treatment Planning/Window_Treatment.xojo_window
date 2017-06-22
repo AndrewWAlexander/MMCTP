@@ -685,6 +685,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   73
          TabPanelIndex   =   4
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -719,6 +720,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   78
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -753,6 +755,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   9
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -977,6 +980,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   8
+            TabStop         =   True
             Text            =   "Point 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1011,6 +1015,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   8
+            TabStop         =   True
             Text            =   "Point 2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1420,6 +1425,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   6
+         TabStop         =   True
          Text            =   "DVH bins:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1498,6 +1504,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   6
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2016,6 +2023,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Window"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2106,6 +2114,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Scale Top %"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2183,6 +2192,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Level"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2456,6 +2466,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   3
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2703,6 +2714,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "Min dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2737,6 +2749,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "Max dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2956,6 +2969,7 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   1
                   TabPanelIndex   =   7
+                  TabStop         =   True
                   Text            =   "Volume (%)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -2990,6 +3004,7 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   2
                   TabPanelIndex   =   7
+                  TabStop         =   True
                   Text            =   "Dose (Gy)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -3331,6 +3346,7 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   8
                TabPanelIndex   =   7
+               TabStop         =   True
                Text            =   "Plus/minus image pixel"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -3598,6 +3614,7 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   2
                TabPanelIndex   =   7
+               TabStop         =   True
                Text            =   "=cGy"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -3951,6 +3968,8 @@ End
 		      
 		      newb.Collimator.Fields(i).Gantry_Angle=jj.Fields(ffindex).Gantry_Angle
 		      newb.Collimator.Fields(i).Collimator_Angle=jj.Fields(ffindex).Collimator_Angle
+		      newb.Collimator.Fields(i).ARC_Direction=jj.Fields(ffindex).ARC_Direction
+		      
 		      newb.Collimator.Fields(i).Couch_Angle=jj.Fields(ffindex).Couch_Angle
 		      
 		      newb.Collimator.Fields(i).X1=jj.Fields(ffindex).X1
