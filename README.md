@@ -6,8 +6,7 @@ It is intended to be used as a full feature front head treatment planning system
 For a summary of MMCTP refer to, A Alexander et al 2007 Phys. Med. Biol. 52 N297-N308 
 
 ## Documentation
-The user manual, and other documentation is available here:
-https://github.com/AndrewWAlexander/MMCTP/wiki
+The user manual, and other documentation is available here [wiki](https://github.com/AndrewWAlexander/MMCTP/wiki)
 
 ## Issues
 Please post issues to the [issue tracker](https://github.com/AndrewWAlexander/MMCTP/issues) to
