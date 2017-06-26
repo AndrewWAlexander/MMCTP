@@ -20,5 +20,5 @@ Please post questions to the [google group page](https://groups.google.com/forum
 The source code requires XoJo to run through the debugger or to compile an executable. 
 
 ## Branches
-The main branch is for release copies of the code
+The main branch is for release copies of the code. 
 The develop branch is for on-going implementation of new features and bug fixes.
