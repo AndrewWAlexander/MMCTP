@@ -6,7 +6,7 @@ Inherits Timer
 		  Dim ss as String
 		  
 		  
-		  me.Period=100
+		  me.Period=1000
 		  me.Reset
 		  
 		  
@@ -17,8 +17,11 @@ Inherits Timer
 		  end
 		  
 		  if UBound(App.Error_Msg)>-1 Then
-		    ss=App.Error_Msg(0)
-		    App.Error_Msg.Remove(0)
+		    ss=""
+		    While UBound(App.Error_Msg)>-1
+		      ss=ss+App.Error_Msg(0)+chr(13)
+		      App.Error_Msg.Remove(0)
+		    Wend
 		    MsgBox ss
 		  end
 		  

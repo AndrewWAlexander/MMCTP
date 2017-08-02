@@ -39,7 +39,6 @@ Protected Class Class_DICOM_File
 		        valid = true // it is a valid DICOM file
 		      else
 		        valid = false // it is not a valid DICOM file
-		        //msgBox " is not a valid DICOM file."
 		        Return False
 		      end if
 		    else
@@ -55,7 +54,6 @@ Protected Class Class_DICOM_File
 		        valid = true // it is a valid DICOM file
 		      else
 		        valid = false // it is not a valid DICOM file
-		        //msgBox " is not a valid DICOM file."
 		        Return False
 		      end if
 		    end if
@@ -686,7 +684,6 @@ Protected Class Class_DICOM_File
 		      Return True
 		    else
 		      //Count not read syntax
-		      MsgBox("Could not determine transfer syntax status on file : "+f.Name)
 		      Return False
 		    end
 		  else
@@ -694,10 +691,6 @@ Protected Class Class_DICOM_File
 		    App.Error_Msg.Append ("Could not determine Endian status on file : "+f.Name)
 		    Return False
 		  end
-		  
-		  
-		  
-		  
 		End Function
 	#tag EndMethod
 
