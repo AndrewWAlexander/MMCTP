@@ -59,7 +59,7 @@ Inherits Thread
 		    ReDim Window_Transfer.DICOM_P(-1)
 		    //import dicom
 		    f=gPref.DICOMfi
-		    PW_Title="Reading DICOM files within folder"
+		    PW_Title="Reading "+str( f.count)+" DICOM files within folder"
 		    PW_Progress_Max= f.count
 		    PW_Show=true
 		    if f.Exists Then
