@@ -391,6 +391,15 @@ Protected Class Class_Preference
 		        DICOM_Format=1
 		      end
 		      
+		      
+		    elseif instr(tempstr,"ReadProfiles")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      if modstr="Yes" Then
+		        McGillRT_Profile_Skip=True
+		      else
+		        McGillRT_Profile_Skip=False
+		      end
+		      
 		    end if
 		  wend
 		  ts.Close
@@ -599,8 +608,14 @@ Protected Class Class_Preference
 		  end
 		  
 		  
+		  
 		  ts.writeline "DICOMRTFileFormat := "+Str(DICOM_Format)
 		  
+		  if McGillRT_Profile_Skip Then
+		    ts.writeline "ReadProfiles := Yes"
+		  else
+		    ts.writeline "ReadProfiles := No"
+		  end
 		  
 		  
 		  ts.close
@@ -747,7 +762,19 @@ Protected Class Class_Preference
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		#tag Note
+			_
+			
+		#tag EndNote
 		McGillRT_Dose_Skip As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			
+			_
+		#tag EndNote
+		McGillRT_Profile_Skip As Boolean = false
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

@@ -112,19 +112,15 @@ Begin Window Window_Licence
    Begin Line Line1
       BorderWidth     =   1
       Enabled         =   True
-      Height          =   50
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   0
       LineColor       =   &c00000000
       LockedInPosition=   False
       Scope           =   0
       TabIndex        =   "2"
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   0
       Visible         =   True
-      Width           =   100
       X1              =   0
       X2              =   605
       Y1              =   100
@@ -282,7 +278,7 @@ End
 		Sub Action()
 		  if CheckBox1.Value Then
 		    app.MMCTP_Write_License
-		    app.MMCTP_Open
+		    app.MMCTP_Open_Application
 		  end
 		End Sub
 	#tag EndEvent

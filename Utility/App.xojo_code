@@ -125,7 +125,7 @@ Inherits Application
 		  if MMCTP_Read_License Then
 		    Window_Licence.Show
 		  else
-		    MMCTP_Open
+		    MMCTP_Open_Application
 		  end
 		  
 		  
@@ -1060,7 +1060,7 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub MMCTP_Open()
+		Sub MMCTP_Open_Application()
 		  // Open MMCTP Settings
 		  
 		  if MMCTP_Open Then
@@ -1089,11 +1089,7 @@ Inherits Application
 		  
 		  
 		  
-		  gProfiles=new Class_Profiles_All
-		  gProfiles.Read_All_Profiles(gPref.Commission_fi)
 		  
-		  gOutput=new Class_OutPut
-		  gOutput.Read_All_Tables
 		  
 		  gDVH=new Thread_DVH
 		  
@@ -1111,6 +1107,14 @@ Inherits Application
 		  
 		  MMCTP_ReadConfig
 		  MMCTP_Check_Version
+		  
+		  
+		  gOutput=new Class_OutPut
+		  gProfiles=new Class_Profiles_All
+		  if gPref.McGillRT_Profile_Skip=False Then
+		    gOutput.Read_All_Tables
+		    gProfiles.Read_All_Profiles(gPref.Commission_fi)
+		  end
 		  
 		  Window_OpenPatient.Show
 		  

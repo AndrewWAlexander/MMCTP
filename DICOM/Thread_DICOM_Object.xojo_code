@@ -3,6 +3,12 @@ Protected Class Thread_DICOM_Object
 Inherits Thread
 	#tag Event
 		Sub Run()
+		  Dim f,g as FolderItem
+		  Dim i ,k as Integer
+		  Dim s,temp,ID as string
+		  Dim found,mm as Boolean
+		  //----------------------------------------------------
+		  
 		  if TaskNum=1 Then
 		    DICOM_Import
 		  elseif TaskNum=0 Then
@@ -49,6 +55,48 @@ Inherits Thread
 		    ReDim RT_Plan(-1)
 		    ReDim RT_Structures(-1)
 		    
+		  elseif TaskNum=2 Then
+		    ReDim Window_Transfer.DICOM_P(-1)
+		    //import dicom
+		    f=gPref.DICOMfi
+		    PW_Title="Reading DICOM files within folder"
+		    PW_Progress_Max= f.count
+		    PW_Show=true
+		    if f.Exists Then
+		      for i=1 to f.count
+		        PW_Progress = i+1
+		        g=f.Item(i)
+		        if g<> nil Then
+		          if g.Exists Then
+		            PW_StaticText="Reading file : "+g.Name
+		            if not g.Directory and g.Visible then
+		              //and InStr(g.Name,".dcm")>0 
+		              File = new Class_DICOM_file
+		              mm=File.Load_One_DICOM_file(g)
+		              File.Read_Names // populate di.Pname & di.p_id & di.study_date
+		              
+		              //(DICOM.File.p_id)>0 then
+		              s =File.p_id // Patient whole name & ID
+		              found=False
+		              for k=0 to (UBound(Window_Transfer.DICOM_P))
+		                temp =NthField(Window_Transfer.DICOM_P(k),"%%",2)
+		                if s=temp then
+		                  found=True
+		                  exit
+		                end
+		              next
+		              if not found then
+		                Window_Transfer.DICOM_P.Append File.Pname +"%%"+File.p_id
+		              end
+		              //end if
+		              
+		            end
+		          end
+		        end
+		      next
+		    end
+		    PW_Show=false
+		    Window_Transfer.UpdateDICOM=True
 		  end
 		End Sub
 	#tag EndEvent

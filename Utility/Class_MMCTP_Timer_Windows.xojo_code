@@ -90,6 +90,8 @@ Inherits Timer
 		  if app.which_window_Transfer Then
 		    if Window_Transfer.UpdateMcGill Then
 		      Window_Transfer.UpDate_McGill
+		    elseif Window_Transfer.UpdateDICOM Then
+		      Window_Transfer.Update_DICOM_Listbox
 		    end
 		  end
 		  

@@ -25,7 +25,6 @@ Inherits Timer
 		    Window_Progress.ProgressBar.Maximum=PW_Progress_Max
 		    Window_Progress.ProgressBar.Value=PW_Progress
 		    Window_Progress.ProgressBar.Refresh(False)
-		    
 		  end
 		End Sub
 	#tag EndEvent

@@ -5,7 +5,7 @@ Begin Window Window_Transfer
    CloseButton     =   False
    Compatibility   =   ""
    Composite       =   False
-   Frame           =   4
+   Frame           =   1
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
@@ -210,7 +210,6 @@ Begin Window Window_Transfer
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Folder..."
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -245,7 +244,6 @@ Begin Window Window_Transfer
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "McGill Path:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -342,7 +340,6 @@ Begin Window Window_Transfer
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Import Format"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -522,67 +519,29 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Update_DICOM2()
-		  Dim f,g as FolderItem
-		  Dim i ,k as Integer
-		  Dim s,temp,ID as string
-		  Dim found,mm as Boolean
+		Sub Update_DICOM_Listbox()
+		  Dim i as Integer
 		  
-		  
-		  ListBox_import.deleteAllRows
-		  
-		  //import dicom
-		  f=gPref.DICOMfi
-		  
+		  Window_Transfer.ListBox_import.DeleteAllRows
 		  Window_Transfer.ListBox_import.columncount=2
 		  Window_Transfer.ListBox_import.columnwidths="65%,35%,"
 		  Window_Transfer.ListBox_import.heading(0)= "Patient name"
 		  Window_Transfer.ListBox_import.heading(1)= "Patient ID"
-		  PW_Title="Scanning DICOM folder : " +f.NativePath
-		  Window_Progress.ProgressBar.Maximum = f.count
-		  PW_Show=true
-		  if f.Exists Then
-		    DICOM=new Thread_DICOM_Object
-		    if DICOM=nil Then
-		      Return
-		    end
-		    for i=1 to f.count
-		      PW_Progress = i+1
-		      g=f.Item(i)
-		      if g<> nil Then
-		        if g.Exists Then
-		          PW_StaticText="Reading file : "+g.Name
-		          
-		          
-		          if not g.Directory and g.Visible then
-		            //and InStr(g.Name,".dcm")>0 
-		            DICOM.File = new Class_DICOM_file
-		            mm=DICOM.File.Load_One_DICOM_file(g)
-		            DICOM.File.Read_Names // populate di.Pname & di.p_id & di.study_date
-		            
-		            //(DICOM.File.p_id)>0 then
-		            s =DICOM.File.p_id // Patient whole name & ID
-		            found=False
-		            for k=0 to ListBox_import.ListCount-1 // look if that patient already exists in the list
-		              temp = ListBox_import.Cell(k,1)
-		              if s=temp then
-		                found=True
-		                exit
-		              end
-		            next
-		            if not found then
-		              ListBox_import.AddRow  DICOM.File.Pname
-		              ListBox_import.Cell(ListBox_import.LastIndex,1)=DICOM.File.p_id
-		            end
-		            //end if
-		            
-		          end
-		        end
-		      end
-		    next
-		  end
-		  PW_Show=false
 		  
+		  
+		  for i=0 to UBound(DICOM_P)
+		    Window_Transfer.ListBox_import.AddRow NthField(DICOM_P(i),"%%",1)
+		    Window_Transfer.ListBox_import.Cell(i,1) =NthField(DICOM_P(i),"%%",2)
+		  Next
+		  
+		  UpdateDICOM=False
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Update_DICOM_Patients()
+		  DICOM.TaskNum=2
+		  DICOM.Run
 		End Sub
 	#tag EndMethod
 
@@ -643,9 +602,6 @@ End
 		    ListBox_Mcgill.addfolder ""
 		    ListBox_Mcgill.cell(i-1,1)=NthField(datasets,";",i)
 		    ListBox_Mcgill.cell(i-1,0)=NthField(NthField(name_id,",",i),String_Separate,1) +" "+NthField(NthField(name_id,",",i),String_Separate,2)+ " " +NthField(NthField(name_id,",",i),String_Separate,3)
-		    
-		    
-		    
 		  Next
 		  ListBox_Mcgill.ColumnCount=1
 		  ListBox_Mcgill.hierarchical=true
@@ -714,6 +670,10 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		DICOM_P(-1) As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Displays(-1) As window_DICOM_View
 	#tag EndProperty
 
@@ -726,6 +686,18 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		#tag Note
+			_
+			
+		#tag EndNote
+		UpdateDICOM As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			_
+			
+		#tag EndNote
 		UpdateMcGill As Boolean = false
 	#tag EndProperty
 
@@ -787,7 +759,7 @@ End
 		    UpDate_CadPlan
 		  elseif me.text="DICOM" then
 		    ImportStaticText.text=gpref.DICOMfi.NativePath
-		    Update_DICOM2
+		    Update_DICOM_Patients
 		    
 		    
 		  end if
@@ -822,7 +794,7 @@ End
 		    if PopupMenu_import.text="DICOM" then
 		      gPref.DICOMfi=fi
 		      ImportStaticText.text=gpref.dicomfi.NativePath
-		      Update_DICOM2
+		      Update_DICOM_Patients
 		    elseif PopupMenu_import.text="CADPLAN" then
 		      ImportStaticText.text=gpref.cadplanfi.NativePath
 		      gpref.cadplanfi=fi
