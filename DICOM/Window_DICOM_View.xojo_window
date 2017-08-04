@@ -31,7 +31,7 @@ Begin Window Window_DICOM_View
       AutoHideScrollbars=   True
       Bold            =   False
       Border          =   True
-      ColumnCount     =   8
+      ColumnCount     =   9
       ColumnsResizable=   True
       ColumnWidths    =   ""
       DataField       =   ""
