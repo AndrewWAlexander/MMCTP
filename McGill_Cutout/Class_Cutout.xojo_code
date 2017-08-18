@@ -196,8 +196,15 @@ Protected Class Class_Cutout
 		  //---------------------------------------
 		  
 		  f=gPref.McGillCutout.Child("ECOWinputfiletemplate.txt")
-		  r=new Random
 		  
+		  if f=Nil Then
+		    Return
+		  end
+		  
+		  
+		  
+		  
+		  r=new Random
 		  if f.Exists then
 		    
 		    cutoutfile=f.OpenAsTextFile

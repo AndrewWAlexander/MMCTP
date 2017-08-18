@@ -317,7 +317,7 @@ Inherits Thread
 		  
 		  if nx>0 and ny>0 Then
 		    for i=0 to UBound(gRTOG.Scan)
-		      contours.Axial_Pic(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		      //contours.Axial_Pic(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		      scans(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		      scans(i).Graphics.forecolor=rgb(0,0,0)
 		      scans(i).Graphics.FillRect 0,0,gvis.nx,gvis.ny
