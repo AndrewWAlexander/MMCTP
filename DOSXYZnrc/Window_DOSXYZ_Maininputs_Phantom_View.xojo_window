@@ -772,18 +772,16 @@ End
 		  //top left position is i=0, j=0
 		  dim i,j as integer
 		  dim tmp as double
-		  dim thisrgbsurf as rgbSurface
 		  //------------------------------------------------------------
 		  
 		  if Egsphant.Loaded Then
 		    
 		    phantbufferredPic=new Picture(Egsphant.Nx,Egsphant.Ny,32)
 		    if phantbufferredPic<> nil Then
-		      thisrgbsurf=phantbufferredPic.rgBSurface
 		      for j=0 to phantbufferredPic.height-1
 		        for i=0 to phantbufferredPic.width-1
 		          tmp=egsphant.density(i,j,k)/egsphant.maxdensity
-		          thisrgbsurf.pixel(i,j)=getColorFromMap(tmp,256,2)
+		          phantbufferredPic.rgBSurface.pixel(i,j)=getColorFromMap(tmp,256,2)
 		        next
 		      next
 		    end
@@ -795,7 +793,6 @@ End
 		Sub drawphantdensity_XZ(k as integer)
 		  dim i,j as integer
 		  dim tmp as double
-		  dim thisrgbsurf as rgbSurface
 		  
 		  
 		  
@@ -804,14 +801,10 @@ End
 		    
 		    phantbufferredPic=new Picture(Egsphant.Nx,Egsphant.Nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		    if phantbufferredPic<> nil Then
-		      thisrgbsurf=phantbufferredPic.rgBSurface
-		      
-		      
-		      
 		      for j=0 to Egsphant.Nz-1
 		        for i=0 to Egsphant.Nx-1
 		          tmp=egsphant.density(i,k,j)/egsphant.maxdensity
-		          thisrgbsurf.pixel(i,j)=getColorFromMap(tmp,256,2)
+		          phantbufferredPic.rgBSurface.pixel(i,j)=getColorFromMap(tmp,256,2)
 		        next
 		      next
 		    end
@@ -824,22 +817,15 @@ End
 		  //top left position is i=0, j=0
 		  dim i,j as integer
 		  dim tmp as double
-		  dim thisrgbsurf as rgbSurface
 		  
 		  
 		  if Egsphant.Loaded Then
-		    
-		    
 		    phantbufferredPic=new Picture(Egsphant.Ny,Egsphant.Nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		    if phantbufferredPic<> nil Then
-		      thisrgbsurf=phantbufferredPic.rgBSurface
-		      
-		      
-		      
 		      for j=0 to phantbufferredPic.height-1
 		        for i=0 to phantbufferredPic.width-1
 		          tmp=egsphant.density(k,i,j)/egsphant.maxdensity
-		          thisrgbsurf.pixel(i,j)=getColorFromMap(tmp,256,2)
+		          phantbufferredPic.rgBSurface.pixel(i,j)=getColorFromMap(tmp,256,2)
 		        next
 		      next
 		    end
@@ -852,22 +838,15 @@ End
 		  //----------------------------------------------
 		  //top left position is i=0, j=0
 		  dim tmp,i,j as integer
-		  dim thisrgbsurf as rgbSurface
 		  //----------------------------------------------
 		  
 		  if Egsphant.Loaded Then
-		    
-		    
 		    mediabufferredPic=new Picture(Egsphant.Nx,Egsphant.Ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		    thisrgbsurf=mediabufferredPic.rgBSurface
-		    
-		    
-		    
 		    for j=0 to mediabufferredPic.height-1
 		      for i=0 to mediabufferredPic.width-1
 		        tmp=egsphant.media(i,j,k)
 		        if tmp>=0 and tmp<=UBound(Egsphant.mediacolor) Then
-		          thisrgbsurf.pixel(i,j)=egsphant.mediacolor(tmp)
+		          mediabufferredPic.rgBSurface.pixel(i,j)=egsphant.mediacolor(tmp)
 		        end
 		      next
 		    next
@@ -880,22 +859,15 @@ End
 		  //----------------------------------------------
 		  //top left position is i=0, j=0
 		  dim i,j,tmp as integer
-		  dim thisrgbsurf as rgbSurface
 		  //----------------------------------------------
 		  
 		  if Egsphant.Loaded Then
-		    
-		    
 		    mediabufferredPic=new Picture(Egsphant.Nx,Egsphant.Nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		    thisrgbsurf=mediabufferredPic.rgBSurface
-		    
-		    
-		    
 		    for j=0 to Egsphant.Nz-1
 		      for i=0 to Egsphant.Nx-1
 		        tmp=egsphant.media(i,k,j)
 		        if tmp>=0 and tmp<=UBound(Egsphant.mediacolor) Then
-		          thisrgbsurf.pixel(i,j)=egsphant.mediacolor(tmp)
+		          mediabufferredPic.rgBSurface.pixel(i,j)=egsphant.mediacolor(tmp)
 		        end
 		      next
 		    next

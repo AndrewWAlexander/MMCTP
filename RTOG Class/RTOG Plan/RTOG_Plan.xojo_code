@@ -3241,7 +3241,7 @@ Protected Class RTOG_Plan
 		  Dim poly as class_Polygon
 		  Dim temp_file,temp_line, pnt_file, line,x_line_temp,x_line_pnt,endline,name as String
 		  Dim ts as TextOutputStream
-		  Dim tmpsurf as RGBSurface
+		  //Dim tmpsurf as RGBSurface
 		  //---------------------------------------------
 		  
 		  
@@ -3304,9 +3304,7 @@ Protected Class RTOG_Plan
 		        Window_Prescription.ProgressBar_Struc.Refresh
 		        
 		        tmpimage=New Picture(Structure_Dose(i).Voxel_REs,Structure_Dose(i).Voxel_REs,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        tmpsurf=tmpimage.RGBSurface
-		        
-		        
+		        //tmpsurf=tmpimage.RGBSurface
 		        
 		        cmz=gRTOG.Scan(n).Z_Value  //centerofthezslice
 		        
@@ -3348,7 +3346,7 @@ Protected Class RTOG_Plan
 		          x_line_temp=""
 		          
 		          for ii=0 to Structure_Dose(i).Voxel_REs-1
-		            if tmpsurf.Pixel(ii,jj).red=255 then
+		            if tmpimage.RGBSurface.Pixel(ii,jj).red=255 then
 		              Structure_Dose(i).Num_Points=Structure_Dose(i).Num_Points+1
 		              cmx=  (ii)*Structure_Dose(i).Voxel_Size_x+gVis.xoff_set
 		              cmy=  (jj)*Structure_Dose(i).Voxel_Size_y+gVis.yoff_set

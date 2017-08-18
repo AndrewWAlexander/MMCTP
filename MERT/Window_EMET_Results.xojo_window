@@ -1767,7 +1767,6 @@ End
 		  Dim x,i,k,x1,x2,y1,y2,cc,newcc,v,ppw,pph,pb_rows(-1),index(-1),min as Integer
 		  Dim total_MU_Grad,total_Grad_W,scale_w,scale_h,eng,norm as Single
 		  DIm newc as Color
-		  Dim tmpsurf as RGBSurface
 		  Dim pp as Picture
 		  Dim nn as Boolean
 		  Dim field(-1),temp as String
@@ -1780,7 +1779,6 @@ End
 		  
 		  Map_Grad.Graphics.ForeColor=rgb(255,255,255)
 		  Map_Grad.Graphics.FillRect(0,0,Map_Grad.Width,Map_Grad.Height)
-		  tmpsurf=Map_Grad.rgBSurface
 		  total_Grad_W=0
 		  total_MU_Grad=0
 		  for i=0 to Listbox_PBSum.ListCount-1
@@ -1808,7 +1806,7 @@ End
 		  next
 		  
 		  // For Map
-		  Draw_Map(1,index,tmpsurf,scale_w,scale_h,total_Grad_W,total_MU_Grad)
+		  Draw_Map(1,index,Map_Grad.rgBSurface,scale_w,scale_h,total_Grad_W,total_MU_Grad)
 		  
 		  
 		  min=255
@@ -1816,7 +1814,7 @@ End
 		  for k=4 to Map_Grad.Width-4
 		    for v=4 to Map_Grad.Height-4
 		      //if tmpsurf_grad.Pixel(k,v).Red
-		      newcc=tmpsurf.Pixel(k,v).Red
+		      newcc=Map_Grad.rgBSurface.Pixel(k,v).Red
 		      if newcc<min Then
 		        min=newcc
 		      end
@@ -1827,7 +1825,7 @@ End
 		  min=255-min
 		  norm=255/min
 		  // For Map
-		  Draw_Map(norm,index,tmpsurf,scale_w,scale_h,total_Grad_W,total_MU_Grad)
+		  Draw_Map(norm,index,Map_Grad.rgBSurface,scale_w,scale_h,total_Grad_W,total_MU_Grad)
 		  
 		  Canvas_Map.Refresh
 		End Sub

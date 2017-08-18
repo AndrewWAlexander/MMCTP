@@ -9,7 +9,6 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		  Dim i,k,j,order,RTOG_Contour_Index,z_index,p,px,py as Integer
 		  Dim file as RTOG_Structure_One_Structure
 		  Dim z,x,y as Single
-		  Dim ss as RGBSurface
 		  Dim poly as class_Polygon
 		  
 		  //------------------------------------------------

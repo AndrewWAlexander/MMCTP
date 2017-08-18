@@ -228,7 +228,6 @@ Inherits Thread
 		  dose_error(-1),dose_values(-1),std,xp, yp,polysx, polysy as double
 		  Dim avg_d,percent_dose as Double
 		  Dim tmpimage as picture
-		  Dim tmpsurf as RGBSurface
 		  DIm DVH as Class_DVH_One
 		  Dim out,ttemp as String
 		  Dim found as Boolean

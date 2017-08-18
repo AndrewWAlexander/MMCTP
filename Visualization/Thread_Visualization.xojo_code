@@ -11,7 +11,6 @@ Inherits Thread
 		  // Update if condition on voxel number
 		  //------------------------------
 		  dim j, cvalue,i,k  as integer
-		  dim tmpsurf as rgBSurface
 		  dim p as Picture
 		  Dim a,tran,pixx,pixy,d1,d2 as integer
 		  Dim file as RTOG_Structure_One_Structure
@@ -29,21 +28,20 @@ Inherits Thread
 		      p=gvis.Scans(k)
 		      scansok(k)=False
 		      if  p<>Nil Then
-		        tmpsurf=p.rgBSurface
 		        for j=0 to gvis.ny-1
 		          for i=0 to gvis.nx-1
 		            if (i+j*gvis.nx)<=UBound(grtOG.Scan(k).voxel) and (i+j*gvis.nx)>-1 Then
 		              cvalue=grtOG.Scan(k).voxel(i+j*gvis.nx)
 		              if ( (cvalue>=min_pic) and (cvalue<=max_pic) ) then
 		                cvalue= Round((cvalue-min_pic)*m)
-		                tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		                p.RGBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		              else
 		                if cvalue<min_pic then
 		                  cvalue=0
-		                  tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		                  p.RGBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		                elseif cvalue>max_pic then
 		                  cvalue=255
-		                  tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		                  p.RGBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		                end if
 		              end
 		            end
@@ -284,72 +282,71 @@ Inherits Thread
 		  PW_Title="Loading McGill RT Images"
 		  PW_Progress_Max=UBound(gRTOG.Scan)+1
 		  
-		  
-		  Contours = new Thread_Contours
-		  
-		  if UBound(gRTOG.Scan)<=-1 Then
-		    Return
-		  end
-		  
-		  nx=grtOG.Scan(0).size_of_dimension1// num of columns
-		  ny=grtOG.Scan(0).size_of_dimension2//num of rows
-		  nz=UBound(gRTOG.Scan)+1
-		  scale_width=grtOG.Scan(0).grid_Units_Width
-		  scale_height=grtOG.Scan(0).grid_Units_Height
-		  scale_thickness=gRTOG.Scan(0).Slice_Thickness
-		  xoff_set=grtOG.Scan(0).X_offset
-		  yoff_set=grtOG.Scan(0).y_offset
-		  zoff_set=gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value
-		  Lowest_Z=gRTOG.Scan(0).Z_Value
-		  Structure_colour
-		  
-		  pixel_resolution=scale_width
-		  if pixel_resolution>scale_height Then
-		    pixel_resolution=scale_height
-		  end
-		  
-		  redim scansok(ubound(gRTOG.Scan))
-		  redim scans(ubound(gRTOG.Scan))
-		  redim contours.Axial_Pic(ubound(gRTOG.Scan))
-		  
-		  WL=gRTOG.Scan(0).WinLevel
-		  WW=gRTOG.Scan(0).WinWidth
-		  
-		  if nx>0 and ny>0 Then
-		    for i=0 to UBound(gRTOG.Scan)
-		      contours.Axial_Pic(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		      scans(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		      scans(i).Graphics.forecolor=rgb(0,0,0)
-		      scans(i).Graphics.FillRect 0,0,gvis.nx,gvis.ny
-		      PW_Progress=i+1
+		  try
+		    Contours = new Thread_Contours
+		    
+		    if UBound(gRTOG.Scan)<=-1 Then
+		      Return
+		    end
+		    
+		    nx=grtOG.Scan(0).size_of_dimension1// num of columns
+		    ny=grtOG.Scan(0).size_of_dimension2//num of rows
+		    nz=UBound(gRTOG.Scan)+1
+		    scale_width=grtOG.Scan(0).grid_Units_Width
+		    scale_height=grtOG.Scan(0).grid_Units_Height
+		    scale_thickness=gRTOG.Scan(0).Slice_Thickness
+		    xoff_set=grtOG.Scan(0).X_offset
+		    yoff_set=grtOG.Scan(0).y_offset
+		    zoff_set=gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value
+		    Lowest_Z=gRTOG.Scan(0).Z_Value
+		    Structure_colour
+		    
+		    pixel_resolution=scale_width
+		    if pixel_resolution>scale_height Then
+		      pixel_resolution=scale_height
+		    end
+		    
+		    redim scansok(ubound(gRTOG.Scan))
+		    redim scans(ubound(gRTOG.Scan))
+		    redim contours.Axial_Pic(ubound(gRTOG.Scan))
+		    
+		    WL=gRTOG.Scan(0).WinLevel
+		    WW=gRTOG.Scan(0).WinWidth
+		    
+		    if nx>0 and ny>0 Then
+		      for i=0 to UBound(gRTOG.Scan)
+		        contours.Axial_Pic(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		        scans(i)=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		        scans(i).Graphics.forecolor=rgb(0,0,0)
+		        scans(i).Graphics.FillRect 0,0,gvis.nx,gvis.ny
+		      next
+		    end
+		    
+		    ReDim contour_fill(UBound(gRTOG.Structures))
+		    ReDim contour_show(UBound(gRTOG.Structures))
+		    
+		    for i =0 to UBound(contour_show)
+		      contour_fill(i)=False
+		      contour_show(i)=true
 		    next
-		  end
-		  
-		  ReDim contour_fill(UBound(gRTOG.Structures))
-		  ReDim contour_show(UBound(gRTOG.Structures))
-		  
-		  for i =0 to UBound(contour_show)
-		    contour_fill(i)=False
-		    contour_show(i)=true
-		  next
-		  Read_Settings
-		  
-		  Structure_Transparency=160
-		  
-		  WL_Recalculate
-		  Contours.Recalculate_Poly
-		  Contours.Recalculate_Images
-		  Contours.Recalculate_Points
-		  
-		  gVis.Iso=new Class_Iso_Dose
-		  
-		  colour_hot
-		  colour_Jet
-		  
+		    Read_Settings
+		    
+		    Structure_Transparency=160
+		    
+		    WL_Recalculate
+		    Contours.Recalculate_Poly
+		    Contours.Recalculate_Images
+		    Contours.Recalculate_Points
+		    
+		    gVis.Iso=new Class_Iso_Dose
+		    
+		    colour_hot
+		    colour_Jet
+		    
 		  Catch err as OutOfMemoryException
 		    Errors.Append "Error within gVis.open, Insufficient memory to draw the picture!"
-		    
-		    
+		  end
+		  
 		End Sub
 	#tag EndMethod
 
@@ -600,7 +597,6 @@ Inherits Thread
 		  //
 		  //------------------------------
 		  dim j, cvalue,i  as integer
-		  dim tmpsurf as rgBSurface
 		  dim p as Picture
 		  //------------------------------
 		  
@@ -608,20 +604,19 @@ Inherits Thread
 		  gvis.scansok(num)=False
 		  p=gvis.Scans(num)
 		  if  p<>Nil Then
-		    tmpsurf=p.rgBSurface
 		    for j=0 to gvis.ny-1
 		      for i=0 to gvis.nx-1
 		        cvalue=grtOG.Scan(num).voxel(i+j*gvis.nx)
 		        if ( (cvalue>=min_pic) and (cvalue<=max_pic) ) then
 		          cvalue= (cvalue-min_pic)*m
-		          tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		          p.rgBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		        else
 		          if cvalue<min_pic then // Set to black
 		            cvalue=0
-		            tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		            p.rgBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		          elseif cvalue>max_pic then // Set to White
 		            cvalue=255
-		            tmpsurf.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
+		            p.rgBSurface.pixel(i,j)=rgb(cvalue,cvalue,cvalue)
 		          end if
 		        end
 		      next

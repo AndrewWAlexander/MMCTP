@@ -177,14 +177,13 @@ Protected Class Class_DICOM_File
 		  
 		  
 		  thismemblock.littleEndian = true // group 2 is always in little endian
-		  do until thismemblock.byte(bytePos+1)=8 or thismemblock.byte(bytePos) =8 
+		  do until thismemblock.byte(bytePos+1)>2 or thismemblock.byte(bytePos) >2
 		    Header_Read_Elements(bytePos+1)
 		    if bytePos=thismemblock.Size Then
 		      Exit
 		    end
 		  loop
 		  
-		  Header_Read_Element_Find_0008
 		  
 		  
 		  if Header_Determine_TransferSYNTAX Then
@@ -264,6 +263,7 @@ Protected Class Class_DICOM_File
 		  //==============================
 		  Dim i, j as integer
 		  Dim ss,len_sa,len_sb as Int16
+		  Dim tt as Boolean
 		  //===============================
 		  
 		  
@@ -317,7 +317,12 @@ Protected Class Class_DICOM_File
 		    
 		    
 		    Header_Read_Element_Tag
-		    Header_Read_Element_VR
+		    tt=Header_Read_Element_VR
+		    if tt=False Then
+		      Header_Read_Element_Find_0008
+		      Exit
+		    end
+		    
 		    Header_Read_Element_Value
 		    One_Element.Element_Length=One_Element.Element_Length+One_Element.Value_Length+One_Element.Header_Length
 		    
@@ -585,7 +590,7 @@ Protected Class Class_DICOM_File
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Header_Read_Element_VR()
+		Function Header_Read_Element_VR() As Boolean
 		  //==============================
 		  // Populate Elements VR data and element value length
 		  //
@@ -654,15 +659,12 @@ Protected Class Class_DICOM_File
 		        One_Element.Element_Length=One_Element.Element_Length+2
 		      else
 		        // There is an issue with this DICOM file....
-		        
-		        Break
+		        Return False
 		      end 
 		      
 		      
 		    elseif TS_Implicit Then  //
-		      
 		      gENotFound=One_Element.Header_PickVRAndinfo
-		      
 		      if bytePos<=(thismemblock.Size-4) Then
 		        One_Element.Value_length=thismemblock.long(bytePos)
 		        bytePos = bytePos + 4
@@ -670,7 +672,8 @@ Protected Class Class_DICOM_File
 		      end if
 		    end if
 		  end
-		End Sub
+		  Return True
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

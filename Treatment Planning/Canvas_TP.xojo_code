@@ -1005,7 +1005,6 @@ Inherits Canvas
 		  Dim dose_data_index,x1,x2,y1,y2,i, j,texth,isospace,isoone As Integer
 		  Dim hot_p,cold_p As Single
 		  Dim data as RTOG_Dose_Plane
-		  Dim tmpsurf as RGBSurface
 		  dim tmpint,startx,starty,real_sizex,real_sizey,tran as integer
 		  Dim gg as Graphics
 		  //==========================
@@ -1700,7 +1699,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim a as integer
 		  //-------------------------------------------
 		  
@@ -1719,7 +1717,7 @@ Inherits Canvas
 		      pstrip.Graphics.DrawPicture gvis.scans(a),0,-canvas_cor
 		    end
 		    '//add drawing organ transparrently draw it with the shift....
-		    pstriprgb=pstrip.RGBSurface
+		    //pstriprgb=pstrip.RGBSurface
 		    Pic_Image.Graphics.DrawPicture pstrip,0,UBound(gvis.scans)-a
 		  next
 		End Sub
@@ -1733,7 +1731,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------//
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim gg as Graphics
 		  dim b,a as Integer
 		  '======================================
@@ -1753,9 +1750,9 @@ Inherits Canvas
 		    if gVis.scansok(a) Then
 		      pstrip.Graphics.DrawPicture gvis.scans(a),-canvas_sag,0
 		    end
-		    pstriprgb=pstrip.RGBSurface
+		    //pstriprgb=pstrip.RGBSurface
 		    for b=0 to gvis.ny-1
-		      Pic_Image.RGBSurface.Pixel(b,UBound(gvis.scans)-a)=pstriprgb.Pixel(0,b)
+		      Pic_Image.RGBSurface.Pixel(b,UBound(gvis.scans)-a)=pstrip.RGBSurface.Pixel(0,b)
 		    next
 		  next
 		End Sub
@@ -1869,7 +1866,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim a as integer
 		  //-------------------------------------------
 		  
@@ -2003,12 +1999,12 @@ Inherits Canvas
 
 	#tag Method, Flags = &h0
 		Sub ReMake()
-		  if me.Width>0 and me.Height>0 then
-		    ReMake_Image
-		    ReMake_Structure
-		    ReMake_Dose
-		  end if
-		  RePaint
+		  'if me.Width>0 and me.Height>0 then
+		  'ReMake_Image
+		  'ReMake_Structure
+		  'ReMake_Dose
+		  'end if
+		  'RePaint
 		  
 		End Sub
 	#tag EndMethod
