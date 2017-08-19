@@ -133,6 +133,18 @@ Inherits Application
 		End Sub
 	#tag EndEvent
 
+	#tag Event
+		Function UnhandledException(error As RuntimeException) As Boolean
+		  If error isa OutOfBoundsException Then
+		    MsgBox("An OutOfBounds Exception has occurred")
+		  elseif error isa OutOfMemoryException Then
+		    MsgBox("An OutOf Memory Exception has occurred")
+		  else
+		    MsgBox("An error has occured : "+error.Reason)
+		  end
+		End Function
+	#tag EndEvent
+
 
 	#tag MenuHandler
 		Function FileConfigurationsAdminsettings() As Boolean Handles FileConfigurationsAdminsettings.Action

@@ -1946,8 +1946,12 @@ Inherits Canvas
 		    py.rotation =-90/57.2958 //45 Degrees in radians
 		    py.x=gvis.ny/2
 		    py.y=(sagbuffer.Width)/2
+		    Try
+		      Pic_Structure=New Picture(gvis.ny,gvis.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		    Catch e as IOException
+		      Errors.Append "Error within Make Strucutre Sagittal : "+e.Reason
+		    end
 		    
-		    Pic_Structure=New Picture(gvis.ny,gvis.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		    Pic_Structure.Graphics.UseOldRenderer=True
 		    Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		    if gvis.nz Mod 2=0 then
@@ -2082,7 +2086,11 @@ Inherits Canvas
 		  
 		  
 		  if me.Width>0 and me.Height>0 then
-		    Display=new Picture(me.Width,me.Height,32)
+		    Try
+		      Display=new Picture(me.Width,me.Height,32)
+		    Catch e as IOException
+		      Errors.Append "Error within RePaint : "+e.Reason
+		    end
 		    gg=Display.Graphics
 		    Display.Graphics.ForeColor=bg
 		    Display.Graphics.FillRect 0,0,me.Width,me.Height
@@ -2208,6 +2216,10 @@ Inherits Canvas
 		    Display.Graphics.FillOval mouse_xpixel,mouse_ypixel,1,1
 		    me.Refresh(False)
 		  end
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 

@@ -224,6 +224,10 @@ Protected Class Class_Profiles_All
 		    Return
 		  end
 		  
+		  if g.Exists = False Then
+		    Return
+		  end
+		  
 		  
 		  struct_count=0
 		  for i =1 to g.Count
