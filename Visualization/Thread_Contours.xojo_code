@@ -117,6 +117,8 @@ Inherits Thread
 		      end
 		    end
 		  next
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -169,7 +171,6 @@ Inherits Thread
 		  // called when the gvis is opened
 		  //--------------------------------------
 		  dim j, cvalue,i,k  as integer
-		  dim tmpsurf as rgBSurface
 		  Dim a,tran,pixx,pixy,d1,d2 as integer
 		  Dim file as RTOG_Structure_One_Structure
 		  Dim poly as class_polygon
@@ -217,7 +218,7 @@ Inherits Thread
 		            pic_mask_g.ClearRect 0,0,gvis.nx,gvis.ny
 		          end
 		          
-		          if UBound(file.Segments(j).Points)>=0 then
+		          if UBound(file.Segments(j).Points)>=0 and UBound(file.Structure_Poly)>=j then
 		            poly=file.Structure_Poly(j)
 		            paint_b=True
 		            if poly.PointWithin_OtherPoly Then
@@ -259,6 +260,13 @@ Inherits Thread
 		  if app.which_window_TreatmentPlanning then
 		    Window_Treatment.Canvas_refresh_Image_Contours=True
 		  end
+		  
+		  
+		  Exception e As TypeMismatchException
+		    MsgBox("Tried to retype an object!")
+		  Exception e As NilObjectException
+		    MsgBox("Tried to access a Nil object!")
+		    
 		End Sub
 	#tag EndMethod
 

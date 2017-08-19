@@ -305,7 +305,7 @@ End
 		      for j=0 to me.Height-1
 		        
 		        
-		        WindowGamma.pic_legend.Graphics.Pixel(i,j) =HSV((j/me.Height)*0.666,1,1)
+		        WindowGamma.pic_legend.RGBSurface.Pixel(i,j) =HSV((j/me.Height)*0.666,1,1)
 		        
 		        
 		      next

@@ -460,11 +460,14 @@ Inherits Thread
 		  // Algorithm to interpolate CT number to density
 		  // Uses the CT Calibration file
 		  //
+		  // Updated March 2017 by AA
+		  // Michael Martyn reported bug issue on
+		  // CT values not being assigned properly 
 		  //---------------------------------------------
 		  Dim  h,h_prime,slope,b,y as double
 		  Dim i,m_index,k as Integer
 		  Dim rsting as String
-		  
+		  //---------------------------------------------
 		  
 		  h=ctnum
 		  k=UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
@@ -473,41 +476,42 @@ Inherits Thread
 		    h=-1000
 		  end
 		  
-		  // CT model has not been defined
-		  if k<=-1 Then
-		    
-		    Return rsting+Format(y,"-#.###")
-		  end
-		  
-		  if h<=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l then
-		    m_index=0
-		    h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l
-		    
-		  ElseIf h >= gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h Then
-		    m_index=k
-		    h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_h
-		    
-		  Else
-		    m_index=-1
-		    for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
-		      if h< gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
-		        m_index=i
+		  if k<=-1 Then // CT model has not been defined
+		    rsting="CT-Model-Not-Found_"
+		    y=-1000000
+		  else
+		    // CT model found!
+		    if h<=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l then
+		      m_index=0
+		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(0).hu_l
+		    ElseIf h >= gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h Then
+		      m_index=k
+		      h=gCT.All_CT(dosxyz_ct_model).CalibrationM(k).hu_h
+		    Else
+		      m_index=-1
+		      for i =0 to UBound(gCT.All_CT(dosxyz_ct_model).CalibrationM)
+		        if h<= gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_h and h>=gCT.All_CT(dosxyz_ct_model).CalibrationM(i).hu_l then
+		          m_index=i
+		        end
+		      next
+		    end
+		    if m_index=-1 Then
+		      rsting="CT-HU-Value-Not-Found-In-Range_"
+		      y=-1000000
+		    else
+		      rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
+		      
+		      if gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l Then
+		        slope=0
+		      else
+		        slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
+		        /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
 		      end
-		    next
+		      b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
+		      y=slope*h+b
+		    end
+		    
 		  end
-		  
-		  
-		  rsting=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).M_name+"_"
-		  slope=(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_l)_
-		  /(gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h-gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_l)
-		  
-		  b=gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).p_h-slope*gCT.All_CT(dosxyz_ct_model).CalibrationM(m_index).hu_h
-		  y=slope*h+b
-		  
-		  if InStr(rsting,"LUNG")>0 Then
-		    rsting=rsting
-		  end
-		  
 		  Return rsting+Format(y,"-#.###")
 		End Function
 	#tag EndMethod
@@ -1060,11 +1064,10 @@ Inherits Thread
 		Sub dosxyz_EGSPhant_Make_CT(index as Integer)
 		  //---------------------------------------------------
 		  // 2nd level method
-		  // Method to generate egsphant file based on user input
+		  // Method to generate egsphant file based on 
+		  // user input and a CT to density curve
 		  //
 		  // 
-		  //
-		  //
 		  //---------------------------------------------------
 		  Dim i, j, k, p, maskval ,cvalue,order,material_value as integer
 		  Dim x,y,z,density_value as Single
@@ -1109,7 +1112,6 @@ Inherits Thread
 		    
 		    if ee.nx<=0 or ee.ny<=0 or ee.nz<=0 Then
 		      Errors.append "Error Making EGSPhant file" //Changed to Errors.append by William Davis to avoid crash due to exception
-		      
 		      Return
 		    end
 		    
@@ -2186,7 +2188,7 @@ Inherits Thread
 		    
 		    
 		    
-		    // ===Isocenter DOSxyz=========
+		    // ===Isocenter DOSXYZnrc=========
 		    // Find new iso and angle values
 		    // If auto MMCTP is on, otherwise, use user values
 		    ReDim egsinp.theta(0)
@@ -2197,20 +2199,44 @@ Inherits Thread
 		    ReDim egsinp.phicol(0)
 		    
 		    if egsinp.dos_Non_CT Then
-		      egsinp.isox(0)=0
-		      egsinp.isoy(0)=0
-		      egsinp.isoz(0)=0
-		      
 		      egsinp.xiso=0
 		      egsinp.yiso=0
 		      egsinp.ziso=0
-		      //======Theta, Phi, Phicol==============
-		      egsinp.theta(0)=180
-		      egsinp.phi(0)=0
-		      egsinp.phicol(0)=0
+		      egsinp.nset=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)+1 // Number of control points
+		      if egsinp.isource=20 or egsinp.isource=21 then // These sources need at least 2 control points
+		        if egsinp.nset<=1 Then
+		          egsinp.nset=2
+		        end
+		      end
+		      ReDim egsinp.DYNARC(egsinp.nset-1)
+		      ReDim egsinp.muIndex(egsinp.nset-1)
+		      ReDim egsinp.theta(egsinp.nset-1)
+		      ReDim egsinp.isox(egsinp.nset-1)
+		      ReDim egsinp.isoy(egsinp.nset-1)
+		      ReDim egsinp.isoz(egsinp.nset-1)
+		      ReDim egsinp.phi(egsinp.nset-1)
+		      ReDim egsinp.phicol(egsinp.nset-1)
+		      ReDim egsinp.dsources(egsinp.nset-1)
+		      
+		      for i=0 to UBound(egsinp.DYNARC)
+		        egsinp.isox(i)=0
+		        egsinp.isoy(i)=0
+		        egsinp.isoz(i)=0
+		        //======Theta, Phi, Phicol==============
+		        egsinp.theta(i)=180
+		        egsinp.phi(i)=0
+		        egsinp.phicol(i)=0
+		        egsinp.dsources(i)=egsinp.dsource
+		        if i>UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields) Then
+		          k=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)
+		        else
+		          k=i
+		        end
+		        egsinp.muIndex(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).index
+		        egsinp.DYNARC(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).index
+		      Next
 		      
 		    else // For CT based phantom simulation
-		      
 		      //======Theta, Phi, Phicol==============
 		      egsinp.phi(0)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).couch_Angle
 		      egsinp.theta(0)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).Gantry_Angle
@@ -2220,27 +2246,37 @@ Inherits Thread
 		      egsinp.ziso=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(0).isocenter.y
 		      
 		      egsinp.nset=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)+1 // Number of control points
-		      ReDim egsinp.DYNARC(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.muIndex(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.theta(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isox(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isoy(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.isoz(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.phi(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.phicol(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
-		      ReDim egsinp.dsources(UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields))
+		      if egsinp.isource=20 or egsinp.isource=21 then // These sources need at least 2 control points
+		        if egsinp.nset<=1 Then
+		          egsinp.nset=2
+		        end
+		      end
 		      
+		      ReDim egsinp.DYNARC(egsinp.nset-1)
+		      ReDim egsinp.muIndex(egsinp.nset-1)
+		      ReDim egsinp.theta(egsinp.nset-1)
+		      ReDim egsinp.isox(egsinp.nset-1)
+		      ReDim egsinp.isoy(egsinp.nset-1)
+		      ReDim egsinp.isoz(egsinp.nset-1)
+		      ReDim egsinp.phi(egsinp.nset-1)
+		      ReDim egsinp.phicol(egsinp.nset-1)
+		      ReDim egsinp.dsources(egsinp.nset-1)
 		      
 		      // Populate arrays
 		      for i=0 to UBound(egsinp.DYNARC)
-		        egsinp.DYNARC(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
-		        egsinp.muIndex(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).index
-		        egsinp.phi(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).couch_angle
-		        egsinp.phicol(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).Collimator_Angle
-		        egsinp.theta(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).gantry_angle
-		        egsinp.isox(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.x
-		        egsinp.isoy(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.z
-		        egsinp.isoz(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(i).isocenter.y
+		        if i>UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields) Then
+		          k=UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)
+		        else
+		          k=i
+		        end
+		        egsinp.DYNARC(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).index
+		        egsinp.muIndex(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).index
+		        egsinp.phi(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).couch_angle
+		        egsinp.phicol(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Collimator_Angle
+		        egsinp.theta(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).gantry_angle
+		        egsinp.isox(i)=gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).isocenter.x
+		        egsinp.isoy(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).isocenter.z
+		        egsinp.isoz(i)=-gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).isocenter.y
 		        egsinp.dsources(i)=egsinp.dsource
 		      Next
 		      
@@ -2403,12 +2439,6 @@ Inherits Thread
 		    
 		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=11 Then // Only for Tomo Source
 		      DOSXYZ(egsphant_index).Write_DOSXYZ_Input_Arc(beam)
-		    end
-		    
-		    
-		    if gDOSXYZ.DOSXYZ(egsphant_index).DOSXYZ_Input(beam).isource=20 Then
-		      
-		      
 		    end
 		    
 		    

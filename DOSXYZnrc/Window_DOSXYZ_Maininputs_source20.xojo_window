@@ -9,7 +9,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   483
+   Height          =   621
    ImplicitInstance=   True
    LiveResize      =   False
    MacProcID       =   0
@@ -52,7 +52,7 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   443
+      Top             =   581
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -871,6 +871,64 @@ Begin Window Window_DOSXYZ_Maininputs_source20
       Visible         =   True
       Width           =   253
    End
+   Begin RadioButton RadioButton_Skip
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Value = 1,  Skip the calibration run through a BEAM shared library geometry\r\nbetween the source plane and the phantom."
+      Enabled         =   True
+      Height          =   62
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   49
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   439
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   539
+   End
+   Begin RadioButton RadioButton_CalRun
+      AutoDeactivate  =   True
+      Bold            =   False
+      Caption         =   "Value = 0, Run calibration"
+      Enabled         =   True
+      Height          =   31
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   46
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   50
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   524
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   539
+   End
 End
 #tag EndWindow
 
@@ -902,7 +960,11 @@ End
 		  
 		  
 		  EditField_num_control.Text=Format(dosxyz_input.nset,"#")
-		  
+		  if dosxyz_input.calflag=0 Then
+		    RadioButton_CalRun.Value=True
+		  elseif dosxyz_input.calflag=1 Then
+		    RadioButton_Skip.Value=True
+		  end
 		End Sub
 	#tag EndEvent
 
@@ -1072,6 +1134,24 @@ End
 		Sub TextChange()
 		  dosxyz_input.i_muidx_out=val(me.Text)
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_Skip
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    dosxyz_input.calflag=1
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_CalRun
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    dosxyz_input.calflag=0
+		  end
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -47,7 +47,7 @@ Protected Class Class_DICOM_Element
 		      VR  ="UI"  or _ 
 		      Info="Proprietary Tag"  then
 		      
-		      tt=LenB( Value)
+		      tt=LenB(Value)
 		      if tt mod 2 >0 Then
 		        tt=tt+1
 		        Value=Value+" "
@@ -62,10 +62,10 @@ Protected Class Class_DICOM_Element
 		    else // if numeric data
 		      Value_Length=4
 		    end
-		    Element_Length=Header_Length+Value_Length+4
 		  end
 		  
 		  
+		  Element_Length=Header_Length+Value_Length+4
 		  
 		End Sub
 	#tag EndMethod

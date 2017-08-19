@@ -283,9 +283,12 @@ End
 #tag Events PushButton_Ok
 	#tag Event
 		Sub Action()
+		  //-----------------------------------
+		  // Rename Plan or Dose files
+		  //-----------------------------------
 		  DIm f as FolderItem
 		  Dim newname,oldname as String
-		  
+		  //-----------------------------------
 		  
 		  NewName=EditField_new.Text
 		  
@@ -297,14 +300,16 @@ End
 		  
 		  
 		  if Dose Then
+		    PW_Show=true
 		    oldname=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name+".Dose"
 		    f=gRTOG.Plan(plan_index).Path
 		    f=f.Child(oldname)
 		    f.Name = NewName+".Dose"
 		    gRTOG.Plan(plan_index).Dose(Window_Treatment.dose_index).dose_name = NewName
+		    PW_Show=False
 		  else 
 		    gRTOG.Plan(Plan_Index).Plan_Name=newname
-		    gRTOG.Plan(Plan_Index).Write_McGill_Plan(gRTOG.path)
+		    gRTOG.Plan(Plan_Index).Write_McGill_Plan_RP
 		  end
 		  
 		  Window_Rename.Close

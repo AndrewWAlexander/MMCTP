@@ -131,7 +131,7 @@ Protected Class RTOG_Dose_Distribution
 		        d_index=(ix-1)+(iy-1)*Size_of_Dimension1
 		        
 		        if haspoints Then
-		          if Pic_Structure.Graphics.Pixel(ix-1,iy-1).Red=255 Then
+		          if Pic_Structure.RGBSurface.Pixel(ix-1,iy-1).Red=255 Then
 		            Dose_Distribution(i).Points(d_index)=0
 		          end
 		        else

@@ -3,12 +3,100 @@ Protected Class Thread_DICOM_Object
 Inherits Thread
 	#tag Event
 		Sub Run()
+		  Dim f,g as FolderItem
+		  Dim i ,k as Integer
+		  Dim s,temp,ID as string
+		  Dim found,mm as Boolean
+		  //----------------------------------------------------
+		  
 		  if TaskNum=1 Then
 		    DICOM_Import
 		  elseif TaskNum=0 Then
 		    DICOM_Transfer
 		  elseif TaskNum=3 Then
+		    
+		    
+		    if Export_Images Then
+		      gRTOG.Convert_McGillRT2DICOM_RTImage
+		    end
+		    
+		    if Export_Plan Then
+		      if Plan_Index>=0 Then
+		        if UBound(gRTOG.Plan)>=Plan_Index Then
+		          if gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID="" Then
+		            gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=gDICOM.UID_Make
+		          end
+		          gRTOG.Convert_McGillRT2DICOM_RTPlan(Plan_Index)
+		        end
+		      end
+		    end
+		    
+		    if Export_Dose Then
+		      if Window_Treatment.dose_index>=0 and Plan_Index>=0 Then
+		        if UBound(gRTOG.Plan)>=Plan_Index Then
+		          if UBound(gRTOG.Plan(Plan_Index).Dose)>=Window_Treatment.dose_index Then
+		            gRTOG.Convert_McGillRT2DICOM_RTDose(Plan_Index,gRTOG.plan(plan_index).dose(Window_Treatment.dose_index))
+		          end
+		        end
+		      end
+		      
+		    end
+		    
+		    if Export_Structures Then
+		      if UBound(gRTOG.Structures)>=0 Then
+		        gRTOG.Convert_McGillRT2DICOM_RTStructures
+		      end
+		    end
+		    
 		    Write
+		    
+		    ReDim RT_Doses(-1)
+		    ReDim RT_Images(-1)
+		    ReDim RT_Plan(-1)
+		    ReDim RT_Structures(-1)
+		    
+		  elseif TaskNum=2 Then
+		    ReDim Window_Transfer.DICOM_P(-1)
+		    //import dicom
+		    f=gPref.DICOMfi
+		    PW_Title="Reading "+str( f.count)+" DICOM files within folder"
+		    PW_Progress_Max= f.count
+		    PW_Show=true
+		    if f.Exists Then
+		      for i=1 to f.count
+		        PW_Progress = i+1
+		        g=f.Item(i)
+		        if g<> nil Then
+		          if g.Exists Then
+		            PW_StaticText="Reading file : "+g.Name
+		            if not g.Directory and g.Visible then
+		              //and InStr(g.Name,".dcm")>0 
+		              File = new Class_DICOM_file
+		              mm=File.Load_One_DICOM_file(g)
+		              File.Read_Names // populate di.Pname & di.p_id & di.study_date
+		              
+		              //(DICOM.File.p_id)>0 then
+		              s =File.p_id // Patient whole name & ID
+		              found=False
+		              for k=0 to (UBound(Window_Transfer.DICOM_P))
+		                temp =NthField(Window_Transfer.DICOM_P(k),"%%",2)
+		                if s=temp then
+		                  found=True
+		                  exit
+		                end
+		              next
+		              if not found then
+		                Window_Transfer.DICOM_P.Append File.Pname +"%%"+File.p_id
+		              end
+		              //end if
+		              
+		            end
+		          end
+		        end
+		      next
+		    end
+		    PW_Show=false
+		    Window_Transfer.UpdateDICOM=True
 		  end
 		End Sub
 	#tag EndEvent
@@ -203,6 +291,24 @@ Inherits Thread
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Export()
+		  Get_Dir
+		  if MainFolder=nil Then
+		    Return
+		  end
+		  
+		  TaskNum=3
+		  Run
+		  
+		  
+		  
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Get_Dir()
 		  dim dlg as new SelectFolderDialog
 		  
@@ -268,7 +374,7 @@ Inherits Thread
 		  Dim f as FolderItem
 		  Dim inp as TextInputStream
 		  Dim line, wholefile as String
-		  Dim i as Integer
+		  Dim i,ll as Integer
 		  
 		  
 		  
@@ -1479,6 +1585,8 @@ Inherits Thread
 		  "30020029,3RT,IS,1,FractionNumber,"+ EndOfLine + _
 		  "30020030,3RT,SQ,1,ExposureSequence,"+ EndOfLine + _
 		  "30020032,3RT,DS,1,MetersetExposure,"+ EndOfLine + _
+		  "30020050,3RT,SQ,1,PrimaryFluence Mode Sequence,"+ EndOfLine + _
+		  "30020051,3RT,CS,1,Fluence Mode,"+ EndOfLine + _
 		  "30040001,3RT,CS,1,DVHType,"+ EndOfLine + _
 		  "30040002,3RT,CS,1,DoseUnits,"+ EndOfLine + _
 		  "30040004,3RT,CS,1,DoseType,"+ EndOfLine + _
@@ -1997,11 +2105,22 @@ Inherits Thread
 		  
 		  
 		  
-		  for i = 0 to 1719
+		  
+		  
+		  ll=CountFieldsB(wholefile,EndOfLine)-1
+		  
+		  
+		  ReDim dictionary(ll, 0)
+		  ReDim dictionary(ll, 1)
+		  ReDim dictionary(ll, 2)
+		  ReDim dictionary(ll, 3)
+		  
+		  
+		  for i = 0 to ll
 		    line = NthField(wholefile,EndOfLine,i+1)
 		    dictionary(i, 0) = NthField(line, ",", 1)    // group and element
-		    dictionary(i, 1) = NthField(line,",", 3)    // VR
-		    dictionary(i, 2) = NthField(line, ",", 5)  // Info
+		    dictionary(i, 1) = NthField(line,",", 3)     // VR
+		    dictionary(i, 2) = NthField(line, ",", 5)    // Info
 		    dictionary(i, 3) = NthField(line, ",", 2)    // Supplement
 		  next
 		  
@@ -3871,10 +3990,12 @@ Inherits Thread
 	#tag Method, Flags = &h0
 		Sub Write()
 		  // Write the DICOM format into data elements
+		  PW_Show=true
 		  Write_DICOM_Elements_Image
 		  Write_DICOM_Elements_Structure
 		  Write_DICOM_Elements_Plan
 		  Write_DICOM_Elements_Dose
+		  PW_Show=false
 		End Sub
 	#tag EndMethod
 
@@ -4531,9 +4652,7 @@ Inherits Thread
 		  Dim ee as Class_DICOM_Element
 		  //================================================
 		  
-		  if MainFolder=Nil Then
-		    Return
-		  end
+		  
 		  
 		  for i=0 to UBound(RT_Images) // look for Image .dcm files
 		    File=new Class_DICOM_File
@@ -4978,8 +5097,7 @@ Inherits Thread
 		  //
 		  // Created Feb 2013 by A Alexander
 		  //-------------------------------------
-		  Dim k,j,i,c,templength ,tt,level1_index, level2_index,level3_index,item_level1_index,item_level2_index as Integer
-		  Dim level1_length,level2_length,level3_length,item_level1_length,item_level2_length,item_level3_length,item_level3_index as Integer
+		  Dim k,j,i,c,tt,level1_index, level2_index,level3_index,item_level1_index,item_level2_index,item_level3_index,g as Integer
 		  Dim ee as Class_DICOM_Element
 		  Dim planclass as Class_DICOM_Plan
 		  Dim cps as Class_DICOM_Plan_ControlPointSequence
@@ -4990,6 +5108,55 @@ Inherits Thread
 		  for i=0 to UBound(RT_Plan)
 		    file=new Class_DICOM_File
 		    planclass=RT_Plan(i)
+		    
+		    
+		    // FileMetaInfoGroupLength
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0000"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // FileMetaInfoVersion
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0001"
+		    ee.Value="256"
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0002"
+		    ee.Value=planclass.MediaStorageSOPClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // MediaStorageSOPInstanceUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0003"
+		    ee.Value=planclass.MediaStorageSOPInstanceUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // TransferSyntax
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0010"
+		    ee.Value=planclass.TransferSyntaxUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
+		    // ImplementationClassUID
+		    ee= new Class_DICOM_Element
+		    ee.Tag_a="0002"
+		    ee.Tag_b="0012"
+		    ee.Value=planclass.ImplementationClassUID
+		    cc=ee.Update
+		    File.Elements.Append ee
+		    
 		    
 		    // Identifying group length
 		    ee= new Class_DICOM_Element
@@ -5141,6 +5308,7 @@ Inherits Thread
 		    ee.Value=planclass.Manufacturer_Model_Name
 		    File.Elements.Append ee
 		    cc=ee.Update
+		    
 		    //----------------------------------------------------
 		    
 		    // Patient Group Length
@@ -5291,13 +5459,14 @@ Inherits Thread
 		    
 		    //-----------------------------------------------
 		    // Length Tomo Proprietary
-		    ee= new Class_DICOM_Element
-		    ee.Tag_a="300A"
-		    ee.Tag_b="0000"
-		    ee.Value="8   "
-		    ee.Value_length=LenB(ee.Value)
-		    File.Elements.Append ee
-		    cc=ee.Update
+		    if gPref.DICOM_FileStructure=1 Then
+		      ee= new Class_DICOM_Element
+		      ee.Tag_a="300A"
+		      ee.Tag_b="0000"
+		      ee.Value="8   "
+		      File.Elements.Append ee
+		      cc=ee.Update
+		    end
 		    
 		    // Plan Label
 		    ee= new Class_DICOM_Element
@@ -5365,7 +5534,6 @@ Inherits Thread
 		      File.Elements.Append ee
 		      cc=ee.Update
 		      level1_index=UBound(File.Elements)
-		      level1_length=0
 		      
 		      
 		      for k=0 to UBound(planclass.DoseReferenceSequence)
@@ -5375,7 +5543,6 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        File.Elements.Append ee
 		        cc=ee.Update
-		        item_level1_length=0
 		        item_level1_index=UBound(File.Elements)
 		        
 		        // Referenced ROI number
@@ -5386,7 +5553,6 @@ Inherits Thread
 		        cc=ee.Update
 		        ee.Value=Str(planclass.DoseReferenceSequence(k).ReferencedROINumb)
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // Dose Referenced number
 		        ee= new Class_DICOM_Element
@@ -5396,7 +5562,6 @@ Inherits Thread
 		        File.Elements.Append ee
 		        ee.Value=Str(planclass.DoseReferenceSequence(k).DoseReferenceNumber)
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // Dose Referenced Stru Type
 		        ee= new Class_DICOM_Element
@@ -5405,7 +5570,6 @@ Inherits Thread
 		        File.Elements.Append ee
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceStructureType)
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // Dose Referenced Description
 		        ee= new Class_DICOM_Element
@@ -5414,7 +5578,6 @@ Inherits Thread
 		        File.Elements.Append ee
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceDescription)
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        
 		        // Dose Referenced Type
@@ -5424,7 +5587,7 @@ Inherits Thread
 		        File.Elements.Append ee
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceType)
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Constraint Weight 
 		        ee= new Class_DICOM_Element
@@ -5433,7 +5596,7 @@ Inherits Thread
 		        File.Elements.Append ee
 		        ee.Value=Format(planclass.DoseReferenceSequence(k).ConstraintWeight,"0.0")
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        
 		        if planclass.DoseReferenceSequence(k).DoseReferenceType="ORGAN_AT_RISK" Then
@@ -5444,7 +5607,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskFullVolumeDose,"0.0")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          // Constraint OrganatRisk maximum dose
 		          ee= new Class_DICOM_Element
@@ -5453,7 +5616,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskMaximumDose,"0.0")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          // Constraint OrganatRisk Overdose volume fraction
 		          ee= new Class_DICOM_Element
@@ -5462,7 +5625,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskOverdoseVolumeFraction,"0.00")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          
 		          if gPref.DICOM_FileStructure=1 Then
@@ -5473,7 +5636,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value="TOMO_HA_01"
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5482,7 +5645,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=(planclass.DoseReferenceSequence(k).Tomo_Blocked)
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5491,7 +5654,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_Overlap_Prio,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5500,7 +5663,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_DV_Pen,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5509,7 +5672,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MaxDose_Pen,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		          end
 		          
@@ -5522,7 +5685,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetMinDose,"0.0")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          // Target Px dose
 		          ee= new Class_DICOM_Element
@@ -5531,7 +5694,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetPxDose,"0.0")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          // Target max dose
 		          ee= new Class_DICOM_Element
@@ -5540,7 +5703,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetMaxDose,"0.0")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          // Target Undose volume limit
 		          ee= new Class_DICOM_Element
@@ -5549,7 +5712,7 @@ Inherits Thread
 		          File.Elements.Append ee
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetUnderDoseVolume,"0.000")
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          if gPref.DICOM_FileStructure=1 Then
 		            // Tomo tags
@@ -5559,7 +5722,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value="TOMO_HA_01"
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5568,7 +5731,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=(planclass.DoseReferenceSequence(k).Tomo_Blocked)
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5577,7 +5740,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_Overlap_Prio,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags min dose pen.
 		            ee= new Class_DICOM_Element
@@ -5586,7 +5749,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MinDose_Pen,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5595,7 +5758,7 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MaxDose_Pen,"0")
 		            cc=ee.Update  
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		            // Tomo tags
 		            ee= new Class_DICOM_Element
@@ -5604,25 +5767,23 @@ Inherits Thread
 		            File.Elements.Append ee
 		            ee.Value=planclass.DoseReferenceSequence(k).Tomo_101B
 		            cc=ee.Update
-		            item_level1_length=item_level1_length+ee.Element_Length
+		            
 		            
 		          end
 		        end
-		        
 		        // Attach final length to item
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
-		        cc=File.Elements(item_level1_index).Update
+		        File.Update_Item_Length(item_level1_index)
 		        
-		        level1_length=level1_length+item_level1_length+8
 		      Next
 		      // Asign level 1 length to element
-		      File.Elements(level1_index).Value_length=level1_length
+		      File.Update_Item_Length(level1_index)
 		    end
 		    
-		    //---------------------------------------------------------------------------------------------------
+		    
+		    
+		    '//---------------------------------------------------------------------------------------------------
 		    // Fraction group sequence
 		    if UBound(planclass.FractionGroupSequence)>-1 Then
-		      level1_length=0
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300A"
 		      ee.Tag_b="0070"
@@ -5637,7 +5798,6 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        cc=ee.Update
 		        File.Elements.Append ee
-		        item_level1_length=0 
 		        item_level1_index=UBound(File.Elements)
 		        
 		        // Fraction group number
@@ -5647,7 +5807,6 @@ Inherits Thread
 		        ee.Value=Str(planclass.FractionGroupSequence(k).fractiongroupnumber)
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // number of fractions planned
 		        ee= new Class_DICOM_Element
@@ -5656,7 +5815,6 @@ Inherits Thread
 		        ee.Value=Str(planclass.FractionGroupSequence(k).numberoffractionsplanned)
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // Number of beams
 		        ee= new Class_DICOM_Element
@@ -5665,7 +5823,6 @@ Inherits Thread
 		        ee.Value=Str(planclass.FractionGroupSequence(k).numberofbeams)
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        // Number of brachy application
 		        ee= new Class_DICOM_Element
@@ -5674,116 +5831,100 @@ Inherits Thread
 		        ee.Value=Str(planclass.FractionGroupSequence(k).NumberofBrachyApp)
 		        cc=ee.Update  
 		        File.Elements.Append ee
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        //Referemced beam sequence
-		        ee= new Class_DICOM_Element
-		        ee.Tag_a="300C"
-		        ee.Tag_b="0004"
-		        File.Elements.Append ee
-		        level2_index=UBound(file.Elements)
-		        level2_length=0
-		        cc=ee.Update
-		        
-		        
-		        for tt=0 to UBound(planclass.FractionGroupSequence(k).Referencedbeamsequence)
-		          //  New Item 
-		          ee= new Class_DICOM_Element
-		          ee.Tag_a="FFFE"
-		          ee.Tag_b="E000"
-		          cc=ee.Update  
-		          File.Elements.Append ee
-		          item_level2_index=UBound(File.Elements)
-		          item_level2_length=0
-		          
-		          
-		          //  beam dose weight point
-		          ee= new Class_DICOM_Element
-		          ee.Tag_a="300A"
-		          ee.Tag_b="0082"
-		          ee.Value=planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beam_Dose_Point
-		          cc=ee.Update
-		          File.Elements.Append ee
-		          item_level2_length=item_level2_length+ee.Element_Length
-		          
-		          //  beam dose
-		          ee= new Class_DICOM_Element
-		          ee.Tag_a="300A"
-		          ee.Tag_b="0084"
-		          ee.Value=Format(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beamdose,"-0.000")
-		          cc=ee.Update  
-		          File.Elements.Append ee
-		          item_level2_length=item_level2_length+ee.Element_Length
-		          
-		          //  beam meterset
-		          ee= new Class_DICOM_Element
-		          ee.Tag_a="300A"
-		          ee.Tag_b="0086"
-		          ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).BeamMeterset)
-		          cc=ee.Update  
-		          File.Elements.Append ee
-		          item_level2_length=item_level2_length+ee.Element_Length
-		          
-		          //  beam Referencedbeamnumber
+		        if UBound(planclass.FractionGroupSequence(k).Referencedbeamsequence)>-1 Then
+		          //Referemced beam sequence
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300C"
-		          ee.Tag_b="0006"
-		          ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Referencedbeamnumber)
-		          cc=ee.Update  
+		          ee.Tag_b="0004"
 		          File.Elements.Append ee
-		          item_level2_length=item_level2_length+ee.Element_Length
+		          level2_index=UBound(file.Elements)
+		          cc=ee.Update
+		          for tt=0 to UBound(planclass.FractionGroupSequence(k).Referencedbeamsequence)
+		            //  New Item 
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="FFFE"
+		            ee.Tag_b="E000"
+		            cc=ee.Update  
+		            File.Elements.Append ee
+		            item_level2_index=UBound(File.Elements)
+		            
+		            //  beam dose weight point
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300A"
+		            ee.Tag_b="0082"
+		            ee.Value=planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beam_Dose_Point
+		            cc=ee.Update
+		            File.Elements.Append ee
+		            
+		            //  beam dose
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300A"
+		            ee.Tag_b="0084"
+		            ee.Value=Format(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beamdose,"-0.000")
+		            cc=ee.Update  
+		            File.Elements.Append ee
+		            
+		            //  beam meterset
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300A"
+		            ee.Tag_b="0086"
+		            ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).BeamMeterset)
+		            cc=ee.Update  
+		            File.Elements.Append ee
+		            
+		            //  beam Referencedbeamnumber
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300C"
+		            ee.Tag_b="0006"
+		            ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Referencedbeamnumber)
+		            cc=ee.Update  
+		            File.Elements.Append ee
+		            
+		            if gPref.DICOM_FileStructure=1 Then
+		              //  beam Tomo tag
+		              ee= new Class_DICOM_Element
+		              ee.Tag_a="300D"
+		              ee.Tag_b="0010"
+		              ee.Value="TOMO_HA_01"
+		              cc=ee.Update  
+		              File.Elements.Append ee
+		              
+		              //  beam Tomo tag
+		              ee= new Class_DICOM_Element
+		              ee.Tag_a="300D"
+		              ee.Tag_b="1040"
+		              ee.Value="15.0"
+		              cc=ee.Update  
+		              File.Elements.Append ee
+		              
+		              //  beam Tomo tag
+		              ee= new Class_DICOM_Element
+		              ee.Tag_a="300D"
+		              ee.Tag_b="1080"
+		              ee.Value="0.478333"
+		              cc=ee.Update  
+		              File.Elements.Append ee
+		            end
+		            
+		            // calculate item length
+		            File.Update_Item_Length(item_level2_index)
+		          Next // Referencedbeamsequence loop
 		          
-		          if gPref.DICOM_FileStructure=1 Then
-		            //  beam Tomo tag
-		            ee= new Class_DICOM_Element
-		            ee.Tag_a="300D"
-		            ee.Tag_b="0010"
-		            ee.Value="TOMO_HA_01"
-		            cc=ee.Update  
-		            File.Elements.Append ee
-		            item_level2_length=item_level2_length+ee.Element_Length
-		            
-		            //  beam Tomo tag
-		            ee= new Class_DICOM_Element
-		            ee.Tag_a="300D"
-		            ee.Tag_b="1040"
-		            ee.Value="15.0"
-		            cc=ee.Update  
-		            File.Elements.Append ee
-		            item_level2_length=item_level2_length+ee.Element_Length
-		            
-		            //  beam Tomo tag
-		            ee= new Class_DICOM_Element
-		            ee.Tag_a="300D"
-		            ee.Tag_b="1080"
-		            ee.Value="0.478333"
-		            cc=ee.Update  
-		            File.Elements.Append ee
-		            item_level2_length=item_level2_length+ee.Element_Length
-		            
-		          end
-		          // Add final length to item
-		          File.Elements(item_level2_index).Sequence_Length=item_level2_length
-		          cc=File.Elements(item_level2_index).Update
-		          
-		          // Add item length to level length 
-		          level2_length=level2_length+item_level2_length+8
-		        Next
-		        // Asign level 2 length to sequence
-		        File.Elements(level2_index).Value_length=level2_length
-		        // Add level 2 length to level 1
-		        item_level1_length=item_level1_length+level2_length+8
+		          // Calculate sequence length
+		          File.Update_item_Length(level2_index)
+		        end // End for Reference beam sequence
 		        
-		        // Add finale
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
-		        cc=File.Elements(item_level1_index).Update
 		        
-		        level1_length=level1_length+item_level1_length+8
-		      Next
-		      // Asign level 1 length to element
-		      File.Elements(level1_index).Sequence_Length=level1_length
-		      cc=File.Elements(level1_index).Update
-		    end
+		        
+		        
+		        
+		        File.Update_item_Length(item_level1_index)
+		      Next // FractionGroupSequence loop
+		      
+		      
+		      File.Update_item_Length(level1_index)
+		    end // if fraction group exisits
 		    
 		    
 		    
@@ -5796,7 +5937,7 @@ Inherits Thread
 		      ee.Tag_b="00B0"
 		      File.Elements.Append ee
 		      cc=ee.Update
-		      level1_length=0
+		      
 		      level1_index=UBound(File.Elements)
 		      
 		      for k=0 to UBound(planclass.BeamSequence)
@@ -5806,7 +5947,7 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=0
+		        
 		        item_level1_index=UBound(File.Elements)
 		        
 		        // Manufacturer
@@ -5816,7 +5957,7 @@ Inherits Thread
 		        ee.Value=planclass.Manufacturer
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Manufacturer's model name
 		        ee= new Class_DICOM_Element
@@ -5825,7 +5966,40 @@ Inherits Thread
 		        ee.Value=planclass.Manufacturer_Model_Name
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
+		        
+		        //-----Primary fluence mode
+		        ee= new Class_DICOM_Element
+		        ee.Tag_a="3002"
+		        ee.Tag_b="0050"
+		        ee.Value="1"
+		        cc=ee.Update
+		        File.Elements.Append ee
+		        level2_index=UBound(File.Elements)
+		        for c=0 to UBound(planclass.BeamSequence(k).FluenceModeSQ)
+		          // New  Flence sequence item
+		          ee= new Class_DICOM_Element
+		          ee.Tag_a="FFFE"
+		          ee.Tag_b="E000"
+		          File.Elements.Append ee
+		          cc=ee.Update  
+		          item_level2_index=UBound(File.Elements)
+		          
+		          ee= new Class_DICOM_Element
+		          ee.Tag_a="3002"
+		          ee.Tag_b="0051"
+		          ee.Value=planclass.BeamSequence(k).FluenceModeSQ(c).FluenceMode
+		          File.Elements.Append ee
+		          cc=ee.Update  
+		          
+		          File.Update_Item_Length(item_level2_index)
+		        Next
+		        File.Update_Item_Length(level2_index)
+		        //---End primary fluence mode
+		        
+		        
+		        
+		        
 		        
 		        // Manufacturer's model name
 		        ee= new Class_DICOM_Element
@@ -5834,7 +6008,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).TreatmentMachineName
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Primary Dos Unit 
 		        ee= new Class_DICOM_Element
@@ -5843,7 +6017,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).PrimaryDosimeterUnit
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Source - Axis Distance
 		        ee= new Class_DICOM_Element
@@ -5852,7 +6026,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).SAD,"-0.0")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        
 		        //---------------Beam Limiting Device Sequence------------------------------------------------------------------------------------
@@ -5862,9 +6036,7 @@ Inherits Thread
 		        ee.Tag_b="00B6"
 		        ee.Value="1"
 		        cc=ee.Update
-		        ee.Value_length=templength
 		        File.Elements.Append ee
-		        level2_length=0
 		        level2_index=UBound(File.Elements)
 		        
 		        
@@ -5875,7 +6047,6 @@ Inherits Thread
 		          ee.Tag_b="E000"
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=0
 		          item_level2_index=UBound(File.Elements)
 		          
 		          ee= new Class_DICOM_Element
@@ -5884,7 +6055,7 @@ Inherits Thread
 		          ee.Value=planclass.BeamSequence(k).BeamLimitingDevice(c).RTBeamLimitingDeviceType
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=ee.Element_Length+item_level2_length
+		          
 		          
 		          
 		          // RT beam limiting device type
@@ -5894,7 +6065,7 @@ Inherits Thread
 		          ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).SourceToBeamLimitingDeviceDistance)
 		          File.Elements.Append ee
 		          cc=ee.Update
-		          item_level2_length=ee.Element_Length+item_level2_length
+		          
 		          
 		          
 		          // RT beam limiting device type
@@ -5904,7 +6075,7 @@ Inherits Thread
 		          ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).NumberofLeafjawPairs)
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=ee.Element_Length+item_level2_length
+		          
 		          
 		          if InStr(planclass.BeamSequence(k).BeamLimitingDevice(c).RTBeamLimitingDeviceType,"MLC")>0 Then
 		            // RT beam limiting Leaf Position Boundaries
@@ -5914,17 +6085,14 @@ Inherits Thread
 		            ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).LeafPositionBoundaries)
 		            File.Elements.Append ee
 		            cc=ee.Update
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		          end
 		          
 		          // Assign value length to item, and update level 2 length
-		          File.Elements(item_level2_index).Sequence_Length=item_level2_length
-		          cc=File.Elements(item_level2_index).Update
-		          level2_length=level2_length+item_level2_length+8
+		          File.Update_Item_Length(item_level2_index)
 		        Next
-		        File.Elements(level2_index).Sequence_Length=level2_length
-		        cc=File.Elements(level2_index).Update
-		        item_level1_length=item_level1_length+level2_length+8
+		        File.Update_Item_Length(level2_index)
+		        
 		        
 		        // Beam number
 		        ee= new Class_DICOM_Element
@@ -5933,7 +6101,7 @@ Inherits Thread
 		        ee.Value=Str(planclass.BeamSequence(k).BeamNumber,"0")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Beam Name
 		        ee= new Class_DICOM_Element
@@ -5942,7 +6110,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).BeamName
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Beam Description
 		        ee= new Class_DICOM_Element
@@ -5951,7 +6119,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).BeamDescrip
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Beam Type
 		        ee= new Class_DICOM_Element
@@ -5960,7 +6128,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).BeamType
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Radiation Type
 		        ee= new Class_DICOM_Element
@@ -5969,7 +6137,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).RadiationType
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Treatmetn Delivery Type
 		        ee= new Class_DICOM_Element
@@ -5978,7 +6146,7 @@ Inherits Thread
 		        ee.Value=planclass.BeamSequence(k).TreatmentDeliveryType
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Number of wedge
 		        ee= new Class_DICOM_Element
@@ -5987,7 +6155,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofWedges,"0")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Number of Compensators
 		        ee= new Class_DICOM_Element
@@ -5996,7 +6164,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofCompensators,"#")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Number of Boli
 		        ee= new Class_DICOM_Element
@@ -6005,7 +6173,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofBoli,"#")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Number of Blocks
 		        ee= new Class_DICOM_Element
@@ -6014,7 +6182,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofBlocks,"#")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Final CMW
 		        ee= new Class_DICOM_Element
@@ -6023,7 +6191,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).FinalCimulativeMetersetWeight,"0.0")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        // Final Number of control points
 		        ee= new Class_DICOM_Element
@@ -6032,7 +6200,7 @@ Inherits Thread
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofControlPoints,"0")
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        
 		        //---------------Control Point Sequence ------------------------------------------------------------------------------------
@@ -6042,7 +6210,7 @@ Inherits Thread
 		        ee.Tag_b="0111"
 		        cc=ee.Update
 		        File.Elements.Append ee
-		        level2_length=0
+		        
 		        level2_index=UBound(File.Elements)
 		        for c=0 to UBound(planclass.BeamSequence(k).ControlPointSequence)
 		          //New item in control point sequence
@@ -6052,7 +6220,7 @@ Inherits Thread
 		          
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=0
+		          
 		          item_level2_index=UBound(File.Elements)
 		          cps=planclass.BeamSequence(k).ControlPointSequence(c)
 		          
@@ -6064,7 +6232,7 @@ Inherits Thread
 		          
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=ee.Element_Length+item_level2_length
+		          
 		          
 		          
 		          if c=0 Then
@@ -6075,7 +6243,7 @@ Inherits Thread
 		            ee.Value=Format(cps.NominalBeamEnergy,"0.0")
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		          end
 		          
 		          
@@ -6088,7 +6256,7 @@ Inherits Thread
 		            ee.Value="1"
 		            cc=ee.Update
 		            File.Elements.Append ee
-		            level3_length=0
+		            
 		            level3_index=UBound(File.Elements)
 		            
 		            for j=0 to UBound(cps.BeamLimitingDevicePositionSequence)
@@ -6098,7 +6266,7 @@ Inherits Thread
 		              ee.Tag_b="E000"
 		              File.Elements.Append ee
 		              cc=ee.Update  
-		              item_level3_length=0
+		              
 		              item_level3_index=UBound(File.Elements)
 		              
 		              //--------RT beam limiting device type
@@ -6108,7 +6276,7 @@ Inherits Thread
 		              ee.Value=cps.BeamLimitingDevicePositionSequence(j).RTBeamLimitingDevice
 		              File.Elements.Append ee
 		              cc=ee.Update  
-		              item_level3_length=ee.Element_Length+item_level3_length
+		              
 		              
 		              //--------RT beam limiting device type
 		              ee= new Class_DICOM_Element
@@ -6117,22 +6285,15 @@ Inherits Thread
 		              ee.Value=cps.BeamLimitingDevicePositionSequence(j).LeafjawPositions
 		              File.Elements.Append ee
 		              cc=ee.Update  
-		              item_level3_length=ee.Element_Length+item_level3_length
+		              
 		              
 		              
 		              // Assign value length to item, and update level 3 length
-		              File.Elements(item_level3_index).Sequence_Length=item_level3_length
-		              cc=File.Elements(item_level3_index).Update
-		              
-		              level3_length=level3_length+item_level3_length+8
-		              
+		              File.Update_Item_Length(item_level3_index)
 		            Next
 		            
-		            File.Elements(level3_index).Sequence_Length=level3_length
-		            cc=File.Elements(level3_index).Update
+		            File.Update_Item_Length(level3_index)
 		            
-		            
-		            item_level2_length=item_level2_length+level3_length+8
 		          end
 		          
 		          
@@ -6144,7 +6305,7 @@ Inherits Thread
 		            ee.Value=Format(cps.GantryAngle,"-#.000000")
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		          end
 		          
 		          
@@ -6157,7 +6318,7 @@ Inherits Thread
 		            ee.Value=cps.GantryRotationDirection
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //--------Beam limiting device angle 
@@ -6167,7 +6328,7 @@ Inherits Thread
 		            ee.Value=Format(cps.Beamlimitngdeviceangle,"0.0")
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //--------Beam limiting device rotation direction
@@ -6177,7 +6338,7 @@ Inherits Thread
 		            ee.Value=cps.BeamLimitingDeviceRotationDirection
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //--------Patient support angle
@@ -6187,7 +6348,7 @@ Inherits Thread
 		            ee.Value=Format(cps.PatientSupportAngle,"0.0")
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //--------Patient support rotation direction
@@ -6198,7 +6359,7 @@ Inherits Thread
 		            
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            //-------Table top Eccentric angle
 		            ee= new Class_DICOM_Element
@@ -6208,7 +6369,7 @@ Inherits Thread
 		            
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            //--------Patient support rotation direction
 		            ee= new Class_DICOM_Element
@@ -6218,7 +6379,7 @@ Inherits Thread
 		            
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            //--------Table Top vertical position 
 		            ee= new Class_DICOM_Element
@@ -6227,7 +6388,7 @@ Inherits Thread
 		            ee.Value=cps.TableTopVerticalPosition
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //--------Table Top vertical position
@@ -6237,7 +6398,7 @@ Inherits Thread
 		            ee.Value=cps.TableTopLongitudinalPosition
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            
@@ -6249,7 +6410,7 @@ Inherits Thread
 		            
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		          end
 		          
@@ -6262,7 +6423,7 @@ Inherits Thread
 		            ee.Value=cps.IsocenterPosition
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		          end
 		          
 		          if gPref.DICOM_FileStructure<>1 Then
@@ -6274,7 +6435,7 @@ Inherits Thread
 		              ee.Value=Format(cps.SSD,"0.0##")
 		              File.Elements.Append ee
 		              cc=ee.Update
-		              item_level2_length=ee.Element_Length+item_level2_length
+		              
 		            end
 		          end
 		          
@@ -6286,7 +6447,7 @@ Inherits Thread
 		          ee.Value=Format(cps.CumulativeMetersetWeight,"0.0000000000")
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level2_length=ee.Element_Length+item_level2_length
+		          
 		          
 		          
 		          if gPref.DICOM_FileStructure=1 Then
@@ -6297,7 +6458,7 @@ Inherits Thread
 		            ee.Value="TOMO_HA_01"
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		            
 		            
 		            //-------Tomo Tags Sinogram
@@ -6307,19 +6468,63 @@ Inherits Thread
 		            ee.Value=cps.TomoSinogram
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=ee.Element_Length+item_level2_length
+		            
 		          end
 		          
-		          // Assign value length to item, and update level 2 length
-		          File.Elements(item_level2_index).Sequence_Length=item_level2_length
-		          cc=File.Elements(item_level2_index).Update
 		          
-		          level2_length=level2_length+item_level2_length+8
+		          
+		          
+		          
+		          
+		          //Reference dose reference sequence 
+		          ee= new Class_DICOM_Element
+		          ee.Tag_a="300C"
+		          ee.Tag_b="0050"
+		          cc=ee.Update
+		          File.Elements.Append ee
+		          level3_index=UBound(File.Elements)
+		          for g=0 to UBound(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence)
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="FFFE"
+		            ee.Tag_b="E000"
+		            File.Elements.Append ee
+		            cc=ee.Update  
+		            item_level3_index=UBound(File.Elements)
+		            
+		            // Cumulative dose reference coefficient
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300A"
+		            ee.Tag_b="010C"
+		            ee.Value=Format(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence(g).CumulativeDoseReferenceCoefficient,"0.0####")
+		            File.Elements.Append ee
+		            cc=ee.Update  
+		            
+		            
+		            // Reference dose reference number
+		            ee= new Class_DICOM_Element
+		            ee.Tag_a="300C"
+		            ee.Tag_b="0051"
+		            ee.Value=Format(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence(g).ReferencedDoseReferenceNumber,"#")
+		            File.Elements.Append ee
+		            cc=ee.Update  
+		            
+		            File.Update_Item_Length(item_level3_index)
+		          Next
+		          // end of Reference dose reference sequence 
+		          File.Update_Item_Length(level3_index)
+		          
+		          
+		          
+		          // Assign value length to item, and update level 2 length
+		          File.Update_Item_Length(item_level2_index)
+		          
+		          
 		        Next
-		        File.Elements(level2_index).Sequence_Length=level2_length
-		        cc=File.Elements(level2_index).Update
+		        File.Update_Item_Length(level2_index)
 		        
-		        item_level1_length=item_level1_length+level2_length+8
+		        
+		        
+		        
 		        
 		        
 		        // Referenced Patient Setup Number 
@@ -6329,7 +6534,7 @@ Inherits Thread
 		        ee.Value="1"
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        
 		        if gPref.DICOM_FileStructure=1 Then
@@ -6340,7 +6545,7 @@ Inherits Thread
 		          ee.Value="TOMO_HA_01"
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		          
 		          
 		          // Tomo Tag
@@ -6350,17 +6555,16 @@ Inherits Thread
 		          ee.Value="0.287"
 		          File.Elements.Append ee
 		          cc=ee.Update  
-		          item_level1_length=item_level1_length+ee.Element_Length
+		          
 		        end
 		        
 		        // Add final value length of item level 1 to element
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
-		        cc=File.Elements(item_level1_index).update
+		        File.Update_item_length(item_level1_index)
 		        
-		        level1_length=level1_length+item_level1_length+8
+		        
 		      Next
-		      File.Elements(level1_index).Sequence_Length=level1_length
-		      cc=File.Elements(level1_index).Update
+		      File.Update_item_length(level1_index)
+		      
 		      
 		    end
 		    //--------------End -Beam Sequence------------------------------------------------------------------------------------
@@ -6376,7 +6580,7 @@ Inherits Thread
 		      ee.Tag_b="0180"
 		      cc=ee.Update
 		      File.Elements.Append ee
-		      level1_length=0
+		      
 		      level1_index=UBound(File.Elements)
 		      
 		      for k=0 to  UBound(planclass.PatientSetupSequence)
@@ -6386,7 +6590,7 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=0
+		        
 		        item_level1_index=UBound(File.Elements)
 		        
 		        // Patient Position
@@ -6396,7 +6600,7 @@ Inherits Thread
 		        ee.Value=planclass.PatientSetupSequence(k).PatientPosition
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        //  Patient Setup Number
 		        ee= new Class_DICOM_Element
@@ -6405,7 +6609,7 @@ Inherits Thread
 		        ee.Value=str(planclass.PatientSetupSequence(k).PatientSetupNumber)
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        //  Patient Setup Technique
 		        ee= new Class_DICOM_Element
@@ -6414,7 +6618,7 @@ Inherits Thread
 		        ee.Value=planclass.PatientSetupSequence(k).SetupTechnique
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=item_level1_length+ee.Element_Length
+		        
 		        
 		        if UBound(planclass.PatientSetupSequence(k).SetupDeviceSequence)>-1 Then
 		          ee= new Class_DICOM_Element
@@ -6423,7 +6627,7 @@ Inherits Thread
 		          ee.Value="1"
 		          cc=ee.Update
 		          File.Elements.Append ee
-		          level2_length=0
+		          
 		          level2_index=UBound(File.Elements)
 		          
 		          for c=0 to UBound(planclass.PatientSetupSequence(k).SetupDeviceSequence) 
@@ -6433,7 +6637,7 @@ Inherits Thread
 		            ee.Tag_b="E000"
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=0
+		            
 		            item_level2_index=UBound(File.Elements)
 		            
 		            //  Setup  Device Type
@@ -6443,7 +6647,7 @@ Inherits Thread
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDeviceType
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=item_level2_length+ee.Element_Length
+		            
 		            
 		            //  Setup  Device Label
 		            ee= new Class_DICOM_Element
@@ -6452,7 +6656,7 @@ Inherits Thread
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDevicelabel
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=item_level2_length+ee.Element_Length
+		            
 		            
 		            //  Setup  Device Type
 		            ee= new Class_DICOM_Element
@@ -6461,38 +6665,28 @@ Inherits Thread
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDeviceParameter
 		            File.Elements.Append ee
 		            cc=ee.Update  
-		            item_level2_length=item_level2_length+ee.Element_Length
 		            
-		            File.Elements(item_level2_index).Sequence_Length=item_level2_length
-		            cc=File.Elements(item_level2_index).Update
 		            
-		            level2_length=level2_length+item_level2_length+8
+		            File.Update_Item_Length(item_level2_index)
 		          Next
-		          File.Elements(level2_index).Sequence_Length=level2_length
-		          cc=File.Elements(level2_index).update
+		          File.Update_Item_Length(level2_index)
 		          
-		          item_level1_length=item_level1_length+level2_length+8
 		        end
-		        
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
-		        cc=File.Elements(item_level1_index).Update
-		        
-		        level1_length=level1_length+item_level1_length+8
+		        File.Update_item_length(item_level1_index)
 		      Next
-		      File.Elements(level1_index).Sequence_Length=level1_length
-		      cc=File.Elements(level1_index).Update
+		      File.Update_item_length(level1_index)
 		    end
 		    //--------------End Patient Setup Sequence------------------------------------------------------------------------------------
 		    
-		    
-		    // Tomo Proprietary Tag
-		    ee= new Class_DICOM_Element
-		    ee.Tag_a="300C"
-		    ee.Tag_b="0000"
-		    ee.Value="    "
-		    cc=ee.Update
-		    File.Elements.Append ee
-		    
+		    if gPref.DICOM_FileStructure=1 Then
+		      // Tomo Proprietary Tag
+		      ee= new Class_DICOM_Element
+		      ee.Tag_a="300C"
+		      ee.Tag_b="0000"
+		      ee.Value="    "
+		      cc=ee.Update
+		      File.Elements.Append ee
+		    end
 		    //---------------------------------------------------------------------------------------------------
 		    // Reference Structure Set sequence
 		    if UBound(planclass.ReferencedStructureSetSequence)>-1 Then
@@ -6501,7 +6695,6 @@ Inherits Thread
 		      ee.Tag_b="0060"
 		      cc=ee.Update
 		      File.Elements.Append ee
-		      level1_length=0
 		      level1_index=UBound(File.Elements)
 		      
 		      for c=0 to UBound(planclass.ReferencedStructureSetSequence) 
@@ -6511,8 +6704,6 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        
-		        item_level1_length=0
 		        item_level1_index=UBound(File.Elements)
 		        
 		        ee= new Class_DICOM_Element
@@ -6521,7 +6712,6 @@ Inherits Thread
 		        ee.Value=planclass.ReferencedStructureSetSequence(0).ReferencedSOPClassUID
 		        cc=ee.Update  
 		        File.Elements.Append ee
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="0008"
@@ -6529,17 +6719,12 @@ Inherits Thread
 		        ee.Value=planclass.ReferencedStructureSetSequence(0).ReferencedSOPInstanceUID
 		        cc=ee.Update  
 		        File.Elements.Append ee
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
+		        
+		        File.Update_item_length(item_level1_index)
 		        cc=File.Elements(item_level1_index).Update
-		        
-		        level1_length=level1_length+item_level1_length+8
-		        
 		      Next
-		      File.Elements(level1_index).Sequence_Length=level1_length
-		      cc=File.Elements(level1_index).Update
-		      
+		      File.Update_item_length(level1_index)
 		    end
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -6550,7 +6735,6 @@ Inherits Thread
 		      ee.Tag_b="0080"
 		      cc=ee.Update
 		      File.Elements.Append ee
-		      level1_length=0
 		      level1_index=UBound(File.Elements)
 		      
 		      for c=0 to UBound(planclass.ReferencedDoseSequence)
@@ -6560,7 +6744,6 @@ Inherits Thread
 		        ee.Tag_b="E000"
 		        File.Elements.Append ee
 		        cc=ee.Update  
-		        item_level1_length=0
 		        item_level1_index=UBound(File.Elements)
 		        
 		        ee= new Class_DICOM_Element
@@ -6569,7 +6752,6 @@ Inherits Thread
 		        ee.Value=planclass.ReferencedDoseSequence(0).ReferencedSOPClassUID
 		        cc=ee.Update  
 		        File.Elements.Append ee
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="0008"
@@ -6577,14 +6759,11 @@ Inherits Thread
 		        ee.Value=planclass.ReferencedDoseSequence(0).ReferencedSOPInstanceUID
 		        cc=ee.Update  
 		        File.Elements.Append ee
-		        item_level1_length=item_level1_length+ee.Element_Length
 		        
-		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
-		        cc=File.Elements(item_level1_index).Update
-		        level1_length=level1_length+item_level1_length+8
+		        
+		        File.Update_item_length(item_level1_index)
 		      Next
-		      File.Elements(level1_index).Sequence_Length=level1_length
-		      cc=File.Elements(level1_index).Update
+		      File.Update_item_length(level1_index)
 		    end
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -6655,7 +6834,7 @@ Inherits Thread
 		    ee.Value=planclass.ReviewTime
 		    cc=ee.Update
 		    File.Elements.Append ee
-		    
+		    '
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="300E"
 		    ee.Tag_b="0008"
@@ -6687,9 +6866,6 @@ Inherits Thread
 		  Dim cs as Class_DICOM_Structure_ContourSequence
 		  //================================================
 		  
-		  if MainFolder=Nil Then
-		    Return
-		  end
 		  
 		  
 		  for i=0 to UBound(RT_Structures) // look for Image .dcm files
@@ -7452,6 +7628,22 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Export_Dose As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Images As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Plan As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Export_Structures As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		File As Class_DICOM_File
 	#tag EndProperty
 
@@ -7526,6 +7718,30 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="0"
 			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Dose"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Images"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Plan"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Export_Structures"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Import_ID"

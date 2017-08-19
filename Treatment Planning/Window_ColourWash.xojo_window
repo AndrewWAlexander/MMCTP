@@ -75,6 +75,7 @@ Begin Window Window_ColourWash
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Maxdose value"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -195,6 +196,7 @@ Begin Window Window_ColourWash
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Mindose value"
          TextAlign       =   0
          TextColor       =   &c00000000

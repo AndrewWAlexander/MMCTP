@@ -587,7 +587,7 @@ Begin Window Window_images
       LockTop         =   False
       Maximum         =   100
       Scope           =   0
-      TabIndex        =   "16"
+      TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   422
@@ -703,11 +703,11 @@ End
 		          
 		          
 		          
-		          diff(i,j) =picref.Graphics.Pixel(i,j).Red -piceval.Graphics.Pixel(i,j).red
+		          diff(i,j) =picref.RGBSurface.Pixel(i,j).Red -piceval.RGBSurface.Pixel(i,j).red
 		          
 		          percentdiff=abs(diff(i,j)/255)
 		          
-		          pic_product.Graphics.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
+		          pic_product.RGBSurface.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
 		          
 		          
 		          
@@ -774,7 +774,7 @@ End
 		            
 		            
 		            
-		            gamma1 = ( (piceval.Graphics.Pixel(i,j).Red  -  picref.Graphics.Pixel(i,j).Red  )/ picref.Graphics.Pixel(i,j).Red / D_percent)^2
+		            gamma1 = ( (piceval.RGBSurface.Pixel(i,j).Red  -  picref.RGBSurface.Pixel(i,j).Red  )/ picref.RGBSurface.Pixel(i,j).Red / D_percent)^2
 		            k=1
 		            
 		            while k<=Nx
@@ -784,7 +784,7 @@ End
 		                jjj = Ny-k
 		                ii=i-k
 		                for jj = j-k to j+k
-		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.Graphics.Pixel(ii,jj).Red-   picref.Graphics.Pixel(ii,jj).Red  )/   picref.Graphics.Pixel(ii,jj).Red /D_percent)^2
+		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.RGBSurface.Pixel(ii,jj).Red-   picref.RGBSurface.Pixel(ii,jj).Red  )/   picref.RGBSurface.Pixel(ii,jj).Red /D_percent)^2
 		                  jjj=jjj+1
 		                  if gamma2<gamma1 then
 		                    gamma1=gamma2
@@ -794,7 +794,7 @@ End
 		                jjj = Ny-k
 		                ii=i+k
 		                for jj = j-k to j+k
-		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.Graphics.Pixel(ii,jj).Red-   picref.Graphics.Pixel(ii,jj).Red  )/   picref.Graphics.Pixel(ii,jj).Red /D_percent)^2
+		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.RGBSurface.Pixel(ii,jj).Red-   picref.RGBSurface.Pixel(ii,jj).Red  )/   picref.RGBSurface.Pixel(ii,jj).Red /D_percent)^2
 		                  jjj=jjj+1
 		                  if gamma2<gamma1 then
 		                    gamma1=gamma2
@@ -804,7 +804,7 @@ End
 		                jjj = Ny-k
 		                jj=j-k
 		                for ii= i-k to i+k
-		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.Graphics.Pixel(ii,jj).Red-   picref.Graphics.Pixel(ii,jj).Red  )/   picref.Graphics.Pixel(ii,jj).Red /D_percent)^2
+		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.RGBSurface.Pixel(ii,jj).Red-   picref.RGBSurface.Pixel(ii,jj).Red  )/   picref.RGBSurface.Pixel(ii,jj).Red /D_percent)^2
 		                  iii=iii+1
 		                  if gamma2<gamma1 then
 		                    gamma1=gamma2
@@ -815,7 +815,7 @@ End
 		                jj=j+k
 		                for ii= i-k to i+k
 		                  
-		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.Graphics.Pixel(ii,jj).Red - picref.Graphics.Pixel(ii,jj).Red  )/   picref.Graphics.Pixel(ii,jj).Red /D_percent)^2
+		                  gamma2 = distanceXsq(iii)+distanceYsq(jjj)+((piceval.RGBSurface.Pixel(ii,jj).Red - picref.RGBSurface.Pixel(ii,jj).Red  )/   picref.RGBSurface.Pixel(ii,jj).Red /D_percent)^2
 		                  iii=iii+1
 		                  if gamma2<gamma1 then
 		                    gamma1=gamma2
@@ -839,18 +839,18 @@ End
 		              
 		              
 		              percentdiff = gamma1/2
-		              pic_product.Graphics.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
+		              pic_product.RGBSurface.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
 		              
 		              
 		              
 		              //else 
 		              
-		              //pic_product.Graphics.Pixel(i,j)=HSV(0,1,1)
+		              //pic_product.RGBSurface.Pixel(i,j)=HSV(0,1,1)
 		              
 		              
 		            elseif gamma1 >2 then
 		              
-		              pic_product.Graphics.Pixel(i,j)=HSV(0,1,1)
+		              pic_product.RGBSurface.Pixel(i,j)=HSV(0,1,1)
 		              
 		              
 		              

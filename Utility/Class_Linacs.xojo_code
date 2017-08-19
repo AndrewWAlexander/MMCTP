@@ -197,6 +197,7 @@ Protected Class Class_Linacs
 		      mlc.AbuttingGap=val(NthField(temp,"*",5))
 		      mlc.Parser=val(NthField(temp,"*",6))
 		      mlc.LeafDirection=val(NthField(temp,"*",7))
+		      mlc.Source_to_Device_Distance=val(NthField(temp,"*",8))
 		      
 		      ReDim MLC.Boundaries(mlc.NumberofLeafPairs)
 		      
@@ -402,7 +403,7 @@ Protected Class Class_Linacs
 		  ts.WriteLine "//MLC LEAF THICKNESS (cm)"
 		  
 		  for i=0 to UBound(gLinacs.All_MLCs)
-		    ts.WriteLine "*"+str(gLinacs.All_MLCs(i).NumberofLeafPairs)+"*"+gLinacs.All_MLCs(i).MLC_Name+"*"+Format(gLinacs.All_MLCs(i).Type,"#")+"*"+Format(gLinacs.All_MLCs(i).AbuttingGap,"-#.#######")+"*"+Format(gLinacs.All_MLCs(i).Parser,"#")+"*"+Format(gLinacs.All_MLCs(i).LeafDirection,"#")
+		    ts.WriteLine "*"+str(gLinacs.All_MLCs(i).NumberofLeafPairs)+"*"+gLinacs.All_MLCs(i).MLC_Name+"*"+Format(gLinacs.All_MLCs(i).Type,"#")+"*"+Format(gLinacs.All_MLCs(i).AbuttingGap,"-#.#######")+"*"+Format(gLinacs.All_MLCs(i).Parser,"#")+"*"+Format(gLinacs.All_MLCs(i).LeafDirection,"#")+"*"+Format(gLinacs.All_MLCs(i).Source_to_Device_Distance,"-#.###")
 		    for k=0 to UBound(gLinacs.All_MLCs(i).Boundaries)
 		      ts.WriteLine str(k+1)+" : "+Format(gLinacs.All_MLCs(i).Boundaries(k),"-#.##")
 		    next

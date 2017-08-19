@@ -37,6 +37,10 @@ Protected Class Class_DICOM_Plan_BeamSequence
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		FluenceModeSQ(-1) As Class_DICOM_Plan_PrimaryFluenceModeSQ
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		High_Dose_Technique As String
 	#tag EndProperty
 

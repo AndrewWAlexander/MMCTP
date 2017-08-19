@@ -2,7 +2,7 @@
 Protected Class InternetSession
 	#tag Method, Flags = &h1
 		Protected Sub CloseHandle(ByRef handle as Integer)
-		  #if TargetWin32
+		  #if TargetWindows
 		    Declare Sub InternetCloseHandle Lib "WinInet" ( handle as Integer )
 		    
 		    if handle <> 0 then
@@ -16,7 +16,7 @@ Protected Class InternetSession
 
 	#tag Method, Flags = &h1
 		Protected Sub Constructor(userAgent as String)
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function InternetOpenA Lib "WinInet" ( agent as CString, access as Integer, _
 		    proxy as Integer, bypass as Integer, flags as Integer ) as Integer
 		    Soft Declare Function InternetOpenW Lib "WinInet" ( agent as WString, access as Integer, _
@@ -46,7 +46,7 @@ Protected Class InternetSession
 
 	#tag Method, Flags = &h1
 		Protected Function ExtendedErrorInfo(ByRef errNum as Integer) As String
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Sub InternetGetLastResponseInfoW Lib "WinInet" ( ByRef errorNum as Integer, buf as Ptr, ByRef len as Integer )
 		    Soft Declare Sub InternetGetLastResponseInfoA Lib "WinInet" ( ByRef errorNum as Integer, buf as Ptr, ByRef len as Integer )
 		    
@@ -74,7 +74,7 @@ Protected Class InternetSession
 		    return nil
 		  end if
 		  
-		  #if TargetWin32
+		  #if TargetWindows
 		    Soft Declare Function InternetFindNextFileW Lib "WinInet" ( handle as Integer, data as Ptr ) as Boolean
 		    Soft Declare Function InternetFindNextFileA Lib "WinInet" ( handle as Integer, data as Ptr ) as Boolean
 		    
@@ -134,7 +134,7 @@ Protected Class InternetSession
 
 	#tag Method, Flags = &h1
 		Protected Function GetLastError() As Integer
-		  #if TargetWin32
+		  #if TargetWindows
 		    Declare Function MyGetLastError Lib "Kernel32" Alias "GetLastError" () as Integer
 		    
 		    return MyGetLastError

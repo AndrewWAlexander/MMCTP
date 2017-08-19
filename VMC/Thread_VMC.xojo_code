@@ -55,6 +55,10 @@ Inherits Thread
 		  
 		  f=gPref.VMC_fi
 		  f=f.Child("VMC-Settings.txt")
+		  if f=Nil Then
+		    Return
+		  end
+		  
 		  
 		  if f.Exists=False Then
 		    Return

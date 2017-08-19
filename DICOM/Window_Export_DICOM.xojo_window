@@ -195,45 +195,36 @@ End
 	#tag Event
 		Sub Action()
 		  
-		  
-		  if CheckBox_Images.Value Then
-		    gRTOG.Convert_McGillRT2DICOM_RTImage
+		  if Window_Export_DICOM.CheckBox_Images.Value Then
+		    gDICOM.Export_Images=True
+		  else
+		    gDICOM.Export_Images=False
 		  end
 		  
-		  if CheckBox_Plan.Value Then
-		    if Plan_Index>=0 Then
-		      if UBound(gRTOG.Plan)>=Plan_Index Then
-		        if gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID="" Then
-		          gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=gDICOM.UID_Make
-		        end
-		        gRTOG.Convert_McGillRT2DICOM_RTPlan(Plan_Index)
-		      end
-		    end
-		  end
-		  
-		  if CheckBox_Dose.Value Then
-		    if Window_Treatment.dose_index>=0 and Plan_Index>=0 Then
-		      if UBound(gRTOG.Plan)>=Plan_Index Then
-		        if UBound(gRTOG.Plan(Plan_Index).Dose)>=Window_Treatment.dose_index Then
-		          gRTOG.Convert_McGillRT2DICOM_RTDose(Plan_Index,gRTOG.plan(plan_index).dose(Window_Treatment.dose_index))
-		        end
-		      end
-		    end
+		  if Window_Export_DICOM.CheckBox_Plan.Value Then
+		    gDICOM.Export_Plan=True
+		  else
+		    gDICOM.Export_Plan=False
 		    
 		  end
 		  
-		  if CheckBox_Structures.Value Then
-		    if UBound(gRTOG.Structures)>=0 Then
-		      gRTOG.Convert_McGillRT2DICOM_RTStructures
-		    end
+		  if Window_Export_DICOM.CheckBox_Dose.Value Then
+		    gDICOM.Export_Dose=True
+		  else
+		    gDICOM.Export_Dose=False
+		  end
+		  
+		  if Window_Export_DICOM.CheckBox_Structures.Value Then
+		    gDICOM.Export_Structures=True
+		  else
+		    gDICOM.Export_Structures=False
 		  end
 		  
 		  
+		  
+		  gDICOM.Export
+		  
 		  Window_Export_DICOM.Close
-		  
-		  
-		  
-		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

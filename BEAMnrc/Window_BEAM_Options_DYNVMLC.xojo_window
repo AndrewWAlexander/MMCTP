@@ -165,7 +165,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -200,7 +199,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Half width of outer square boundary (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -278,7 +276,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Distance of front of material in CM to reference plane (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -474,7 +471,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Thickness of leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -552,7 +548,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "number of leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -630,7 +625,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Starting position of leaf sides"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -708,7 +702,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Width of air gap (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -786,7 +779,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   18
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Z focus of leaf sides"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -864,7 +856,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Radius of leaf end"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -899,7 +890,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Leaf end type"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1095,7 +1085,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "LATCH bit"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1130,7 +1119,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Dose Zone"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1165,7 +1153,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   29
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "PCUTIN (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1200,7 +1187,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   30
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "ECUTIN (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1235,7 +1221,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Material"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1313,7 +1298,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   33
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Opening(s) +air gaps"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1348,7 +1332,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   34
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Collimator leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1383,7 +1366,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Driving screw holes"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2137,6 +2119,12 @@ End
 		  
 		  
 		  DYNVMLC=Window_BEAM_MainInputs.BEAM.CMs(i).DYNVMLC
+		  
+		  if Window_BEAM_MainInputs.BEAM.CMs(i).CM_Names="DYNVMLC" Then
+		    Title="Edit DYNVMLC"
+		  else
+		    Title="Edit SYNCVMLC"
+		  end
 		  
 		  
 		  PopupMenu_Leaftype.DeleteAllRows

@@ -45,6 +45,10 @@ Protected Class Class_DICOM_Plan
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		ImplementationClassUID As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		InstanceCreationDate As String
 	#tag EndProperty
 
@@ -62,6 +66,10 @@ Protected Class Class_DICOM_Plan
 
 	#tag Property, Flags = &h0
 		Manufacturer_Model_Name As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MediaStorageSOPClassUID As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -210,6 +218,10 @@ Protected Class Class_DICOM_Plan
 
 	#tag Property, Flags = &h0
 		StudyTime As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		TransferSyntaxUID As string
 	#tag EndProperty
 
 

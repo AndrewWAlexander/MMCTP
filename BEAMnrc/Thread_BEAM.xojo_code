@@ -86,6 +86,11 @@ Inherits Thread
 
 	#tag Method, Flags = &h0
 		Sub egs_Addbeam()
+		  //-------------------------------------
+		  // Method to add one beam to a plan
+		  // initiatlizes BEAMnrc varibales
+		  // Updated May 2017
+		  //-----------------------------------
 		  Dim temp as Class_Beam
 		  
 		  temp = new Class_Beam
@@ -97,6 +102,9 @@ Inherits Thread
 		  
 		  gBEAM.Beams.Append temp
 		  temp.beam_number=UBound(gBEAM.Beams)
+		  
+		  MC_Get_Linac_Properties(UBound(gRTOG.plan(Plan_Index).beam))
+		  gBEAM.egs_Read
 		End Sub
 	#tag EndMethod
 

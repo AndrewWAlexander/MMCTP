@@ -206,7 +206,7 @@ Inherits Shell
 		  
 		  
 		  
-		  if TargetWin32 Then
+		  if TargetWindows Then
 		    ''--------------WINDOWS SHELL----------------------------
 		    
 		    if all(0).FTP_Now =True and all(0).shell.File_Transfer_Index=0 Then

@@ -388,6 +388,7 @@ Protected Class RTOG_Beam_Geometry
 		      MLC.Abutting_Gap=gLinacs.All_MLCs(i).AbuttingGap
 		      MLC.MLC_Direction=gLinacs.All_MLCs(i).LeafDirection
 		      MLC.Model_Type=gLinacs.All_MLCs(i).Type
+		      MLC.Source_to_MLC=gLinacs.All_MLCs(i).Source_to_Device_Distance
 		      
 		      ReDim mlc.LeafBoundaries(gLinacs.All_MLCs(i).NumberofLeafPairs)
 		      for k=0 to gLinacs.All_MLCs(i).NumberofLeafPairs

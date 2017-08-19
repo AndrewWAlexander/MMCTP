@@ -196,7 +196,15 @@ Inherits Thread
 		  //-----------------------------
 		  
 		  f= gPref.McGillCutout
+		  
+		  if f=Nil Then
+		    Return
+		  end
 		  g=f.child("Cutoutpref.txt")
+		  if g=Nil Then
+		    Return
+		  end
+		  
 		  
 		  ReDim cutoutmaterial(-1)
 		  ReDim gapmaterial(-1)

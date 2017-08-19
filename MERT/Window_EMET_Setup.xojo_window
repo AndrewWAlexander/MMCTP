@@ -990,7 +990,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   "23"
+            TabIndex        =   23
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   542
@@ -2412,7 +2412,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   "1"
+            TabIndex        =   1
             TabPanelIndex   =   2
             TabStop         =   True
             Top             =   383
@@ -3702,7 +3702,7 @@ Begin Window Window_EMET_Setup
             LockTop         =   False
             Maximum         =   100
             Scope           =   0
-            TabIndex        =   "7"
+            TabIndex        =   7
             TabPanelIndex   =   1
             TabStop         =   True
             Top             =   70
@@ -6907,7 +6907,6 @@ End
 		  Dim px as PixmapShape
 		  Dim ff as Class_MERT_Field_One
 		  Dim subff as Class_MERT_Field_Sub
-		  Dim temp as RGBSurface
 		  Dim pstrip as Picture
 		  //-----------------------------------
 		  
@@ -7051,8 +7050,7 @@ End
 		    ProgressBar_Depths.Refresh
 		    for x=0 to (nx-1)
 		      for i=0 to UBound(ff.Rotated_Slices)
-		        temp=ff.Rotated_Slices(i).RGBSurface
-		        if temp.pixel(x,y)=RGB(255,0,0) Then
+		        if ff.Rotated_Slices(i).RGBSurface.pixel(x,y)=RGB(255,0,0) Then
 		          if y>y_lower Then
 		            y_lower=y
 		          end
@@ -7069,8 +7067,7 @@ End
 		    ProgressBar_Depths.Refresh
 		    for x=0 to (nx-1)
 		      for i=0 to UBound(ff.Rotated_Slices)
-		        temp=ff.Rotated_Slices(i).RGBSurface
-		        if temp.pixel(x,y)=RGB(255,0,0) Then
+		        if ff.Rotated_Slices(i).RGBSurface.pixel(x,y)=RGB(255,0,0) Then
 		          if y<y_higher Then
 		            y_higher=y
 		          end
@@ -7087,14 +7084,13 @@ End
 		  for y=y_lower DownTo y_higher // Seach within y range to speed things up
 		    for x=0 to (nx-1)
 		      for i=0 to UBound(ff.Rotated_Slices)
-		        temp=ff.Rotated_Slices(i).RGBSurface
-		        if temp.pixel(x,y)=RGB(255,0,0) Then
+		        if ff.Rotated_Slices(i).RGBSurface.pixel(x,y)=RGB(255,0,0) Then
 		          subff=new Class_MERT_Field_Sub
 		          subff.X_Pic=x
 		          subff.Y_Pic=y
 		          subff.Z_Pic=i
 		          for a=y DownTo 0 // Seach for the distance between point and external contour
-		            if temp.pixel(x,a)=RGB(255,255,255) Then
+		            if ff.Rotated_Slices(i).RGBSurface.pixel(x,a)=RGB(255,255,255) Then
 		              subff.Depth=(y-a)*ff.del_x
 		              exit
 		            end
@@ -7223,7 +7219,6 @@ End
 		  //-----------------------------------
 		  Dim Normal as Picture
 		  Dim i,x,y,a as Integer
-		  Dim temp as RGBSurface
 		  Dim temp_min as Single
 		  //-----------------------------------
 		  
@@ -7234,8 +7229,6 @@ End
 		  Normal.Graphics.UseOldRenderer=True
 		  Normal.Graphics.ForeColor=RGB(0,0,0)
 		  Normal.Graphics.FillRect(0,0,ff.nx,ff.nz)
-		  temp=Normal.RGBSurface
-		  
 		  
 		  
 		  StaticText_Depth_Progress.Text="Making depth plot"
@@ -7249,12 +7242,12 @@ End
 		      temp_min=ff.Max_D(x,y)
 		      
 		      if temp_min=0 Then
-		        temp.Pixel(x,y)=RGB(255,255,255)
+		        Normal.RGBSurface.Pixel(x,y)=RGB(255,255,255)
 		        
 		      else
 		        temp_min=(temp_min-ff.MinDistalDepth)/(ff.MaxDistalDepth-ff.MinDistalDepth)
 		        a=abs(Round(255*temp_min))
-		        temp.Pixel(x,y)=gvis.colour_map_jet(a)
+		        Normal.RGBSurface.Pixel(x,y)=gvis.colour_map_jet(a)
 		      end
 		    next
 		  next

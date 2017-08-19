@@ -237,7 +237,7 @@ Inherits Shell
 		  
 		  
 		  
-		  if TargetWin32 Then
+		  if TargetWindows Then
 		    
 		    if all(0).shell.OS=1 or all(0).shell.OS=2 Then
 		      ''--------------WINDOWS SHELL Connections to Linux or Mac OS----------------------------

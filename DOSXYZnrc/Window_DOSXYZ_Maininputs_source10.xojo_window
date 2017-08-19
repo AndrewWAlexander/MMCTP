@@ -208,6 +208,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "DBS splitting field radius (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -242,6 +243,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Z where source scored (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -276,6 +278,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "SSD of splitting field (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -310,6 +313,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Phase-space file, score last Z"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -375,6 +379,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Phase-space data redistribute"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -440,6 +445,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Isocenter (x,y,z) "
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -560,6 +566,7 @@ Begin Window Window_DOSXYZ_Maininputs_source10
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Distance from source to isocenter (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000

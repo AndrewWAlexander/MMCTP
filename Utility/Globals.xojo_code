@@ -1367,7 +1367,7 @@ Protected Module Globals
 		  // Interpolate dose uncertainty at x,y,z
 		  //
 		  //-----------------------------------------
-		  Dim x_l,x_r,y_t,y_b,D1,D2,D3,D4, x1,x2,x3,x4,y1,y2,y3,y4,Z1,Z2,D_avg_xl,D_avg_xr,r_dose,z_dose(-1),total ,da,db as Double
+		  Dim x_l,x_r,y_t,y_b,D1,D2,D3,D4, x1,x2,x3,x4,y1,y2,y3,y4,Z1,Z2,D_avg_xl,D_avg_xr,r_dose,z_dose(-1),da,db as Double
 		  Dim z_l,z_r, min, min_index,rvalue,temp,z_dd as Double
 		  Dim x_index, y_index, z_index(-1),i as integer
 		  Dim z_plane as Boolean
@@ -1426,7 +1426,6 @@ Protected Module Globals
 		  
 		  
 		  
-		  total=0
 		  for i=0 to UBound(z_index)
 		    if x>=x_l and x<=x_r and y<=y_b and y>=y_t then
 		      x_index=Floor((x-d.Coord_1_1st_point)/d.Horizontal_Grid)
@@ -1614,42 +1613,64 @@ Protected Module Globals
 		Function RTOG_Image_Interpolate(x as single, y as single, z as single) As single
 		  //-----------------------------------------
 		  // Interpolate image pixel value at x,y,z
+		  // Within one plane, this is four point interpolation
 		  // Return Pixel value or -1000 if outside range
+		  //
+		  //  D1-----------D2
+		  //    ----p(x,y)----
+		  //  D3-----------D4
 		  //-----------------------------------------
 		  Dim x_l,x_r,y_t,y_b,D1,D2,D3,D4, x1,x2,x3,x4,y1,y2,y3,y4,Z1,Z2,D_avg_xl,D_avg_xr,r_dose,z_dose(-1),total ,da,db as Double
-		  Dim z_b,z_t, min, min_index,rvalue,temp,z_dd as Double
-		  Dim x_index, y_index, z_index(-1),i as integer
+		  Dim z_b,z_t, min,rvalue,temp,z_dd,OutOfBValue as Double
+		  Dim x_index, y_index, z_index(-1),i,max_index,min_index as integer
 		  //===========================
 		  
+		  OutOfBValue=-1000
+		  
 		  x_l=gVis.xoff_set-gRTOG.Scan(0).Grid_Units_Width/2
-		  x_r=gVis.xoff_set+gRTOG.Scan(0).Grid_Units_Width*gRTOG.Scan(0).Size_of_Dimension1
+		  x_r=x_l+(gRTOG.Scan(0).Grid_Units_Width)*(gRTOG.Scan(0).Size_of_Dimension1)
 		  
 		  y_t = gVis.yoff_set-gRTOG.Scan(0).Grid_Units_Height/2
-		  y_b = gVis.yoff_set+gRTOG.Scan(0).Grid_Units_Height*gRTOG.Scan(0).Size_of_Dimension2
+		  y_b = y_t+(gRTOG.Scan(0).Grid_Units_Height)*(gRTOG.Scan(0).Size_of_Dimension2)
 		  
 		  z_b=gRTOG.Scan(0).Z_Value
 		  z_t=gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value
 		  
 		  if z>z_t or z<z_b Then
-		    Return -1000
+		    Return OutOfBValue
 		  end
 		  
 		  'Use z to find index of image 
 		  temp=(z-gRTOG.Scan(0).Z_Value)/gRTOG.Scan(0).Slice_Thickness
 		  min_index=Floor(temp)
-		  //Update July 2010!!!!
+		  max_index=Ceil(temp)
+		  if max_index>UBound(gRTOG.Scan) Then
+		    max_index=UBound(gRTOG.Scan)
+		  end
 		  
-		  for i=0 to UBound(gRTOG.Scan)-1
-		    if z>=gRTOG.Scan(i).Z_Value and z<=gRTOG.Scan(i+1).Z_Value Then
-		      Redim z_index(1)
-		      ReDim z_dose(1)
-		      z_index(0)=i
-		      z_index(1)=i+1
-		      Exit for i
-		    end
-		  next
 		  
-		  total=0
+		  Redim z_index(0)
+		  Redim z_dose(0)
+		  if  z=gRTOG.Scan(min_index).Z_Value Then
+		    z_index(0)=min_index
+		  elseif z=gRTOG.Scan(max_index).Z_Value Then
+		    z_index(0)=max_index
+		  else
+		    for i=0 to UBound(gRTOG.Scan)-1
+		      if z>=gRTOG.Scan(i).Z_Value and z<=gRTOG.Scan(i+1).Z_Value Then
+		        Redim z_index(1)
+		        ReDim z_dose(1)
+		        z_index(0)=i
+		        z_index(1)=i+1
+		        Exit for i
+		      end
+		    next
+		  end
+		  
+		  
+		  
+		  
+		  
 		  for i=0 to UBound(z_index)
 		    if x>=x_l and x<=x_r and y<=y_b and y>=y_t then
 		      x_index=Floor((x-x_l)/gRTOG.Scan(0).Grid_Units_Width)
@@ -1658,25 +1679,25 @@ Protected Module Globals
 		      if y_index<gRTOG.Scan(0).Size_of_Dimension2 Then
 		        D1=gRTOG.Scan(z_index(i)).voxel(x_index+y_index*(gRTOG.Scan(0).Size_of_Dimension1))
 		      else
-		        D1=0
+		        D1=OutOfBValue
 		      end
 		      
 		      if (x_index+1)<gRTOG.Scan(0).Size_of_Dimension1 and y_index<gRTOG.Scan(0).Size_of_Dimension2  then
 		        D2=gRTOG.Scan(z_index(i)).voxel(x_index+1+y_index*(gRTOG.Scan(0).Size_of_Dimension1))
 		      else
-		        D2=0
+		        D2=OutOfBValue
 		      end
 		      
-		      if (1+y_index)<gRTOG.Scan(0).Size_of_Dimension2 and 1+x_index<gRTOG.Scan(0).Size_of_Dimension1 then
+		      if (1+y_index)<gRTOG.Scan(0).Size_of_Dimension2 and (1+x_index)<gRTOG.Scan(0).Size_of_Dimension1 then
 		        D4=gRTOG.Scan(z_index(i)).voxel(x_index+1+(1+y_index)*(gRTOG.Scan(0).Size_of_Dimension1))
 		      else
-		        D4=0
+		        D4=OutOfBValue
 		      end
 		      
 		      if (1+y_index)<gRTOG.Scan(0).Size_of_Dimension2 then
 		        D3=gRTOG.Scan(z_index(i)).voxel(x_index+(1+y_index)*(gRTOG.Scan(0).Size_of_Dimension1))
 		      else
-		        D3=0
+		        D3=OutOfBValue
 		      end
 		      x1=x_l+x_index*gRTOG.Scan(0).Grid_Units_Width
 		      x2=x_l+(x_index+1)*gRTOG.Scan(0).Grid_Units_Width
@@ -1692,13 +1713,13 @@ Protected Module Globals
 		      D_avg_xr=D4*(y2-y)/(y2-y4)+D2*(1-(y2-y)/(y2-y4))
 		      r_dose=D_avg_xl*(1-(x-x1)/(x2-x1))+D_avg_xr*(x-x1)/(x2-x1)
 		    else
-		      r_dose= 0
+		      r_dose= OutOfBValue
 		    end
 		    z_dose(i)=r_dose
 		  next
 		  
 		  if UBound(z_dose)>0 Then
-		    // Do a wieghted average over the two planes
+		    // Do a wieghted average over the two Z planes
 		    Da=z_dose(0)
 		    Db=z_dose(1)
 		    Z1=gRTOG.Scan(z_index(0)).Z_Value

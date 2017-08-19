@@ -9,7 +9,6 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		  Dim i,k,j,order,RTOG_Contour_Index,z_index,p,px,py as Integer
 		  Dim file as RTOG_Structure_One_Structure
 		  Dim z,x,y as Single
-		  Dim ss as RGBSurface
 		  Dim poly as class_Polygon
 		  
 		  //------------------------------------------------
@@ -19,11 +18,8 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		  gdosxyz.egs_msg.append "Creating Image Map" //Commented out by William Davis to avoid crash due to exception
 		  
 		  
-		  
 		  for k=0 to ny-1
 		    gdosxyz.egs_msg.append "Creating Image Map "+Format(k/ny,"#") //Commented out by William Davis to avoid crash due to exception
-		    
-		    
 		    z=z_min+Del_Z/2+Del_z*k
 		    imagemask(k)=New Picture(nx,nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		    imagemask(k).Graphics.Useoldrenderer=true

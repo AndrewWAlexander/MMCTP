@@ -194,6 +194,10 @@ Inherits Canvas
 		  end
 		  
 		  
+		  Image_Value=Format(RTOG_Image_Interpolate(mouse_xcm,mouse_ycm,mouse_zcm),"-#")
+		  
+		  
+		  
 		  if Keyboard.AsyncKeyDown(49) then'Pan
 		    Return True
 		    
@@ -1001,7 +1005,6 @@ Inherits Canvas
 		  Dim dose_data_index,x1,x2,y1,y2,i, j,texth,isospace,isoone As Integer
 		  Dim hot_p,cold_p As Single
 		  Dim data as RTOG_Dose_Plane
-		  Dim tmpsurf as RGBSurface
 		  dim tmpint,startx,starty,real_sizex,real_sizey,tran as integer
 		  Dim gg as Graphics
 		  //==========================
@@ -1625,9 +1628,9 @@ Inherits Canvas
 		            for j=0 to dose.Size_of_Dimension2-1
 		              tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
 		              if Window_Treatment.colour_wash=2 then
-		                Pic_Dose.Graphics.Pixel(j,i)=gvis.colour_map_jet(tmpint)
+		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		              else
-		                Pic_Dose.Graphics.Pixel(j,i)=gvis.colour_map_hot(tmpint)
+		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_hot(tmpint)
 		              end
 		            next
 		          next
@@ -1696,7 +1699,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim a as integer
 		  //-------------------------------------------
 		  
@@ -1715,7 +1717,7 @@ Inherits Canvas
 		      pstrip.Graphics.DrawPicture gvis.scans(a),0,-canvas_cor
 		    end
 		    '//add drawing organ transparrently draw it with the shift....
-		    pstriprgb=pstrip.RGBSurface
+		    //pstriprgb=pstrip.RGBSurface
 		    Pic_Image.Graphics.DrawPicture pstrip,0,UBound(gvis.scans)-a
 		  next
 		End Sub
@@ -1729,7 +1731,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------//
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim gg as Graphics
 		  dim b,a as Integer
 		  '======================================
@@ -1749,9 +1750,9 @@ Inherits Canvas
 		    if gVis.scansok(a) Then
 		      pstrip.Graphics.DrawPicture gvis.scans(a),-canvas_sag,0
 		    end
-		    pstriprgb=pstrip.RGBSurface
+		    //pstriprgb=pstrip.RGBSurface
 		    for b=0 to gvis.ny-1
-		      Pic_Image.RGBSurface.Pixel(b,UBound(gvis.scans)-a)=pstriprgb.Pixel(0,b)
+		      Pic_Image.RGBSurface.Pixel(b,UBound(gvis.scans)-a)=pstrip.RGBSurface.Pixel(0,b)
 		    next
 		  next
 		End Sub
@@ -1865,7 +1866,6 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------
 		  dim pstrip as picture
-		  dim pstriprgb as RGBSurface
 		  Dim a as integer
 		  //-------------------------------------------
 		  
@@ -1946,8 +1946,12 @@ Inherits Canvas
 		    py.rotation =-90/57.2958 //45 Degrees in radians
 		    py.x=gvis.ny/2
 		    py.y=(sagbuffer.Width)/2
+		    Try
+		      Pic_Structure=New Picture(gvis.ny,gvis.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
+		    Catch e as IOException
+		      Errors.Append "Error within Make Strucutre Sagittal : "+e.Reason
+		    end
 		    
-		    Pic_Structure=New Picture(gvis.ny,gvis.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		    Pic_Structure.Graphics.UseOldRenderer=True
 		    Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		    if gvis.nz Mod 2=0 then
@@ -2082,7 +2086,11 @@ Inherits Canvas
 		  
 		  
 		  if me.Width>0 and me.Height>0 then
-		    Display=new Picture(me.Width,me.Height,32)
+		    Try
+		      Display=new Picture(me.Width,me.Height,32)
+		    Catch e as IOException
+		      Errors.Append "Error within RePaint : "+e.Reason
+		    end
 		    gg=Display.Graphics
 		    Display.Graphics.ForeColor=bg
 		    Display.Graphics.FillRect 0,0,me.Width,me.Height
@@ -2110,7 +2118,7 @@ Inherits Canvas
 		    if  Plan_Index >-1 and UBound(gRTOG.Plan) >= Plan_Index and Window_Treatment.dose_index>-1  then // removed By A Alexander Feb/2013 don't think this is needed "or Window_Treatment.BevelButton_DosePaint_on.value"
 		      if Window_Treatment.dose_index<= UBound(gRTOG.Plan(Plan_Index).Dose)  then //removed or Window_Treatment.BevelButton_DosePaint_on.value
 		        TheDose=gRTOG.Plan(plan_index).Dose(Window_Treatment.dose_index)
-		        Display.Graphics.drawstring "Dose ("+Format(mouse_xcm,"-#.##")+", "+Format(mouse_ycm,"-#.##")+", "+Format(mouse_zcm,"-#.##") +") : "+Dose_Value+" "+TheDose.Dose_Units+ " "+Dose_Error+" %", 10,72
+		        Display.Graphics.drawstring "Dose ("+Format(mouse_xcm,"-#.##")+", "+Format(mouse_ycm,"-#.##")+", "+Format(mouse_zcm,"-#.##") +") : "+Dose_Value+" "+TheDose.Dose_Units+ " "+Dose_Error+" %", 10,84
 		        
 		        if Val(Format(TheDose.dmax,"-#.###"))=0 Then
 		          maxdose=Format(TheDose.dmax,"-#.###e")
@@ -2124,8 +2132,8 @@ Inherits Canvas
 		          mindose=Format(TheDose.dmin,"-#.####")
 		        end
 		        
-		        Display.Graphics.drawstring "Max Dose : "+maxdose+" "+TheDose.Dose_Units,10,84
-		        Display.Graphics.drawstring "Min Dose : "+mindose+" "+TheDose.Dose_Units, 10,96
+		        Display.Graphics.drawstring "Max Dose : "+maxdose+" "+TheDose.Dose_Units,10,96
+		        Display.Graphics.drawstring "Min Dose : "+mindose+" "+TheDose.Dose_Units, 10,108
 		      end
 		    end
 		    
@@ -2208,6 +2216,10 @@ Inherits Canvas
 		    Display.Graphics.FillOval mouse_xpixel,mouse_ypixel,1,1
 		    me.Refresh(False)
 		  end
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -2432,15 +2444,15 @@ Inherits Canvas
 		          pixx=round((Isox/gvis.pixel_resolution)*canvas_scale)+buffer_offx
 		          pixy=round((Isoy/gvis.pixel_resolution)*canvas_scale)+buffer_offy
 		          if pixx>2 and pixy>2 and pixx<=(Display.Width-2) and pixy<=(Display.Height-2) Then
-		            Display.Graphics.Pixel (pixx-2,pixy-2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx,pixy) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-1,pixy+1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+1,pixy+1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-2,pixy+2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+2,pixy+2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel (pixx-2,pixy-2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx,pixy) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-1,pixy+1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+1,pixy+1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-2,pixy+2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+2,pixy+2) = RGB(255,0,0)
 		          end
 		        end if
 		      end
@@ -2530,9 +2542,10 @@ Inherits Canvas
 		  //----------------Draw Legend
 		  Display.Graphics.foreColor=&c00FFFF
 		  Display.Graphics.textSize=10
-		  Display.Graphics.drawstring "Z ("+str(canvas_slice+1)+"/"+str(UBound(gvis.scans)+1)+") : "+Format(gRTOG.Scan(canvas_slice).Z_Value,"-#.##")+ " cm", 10,36
+		  Display.Graphics.drawstring "Z ("+str(canvas_slice+1)+"/"+str(UBound(gvis.scans)+1)+") : "+Format(gRTOG.Scan(canvas_slice).Z_Value,"-#.###")+ " cm", 10,36
 		  Display.Graphics.drawstring "X ("+Format((mouse_xcm-gVis.xoff_set)/gvis.scale_width+1,"-#")+"/"+str(gvis.nx)+") : "+format(mouse_xcm,"-##.##") + " cm ", 10,48
 		  Display.Graphics.drawstring "Y ("+Format((mouse_ycm-gVis.yoff_set)/gvis.scale_height+1,"-#")+"/"+str(gvis.ny)+") :"+format(mouse_ycm,"-##.##") + " cm" , 10,60
+		  Display.Graphics.drawstring "Pixel Value "+Image_Value, 10,72
 		  
 		  
 		  if gRTOG.PatientPosition="HFS" Then
@@ -2979,7 +2992,7 @@ Inherits Canvas
 		          pixy=round(((gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value-isoz+gVis.scale_thickness/2)/gvis.pixel_resolution)*canvas_scale)+buffer_offy
 		          if (pixx-2) >0 and (pixx+2)<Display.Width then
 		            if (pixy-2) >0 and (pixy+2)<Display.Height then
-		              Display.Graphics.Pixel(pixx-2,pixy-2) = RGB(255,0,0)
+		              Display.RGBSurface.Pixel(pixx-2,pixy-2) = RGB(255,0,0)
 		              gg.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
 		              gg.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
 		              gg.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
@@ -3284,6 +3297,10 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Image_Value As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		initial_WL As Integer
 	#tag EndProperty
 
@@ -3566,6 +3583,12 @@ Inherits Canvas
 			Visible=true
 			Group="Appearance"
 			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Image_Value"
+			Group="Behavior"
+			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty

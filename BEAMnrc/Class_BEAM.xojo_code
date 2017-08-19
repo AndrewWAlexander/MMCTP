@@ -2956,6 +2956,11 @@ Protected Class Class_BEAM
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="egs_BEAMnrc_Source_Phsp_name"
+			Group="Behavior"
+			Type="string"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="egs_BEAMnrc_started"
 			Group="Behavior"
 			InitialValue="0"

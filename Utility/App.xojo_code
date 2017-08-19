@@ -103,7 +103,7 @@ Inherits Application
 		  
 		  AutoQuit=False
 		  
-		  if TargetWin32 then
+		  if TargetWindows then
 		    local_endline=EndOfLine.Windows
 		    App.MDIWindow.Height=720
 		    App.MDIWindow.Width=1200
@@ -125,12 +125,24 @@ Inherits Application
 		  if MMCTP_Read_License Then
 		    Window_Licence.Show
 		  else
-		    MMCTP_Open
+		    MMCTP_Open_Application
 		  end
 		  
 		  
 		  BackColour=rgb(200,200,200)
 		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Function UnhandledException(error As RuntimeException) As Boolean
+		  If error isa OutOfBoundsException Then
+		    MsgBox("An OutOfBounds Exception has occurred")
+		  elseif error isa OutOfMemoryException Then
+		    MsgBox("An OutOf Memory Exception has occurred")
+		  else
+		    MsgBox("An error has occured : "+error.Reason)
+		  end
+		End Function
 	#tag EndEvent
 
 
@@ -511,7 +523,6 @@ Inherits Application
 			gg=gRTOG.Add_Plan
 			Plan_Index=UBound(gRTOG.Plan)
 			if gRTOG.Plan(Plan_Index).Import_DICOM_Plan(dd.RT_Plan(0),cdbl(NthField(gRTOG.DICOM_ImageOrientationPatient,"\",1)),cdbl(NthField(gRTOG.DICOM_ImageOrientationPatient,"\",5)),  dd ) Then
-			
 			gRTOG.Plan(Plan_Index).Write_McGill_Plan(gRTOG.path)
 			Window_Treatment.Window_Update_Plan()
 			end
@@ -1061,8 +1072,12 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub MMCTP_Open()
+		Sub MMCTP_Open_Application()
 		  // Open MMCTP Settings
+		  
+		  if MMCTP_Open Then
+		    Return
+		  end
 		  
 		  gShells = new Class_Shells
 		  gShells.Read_login
@@ -1086,11 +1101,7 @@ Inherits Application
 		  
 		  
 		  
-		  gProfiles=new Class_Profiles_All
-		  gProfiles.Read_All_Profiles(gPref.Commission_fi)
 		  
-		  gOutput=new Class_OutPut
-		  gOutput.Read_All_Tables
 		  
 		  gDVH=new Thread_DVH
 		  
@@ -1109,9 +1120,17 @@ Inherits Application
 		  MMCTP_ReadConfig
 		  MMCTP_Check_Version
 		  
+		  
+		  gOutput=new Class_OutPut
+		  gProfiles=new Class_Profiles_All
+		  if gPref.McGillRT_Profile_Skip=False Then
+		    gOutput.Read_All_Tables
+		    gProfiles.Read_All_Profiles(gPref.Commission_fi)
+		  end
+		  
 		  Window_OpenPatient.Show
 		  
-		  
+		  MMCTP_Open=True
 		End Sub
 	#tag EndMethod
 
@@ -1464,6 +1483,10 @@ Inherits Application
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		MMCTP_Open As boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Previous_Version As String
 	#tag EndProperty
 
@@ -1569,6 +1592,12 @@ Inherits Application
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MMCTP_Open"
+			Group="Behavior"
+			InitialValue="false"
+			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Previous_Version"

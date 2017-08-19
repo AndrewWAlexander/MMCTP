@@ -730,6 +730,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Number test hist"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -764,6 +765,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Minimum # of jobs"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -884,6 +886,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Default Output #"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -961,6 +964,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Default Source Num"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -995,6 +999,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Default # of jobs"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1115,6 +1120,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Selectable      =   False
          TabIndex        =   11
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Average Uncer (%):"
          TextAlign       =   0
          TextColor       =   &c00000000

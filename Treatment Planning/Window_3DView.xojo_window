@@ -1039,7 +1039,7 @@ End
 		Sub Close()
 		  app.which_window_3d=False
 		  
-		  if TargetWin32 Then
+		  if TargetWindows Then
 		    Task_3DViewer.Enabled=False
 		    MsgBox "The 3D viwer on Windows is not stable, please close MMCTP before opening the 3D viewer again."
 		  end

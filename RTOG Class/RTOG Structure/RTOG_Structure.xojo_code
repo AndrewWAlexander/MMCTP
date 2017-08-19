@@ -50,7 +50,7 @@ Protected Class RTOG_Structure
 		  Dim arepoints_b,findwithin,notrealpoint as Boolean
 		  Dim p as Picture
 		  Dim gg as Graphics
-		  Dim tmpsurf as RGBSurface
+		  //Dim tmpsurf as RGBSurface
 		  //--------------------------------------------------------
 		  
 		  
@@ -108,11 +108,9 @@ Protected Class RTOG_Structure
 		    
 		    
 		    if arepoints_b Then
-		      tmpsurf=p.RGBSurface
-		      
 		      for a=0 to gg.Width
 		        for k=0 to gg.Height
-		          v= tmpsurf.Pixel(a,k).Red
+		          v= p.RGBSurface.Pixel(a,k).Red
 		          if v=200 or v=225 Then
 		            file.Axial_Points_X.append a
 		            file.Axial_Points_y.append k
@@ -143,7 +141,6 @@ Protected Class RTOG_Structure
 		  Dim arepoints_b,findwithin,notrealpoint as Boolean
 		  Dim p as Picture
 		  Dim gg as Graphics
-		  Dim tmpsurf as RGBSurface
 		  //--------------------------------------------------------
 		  
 		  
@@ -222,11 +219,10 @@ Protected Class RTOG_Structure
 		    
 		    
 		    if arepoints_b Then
-		      tmpsurf=p.RGBSurface
 		      
 		      for a=x_low to x_high
 		        for k=y_low to y_high
-		          v= tmpsurf.Pixel(a,k).Red
+		          v= p.RGBSurface.Pixel(a,k).Red
 		          if v=200 Then
 		            //Lookup boarder values
 		            findwithin=False

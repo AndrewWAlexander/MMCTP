@@ -3151,7 +3151,12 @@ Protected Class RTOG_Plan
 	#tag Method, Flags = &h0
 		Sub Write_McGill_Plan(gpath as FolderItem)
 		  //---------------------------
-		  // Write the Plan text
+		  // Write the Plan files
+		  // Including:
+		  // Plan text file
+		  // RT Plan file
+		  // RT Dose files
+		  // DV Contraint file
 		  //
 		  //---------------------------
 		  Dim temp as String
@@ -3168,15 +3173,29 @@ Protected Class RTOG_Plan
 		  f=f.Child(temp)
 		  f.CreateAsFolder
 		  Path=f
-		  
-		  
-		  
+		  Write_McGill_Plan_RP
 		  Write_McGill_Beam
 		  for k=0 to UBound(Dose)
 		    Write_McGill_Dose(k)
 		  next
-		  
 		  Write_DV_Contraints_String
+		  
+		  PW_Show=false
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Write_McGill_Plan_RP()
+		  //---------------------------
+		  // Write the Plan text file
+		  //
+		  //---------------------------
+		  Dim temp as String
+		  Dim f as FolderItem
+		  Dim k as Integer
+		  Dim ts as TextOutputStream
+		  //---------------------------
+		  
 		  
 		  f=Path
 		  f=f.Child("RP.dir")
@@ -3201,8 +3220,6 @@ Protected Class RTOG_Plan
 		      ts.Close
 		    end
 		  End if
-		  
-		  PW_Show=false
 		End Sub
 	#tag EndMethod
 
@@ -3224,7 +3241,7 @@ Protected Class RTOG_Plan
 		  Dim poly as class_Polygon
 		  Dim temp_file,temp_line, pnt_file, line,x_line_temp,x_line_pnt,endline,name as String
 		  Dim ts as TextOutputStream
-		  Dim tmpsurf as RGBSurface
+		  //Dim tmpsurf as RGBSurface
 		  //---------------------------------------------
 		  
 		  
@@ -3287,9 +3304,7 @@ Protected Class RTOG_Plan
 		        Window_Prescription.ProgressBar_Struc.Refresh
 		        
 		        tmpimage=New Picture(Structure_Dose(i).Voxel_REs,Structure_Dose(i).Voxel_REs,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        tmpsurf=tmpimage.RGBSurface
-		        
-		        
+		        //tmpsurf=tmpimage.RGBSurface
 		        
 		        cmz=gRTOG.Scan(n).Z_Value  //centerofthezslice
 		        
@@ -3331,7 +3346,7 @@ Protected Class RTOG_Plan
 		          x_line_temp=""
 		          
 		          for ii=0 to Structure_Dose(i).Voxel_REs-1
-		            if tmpsurf.Pixel(ii,jj).red=255 then
+		            if tmpimage.RGBSurface.Pixel(ii,jj).red=255 then
 		              Structure_Dose(i).Num_Points=Structure_Dose(i).Num_Points+1
 		              cmx=  (ii)*Structure_Dose(i).Voxel_Size_x+gVis.xoff_set
 		              cmy=  (jj)*Structure_Dose(i).Voxel_Size_y+gVis.yoff_set

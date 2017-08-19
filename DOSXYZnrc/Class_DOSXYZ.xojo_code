@@ -589,7 +589,8 @@ Protected Class Class_DOSXYZ
 		      one_file.ssd_dbs=val(NthField(temp,",",6))
 		      one_file.z_dbs=val(NthField(temp,",",7))
 		      one_file.e_split=val(NthField(temp,",",8))
-		      one_file.i_muidx_out=val(NthField(temp,",",9))
+		      one_file.i_muidx_out=val(NthField(temp,",",9))    
+		      one_file.calflag=val(NthField(temp,",",10))
 		    end
 		    
 		    ReDim one_file.isox(one_file.nset-1)
@@ -1012,7 +1013,7 @@ Protected Class Class_DOSXYZ
 		    file=file+egsinp.path11+EndOfLine.UNIX
 		    
 		  elseif DOSXYZ_Input(beam).isource=20  Then // : Synchronized phase space source
-		    file=file+Format(egsinp.IQIN,"-#")+", "+Format(DOSXYZ_Input(beam).isource,"#")+",  "+ Format(egsinp.nset,"-#")+", "+Format(DOSXYZ_Input(beam).i_dbs,"#")+ ", "+Format(egsinp.r_dbs,"#")+", "+Format(egsinp.ssd_dbs,"#")+", "+ Format(egsinp.z_dbs,"#")+", "+ Format(egsinp.e_split,"#")+", "+ Format(egsinp.i_muidx_out,"#.#####")+EndOfLine.UNIX
+		    file=file+Format(egsinp.IQIN,"-#")+", "+Format(DOSXYZ_Input(beam).isource,"#")+",  "+ Format(egsinp.nset,"-#")+", "+Format(DOSXYZ_Input(beam).i_dbs,"#")+ ", "+Format(egsinp.r_dbs,"#")+", "+Format(egsinp.ssd_dbs,"#")+", "+ Format(egsinp.z_dbs,"#")+", "+ Format(egsinp.e_split,"#")+", "+ Format(egsinp.i_muidx_out,"#.#####")+", "+ Format(egsinp.calflag,"#")+EndOfLine.UNIX
 		    
 		    for i=0 to (egsinp.nset-1)
 		      file=file+Format(egsinp.isox(i),"-#.########")+", "+Format(egsinp.isoy(i),"-#.########")+", "+Format(egsinp.isoz(i),"-#.########")+", "+Format(egsinp.theta(i),"-#.########")+", "+Format(egsinp.phi(i),"-#.########")+", "+Format(egsinp.phicol(i),"-#.########")+", "+Format(egsinp.dsources(i),"-#.########")+", "+Format(egsinp.muIndex(i),"-#.########")+", "+EndOfLine.UNIX

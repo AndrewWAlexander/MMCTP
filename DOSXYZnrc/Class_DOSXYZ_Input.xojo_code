@@ -21,6 +21,10 @@ Protected Class Class_DOSXYZ_Input
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		calflag As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		DENSITY As single
 	#tag EndProperty
 
@@ -1047,6 +1051,12 @@ Protected Class Class_DOSXYZ_Input
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="i_muidx_out"
+			Group="Behavior"
+			InitialValue="1"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="JL"
 			Group="Behavior"
 			InitialValue="0"
@@ -1249,6 +1259,12 @@ Protected Class Class_DOSXYZ_Input
 			Name="the_pegs_file"
 			Group="Behavior"
 			Type="string"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="the_shared_lib"
+			Group="Behavior"
+			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty

@@ -53,7 +53,7 @@ Begin Window Window_Configurations_Beam_Model
       TextUnit        =   0
       Top             =   77
       Underline       =   False
-      Value           =   3
+      Value           =   1
       Visible         =   True
       Width           =   888
       Begin GroupBox GroupBox_Linac_MC
@@ -1458,6 +1458,83 @@ Begin Window Window_Configurations_Beam_Model
                Value           =   False
                Visible         =   True
                Width           =   135
+            End
+            Begin TextField EditField_MLC_SourceDistance
+               AcceptTabs      =   False
+               Alignment       =   0
+               AutoDeactivate  =   True
+               AutomaticallyCheckSpelling=   False
+               BackColor       =   &cFFFFFF00
+               Bold            =   False
+               Border          =   True
+               CueText         =   ""
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Format          =   ""
+               Height          =   22
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox15"
+               Italic          =   False
+               Left            =   665
+               LimitText       =   0
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Mask            =   ""
+               Password        =   False
+               ReadOnly        =   False
+               Scope           =   0
+               TabIndex        =   12
+               TabPanelIndex   =   2
+               TabStop         =   True
+               Text            =   ""
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   431
+               Underline       =   False
+               UseFocusRing    =   True
+               Visible         =   True
+               Width           =   68
+            End
+            Begin Label Label1
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "GroupBox15"
+               Italic          =   False
+               Left            =   405
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   False
+               LockRight       =   False
+               LockTop         =   False
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   13
+               TabPanelIndex   =   2
+               Text            =   "MLC Source to device distance (cm):"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   432
+               Transparent     =   False
+               Underline       =   False
+               Visible         =   True
+               Width           =   241
             End
          End
          Begin PopupMenu PopupMenu_MLC_All
@@ -2898,7 +2975,7 @@ End
 		  end
 		  
 		  EditField_MLC_Numberofpairs.Text=str(MLC.NumberofLeafPairs)
-		  
+		  EditField_MLC_SourceDistance.Text=Format(MLC.Source_to_Device_Distance,"-#.#####")
 		  EditField_MLC_AirGap.Text=Format(MLC.AbuttingGap,"-#.######")
 		  
 		  if MLC.LeafDirection=1 Then
@@ -3319,6 +3396,16 @@ End
 		    MLC.Parser=1
 		  end
 		  Save_MLC=True
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_MLC_SourceDistance
+	#tag Event
+		Sub TextChange()
+		  if DoNothing=False Then
+		    mlc.Source_to_Device_Distance=val(me.Text)
+		    Save_MLC=True
+		  end
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -469,7 +469,7 @@ Begin Window Window_dose
       LockTop         =   False
       Maximum         =   100
       Scope           =   0
-      TabIndex        =   "12"
+      TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   687
@@ -1094,7 +1094,7 @@ End
 		      
 		      for j=0 to UBound(interpolate_A,1)-1
 		        
-		        pic_showA.Graphics.Pixel(i,j)=HSV(0.666 -interpolate_A(i,j)/maxed*0.6666,1,1)
+		        pic_showA.RGBSurface.Pixel(i,j)=HSV(0.666 -interpolate_A(i,j)/maxed*0.6666,1,1)
 		        
 		        
 		        
@@ -1248,7 +1248,7 @@ End
 		      
 		      for j=0 to UBound(interpolate_B,1)-1
 		        
-		        pic_showB.Graphics.Pixel(i,j)=HSV(0.666 -interpolate_B(i,j)/maxed*0.6666,1,1)
+		        pic_showB.RGBSurface.Pixel(i,j)=HSV(0.666 -interpolate_B(i,j)/maxed*0.6666,1,1)
 		        
 		        
 		        
@@ -1453,7 +1453,7 @@ End
 		          
 		          sumpercentdiff=sumpercentdiff+percentdiff
 		          
-		          pic_product.Graphics.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
+		          pic_product.RGBSurface.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
 		          
 		          
 		          
@@ -1609,18 +1609,18 @@ End
 		              
 		              
 		              percentdiff = gamma1/2
-		              pic_product.Graphics.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
+		              pic_product.RGBSurface.Pixel(i,j)=HSV(0.666 - percentdiff*0.6666,1,1)
 		              
 		              
 		              
 		              //else
 		              
-		              //pic_product.Graphics.Pixel(i,j)=HSV(0,1,1)
+		              //pic_product.RGBSurface.Pixel(i,j)=HSV(0,1,1)
 		              
 		              
 		            elseif gamma1 >2 then
 		              
-		              pic_product.Graphics.Pixel(i,j)=HSV(0,1,1)
+		              pic_product.RGBSurface.Pixel(i,j)=HSV(0,1,1)
 		              
 		              
 		              

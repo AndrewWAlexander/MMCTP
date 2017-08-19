@@ -1,137 +1,6 @@
 #tag Class
 Protected Class Class_DICOM_File
 	#tag Method, Flags = &h0
-		Function Header_Determine_Endian() As Boolean
-		  //============================================================
-		  // Method to determine the endian status of a DICOM file
-		  //============================================================
-		  Dim thisbyte, i as integer
-		  Dim thisstring as string
-		  Dim thisstream as binaryStream
-		  Dim valid, gotEndian as boolean
-		  Dim defaultLittleEndian as Boolean
-		  Dim temp as String
-		  //============================================================
-		  
-		  bytePos=0
-		  ReDim Elements(-1)
-		  TS_Implicit=False
-		  
-		  thismemblock.littleEndian=false // assume bigEndian
-		  defaultLittleEndian = false // this property saves the original endian value, since it will be changed later, and it will have to be changed back
-		  
-		  
-		  //1st determine the endian status and if we are dealing with a real DICOM file
-		  temp= thismemblock.stringValue(128, 4)
-		  if temp <> "DICM" then // if it does not have the standard DICOM structure
-		    if thismemblock.stringValue(0, 4) = "DICM" then // if the first 128 empty bytes were omitted but it has the DICM
-		      bytePos = 4 // start at the beginning
-		      valid = true // it is a valid DICOM file
-		    elseif Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0002" or _
-		      Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0008" or _
-		      Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0004" then
-		      // if the group information starts at the beginning
-		      if val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) >= 0 and _
-		        val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) <= &hffff then
-		        // and the element information follows right after
-		        bytePos = 0
-		        // start at the beginning
-		        valid = true // it is a valid DICOM file
-		      else
-		        valid = false // it is not a valid DICOM file
-		        //msgBox " is not a valid DICOM file."
-		        Return False
-		      end if
-		    else
-		      thismemblock.littleEndian=true // try on big endian
-		      if (Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0002" or _
-		        Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0008" or _
-		        Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0004") and _
-		        (val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) >= 0 and _
-		        val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) <= &hffff) then
-		        // if the group information starts at the beginning and the element information follows right after
-		        bytePos = 0
-		        // start at the beginning
-		        valid = true // it is a valid DICOM file
-		      else
-		        valid = false // it is not a valid DICOM file
-		        //msgBox " is not a valid DICOM file."
-		        Return False
-		      end if
-		    end if
-		  else
-		    bytePos = 132
-		    valid = true // it is a valid DICOM file
-		  end if
-		  
-		  
-		  thismemblock.littleEndian = true // group 2 is always in little endian
-		  do until thismemblock.byte(bytePos+1)> 2 or thismemblock.byte(bytePos) > 2
-		    Header_Read_Whole(bytePos+1)
-		  loop
-		  
-		  
-		  thismemblock.littleEndian = false // assume big endian for now
-		  if (thismemblock.byte(bytePos + 1) = 8 or thismemblock.byte(bytePos + 1) = 4) and thismemblock.byte(bytePos + 2) >= 0 then
-		    // if in big endian it found the group number to be 4 or 8, it must be big endian
-		    thismemblock.littleEndian = false
-		    defaultLittleEndian = false
-		    gotEndian = true // we now have the proper endian value
-		  else // if it was not read properly in big endian, try little endian
-		    thismemblock.littleEndian = true
-		    defaultLittleEndian = true
-		    gotEndian = false // we still are not sure of the endian value
-		  end if
-		  
-		  if gotEndian = false then // if we still do not have the endian value
-		    if (thismemblock.byte(bytePos) = 8 or thismemblock.byte(bytePos) = 4) and _
-		      thismemblock.byte(bytePos + 2) >= 0 then
-		      // if in little endian it found the group  number to be 4 or 8, it must be little endian
-		      thismemblock.littleEndian = true
-		      defaultLittleEndian = true
-		      gotEndian = true // we now have the proper endian value
-		    else // if it was not read properly in big or little endian, there must be a problem
-		      gotEndian = false
-		    end if
-		  end if
-		  
-		  if gotEndian = false then // if we still do not have the endian value
-		    i = -1
-		    do
-		      i = i + 1
-		    loop until thismemblock.stringValue(i,17) = "1.2.840.10008.1.2" or Header_formatHex(thisMemblock.byte(i + 1)) + Header_formatHex(thismemblock.byte(i)) = "0008"
-		    // search for this string, which tells if it is big or little endian
-		    // if it gets to group 0008, it has gone too far, and the endian value is not in the file
-		    if thismemblock.stringValue(i, 17) = "1.2.840.10008.1.2" then
-		      // if it found the endian value
-		      if thismemblock.stringValue(i + 18, 1) = "." then
-		        if thismemblock.stringValue(i + 19, 1) = "1" then
-		          thismemblock.littleEndian = true
-		          defaultLittleEndian = true
-		        else
-		          thismemblock.littleEndian = false
-		          defaultLittleEndian = false
-		        end if
-		      else // if there is no period
-		        thismemblock.littleEndian = true
-		        defaultLittleEndian = true
-		      end if
-		    else
-		      valid = false
-		      //msgBox " is not a valid DICOM file."
-		      Return False
-		    end if
-		  end if
-		  
-		  // by now, either we have the proper endian value or the file is not valid
-		  thismemblock.littleEndian = defaultLittleEndian
-		  
-		  
-		  Return valid
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function Header_Determine_TransferSYNTAX() As Boolean
 		  //============================================================
 		  // Method to determine the transfer syntax of the DICOM file within the header infromation
@@ -150,12 +19,14 @@ Protected Class Class_DICOM_File
 		  
 		  if UBound(Elements)=-1 Then // There is no TS record, assume data is Explicit
 		    TS_Implicit=False
-		    Return True
+		    Return False
 		  end
 		  
 		  
 		  for i=0 to UBound(Elements)
-		    if Elements(i).Tag_a="0002" and Elements(i).Tag_b="0010" Then
+		    if Elements(i).Tag_a="0002" and Elements(i).Tag_b="0000" Then
+		      //bytePos=val(Elements(i).Value)+Elements(i).byte_position+16
+		    elseif Elements(i).Tag_a="0002" and Elements(i).Tag_b="0010" Then
 		      if Elements(i).Value="1.2.840.10008.1.2" Then
 		        TS_Implicit=True
 		        Return True
@@ -192,8 +63,10 @@ Protected Class Class_DICOM_File
 		  ww.Listbox_DICOM.Heading(4)="Info"
 		  ww.Listbox_DICOM.Heading(5)="Value"
 		  ww.Listbox_DICOM.Heading(6)="Byte Position"
-		  ww.Listbox_DICOM.Heading(7)="Byte Length"
-		  ww.Listbox_DICOM.ColumnWidths="7%,8%,7%,8%,20%,35%,7%,8%"
+		  ww.Listbox_DICOM.Heading(7)="Value Byte Length"
+		  ww.Listbox_DICOM.Heading(8)="Element Length"
+		  
+		  ww.Listbox_DICOM.ColumnWidths="7%,8%,7%,8%,20%,35%,7%,8%,8%"
 		  for i=0 to UBound(Elements)
 		    ww.Listbox_DICOM.AddRow Elements(i).Tag_a
 		    ww.Listbox_DICOM.Cell(i,1)=Elements(i).Tag_b
@@ -204,6 +77,8 @@ Protected Class Class_DICOM_File
 		    ww.Listbox_DICOM.CellType(i,5)=3
 		    ww.Listbox_DICOM.Cell(i,6)=str(Elements(i).byte_position)
 		    ww.Listbox_DICOM.Cell(i,7)=str(Elements(i).Value_Length)
+		    ww.Listbox_DICOM.Cell(i,8)=str(Elements(i).Element_Length)
+		    
 		  next
 		  ww.Title="DICOM file : "+file.Name
 		End Sub
@@ -228,6 +103,275 @@ Protected Class Class_DICOM_File
 		  end if
 		  
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Header_Meta_Information() As Boolean
+		  //============================================================
+		  // Method to determine the endian status of a DICOM file
+		  // Except for the 128 byte preamble and the 4 byte prefix, the File Meta Information shall be encoded using the Explicit VR Little Endian​
+		  // Transfer Syntax (UID=1.2.840.10008.1.2.1)
+		  // 
+		  // . The Unknown (UN) Value​ Representation shall not be used in the File Meta Information. 
+		  // For compatibility with future versions of this Standard, any Tag​ (0002,xxxx) not defined in Table 7.1-1 
+		  // shall be ignored.​ Values of all Tags (0002,xxxx) are reserved for use by this Standard and later versions of DICOM. 
+		  // Data Elements with a group of​ 0002 shall not be used in data sets other than within the File Meta Information.​
+		  //
+		  //============================================================
+		  Dim thisbyte, i as integer
+		  Dim thisstring as string
+		  Dim thisstream as binaryStream
+		  Dim valid, gotEndian as boolean
+		  Dim defaultLittleEndian as Boolean
+		  Dim temp as String
+		  //============================================================
+		  
+		  bytePos=0
+		  ReDim Elements(-1)
+		  TS_Implicit=False
+		  
+		  thismemblock.littleEndian=false // assume bigEndian
+		  defaultLittleEndian = false // this property saves the original endian value, since it will be changed later, and it will have to be changed back
+		  
+		  
+		  //1st determine the endian status and if we are dealing with a real DICOM file
+		  temp= thismemblock.stringValue(128, 4)
+		  if temp <> "DICM" then // if it does not have the standard DICOM structure
+		    if thismemblock.stringValue(0, 4) = "DICM" then // if the first 128 empty bytes were omitted but it has the DICM
+		      bytePos = 4 // start at the beginning
+		      valid = true // it is a valid DICOM file
+		    elseif Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0002" or _
+		      Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0008" or _
+		      Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0004" then
+		      // if the group information starts at the beginning
+		      if val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) >= 0 and _
+		        val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) <= &hffff then
+		        // and the element information follows right after
+		        bytePos = 0
+		        // start at the beginning
+		        valid = true // it is a valid DICOM file
+		      else
+		        valid = false // it is not a valid DICOM file
+		        Return False
+		      end if
+		    else
+		      thismemblock.littleEndian=true // try on big endian
+		      if (Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0002" or _
+		        Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0008" or _
+		        Header_formatHex(thisMemblock.byte(1)) + Header_formatHex(thismemblock.byte(0)) = "0004") and _
+		        (val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) >= 0 and _
+		        val("&h" + Header_formatHex(thisMemblock.byte(3)) + Header_formatHex(thismemblock.byte(2))) <= &hffff) then
+		        // if the group information starts at the beginning and the element information follows right after
+		        bytePos = 0
+		        // start at the beginning
+		        valid = true // it is a valid DICOM file
+		      else
+		        valid = false // it is not a valid DICOM file
+		        Return False
+		      end if
+		    end if
+		  else
+		    bytePos = 132
+		    valid = true // it is a valid DICOM file
+		  end if
+		  
+		  
+		  thismemblock.littleEndian = true // group 2 is always in little endian
+		  do until thismemblock.byte(bytePos+1)>2 or thismemblock.byte(bytePos) >2
+		    Header_Read_Elements(bytePos+1)
+		    if bytePos=thismemblock.Size Then
+		      Exit
+		    end
+		  loop
+		  
+		  
+		  
+		  if Header_Determine_TransferSYNTAX Then
+		    // Transfer Syntax known, endian status known
+		    
+		  else
+		    // Unknown DICOM file, trail and error to find what type of file this is
+		    thismemblock.littleEndian = false // assume big endian for now
+		    if (bytePos+1) < thismemblock.Size  Then
+		      if (thismemblock.byte(bytePos + 1) = 8 or thismemblock.byte(bytePos + 1) = 4) and thismemblock.byte(bytePos + 2) >= 0 then
+		        // if in big endian it found the group number to be 4 or 8, it must be big endian
+		        thismemblock.littleEndian = false
+		        defaultLittleEndian = false
+		        gotEndian = true // we now have the proper endian value
+		      else // if it was not read properly in big endian, try little endian
+		        thismemblock.littleEndian = true
+		        defaultLittleEndian = true
+		        gotEndian = false // we still are not sure of the endian value
+		      end if
+		      
+		      if gotEndian = false then // if we still do not have the endian value
+		        if (thismemblock.byte(bytePos) = 8 or thismemblock.byte(bytePos) = 4) and _
+		          thismemblock.byte(bytePos + 2) >= 0 then
+		          // if in little endian it found the group  number to be 4 or 8, it must be little endian
+		          thismemblock.littleEndian = true
+		          defaultLittleEndian = true
+		          gotEndian = true // we now have the proper endian value
+		        else // if it was not read properly in big or little endian, there must be a problem
+		          gotEndian = false
+		        end if
+		      end if
+		    end
+		    
+		    
+		    if gotEndian = false then // if we still do not have the endian value
+		      i = -1
+		      do
+		        i = i + 1
+		      loop until thismemblock.stringValue(i,17) = "1.2.840.10008.1.2" or Header_formatHex(thisMemblock.byte(i + 1)) + Header_formatHex(thismemblock.byte(i)) = "0008"
+		      // search for this string, which tells if it is big or little endian
+		      // if it gets to group 0008, it has gone too far, and the endian value is not in the file
+		      if thismemblock.stringValue(i, 17) = "1.2.840.10008.1.2" then
+		        // if it found the endian value
+		        if thismemblock.stringValue(i + 18, 1) = "." then
+		          if thismemblock.stringValue(i + 19, 1) = "1" then
+		            thismemblock.littleEndian = true
+		            defaultLittleEndian = true
+		          else
+		            thismemblock.littleEndian = false
+		            defaultLittleEndian = false
+		          end if
+		        else // if there is no period
+		          thismemblock.littleEndian = true
+		          defaultLittleEndian = true
+		        end if
+		      else
+		        valid = false
+		        //msgBox " is not a valid DICOM file."
+		        Return False
+		      end if
+		    end if
+		    
+		    // by now, either we have the proper endian value or the file is not valid
+		    thismemblock.littleEndian = defaultLittleEndian
+		  end
+		  
+		  Return valid
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Header_Read_Elements(stop as integer)
+		  //==============================
+		  // Populate Array of Elements
+		  // Read in one Element at a time
+		  //
+		  //==============================
+		  Dim i, j as integer
+		  Dim ss,len_sa,len_sb as Int16
+		  Dim tt as Boolean
+		  //===============================
+		  
+		  
+		  
+		  do // Loop over whole file
+		    
+		    for i=UBound(sq_length) DownTo 0 // Determine if we are in sequeneces
+		      if UBound(sq_length)>-1 Then // If we are within sequences
+		        if sq_length(UBound(sq_length)) <> &hffffffff then // if the length has been specified
+		          if bytePos >= sq(UBound(sq_length)) + sq_length(UBound(sq_length)) Then
+		            // loop until the new position is equal to the beginning of the sequence plus the length of the sequence
+		            One_Element= new Class_DICOM_Element
+		            Elements.Append One_Element
+		            One_Element.Value= "END OF SEQUENCE"
+		            One_Element.VM=(numSequence)
+		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
+		            sq_length.Remove UBound(sq_length)
+		            sq.Remove UBound(sq)
+		            One_Element.byte_position=bytePos
+		          end
+		          
+		        else // If length is not specified
+		          //for bytePos=bytePos to thismemblock.Size -2
+		          
+		          len_sa=thismemblock.short(bytePos)
+		          len_sb=thismemblock.short(bytePos+2)
+		          
+		          // If the length is unspecified
+		          if (len_sa= &hfffffffe and len_sb = &hffffe0dd) Then
+		            // or _
+		            //len_sa = &hfffe and len_sb = &he0dd  then // if the length is unspecified
+		            One_Element= new Class_DICOM_Element
+		            Elements.Append One_Element
+		            One_Element.Value= "END OF SEQUENCE"
+		            One_Element.VM=(numSequence)
+		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
+		            bytePos = bytePos + 8
+		            sq_length.Remove UBound(sq_length)
+		            sq.Remove UBound(sq)
+		            One_Element.byte_position=bytePos
+		            //Exit for bytePos
+		          end
+		          //next
+		        end if
+		      end
+		    next
+		    
+		    if bytePos+6>= thismemblock.Size then
+		      exit
+		    end if
+		    
+		    
+		    Header_Read_Element_Tag
+		    tt=Header_Read_Element_VR
+		    if tt=False Then
+		      Header_Read_Element_Find_0008
+		      Exit
+		    end
+		    
+		    Header_Read_Element_Value
+		    One_Element.Element_Length=One_Element.Element_Length+One_Element.Value_Length+One_Element.Header_Length
+		    
+		  loop Until bytePos>= stop
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Header_Read_Element_Find_0008()
+		  //==============================
+		  // Populate Array of Elements
+		  // Read in one Element at a time
+		  //
+		  //==============================
+		  //===============================
+		  Dim i as Integer
+		  
+		  
+		  for i=132 to 400
+		    
+		    bytePos=i
+		    One_Element= new Class_DICOM_Element
+		    // Determine if we will read beyond the MB size
+		    
+		    One_Element.byte_position = bytePos
+		    
+		    if thismemblock.littleEndian then // read the group into the table
+		      One_Element.Tag_a =Header_formatHex(thisMemblock.byte(bytePos + 1)) + Header_formatHex(thismemblock.byte(bytePos))
+		    else
+		      One_Element.Tag_a=Header_formatHex(thisMemblock.byte(bytePos)) + Header_formatHex(thismemblock.byte(bytePos + 1))
+		    end if
+		    bytePos = bytePos + 2
+		    
+		    
+		    if thismemblock.littleEndian then // read the element number
+		      One_Element.Tag_b=Header_formatHex(thisMemblock.byte(bytePos + 1)) + Header_formatHex(thismemblock.byte(bytePos))
+		    else
+		      One_Element.Tag_b=Header_formatHex(thisMemblock.byte(bytePos)) + Header_formatHex(thismemblock.byte(bytePos + 1))
+		    end if
+		    bytePos = bytePos + 2
+		    
+		    
+		    
+		    if One_Element.Tag_a="0008" and One_Element.Tag_b="0005" Then
+		      bytePos = bytePos - 4
+		      Exit
+		    End
+		  Next
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -275,6 +419,8 @@ Protected Class Class_DICOM_File
 		    One_Element.Tag_b=Header_formatHex(thisMemblock.byte(bytePos)) + Header_formatHex(thismemblock.byte(bytePos + 1))
 		  end if
 		  bytePos = bytePos + 2
+		  One_Element.Header_Length=4
+		  
 		End Sub
 	#tag EndMethod
 
@@ -303,36 +449,8 @@ Protected Class Class_DICOM_File
 		    One_Element.Value = "End of Item"
 		    
 		  elseif One_Element.VR = "FL" or One_Element.VR = "FD" then
-		    'if One_Element.Tag_a+One_Element.Tag_b="30060050" Then
-		    '
-		    '//Fix for structure files
-		    'One_Element.VR = "DS"
-		    'valueString=""
-		    'for i=bytePos to thismemblock.Size
-		    'test=chr(thisMemblock.byte(i))
-		    'valueString=valueString+test
-		    '
-		    'if (Header_formatHex(thisMemblock.byte(i + 1)) + Header_formatHex(thismemblock.byte(i)) = "FFFE" and _
-		    'Header_formatHex(thisMemblock.byte(i + 3)) + Header_formatHex(thismemblock.byte(i + 2)) = "E000" and _
-		    'thismemblock.littleEndian) or _
-		    '(Header_formatHex(thisMemblock.byte(i)) + Header_formatHex(thismemblock.byte(i + 1)) = "FFFE" and _
-		    'Header_formatHex(thisMemblock.byte(i + 2)) + Header_formatHex(thismemblock.byte(i + 3)) = "E000" and _
-		    'thismemblock.littleEndian = false) then
-		    'exit
-		    ''elseif countFields(valueString, "\")=val(Elements(UBound(Elements)-1).Value) Then
-		    ''exit
-		    'end
-		    'next
-		    'One_Element.Value=Trim(valueString)
-		    'bytePos= i // these VR's have not been handled
-		    'One_Element.VM = countFields(valueString, "\") // the VM equals the number of fields separated by backslashes
-		    '// END fix for structure files
-		    '
-		    'else
-		    //Break
 		    One_Element.Value = "VR not handled"
 		    bytePos = bytePos + One_Element.Value_length // these VR's have not been handled
-		    //end
 		    
 		  elseif One_Element.VR="SQ" then
 		    One_Element.Value = "Sequence of items:"
@@ -472,35 +590,31 @@ Protected Class Class_DICOM_File
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Header_Read_Element_VR()
+		Function Header_Read_Element_VR() As Boolean
 		  //==============================
-		  // Populate Array of Elements
-		  // Read in one Element at a time
+		  // Populate Elements VR data and element value length
 		  //
 		  //==============================
 		  //===============================
 		  
 		  
-		  
-		  if One_Element.Tag_a="FFFE"  and One_Element.Tag_b="E000" Then
+		  One_Element.Element_Length=0
+		  if One_Element.Tag_a="FFFE"  and ( One_Element.Tag_b="E000" or One_Element.Tag_b="E00D") Then
 		    'There are three special SQ related Data Elements that are not ruled by the VR encoding rules conveyed by the Transfer Syntax
 		    One_Element.Value_length = thismemblock.long(bytePos) // this is the length of this item
 		    bytePos = bytePos + 4
+		    One_Element.Element_Length=One_Element.Element_Length+4
 		    
+		  else // All other Elements
 		    
-		  elseif One_Element.Tag_a="FFFE"  and One_Element.Tag_b="E00D" Then
-		    'There are three special SQ related Data Elements that are not ruled by the VR encoding rules conveyed by the Transfer Syntax
-		    One_Element.Value_length = thismemblock.long(bytePos) // this is the length of this item
-		    bytePos = bytePos + 4
-		    
-		    
-		  else
-		    if TS_Implicit=False Then 
+		    if TS_Implicit=False Then  // Explicit VR loop
 		      
 		      // VR  describe the data type and format of that Data Element's
 		      // read the VR
 		      One_Element.VR = chr(thisMemblock.byte(bytePos)) + chr(thisMemblock.byte(bytePos + 1))
 		      bytePos = bytePos + 2
+		      One_Element.Element_Length=One_Element.Element_Length+2
+		      
 		      if StrComp(One_Element.VR ,"OB",0)=0 or _ // if it is explicit VR and a 4 byte VR
 		        StrComp(One_Element.VR,"OW",0)=0 or _
 		        StrComp(One_Element.VR,"UN",0)=0 or _
@@ -511,10 +625,9 @@ Protected Class Class_DICOM_File
 		        
 		        bytePos = bytePos + 2
 		        // these VR's have an additional 2 bytes after the letters that are not used
-		        
 		        One_Element.Value_length  = thismemblock.long(bytePos) // the next 4 bytes indicate the length of the entire sequence
 		        bytePos = bytePos + 4
-		        
+		        One_Element.Element_Length=One_Element.Element_Length+6
 		        
 		      elseif StrComp(One_Element.VR, "AE",0)=0 or _  // if it is explicit VR and a 2 byte VR
 		        StrComp(One_Element.VR, "AS",0)=0 or _
@@ -543,96 +656,24 @@ Protected Class Class_DICOM_File
 		        One_Element.Value_length = thismemblock.ushort(bytePos)
 		        // all other VR's show the length of the value of the element through a short integer
 		        bytePos = bytePos + 2
-		        
+		        One_Element.Element_Length=One_Element.Element_Length+2
 		      else
-		        //Break
+		        // There is an issue with this DICOM file....
+		        Return False
 		      end 
 		      
 		      
-		      
-		      
-		      
-		      
-		    elseif TS_Implicit Then 
+		    elseif TS_Implicit Then  //
 		      gENotFound=One_Element.Header_PickVRAndinfo
-		      
 		      if bytePos<=(thismemblock.Size-4) Then
 		        One_Element.Value_length=thismemblock.long(bytePos)
 		        bytePos = bytePos + 4
+		        One_Element.Element_Length=One_Element.Element_Length+4
 		      end if
 		    end if
 		  end
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Header_Read_Whole(stop as integer)
-		  //==============================
-		  // Populate Array of Elements
-		  // Read in one Element at a time
-		  //
-		  //==============================
-		  Dim i, j as integer
-		  Dim ss,len_sa,len_sb as Int16
-		  //===============================
-		  
-		  
-		  
-		  do // Loop over whole file
-		    
-		    for i=UBound(sq_length) DownTo 0 // Determine if we are in sequeneces
-		      if UBound(sq_length)>-1 Then // If we are within sequences
-		        if sq_length(UBound(sq_length)) <> &hffffffff then // if the length has been specified
-		          if bytePos >= sq(UBound(sq_length)) + sq_length(UBound(sq_length)) Then
-		            // loop until the new position is equal to the beginning of the sequence plus the length of the sequence
-		            One_Element= new Class_DICOM_Element
-		            Elements.Append One_Element
-		            One_Element.Value= "END OF SEQUENCE"
-		            One_Element.VM=(numSequence)
-		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
-		            sq_length.Remove UBound(sq_length)
-		            sq.Remove UBound(sq)
-		            One_Element.byte_position=bytePos
-		          end
-		          
-		        else // If length is not specified
-		          //for bytePos=bytePos to thismemblock.Size -2
-		          
-		          len_sa=thismemblock.short(bytePos)
-		          len_sb=thismemblock.short(bytePos+2)
-		          
-		          // If the length is unspecified
-		          if (len_sa= &hfffffffe and len_sb = &hffffe0dd) Then
-		            // or _
-		            //len_sa = &hfffe and len_sb = &he0dd  then // if the length is unspecified
-		            One_Element= new Class_DICOM_Element
-		            Elements.Append One_Element
-		            One_Element.Value= "END OF SEQUENCE"
-		            One_Element.VM=(numSequence)
-		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
-		            bytePos = bytePos + 8
-		            sq_length.Remove UBound(sq_length)
-		            sq.Remove UBound(sq)
-		            One_Element.byte_position=bytePos
-		            //Exit for bytePos
-		          end
-		          //next
-		        end if
-		      end
-		    next
-		    
-		    if bytePos+6>= thismemblock.Size then
-		      exit
-		    end if
-		    
-		    
-		    Header_Read_Element_Tag
-		    Header_Read_Element_VR
-		    Header_Read_Element_Value
-		    
-		    
-		  loop Until bytePos>= stop
-		End Sub
+		  Return True
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -673,24 +714,14 @@ Protected Class Class_DICOM_File
 		  numSequence=0
 		  
 		  
-		  if Header_determine_Endian then
-		    if Header_Determine_TransferSYNTAX Then
-		      Header_Read_Whole(thismemblock.Size)
-		      Return True
-		    else
-		      //Count not read syntax
-		      MsgBox("Could not determine transfer syntax status on file : "+f.Name)
-		      Return False
-		    end
+		  if Header_meta_information then
+		    Header_Read_Elements(thismemblock.Size)
+		    Return True
 		  else
 		    //could not read endian
 		    App.Error_Msg.Append ("Could not determine Endian status on file : "+f.Name)
 		    Return False
 		  end
-		  
-		  
-		  
-		  
 		End Function
 	#tag EndMethod
 
@@ -746,6 +777,23 @@ Protected Class Class_DICOM_File
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Update_Item_Length(i_index as Integer)
+		  //-----------------------------------------
+		  // Method to calculate item and sequence length of DICOM files
+		  //------------------------------------------
+		  Dim i,lenght as Integer
+		  Dim j as Boolean
+		  
+		  lenght=0
+		  for i =(i_index+1) to UBound(Elements)
+		    lenght=lenght+Elements(i).Element_Length
+		  Next
+		  Elements(i_index).Sequence_Length=lenght
+		  j=Elements(i_index).Update
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Write_DICOM()
 		  //---------------------------------------------------------
 		  // New format for writing DICOM files
@@ -785,13 +833,13 @@ Protected Class Class_DICOM_File
 		  bb.Write "DICM"
 		  
 		  
-		  PW_Show=true
+		  
 		  PW_StaticText="Writing DICOM file : "+file.Name
 		  PW_Progress=0
 		  PW_Progress_Max=UBound(Elements)
 		  Write_Elements(bb)
 		  bb.Close
-		  PW_Show=false
+		  
 		End Sub
 	#tag EndMethod
 
@@ -807,6 +855,9 @@ Protected Class Class_DICOM_File
 		  Dim i,x,tt as Integer
 		  Dim temp,temp1,tempa,tempb,fname as String
 		  //----------------------------------
+		  
+		  PW_Progress_Max=UBound(Elements)
+		  PW_StaticText="Writing DICOM file : "+file.Name+chr(13)
 		  
 		  for x=0 to UBound(Elements)
 		    PW_Progress=x
@@ -870,12 +921,15 @@ Protected Class Class_DICOM_File
 		        else
 		          bb.WriteInt32 ee.PixelData(i)
 		        end
-		        if i mod 100 = 0 Then
+		        if i mod 25 = 0 Then
 		          PW_Progress=100*i/UBound(ee.PixelData)
 		        end
 		      next
 		      
 		      PW_Progress_Max=UBound(Elements)
+		      PW_Progress=x
+		      PW_StaticText="Writing DICOM file : "+file.Name+chr(13)
+		      
 		      
 		    elseif ee.Tag_a="0028" and ee.Tag_b="0009"   then // Frame Pointer  
 		      // Write frame pointer
