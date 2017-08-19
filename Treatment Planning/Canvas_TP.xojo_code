@@ -1628,9 +1628,9 @@ Inherits Canvas
 		            for j=0 to dose.Size_of_Dimension2-1
 		              tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
 		              if Window_Treatment.colour_wash=2 then
-		                Pic_Dose.Graphics.Pixel(j,i)=gvis.colour_map_jet(tmpint)
+		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		              else
-		                Pic_Dose.Graphics.Pixel(j,i)=gvis.colour_map_hot(tmpint)
+		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_hot(tmpint)
 		              end
 		            next
 		          next
@@ -2003,12 +2003,12 @@ Inherits Canvas
 
 	#tag Method, Flags = &h0
 		Sub ReMake()
-		  'if me.Width>0 and me.Height>0 then
-		  'ReMake_Image
-		  'ReMake_Structure
-		  'ReMake_Dose
-		  'end if
-		  'RePaint
+		  if me.Width>0 and me.Height>0 then
+		    ReMake_Image
+		    ReMake_Structure
+		    ReMake_Dose
+		  end if
+		  RePaint
 		  
 		End Sub
 	#tag EndMethod
@@ -2444,15 +2444,15 @@ Inherits Canvas
 		          pixx=round((Isox/gvis.pixel_resolution)*canvas_scale)+buffer_offx
 		          pixy=round((Isoy/gvis.pixel_resolution)*canvas_scale)+buffer_offy
 		          if pixx>2 and pixy>2 and pixx<=(Display.Width-2) and pixy<=(Display.Height-2) Then
-		            Display.Graphics.Pixel (pixx-2,pixy-2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx,pixy) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-1,pixy+1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+1,pixy+1) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx-2,pixy+2) = RGB(255,0,0)
-		            Display.Graphics.Pixel(pixx+2,pixy+2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel (pixx-2,pixy-2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx,pixy) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-1,pixy+1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+1,pixy+1) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx-2,pixy+2) = RGB(255,0,0)
+		            Display.RGBSurface.Pixel(pixx+2,pixy+2) = RGB(255,0,0)
 		          end
 		        end if
 		      end
@@ -2992,7 +2992,7 @@ Inherits Canvas
 		          pixy=round(((gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value-isoz+gVis.scale_thickness/2)/gvis.pixel_resolution)*canvas_scale)+buffer_offy
 		          if (pixx-2) >0 and (pixx+2)<Display.Width then
 		            if (pixy-2) >0 and (pixy+2)<Display.Height then
-		              Display.Graphics.Pixel(pixx-2,pixy-2) = RGB(255,0,0)
+		              Display.RGBSurface.Pixel(pixx-2,pixy-2) = RGB(255,0,0)
 		              gg.Pixel(pixx+2,pixy-2) = RGB(255,0,0)
 		              gg.Pixel(pixx-1,pixy-1) = RGB(255,0,0)
 		              gg.Pixel(pixx+1,pixy-1) = RGB(255,0,0)
