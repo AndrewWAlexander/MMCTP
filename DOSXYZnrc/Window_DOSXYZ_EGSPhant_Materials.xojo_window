@@ -177,7 +177,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "www.webelements.com"
             TextAlign       =   0
             TextColor       =   &c0003CB00
@@ -303,7 +302,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Material Outside Contour"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -314,7 +312,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   196
+            Width           =   214
          End
          Begin TextField EditField_Clean_density
             AcceptTabs      =   False
@@ -381,8 +379,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   1
-            TabStop         =   True
-            Text            =   "Density Outside Contour\r"
+            Text            =   "Density Outside Contour (g/cc)"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "System"
@@ -392,7 +389,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   188
+            Width           =   214
          End
          Begin PopupMenu PopupMenu_MediumOutside
             AutoDeactivate  =   True
@@ -518,7 +515,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "EGSPhant Name"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -642,7 +638,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Default Pegs file"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -829,7 +824,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "CT Model"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1016,7 +1010,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   3
-         TabStop         =   True
          Text            =   "Medium of region outside phantom "
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1164,7 +1157,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "X min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1199,7 +1191,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "X max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1234,7 +1225,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Y max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1355,7 +1345,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Z min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1476,7 +1465,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Z max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1554,7 +1542,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Z del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1632,7 +1619,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Y del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1710,7 +1696,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "X del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1745,7 +1730,6 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Y min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1903,7 +1887,7 @@ End
 		  Listbox_Manual.Heading(4)="Y to"
 		  Listbox_Manual.Heading(5)="Z from"
 		  Listbox_Manual.Heading(6)="Z to"
-		  Listbox_Manual.Heading(7)="Density"
+		  Listbox_Manual.Heading(7)="Density (g/cc)"
 		  
 		  if egsphant.Del_X>0 Then
 		    egsphant.Nx=Round((gDOSXYZ.EGSPhantSettings.X_Max-gDOSXYZ.EGSPhantSettings.X_min)/gDOSXYZ.EGSPhantSettings.Del_X)
