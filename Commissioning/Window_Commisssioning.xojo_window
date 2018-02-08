@@ -440,7 +440,7 @@ Begin Window Window_Commisssioning
          Bold            =   False
          ButtonStyle     =   "0"
          Cancel          =   False
-         Caption         =   "Export Profile"
+         Caption         =   "Export Profile .txt"
          Default         =   False
          Enabled         =   True
          Height          =   25
@@ -448,7 +448,7 @@ Begin Window Window_Commisssioning
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   1157
+         Left            =   1096
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   False
@@ -464,7 +464,7 @@ Begin Window Window_Commisssioning
          Top             =   808
          Underline       =   False
          Visible         =   True
-         Width           =   111
+         Width           =   172
       End
       Begin GroupBox GroupBox2
          AutoDeactivate  =   True
@@ -546,7 +546,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -667,7 +666,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -702,7 +700,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -823,7 +820,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -858,7 +854,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Graph X Axis"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -968,7 +963,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y (Dose) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1046,7 +1040,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   14
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X (Position (cm)) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1059,6 +1052,37 @@ Begin Window Window_Commisssioning
             Visible         =   True
             Width           =   144
          End
+      End
+      Begin PushButton PushButton_Export_mmc
+         AutoDeactivate  =   True
+         Bold            =   False
+         ButtonStyle     =   "0"
+         Cancel          =   False
+         Caption         =   "Export Profile .mmc"
+         Default         =   False
+         Enabled         =   True
+         Height          =   25
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   1096
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   False
+         Scope           =   0
+         TabIndex        =   13
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   771
+         Underline       =   False
+         Visible         =   True
+         Width           =   172
       End
    End
 End
@@ -2257,6 +2281,76 @@ End
 		  
 		  Catch err As NilObjectException
 		    MsgBox("Nil Object Error within Window Commissioning")
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Export_mmc
+	#tag Event
+		Sub Action()
+		  //-------------------------------------
+		  // Written by Andrew Alexander
+		  // UPDATED: Feb 2018
+		  //
+		  //
+		  //-------------------------------------
+		  Dim file As FolderItem
+		  Dim fileStream as TextOutputStream
+		  dim k,j as Integer
+		  dim i as integer
+		  Dim wantx, wanty, wantz,wante As String
+		  Dim wantvalue As String
+		  Dim d As New Date
+		  //-------------------------------------
+		  
+		  
+		  file=GetSaveFolderItem("plain/text","")
+		  If file<> Nil then
+		    fileStream=file.CreateTextFile
+		    filestream.Writeline "BEGIN_SCAN_DATA"
+		    filestream.Writeline Chr(9)+"FORMAT=CC-Export V1.9"
+		    filestream.Writeline Chr(9)+"FILE_CREATION_DATE="+d.SQLDateTime
+		    filestream.Writeline Chr(9)+"LAST_MODIFIED="+d.SQLDateTime
+		    k=0
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      k=k+1
+		      filestream.Writeline Chr(9)+"BEGIN_SCAN  "+str(k)
+		      filestream.Writeline Chr(9)+Chr(9)+"LINAC="+ Canvas_Graph.Profiles.One_Profile(j).Linac
+		      filestream.Writeline Chr(9)+Chr(9)+"MODALITY="+ Canvas_Graph.Profiles.One_Profile(j).Radiation_Type
+		      filestream.Writeline Chr(9)+Chr(9)+"ENERGY="+ Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_INPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_CROSSPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"DETECTOR="
+		      wantx=""
+		      if Canvas_Graph.Profiles.One_Profile(j).TYPE=1 Then
+		        // 0 = User
+		        // 1 = PDD
+		        // 2 = PROFILE X
+		        // 3 = Porfile Y
+		        wantx="PDD"
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2 Then
+		        wantx="CROSSPLANE_PROFILE"
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3 Then
+		        wantx="INPLANE_PROFILE"
+		      end
+		      filestream.Writeline Chr(9)+Chr(9)+"SCAN_CURVETYPE="+ wantx
+		      filestream.Writeline Chr(9)+Chr(9)+"CORRECTIONS="
+		      filestream.Writeline Chr(9)+Chr(9)+"BEGIN_DATA"
+		      
+		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
+		        wantx = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
+		        wanty = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
+		        wantz = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
+		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.###e")
+		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.###e")
+		        filestream.Writeline Chr(9)+Chr(9)+Chr(9)+wantz+" "+chr(9)+wantvalue
+		      next
+		      filestream.Writeline Chr(9)+Chr(9)+"END_DATA"
+		      filestream.Writeline Chr(9)+"END_SCAN  "+str(k)
+		    next
+		    filestream.Writeline"END_SCAN_DATA"
+		    fileStream.Close
+		  end if
 		End Sub
 	#tag EndEvent
 #tag EndEvents

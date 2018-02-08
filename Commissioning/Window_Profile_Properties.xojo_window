@@ -53,7 +53,7 @@ Begin Window Window_Profile_Properties
       TextUnit        =   0
       Top             =   16
       Underline       =   False
-      Value           =   2
+      Value           =   0
       Visible         =   True
       Width           =   623
       Begin Label StaticText1
@@ -78,7 +78,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Label"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -113,7 +112,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -234,7 +232,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Field Y (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -269,7 +266,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Linac Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -390,7 +386,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Field X (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -468,7 +463,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -690,7 +684,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Depth (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -768,7 +761,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Add-On"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -889,7 +881,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Algorithm"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -967,7 +958,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   21
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Comment"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1045,7 +1035,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   23
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Phantom SSD (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1228,7 +1217,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Z Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1263,7 +1251,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Y Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1384,7 +1371,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "X Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
