@@ -2297,7 +2297,7 @@ End
 		  Dim fileStream as TextOutputStream
 		  dim k,j as Integer
 		  dim i as integer
-		  Dim wantx, wanty, wantz,wante As String
+		  Dim wantx, wanty, wantz,wante,ff As String
 		  Dim wantvalue As String
 		  Dim d As New Date
 		  //-------------------------------------
@@ -2334,6 +2334,16 @@ End
 		        wantx="INPLANE_PROFILE"
 		      end
 		      filestream.Writeline Chr(9)+Chr(9)+"SCAN_CURVETYPE="+ wantx
+		      
+		      if Canvas_Graph.Profiles.One_Profile(j).TYPE=1 Then
+		        // 0 = User
+		        // 1 = PDD
+		        // 2 = PROFILE X
+		        // 3 = Porfile Y
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2 or Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		        filestream.Writeline Chr(9)+Chr(9)+"SCAN_DEPTH="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Depth,"-0.00")
+		      end
+		      
 		      filestream.Writeline Chr(9)+Chr(9)+"CORRECTIONS="
 		      filestream.Writeline Chr(9)+Chr(9)+"BEGIN_DATA"
 		      
@@ -2341,9 +2351,18 @@ End
 		        wantx = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
 		        wanty = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
 		        wantz = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
-		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.###e")
-		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.###e")
-		        filestream.Writeline Chr(9)+Chr(9)+Chr(9)+wantz+" "+chr(9)+wantvalue
+		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.####e")
+		        if Canvas_Graph.Profiles.One_Profile(j).TYPE=1  Then
+		          ff=wantz+" "+chr(9)+wantvalue
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
+		          ff=wantx+" "+chr(9)+wantvalue
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		          ff=wantz+" "+chr(9)+wantvalue
+		        end
+		        filestream.Writeline Chr(9)+Chr(9)+Chr(9)+ff
+		        
+		        
 		      next
 		      filestream.Writeline Chr(9)+Chr(9)+"END_DATA"
 		      filestream.Writeline Chr(9)+"END_SCAN  "+str(k)
