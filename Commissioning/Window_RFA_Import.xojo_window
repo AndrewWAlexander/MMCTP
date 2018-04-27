@@ -207,7 +207,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "File Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -480,7 +479,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Comment"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -515,7 +513,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -550,7 +547,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Axis"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -585,7 +581,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "SSD (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -620,7 +615,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Field (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -698,7 +692,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Depth (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -819,7 +812,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "BMTY"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -897,7 +889,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   28
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -975,7 +966,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   37
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "DETY"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1010,7 +1000,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   38
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "TYPE"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1088,7 +1077,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   40
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Operator"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1209,7 +1197,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   43
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Detector"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1244,7 +1231,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   44
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "WDGL"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1322,7 +1308,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   46
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "WDGD"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1486,7 +1471,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   50
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "AddOn"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1564,7 +1548,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   52
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Linac"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1720,7 +1703,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "cylindrical ion chambers\rI50  =\rR50 =1.029I50-0.06\rR50 =1.059I50-0.37"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1915,7 +1897,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Z offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -1950,7 +1931,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Y offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -2071,7 +2051,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "X offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -2149,7 +2128,6 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "cylindrical chambers\r0.6 r for photon\r0.5 r for electron\r"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2451,6 +2429,7 @@ End
 		  pp.Field_X=val(NthField(RFA.Graphs(k).FLSZ,"*",1))/10
 		  pp.Field_Y=val(NthField(RFA.Graphs(k).FLSZ,"*",2))/10
 		  pp.Energy=rfa.Graphs(k).Energy
+		  pp.Radiation_Type=RFA.Graphs(k).BMTY
 		  
 		  if pp.Energy=0 Then
 		    pp.Energy=val(EditField_Energy.Text)

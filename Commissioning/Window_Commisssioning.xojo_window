@@ -1053,12 +1053,12 @@ Begin Window Window_Commisssioning
             Width           =   144
          End
       End
-      Begin PushButton PushButton_Export_mmc
+      Begin PushButton PushButton_Export_mcc
          AutoDeactivate  =   True
          Bold            =   False
          ButtonStyle     =   "0"
          Cancel          =   False
-         Caption         =   "Export Profile .mmc"
+         Caption         =   "Export Profile .mcc"
          Default         =   False
          Enabled         =   True
          Height          =   25
@@ -2284,7 +2284,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton_Export_mmc
+#tag Events PushButton_Export_mcc
 	#tag Event
 		Sub Action()
 		  //-------------------------------------
@@ -2315,9 +2315,15 @@ End
 		      k=k+1
 		      filestream.Writeline Chr(9)+"BEGIN_SCAN  "+str(k)
 		      filestream.Writeline Chr(9)+Chr(9)+"LINAC="+ Canvas_Graph.Profiles.One_Profile(j).Linac
-		      filestream.Writeline Chr(9)+Chr(9)+"MODALITY="+ Canvas_Graph.Profiles.One_Profile(j).Radiation_Type
+		      
+		      if InStr(Canvas_Graph.Profiles.One_Profile(j).Radiation_Type,"Electron")>0 Then
+		        filestream.Writeline Chr(9)+Chr(9)+"MODALITY=EL"
+		      elseif InStr(Canvas_Graph.Profiles.One_Profile(j).Radiation_Type,"Photon")>0 Then
+		        filestream.Writeline Chr(9)+Chr(9)+"MODALITY=X"
+		      end
+		      
 		      filestream.Writeline Chr(9)+Chr(9)+"ENERGY="+ Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0.00")
-		      filestream.Writeline Chr(9)+Chr(9)+"SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"SSD="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).SSD,"0.00")
 		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_INPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.00")
 		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_CROSSPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.00")
 		      filestream.Writeline Chr(9)+Chr(9)+"DETECTOR="

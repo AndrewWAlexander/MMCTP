@@ -368,9 +368,13 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Algorithm=Trim(Temp)
 		      
-		    elseif InStr(temp,"TYPE")>0 Then
+		    elseif InStr(temp,"TYPE")>0 and InStr(temp,"RADIATIONTYPE")=0 Then
 		      temp=NthField(temp,":=",2)
 		      pp.TYPE=val(Temp)
+		      
+		    elseif InStr(temp,"RADIATIONTYPE")>0 Then
+		      temp=NthField(temp,":=",2)
+		      pp.Radiation_Type=Trim(Temp)
 		      
 		    elseif InStr(temp,"Source")>0 Then
 		      temp=NthField(temp,":=",2)
@@ -449,11 +453,9 @@ Protected Class Class_Profiles_All
 		      spaces(ts,"X LABEL", 31, One_Profile(i).X_label)
 		      spaces(ts,"Y LABEL", 31, One_Profile(i).Y_label)
 		      spaces(ts,"Z LABEL", 31, One_Profile(i).Z_label)
-		      
 		      spaces(ts,"X UNITS", 31, One_Profile(i).Units_x)
 		      spaces(ts,"Y UNITS", 31, One_Profile(i).Units_y)
 		      spaces(ts,"Z UNITS", 31, One_Profile(i).Units_Z)
-		      
 		      
 		      spaces(ts,"POINT 1", 31, Format(One_Profile(i).Pointa.x_cm,"-#.###e")+","+Format(One_Profile(i).Pointa.y_cm,"-#.###e")+","+Format(One_Profile(i).Pointa.z_cm,"-#.###e"))
 		      spaces(ts,"POINT 2", 31, Format(One_Profile(i).Pointb.x_cm,"-#.###e")+","+Format(One_Profile(i).Pointb.y_cm,"-#.###e")+","+Format(One_Profile(i).Pointb.z_cm,"-#.###e"))
@@ -473,6 +475,7 @@ Protected Class Class_Profiles_All
 		      spaces(ts,"Algor", 31, One_Profile(i).Algorithm)
 		      spaces(ts,"Comment", 31, One_Profile(i).Comment)
 		      spaces(ts,"SSD", 31, Format(One_Profile(i).SSD,"-##.###e"))
+		      spaces(ts,"RADIATIONTYPE", 31, One_Profile(i).Radiation_Type)
 		      
 		      spaces(ts,"NUMBER OF POINTS", 31, str(UBound(One_Profile(i).Points)+1))
 		      for k=0 to UBound(One_Profile(i).Points)
