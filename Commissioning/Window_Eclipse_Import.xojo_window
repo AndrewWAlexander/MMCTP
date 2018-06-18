@@ -204,7 +204,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "beam data"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -239,7 +238,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "SSD"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -274,7 +272,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "add on"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -352,7 +349,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "data"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -430,7 +426,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "exporting date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -508,7 +503,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   28
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -586,7 +580,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   49
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "machine"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -621,7 +614,6 @@ Begin Window Window_Eclipse_Import
          Selectable      =   False
          TabIndex        =   50
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "algorithm"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -757,7 +749,6 @@ Begin Window Window_Eclipse_Import
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Profile"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -873,7 +864,6 @@ Begin Window Window_Eclipse_Import
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "FS (mm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1085,7 +1075,6 @@ Begin Window Window_Eclipse_Import
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "File Name"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1149,8 +1138,13 @@ End
 		  pp.AddOn=EditField_addon.Text
 		  pp.Comment=data.beam+" "+data.beamdata
 		  pp.SSD=Val(EditField_SSD.Text)
-		  
 		  pp.Label=pp.Linac +", "+str(Data.Graphs(k).DPTH/10)
+		  
+		  if Data.beam="Electrons" then
+		    pp.Radiation_Type="Electron"
+		  else
+		    pp.Radiation_Type="Photon"
+		  end
 		  
 		  
 		  if data.Graphs(k).AXIS="Z" Then
@@ -1368,8 +1362,14 @@ End
 		    if InStr(Temp, "machine:")>0 Then
 		      Data.machine=Trim(NthField(Temp,"machine:",2))
 		      
+		    elseif InStr(Temp, "algorithm:")>0 Then
+		      Data.algorithm=Trim(NthField(Temp,"algorithm:",2))
+		      
 		    elseif InStr(Temp,"beam data:")>0 Then
 		      Data.beamdata=Trim(NthField(Temp,"beam data:",2))
+		      
+		    elseif InStr(Temp,"add on:")>0 Then // add on
+		      Data.addon=Trim(NthField(Temp,"add on:",2))
 		      
 		    elseif InStr(Temp, "data:")>0 Then
 		      Data.data=Trim(NthField(Temp,"data:",2))
@@ -1383,19 +1383,18 @@ End
 		    elseif InStr(Temp, "column legend:")>0 Then
 		      Data.ColumnLegend=Trim(NthField(Temp,"legend:",2))
 		      
-		    elseif InStr(Temp, "algorithm:")>0 Then
-		      Data.algorithm=Trim(NthField(Temp,"algorithm:",2))
-		      
 		    elseif InStr(Temp, "exporting date:")>0 Then // Readin Date
 		      Data.exportingdate=Trim(NthField(Temp,"exporting date:",2))
+		      
 		    elseif InStr(Temp,"SSD [mm]:")>0 or  InStr(temp,"Source-phantom distance[mm]")>0 Then // Readin SSD
 		      Data.SSD=val(Trim(NthField(Temp,":",2)))
-		    elseif InStr(Temp,"beam:")>0 Then // Readin SSD
+		      
+		    elseif InStr(Temp,"beam:")>0 Then // photon or electron
 		      Data.beam=Trim(NthField(Temp,"beam:",2))
-		    elseif InStr(Temp,"add on:")>0 Then // add on
-		      Data.addon=Trim(NthField(Temp,"add on:",2))
-		    elseif InStr(Temp,"energy [MV]:")>0 Then // energy
-		      Data.energy=Trim(NthField(Temp,"energy [MV]:",2))
+		      
+		    elseif InStr(Temp,"energy [MV]:")>0 or  InStr(Temp,"energy [MeV]:")>0  Then // energy
+		      Data.energy=Trim(NthField(Temp,"V]:",2))
+		      
 		    elseif InStr(Temp,"Detector depth from phantom surface[mm]")>0 Then // energy
 		      Data.Detectordepthsurface=Val(NthField(Temp,":",2))
 		    end

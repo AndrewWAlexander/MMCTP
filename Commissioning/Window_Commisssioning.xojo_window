@@ -1084,6 +1084,37 @@ Begin Window Window_Commisssioning
          Visible         =   True
          Width           =   172
       End
+      Begin PushButton PushButton_Export_pyplot
+         AutoDeactivate  =   True
+         Bold            =   False
+         ButtonStyle     =   "0"
+         Cancel          =   False
+         Caption         =   "Export Profile .pyplot"
+         Default         =   False
+         Enabled         =   True
+         Height          =   25
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   1096
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   False
+         Scope           =   0
+         TabIndex        =   14
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   734
+         Underline       =   False
+         Visible         =   True
+         Width           =   172
+      End
    End
 End
 #tag EndWindow
@@ -2374,6 +2405,100 @@ End
 		      filestream.Writeline Chr(9)+"END_SCAN  "+str(k)
 		    next
 		    filestream.Writeline"END_SCAN_DATA"
+		    fileStream.Close
+		  end if
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Export_pyplot
+	#tag Event
+		Sub Action()
+		  //-------------------------------------
+		  // Written by Andrew Alexander
+		  // UPDATED: June 2018
+		  //
+		  //
+		  //-------------------------------------
+		  Dim file As FolderItem
+		  Dim fileStream as TextOutputStream
+		  dim k,j as Integer
+		  dim i as integer
+		  Dim wantx, wanty, wantz,wante,ff,x,y As String
+		  Dim wantvalue, plota_labelm,temp,xx,newplot,plota_label As String
+		  Dim d As New Date
+		  //-------------------------------------
+		  
+		  
+		  file=GetSaveFolderItem("plain/text","")
+		  If file<> Nil then
+		    
+		    fileStream=file.CreateTextFile
+		    
+		    filestream.Writeline "import numpy as np"
+		    filestream.Writeline "import matplotlib.pyplot as plt"
+		    
+		    
+		    
+		    filestream.Writeline "plt.ylabel('"+Canvas_Graph.Y_Label+"')"
+		    filestream.Writeline "plt.xlabel('"+Canvas_Graph.x_Label+"')"
+		    
+		    
+		    temp="plt.plot("
+		    
+		    
+		    
+		    k=0
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      temp="plt.plot("
+		      k=k+1
+		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Radiation_Type + " "+Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") +" SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0") +_
+		      " FIELD ="+ Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")+"x"+Format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
+		      
+		      'Canvas_Graph.Profiles.One_Profile(j).Colour
+		      
+		      x="["
+		      y="["
+		      
+		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
+		        wantx = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
+		        wanty = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
+		        wantz = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
+		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.####e")
+		        if Canvas_Graph.Profiles.One_Profile(j).TYPE=1  Then
+		          xx=wantz
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
+		          xx=wantx
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		          xx=wantz
+		        end
+		        
+		        if i<UBound(Canvas_Graph.Profiles.One_Profile(j).Points) Then
+		          x=x+xx+", "
+		          y=y+wantvalue+", "
+		        else
+		          x=x+xx
+		          y=y+wantvalue
+		        end
+		      next
+		      
+		      x=x+"]"
+		      y=y+"]"
+		      
+		      newplot=x+", "+y+", label='"+plota_label+"'"
+		      
+		      if j<UBound(Canvas_Graph.Profiles.One_Profile) Then
+		        temp=temp+newplot+", "
+		      else
+		        temp=temp+newplot
+		      end
+		      temp=temp+")"
+		      filestream.Writeline temp
+		    Next
+		    
+		    
+		    filestream.Writeline "plt.legend(loc='upper right')"
+		    filestream.Writeline "plt.show()"
 		    fileStream.Close
 		  end if
 		End Sub
