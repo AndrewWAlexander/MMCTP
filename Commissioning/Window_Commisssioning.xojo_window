@@ -1176,8 +1176,7 @@ End
 		  
 		  
 		  if Results_Mouse_Column=0 Then
-		    dd.Value("Select all")=0
-		    dd.Value("Deselect all")=0
+		    
 		  elseif Results_Mouse_Column=Index_Algor Then
 		    dd=Dic_Algorithm
 		  elseif  Results_Mouse_Column=Index_Depth Then
@@ -1222,6 +1221,14 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Hex32(value As Int32) As String
+		  Const prefix = "000000" // A 32-bits value is 6 digits long at max
+		  
+		  Return Right(prefix + Hex(value), 6)  // We always return 6 characters
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Open_Canvas()
 		  //-----------------------------------------
 		  //General Open
@@ -1254,11 +1261,17 @@ End
 		    Canvas_Graph.Interactive=False
 		  end
 		  
-		  
+		  Canvas_Graph.y_Minimum=30000000
+		  Canvas_Graph.y_Maximum=-3000000
 		  
 		  for j=0 to UBound(Canvas_Graph.Profiles.One_Profile) // first  plot lines
 		    for i=0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
 		      y1=Canvas_Graph.Profiles.One_Profile(j).Points(i).value
+		      
+		      if Canvas_Graph.Profiles.One_Profile(j).Norm Then
+		        y1=100*y1/Canvas_Graph.Profiles.One_Profile(j).Normalize_value
+		      end
+		      
 		      if y1<Canvas_Graph.y_Minimum Then
 		        Canvas_Graph.y_Minimum=y1
 		      Elseif y1>Canvas_Graph.y_Maximum Then
@@ -1797,9 +1810,9 @@ End
 		    
 		  elseif column=Index_Show_Line Then // Show Line
 		    gProfiles.One_Profile(pindex).show_line=me.CellCheck(row,column)
-		    
-		    
 		  end
+		  
+		  
 		  
 		  Open_Canvas
 		End Sub
@@ -1836,6 +1849,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		  //----------------------------------------------------
+		  // Create the context menu for users
+		  //----------------------------------------------------
 		  Dim i as Integer
 		  Dim dd as new Dictionary
 		  Dim ss,test(-1) as String
@@ -1844,6 +1860,14 @@ End
 		  
 		  dd=Get_Dictionary_For_menu
 		  if dd<> Nil Then
+		    kk=new MenuItem
+		    kk.Text="Select all"
+		    base.Append(kk)
+		    
+		    kk=new MenuItem
+		    kk.Text="Deselect all"
+		    base.Append(kk)
+		    
 		    for i=0 to dd.Count-1
 		      ss=dd.Key(i)
 		      test.Append ss
@@ -1870,6 +1894,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		  //------------------------------
+		  //
+		  //
+		  //------------------------------
 		  Dim dd as new Dictionary
 		  Dim vv as Variant
 		  Dim test,tt2 as String
@@ -1877,51 +1905,69 @@ End
 		  //------------------------------
 		  
 		  
-		  
 		  if hitItem <> nil then 
 		    test=hitItem.Text
-		    if test="Select all" Then
-		      for i = 0 to ListBox_Dose_Profiles.ListCount-1
-		        ListBox_Dose_profiles.CellCheck(i,0)=True 
-		      Next
-		    elseif test="Deselect all" Then
-		      for i = 0 to ListBox_Dose_Profiles.ListCount-1
-		        ListBox_Dose_profiles.CellCheck(i,0) =False
-		      Next
-		    else
-		      
-		      vv=test
-		      dd=Get_Dictionary_For_menu
-		      if dd<>nil Then
-		        if dd.HasKey(hitItem.Text) Then
-		          if dd.Value(hitItem.Text)=1 Then
-		            dd.Value(hitItem.Text)=0
-		          else
-		            dd.Value(hitItem.Text)=1
-		          end
+		    vv=test
+		    dd=Get_Dictionary_For_menu
+		    
+		    if Results_Mouse_Column= 0 Then
+		      if test="Select all" Then
+		        for i = 0 to ListBox_Dose_Profiles.ListCount-1
+		          ListBox_Dose_profiles.CellCheck(i,0)=True 
+		        Next
+		      elseif test="Deselect all" Then
+		        for i = 0 to ListBox_Dose_Profiles.ListCount-1
+		          ListBox_Dose_profiles.CellCheck(i,0) =False
+		        Next
+		        
+		      else// Loop to change view status of profile type
+		        
+		        
+		        if test="Select all" Then
+		          for i = 0 to dd.Count-1
+		            vv=dd.Key(i).StringValue
+		            dd.Value(vv)=0
+		          Next
+		        elseif test="Deselect all" Then
+		          for i = 0 to dd.Count -1
+		            vv=dd.Key(i).StringValue
+		            dd.Value(vv)=0
+		          Next
 		          
 		        else
-		          for i=0 to dd.Count-1
-		            tt2=dd.Key(i)
-		            if tt2=vv Then
-		              if dd.Value(dd.Key(i))=1 Then
-		                dd.Value(dd.Key(i))=0
+		          
+		          if dd<>nil Then
+		            if dd.HasKey(hitItem.Text) Then
+		              if dd.Value(hitItem.Text)=1 Then
+		                dd.Value(hitItem.Text)=0
 		              else
-		                dd.Value(dd.Key(i))=1
+		                dd.Value(hitItem.Text)=1
 		              end
+		              
+		            else
+		              for i=0 to dd.Count-1
+		                tt2=dd.Key(i)
+		                if tt2=vv Then
+		                  if dd.Value(dd.Key(i))=1 Then
+		                    dd.Value(dd.Key(i))=0
+		                  else
+		                    dd.Value(dd.Key(i))=1
+		                  end
+		                end
+		              Next
 		            end
-		          Next
+		            Update_Profile_ShowSet
+		            Update_Profiles_Listbox
+		          end
+		          
+		          if dd.HasKey(vv) Then
+		            vv=vv
+		          end
 		        end
-		        Update_Profile_ShowSet
-		        Update_Profiles_Listbox
 		      end
-		      
-		      if dd.HasKey(vv) Then
-		        vv=vv
-		      end
-		      
 		    end
 		  end
+		  
 		  
 		  return true
 		End Function
@@ -2426,45 +2472,47 @@ End
 		  Dim wantx, wanty, wantz,wante,ff,x,y As String
 		  Dim wantvalue, plota_labelm,temp,xx,newplot,plota_label As String
 		  Dim d As New Date
+		  Dim cc as Color
+		  Dim hexColor,hexColor_Full As String
 		  //-------------------------------------
 		  
 		  
 		  file=GetSaveFolderItem("plain/text","")
 		  If file<> Nil then
-		    
 		    fileStream=file.CreateTextFile
-		    
 		    filestream.Writeline "import numpy as np"
 		    filestream.Writeline "import matplotlib.pyplot as plt"
-		    
-		    
+		    filestream.Writeline "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
+		    filestream.Writeline "minorLocator = AutoMinorLocator(2)"
 		    
 		    filestream.Writeline "plt.ylabel('"+Canvas_Graph.Y_Label+"')"
 		    filestream.Writeline "plt.xlabel('"+Canvas_Graph.x_Label+"')"
-		    
-		    
-		    temp="plt.plot("
-		    
-		    
-		    
 		    k=0
 		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
-		      temp="plt.plot("
+		      
 		      k=k+1
 		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Radiation_Type + " "+Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") +" SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0") +_
 		      " FIELD ="+ Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")+"x"+Format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
 		      
-		      'Canvas_Graph.Profiles.One_Profile(j).Colour
+		      cc=Canvas_Graph.Profiles.One_Profile(j).Colour
+		      hexColor_Full = Str(cc)
+		      hexColor="#"+Hex32(Val(hexColor_Full))
 		      
 		      x="["
 		      y="["
 		      
 		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
-		        wantx = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
-		        wanty = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
-		        wantz = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
-		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        wantx = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
+		        wanty = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
+		        wantz = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
 		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.####e")
+		        
+		        if Canvas_Graph.Profiles.One_Profile(j).Norm Then
+		          wantvalue = Format(100*Canvas_Graph.Profiles.One_Profile(j).Points(i).value/Canvas_Graph.Profiles.One_Profile(j).Normalize_value,"-#.####e")
+		        else
+		          wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        end
+		        
 		        if Canvas_Graph.Profiles.One_Profile(j).TYPE=1  Then
 		          xx=wantz
 		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
@@ -2481,21 +2529,17 @@ End
 		          y=y+wantvalue
 		        end
 		      next
-		      
 		      x=x+"]"
 		      y=y+"]"
-		      
-		      newplot=x+", "+y+", label='"+plota_label+"'"
-		      
-		      if j<UBound(Canvas_Graph.Profiles.One_Profile) Then
-		        temp=temp+newplot+", "
-		      else
-		        temp=temp+newplot
-		      end
-		      temp=temp+")"
+		      temp="plt.plot("+x+", "+y+", label='"+plota_label+"', color= '"+hexColor+"')"
 		      filestream.Writeline temp
 		    Next
 		    
+		    filestream.Writeline "plt.xlim("+EditField_xmin.Text+", "+EditField_xmax.Text+")"
+		    filestream.Writeline "plt.ylim("+EditField_ymin.Text+", "+EditField_ymax.Text+")"
+		    filestream.Writeline "plt.grid(b='on', which='both', axis='both')"
+		    filestream.Writeline "ax = plt.gca()"
+		    filestream.Writeline "ax.xaxis.set_minor_locator(minorLocator)"
 		    
 		    filestream.Writeline "plt.legend(loc='upper right')"
 		    filestream.Writeline "plt.show()"

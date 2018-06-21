@@ -105,7 +105,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Gamma % <= 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -226,7 +225,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Dose Difference Chi2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -289,7 +287,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Measured Profile"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -324,7 +321,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Calculated Profile"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -523,7 +519,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Distance to agreement (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -601,7 +596,6 @@ Begin Window Window_Profile_analysis
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Dose-difference  (%)"
             TextAlign       =   0
             TextColor       =   &c00000000

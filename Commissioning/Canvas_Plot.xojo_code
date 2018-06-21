@@ -163,21 +163,18 @@ Inherits Canvas
 
 	#tag Method, Flags = &h0
 		Sub Default_Settings()
-		  //-----------------------------
-		  //
-		  //-----------------------------
+		  //-------------------------------------------------
+		  // Determine x and y max and min values based 
+		  // on graph values
+		  //-------------------------------------------------
 		  Dim i,j as integer
 		  Dim x1,y1,norm as Single
 		  //-----------------------------
 		  
-		  
-		  
 		  x_Minimum=300000000000
 		  x_Maximum=-30000000000
-		  
 		  y_Minimum=300000000000
 		  y_Maximum=-30000000000
-		  
 		  
 		  for j=0 to UBound(Profiles.One_Profile) // first  plot lines
 		    
@@ -187,7 +184,6 @@ Inherits Canvas
 		    else
 		      norm=1
 		    end
-		    
 		    
 		    if Profiles.One_Profile(j).Show Then
 		      for i=0 to UBound(Profiles.One_Profile(j).Points)
@@ -201,7 +197,6 @@ Inherits Canvas
 		        elseif xyz_index=3 Then
 		          x1=i*Profiles.One_Profile(j).Distance/(UBound(Profiles.One_Profile(j).Points)+1)
 		        end
-		        
 		        // Pickup Y value
 		        y1=Profiles.One_Profile(j).Points(i).value*norm
 		        
@@ -220,7 +215,6 @@ Inherits Canvas
 		        end
 		      next
 		    end
-		    
 		    Profiles.One_Profile(j).Point_Size=3
 		  next
 		  
