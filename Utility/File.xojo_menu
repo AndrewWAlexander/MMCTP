@@ -149,6 +149,13 @@ Begin Menu File
             AutoEnable = True
             Visible = True
          End
+         Begin MenuItem File_ImportMEDPHYSTOmcc
+            SpecialMenu = 0
+            Text = "MEDPHYSTO mcc"
+            Index = -2147483648
+            AutoEnable = True
+            Visible = True
+         End
       End
       Begin MenuItem UntitledSeparator4
          SpecialMenu = 0

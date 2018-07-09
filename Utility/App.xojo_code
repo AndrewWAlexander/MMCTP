@@ -36,6 +36,7 @@ Inherits Application
 		  File_ImportTomoXMLFile.Enabled=False
 		  File_Import_DICOMRTPlan.Enabled=False
 		  
+		  File_ImportMEDPHYSTOmcc.Enabled=True
 		  File_ImportRFAdata.Enabled=True
 		  File_ImportProfile.Enabled=True
 		  File_ImportXiOProfile.Enabled=True
@@ -333,6 +334,65 @@ Inherits Application
 			Window_Excel_Import.Show
 			Return True
 			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function File_ImportMCCdata() As Boolean Handles File_ImportMCCdata.Action
+			//------------------------------
+			//
+			//------------------------------
+			Dim f as FolderItem
+			dim opfi as new OpenDialog
+			//------------------------------
+			
+			
+			
+			
+			
+			
+			
+			opfi.InitialDirectory=gPref.McGillfi
+			opfi.Title="Select any RFA ASCII file"
+			f=opfi.ShowModal
+			
+			
+			if f=nil then //fi.Exists then
+			Return False
+			
+			
+			else
+			
+			Window_MEPHYSTO_Import.Show
+			Window_MEPHYSTO_Import.f=f
+			Window_MEPHYSTO_Import.OpenWin
+			
+			Return True
+			end if
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function File_ImportMEDPHYSTOmcc() As Boolean Handles File_ImportMEDPHYSTOmcc.Action
+			//------------------------------
+			//
+			//------------------------------
+			Dim f as FolderItem
+			dim opfi as new OpenDialog
+			//------------------------------
+			
+			opfi.InitialDirectory=gPref.McGillfi
+			opfi.Title="Select any MCC MEPHYSTO file"
+			f=opfi.ShowModal
+			if f=nil then //fi.Exists then
+			Return False
+			else
+			Window_MEPHYSTO_Import.Show
+			Window_MEPHYSTO_Import.f=f
+			Window_MEPHYSTO_Import.OpenWin
+			Return True
+			end if
+			Return True
 		End Function
 	#tag EndMenuHandler
 

@@ -1919,54 +1919,60 @@ End
 		        for i = 0 to ListBox_Dose_Profiles.ListCount-1
 		          ListBox_Dose_profiles.CellCheck(i,0) =False
 		        Next
-		        
-		      else// Loop to change view status of profile type
-		        
-		        
-		        if test="Select all" Then
-		          for i = 0 to dd.Count-1
-		            vv=dd.Key(i).StringValue
-		            dd.Value(vv)=0
-		          Next
-		        elseif test="Deselect all" Then
-		          for i = 0 to dd.Count -1
-		            vv=dd.Key(i).StringValue
-		            dd.Value(vv)=0
-		          Next
-		          
-		        else
-		          
-		          if dd<>nil Then
-		            if dd.HasKey(hitItem.Text) Then
-		              if dd.Value(hitItem.Text)=1 Then
-		                dd.Value(hitItem.Text)=0
-		              else
-		                dd.Value(hitItem.Text)=1
-		              end
-		              
-		            else
-		              for i=0 to dd.Count-1
-		                tt2=dd.Key(i)
-		                if tt2=vv Then
-		                  if dd.Value(dd.Key(i))=1 Then
-		                    dd.Value(dd.Key(i))=0
-		                  else
-		                    dd.Value(dd.Key(i))=1
-		                  end
-		                end
-		              Next
-		            end
-		            Update_Profile_ShowSet
-		            Update_Profiles_Listbox
-		          end
-		          
-		          if dd.HasKey(vv) Then
-		            vv=vv
-		          end
-		        end
 		      end
+		    else// Loop to change view status of profile type
+		      
+		      
+		      if test="Select all" Then
+		        for i = 0 to dd.Count-1
+		          vv=dd.Key(i).StringValue
+		          dd.Value(vv)=1
+		        Next
+		      elseif test="Deselect all" Then
+		        for i = 0 to dd.Count -1
+		          vv=dd.Key(i).StringValue
+		          dd.Value(vv)=0
+		        Next
+		        
+		      else
+		        
+		        if dd<>nil Then
+		          if dd.HasKey(hitItem.Text) Then
+		            if dd.Value(hitItem.Text)=1 Then
+		              dd.Value(hitItem.Text)=0
+		            else
+		              dd.Value(hitItem.Text)=1
+		            end
+		            
+		          else
+		            for i=0 to dd.Count-1
+		              tt2=dd.Key(i)
+		              if tt2=vv Then
+		                if dd.Value(dd.Key(i))=1 Then
+		                  dd.Value(dd.Key(i))=0
+		                else
+		                  dd.Value(dd.Key(i))=1
+		                end
+		              end
+		            Next
+		          end
+		          
+		        end
+		        
+		        
+		        
+		        if dd.HasKey(vv) Then
+		          vv=vv
+		        end
+		        
+		        
+		      end
+		      
+		      Update_Profile_ShowSet
+		      Update_Profiles_Listbox
 		    end
 		  end
+		  
 		  
 		  
 		  return true
@@ -2491,7 +2497,7 @@ End
 		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
 		      
 		      k=k+1
-		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Radiation_Type + " "+Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") +" SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0") +_
+		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Radiation_Type + " "+Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") +" "+Canvas_Graph.Profiles.One_Profile(j).Linac+" "+Canvas_Graph.Profiles.One_Profile(j).Algorithm +" SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0") +_
 		      " FIELD ="+ Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")+"x"+Format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
 		      
 		      cc=Canvas_Graph.Profiles.One_Profile(j).Colour
@@ -2518,7 +2524,7 @@ End
 		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
 		          xx=wantx
 		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
-		          xx=wantz
+		          xx=wanty
 		        end
 		        
 		        if i<UBound(Canvas_Graph.Profiles.One_Profile(j).Points) Then
