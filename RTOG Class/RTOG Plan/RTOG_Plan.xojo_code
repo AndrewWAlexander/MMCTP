@@ -326,6 +326,7 @@ Protected Class RTOG_Plan
 		    one_beam.Beam_Num=bs.BeamNumber
 		    one_beam.MLC=new Class_MLC
 		    one_beam.Collimator = new Class_Collimator
+		    one_beam.Collimator.NumFields=1
 		    ReDim one_beam.Collimator.Fields(0)
 		    one_beam.Collimator.Fields(0)=new Class_Collimator_Fields
 		    one_beam.Collimator.Fields(0).isocenter = new Class_isocenter
@@ -608,6 +609,18 @@ Protected Class RTOG_Plan
 		                MLCFields.Leaf_a(h-1) =val(NthField(bs.ControlPointSequence(x).TomoSinogram,"\",h))
 		              next
 		            end
+		          
+		          
+		          // Check for Tomo Sinogram
+		          if bs.ControlPointSequence(x).TomoType<> "" Then
+		            MLCFields=new Class_MLC_Positions
+		            one_beam.MLC.NumberofFields=one_beam.MLC.NumberofFields+1
+		            one_beam.MLC.Fields.Append MLCFields
+		            MLCFields.Indexnum=bs.ControlPointSequence(x).CumulativeMetersetWeight
+		            redim MLCFields.Leaf_A(one_beam.MLC.NumberofLeafPairs-1)
+		            for h=1 to one_beam.MLC.NumberofLeafPairs
+		              MLCFields.Leaf_a(h-1) =val(NthField(bs.ControlPointSequence(x).TomoSinogram,"\",h))
+		            next
 		          end
 		        end
 		        
@@ -615,12 +628,19 @@ Protected Class RTOG_Plan
 		        for k=0 to UBound(bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence)
 		          BLDPS=bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence(k)
 		          
-		          
-		          
 		          if InStr(BLDPS.RTBeamLimitingDevice,"X")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            if x>UBound(one_beam.Collimator.Fields) Then
+		              one_beam.Collimator.Fields.Append  new Class_Collimator_Fields
+		              one_beam.Collimator.NumFields=one_beam.Collimator.NumFields+1
+		            end
 		            one_beam.Collimator.fields(x).X1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
 		            one_beam.Collimator.fields(x).X2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
+		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"Y")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            if x>UBound(one_beam.Collimator.Fields) Then
+		              one_beam.Collimator.Fields.Append  new Class_Collimator_Fields
+		              one_beam.Collimator.NumFields=one_beam.Collimator.NumFields+1
+		            end
 		            one_beam.Collimator.fields(x).Y1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
 		            one_beam.Collimator.fields(x).Y2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
 		            
@@ -647,14 +667,14 @@ Protected Class RTOG_Plan
 		            next
 		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"ASYMY" )>0 Then  // Update the JAW control points
-		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"ASYMX" )>0 Then  // Update the JAW control points
-		            
-		            
 		          end
 		        next
 		      end
 		    next
+		    
+		    
+		    
 		    
 		    
 		    
