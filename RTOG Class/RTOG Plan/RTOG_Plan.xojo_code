@@ -545,70 +545,51 @@ Protected Class RTOG_Plan
 		        
 		        
 		        if one_beam.Beam_Type="DYNAMIC" Then // Reading Beam control points
-		          if bs.ControlPointSequence(x).GantryRotationDirection<>"" or bs.ControlPointSequence(x).TomoType<> "" Then // We have an Arc or Tomo Opening
-		            one_beam.Collimator.Type=one_beam.Beam_Type
-		            ReDim one_beam.Collimator.fields(x)
-		            one_beam.Collimator.fields(x)=new Class_Collimator_Fields
-		            one_beam.Collimator.fields(x).isocenter=new Class_isocenter
-		            one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
-		            one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
-		            
-		            if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
-		              one_beam.Collimator.fields(x).ARC_Direction=1
-		            elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
-		              one_beam.Collimator.fields(x).ARC_Direction=0
-		            else
-		              one_beam.Collimator.fields(x).ARC_Direction=2
-		            end
-		            
-		            if bs.ControlPointSequence(x).IsocenterPosition="" Then
-		              one_beam.Collimator.fields(x).isocenter.x=isopoint.X
-		              one_beam.Collimator.fields(x).isocenter.y=isopoint.y
-		              one_beam.Collimator.fields(x).isocenter.z=isopoint.z
-		            else
-		              one_beam.Collimator.fields(x).isocenter.x= val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",1))/10
-		              one_beam.Collimator.fields(x).isocenter.y = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",2))/10
-		              // Apply cosine and image offset
-		              one_beam.Collimator.fields(x).isocenter.X =xx*one_beam.Collimator.fields(x).isocenter.X
-		              one_beam.Collimator.fields(x).isocenter.y =yy*one_beam.Collimator.fields(x).isocenter.y
-		              one_beam.Collimator.fields(x).isocenter.z = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",3))/10
-		            end
-		            
-		            if bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="" or  bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="NONE" Then
-		              one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
-		            else
-		              one_beam.Collimator.fields(x).Collimator_Angle=bs.ControlPointSequence(x).Beamlimitngdeviceangle
-		            end
-		            
-		            if bs.ControlPointSequence(x).PatientSupportRotationDirection=""  or bs.ControlPointSequence(x).PatientSupportRotationDirection="NONE" Then
-		              one_beam.Collimator.fields(x).Couch_Angle=one_beam.Collimator.fields(0).Couch_Angle
-		            else
-		              one_beam.Collimator.fields(x).Couch_Angle=bs.ControlPointSequence(x).PatientSupportAngle
-		            end
-		            
-		            
-		            'if bs.ControlPointSequence(x).Beamlimitngdeviceangle="" Then
-		            'one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
-		            'end
-		            
-		            
-		            one_beam.Collimator.fields(x).X1=one_beam.Collimator.fields(0).x1
-		            one_beam.Collimator.fields(x).Y1=one_beam.Collimator.fields(0).y1
-		            one_beam.Collimator.fields(x).X2=one_beam.Collimator.fields(0).x2
-		            one_beam.Collimator.fields(x).Y2=one_beam.Collimator.fields(0).y2
-		            
-		            
-		            // Check for Tomo Sinogram
-		            if bs.ControlPointSequence(x).TomoType<> "" Then
-		              MLCFields=new Class_MLC_Positions
-		              one_beam.MLC.NumberofFields=one_beam.MLC.NumberofFields+1
-		              one_beam.MLC.Fields.Append MLCFields
-		              MLCFields.Indexnum=bs.ControlPointSequence(x).CumulativeMetersetWeight
-		              redim MLCFields.Leaf_A(one_beam.MLC.NumberofLeafPairs-1)
-		              for h=1 to one_beam.MLC.NumberofLeafPairs
-		                MLCFields.Leaf_a(h-1) =val(NthField(bs.ControlPointSequence(x).TomoSinogram,"\",h))
-		              next
-		            end
+		          one_beam.Collimator.Type=one_beam.Beam_Type
+		          ReDim one_beam.Collimator.fields(x)
+		          one_beam.Collimator.fields(x)=new Class_Collimator_Fields
+		          one_beam.Collimator.fields(x).isocenter=new Class_isocenter
+		          one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
+		          one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
+		          
+		          if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
+		            one_beam.Collimator.fields(x).ARC_Direction=1
+		          elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
+		            one_beam.Collimator.fields(x).ARC_Direction=0
+		          else
+		            one_beam.Collimator.fields(x).ARC_Direction=2
+		          end
+		          
+		          if bs.ControlPointSequence(x).IsocenterPosition="" Then
+		            one_beam.Collimator.fields(x).isocenter.x=isopoint.X
+		            one_beam.Collimator.fields(x).isocenter.y=isopoint.y
+		            one_beam.Collimator.fields(x).isocenter.z=isopoint.z
+		          else
+		            one_beam.Collimator.fields(x).isocenter.x= val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",1))/10
+		            one_beam.Collimator.fields(x).isocenter.y = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",2))/10
+		            // Apply cosine and image offset
+		            one_beam.Collimator.fields(x).isocenter.X =xx*one_beam.Collimator.fields(x).isocenter.X
+		            one_beam.Collimator.fields(x).isocenter.y =yy*one_beam.Collimator.fields(x).isocenter.y
+		            one_beam.Collimator.fields(x).isocenter.z = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",3))/10
+		          end
+		          
+		          if bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="" or  bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
+		          else
+		            one_beam.Collimator.fields(x).Collimator_Angle=bs.ControlPointSequence(x).Beamlimitngdeviceangle
+		          end
+		          
+		          if bs.ControlPointSequence(x).PatientSupportRotationDirection=""  or bs.ControlPointSequence(x).PatientSupportRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Couch_Angle=one_beam.Collimator.fields(0).Couch_Angle
+		          else
+		            one_beam.Collimator.fields(x).Couch_Angle=bs.ControlPointSequence(x).PatientSupportAngle
+		          end
+		          
+		          
+		          one_beam.Collimator.fields(x).X1=one_beam.Collimator.fields(0).x1
+		          one_beam.Collimator.fields(x).Y1=one_beam.Collimator.fields(0).y1
+		          one_beam.Collimator.fields(x).X2=one_beam.Collimator.fields(0).x2
+		          one_beam.Collimator.fields(x).Y2=one_beam.Collimator.fields(0).y2
 		          
 		          
 		          // Check for Tomo Sinogram
