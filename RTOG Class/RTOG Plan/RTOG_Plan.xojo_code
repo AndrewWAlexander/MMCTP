@@ -541,15 +541,13 @@ Protected Class RTOG_Plan
 		        
 		        
 		        
-		      else // loop dynamic Beam info, for RapidArc, Tomotherapy, IMRT
-		        
+		      else // loop dynamic Beam information for control points (VMAT or IMRT with mutliple jaw positions) 
 		        
 		        if one_beam.Beam_Type="DYNAMIC" Then // Reading Beam control points
 		          one_beam.Collimator.Type=one_beam.Beam_Type
 		          ReDim one_beam.Collimator.fields(x)
 		          one_beam.Collimator.fields(x)=new Class_Collimator_Fields
 		          one_beam.Collimator.fields(x).isocenter=new Class_isocenter
-		          one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
 		          one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
 		          
 		          if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
@@ -560,7 +558,8 @@ Protected Class RTOG_Plan
 		            one_beam.Collimator.fields(x).ARC_Direction=2
 		          end
 		          
-		          if bs.ControlPointSequence(x).IsocenterPosition="" Then
+		          if bs.ControlPointSequence(x).IsocenterPosition="" Then 
+		            // copy and apply the same isocenter values from control point 0 to current control point
 		            one_beam.Collimator.fields(x).isocenter.x=isopoint.X
 		            one_beam.Collimator.fields(x).isocenter.y=isopoint.y
 		            one_beam.Collimator.fields(x).isocenter.z=isopoint.z
@@ -573,17 +572,27 @@ Protected Class RTOG_Plan
 		            one_beam.Collimator.fields(x).isocenter.z = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",3))/10
 		          end
 		          
+		          // Collimator angle
 		          if bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="" or  bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="NONE" Then
 		            one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
 		          else
 		            one_beam.Collimator.fields(x).Collimator_Angle=bs.ControlPointSequence(x).Beamlimitngdeviceangle
 		          end
 		          
+		          // Couch angle
 		          if bs.ControlPointSequence(x).PatientSupportRotationDirection=""  or bs.ControlPointSequence(x).PatientSupportRotationDirection="NONE" Then
 		            one_beam.Collimator.fields(x).Couch_Angle=one_beam.Collimator.fields(0).Couch_Angle
 		          else
 		            one_beam.Collimator.fields(x).Couch_Angle=bs.ControlPointSequence(x).PatientSupportAngle
 		          end
+		          
+		          // Gantry angle
+		          if bs.ControlPointSequence(x).GantryRotationDirection=""  or bs.ControlPointSequence(x).GantryRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Gantry_Angle=one_beam.Collimator.fields(0).Gantry_Angle
+		          else
+		            one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
+		          end
+		          
 		          
 		          
 		          one_beam.Collimator.fields(x).X1=one_beam.Collimator.fields(0).x1
