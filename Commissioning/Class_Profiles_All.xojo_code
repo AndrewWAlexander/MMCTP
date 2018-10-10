@@ -269,7 +269,6 @@ Protected Class Class_Profiles_All
 		    Exit
 		  end
 		  
-		  
 		  pp= new Class_Profile_One
 		  pp.Pointa=new Class_Points
 		  pp.Pointb=new Class_Points
@@ -283,7 +282,6 @@ Protected Class Class_Profiles_All
 		    if InStr(temp,"NAME")>0 Then
 		      pp.Label=Trim(NthField(temp,":=",2))
 		      
-		      
 		    elseif InStr(temp,"Date")>0 Then
 		      pp.Date=Trim(NthField(temp,":=",2))
 		      
@@ -295,28 +293,25 @@ Protected Class Class_Profiles_All
 		      pp.Colour= rgb(val(NthField(temp,"/",1)),val(NthField(temp,"/",2)),val(NthField(temp,"/",3)))
 		      
 		    elseif InStr(temp,"X LABEL")>0 Then
-		      
-		      pp.X_label=NthField(temp,":=",2)
+		      pp.X_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Y LABEL")>0 Then
-		      pp.y_label=NthField(temp,":=",2)
+		      pp.y_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Z LABEL")>0 Then
-		      pp.z_label=NthField(temp,":=",2)
+		      pp.z_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"X UNITS")>0 Then
-		      pp.Units_x=NthField(temp,":=",2)
+		      pp.Units_x=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Y UNITS")>0 Then
-		      pp.Units_y=NthField(temp,":=",2)
+		      pp.Units_y=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Z UNITS")>0 Then
-		      pp.Units_z=NthField(temp,":=",2)
-		      
+		      pp.Units_z=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"SSD")>0 Then
 		      pp.SSD=val(NthField(temp,":=",2))
-		      
 		      
 		    elseif InStr(temp,"POINT 1")>0 Then
 		      temp=NthField(temp,":=",2)
@@ -338,7 +333,6 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Distance=val(Temp)
 		      
-		      
 		    elseif InStr(temp,"NORMALIZATION")>0 Then
 		      temp=NthField(temp,":=",2)
 		      pp.Normalize_value=val(Temp)
@@ -352,7 +346,6 @@ Protected Class Class_Profiles_All
 		      pp.Field_X=val(Temp)
 		      
 		    elseif InStr(temp,"FIELD SIZE Y")>0 Then
-		      
 		      temp=NthField(temp,":=",2)
 		      pp.Field_y=val(Temp)
 		      
@@ -384,13 +377,9 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Comment=Trim(Temp)
 		      
-		      
 		    elseif InStr(temp,"NUMBER OF POINTS")>0 Then
-		      
 		      i=val(NthField(temp,":=",2))
-		      
 		      ReDim pp.Points(i-1)
-		      
 		      for k=0 to i-1
 		        pp.Points(k) = new Class_Points
 		        temp=ts.ReadLine
@@ -400,7 +389,6 @@ Protected Class Class_Profiles_All
 		        pp.Points(k).Value=val(NthField(temp,",",4))
 		        pp.Points(k).uncertainty=val(NthField(temp,",",5))
 		      next
-		      
 		    end
 		  Wend
 		  ts.Close

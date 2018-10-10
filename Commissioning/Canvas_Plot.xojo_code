@@ -534,7 +534,11 @@ Inherits Canvas
 		      elseif xyz_index=3 Then
 		        X_Label="Distance (cm)"
 		      end
-		      Y_Label=Profiles.One_Profile(i).Value_Label+" ("+Profiles.One_Profile(i).Value_Units+")"
+		      if Profiles.One_Profile(i).Norm Then
+		        Y_Label="Relative (%)"
+		      else
+		        Y_Label=Profiles.One_Profile(i).Value_Label+" ("+Profiles.One_Profile(i).Value_Units+")"
+		      end
 		    end
 		  next
 		  

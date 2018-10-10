@@ -2475,11 +2475,12 @@ End
 		  Dim fileStream as TextOutputStream
 		  dim k,j as Integer
 		  dim i as integer
-		  Dim wantx, wanty, wantz,wante,ff,x,y As String
-		  Dim wantvalue, plota_labelm,temp,xx,newplot,plota_label As String
+		  Dim wantx, wanty, wantz,wante,ff,x,y,plota_label_array(-1),title As String
+		  Dim wantvalue, plota_labelm,temp,xx,newplot,plota_label,RT_type(-1), EN_type(-1),Linac_type(-1),Al_Type(-1),SDD_Type(-1),Field_X_Type(-1),Field_Y_Type(-1) As String
 		  Dim d As New Date
 		  Dim cc as Color
-		  Dim hexColor,hexColor_Full As String
+		  Dim hexColor,hexColor_Full,label As String
+		  Dim RT_type_Title,EN_type_Title,Linac_type_title,Al_Type_title,SDD_Type_title,Field_Y_Type_Title,Field_X_Type_title as Boolean
 		  //-------------------------------------
 		  
 		  
@@ -2491,14 +2492,118 @@ End
 		    filestream.Writeline "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
 		    filestream.Writeline "minorLocator = AutoMinorLocator(2)"
 		    
-		    filestream.Writeline "plt.ylabel('"+Canvas_Graph.Y_Label+"')"
+		    if Canvas_Graph.Y_Label="" Then
+		      filestream.Writeline "plt.ylabel('%')"
+		    else
+		      filestream.Writeline "plt.ylabel('"+Canvas_Graph.Y_Label+"')"
+		    end
 		    filestream.Writeline "plt.xlabel('"+Canvas_Graph.x_Label+"')"
 		    k=0
+		    
+		    
+		    // Determine plot title and labels
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      RT_type.append  Canvas_Graph.Profiles.One_Profile(j).Radiation_Type
+		      EN_type.append  Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") 
+		      Linac_type.append  Canvas_Graph.Profiles.One_Profile(j).Linac
+		      Al_Type.append  Canvas_Graph.Profiles.One_Profile(j).Algorithm
+		      SDD_Type.append  format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0")
+		      Field_X_Type.append  Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")
+		      Field_Y_Type.append format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
+		    Next
+		    
+		    RT_type_Title=True
+		    EN_type_Title=True
+		    Linac_type_title=True
+		    Al_Type_title=true
+		    SDD_Type_title=True
+		    Field_X_Type_title=True
+		    Field_Y_Type_title=True
+		    for j=1 to UBound(RT_type)
+		      if RT_type(j-1)<>RT_type(j) Then
+		        RT_type_Title=False
+		      end
+		      if en_type(j-1)<>en_type(j) Then
+		        EN_type_Title=False
+		      end
+		      if Linac_type(j-1)<>Linac_type(j) Then
+		        Linac_type_title=False
+		      end
+		      if Al_Type(j-1)<>Al_Type(j) Then
+		        Al_Type_title=False
+		      end
+		      if SDD_Type(j-1)<>SDD_Type(j) Then
+		        SDD_Type_title=False
+		      end
+		      if Field_X_Type(j-1)<>Field_X_Type(j) Then
+		        Field_X_Type_title=False
+		      end
+		      if Field_Y_Type(j-1)<>Field_Y_Type(j) Then
+		        Field_y_Type_title=False
+		      end
+		    Next
+		    
+		    
+		    if RT_type_Title Then
+		      title=RT_type(0)+ " "
+		    end
+		    if EN_type_Title Then
+		      title=title+EN_type(0)+ " "
+		    end
+		    if Linac_type_title Then
+		      title=title+Linac_type(0)+ " "
+		    end
+		    if Al_Type_title Then
+		      title=title+Al_Type(0)+ " "
+		    end
+		    if SDD_Type_title Then
+		      title=title+"SSD= "+SDD_Type(0)+ " "
+		    end
+		    
+		    if Field_X_Type_title Then
+		      title=title+"FIELDX= "+Field_X_Type(0)+ " "
+		    end
+		    
+		    if Field_y_Type_title Then
+		      title=title+"FIELDY= "+Field_Y_Type(0)+ " "
+		    end
+		    
+		    
+		    
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      label=""
+		      if RT_type_Title=False Then
+		        label=RT_type(j)+ " "
+		      end
+		      if EN_type_Title=False Then
+		        label=label+EN_type(j)+" "
+		      end
+		      if Linac_type_title=False Then
+		        label=label+Linac_type(j)+" "
+		      end
+		      if Al_Type_title=False Then
+		        label=label+Al_Type(j)+" "
+		      end
+		      if SDD_Type_title=False Then
+		        label=label+"SSD= "+SDD_Type(j)+" "
+		      end
+		      if Field_x_Type_title=False Then
+		        label=label+"FIELD= "+Field_x_Type(j)+" "
+		      end
+		      if Field_y_Type_title=False Then
+		        label=label+"x= "+Field_y_Type(j)+" "
+		      end
+		      plota_label_array.Append Label
+		    Next
+		    
+		    
+		    
+		    
+		    
 		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
 		      
 		      k=k+1
-		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Radiation_Type + " "+Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") +" "+Canvas_Graph.Profiles.One_Profile(j).Linac+" "+Canvas_Graph.Profiles.One_Profile(j).Algorithm +" SSD="+ Format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0") +_
-		      " FIELD ="+ Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")+"x"+Format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
+		      plota_label= plota_label_array(k-1)
 		      
 		      cc=Canvas_Graph.Profiles.One_Profile(j).Colour
 		      hexColor_Full = Str(cc)
@@ -2547,7 +2652,9 @@ End
 		    filestream.Writeline "ax = plt.gca()"
 		    filestream.Writeline "ax.xaxis.set_minor_locator(minorLocator)"
 		    
-		    filestream.Writeline "plt.legend(loc='upper right')"
+		    filestream.Writeline "plt.legend(loc='best')"
+		    filestream.Writeline "plt.title('"+title+"')"
+		    
 		    filestream.Writeline "plt.show()"
 		    fileStream.Close
 		  end if
