@@ -207,7 +207,7 @@ Begin Window Window_MEPHYSTO_Import
          GridLinesVertical=   0
          HasHeading      =   True
          HeadingIndex    =   -1
-         Height          =   235
+         Height          =   189
          HelpTag         =   ""
          Hierarchical    =   False
          Index           =   -2147483648
@@ -231,7 +231,7 @@ Begin Window Window_MEPHYSTO_Import
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   313
+         Top             =   359
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -269,49 +269,6 @@ Begin Window Window_MEPHYSTO_Import
          Underline       =   False
          Visible         =   True
          Width           =   93
-      End
-      Begin TextField EditField_axis
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   "X, Y, or Z"
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   117
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   9
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   180
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   122
       End
       Begin TextField EditField_Date
          AcceptTabs      =   False
@@ -467,40 +424,6 @@ Begin Window Window_MEPHYSTO_Import
          Visible         =   True
          Width           =   63
       End
-      Begin Label StaticText8
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   34
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   15
-         TabPanelIndex   =   0
-         Text            =   "Axis"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   181
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   63
-      End
       Begin Label StaticText9
          AutoDeactivate  =   True
          Bold            =   False
@@ -557,7 +480,7 @@ Begin Window Window_MEPHYSTO_Import
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   0
-         Text            =   "Field (mm)"
+         Text            =   "Field In (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
          TextFont        =   "System"
@@ -567,9 +490,9 @@ Begin Window Window_MEPHYSTO_Import
          Transparent     =   False
          Underline       =   False
          Visible         =   True
-         Width           =   63
+         Width           =   80
       End
-      Begin TextField EditField_Field
+      Begin TextField EditField_Field_In
          AcceptTabs      =   False
          Alignment       =   0
          AutoDeactivate  =   True
@@ -640,7 +563,7 @@ Begin Window Window_MEPHYSTO_Import
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   276
+         Top             =   304
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -683,7 +606,7 @@ Begin Window Window_MEPHYSTO_Import
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   276
+         Top             =   304
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1173,7 +1096,7 @@ Begin Window Window_MEPHYSTO_Import
          Selectable      =   False
          TabIndex        =   44
          TabPanelIndex   =   0
-         Text            =   "WDGL"
+         Text            =   "Wedge"
          TextAlign       =   0
          TextColor       =   &c00000000
          TextFont        =   "System"
@@ -1185,7 +1108,7 @@ Begin Window Window_MEPHYSTO_Import
          Visible         =   True
          Width           =   63
       End
-      Begin TextField EditField_WDGL
+      Begin TextField EditField_Wedge
          AcceptTabs      =   False
          Alignment       =   0
          AutoDeactivate  =   True
@@ -1223,83 +1146,6 @@ Begin Window Window_MEPHYSTO_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   210
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   122
-      End
-      Begin Label StaticText22
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   363
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   46
-         TabPanelIndex   =   0
-         Text            =   "WDGD"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   244
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   63
-      End
-      Begin TextField EditField_WDGD
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   438
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   True
-         Scope           =   0
-         TabIndex        =   47
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   244
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1347,83 +1193,6 @@ Begin Window Window_MEPHYSTO_Import
          UseFocusRing    =   True
          Visible         =   True
          Width           =   130
-      End
-      Begin TextField EditField_AddOn
-         AcceptTabs      =   False
-         Alignment       =   0
-         AutoDeactivate  =   True
-         AutomaticallyCheckSpelling=   False
-         BackColor       =   &cFFFFFF00
-         Bold            =   False
-         Border          =   True
-         CueText         =   ""
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Format          =   ""
-         Height          =   22
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   668
-         LimitText       =   0
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Mask            =   ""
-         Password        =   False
-         ReadOnly        =   False
-         Scope           =   0
-         TabIndex        =   49
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   259
-         Underline       =   False
-         UseFocusRing    =   True
-         Visible         =   True
-         Width           =   122
-      End
-      Begin Label StaticText23
-         AutoDeactivate  =   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         Height          =   20
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
-         Italic          =   False
-         Left            =   593
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
-         Multiline       =   False
-         Scope           =   0
-         Selectable      =   False
-         TabIndex        =   50
-         TabPanelIndex   =   0
-         Text            =   "AddOn"
-         TextAlign       =   0
-         TextColor       =   &c00000000
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   260
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   63
       End
       Begin TextField EditField_Linac
          AcceptTabs      =   False
@@ -1564,6 +1333,83 @@ Begin Window Window_MEPHYSTO_Import
          Visible         =   True
          Width           =   80
       End
+      Begin Label Label1
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox2"
+         Italic          =   False
+         Left            =   36
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   55
+         TabPanelIndex   =   0
+         Text            =   "Field Cros (mm)"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   271
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   80
+      End
+      Begin TextField EditField_Field_Cros
+         AcceptTabs      =   False
+         Alignment       =   0
+         AutoDeactivate  =   True
+         AutomaticallyCheckSpelling=   False
+         BackColor       =   &cFFFFFF00
+         Bold            =   False
+         Border          =   True
+         CueText         =   ""
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Format          =   ""
+         Height          =   22
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox2"
+         Italic          =   False
+         Left            =   119
+         LimitText       =   0
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Mask            =   ""
+         Password        =   False
+         ReadOnly        =   False
+         Scope           =   0
+         TabIndex        =   56
+         TabPanelIndex   =   0
+         TabStop         =   True
+         Text            =   ""
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   270
+         Underline       =   False
+         UseFocusRing    =   True
+         Visible         =   True
+         Width           =   122
+      End
    End
 End
 #tag EndWindow
@@ -1582,7 +1428,7 @@ End
 	#tag Method, Flags = &h0
 		Sub mcc_Import(k as Integer)
 		  //------------------------------
-		  // Import RFA data into profile data format
+		  // Import MCC data into profile data format
 		  //
 		  //------------------------------
 		  Dim i as Integer
@@ -1594,7 +1440,7 @@ End
 		  pp.New_Profile
 		  pp.Value_Label="Dose"
 		  pp.Label="MCC Data : "+mcc.Graphs(k).Date
-		  pp.Comment=mcc.Graphs(k).Comment
+		  pp.Comment=mcc.Graphs(k).Comment+" "+mcc.Graphs(k).Type
 		  pp.Value_Units="%"
 		  pp.X_label="Position"
 		  pp.Z_label="Position"
@@ -1604,32 +1450,44 @@ End
 		  pp.Units_z="cm"
 		  pp.Units_y="cm"
 		  pp.Source_TYPE=0
-		  pp.Field_X=val(NthField(mcc.Graphs(k).FLSZ,"*",1))/10
-		  pp.Field_Y=val(NthField(mcc.Graphs(k).FLSZ,"*",2))/10
+		  pp.Field_X=mcc.Graphs(k).FLSX/10
+		  pp.Field_Y=mcc.Graphs(k).FLSY/10
 		  pp.Energy=mcc.Graphs(k).Energy
 		  pp.Radiation_Type=mcc.Graphs(k).BMTY
+		  
+		  if InStr(pp.Radiation_Type,"EL")>0 Then
+		    pp.Radiation_Type="Electron"
+		  else
+		    pp.Radiation_Type="Photon"
+		  end
+		  
 		  
 		  if pp.Energy=0 Then
 		    pp.Energy=val(EditField_Energy.Text)
 		  end
 		  
 		  
-		  // Fix June 2014 by A Alexander,
-		  // Update depth to divide by 10
-		  // Not sure why I had to divide by 100 in the past?
-		  //pp.Depth=mcc.Graphs(k).DPTH/100
 		  pp.Depth=mcc.Graphs(k).DPTH/10
-		  
-		  
 		  pp.Date=mcc.Graphs(k).Date
-		  pp.AddOn=mcc.Graphs(k).addon
+		  
+		  
+		  if pp.Radiation_Type="Electron" Then
+		    if Len(mcc.Graphs(k).Wedge)>0 and InStr(mcc.Graphs(k).Wedge,"x")=0 Then
+		      pp.AddOn=mcc.Graphs(k).Wedge+"x"+mcc.Graphs(k).Wedge
+		    else
+		      pp.AddOn=mcc.Graphs(k).Wedge
+		    end
+		  end
+		  
+		  
 		  pp.SSD=mcc.Graphs(k).SSD/10
-		  pp.Linac=Trim(EditField_Linac.Text)
-		  if mcc.Graphs(k).AXIS="Z" Then
+		  pp.Linac=mcc.Graphs(k).LinacName
+		  
+		  if InStr(mcc.Graphs(k).Type, "PDD")>0 Then
 		    pp.TYPE=1
-		  elseif mcc.Graphs(k).AXIS="X" Then
+		  elseif InStr(mcc.Graphs(k).Type,"CROSSPLANE")>0 Then
 		    pp.TYPE=2
-		  elseif mcc.Graphs(k).AXIS="Y" Then
+		  elseif InStr(mcc.Graphs(k).Type,"INPLANE")>0  Then
 		    pp.TYPE=3
 		  else 
 		    pp.TYPE=0
@@ -1659,7 +1517,7 @@ End
 		  Dim i, num_meas as Integer
 		  Dim pp as Class_Profile_One
 		  Dim ts as TextInputStream
-		  Dim temp as String
+		  Dim temp,a,b as String
 		  dim point as Class_Points
 		  dim x,y,z as Single
 		  dim graph as Class_RFA_Graph
@@ -1679,21 +1537,22 @@ End
 		  temp=trim(ts.ReadLine)
 		  temp=trim(ts.ReadLine)
 		  temp=trim(ts.ReadLine)
-		  temp=trim(ts.ReadLine)
-		  num_meas=val(NthField(Temp,"SCAN",2))
-		  mcc.Num_Graphs=num_meas
+		  
 		  
 		  
 		  While ts.EOF=False
 		    temp=trim(ts.ReadLine)
+		    A=trim(NthField(Temp,"=",1))
+		    B=Trim(NthField(Temp,"=",2))
 		    
-		    if InStr(Temp, "TASK_NAME")>0 Then
+		    
+		    if InStr(Temp, "BEGIN_SCAN")>0  Then
 		      // Start of end Profile
 		      graph= new Class_RFA_Graph
 		      mcc.Graphs.Append Graph
 		      
 		    elseif InStr(Temp, "CORRECTIONS")>0 Then
-		      graph.Comment=Trim(NthField(Temp,"=:",2))
+		      graph.Comment=Trim(NthField(Temp,"=",2))
 		      
 		    elseif InStr(Temp, "DETECTOR_NAME")>0 Then
 		      graph.Detector=Trim(NthField(Temp,"=",2))
@@ -1712,37 +1571,42 @@ End
 		      graph.BMTY=Trim(NthField(Temp,"=",2))
 		      
 		      
+		    elseif InStr(Temp, "ENERGY")>0 Then
+		      graph.Energy=val(NthField(Temp,"=",2))
+		      
+		      
+		      
 		      // Readin FS
-		    elseif InStr(Temp, "%FLSZ")>0 Then
-		      While InStr(Temp,"  ")>0
-		        Temp=Replace(Temp,"  "," ")
-		      Wend
-		      graph.FLSZ=Trim(NthField(Temp," ",2))
+		    elseif a="FIELD_INPLANE"  Then
+		      graph.FLSY=val(b)
+		      
+		      // Readin FS
+		    elseif a="FIELD_CROSSPLANE" Then
+		      graph.FLSX=val(b)
+		      
+		      
+		    elseif InStr(Temp, "LINAC")>0 Then
+		      graph.LinacName=Trim(NthField(Temp,"=",2))
 		      
 		      
 		      // Readin Axis
-		    elseif InStr(Temp, "%AXIS")>0 Then
+		    elseif InStr(Temp, "AXIS")>0 Then
 		      While InStr(Temp,"  ")>0
 		        Temp=Replace(Temp,"  "," ")
 		      Wend
-		      graph.AXIS=Trim(NthField(Temp," ",2))
+		      graph.AXIS=Trim(NthField(Temp,"=",2))
 		      
 		      // Readin DETY
-		    elseif InStr(Temp, "%DETY")>0 Then
-		      graph.DETY=Trim(NthField(temp,"%DETY",2))
+		    elseif InStr(Temp, "DETY")>0 Then
+		      graph.DETY=Trim(NthField(temp,"DETY",2))
 		      
 		      // Readin Type
-		    elseif InStr(Temp, "%TYPE")>0 Then
-		      graph.Type=Trim(NthField(temp,"%TYPE",2))
+		    elseif InStr(Temp, "TYPE")>0 Then
+		      graph.Type=Trim(NthField(temp,"TYPE",2))
 		      
 		      // Readin WDGL
-		    elseif InStr(Temp, "WDGL")>0 Then
-		      graph.WDGL=Trim(NthField(temp,"WDGL",2))
-		      
-		      
-		      // Readin WDGD
-		    elseif InStr(Temp, "WDGD")>0 Then
-		      graph.WDGD=Trim(NthField(temp,"WDGD",2))
+		    elseif InStr(Temp, "WEDGE=")>0 Then
+		      graph.Wedge=Trim(NthField(temp,"=",2))
 		      
 		      // Readin PNTS
 		    elseif InStr(Temp, "PNTS")>0 Then
@@ -1752,42 +1616,61 @@ End
 		    elseif InStr(Temp, "STEP")>0 Then
 		      graph.steps=Val(NthField(temp,"STEP",2))
 		      
-		      
-		      
 		      // Readin Depth
-		    elseif InStr(Temp,"%DPTH")>0 Then
+		    elseif InStr(Temp,"SCAN_DEPTH")>0 Then
 		      While InStr(Temp,"  ")>0
 		        Temp=Replace(Temp,"  "," ")
 		      Wend
-		      graph.DPTH=val(NthField(Temp," ",2))
-		      
+		      graph.DPTH=val(NthField(Temp,"=",2))
 		      
 		      // Readin SSD
-		    elseif InStr(Temp,"%SSD")>0 Then
+		    elseif InStr(Temp,"SSD")>0 Then
 		      While InStr(Temp,"  ")>0
 		        Temp=Replace(Temp,"  "," ")
 		      Wend
-		      graph.SSD=val(NthField(Temp," ",2))
-		      
+		      graph.SSD=val(NthField(Temp,"=",2))
 		      
 		      // Readin Point values
-		    elseif InStr(Temp, "<")>0 Then
-		      temp=trim(NthField(Temp,"<",2))
-		      While InStr(Temp,"  ")>0
-		        Temp=Replace(Temp,"  "," ")
-		      Wend
-		      Point=new Class_Points
-		      Point.X_cm=val(NthField(Temp," ",1))/10
-		      Point.Y_cm=val(NthField(Temp," ",2))/10
-		      Point.Z_cm=val(NthField(Temp," ",3))/10
-		      Point.Value=val(NthField(Temp," ",4))
-		      
-		      if graph=nil Then
-		        Return
-		      end
-		      
-		      graph.Points.Append Point
-		      
+		    elseif InStr(Temp, "BEGIN_DATA")>0 Then
+		      temp=trim(ts.ReadLine)
+		      While ts.EOF=False and InStr(Temp, "END_DATA")=0
+		        While InStr(Temp,"  ")>0
+		          Temp=Replace(Temp,"  "," ")
+		        Wend
+		        While InStr(Temp,Chr(9)+ Chr(9))>0  
+		          Temp=Replace(Temp,Chr(9)+Chr(9)," ")
+		        Wend
+		        
+		        
+		        
+		        Point=new Class_Points
+		        
+		        if InStr(graph.Type,"PDD")>0 Then
+		          Point.X_cm=0
+		          Point.Y_cm=0
+		          Point.Z_cm=val(NthField(Temp," ",1))/10
+		        else
+		          Point.Z_cm=graph.DPTH/10
+		          if InStr(graph.Type,"Cross")>0 Then
+		            Point.X_cm=val(NthField(Temp," ",1))/10
+		            Point.Y_cm=0
+		          else
+		            Point.X_cm=0
+		            Point.Y_cm=val(NthField(Temp," ",1))/10
+		          end
+		        end
+		        
+		        
+		        
+		        Point.Value=val(NthField(Temp," ",2))
+		        
+		        if graph=nil Then
+		          Return
+		        end
+		        graph.Points.Append Point
+		        
+		        temp=trim(ts.ReadLine)
+		      wend
 		      
 		    elseif InStr(Temp, "$ENOM")>0 then
 		      
@@ -1847,19 +1730,21 @@ End
 		    EditField_Date.Text=mcc.Graphs(k).Date
 		    EditField_Comment.Text=mcc.Graphs(k).Comment
 		    EditField_ssd.Text=str(mcc.Graphs(k).SSD)
-		    EditField_axis.Text=mcc.Graphs(k).AXIS
-		    EditField_Field.Text=mcc.Graphs(k).FLSZ
+		    EditField_Field_Cros.Text=str(mcc.Graphs(k).FLSX)
+		    EditField_Field_In.Text=Str(mcc.Graphs(k).FLSY)
+		    
+		    EditField_Linac.Text=mcc.Graphs(k).LinacName
+		    
+		    
 		    EditField_Depth.text=str(mcc.Graphs(k).DPTH)
 		    EditField_Energy.Text=str(mcc.Graphs(k).Energy)
 		    EditField_BMTY.text=mcc.Graphs(k).BMTY
 		    EditField_TYPE.text=mcc.Graphs(k).Type
 		    EditField_DETY.text=mcc.Graphs(k).DETY
-		    EditField_AddOn.Text=mcc.Graphs(k).addon
 		    EditField_Detector.Text=mcc.Graphs(k).Detector
 		    EditField_Operator.Text=mcc.Graphs(k).Operator
 		    
-		    EditField_WDGD.Text=mcc.Graphs(k).WDGD
-		    EditField_WDGL.Text=mcc.Graphs(k).WDGL
+		    EditField_Wedge.Text=mcc.Graphs(k).Wedge
 		    
 		    
 		  end
@@ -1947,17 +1832,10 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_axis
+#tag Events EditField_Field_In
 	#tag Event
 		Sub TextChange()
-		  gg.AXIS=me.Text
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_Field
-	#tag Event
-		Sub TextChange()
-		  gg.FLSZ=me.Text
+		  gg.FLSY=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1982,17 +1860,10 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_WDGL
+#tag Events EditField_Wedge
 	#tag Event
 		Sub TextChange()
-		  gg.WDGL=me.Text
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_WDGD
-	#tag Event
-		Sub TextChange()
-		  gg.WDGD=me.Text
+		  gg.Wedge=me.Text
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2000,13 +1871,6 @@ End
 	#tag Event
 		Sub TextChange()
 		  gg.Comment=Trim(me.Text)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events EditField_AddOn
-	#tag Event
-		Sub TextChange()
-		  gg.addon=me.Text
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2048,6 +1912,13 @@ End
 		  if app.which_window_Commission Then
 		    Window_Commisssioning.Update_Profile
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_Field_Cros
+	#tag Event
+		Sub TextChange()
+		  gg.FLSx=val(me.Text)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

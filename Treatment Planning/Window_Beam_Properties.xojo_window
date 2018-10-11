@@ -53,7 +53,7 @@ Begin Window Window_Beam_Properties
       TextUnit        =   0
       Top             =   40
       Underline       =   False
-      Value           =   0
+      Value           =   2
       Visible         =   True
       Width           =   625
       Begin GroupBox GroupBox6
@@ -105,7 +105,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Treatment machine"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -140,7 +139,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam energy"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -354,7 +352,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam modality"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -389,7 +386,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   14
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam description"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -424,7 +420,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   15
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -459,7 +454,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   18
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam applicator:"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -568,7 +562,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   21
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Applicator Type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -662,7 +655,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge Angle"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -697,7 +689,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge Orientation"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -792,7 +783,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Wedge ID"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1206,7 +1196,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Field Type"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1241,7 +1230,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Number of fields"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1319,7 +1307,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Index of field"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1456,7 +1443,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Model"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1519,7 +1505,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Collimator (deg)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1554,7 +1539,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Gantry (deg)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1589,7 +1573,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Couch (deg)\r\r"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1913,7 +1896,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Cut Out Thicknes:"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -1948,7 +1930,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "cm"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2011,7 +1992,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   4
-            TabStop         =   True
             Text            =   "Shape Preview:"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2090,7 +2070,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Number of fields"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2168,7 +2147,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Field Type"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2231,7 +2209,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Index of field"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2450,7 +2427,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Nominal Isocenter Distance (cm)"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -2528,7 +2504,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Source to Skin distance (SSD) (cm)"
             TextAlign       =   2
             TextColor       =   &c00000000
@@ -2564,7 +2539,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   13
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "MU Backscatter % (all fields)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2712,7 +2686,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X 2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2790,7 +2763,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2868,7 +2840,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "X (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2903,7 +2874,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   11
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2981,7 +2951,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3059,7 +3028,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   2
-            TabStop         =   True
             Text            =   "Y 2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3236,7 +3204,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Fraction number"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3271,7 +3238,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "MUs"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3392,7 +3358,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Dose rate"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3470,7 +3435,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Beam weight"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3548,7 +3512,6 @@ Begin Window Window_Beam_Properties
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   1
-            TabStop         =   True
             Text            =   "Fraction dose"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -3670,7 +3633,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "X (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -3705,7 +3667,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Y (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -3740,7 +3701,6 @@ Begin Window Window_Beam_Properties
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   2
-         TabStop         =   True
          Text            =   "Z (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -3807,7 +3767,6 @@ Begin Window Window_Beam_Properties
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Beam Number"
       TextAlign       =   0
       TextColor       =   &c00000000

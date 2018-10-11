@@ -2542,8 +2542,6 @@ End
 		        Field_y_Type_title=False
 		      end
 		    Next
-		    
-		    
 		    if RT_type_Title Then
 		      title=RT_type(0)+ " "
 		    end
@@ -2559,16 +2557,12 @@ End
 		    if SDD_Type_title Then
 		      title=title+"SSD= "+SDD_Type(0)+ " "
 		    end
-		    
 		    if Field_X_Type_title Then
 		      title=title+"FIELDX= "+Field_X_Type(0)+ " "
 		    end
-		    
 		    if Field_y_Type_title Then
 		      title=title+"FIELDY= "+Field_Y_Type(0)+ " "
 		    end
-		    
-		    
 		    
 		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
 		      label=""
@@ -2588,10 +2582,10 @@ End
 		        label=label+"SSD= "+SDD_Type(j)+" "
 		      end
 		      if Field_x_Type_title=False Then
-		        label=label+"FIELD= "+Field_x_Type(j)+" "
+		        label=label+"FIELD= "+Field_x_Type(j)
 		      end
 		      if Field_y_Type_title=False Then
-		        label=label+"x= "+Field_y_Type(j)+" "
+		        label=label+"x"+Field_y_Type(j)+" "
 		      end
 		      plota_label_array.Append Label
 		    Next

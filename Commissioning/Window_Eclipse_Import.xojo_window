@@ -23,7 +23,7 @@ Begin Window Window_Eclipse_Import
    MinWidth        =   64
    Placement       =   0
    Resizeable      =   False
-   Title           =   "Eclipse Data"
+   Title           =   "Eclipse Data from Beam Configurations"
    Visible         =   True
    Width           =   863
    Begin GroupBox GroupBox2
@@ -1075,7 +1075,7 @@ Begin Window Window_Eclipse_Import
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
-      Text            =   "File Name"
+      Text            =   "File Name *.data"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -1098,7 +1098,7 @@ End
 		  //------------------------------
 		  Dim i, num_meas  as Integer
 		  Dim pp as Class_Profile_One
-		  Dim temp as String
+		  Dim temp,tt as String
 		  dim point as Class_Points
 		  dim x,y,z as Single
 		  //------------------------------
@@ -1134,8 +1134,19 @@ End
 		  pp.Field_Y=val(Data.Graphs(k).FLSZ)/10
 		  pp.Energy=val(Data.Energy)
 		  pp.Depth=Data.Graphs(k).DPTH/10
-		  pp.Algorithm=EditField_algorithm.Text
-		  pp.AddOn=EditField_addon.Text
+		  pp.Algorithm=Data.algorithm
+		  
+		  
+		  if InStr(data.addon,"Applicator")>0 Then
+		    tt=trim(NthField(data.addon,"-",2))
+		    pp.AddOn=tt+"x"+tt
+		  elseif len(data.addon)>0 Then
+		    pp.AddOn=Data.addon
+		  else
+		    pp.AddOn=EditField_addon.Text
+		  end
+		  
+		  
 		  pp.Comment=data.beam+" "+data.beamdata
 		  pp.SSD=Val(EditField_SSD.Text)
 		  pp.Label=pp.Linac +", "+str(Data.Graphs(k).DPTH/10)
@@ -1171,7 +1182,6 @@ End
 		  if RadioButton_Process_Profiles.Value Then
 		    // Mirror profiles that only contain half the data
 		    // Added October 10th 2014
-		    
 		    //Find sign of missing data
 		    
 		    for i=0 to UBound(data.Graphs(k).Points)
@@ -1180,21 +1190,12 @@ End
 		      Point.Y_cm=data.Graphs(k).Points(i).y_cm
 		      Point.Z_cm=data.Graphs(k).Points(i).z_cm
 		      Point.Value=data.Graphs(k).Points(i).value
-		      
-		      
 		      if pp.TYPE=2 Then
 		        Point.X_cm=-Point.X_cm
 		        pp.Points.Insert 0, Point
-		        
 		      end
-		      
-		      
-		      
 		    next
-		    
 		  else
-		    
-		    
 		  end
 		  
 		  

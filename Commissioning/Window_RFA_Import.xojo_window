@@ -2507,7 +2507,7 @@ End
 		  While ts.EOF=False
 		    temp=ts.ReadLine
 		    
-		    if InStr(Temp, "$STOM")>0 Then
+		    if InStr(Temp, "$STOM")>0  or  InStr(Temp, "$STOD")>0 Then
 		      // Start of end Profile
 		      graph= new Class_RFA_Graph
 		      RFA.Graphs.Append Graph
