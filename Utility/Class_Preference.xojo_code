@@ -204,7 +204,12 @@ Protected Class Class_Preference
 		      
 		    elseif instr(tempstr,"McGill Path")>0 then
 		      modstr=trim(NthField(tempstr,":=",2))
-		      f= new FolderItem(modstr, FolderItem.PathTypeNative)
+		      try
+		        f= new FolderItem(modstr, FolderItem.PathTypeShell)
+		      Exception err as RuntimeException
+		        Errors.Append "Error within read preference folder: McGill path"
+		      end try
+		      
 		      if f<> nil Then
 		        if f.Exists Then
 		          mcgillfi=f
@@ -217,8 +222,7 @@ Protected Class Class_Preference
 		      try
 		        f= new FolderItem(modstr, FolderItem.PathTypeShell)
 		      Exception err as RuntimeException
-		        Errors.Append "Error within read preference folders/files"
-		        
+		        Errors.Append "Error within read preference folder: BEAMnrc path"
 		      end try
 		      
 		      if f<> nil Then
@@ -764,7 +768,6 @@ Protected Class Class_Preference
 	#tag Property, Flags = &h0
 		#tag Note
 			_
-			
 		#tag EndNote
 		McGillRT_Dose_Skip As Boolean = false
 	#tag EndProperty
@@ -938,6 +941,12 @@ Protected Class Class_Preference
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="McGillRT_Dose_Skip"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="McGillRT_Profile_Skip"
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
