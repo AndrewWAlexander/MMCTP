@@ -949,7 +949,6 @@ Inherits Canvas
 		  
 		  
 		  
-		  
 		  if gVis.Colourwash_options Then
 		    rangecw=gVis.ColourWashMax-gVis.ColourWashMin
 		  else
@@ -959,37 +958,28 @@ Inherits Canvas
 		  if rangecw=0 then
 		    tmpint=0
 		  else
-		    
 		    if gVis.Colourwash_options Then
-		      h=value-gVis.ColourWashMin
-		      
-		      if h<gVis.ColourWashMin Then
-		        h=0
-		      elseif h>gVis.ColourWashMax Then
-		        h=gVis.ColourWashMax
+		      if value<gVis.ColourWashMin Then
+		        tmpint=0
+		      elseif value>gVis.ColourWashMax Then
 		        tmpint=255
 		      else
+		        h=value-gVis.ColourWashMin
 		        tmpint=abs(Round(255*h/rangecw))
+		        if tmpint>255 Then
+		          tmpint=255
+		        end
 		      end
-		      
-		      if tmpint>255 Then
-		        tmpint=255
-		      end
-		      
-		      
 		    else
 		      h=value-dmin
-		      
 		      tmpint=abs(Round(255*h/rangecw))
-		      if tmpint>255 or tmpint<0 Then
+		      if tmpint>255 Then
+		        tmpint=255
+		      elseif tmpint<0 Then
 		        tmpint=0
 		      end
 		    end
-		    
-		    
-		    
 		  end
-		  
 		  
 		  Return tmpint
 		End Function
@@ -1006,28 +996,19 @@ Inherits Canvas
 		  Dim hot_p,cold_p As Single
 		  Dim data as RTOG_Dose_Plane
 		  dim tmpint,startx,starty,real_sizex,real_sizey,tran as integer
-		  Dim gg as Graphics
+		  Dim gg,ggb as Graphics
 		  //==========================
 		  
 		  Pic_Dose=nil
-		  
 		  ReDim Isolines_Main(-1)
-		  
 		  if Window_Treatment.dose_index<0 or plan_index<0  or Window_Treatment.Move_CrossHairs Then
 		    Return
 		  end 
 		  
 		  
-		  
-		  
-		  
 		  dose_data_index=-1
-		  
 		  hot_p=gRTOG.Scan(canvas_slice).Z_Value
-		  
 		  // Check to see the dose limits
-		  
-		  
 		  if hot_p>(thedose.Coord_3_1st_point-thedose.Depth_Grid/2) and hot_p<(thedose.Coord_3_1st_point+thedose.Depth_Grid/2+thedose.Depth_Grid*(thedose.Size_of_Dimension3-1)) Then
 		    
 		  else
@@ -1105,6 +1086,10 @@ Inherits Canvas
 		  end
 		  
 		  gg = Pic_Dose.graphics
+		  ggb=Pic_Dose.Mask.Graphics
+		  tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
+		  // 255 fully transparent, 0 is not transparent
+		  
 		  for i=0 to thedose.Size_of_Dimension2-1
 		    for j=0 to thedose.Size_of_Dimension1-1
 		      tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
@@ -1113,16 +1098,16 @@ Inherits Canvas
 		      else
 		        gg.Pixel(j,i)=gvis.colour_map_hot(tmpint)
 		      end
+		      if tmpint=0 Then
+		        ggb.Pixel(j,i)=rgb(255,255,255)
+		      else
+		        ggb.Pixel(j,i)=rgb(tran,tran,tran)
+		      end
 		    next
 		  next
 		  
 		  
-		  // 255 fully transparent, 0 is not transparent
-		  tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
-		  gg=Pic_Dose.Mask.Graphics
-		  gg.ClearRect 0,0,thedose.Size_of_Dimension1,thedose.Size_of_Dimension2
-		  gg.ForeColor=rgb(tran,tran,tran)
-		  gg.FillRect 0,0,thedose.Size_of_Dimension1,thedose.Size_of_Dimension2
+		  
 		  
 		  '== END Colour wash display==============================
 		  if Window_Treatment.CheckBox_Iso.Value then
@@ -1143,7 +1128,7 @@ Inherits Canvas
 		  dim dx,dz,max,Y_start as Single
 		  dim tmpint,tran as integer
 		  Dim cor_cm,cor_y_index as Single
-		  Dim gg as Graphics
+		  Dim gg, ggb as Graphics
 		  //==========================
 		  
 		  Pic_Dose=nil
@@ -1219,6 +1204,10 @@ Inherits Canvas
 		        Return
 		      end
 		      gg = Pic_Dose.graphics
+		      ggb=Pic_Dose.Mask.Graphics
+		      tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
+		      // 255 fully transparent, 0 is not transparent
+		      
 		      for i=0 to dose.Size_of_Dimension3-1
 		        for j=0 to dose.Size_of_Dimension1-1
 		          tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
@@ -1227,17 +1216,13 @@ Inherits Canvas
 		          else
 		            gg.Pixel(j,i)=gvis.colour_map_hot(tmpint)
 		          end
+		          if tmpint=0 Then
+		            ggb.Pixel(j,i)=rgb(255,255,255)
+		          else
+		            ggb.Pixel(j,i)=rgb(tran,tran,tran)
+		          end
 		        next
 		      next
-		      
-		      
-		      
-		      // 255 fully transparent, 0 is not transparent
-		      tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
-		      gg=Pic_Dose.Mask.Graphics
-		      gg.ClearRect 0,0,dose.Size_of_Dimension1,dose.Size_of_Dimension3
-		      gg.ForeColor=rgb(tran,tran,tran)
-		      gg.FillRect 0,0,dose.Size_of_Dimension1,dose.Size_of_Dimension3
 		    end' end colour wash display
 		  end
 		End Sub
@@ -1560,6 +1545,7 @@ Inherits Canvas
 		  Dim Z(0,0), X(0), Y(0),dy,dx,sag_cm,sag_x_index,Y_start as Single
 		  Dim i,j,the_one,tmpint,tran As Integer
 		  Dim dose as RTOG_Dose_Distribution
+		  Dim  ggb as Graphics
 		  //==========================
 		  
 		  
@@ -1619,11 +1605,14 @@ Inherits Canvas
 		      end
 		      
 		      
+		      tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
+		      // 255 fully transparent, 0 is not transparent
 		      
 		      //  Draw Colour Wash display
 		      if Window_Treatment.CheckBox_dose.Value then
 		        Pic_Dose=New Picture(dose.Size_of_Dimension2,dose.Size_of_Dimension3,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		        if Pic_Dose<> Nil Then
+		          ggb=Pic_Dose.Mask.Graphics
 		          for i=0 to dose.Size_of_Dimension3-1
 		            for j=0 to dose.Size_of_Dimension2-1
 		              tmpint=Make_ColourWash(Z(j,i),TheDose.Dmin,TheDose.Dmax)
@@ -1632,14 +1621,13 @@ Inherits Canvas
 		              else
 		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_hot(tmpint)
 		              end
+		              if tmpint=0 Then
+		                ggb.Pixel(j,i)=rgb(255,255,255)
+		              else
+		                ggb.Pixel(j,i)=rgb(tran,tran,tran)
+		              end
 		            next
 		          next
-		          
-		          // 255 fully transparent, 0 is not transparent
-		          tran=(Window_Treatment.Slider_Dose_Trans.Value/100)*255
-		          Pic_Dose.Mask.Graphics.ClearRect 0,0,dose.Size_of_Dimension2,dose.Size_of_Dimension3
-		          Pic_Dose.Mask.Graphics.ForeColor=rgb(tran,tran,tran)
-		          Pic_Dose.Mask.Graphics.FillRect 0,0,dose.Size_of_Dimension2,dose.Size_of_Dimension3
 		        end
 		      end
 		    end
