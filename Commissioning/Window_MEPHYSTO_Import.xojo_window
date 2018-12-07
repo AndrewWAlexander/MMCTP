@@ -1882,10 +1882,12 @@ End
 		  
 		  k=PopupMenu_list.ListIndex
 		  
-		  mcc_Import(k)
-		  
-		  if app.which_window_Commission Then
-		    Window_Commisssioning.Update_Profile
+		  if k>-1 and k<=PopupMenu_list.ListCount Then
+		    mcc_Import(k)
+		    
+		    if app.which_window_Commission Then
+		      Window_Commisssioning.Update_Profile
+		    end
 		  end
 		  
 		  
