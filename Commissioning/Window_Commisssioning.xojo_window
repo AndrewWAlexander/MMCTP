@@ -2590,19 +2590,12 @@ End
 		      plota_label_array.Append Label
 		    Next
 		    
-		    
-		    
-		    
-		    
 		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
-		      
 		      k=k+1
 		      plota_label= plota_label_array(k-1)
-		      
 		      cc=Canvas_Graph.Profiles.One_Profile(j).Colour
 		      hexColor_Full = Str(cc)
 		      hexColor="#"+Hex32(Val(hexColor_Full))
-		      
 		      x="["
 		      y="["
 		      
