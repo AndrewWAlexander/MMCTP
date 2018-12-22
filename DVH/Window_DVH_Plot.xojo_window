@@ -286,7 +286,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -407,7 +406,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -442,7 +440,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -520,7 +517,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -626,7 +622,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Y:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -747,7 +742,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "X:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -915,6 +909,50 @@ Begin Window Window_DVH_Plot
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   437
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         Width           =   99
+      End
+      Begin BevelButton ExportButton_PyPlot
+         AcceptFocus     =   False
+         AutoDeactivate  =   True
+         BackColor       =   &c00000000
+         Bevel           =   0
+         Bold            =   False
+         ButtonType      =   0
+         Caption         =   "Export PyPlot"
+         CaptionAlign    =   3
+         CaptionDelta    =   0
+         CaptionPlacement=   1
+         Enabled         =   True
+         HasBackColor    =   False
+         HasMenu         =   0
+         Height          =   22
+         HelpTag         =   ""
+         Icon            =   0
+         IconAlign       =   0
+         IconDX          =   0
+         IconDY          =   0
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox4"
+         Italic          =   False
+         Left            =   935
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   True
+         MenuValue       =   0
+         Scope           =   0
+         TabIndex        =   3
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   12.0
+         TextUnit        =   0
+         Top             =   468
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1482,6 +1520,18 @@ End
 		      ts.Close
 		    end
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ExportButton_PyPlot
+	#tag Event
+		Sub Action()
+		  //---------------------------------------
+		  // Export DVH data into pyplot format
+		  //
+		  
+		  DVHGraph.Profiles.Export_DVH_PyPlot
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

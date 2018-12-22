@@ -66,6 +66,64 @@ Protected Class Class_Profiles_All
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Export_DVH_PyPlot()
+		  //---------------------------------------
+		  // Export DVH data into pyplot format
+		  //
+		  //---------------------------------------
+		  Dim f as FolderItem
+		  Dim i,j as integer
+		  Dim ts as TextOutputStream
+		  Dim dvh_file, line,header,label,x,y as String
+		  //---------------------------------------
+		  
+		  f=GetSaveFolderItem("","DVH")
+		  
+		  if f=nil Then
+		    Return
+		  end
+		  ts=f.CreateTextFile
+		  if ts=nil Then
+		    Return
+		  end
+		  ts.Delimiter=EndOfLine.UNIX
+		  
+		  ts.WriteLine "import numpy as np"
+		  ts.WriteLine "import matplotlib.pyplot as plt"
+		  ts.WriteLine "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
+		  ts.WriteLine "minorLocator = AutoMinorLocator(2)"
+		  ts.WriteLine "plt.ylabel('Volume (%)', fontsize=20)"
+		  ts.WriteLine "plt.xlabel('Dose (Gy)', fontsize=20)"
+		  ts.WriteLine "plt.title('DVH', fontsize=20)"
+		  
+		  for j=0 to UBound(One_Profile)
+		    label="label='"+ One_Profile(j).Label+"'"
+		    x=""
+		    y=""
+		    for i=0 to UBound(One_Profile(j).Points)  //n bins
+		      x = x+Format(One_Profile(j).Points(i).x_cm,"-#.#######e")
+		      y=y+Format(One_Profile(j).Points(i).value,"-#.#######e")
+		      if i<>UBound(One_Profile(j).Points) Then
+		        x=x+", "
+		        y=y+", "
+		      end
+		    next
+		    ts.WriteLine "x="+x
+		    ts.WriteLine "y="+y
+		    ts.WriteLine "plt.plot(x,y, "+label+", linestyle="""",marker=""o"")"
+		  next
+		  
+		  ts.WriteLine "ax = plt.axes()  "
+		  ts.WriteLine "plt.yticks(np.arange(0, 110, 10))"
+		  //ts.WriteLine "plt.xticks(np.arange(0, 21, 2))"
+		  ts.WriteLine "ax.yaxis.grid(True)"
+		  ts.WriteLine "ax.xaxis.grid(True)"
+		  ts.WriteLine "plt.show()"
+		  ts.Close
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Export_DVH_XMGR()
 		  //---------------------------------------
 		  // Export DVH data into XMGR format
