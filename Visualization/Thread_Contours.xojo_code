@@ -13,6 +13,17 @@ Inherits Thread
 		      Update_Poly=False
 		      for i=0 to UBound(gRTOG.Structures)
 		        if gRTOG.Structures(i).Loaded_Poly=False Then
+		          
+		          gRTOG.Structures(i).X_Offset=gVis.xoff_set
+		          gRTOG.Structures(i).Y_Offset=gVis.yoff_set 
+		          gRTOG.Structures(i).nx=gVis.nx
+		          gRTOG.Structures(i).ny=gVis.ny
+		          gRTOG.Structures(i).nz=gVis.nz
+		          
+		          gRTOG.Structures(i).Res_X=gVis.scale_width
+		          gRTOG.Structures(i).Res_Y=gVis.scale_height
+		          gRTOG.Structures(i).Res_Z=gVis.scale_thickness
+		          
 		          gRTOG.Structures(i).Make_Polygon
 		        end
 		      next

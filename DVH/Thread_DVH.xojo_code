@@ -214,6 +214,192 @@ Inherits Thread
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Calculate_DVH_HR(struc as integer, PIndex as integer, RTdose_index as Integer, override as Boolean) As Boolean
+		  //---------------------------------------------------
+		  // Calculates one DVH based on the
+		  // selected structure volume and dose distribution
+		  //
+		  //=========================
+		  Dim file as RTOG_Structure_One_Structure
+		  Dim poly,p2,p3 as class_Polygon
+		  Dim j, ii,jj,k,n,di,tmpint,pixx,pixy,dose_int as integer
+		  Dim  cmx,cmy,cmz,tmpdose,_
+		  dose_error(-1),dose_values(-1),std,xp, yp,polysx, polysy as double
+		  Dim avg_d,percent_dose as Double
+		  Dim tmpsurf as RGBSurface
+		  Dim doseM as RTOG_Dose_Distribution
+		  DIm DVH as Class_DVH_One
+		  Dim out,ttemp as String
+		  Dim found,arepoints as Boolean
+		  //==================================
+		  
+		  DVH = new Class_DVH_One
+		  DVH.DVH_bins=DVHBins
+		  
+		  if PIndex<0 or PIndex>UBound(gRTOG.Plan) Then
+		    Return False
+		  else
+		    if RTdose_index<0 or RTdose_index>UBound(gRTOG.Plan(PIndex).Dose) Then
+		      Return False
+		    end
+		  end
+		  //Load Dose
+		  doseM=gRTOG.plan(PIndex).dose(RTdose_index)
+		  
+		  
+		  DVH.Dose_Units=doseM.Dose_Units
+		  
+		  ReDim dvh.DVH(dvh.DVH_bins-1)
+		  
+		  DVH.name=gRTOG.Plan(PIndex).Plan_ID+String_Separate+doseM.dose_name
+		  DVH.Dose_Name=doseM.Dose_name
+		  DVH.Calculate=gRTOG.Structures(struc).DVH_Calculate
+		  
+		  //if no structure and no patient loaded then then return
+		  DVH.pixelvolume=gvis.scale_height*gvis.scale_width*gvis.scale_thickness
+		  
+		  //for each structure
+		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
+		  
+		  
+		  //Check if DVH is already calculated
+		  found=False
+		  for n=0 to UBound(All_DVH)
+		    if All_DVH(n).Name=dvh.Name and All_DVH(n).struc_names=DVH.struc_names Then
+		      found=True
+		      
+		      // If found then override and remove
+		      if override Then
+		        All_DVH.Remove n
+		        found=False
+		      end
+		    end
+		  Next
+		  
+		  
+		  if found Then
+		    Return False
+		  end
+		  
+		  
+		  DVH.svolume=0
+		  DVH.sbigvolume=0
+		  DVH.ssmallvolume=0
+		  DVH.svolumeerror=0
+		  DVH.NumberofPixels=0
+		  for j=0 to DVH.DVH_bins-1 ' DVH bins
+		    DVH.DVH(j)=0.0
+		  next
+		  DVH.stru_color=gvis.colour(struc)
+		  DVH.mindose=500000000000000
+		  DVH.maxdose=-50000000000000
+		  DVH.svolume=gRTOG.structures(struc).Structure_Volume
+		  
+		  
+		  //show progress along the way...to know where we are.
+		  out=gRTOG.structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
+		  
+		  for n=0 to ubound(gRTOG.Scan)
+		    //for each structure find volume in cm^3...
+		    file = new RTOG_Structure_One_Structure
+		    file = gRTOG.structures(struc).structure_Data(n)
+		    //for each segment of each structure.
+		    
+		    TP_DVH_Text=out+Format((n+1)*100/(UBound(gRTOG.Scan)+1),"#")+" %"
+		    
+		    
+		    for jj=0 to UBound(gRTOG.structures(struc).structure_Data(n).Axial_Points_Y)
+		      
+		      cmx= gRTOG.structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
+		      cmy= gRTOG.structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
+		      cmz=gRTOG.Scan(n).Z_Value   //centerofthezslice
+		      
+		      tmpdose=RTOG_Dose_Interpolate(cmx,cmy,cmz,doseM)  //interpolate in the current plan_index and dose_index
+		      
+		      dose_values.append tmpdose
+		      if tmpdose >DVH.maxdose then ' Get the max dose per Structure
+		        DVH.maxdose=tmpdose
+		        ttemp=Format(cmx,"#.###e")+", "+Format(cmy,"#.###e")+", "+Format(cmz,"#.###e")
+		      elseif tmpdose <DVH.mindose then ' Get the min dose per Structure
+		        DVH.mindose=tmpdose
+		      end
+		      
+		      tmpdose=RTOG_Dose_Errors_Interpolate(cmx,cmy,cmz,doseM)  //interpolate in the current plan_index and dose_index
+		      dose_error.append tmpdose
+		      DVH.NumberofPixels=DVH.NumberofPixels+1  //volume in terms of # of pixel...
+		      
+		    next // loop for all ny points End of tmpimage lookup
+		    
+		  next ' End for each scan
+		  
+		  
+		  '=================================================
+		  //-----------------Now calculate the DVH--------------------
+		  for j=0 to UBound(dose_values)
+		    tmpdose=dose_values(j)
+		    if (DVH.maxdose-DVH.mindose)<>0 Then
+		      percent_dose=(tmpdose-DVH.mindose)/(DVH.maxdose-DVH.mindose)
+		    else
+		      percent_dose=0
+		    end
+		    dose_int=Floor(dvh.DVH_bins*percent_dose) 'to get integer percentage of dose
+		    if dose_int<0  Then
+		      dose_int=0
+		    elseif dose_int>(dvh.DVH_bins-1) Then
+		      dose_int=dvh.DVH_bins-1
+		    end
+		    DVH.DVH(dose_int)=DVH.DVH(dose_int)+1
+		  next
+		  //----------------DVH---------------------
+		  
+		  
+		  // Average Dose, and Uncertainty
+		  avg_d=0
+		  for n=0 to UBound(dose_values ) 
+		    avg_d=avg_d+dose_values(n)
+		  next
+		  DVH.avgdose=avg_d/(UBound(dose_values)+1)
+		  
+		  avg_d=0
+		  for n=0 to UBound(dose_error) 
+		    avg_d=avg_d+dose_error(n)
+		  next
+		  DVH.avg_error=avg_d/(UBound(dose_error)+1)
+		  
+		  
+		  
+		  for n=0 to dvh.DVH_bins-1
+		    if DVH.NumberofPixels<=0 then
+		      DVH.DVH(n)=0
+		    else
+		      DVH.DVH(n)=DVH.DVH(n)*100/DVH.NumberofPixels
+		    end
+		  next
+		  
+		  
+		  
+		  
+		  //----------------Calculate the StDev ---------------------
+		  std=0
+		  for n=0 to UBound(dose_values)
+		    std=std+(dose_values(n)-dvh.avgdose)^2
+		  next
+		  std=Sqrt(std/(UBound(dose_values)+1))
+		  DVH.stdev=std
+		  
+		  
+		  //----------------Calculate D50 ---------------------
+		  DVH.D50=DVH.Calculate_Dose_at_Volume_Percent(50)
+		  
+		  
+		  gDVH.All_DVH.Append DVH
+		  gDVH.Write_DVH_File(UBound(All_DVH))
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Calculate_HF_VH(struc as integer) As Boolean
 		  //---------------------------------------------------
 		  // Calculates one DVH based on the
