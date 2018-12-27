@@ -23,7 +23,7 @@ Protected Class RTOG_Structure
 		    
 		  elseif gPref.DVH_Calc=2 Then
 		    Make_Array_of_Points_FromImages_andIswithin
-		    
+		    Make_Array_of_Points_FromImages_andIswithin1
 		  else
 		    Return
 		  end
@@ -293,6 +293,11 @@ Protected Class RTOG_Structure
 		    
 		    nx=gVis.nx*gVis.scale_width/gRTOG.HR_Struc_X
 		    ny=gVis.ny*gVis.scale_height/gRTOG.HR_Struc_Y
+		    
+		    
+		    if nx=0 or ny=0 Then
+		      Return
+		    end
 		    
 		    x_low=nx
 		    x_high=0
@@ -794,6 +799,36 @@ Protected Class RTOG_Structure
 			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="nx"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ny"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="nz"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_X"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Y"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Z"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ROI_Number"
 			Group="Behavior"
 			Type="Integer"
@@ -851,6 +886,16 @@ Protected Class RTOG_Structure
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="X_Offset"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Y_Offset"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

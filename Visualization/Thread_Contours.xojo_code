@@ -26,6 +26,24 @@ Inherits Thread
 		          
 		          gRTOG.Structures(i).Make_Polygon
 		        end
+		        if UBound(gRTOG.Structures_HR)>=i Then
+		          if gRTOG.Structures_HR(i).Loaded_Poly=False Then
+		            
+		            gRTOG.Structures_HR(i).X_Offset=gVis.xoff_set
+		            gRTOG.Structures_HR(i).Y_Offset=gVis.yoff_set 
+		            
+		            gRTOG.Structures_HR(i).nx=gVis.nx*gVis.scale_width/gRTOG.HR_Struc_x
+		            gRTOG.Structures_HR(i).ny=gVis.ny*gVis.scale_height/gRTOG.HR_Struc_y
+		            gRTOG.Structures_HR(i).nz=gVis.nz*gVis.scale_thickness/gRTOG.HR_Struc_Z
+		            
+		            gRTOG.Structures_HR(i).Res_X=gRTOG.HR_Struc_X
+		            gRTOG.Structures_HR(i).Res_Y=gRTOG.HR_Struc_Y
+		            gRTOG.Structures_HR(i).Res_Z=gRTOG.HR_Struc_Z
+		            
+		            gRTOG.Structures_HR(i).Make_Polygon
+		            
+		          end
+		        end
 		      next
 		    end
 		    
