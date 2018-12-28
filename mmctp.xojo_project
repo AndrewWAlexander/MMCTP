@@ -378,5 +378,4 @@ UseGDIPlus=False
 UseBuildsFolder=True
 CopyRedistNextToWindowsEXE=False
 IsWebProject=False
-MacBuildArchitecture=1
 OptimizationLevel=0
