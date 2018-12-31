@@ -61,6 +61,11 @@ Inherits Thread
 		        if gRTOG.Structures(i).Loaded_Points=False Then
 		          gRTOG.Structures(i).Make_Array_of_Points
 		        end
+		        if i<= UBound(gRTOG.Structures_HR) Then
+		          if gRTOG.Structures_HR(i).Loaded_Points=False Then
+		            gRTOG.Structures_HR(i).Make_Array_of_Points
+		          end
+		        end
 		      next
 		    end
 		  Wend

@@ -14,7 +14,7 @@ Inherits Thread
 		        if ubound(gRTOG.structures) >-1  then
 		          for i=0 to UBound(gRTOG.Structures)
 		            if gRTOG.structures(i).Loaded_Points and gRTOG.Structures(i).DVH_Calculate Then
-		              if Calculate_DVH(i,l,k,False) or Calculate_HF_VH(i) Then
+		              if Calculate_DVH_HR(i,l,k,False) or Calculate_HF_VH(i) Then
 		                gDVH.Update_Window=True
 		              end
 		            end
@@ -256,7 +256,8 @@ Inherits Thread
 		  DVH.Calculate=gRTOG.Structures(struc).DVH_Calculate
 		  
 		  //if no structure and no patient loaded then then return
-		  DVH.pixelvolume=gvis.scale_height*gvis.scale_width*gvis.scale_thickness
+		  DVH.pixelvolume=gRTOG.Structures_HR(struc).Res_X*gRTOG.Structures_HR(struc).Res_Y*gRTOG.Structures_HR(struc).Res_z
+		  
 		  
 		  //for each structure
 		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
@@ -299,20 +300,20 @@ Inherits Thread
 		  //show progress along the way...to know where we are.
 		  out=gRTOG.structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
 		  
-		  for n=0 to ubound(gRTOG.Scan)
+		  for n=0 to ubound(gRTOG.Structures_HR(struc).Structure_Data)
 		    //for each structure find volume in cm^3...
 		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(struc).structure_Data(n)
+		    file = gRTOG.Structures_HR(struc).structure_Data(n)
 		    //for each segment of each structure.
 		    
-		    TP_DVH_Text=out+Format((n+1)*100/(UBound(gRTOG.Scan)+1),"#")+" %"
+		    TP_DVH_Text=out+Format((n+1)*100/(ubound(gRTOG.Structures_HR(struc).Structure_Data)+1),"#")+" %"
 		    
 		    
-		    for jj=0 to UBound(gRTOG.structures(struc).structure_Data(n).Axial_Points_Y)
+		    for jj=0 to UBound(gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_Y)
 		      
-		      cmx= gRTOG.structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
-		      cmy= gRTOG.structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
-		      cmz=gRTOG.Scan(n).Z_Value   //centerofthezslice
+		      cmx= gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_X(jj)*gRTOG.Structures_HR(struc).Res_X+gVis.xoff_set   'cm coordinate of pixel center!
+		      cmy= gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_Y(jj)*gRTOG.Structures_HR(struc).Res_Y+gVis.yoff_set   'cm coordinate of pixel center
+		      cmz=gRTOG.Structures_HR(struc).structure_Data(n).Z  //centerofthezslice
 		      
 		      tmpdose=RTOG_Dose_Interpolate(cmx,cmy,cmz,doseM)  //interpolate in the current plan_index and dose_index
 		      
