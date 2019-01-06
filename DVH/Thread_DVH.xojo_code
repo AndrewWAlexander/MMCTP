@@ -238,6 +238,8 @@ Inherits Thread
 		  
 		  if PIndex<0 or PIndex>UBound(gRTOG.Plan) Then
 		    Return False
+		  elseif gRTOG.Structures_HR(struc).Loaded_Points=False or gRTOG.Structures_HR(struc).Loaded_Poly=False Then
+		    Return False
 		  else
 		    if RTdose_index<0 or RTdose_index>UBound(gRTOG.Plan(PIndex).Dose) Then
 		      Return False
@@ -248,17 +250,14 @@ Inherits Thread
 		  
 		  
 		  DVH.Dose_Units=doseM.Dose_Units
-		  
 		  ReDim dvh.DVH(dvh.DVH_bins-1)
-		  
 		  DVH.name=gRTOG.Plan(PIndex).Plan_ID+String_Separate+doseM.dose_name
 		  DVH.Dose_Name=doseM.Dose_name
 		  DVH.Calculate=gRTOG.Structures(struc).DVH_Calculate
-		  
-		  //if no structure and no patient loaded then then return
-		  DVH.pixelvolume=gRTOG.Structures_HR(struc).Res_X*gRTOG.Structures_HR(struc).Res_Y*gRTOG.Structures_HR(struc).Res_z
-		  
-		  
+		  DVH.Res_X=gRTOG.Structures_HR(struc).Res_X
+		  DVH.Res_Y=gRTOG.Structures_HR(struc).Res_Y
+		  DVH.Res_Z=gRTOG.Structures_HR(struc).Res_z
+		  DVH.pixelvolume=DVH.Res_X*DVH.Res_Y*DVH.Res_Z
 		  //for each structure
 		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
 		  
@@ -268,7 +267,6 @@ Inherits Thread
 		  for n=0 to UBound(All_DVH)
 		    if All_DVH(n).Name=dvh.Name and All_DVH(n).struc_names=DVH.struc_names Then
 		      found=True
-		      
 		      // If found then override and remove
 		      if override Then
 		        All_DVH.Remove n
@@ -310,7 +308,6 @@ Inherits Thread
 		    
 		    
 		    for jj=0 to UBound(gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_Y)
-		      
 		      cmx= gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_X(jj)*gRTOG.Structures_HR(struc).Res_X+gVis.xoff_set   'cm coordinate of pixel center!
 		      cmy= gRTOG.Structures_HR(struc).structure_Data(n).Axial_Points_Y(jj)*gRTOG.Structures_HR(struc).Res_Y+gVis.yoff_set   'cm coordinate of pixel center
 		      cmz=gRTOG.Structures_HR(struc).structure_Data(n).Z  //centerofthezslice
@@ -701,8 +698,16 @@ Inherits Thread
 		  dvh_file=dvh_file+line
 		  line="Normalize : "+Format(DVH.Normalize,"-#.#####e")+local_endline
 		  dvh_file=dvh_file+line
+		  line="ResX : "+Format(DVH.Res_X,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
+		  line="ResY : "+Format(DVH.Res_Y,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
+		  line="ResZ : "+Format(DVH.Res_Z,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
 		  line="Bins : "+Format(DVH.DVH_bins,"#")+local_endline
 		  dvh_file=dvh_file+line
+		  
+		  
 		  for i=0 to DVH.DVH_bins-1   //n bins
 		    line = Format(DVH.DVH(i),"-#.#####e") +local_endline
 		    dvh_file=dvh_file+line
@@ -819,6 +824,15 @@ Inherits Thread
 		      
 		    elseif InStr(line,"StandardDeviation")>0 Then
 		      dv.stdev=val(NthField(line,":",2))
+		      
+		      
+		    elseif InStr(line,"ResZ")>0 Then
+		      dv.Res_Z=val(NthField(line,":",2))
+		    elseif InStr(line,"ResX")>0 Then
+		      dv.Res_X=val(NthField(line,":",2))
+		    elseif InStr(line,"ResY")>0 Then
+		      dv.Res_Y=val(NthField(line,":",2))
+		      
 		      
 		      
 		    elseif InStr(line,"Bins")>0 Then
