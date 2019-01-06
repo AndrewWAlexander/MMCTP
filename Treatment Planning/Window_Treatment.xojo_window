@@ -685,6 +685,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   73
          TabPanelIndex   =   4
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -719,6 +720,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   78
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -753,6 +755,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   9
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -977,6 +980,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   8
+            TabStop         =   True
             Text            =   "Point 1"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1011,6 +1015,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   8
+            TabStop         =   True
             Text            =   "Point 2"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1420,6 +1425,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   6
+         TabStop         =   True
          Text            =   "DVH bins:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1498,6 +1504,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   6
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2016,6 +2023,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Window"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2106,6 +2114,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Scale Top %"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2183,6 +2192,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Level"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2456,6 +2466,7 @@ Begin Window Window_Treatment
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   3
+         TabStop         =   True
          Text            =   ""
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2703,6 +2714,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "Min dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2737,6 +2749,7 @@ Begin Window Window_Treatment
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   7
+            TabStop         =   True
             Text            =   "Max dose value"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2956,6 +2969,7 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   1
                   TabPanelIndex   =   7
+                  TabStop         =   True
                   Text            =   "Volume (%)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -2990,6 +3004,7 @@ Begin Window Window_Treatment
                   Selectable      =   False
                   TabIndex        =   2
                   TabPanelIndex   =   7
+                  TabStop         =   True
                   Text            =   "Dose (Gy)"
                   TextAlign       =   0
                   TextColor       =   &c00000000
@@ -3331,6 +3346,7 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   8
                TabPanelIndex   =   7
+               TabStop         =   True
                Text            =   "Plus/minus image pixel"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -3598,6 +3614,7 @@ Begin Window Window_Treatment
                Selectable      =   False
                TabIndex        =   2
                TabPanelIndex   =   7
+               TabStop         =   True
                Text            =   "=cGy"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -4168,7 +4185,7 @@ End
 		  ListBox_DVH_Graphs.columnwidths=Temp
 		  
 		  
-		  for i=0 to ubound(gRTOG.structures)
+		  for i=0 to ubound(grtog.Structures.Structures)
 		    ListBox_DVH_Graphs.addrow ""
 		  next
 		  
@@ -4177,10 +4194,10 @@ End
 		      ListBox_DVH_Graphs.Heading(k)=Dose_distr(k) 
 		      for x= 0 to UBound(gDVH.All_DVH)
 		        if gDVH.All_DVH(x).Name=Dose_distr(k) then
-		          for i=0 to ubound(gRTOG.structures)
-		            if gDVH.All_DVH(x).struc_names=gRTOG.structures(i).Structure_Name then
+		          for i=0 to ubound(grtog.Structures.Structures)
+		            if gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name then
 		              ListBox_DVH_Graphs.CellType(i,k)=2
-		              ListBox_DVH_Graphs.Cell(i,k)=gRTOG.structures(i).Structure_Name 
+		              ListBox_DVH_Graphs.Cell(i,k)=grtog.Structures.Structures(i).Structure_Name 
 		            end
 		          next
 		        end
@@ -4202,10 +4219,10 @@ End
 		  
 		  ListBox_DVH_Struc.deleteAllRows
 		  ListBox_DVH_Struc.heading(0)="Structure"
-		  for i=0 to ubound(gRTOG.structures)
-		    ListBox_DVH_Struc.addrow gRTOG.structures(i).Structure_Name
+		  for i=0 to ubound(grtog.Structures.Structures)
+		    ListBox_DVH_Struc.addrow grtog.Structures.Structures(i).Structure_Name
 		    ListBox_DVH_Struc.CellType(i,0)=2
-		    ListBox_DVH_Struc.CellCheck(i,0)=gRTOG.structures(i).DVH_Calculate
+		    ListBox_DVH_Struc.CellCheck(i,0)=grtog.Structures.Structures(i).DVH_Calculate
 		  next
 		  
 		  
@@ -4361,9 +4378,9 @@ End
 		  PopupMenu_Dose_ListStruc2.DeleteAllRows
 		  
 		  
-		  for i =0 to UBound(gRTOG.Structures)
-		    PopupMenu_Dose_ListStruc.AddRow gRTOG.Structures(i).Structure_Name
-		    PopupMenu_Dose_ListStruc2.AddRow gRTOG.Structures(i).Structure_Name
+		  for i =0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_Dose_ListStruc.AddRow grtog.Structures.Structures(i).Structure_Name
+		    PopupMenu_Dose_ListStruc2.AddRow grtog.Structures.Structures(i).Structure_Name
 		  Next
 		  
 		  dose_paint_index=old
@@ -4495,8 +4512,8 @@ End
 		  
 		  ListBox_Struc.deleteAllRows
 		  
-		  for i=0 to ubound(gRTOG.structures)
-		    ListBox_Struc.addrow gRTOG.structures(i).Structure_Name
+		  for i=0 to ubound(grtog.Structures.Structures)
+		    ListBox_Struc.addrow grtog.Structures.Structures(i).Structure_Name
 		    ListBox_Struc.celltype(i,2)=2
 		    ListBox_Struc.celltype(i,3)=2
 		    ListBox_Struc.celltype(i,0)=1
@@ -6372,8 +6389,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellAction(row As Integer, column As Integer)
-		  if row>-1 and row<=UBound(gRTOG.Structures) Then
-		    gRTOG.structures(row).DVH_Calculate=ListBox_DVH_Struc.CellCheck(row,0)
+		  if row>-1 and row<=UBound(grtog.Structures.Structures) Then
+		    grtog.Structures.Structures(row).DVH_Calculate=ListBox_DVH_Struc.CellCheck(row,0)
 		  end
 		End Sub
 	#tag EndEvent
@@ -6391,7 +6408,7 @@ End
 		  Dim k, i as Integer
 		  
 		  for k=0 to Window_Treatment.ListBox_DVH_Graphs.ColumnCount
-		    for i=0 to ubound(gRTOG.structures)
+		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        Window_DVH_Plot.window_open
 		        k=Window_Treatment.ListBox_DVH_Graphs.ColumnCount
@@ -6408,11 +6425,11 @@ End
 		  Dim x,k, i as Integer
 		  
 		  for k=0 to Window_Treatment.ListBox_DVH_Graphs.ColumnCount
-		    for i=0 to ubound(gRTOG.structures)
+		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
 		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
-		            gDVH.All_DVH(x).struc_names=gRTOG.Structures(i).Structure_Name Then
+		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            gDVH.Delete_DVH(x)
 		            Exit
 		          end
@@ -6435,7 +6452,7 @@ End
 		    tmpcolor=gvis.colour(row)
 		    if(selectcolor(tmpcolor,"Select a color")) then
 		      gvis.colour(row)=tmpcolor
-		      gRTOG.structures(row).scolor=tmpcolor
+		      grtog.Structures.Structures(row).scolor=tmpcolor
 		      gvis.Contours.Recalculate_Images
 		      Window_canvas_refresh_Structure
 		    end
@@ -6454,7 +6471,7 @@ End
 		  end if
 		  
 		  if column=1 then
-		    if row <= ubound(gRTOG.structures) and ubound(gvis.colour)>-1 then
+		    if row <= ubound(grtog.Structures.Structures) and ubound(gvis.colour)>-1 then
 		      g.foreColor=gvis.colour(row)
 		      g.fillrect 0,0, g.width, g.height
 		    end
@@ -7034,7 +7051,7 @@ End
 		        Nornum=1/gRTOG.Plan(Plan_Index).Dose(dose_index).dmax
 		      elseif RadioButton_Norm_Struc.Value Then
 		        sindex=PopupMenu_Dose_ListStruc2.ListIndex
-		        if sindex>-1 and sindex<=UBound(gRTOG.Structures) Then
+		        if sindex>-1 and sindex<=UBound(grtog.Structures.Structures) Then
 		          kk=gDVH.Calculate_DVH(sindex,Plan_Index,dose_index,True)
 		          temp=gRTOG.Plan(Plan_Index).Plan_ID+String_Separate+gRTOG.Plan(Plan_Index).Dose(dose_index).dose_name
 		          kk=False
@@ -7088,7 +7105,7 @@ End
 		  Dim x,y,k,i,sindex,xintvalue,yintvalue,xintvaluebuf,yintvaluebuf,indexvalue,j,h as Integer
 		  Dim dd as RTOG_Dose_Distribution
 		  Dim ddose as RTOG_Dose_Plane
-		  dIM vv as RTOG_Structure_One_Structure
+		  dIM vv as RTOG_Structure_Slice
 		  //---------------------------------------------------------
 		  
 		  value=val(EditField_Dose_SetValue.Text)
@@ -7096,7 +7113,7 @@ End
 		  sindex=PopupMenu_Dose_ListStruc.ListIndex
 		  
 		  
-		  if sindex>=0 and sindex<=UBound(gRTOG.Structures) Then
+		  if sindex>=0 and sindex<=UBound(grtog.Structures.Structures) Then
 		    if Plan_Index>=0 and Plan_Index<=UBound(gRTOG.Plan) Then
 		      if dose_index>=0 and dose_index<=UBound(gRTOG.Plan(Plan_Index).Dose) then
 		        dd=gRTOG.Plan(Plan_Index).Dose(dose_index)
@@ -7106,13 +7123,13 @@ End
 		        y_max=dd.Coord_2_1st_point+dely*(dd.Size_of_Dimension2-1)
 		        
 		        // Size of Z must be the same for dose and structre
-		        if (dd.Size_of_Dimension3-1)<>UBound(gRTOG.Structures(sindex).Structure_Data) Then
+		        if (dd.Size_of_Dimension3-1)<>UBound(grtog.Structures.Structures(sindex).Structure_Data) Then
 		          //Return
 		        end
 		        
-		        for i=0 to UBound(gRTOG.Structures(sindex).Structure_Data)
-		          z_value=gRTOG.Structures(sindex).Structure_Data(i).z
-		          vv=gRTOG.Structures(sindex).Structure_Data(i)
+		        for i=0 to UBound(grtog.Structures.Structures(sindex).Structure_Data)
+		          z_value=grtog.Structures.Structures(sindex).Structure_Data(i).z
+		          vv=grtog.Structures.Structures(sindex).Structure_Data(i)
 		          
 		          for k=0 to dd.Size_of_Dimension3-1
 		            ddose=dd.Dose_Distribution(k)

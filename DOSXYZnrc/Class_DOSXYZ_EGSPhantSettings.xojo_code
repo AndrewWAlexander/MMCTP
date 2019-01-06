@@ -7,7 +7,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		  //
 		  //------------------------------------------------
 		  Dim i,k,j,order,RTOG_Contour_Index,z_index,p,px,py as Integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim z,x,y as Single
 		  Dim poly as class_Polygon
 		  
@@ -40,8 +40,8 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		        RTOG_Contour_Index=Contous(order-1).RTOG_Contour_Index
 		        // Look for closest structure plane to Z value
 		        z_index=-1
-		        for p=0 to UBound(gRTOG.structures(RTOG_Contour_Index).structure_Data)
-		          if abs(z-gRTOG.structures(RTOG_Contour_Index).structure_Data(p).Z)<gRTOG.Scan(0).Slice_Thickness then
+		        for p=0 to UBound(grtog.Structures.Structures(RTOG_Contour_Index).structure_Data)
+		          if abs(z-grtog.Structures.Structures(RTOG_Contour_Index).structure_Data(p).Z)<gRTOG.Scan(0).Slice_Thickness then
 		            z_index=p
 		            exit
 		          end
@@ -49,8 +49,8 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		        if z_index=-1 then
 		          Break
 		        end
-		        file = new RTOG_Structure_One_Structure
-		        file = gRTOG.structures(RTOG_Contour_Index).structure_Data(z_index)
+		        file = new RTOG_Structure_Slice
+		        file = grtog.Structures.Structures(RTOG_Contour_Index).structure_Data(z_index)
 		        for i=0 to ubound(file.segments)
 		          poly = new class_polygon
 		          poly.PointWithin_OtherPoly=file.Structure_Poly(i).PointWithin_OtherPoly

@@ -40,7 +40,7 @@ Protected Class Class_MERT_SADVH
 		  end
 		  
 		  
-		  for i=0 to UBound(gRTOG.Structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    g=f.Child("Organ"+str(i+1)+"DVH1.dat")
 		    if g.Exists Then
 		      g.Delete
@@ -59,14 +59,14 @@ Protected Class Class_MERT_SADVH
 		  '
 		  '
 		  'SAOarray=new Class_Optimization_ORGANARRAY
-		  'redim SAOarray.Organ(UBound(gRTOG.Structures))
-		  'for i=0 to UBound(gRTOG.Structures)
+		  'redim SAOarray.Organ(UBound(grtog.Structures.Structures))
+		  'for i=0 to UBound(grtog.Structures.Structures)
 		  'SAOarray.Organ(i)=new Class_Optimization_ORGANDOSE
 		  'SAOarray.organ(i).OrganID=i
-		  'SAOarray.Organ(i).Organ_Name=gRTOG.Structures(i).Structure_Name
+		  'SAOarray.Organ(i).Organ_Name=grtog.Structures.Structures(i).Structure_Name
 		  'SAOarray.organ(i).DVH = new Class_DVH_One
-		  'SAOarray.organ(i).DVH.stru_color=gRTOG.Structures(i).scolor
-		  'SAOarray.organ(i).DVH.struc_names=gRTOG.Structures(i).Structure_Name
+		  'SAOarray.organ(i).DVH.stru_color=grtog.Structures.Structures(i).scolor
+		  'SAOarray.organ(i).DVH.struc_names=grtog.Structures.Structures(i).Structure_Name
 		  'SAOarray.organ(i).DVH.dvh_bins=100
 		  'SAOarray.organ(i).Voxel_REs=128
 		  'redim SAOarray.organ(i).DVH.dVH(100)
@@ -499,7 +499,7 @@ Protected Class Class_MERT_SADVH
 		  'ts.WriteLine Format(gOpt.dvh_bin,"#")
 		  '
 		  '// Write number of strucutres
-		  'ts.WriteLine Format(UBound(gRTOG.Structures)+1,"#")
+		  'ts.WriteLine Format(UBound(grtog.Structures.Structures)+1,"#")
 		  'ts.WriteLine Trim(Window_EMET_Run.EditField_Conf_Dose.Text)
 		  '
 		  'if Window_EMET_Run.CheckBox_SA_WriteDose.Value Then

@@ -760,8 +760,8 @@ Inherits Thread
 		  dd.EGSPhantSettings.Cleancontours=Auto_EGSPhantSettings(eindex).Cleancontours
 		  dd.EGSPhantSettings.Cleancontour_Name=Auto_EGSPhantSettings(eindex).Cleancontour_Name
 		  dd.EGSPhantSettings.Cleancontour_Index=-1
-		  for i=0 to UBound(gRTOG.Structures)
-		    if gRTOG.Structures(i).Structure_Name=dd.EGSPhantSettings.Cleancontour_Name Then
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    if grtog.Structures.Structures(i).Structure_Name=dd.EGSPhantSettings.Cleancontour_Name Then
 		      dd.EGSPhantSettings.Cleancontour_Index=i
 		    end
 		  next
@@ -884,10 +884,10 @@ Inherits Thread
 		  next
 		  
 		  
-		  redim gDOSXYZ.EGSPhantSettings.Contous(UBound(gRTOG.structures))
+		  redim gDOSXYZ.EGSPhantSettings.Contous(UBound(grtog.Structures.Structures))
 		  
 		  
-		  for i=0 to UBound(gRTOG.structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    gDOSXYZ.EGSPhantSettings.Contous(i)=new Class_DOSXYZ_EGSPhant_Contour
 		    gDOSXYZ.EGSPhantSettings.Contous(i).RTOG_Contour_Index=i
 		  next
@@ -1178,7 +1178,7 @@ Inherits Thread
 		            CT_cal=dosxyz_CT2Dens(cvalue,ee.CT_model)
 		            m_name=Trim(NthField(ct_cal,"_",1))
 		            density_value=Val(NthField(ct_cal,"_",2))
-		          elseif (maskval<=(ubound(gRTOG.structures)+1)) and maskval>=1 then // Use override density
+		          elseif (maskval<=(ubound(grtog.Structures.Structures)+1)) and maskval>=1 then // Use override density
 		            m_name=ee.Contous(maskval-1).materials
 		            density_value=ee.Contous(maskval-1).density
 		          else // Outside the clean contour, set to clean density value
@@ -1369,7 +1369,7 @@ Inherits Thread
 		  //
 		  //-------------------------------
 		  Dim i,k,x as Integer
-		  Dim ss as RTOG_Structure
+		  Dim ss as RTOG_Structure_Class
 		  //-------------------------------
 		  
 		  if UBound(gRTOG.Scan)>-1 Then
@@ -1402,9 +1402,9 @@ Inherits Thread
 		    next
 		    gDOSXYZ.EGSPhantSettings.CT_model=Auto_EGSPhantSettings(0).CT_model
 		    gDOSXYZ.EGSPhantSettings.Name=Auto_EGSPhantSettings(0).Name
-		    for i=0 to UBound(gRTOG.Structures)
-		      if gRTOG.Structures(i).Structure_Name="BODY" or gRTOG.Structures(i).Structure_Name="EXTERNAL"  Then
-		        ss=gRTOG.Structures(i)
+		    for i=0 to UBound(grtog.Structures.Structures)
+		      if grtog.Structures.Structures(i).Structure_Name="BODY" or grtog.Structures.Structures(i).Structure_Name="EXTERNAL"  Then
+		        ss=grtog.Structures.Structures(i)
 		        gDOSXYZ.EGSPhantSettings.X_Max=-100000
 		        gDOSXYZ.EGSPhantSettings.X_Min=100000
 		        gDOSXYZ.EGSPhantSettings.y_Max=-10000
@@ -1445,9 +1445,9 @@ Inherits Thread
 		    Auto_EGSPhantSettings(i).Z_min=EGSPhantSettings.Z_min
 		    Auto_EGSPhantSettings(i).Update_MaterialsUD
 		    
-		    redim gDOSXYZ.Auto_EGSPhantSettings(i).Contous(UBound(gRTOG.structures))
+		    redim gDOSXYZ.Auto_EGSPhantSettings(i).Contous(UBound(grtog.Structures.Structures))
 		    
-		    for k=0 to UBound(gRTOG.structures)
+		    for k=0 to UBound(grtog.Structures.Structures)
 		      gDOSXYZ.Auto_EGSPhantSettings(i).Contous(k)=new Class_DOSXYZ_EGSPhant_Contour
 		      gDOSXYZ.Auto_EGSPhantSettings(i).Contous(k).RTOG_Contour_Index=k
 		    next

@@ -286,6 +286,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Min X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -406,6 +407,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Max X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -440,6 +442,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Max Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -517,6 +520,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Min Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -622,6 +626,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Y:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -742,6 +747,7 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "X:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1152,11 +1158,11 @@ End
 		  ReDim DVH(-1)
 		  
 		  for k=0 to Window_Treatment.ListBox_DVH_Graphs.ColumnCount
-		    for i=0 to ubound(gRTOG.structures)
+		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
 		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
-		            gDVH.All_DVH(x).struc_names=gRTOG.Structures(i).Structure_Name Then
+		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            temp_DVH=gDVH.All_DVH(x)
 		            DVH.Append temp_DVH
 		          end

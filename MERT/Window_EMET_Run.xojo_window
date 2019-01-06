@@ -8758,15 +8758,15 @@ End
 		        ssvalue=d.Value(Key)
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Wanted minimum dose"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Actual minimum dose"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Minimum dose score"
 		        
 		        
@@ -8851,15 +8851,15 @@ End
 		        ssvalue=d.Value(Key)
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Wanted maximum dose"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Actual maximum dose"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Maximum dose score"
 		        
 		        
@@ -8952,15 +8952,15 @@ End
 		        ssvalue=d.Value(Key)
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Dose"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Volume"
 		        
 		        rrindex=rrindex+1
-		        Listbox_Score.AddRow gRTOG.Structures(i).Structure_Name
+		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
 		        Listbox_Score.Cell(rrindex,1)="Actual score"
 		        
 		        
@@ -9069,8 +9069,8 @@ End
 		  //--------------------Setup DVHs
 		  PopupMenu_DVH.deleteAllRows
 		  PopupMenu_DVH.addRow "ALL"
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_DVH.addRow gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_DVH.addRow grtog.Structures.Structures(i).Structure_Name
 		    pp= new Class_Profile_One
 		    pp.Symbol=rand.InRange(1,6)
 		    for k=0 to gopt.Plan.Structure_Dose(i).DVH.dVH_bins  //n bins
@@ -9081,7 +9081,7 @@ End
 		    next
 		    pp.Point_Size=3
 		    pp.show_Line=True
-		    pp.Colour=gRTOG.Structures(i).scolor
+		    pp.Colour=grtog.Structures.Structures(i).scolor
 		    DVHGraph.Profiles.One_Profile.Append pp
 		  next
 		  PopupMenu_DVH.listIndex=0

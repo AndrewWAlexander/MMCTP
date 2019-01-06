@@ -1754,7 +1754,7 @@ Inherits Canvas
 		  //
 		  //-------------------------------------------
 		  Dim a,i,j,k,xx,tran,pixx,pixy,pixx2,pixy2,d1,d2,x1,x2,y1,y2,size_x,size_y,p_count as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_polygon
 		  Dim y,x,Isox,Isoy,Isoz as Single
 		  Dim Structure_ready,haspoints as Boolean
@@ -1793,11 +1793,11 @@ Inherits Canvas
 		    
 		    p_count=-1
 		    // Remake the Structure contours
-		    for i = 0 to ubound(gRTOG.structures)
+		    for i = 0 to ubound(grtog.Structures.Structures)
 		      if gVis.contour_show(i) then
 		        haspoints=False
-		        file = new RTOG_Structure_One_Structure
-		        file = gRTOG.structures(i).structure_Data(canvas_slice)
+		        file = new RTOG_Structure_Slice
+		        file = grtog.Structures.Structures(i).structure_Data(canvas_slice)
 		        for j = 0 to ubound(file.segments)
 		          if j=0 Then
 		            polystruc=new Class_Structures
