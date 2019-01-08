@@ -13,11 +13,11 @@ Inherits Thread
 		      Update_Poly=False
 		      for i=0 to UBound(grtog.Structures.Structures)
 		        if grtog.Structures.Structures(i).Loaded_Poly=False Then
-		          grtog.Structures.Structures(i).Loaded_Poly=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_Data,gRTOG.Structures.nx,gRTOG.Structures.ny,gRTOG.Structures.nz)
+		          grtog.Structures.Structures(i).Loaded_Poly=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_Data,gRTOG.Structures.Res_X,gRTOG.Structures.Res_Y,gRTOG.Structures.Res_Z)
 		        end
 		        if UBound(grtog.Structures.Structures)>=i Then
 		          if grtog.Structures.Structures(i).Loaded_PolyHR=False Then
-		            grtog.Structures.Structures(i).Loaded_PolyHR=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_DataHR,gRTOG.Structures.HRnx,gRTOG.Structures.HRny,gRTOG.Structures.HRnz)
+		            grtog.Structures.Structures(i).Loaded_PolyHR=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_DataHR,gRTOG.Structures.HR_Res_X,gRTOG.Structures.HR_Res_Y,gRTOG.Structures.HR_Res_Z)
 		          end
 		        end
 		      next

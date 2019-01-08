@@ -21,7 +21,7 @@ Protected Class RTOG_Structure_Class
 		    Make_Array_of_Points_FromImages
 		    
 		  elseif gPref.DVH_Calc=2 Then
-		    tt= Make_Array_of_Points_FromImages_andIswithin1(sd(), Res_X, Res_Y , Res_Z ,nx , ny,nz)
+		    tt= Make_Array_of_Points_FromImages_andIswithin(sd(), Res_X, Res_Y , Res_Z ,nx , ny,nz)
 		  else
 		    Return False
 		  end
@@ -121,148 +121,7 @@ Protected Class RTOG_Structure_Class
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Make_Array_of_Points_FromImages_andIswithin()
-		  //--------------------------------------------------------
-		  // Make Polygon arrays of structure points for MAC
-		  //
-		  //
-		  // Andrew Alexander Jan 2011
-		  //--------------------------------------------------------
-		  Dim v,a,k,j,pixy,pixx,bb, list(-1),rm_x(-1),rm_y(-1) ,x_pic,y_pic,i,x_low,x_high,y_low,y_high as Integer
-		  Dim poly,poly_cm as Class_Polygon
-		  Dim file as RTOG_Structure_Slice
-		  Dim x,y,newarea as Single
-		  Dim arepoints_b,findwithin,notrealpoint as Boolean
-		  Dim p as Picture
-		  Dim gg as Graphics
-		  //--------------------------------------------------------
-		  
-		  
-		  // Make Index of X,Y Pixel points
-		  
-		  for i = 0 to ubound(Structure_Data)
-		    file = new RTOG_Structure_Slice
-		    file = structure_Data(i)
-		    
-		    x_low=gVis.nx
-		    x_high=0
-		    
-		    y_low=gVis.ny
-		    y_high=0
-		    
-		    
-		    
-		    arepoints_b=False
-		    
-		    
-		    ReDim file.Axial_Points_X(-1)
-		    ReDim file.Axial_Points_Y(-1)
-		    
-		    
-		    
-		    for j = 0 to ubound(file.Structure_Poly)
-		      if file.Structure_Poly(j) <> Nil Then
-		        
-		        if j=0 Then
-		          p=New Picture(gVis.nx,gVis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		          gg = p.graphics
-		          gg.foreColor =RGB(255,255,255) //White
-		          gg.FillRect(0,0,gg.Width,gg.Height)
-		          gg.UseOldRenderer=True
-		        end
-		        
-		        if UBound(file.Segments(j).Points)>0 Then
-		          poly=file.Structure_Poly(j)
-		          arepoints_b=True
-		          
-		          if poly.PointWithin_OtherPoly Then
-		            gg.foreColor =RGB(255,255,255) //White
-		            gg.FillPolygon poly.Points
-		            
-		            gg.foreColor =RGB(200,0,0) //Boarder
-		            gg.DrawPolygon poly.Points
-		            
-		          else // draw picture
-		            gg.foreColor =RGB(225,0,0) //FillColor
-		            gg.FillPolygon poly.Points
-		            
-		            gg.foreColor =RGB(200,0,0) //Boarder
-		            gg.DrawPolygon Poly.Points
-		            
-		            if Poly.LeftEdge<x_low Then
-		              x_low=Poly.LeftEdge
-		            end
-		            
-		            if poly.RightEdge>x_high Then
-		              x_high=Poly.RightEdge
-		            end
-		            
-		            if Poly.TopEdge<y_low Then
-		              y_low=Poly.TopEdge
-		            end
-		            
-		            if poly.BottomEdge>y_high Then
-		              y_high=Poly.BottomEdge
-		            end
-		            
-		          end
-		        end
-		        
-		      end
-		    next // End for one segment
-		    
-		    
-		    
-		    
-		    if arepoints_b Then
-		      
-		      for a=x_low to x_high
-		        for k=y_low to y_high
-		          v= p.RGBSurface.Pixel(a,k).Red
-		          if v=200 Then
-		            //Lookup boarder values
-		            findwithin=False
-		            notrealpoint=False
-		            
-		            for j = 0 to ubound(file.Structure_Poly)
-		              poly=file.Structure_Poly(j)
-		              if poly.PointWithin_OtherPoly=False Then
-		                if Poly.IsWithin(a,k) Then
-		                  findwithin=True
-		                end
-		              end
-		              
-		              if Poly.PointWithin_OtherPoly Then
-		                if Poly.IsWithin(a,k) Then
-		                  notrealpoint=True
-		                end
-		              end
-		            next
-		            
-		            if findwithin and not notrealpoint Then
-		              file.Axial_Points_X.append a
-		              file.Axial_Points_y.append k
-		            end
-		            
-		            
-		          elseif v=225 Then// Value for pixels within contour
-		            //
-		            file.Axial_Points_X.append a
-		            file.Axial_Points_y.append k
-		          end
-		        Next
-		      Next
-		    end
-		  Next
-		  
-		  
-		  
-		  Loaded_Points=True
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function Make_Array_of_Points_FromImages_andIswithin1(sd() as RTOG_Structure_Slice, Res_X as Single, Res_Y as Single, Res_Z as Single,nx as integer, ny as integer, nz as integer) As Boolean
+		Function Make_Array_of_Points_FromImages_andIswithin(sd() as RTOG_Structure_Slice, Res_X as Single, Res_Y as Single, Res_Z as Single,nx as integer, ny as integer, nz as integer) As Boolean
 		  //--------------------------------------------------------
 		  // Make Polygon arrays of structure points for MAC
 		  //
@@ -517,6 +376,7 @@ Protected Class RTOG_Structure_Class
 		  Dim file as RTOG_Structure_Slice
 		  Dim x,y,newarea as Single
 		  Dim arepoints_b as Boolean
+		  Dim x_cm,y_cm as Double
 		  //--------------------------------------------------------
 		  
 		  
@@ -549,13 +409,20 @@ Protected Class RTOG_Structure_Class
 		        poly_cm=new Class_Polygon
 		        ReDim poly.Points(0)
 		        for k =0 to ubound(file.segments(j).Points)
-		          poly_cm.AddPoint_D file.segments(j).Points(k).x, file.segments(j).Points(k).y
-		          x=((file.segments(j).Points(k).x-gRTOG.Structures.x_offset-Res_X/2)/Res_X )
-		          y=((file.segments(j).Points(k).y- gRTOG.Structures.y_offset-Res_y/2)/Res_Y)
+		          x_cm=file.segments(j).Points(k).x
+		          y_cm=file.segments(j).Points(k).y
+		          poly.AddPoint_D x_cm,y_cm
+		          poly_cm.AddPoint_D x_cm, y_cm 
+		          x=(x_cm-gRTOG.Structures.x_offset+Res_X/2)/Res_X
+		          y=(y_cm- gRTOG.Structures.y_offset+Res_y/2)/Res_Y
 		          pixx=Floor(x)
 		          pixy=Floor(y)
 		          poly.AddPoint pixx,pixy
-		          poly.AddPoint_D x,y
+		          
+		          if pixx<0 or pixy<0 Then
+		            MsgBox("Pix less than 0")
+		          end
+		          
 		          for bb=0 to UBound(file.Structure_Poly)
 		            if poly.PointWithin_OtherPoly=False Then
 		              if file.Structure_Poly(bb).IsWithin(pixx,pixy) Then
@@ -735,7 +602,19 @@ Protected Class RTOG_Structure_Class
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Loaded_PointsHR"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Loaded_Poly"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Loaded_PolyHR"
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
@@ -769,36 +648,6 @@ Protected Class RTOG_Structure_Class
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="nx"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ny"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="nz"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Res_X"
-			Group="Behavior"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Res_Y"
-			Group="Behavior"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Res_Z"
-			Group="Behavior"
-			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ROI_Number"
@@ -858,16 +707,6 @@ Protected Class RTOG_Structure_Class
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="X_Offset"
-			Group="Behavior"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Y_Offset"
-			Group="Behavior"
-			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
