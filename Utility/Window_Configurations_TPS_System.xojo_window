@@ -53,7 +53,7 @@ Begin Window Window_Configurations_TPS_System
       TextUnit        =   0
       Top             =   8
       Underline       =   False
-      Value           =   5
+      Value           =   0
       Visible         =   True
       Width           =   1093
       Begin GroupBox GroupBox2
@@ -69,9 +69,9 @@ Begin Window Window_Configurations_TPS_System
          Left            =   47
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   False
-         LockTop         =   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
          Scope           =   0
          TabIndex        =   3
          TabPanelIndex   =   1
@@ -2303,121 +2303,6 @@ Begin Window Window_Configurations_TPS_System
             Width           =   249
          End
       End
-      Begin GroupBox GroupBox3
-         AutoDeactivate  =   True
-         Bold            =   False
-         Caption         =   "DVH Calculation"
-         Enabled         =   True
-         Height          =   68
-         HelpTag         =   ""
-         Index           =   -2147483648
-         InitialParent   =   "TabPanel_All"
-         Italic          =   False
-         Left            =   47
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   True
-         Scope           =   0
-         TabIndex        =   4
-         TabPanelIndex   =   1
-         TabStop         =   True
-         TextFont        =   "System"
-         TextSize        =   0.0
-         TextUnit        =   0
-         Top             =   169
-         Underline       =   False
-         Visible         =   True
-         Width           =   1041
-         Begin RadioButton RadioButton_DVH_IsWithinandG
-            AutoDeactivate  =   True
-            Bold            =   False
-            Caption         =   "Use Graphics and Is Within Routine"
-            Enabled         =   True
-            Height          =   20
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "GroupBox3"
-            Italic          =   False
-            Left            =   265
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   False
-            LockTop         =   True
-            Scope           =   0
-            TabIndex        =   0
-            TabPanelIndex   =   1
-            TabStop         =   True
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   197
-            Underline       =   False
-            Value           =   False
-            Visible         =   True
-            Width           =   273
-         End
-         Begin RadioButton RadioButton_DVH_UseGraphics
-            AutoDeactivate  =   True
-            Bold            =   False
-            Caption         =   "Use Graphics"
-            Enabled         =   True
-            Height          =   20
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "GroupBox3"
-            Italic          =   False
-            Left            =   63
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   False
-            LockTop         =   True
-            Scope           =   0
-            TabIndex        =   1
-            TabPanelIndex   =   1
-            TabStop         =   True
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   197
-            Underline       =   False
-            Value           =   False
-            Visible         =   True
-            Width           =   165
-         End
-         Begin RadioButton RadioButton_DVH_IsWithin
-            AutoDeactivate  =   True
-            Bold            =   False
-            Caption         =   "Use Only Is Within Routine"
-            Enabled         =   True
-            Height          =   20
-            HelpTag         =   ""
-            Index           =   -2147483648
-            InitialParent   =   "GroupBox3"
-            Italic          =   False
-            Left            =   579
-            LockBottom      =   False
-            LockedInPosition=   False
-            LockLeft        =   True
-            LockRight       =   False
-            LockTop         =   True
-            Scope           =   0
-            TabIndex        =   2
-            TabPanelIndex   =   1
-            TabStop         =   True
-            TextFont        =   "System"
-            TextSize        =   0.0
-            TextUnit        =   0
-            Top             =   197
-            Underline       =   False
-            Value           =   False
-            Visible         =   True
-            Width           =   221
-         End
-      End
       Begin GroupBox GroupBox31
          AutoDeactivate  =   True
          Bold            =   False
@@ -2778,6 +2663,279 @@ Begin Window Window_Configurations_TPS_System
          Visible         =   True
          Width           =   644
       End
+      Begin GroupBox GroupBox3
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   "DVH Calculation Algorithm Options"
+         Enabled         =   True
+         Height          =   68
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "TabPanel_All"
+         Italic          =   False
+         Left            =   47
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   4
+         TabPanelIndex   =   1
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   169
+         Underline       =   False
+         Visible         =   True
+         Width           =   1041
+         Begin RadioButton RadioButton_DVH_IsWithinandG
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use Graphics and Is Within Routine"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox3"
+            Italic          =   False
+            Left            =   265
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   0
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   197
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   273
+         End
+         Begin RadioButton RadioButton_DVH_UseGraphics
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use Graphics"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox3"
+            Italic          =   False
+            Left            =   63
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   1
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   197
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   165
+         End
+         Begin RadioButton RadioButton_DVH_IsWithin
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use Only Is Within Routine"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox3"
+            Italic          =   False
+            Left            =   579
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   True
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   2
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   197
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   221
+         End
+      End
+      Begin GroupBox GroupBox4
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   "DVH Calculation Grid Size"
+         Enabled         =   True
+         Height          =   68
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "TabPanel_All"
+         Italic          =   False
+         Left            =   47
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   5
+         TabPanelIndex   =   1
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   249
+         Underline       =   False
+         Visible         =   True
+         Width           =   1034
+         Begin RadioButton RadioButton_DVH_Grid_Dose
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use Dose Distribution grid"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox4"
+            Italic          =   False
+            Left            =   265
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   0
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   277
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   209
+         End
+         Begin RadioButton RadioButton_DVH_Grid_CT
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use CT grid"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox4"
+            Italic          =   False
+            Left            =   63
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   1
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   277
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   165
+         End
+         Begin RadioButton RadioButton_DVH_Grid_User
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Use this grid size (cm)"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox4"
+            Italic          =   False
+            Left            =   515
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   True
+            LockRight       =   False
+            LockTop         =   True
+            Scope           =   0
+            TabIndex        =   2
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   277
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   152
+         End
+         Begin TextField EditField_DVH_grid
+            AcceptTabs      =   False
+            Alignment       =   0
+            AutoDeactivate  =   True
+            AutomaticallyCheckSpelling=   False
+            BackColor       =   &cFFFFFF00
+            Bold            =   False
+            Border          =   True
+            CueText         =   ""
+            DataField       =   ""
+            DataSource      =   ""
+            Enabled         =   True
+            Format          =   ""
+            Height          =   22
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox4"
+            Italic          =   False
+            Left            =   688
+            LimitText       =   0
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   False
+            LockRight       =   False
+            LockTop         =   False
+            Mask            =   ""
+            Password        =   False
+            ReadOnly        =   False
+            Scope           =   0
+            TabIndex        =   3
+            TabPanelIndex   =   1
+            TabStop         =   True
+            Text            =   ""
+            TextColor       =   &c00000000
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   276
+            Underline       =   False
+            UseFocusRing    =   True
+            Visible         =   True
+            Width           =   125
+         End
+      End
    End
    Begin PushButton PushButton1
       AutoDeactivate  =   True
@@ -3093,9 +3251,17 @@ End
 		    RadioButton_DVH_IsWithin.Value=True
 		  elseif gPref.dvh_calc=2 Then
 		    RadioButton_DVH_IsWithinandG.Value=True
-		    
 		  end
 		  
+		  if gPref.DVH_Calc_Grid=0  Then
+		    RadioButton_DVH_Grid_CT.Value=True
+		  elseif gPref.DVH_Calc_Grid=1 Then
+		    RadioButton_DVH_Grid_Dose.Value=True
+		  elseif gPref.DVH_Calc_Grid=2 Then
+		    RadioButton_DVH_Grid_User.Value=True
+		  end
+		  
+		  EditField_DVH_grid.Text=Format(gPref.DVH_Calc_Grid_Size,"#.#####")
 		  
 		  CheckBox_DVH_Delete.Value=gPref.DVH_clean
 		End Sub
@@ -3717,39 +3883,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events RadioButton_DVH_IsWithinandG
-	#tag Event
-		Sub Action()
-		  if me.Value Then
-		    gPref.DVH_Calc=2
-		  end
-		  
-		  gpref.Write_Pref
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events RadioButton_DVH_UseGraphics
-	#tag Event
-		Sub Action()
-		  if me.Value Then
-		    gPref.DVH_Calc=0
-		  end
-		  
-		  gpref.Write_Pref
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events RadioButton_DVH_IsWithin
-	#tag Event
-		Sub Action()
-		  if me.Value Then
-		    gPref.DVH_Calc=1
-		  end
-		  
-		  gpref.Write_Pref
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events RadioButton_Endian_little
 	#tag Event
 		Sub Action()
@@ -3832,6 +3965,80 @@ End
 	#tag Event
 		Sub Action()
 		  gPref.McGillRT_Profile_Skip=me.Value
+		  gPref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_IsWithinandG
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc=2
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_UseGraphics
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc=0
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_IsWithin
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc=1
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_Grid_Dose
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc_Grid=1
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_Grid_CT
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc_Grid=0
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_DVH_Grid_User
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    gPref.DVH_Calc_Grid=2
+		  end
+		  
+		  gpref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EditField_DVH_grid
+	#tag Event
+		Sub TextChange()
+		  gPref.DVH_Calc_Grid_Size=val(me.Text)
 		  gPref.Write_Pref
 		End Sub
 	#tag EndEvent

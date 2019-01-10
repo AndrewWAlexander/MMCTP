@@ -239,6 +239,7 @@ Inherits Thread
 		  if PIndex<0 or PIndex>UBound(gRTOG.Plan) Then
 		    Return False
 		  elseif grtog.Structures.Structures(struc).Loaded_PointsHR=False or grtog.Structures.Structures(struc).Loaded_PolyHR=False Then
+		    TP_DVH_Text=grtog.Structures.Structures(struc).Structure_Name+" not ready for DVH calculations; creating structure points"
 		    Return False
 		  else
 		    if RTdose_index<0 or RTdose_index>UBound(gRTOG.Plan(PIndex).Dose) Then

@@ -16,27 +16,52 @@ Protected Class RTOG_Structure
 		  '========================================
 		  
 		  
-		  needupdate=False
-		  For i = 0 to UBound(gRTOG.Plan)
-		    for j=0 to UBound(gRTOG.Plan(i).Dose)
-		      if HR_Res_Z> gRTOG.Plan(i).Dose(j).Depth_Grid Then
-		        HR_Res_Z=gRTOG.Plan(i).Dose(j).Depth_Grid
-		        needupdate=True
-		      end
-		      if HR_Res_Y>gRTOG.Plan(i).Dose(j).Vertical_Grid Then
-		        HR_Res_Y=gRTOG.Plan(i).Dose(j).Vertical_Grid
-		        needupdate=True
-		      end
-		      if HR_Res_X>gRTOG.Plan(i).Dose(j).Horizontal_Grid Then
-		        HR_Res_X=gRTOG.Plan(i).Dose(j).Horizontal_Grid
-		        needupdate=True
-		      end
-		    Next
-		  next
-		  
-		  if needupdate=False Then
-		    Return
+		  if gPref.DVH_Calc_Grid=1 Then // Detemine dose grid size
+		    needupdate=False
+		    For i = 0 to UBound(gRTOG.Plan)
+		      for j=0 to UBound(gRTOG.Plan(i).Dose)
+		        if HR_Res_Z> gRTOG.Plan(i).Dose(j).Depth_Grid Then
+		          HR_Res_Z=gRTOG.Plan(i).Dose(j).Depth_Grid
+		          needupdate=True
+		        end
+		        if HR_Res_Y>gRTOG.Plan(i).Dose(j).Vertical_Grid Then
+		          HR_Res_Y=gRTOG.Plan(i).Dose(j).Vertical_Grid
+		          needupdate=True
+		        end
+		        if HR_Res_X>gRTOG.Plan(i).Dose(j).Horizontal_Grid Then
+		          HR_Res_X=gRTOG.Plan(i).Dose(j).Horizontal_Grid
+		          needupdate=True
+		        end
+		      Next
+		    next
+		    
+		    if needupdate=False Then
+		      Return
+		    end
+		    
+		    
+		    if HR_Res_X>gVis.scale_width Then
+		      HR_Res_X=gVis.scale_width
+		    end
+		    if HR_Res_y>gVis.scale_height Then
+		      HR_Res_y=gVis.scale_height
+		    end
+		    if HR_Res_z>gVis.scale_thickness Then
+		      HR_Res_z=gVis.scale_thickness
+		    end
+		    
+		  elseif gPref.DVH_Calc_Grid=2 Then // Use user set value
+		    HR_Res_X=gPref.DVH_Calc_Grid_Size
+		    HR_Res_y=gPref.DVH_Calc_Grid_Size
+		    HR_Res_z=gPref.DVH_Calc_Grid_Size
+		    
+		  else // Use CT settings
+		    HR_Res_X=gVis.scale_width
+		    HR_Res_y=gVis.scale_height
+		    HR_Res_z=gVis.scale_thickness
+		    
 		  end
+		  
 		  
 		  HRnx=gVis.nx*gVis.scale_width/HR_Res_X
 		  HRny=gVis.ny*gVis.scale_height/HR_Res_Y
@@ -93,15 +118,15 @@ Protected Class RTOG_Structure
 
 
 	#tag Property, Flags = &h0
-		HRnx As Integer
+		HRnx As Integer = 0
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		HRny As Integer
+		HRny As Integer = 0
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		HRnz As Integer
+		HRnz As Integer = 0
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -155,6 +180,42 @@ Protected Class RTOG_Structure
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="HRnx"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HRny"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HRnz"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HR_Res_X"
+			Group="Behavior"
+			InitialValue="100"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HR_Res_Y"
+			Group="Behavior"
+			InitialValue="100"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HR_Res_Z"
+			Group="Behavior"
+			InitialValue="100"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -175,9 +236,34 @@ Protected Class RTOG_Structure
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Structures(-1)"
+			Name="nx"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ny"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="nz"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_X"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Y"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Z"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -191,6 +277,16 @@ Protected Class RTOG_Structure
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="X_Offset"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Y_Offset"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

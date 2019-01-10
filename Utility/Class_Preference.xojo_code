@@ -282,6 +282,12 @@ Protected Class Class_Preference
 		      modstr=trim(NthField(tempstr,":=",2))
 		      DVH_Calc=Val(modstr)
 		      
+		      
+		    elseif instr(tempstr,"DVHGridCalc")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      DVH_Calc_Grid=Val(modstr)
+		      
+		      
 		    elseif instr(tempstr,"DICOMImportInvertContour")>0 then
 		      modstr=trim(NthField(tempstr,":=",2))
 		      if modstr="Yes" Then
@@ -540,6 +546,8 @@ Protected Class Class_Preference
 		  
 		  ts.writeline "EXPORTinterpolation := "+Format(Dose_Interpolate,"#")
 		  ts.writeline "DVHCalc := "+Format(DVH_Calc,"#")
+		  ts.writeline "DVHGridCalc := "+Format(DVH_Calc_Grid,"#")
+		  ts.writeline "DVHGridSize := "+Format(DVH_Calc_Grid_Size,"#.#####")
 		  
 		  if DICOM_IN_Inverse Then
 		    ts.writeline "DICOMImportInvertContour := Yes"
@@ -723,6 +731,34 @@ Protected Class Class_Preference
 			2 for Graphics and iswithin
 		#tag EndNote
 		DVH_Calc As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			Graphics
+			
+			0 for CT Grid
+			
+			1 for Dose Grid
+			
+			2 for User set Grid
+			
+		#tag EndNote
+		DVH_Calc_Grid As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			Graphics
+			
+			0 for CT Grid
+			
+			1 for Dose Grid
+			
+			2 for User set Grid
+			
+		#tag EndNote
+		DVH_Calc_Grid_Size As Single = 0.25
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
