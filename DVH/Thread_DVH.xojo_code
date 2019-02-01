@@ -7,6 +7,12 @@ Inherits Thread
 		  Dim b1, b2 as Boolean
 		  
 		  
+		  if HR_struc Then
+		    TP_DVH_Text="Updating contour points for DVH calculations"
+		    HR_struc=False
+		    gRTOG.Structures.Structures_HR
+		  end
+		  
 		  
 		  if gRTOG<> nil Then
 		    for l=0 to UBound(gRTOG.plan)
@@ -917,6 +923,10 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		HR_struc As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Save_DVH As Boolean = false
 	#tag EndProperty
 
@@ -935,6 +945,12 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="50"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HR_struc"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

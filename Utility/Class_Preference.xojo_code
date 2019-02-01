@@ -287,6 +287,11 @@ Protected Class Class_Preference
 		      modstr=trim(NthField(tempstr,":=",2))
 		      DVH_Calc_Grid=Val(modstr)
 		      
+		    elseif instr(tempstr,"DVHGridSize")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      DVH_Calc_Grid_Size=Val(modstr)
+		      
+		      
 		      
 		    elseif instr(tempstr,"DICOMImportInvertContour")>0 then
 		      modstr=trim(NthField(tempstr,":=",2))
@@ -742,7 +747,6 @@ Protected Class Class_Preference
 			1 for Dose Grid
 			
 			2 for User set Grid
-			
 		#tag EndNote
 		DVH_Calc_Grid As Integer = 0
 	#tag EndProperty
@@ -756,7 +760,6 @@ Protected Class Class_Preference
 			1 for Dose Grid
 			
 			2 for User set Grid
-			
 		#tag EndNote
 		DVH_Calc_Grid_Size As Single = 0.25
 	#tag EndProperty
@@ -923,6 +926,18 @@ Protected Class Class_Preference
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DVH_Calc_Grid"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DVH_Calc_Grid_Size"
+			Group="Behavior"
+			InitialValue="0.25"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_clean"

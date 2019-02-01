@@ -192,7 +192,7 @@ Begin Window Window_DVH_Plot
       AutoHideScrollbars=   True
       Bold            =   False
       Border          =   True
-      ColumnCount     =   11
+      ColumnCount     =   12
       ColumnsResizable=   True
       ColumnWidths    =   ""
       DataField       =   ""
@@ -286,7 +286,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -407,7 +406,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -442,7 +440,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -520,7 +517,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -626,7 +622,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Y:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -747,7 +742,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "X:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1188,10 +1182,11 @@ End
 		  Listbox_Graphs.Heading(6)="min dose"
 		  Listbox_Graphs.Heading(7)="max dose"
 		  Listbox_Graphs.Heading(8)="D50"
-		  Listbox_Graphs.Heading(9)="Pixel Vol cm^3"
-		  Listbox_Graphs.Heading(10)="Geo Vol cm^3"
+		  Listbox_Graphs.Heading(9)="Unit voxel Vol cm^3"
+		  Listbox_Graphs.Heading(10)="Total voxel Vol cm^3"
+		  Listbox_Graphs.Heading(11)="Geo Vol cm^3"
 		  
-		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%"
+		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%,10%"
 		  
 		  for i=0 to ubound(DVH)
 		    Listbox_Graphs.addRow DVH(i).Name +" "+DVH(i).struc_names
@@ -1235,17 +1230,27 @@ End
 		      Listbox_Graphs.Cell(i,8)=Format(DVH(i).D50,"-0.00##")
 		    end
 		    
-		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    if abs(DVH(i).pixelvolume)>0.001 Then
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###e")
+		    end
+		    
+		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    else
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
 		    end
 		    
 		    if abs(DVH(i).svolume)>0.001 Then
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###e")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###e")
 		    end
+		    
+		    
+		    
+		    
 		  next
 		  Listbox_Graphs.listIndex=-1
 		  

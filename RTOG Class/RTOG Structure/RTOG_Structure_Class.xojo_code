@@ -14,10 +14,10 @@ Protected Class RTOG_Structure_Class
 		  //--------------------------------------------------------
 		  Dim tt as Boolean
 		  
-		  if gPref.DVH_Calc=1 Then
+		  if gPref.DVH_Calc=1 Then // Use the is within routine of a polygon to find voxels
 		    Make_Array_of_Points_FromIsWithin
 		    
-		  elseif gPref.DVH_Calc=0 Then
+		  elseif gPref.DVH_Calc=0 Then // Just use the XoJo graphics routine to find voxels within the contour
 		    Make_Array_of_Points_FromImages
 		    
 		  elseif gPref.DVH_Calc=2 Then
@@ -158,6 +158,9 @@ Protected Class RTOG_Structure_Class
 		    
 		    arepoints_b=False
 		    
+		    if file=Nil Then
+		      Return False
+		    end
 		    
 		    ReDim file.Axial_Points_X(-1)
 		    ReDim file.Axial_Points_Y(-1)

@@ -39,7 +39,6 @@ Protected Class RTOG_Structure
 		      Return
 		    end
 		    
-		    
 		    if HR_Res_X>gVis.scale_width Then
 		      HR_Res_X=gVis.scale_width
 		    end
@@ -62,11 +61,9 @@ Protected Class RTOG_Structure
 		    
 		  end
 		  
-		  
 		  HRnx=gVis.nx*gVis.scale_width/HR_Res_X
 		  HRny=gVis.ny*gVis.scale_height/HR_Res_Y
 		  HRnz=gVis.nz*gVis.scale_thickness/HR_Res_Z
-		  
 		  
 		  temp=(gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value-gRTOG.Scan(0).Z_Value)+gVis.scale_thickness
 		  num=Round(temp/HR_Res_Z)
@@ -75,6 +72,8 @@ Protected Class RTOG_Structure
 		  Z_limit_lower=gRTOG.Scan(0).Z_Value-gVis.scale_thickness/2
 		  
 		  for i=0 to UBound(Structures)
+		    gRTOG.Structures.Structures(i).Loaded_PointsHR=False
+		    gRTOG.Structures.Structures(i).Loaded_PolyHR=False
 		    
 		    redim me.Structures(i).Structure_DataHR(num-1)
 		    for w = 1 to num//Get all points per scan

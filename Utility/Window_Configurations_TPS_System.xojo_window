@@ -4007,6 +4007,7 @@ End
 		Sub Action()
 		  if me.Value Then
 		    gPref.DVH_Calc_Grid=1
+		    gDVH.HR_struc=True
 		  end
 		  
 		  gpref.Write_Pref
@@ -4018,6 +4019,8 @@ End
 		Sub Action()
 		  if me.Value Then
 		    gPref.DVH_Calc_Grid=0
+		    gDVH.HR_struc=True
+		    
 		  end
 		  
 		  gpref.Write_Pref
@@ -4029,6 +4032,8 @@ End
 		Sub Action()
 		  if me.Value Then
 		    gPref.DVH_Calc_Grid=2
+		    gDVH.HR_struc=True
+		    
 		  end
 		  
 		  gpref.Write_Pref
@@ -4039,6 +4044,7 @@ End
 	#tag Event
 		Sub TextChange()
 		  gPref.DVH_Calc_Grid_Size=val(me.Text)
+		  gDVH.HR_struc=True
 		  gPref.Write_Pref
 		End Sub
 	#tag EndEvent
