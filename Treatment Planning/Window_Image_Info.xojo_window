@@ -118,7 +118,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "STUDYInstanceUID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -153,7 +152,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "ReferencedStructureSetSequence "
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -231,7 +229,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Study Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -309,7 +306,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Patient Position"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -387,7 +383,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Study Description"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -465,7 +460,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Image Orientation Patient"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -543,7 +537,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Study ID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -621,7 +614,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "FrameOfReferenceUID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -699,7 +691,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   20
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "SeriesNumber"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -777,7 +768,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Series Description"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -855,7 +845,6 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   24
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Series Instance UID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -976,7 +965,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "x offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -987,7 +975,7 @@ Begin Window Window_Image_Info
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   73
+      Width           =   84
    End
    Begin Label StaticText3111113
       AutoDeactivate  =   True
@@ -1011,7 +999,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "y offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1022,7 +1009,7 @@ Begin Window Window_Image_Info
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   73
+      Width           =   84
    End
    Begin TextField EditField_Z
       AcceptTabs      =   False
@@ -1088,7 +1075,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "z offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1099,9 +1085,9 @@ Begin Window Window_Image_Info
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   73
+      Width           =   84
    End
-   Begin TextField EditField_X1
+   Begin TextField EditField_X_Res
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -1118,7 +1104,7 @@ Begin Window Window_Image_Info
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   322
+      Left            =   349
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -1143,7 +1129,7 @@ Begin Window Window_Image_Info
       Visible         =   True
       Width           =   72
    End
-   Begin TextField EditField_Y1
+   Begin TextField EditField_Y_Res
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -1160,7 +1146,7 @@ Begin Window Window_Image_Info
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   322
+      Left            =   349
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -1207,7 +1193,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "y res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1218,9 +1203,9 @@ Begin Window Window_Image_Info
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   62
+      Width           =   73
    End
-   Begin TextField EditField_Z1
+   Begin TextField EditField_Z_Res
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -1237,7 +1222,7 @@ Begin Window Window_Image_Info
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   322
+      Left            =   349
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -1284,7 +1269,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   22
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "z res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1295,7 +1279,7 @@ Begin Window Window_Image_Info
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   62
+      Width           =   73
    End
    Begin Label Label3
       AutoDeactivate  =   True
@@ -1319,7 +1303,6 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "x res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1397,9 +1380,9 @@ End
 		  EditField_Y.Text=Format(gVis.yoff_set,"-#.###e")
 		  EditField_z.Text=Format(gVis.zoff_set,"-#.###e")
 		  
-		  EditField_X1.Text=Format(10*gVis.scale_width,"-#.###")
-		  EditField_Y1.Text=Format(10*gVis.scale_height,"-#.###")
-		  EditField_Z1.Text=Format(10*gVis.scale_thickness,"-#.###")
+		  EditField_X_Res.Text=Format(10*gVis.scale_width,"-#.###")
+		  EditField_Y_Res.Text=Format(10*gVis.scale_height,"-#.###")
+		  EditField_Z_Res.Text=Format(10*gVis.scale_thickness,"-#.###")
 		End Sub
 	#tag EndEvent
 
@@ -1497,24 +1480,24 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_X1
+#tag Events EditField_X_Res
 	#tag Event
 		Sub TextChange()
-		  gVis.xoff_set=val(me.Text)
+		  gVis.scale_width=val(me.Text)/10
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_Y1
+#tag Events EditField_Y_Res
 	#tag Event
 		Sub TextChange()
-		  gVis.yoff_set=Val(me.Text)
+		  gVis.scale_height=Val(me.Text)/10
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events EditField_Z1
+#tag Events EditField_Z_Res
 	#tag Event
 		Sub TextChange()
-		  gVis.zoff_set=Val(me.Text)
+		  gVis.scale_thickness=Val(me.Text)/10
 		End Sub
 	#tag EndEvent
 #tag EndEvents

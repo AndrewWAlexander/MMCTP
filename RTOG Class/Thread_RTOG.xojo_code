@@ -757,7 +757,7 @@ Inherits Thread
 		  dicomD.rows=Dose.Size_of_Dimension2
 		  dicomD.NumberofFrames=Dose.Size_of_Dimension3
 		  
-		  dicomD.PixelSpacing=Format(10*Dose.Horizontal_Grid,"-#.#######")+"\"+Format(10*Dose.Vertical_Grid,"-#.#######")
+		  dicomD.PixelSpacing=Format(10*Dose.Vertical_Grid,"-#.#######")+"\"+Format(10*Dose.Horizontal_Grid,"-#.#######")
 		  dicomD.Image_Presentation_Group_Length=150
 		  
 		  if gPref.DICOM_Z_Invert Then
