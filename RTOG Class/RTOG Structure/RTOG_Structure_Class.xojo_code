@@ -391,6 +391,9 @@ Protected Class RTOG_Structure_Class
 		  
 		  for a=0 to UBound(sd)
 		    file = sd(a)
+		    if file=nil Then
+		      Return false
+		    end
 		    if UBound(file.Segments)>0 Then
 		      ReDim List(-1)
 		      for j = 0 to ubound(file.segments)
