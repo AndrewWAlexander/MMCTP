@@ -52,9 +52,9 @@ Begin Window Window_Configurations_TPS_System
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   8
+      Transparent     =   True
       Underline       =   False
-      Value           =   0
-
+      Value           =   5
       Visible         =   True
       Width           =   1093
       Begin GroupBox GroupBox2
@@ -81,6 +81,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   47
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -111,6 +112,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   77
+            Transparent     =   True
             Underline       =   False
             Value           =   True
             Visible         =   True
@@ -154,6 +156,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   77
+            Transparent     =   True
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -186,6 +189,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   77
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -229,6 +233,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   77
+            Transparent     =   True
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -257,6 +262,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "McGill RT Folder"
          TextAlign       =   0
          TextColor       =   &cFF000000
@@ -307,6 +313,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   82
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -350,6 +357,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   148
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -377,6 +385,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "DICOM Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -427,6 +436,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   213
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -454,6 +464,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "CADPLAN Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -504,6 +515,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   182
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -531,6 +543,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "RTOG Folder"
          TextAlign       =   0
          TextColor       =   &c0000FF00
@@ -581,6 +594,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   114
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -608,6 +622,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   9
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "BEAMnrc input Folder"
          TextAlign       =   0
          TextColor       =   &cFF000000
@@ -659,6 +674,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   83
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -703,6 +719,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   114
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -747,6 +764,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   182
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -791,6 +809,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   213
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -835,6 +854,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   148
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -878,6 +898,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   285
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -905,6 +926,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "VMC Folder"
          TextAlign       =   0
          TextColor       =   &c99663300
@@ -956,6 +978,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   285
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -999,6 +1022,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   245
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1026,6 +1050,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "Commissioning Data folder"
          TextAlign       =   0
          TextColor       =   &c00FF0000
@@ -1077,6 +1102,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   245
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1120,6 +1146,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   322
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1147,6 +1174,7 @@ Begin Window Window_Configurations_TPS_System
          Selectable      =   False
          TabIndex        =   21
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "McGill Cutout folder"
          TextAlign       =   0
          TextColor       =   &c99663300
@@ -1198,6 +1226,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   322
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1239,6 +1268,7 @@ Begin Window Window_Configurations_TPS_System
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
+         ShowDropIndicator=   False
          TabIndex        =   0
          TabPanelIndex   =   3
          TabStop         =   True
@@ -1246,6 +1276,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   56
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1289,6 +1320,7 @@ Begin Window Window_Configurations_TPS_System
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
+         ShowDropIndicator=   False
          TabIndex        =   1
          TabPanelIndex   =   3
          TabStop         =   True
@@ -1296,6 +1328,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   56
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1330,6 +1363,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   341
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1362,6 +1396,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   370
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1394,6 +1429,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   402
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1435,6 +1471,7 @@ Begin Window Window_Configurations_TPS_System
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
+         ShowDropIndicator=   False
          TabIndex        =   5
          TabPanelIndex   =   3
          TabStop         =   True
@@ -1442,6 +1479,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   56
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1476,6 +1514,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   437
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1519,6 +1558,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   436
+         Transparent     =   True
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1548,6 +1588,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   63
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -1578,6 +1619,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   91
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1607,6 +1649,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   91
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1636,6 +1679,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   91
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1668,6 +1712,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   91
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1698,6 +1743,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   220
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -1737,6 +1783,7 @@ Begin Window Window_Configurations_TPS_System
             ScrollbarHorizontal=   False
             ScrollBarVertical=   True
             SelectionType   =   0
+            ShowDropIndicator=   False
             TabIndex        =   0
             TabPanelIndex   =   4
             TabStop         =   True
@@ -1744,6 +1791,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   246
+            Transparent     =   True
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1776,6 +1824,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   514
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   199
@@ -1803,6 +1852,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   539
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1832,6 +1882,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   539
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1862,6 +1913,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   514
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   321
@@ -1889,6 +1941,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   538
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1918,6 +1971,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   538
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1947,6 +2001,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   539
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1977,6 +2032,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   514
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   162
@@ -2004,6 +2060,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   539
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2033,6 +2090,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   539
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2063,6 +2121,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   63
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -2093,6 +2152,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2136,6 +2196,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   92
+            Transparent     =   True
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2163,6 +2224,7 @@ Begin Window Window_Configurations_TPS_System
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   5
+            TabStop         =   True
             Text            =   "Strucutre Z slice aligment parameter (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2202,6 +2264,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   138
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2234,6 +2297,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   170
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2266,6 +2330,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   202
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2298,6 +2363,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   234
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2328,6 +2394,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   334
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -2355,6 +2422,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   367
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2384,6 +2452,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   367
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2414,6 +2483,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   137
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -2444,6 +2514,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   164
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2476,6 +2547,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   164
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2506,6 +2578,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   514
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   157
@@ -2533,6 +2606,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   540
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2562,6 +2636,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   540
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2595,6 +2670,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   71
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -2627,6 +2703,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   125
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -2659,6 +2736,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   166
+         Transparent     =   True
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -2688,6 +2766,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   169
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1041
@@ -2715,6 +2794,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   197
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2744,6 +2824,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   197
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2773,6 +2854,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   197
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2803,6 +2885,7 @@ Begin Window Window_Configurations_TPS_System
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   249
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   1034
@@ -2830,6 +2913,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   277
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2859,6 +2943,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   277
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2888,6 +2973,7 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   277
+            Transparent     =   True
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2931,13 +3017,13 @@ Begin Window Window_Configurations_TPS_System
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   276
+            Transparent     =   True
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
             Width           =   125
          End
       End
-
    End
    Begin PushButton PushButton1
       AutoDeactivate  =   True
@@ -2966,6 +3052,7 @@ Begin Window Window_Configurations_TPS_System
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   607
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -4047,14 +4134,6 @@ End
 		Sub TextChange()
 		  gPref.DVH_Calc_Grid_Size=val(me.Text)
 		  gDVH.HR_struc=True
-		  gPref.Write_Pref
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events CheckBox_McGillRTProfileLoad
-	#tag Event
-		Sub Action()
-		  gPref.McGillRT_Profile_Skip=me.Value
 		  gPref.Write_Pref
 		End Sub
 	#tag EndEvent
