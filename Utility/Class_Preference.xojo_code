@@ -807,6 +807,9 @@ Protected Class Class_Preference
 	#tag Property, Flags = &h0
 		#tag Note
 			_
+
+			
+
 		#tag EndNote
 		McGillRT_Dose_Skip As Boolean = false
 	#tag EndProperty

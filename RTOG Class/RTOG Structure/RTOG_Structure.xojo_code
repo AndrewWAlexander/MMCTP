@@ -16,6 +16,7 @@ Protected Class RTOG_Structure
 		  '========================================
 		  
 		  
+
 		  if gPref.DVH_Calc_Grid=1 Then // Detemine dose grid size
 		    needupdate=False
 		    For i = 0 to UBound(gRTOG.Plan)
@@ -23,6 +24,7 @@ Protected Class RTOG_Structure
 		        if HR_Res_Z> gRTOG.Plan(i).Dose(j).Depth_Grid Then
 		          HR_Res_Z=gRTOG.Plan(i).Dose(j).Depth_Grid
 		          needupdate=True
+
 		        end
 		        if HR_Res_Y>gRTOG.Plan(i).Dose(j).Vertical_Grid Then
 		          HR_Res_Y=gRTOG.Plan(i).Dose(j).Vertical_Grid
@@ -32,8 +34,10 @@ Protected Class RTOG_Structure
 		          HR_Res_X=gRTOG.Plan(i).Dose(j).Horizontal_Grid
 		          needupdate=True
 		        end
+
 		      Next
 		    next
+
 		    
 		    if needupdate=False Then
 		      Return
@@ -59,7 +63,9 @@ Protected Class RTOG_Structure
 		    HR_Res_y=gVis.scale_height
 		    HR_Res_z=gVis.scale_thickness
 		    
+
 		  end
+
 		  
 		  HRnx=gVis.nx*gVis.scale_width/HR_Res_X
 		  HRny=gVis.ny*gVis.scale_height/HR_Res_Y

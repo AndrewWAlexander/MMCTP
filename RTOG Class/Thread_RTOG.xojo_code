@@ -5008,6 +5008,7 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
+
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

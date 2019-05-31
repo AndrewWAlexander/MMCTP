@@ -345,13 +345,18 @@ Class=CustomReportField;Utility/CustomReportField.xojo_code;&h2103FFFF;&h22CC0B1
 Class=Class_BEAM_CM_CONESTAK;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_CONESTAK.xojo_code;&h786E07FF;&h39B4467D;false
 Window=Window_ColourWash;Treatment Planning/Window_ColourWash.xojo_window;&h60417FF;&h628F7F8;false
 Class=Class_DICOM_Plan_ApplicatorSequence;DICOM/DICOM_Plan/Class_DICOM_Plan_ApplicatorSequence.xojo_code;&hB985FFF;&h5C6D37F3;false
+
 Class=Class_MCCData;Commissioning/Class_MCCData.xojo_code;&h7B4F17FF;&h7DC31AD8;false
 Class=RTOG_Structure;RTOG Class/RTOG Structure/RTOG_Structure.xojo_code;&h56B7F7FF;&hBEC34D2A;false
+
 AppMenuBar=File
 MajorVersion=9
 MinorVersion=2
 SubVersion=0
+
 NonRelease=490
+
+
 Release=2
 InfoVersion=
 LongVersion=
@@ -361,7 +366,7 @@ WinInternalName=
 WinProductName=McGill Monte Carlo Treatment Planning
 WinFileDescription=
 AutoIncrementVersionInformation=True
-BuildFlags=&h4900
+BuildFlags=&h910
 BuildLanguage=&h1
 DebugLanguage=&h1
 Region=0

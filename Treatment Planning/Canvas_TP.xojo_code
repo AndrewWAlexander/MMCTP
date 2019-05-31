@@ -1620,11 +1620,13 @@ Inherits Canvas
 		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		              else
 		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_hot(tmpint)
+
 		              end
 		              if tmpint=0 Then
 		                ggb.Pixel(j,i)=rgb(255,255,255)
 		              else
 		                ggb.Pixel(j,i)=rgb(tran,tran,tran)
+
 		              end
 		            next
 		          next

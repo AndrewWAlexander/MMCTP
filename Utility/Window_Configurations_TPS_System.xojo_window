@@ -54,6 +54,7 @@ Begin Window Window_Configurations_TPS_System
       Top             =   8
       Underline       =   False
       Value           =   0
+
       Visible         =   True
       Width           =   1093
       Begin GroupBox GroupBox2
@@ -2936,6 +2937,7 @@ Begin Window Window_Configurations_TPS_System
             Width           =   125
          End
       End
+
    End
    Begin PushButton PushButton1
       AutoDeactivate  =   True
@@ -4045,6 +4047,14 @@ End
 		Sub TextChange()
 		  gPref.DVH_Calc_Grid_Size=val(me.Text)
 		  gDVH.HR_struc=True
+		  gPref.Write_Pref
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events CheckBox_McGillRTProfileLoad
+	#tag Event
+		Sub Action()
+		  gPref.McGillRT_Profile_Skip=me.Value
 		  gPref.Write_Pref
 		End Sub
 	#tag EndEvent
