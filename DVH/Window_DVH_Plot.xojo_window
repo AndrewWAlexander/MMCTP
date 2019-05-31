@@ -192,7 +192,7 @@ Begin Window Window_DVH_Plot
       AutoHideScrollbars=   True
       Bold            =   False
       Border          =   True
-      ColumnCount     =   11
+      ColumnCount     =   12
       ColumnsResizable=   True
       ColumnWidths    =   ""
       DataField       =   ""
@@ -286,7 +286,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -407,7 +406,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max X"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -442,7 +440,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Max Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -520,7 +517,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Min Y"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -626,7 +622,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Y:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -747,7 +742,6 @@ Begin Window Window_DVH_Plot
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "X:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -915,6 +909,50 @@ Begin Window Window_DVH_Plot
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   437
+         Underline       =   False
+         Value           =   False
+         Visible         =   True
+         Width           =   99
+      End
+      Begin BevelButton ExportButton_PyPlot
+         AcceptFocus     =   False
+         AutoDeactivate  =   True
+         BackColor       =   &c00000000
+         Bevel           =   0
+         Bold            =   False
+         ButtonType      =   0
+         Caption         =   "Export PyPlot"
+         CaptionAlign    =   3
+         CaptionDelta    =   0
+         CaptionPlacement=   1
+         Enabled         =   True
+         HasBackColor    =   False
+         HasMenu         =   0
+         Height          =   22
+         HelpTag         =   ""
+         Icon            =   0
+         IconAlign       =   0
+         IconDX          =   0
+         IconDY          =   0
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox4"
+         Italic          =   False
+         Left            =   935
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   True
+         MenuValue       =   0
+         Scope           =   0
+         TabIndex        =   3
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   12.0
+         TextUnit        =   0
+         Top             =   468
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1114,11 +1152,11 @@ End
 		  ReDim DVH(-1)
 		  
 		  for k=0 to Window_Treatment.ListBox_DVH_Graphs.ColumnCount
-		    for i=0 to ubound(gRTOG.structures)
+		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
 		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
-		            gDVH.All_DVH(x).struc_names=gRTOG.Structures(i).Structure_Name Then
+		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            temp_DVH=gDVH.All_DVH(x)
 		            DVH.Append temp_DVH
 		          end
@@ -1144,10 +1182,11 @@ End
 		  Listbox_Graphs.Heading(6)="min dose"
 		  Listbox_Graphs.Heading(7)="max dose"
 		  Listbox_Graphs.Heading(8)="D50"
-		  Listbox_Graphs.Heading(9)="Pixel Vol cm^3"
-		  Listbox_Graphs.Heading(10)="Geo Vol cm^3"
+		  Listbox_Graphs.Heading(9)="Unit voxel Vol cm^3"
+		  Listbox_Graphs.Heading(10)="Total voxel Vol cm^3"
+		  Listbox_Graphs.Heading(11)="Geo Vol cm^3"
 		  
-		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%"
+		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%,10%"
 		  
 		  for i=0 to ubound(DVH)
 		    Listbox_Graphs.addRow DVH(i).Name +" "+DVH(i).struc_names
@@ -1191,17 +1230,27 @@ End
 		      Listbox_Graphs.Cell(i,8)=Format(DVH(i).D50,"-0.00##")
 		    end
 		    
-		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    if abs(DVH(i).pixelvolume)>0.001 Then
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###e")
+		    end
+		    
+		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    else
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
 		    end
 		    
 		    if abs(DVH(i).svolume)>0.001 Then
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###e")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###e")
 		    end
+		    
+		    
+		    
+		    
 		  next
 		  Listbox_Graphs.listIndex=-1
 		  
@@ -1482,6 +1531,18 @@ End
 		      ts.Close
 		    end
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ExportButton_PyPlot
+	#tag Event
+		Sub Action()
+		  //---------------------------------------
+		  // Export DVH data into pyplot format
+		  //
+		  
+		  DVHGraph.Profiles.Export_DVH_PyPlot
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

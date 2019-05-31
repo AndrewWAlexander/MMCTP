@@ -182,12 +182,12 @@ Begin Window Window_Graph
       Visible         =   True
       Width           =   111
    End
-   Begin PushButton PushButton_Export
+   Begin PushButton PushButton_Export_Text
       AutoDeactivate  =   True
       Bold            =   False
       ButtonStyle     =   "0"
       Cancel          =   False
-      Caption         =   "Export Profile"
+      Caption         =   "Export Profile Text"
       Default         =   False
       Enabled         =   True
       Height          =   25
@@ -437,7 +437,6 @@ Begin Window Window_Graph
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "X (Position) ="
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -472,7 +471,6 @@ Begin Window Window_Graph
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Y (Dose) ="
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -484,6 +482,37 @@ Begin Window Window_Graph
       Underline       =   False
       Visible         =   True
       Width           =   77
+   End
+   Begin PushButton PushButton_Export_Py
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Export Python Plot"
+      Default         =   False
+      Enabled         =   True
+      Height          =   35
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   825
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   13
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   489
+      Underline       =   False
+      Visible         =   True
+      Width           =   111
    End
 End
 #tag EndWindow
@@ -795,7 +824,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton_Export
+#tag Events PushButton_Export_Text
 	#tag Event
 		Sub Action()
 		  //-------------------------------------
@@ -828,10 +857,10 @@ End
 		      
 		      fileStream.WriteLine "X,Y,Z, DOSE "
 		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
-		        wantx = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
-		        wanty = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
-		        wantz = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
-		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.###e")
+		        wantx = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.######e")
+		        wanty = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.######e")
+		        wantz = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.######e")
+		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.######e")
 		        
 		        
 		        fileStream.WriteLine wantx+", "+wanty+", "+wantz+", "+wantvalue
@@ -904,6 +933,76 @@ End
 		    
 		    EditField_Y.Text=Format(gg,"-#.####e")
 		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Export_Py
+	#tag Event
+		Sub Action()
+		  //-------------------------------------
+		  // Written Andrew Alexander
+		  // UPDATED: Dec 6 2018
+		  //
+		  //-------------------------------------
+		  Dim file As FolderItem
+		  Dim fileStream as TextOutputStream
+		  dim j as Integer
+		  dim i as integer
+		  Dim wantx, wanty, wantz As String
+		  Dim wantvalue,x,y,z,dose,plota_label As String
+		  //-------------------------------------
+		  
+		  
+		  file=GetSaveFolderItem("plain/text","")
+		  If file<> Nil then
+		    fileStream=file.CreateTextFile
+		    
+		    filestream.Writeline "import numpy as np"
+		    filestream.Writeline "import matplotlib.pyplot as plt"
+		    filestream.Writeline "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
+		    filestream.Writeline "minorLocator = AutoMinorLocator(2)"
+		    filestream.Writeline "plt.ylabel('Dose')"
+		    filestream.Writeline "plt.xlabel('Distance')"
+		    filestream.Writeline "plt.title('MMCTP Plot')"
+		    
+		    
+		    
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      plota_label= Canvas_Graph.Profiles.One_Profile(j).Label
+		      wantx=""
+		      wanty="" 
+		      wantz=""
+		      wantvalue=""
+		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
+		        if i>0 Then
+		          wantx =wantx+", "
+		          wanty =wanty+", "
+		          wantz =wantz+", "
+		          wantvalue=wantvalue+", "
+		          
+		        end
+		        wantx =wantx+ Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.######e")
+		        wanty =wanty+ Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.######e")
+		        wantz =wantz+ Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.######e")
+		        wantvalue =wantvalue+ Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.######e")
+		      next
+		      
+		      x="x=("+wantx+")"
+		      y="y=("+wanty+")"
+		      z="z=("+wantz+")"
+		      dose="dose=("+wantvalue+")"
+		      fileStream.WriteLine x
+		      fileStream.WriteLine y
+		      fileStream.WriteLine z
+		      fileStream.WriteLine dose
+		    next
+		    
+		    fileStream.WriteLine "plt.plot(x,y, label= "+plota_label+ ", marker=""x"")"
+		    fileStream.WriteLine "plt.show()"
+		    fileStream.Close
+		  end if
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -1199,7 +1199,7 @@ Protected Class Class_DOSXYZ
 		      else
 		        Check="No"
 		      end
-		      Spaces(ts,"Use Contour "+gRTOG.Structures(EGSPhantSettings.Contous(i).RTOG_Contour_Index).Structure_Name,20,check)
+		      Spaces(ts,"Use Contour "+grtog.Structures.Structures(EGSPhantSettings.Contous(i).RTOG_Contour_Index).Structure_Name,20,check)
 		    next
 		    Spaces(ts,"X-Max",20,Format(EGSPhantSettings.X_Max,"-#.###"))
 		    Spaces(ts,"X-Min",20,Format(EGSPhantSettings.X_min,"-#.###"))

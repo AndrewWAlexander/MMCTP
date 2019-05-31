@@ -440,7 +440,7 @@ Begin Window Window_Commisssioning
          Bold            =   False
          ButtonStyle     =   "0"
          Cancel          =   False
-         Caption         =   "Export Profile"
+         Caption         =   "Export Profile .txt"
          Default         =   False
          Enabled         =   True
          Height          =   25
@@ -448,7 +448,7 @@ Begin Window Window_Commisssioning
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   1157
+         Left            =   1096
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   False
@@ -464,7 +464,7 @@ Begin Window Window_Commisssioning
          Top             =   808
          Underline       =   False
          Visible         =   True
-         Width           =   111
+         Width           =   172
       End
       Begin GroupBox GroupBox2
          AutoDeactivate  =   True
@@ -546,7 +546,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -667,7 +666,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -702,7 +700,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -823,7 +820,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -858,7 +854,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Graph X Axis"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -968,7 +963,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "Y (Dose) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1046,7 +1040,6 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   14
             TabPanelIndex   =   0
-            TabStop         =   True
             Text            =   "X (Position (cm)) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1059,6 +1052,68 @@ Begin Window Window_Commisssioning
             Visible         =   True
             Width           =   144
          End
+      End
+      Begin PushButton PushButton_Export_mcc
+         AutoDeactivate  =   True
+         Bold            =   False
+         ButtonStyle     =   "0"
+         Cancel          =   False
+         Caption         =   "Export Profile .mcc"
+         Default         =   False
+         Enabled         =   True
+         Height          =   25
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   1096
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   False
+         Scope           =   0
+         TabIndex        =   13
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   771
+         Underline       =   False
+         Visible         =   True
+         Width           =   172
+      End
+      Begin PushButton PushButton_Export_pyplot
+         AutoDeactivate  =   True
+         Bold            =   False
+         ButtonStyle     =   "0"
+         Cancel          =   False
+         Caption         =   "Export Profile .pyplot"
+         Default         =   False
+         Enabled         =   True
+         Height          =   25
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "GroupBox1"
+         Italic          =   False
+         Left            =   1096
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   False
+         Scope           =   0
+         TabIndex        =   14
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   734
+         Underline       =   False
+         Visible         =   True
+         Width           =   172
       End
    End
 End
@@ -1121,8 +1176,7 @@ End
 		  
 		  
 		  if Results_Mouse_Column=0 Then
-		    dd.Value("Select all")=0
-		    dd.Value("Deselect all")=0
+		    
 		  elseif Results_Mouse_Column=Index_Algor Then
 		    dd=Dic_Algorithm
 		  elseif  Results_Mouse_Column=Index_Depth Then
@@ -1167,6 +1221,14 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Hex32(value As Int32) As String
+		  Const prefix = "000000" // A 32-bits value is 6 digits long at max
+		  
+		  Return Right(prefix + Hex(value), 6)  // We always return 6 characters
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Open_Canvas()
 		  //-----------------------------------------
 		  //General Open
@@ -1199,11 +1261,17 @@ End
 		    Canvas_Graph.Interactive=False
 		  end
 		  
-		  
+		  Canvas_Graph.y_Minimum=30000000
+		  Canvas_Graph.y_Maximum=-3000000
 		  
 		  for j=0 to UBound(Canvas_Graph.Profiles.One_Profile) // first  plot lines
 		    for i=0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
 		      y1=Canvas_Graph.Profiles.One_Profile(j).Points(i).value
+		      
+		      if Canvas_Graph.Profiles.One_Profile(j).Norm Then
+		        y1=100*y1/Canvas_Graph.Profiles.One_Profile(j).Normalize_value
+		      end
+		      
 		      if y1<Canvas_Graph.y_Minimum Then
 		        Canvas_Graph.y_Minimum=y1
 		      Elseif y1>Canvas_Graph.y_Maximum Then
@@ -1742,9 +1810,9 @@ End
 		    
 		  elseif column=Index_Show_Line Then // Show Line
 		    gProfiles.One_Profile(pindex).show_line=me.CellCheck(row,column)
-		    
-		    
 		  end
+		  
+		  
 		  
 		  Open_Canvas
 		End Sub
@@ -1781,6 +1849,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		  //----------------------------------------------------
+		  // Create the context menu for users
+		  //----------------------------------------------------
 		  Dim i as Integer
 		  Dim dd as new Dictionary
 		  Dim ss,test(-1) as String
@@ -1789,6 +1860,14 @@ End
 		  
 		  dd=Get_Dictionary_For_menu
 		  if dd<> Nil Then
+		    kk=new MenuItem
+		    kk.Text="Select all"
+		    base.Append(kk)
+		    
+		    kk=new MenuItem
+		    kk.Text="Deselect all"
+		    base.Append(kk)
+		    
 		    for i=0 to dd.Count-1
 		      ss=dd.Key(i)
 		      test.Append ss
@@ -1815,6 +1894,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		  //------------------------------
+		  //
+		  //
+		  //------------------------------
 		  Dim dd as new Dictionary
 		  Dim vv as Variant
 		  Dim test,tt2 as String
@@ -1822,51 +1905,75 @@ End
 		  //------------------------------
 		  
 		  
-		  
 		  if hitItem <> nil then 
 		    test=hitItem.Text
-		    if test="Select all" Then
-		      for i = 0 to ListBox_Dose_Profiles.ListCount-1
-		        ListBox_Dose_profiles.CellCheck(i,0)=True 
-		      Next
-		    elseif test="Deselect all" Then
-		      for i = 0 to ListBox_Dose_Profiles.ListCount-1
-		        ListBox_Dose_profiles.CellCheck(i,0) =False
-		      Next
-		    else
+		    vv=test
+		    dd=Get_Dictionary_For_menu
+		    
+		    if Results_Mouse_Column= 0 Then
+		      if test="Select all" Then
+		        for i = 0 to ListBox_Dose_Profiles.ListCount-1
+		          ListBox_Dose_profiles.CellCheck(i,0)=True 
+		        Next
+		      elseif test="Deselect all" Then
+		        for i = 0 to ListBox_Dose_Profiles.ListCount-1
+		          ListBox_Dose_profiles.CellCheck(i,0) =False
+		        Next
+		      end
+		    else// Loop to change view status of profile type
 		      
-		      vv=test
-		      dd=Get_Dictionary_For_menu
-		      if dd<>nil Then
-		        if dd.HasKey(hitItem.Text) Then
-		          if dd.Value(hitItem.Text)=1 Then
-		            dd.Value(hitItem.Text)=0
+		      
+		      if test="Select all" Then
+		        for i = 0 to dd.Count-1
+		          vv=dd.Key(i).StringValue
+		          dd.Value(vv)=1
+		        Next
+		      elseif test="Deselect all" Then
+		        for i = 0 to dd.Count -1
+		          vv=dd.Key(i).StringValue
+		          dd.Value(vv)=0
+		        Next
+		        
+		      else
+		        
+		        if dd<>nil Then
+		          if dd.HasKey(hitItem.Text) Then
+		            if dd.Value(hitItem.Text)=1 Then
+		              dd.Value(hitItem.Text)=0
+		            else
+		              dd.Value(hitItem.Text)=1
+		            end
+		            
 		          else
-		            dd.Value(hitItem.Text)=1
+		            for i=0 to dd.Count-1
+		              tt2=dd.Key(i)
+		              if tt2=vv Then
+		                if dd.Value(dd.Key(i))=1 Then
+		                  dd.Value(dd.Key(i))=0
+		                else
+		                  dd.Value(dd.Key(i))=1
+		                end
+		              end
+		            Next
 		          end
 		          
-		        else
-		          for i=0 to dd.Count-1
-		            tt2=dd.Key(i)
-		            if tt2=vv Then
-		              if dd.Value(dd.Key(i))=1 Then
-		                dd.Value(dd.Key(i))=0
-		              else
-		                dd.Value(dd.Key(i))=1
-		              end
-		            end
-		          Next
 		        end
-		        Update_Profile_ShowSet
-		        Update_Profiles_Listbox
+		        
+		        
+		        
+		        if dd.HasKey(vv) Then
+		          vv=vv
+		        end
+		        
+		        
 		      end
 		      
-		      if dd.HasKey(vv) Then
-		        vv=vv
-		      end
-		      
+		      Update_Profile_ShowSet
+		      Update_Profiles_Listbox
 		    end
 		  end
+		  
+		  
 		  
 		  return true
 		End Function
@@ -2257,6 +2364,287 @@ End
 		  
 		  Catch err As NilObjectException
 		    MsgBox("Nil Object Error within Window Commissioning")
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Export_mcc
+	#tag Event
+		Sub Action()
+		  //-------------------------------------
+		  // Written by Andrew Alexander
+		  // UPDATED: Feb 2018
+		  //
+		  //
+		  //-------------------------------------
+		  Dim file As FolderItem
+		  Dim fileStream as TextOutputStream
+		  dim k,j as Integer
+		  dim i as integer
+		  Dim wantx, wanty, wantz,wante,ff As String
+		  Dim wantvalue As String
+		  Dim d As New Date
+		  //-------------------------------------
+		  
+		  
+		  file=GetSaveFolderItem("plain/text","")
+		  If file<> Nil then
+		    fileStream=file.CreateTextFile
+		    filestream.Writeline "BEGIN_SCAN_DATA"
+		    filestream.Writeline Chr(9)+"FORMAT=CC-Export V1.9"
+		    filestream.Writeline Chr(9)+"FILE_CREATION_DATE="+d.SQLDateTime
+		    filestream.Writeline Chr(9)+"LAST_MODIFIED="+d.SQLDateTime
+		    k=0
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      k=k+1
+		      filestream.Writeline Chr(9)+"BEGIN_SCAN  "+str(k)
+		      filestream.Writeline Chr(9)+Chr(9)+"LINAC="+ Canvas_Graph.Profiles.One_Profile(j).Linac
+		      
+		      if InStr(Canvas_Graph.Profiles.One_Profile(j).Radiation_Type,"Electron")>0 Then
+		        filestream.Writeline Chr(9)+Chr(9)+"MODALITY=EL"
+		      elseif InStr(Canvas_Graph.Profiles.One_Profile(j).Radiation_Type,"Photon")>0 Then
+		        filestream.Writeline Chr(9)+Chr(9)+"MODALITY=X"
+		      end
+		      
+		      filestream.Writeline Chr(9)+Chr(9)+"ENERGY="+ Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"SSD="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).SSD,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_INPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"FIELD_CROSSPLANE="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.00")
+		      filestream.Writeline Chr(9)+Chr(9)+"DETECTOR="
+		      wantx=""
+		      if Canvas_Graph.Profiles.One_Profile(j).TYPE=1 Then
+		        // 0 = User
+		        // 1 = PDD
+		        // 2 = PROFILE X
+		        // 3 = Porfile Y
+		        wantx="PDD"
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2 Then
+		        wantx="CROSSPLANE_PROFILE"
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3 Then
+		        wantx="INPLANE_PROFILE"
+		      end
+		      filestream.Writeline Chr(9)+Chr(9)+"SCAN_CURVETYPE="+ wantx
+		      
+		      if Canvas_Graph.Profiles.One_Profile(j).TYPE=1 Then
+		        // 0 = User
+		        // 1 = PDD
+		        // 2 = PROFILE X
+		        // 3 = Porfile Y
+		      elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2 or Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		        filestream.Writeline Chr(9)+Chr(9)+"SCAN_DEPTH="+ Format(10*Canvas_Graph.Profiles.One_Profile(j).Depth,"-0.00")
+		      end
+		      
+		      filestream.Writeline Chr(9)+Chr(9)+"CORRECTIONS="
+		      filestream.Writeline Chr(9)+Chr(9)+"BEGIN_DATA"
+		      
+		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
+		        wantx = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
+		        wanty = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
+		        wantz = Format(10*Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
+		        wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.####e")
+		        if Canvas_Graph.Profiles.One_Profile(j).TYPE=1  Then
+		          ff=wantz+" "+chr(9)+wantvalue
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
+		          ff=wantx+" "+chr(9)+wantvalue
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		          ff=wantz+" "+chr(9)+wantvalue
+		        end
+		        filestream.Writeline Chr(9)+Chr(9)+Chr(9)+ff
+		        
+		        
+		      next
+		      filestream.Writeline Chr(9)+Chr(9)+"END_DATA"
+		      filestream.Writeline Chr(9)+"END_SCAN  "+str(k)
+		    next
+		    filestream.Writeline"END_SCAN_DATA"
+		    fileStream.Close
+		  end if
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Export_pyplot
+	#tag Event
+		Sub Action()
+		  //-------------------------------------
+		  // Written by Andrew Alexander
+		  // UPDATED: June 2018
+		  //
+		  //
+		  //-------------------------------------
+		  Dim file As FolderItem
+		  Dim fileStream as TextOutputStream
+		  dim k,j as Integer
+		  dim i as integer
+		  Dim wantx, wanty, wantz,wante,ff,x,y,plota_label_array(-1),title As String
+		  Dim wantvalue, plota_labelm,temp,xx,newplot,plota_label,RT_type(-1), EN_type(-1),Linac_type(-1),Al_Type(-1),SDD_Type(-1),Field_X_Type(-1),Field_Y_Type(-1) As String
+		  Dim d As New Date
+		  Dim cc as Color
+		  Dim hexColor,hexColor_Full,label As String
+		  Dim RT_type_Title,EN_type_Title,Linac_type_title,Al_Type_title,SDD_Type_title,Field_Y_Type_Title,Field_X_Type_title as Boolean
+		  //-------------------------------------
+		  
+		  
+		  file=GetSaveFolderItem("plain/text","")
+		  If file<> Nil then
+		    fileStream=file.CreateTextFile
+		    filestream.Writeline "import numpy as np"
+		    filestream.Writeline "import matplotlib.pyplot as plt"
+		    filestream.Writeline "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
+		    filestream.Writeline "minorLocator = AutoMinorLocator(2)"
+		    
+		    if Canvas_Graph.Y_Label="" Then
+		      filestream.Writeline "plt.ylabel('%')"
+		    else
+		      filestream.Writeline "plt.ylabel('"+Canvas_Graph.Y_Label+"')"
+		    end
+		    filestream.Writeline "plt.xlabel('"+Canvas_Graph.x_Label+"')"
+		    k=0
+		    
+		    
+		    // Determine plot title and labels
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      RT_type.append  Canvas_Graph.Profiles.One_Profile(j).Radiation_Type
+		      EN_type.append  Format(Canvas_Graph.Profiles.One_Profile(j).Energy,"0") 
+		      Linac_type.append  Canvas_Graph.Profiles.One_Profile(j).Linac
+		      Al_Type.append  Canvas_Graph.Profiles.One_Profile(j).Algorithm
+		      SDD_Type.append  format(Canvas_Graph.Profiles.One_Profile(j).SSD,"0")
+		      Field_X_Type.append  Format(Canvas_Graph.Profiles.One_Profile(j).Field_X,"0.0")
+		      Field_Y_Type.append format(Canvas_Graph.Profiles.One_Profile(j).Field_Y,"0.0") 
+		    Next
+		    
+		    RT_type_Title=True
+		    EN_type_Title=True
+		    Linac_type_title=True
+		    Al_Type_title=true
+		    SDD_Type_title=True
+		    Field_X_Type_title=True
+		    Field_Y_Type_title=True
+		    for j=1 to UBound(RT_type)
+		      if RT_type(j-1)<>RT_type(j) Then
+		        RT_type_Title=False
+		      end
+		      if en_type(j-1)<>en_type(j) Then
+		        EN_type_Title=False
+		      end
+		      if Linac_type(j-1)<>Linac_type(j) Then
+		        Linac_type_title=False
+		      end
+		      if Al_Type(j-1)<>Al_Type(j) Then
+		        Al_Type_title=False
+		      end
+		      if SDD_Type(j-1)<>SDD_Type(j) Then
+		        SDD_Type_title=False
+		      end
+		      if Field_X_Type(j-1)<>Field_X_Type(j) Then
+		        Field_X_Type_title=False
+		      end
+		      if Field_Y_Type(j-1)<>Field_Y_Type(j) Then
+		        Field_y_Type_title=False
+		      end
+		    Next
+		    if RT_type_Title Then
+		      title=RT_type(0)+ " "
+		    end
+		    if EN_type_Title Then
+		      title=title+EN_type(0)+ " "
+		    end
+		    if Linac_type_title Then
+		      title=title+Linac_type(0)+ " "
+		    end
+		    if Al_Type_title Then
+		      title=title+Al_Type(0)+ " "
+		    end
+		    if SDD_Type_title Then
+		      title=title+"SSD= "+SDD_Type(0)+ " "
+		    end
+		    if Field_X_Type_title Then
+		      title=title+"FIELDX= "+Field_X_Type(0)+ " "
+		    end
+		    if Field_y_Type_title Then
+		      title=title+"FIELDY= "+Field_Y_Type(0)+ " "
+		    end
+		    
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      label=""
+		      if RT_type_Title=False Then
+		        label=RT_type(j)+ " "
+		      end
+		      if EN_type_Title=False Then
+		        label=label+EN_type(j)+" "
+		      end
+		      if Linac_type_title=False Then
+		        label=label+Linac_type(j)+" "
+		      end
+		      if Al_Type_title=False Then
+		        label=label+Al_Type(j)+" "
+		      end
+		      if SDD_Type_title=False Then
+		        label=label+"SSD= "+SDD_Type(j)+" "
+		      end
+		      if Field_x_Type_title=False Then
+		        label=label+"FIELD= "+Field_x_Type(j)
+		      end
+		      if Field_y_Type_title=False Then
+		        label=label+"x"+Field_y_Type(j)+" "
+		      end
+		      plota_label_array.Append Label
+		    Next
+		    
+		    for j=0 to UBound(Canvas_Graph.Profiles.One_Profile)
+		      k=k+1
+		      plota_label= plota_label_array(k-1)
+		      cc=Canvas_Graph.Profiles.One_Profile(j).Colour
+		      hexColor_Full = Str(cc)
+		      hexColor="#"+Hex32(Val(hexColor_Full))
+		      x="["
+		      y="["
+		      
+		      for i =0 to UBound(Canvas_Graph.Profiles.One_Profile(j).Points)
+		        wantx = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).x_cm,"-#.###e")
+		        wanty = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).y_cm,"-#.###e")
+		        wantz = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).z_cm,"-#.###e")
+		        wante = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).uncertainty,"-#.####e")
+		        
+		        if Canvas_Graph.Profiles.One_Profile(j).Norm Then
+		          wantvalue = Format(100*Canvas_Graph.Profiles.One_Profile(j).Points(i).value/Canvas_Graph.Profiles.One_Profile(j).Normalize_value,"-#.####e")
+		        else
+		          wantvalue = Format(Canvas_Graph.Profiles.One_Profile(j).Points(i).value,"-#.####e")
+		        end
+		        
+		        if Canvas_Graph.Profiles.One_Profile(j).TYPE=1  Then
+		          xx=wantz
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=2  Then
+		          xx=wantx
+		        elseif Canvas_Graph.Profiles.One_Profile(j).TYPE=3  Then
+		          xx=wanty
+		        end
+		        
+		        if i<UBound(Canvas_Graph.Profiles.One_Profile(j).Points) Then
+		          x=x+xx+", "
+		          y=y+wantvalue+", "
+		        else
+		          x=x+xx
+		          y=y+wantvalue
+		        end
+		      next
+		      x=x+"]"
+		      y=y+"]"
+		      temp="plt.plot("+x+", "+y+", label='"+plota_label+"', color= '"+hexColor+"')"
+		      filestream.Writeline temp
+		    Next
+		    
+		    filestream.Writeline "plt.xlim("+EditField_xmin.Text+", "+EditField_xmax.Text+")"
+		    filestream.Writeline "plt.ylim("+EditField_ymin.Text+", "+EditField_ymax.Text+")"
+		    filestream.Writeline "plt.grid(b='on', which='both', axis='both')"
+		    filestream.Writeline "ax = plt.gca()"
+		    filestream.Writeline "ax.xaxis.set_minor_locator(minorLocator)"
+		    
+		    filestream.Writeline "plt.legend(loc='best')"
+		    filestream.Writeline "plt.title('"+title+"')"
+		    
+		    filestream.Writeline "plt.show()"
+		    fileStream.Close
+		  end if
 		End Sub
 	#tag EndEvent
 #tag EndEvents

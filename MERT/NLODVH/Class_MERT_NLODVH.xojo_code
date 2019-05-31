@@ -42,7 +42,7 @@ Protected Class Class_MERT_NLODVH
 		  'g.Delete
 		  'end
 		  '
-		  'for i=0 to UBound(gRTOG.Structures)
+		  'for i=0 to UBound(grtog.Structures.Structures)
 		  'g=f.Child("Organ"+str(i+1)+"DVH1.dat")
 		  'if g.Exists Then
 		  'g.Delete
@@ -61,14 +61,14 @@ Protected Class Class_MERT_NLODVH
 		  '
 		  '
 		  'S=new Class_Optimization_ORGANARRAY
-		  'redim S.Organ(UBound(gRTOG.Structures))
-		  'for i=0 to UBound(gRTOG.Structures)
+		  'redim S.Organ(UBound(grtog.Structures.Structures))
+		  'for i=0 to UBound(grtog.Structures.Structures)
 		  'S.Organ(i)=new Class_Optimization_ORGANDOSE
 		  'S.organ(i).OrganID=i
-		  'S.Organ(i).Organ_Name=gRTOG.Structures(i).Structure_Name
+		  'S.Organ(i).Organ_Name=grtog.Structures.Structures(i).Structure_Name
 		  'S.organ(i).DVH = new Class_DVH_One
-		  'S.organ(i).DVH.stru_color=gRTOG.Structures(i).scolor
-		  'S.organ(i).DVH.struc_names=gRTOG.Structures(i).Structure_Name
+		  'S.organ(i).DVH.stru_color=grtog.Structures.Structures(i).scolor
+		  'S.organ(i).DVH.struc_names=grtog.Structures.Structures(i).Structure_Name
 		  'S.organ(i).DVH.dvh_bins=100
 		  'S.organ(i).Voxel_REs=128
 		  'redim S.organ(i).DVH.dVH(100)
@@ -499,7 +499,7 @@ Protected Class Class_MERT_NLODVH
 		  '
 		  'ts.WriteLine Format(Iterations,"#")
 		  'ts.WriteLine str(dvh_bin)
-		  'ts.WriteLine str(UBound(gRTOG.Structures)+1)
+		  'ts.WriteLine str(UBound(grtog.Structures.Structures)+1)
 		  'ts.WriteLine Trim(Window_EMET_Run.EditField_Conf_Dose.Text)
 		  'if WriteDose Then
 		  'ts.WriteLine "yes"

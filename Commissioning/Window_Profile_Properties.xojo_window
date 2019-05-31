@@ -9,7 +9,7 @@ Begin Window Window_Profile_Properties
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   619
+   Height          =   677
    ImplicitInstance=   True
    LiveResize      =   False
    MacProcID       =   0
@@ -30,7 +30,7 @@ Begin Window Window_Profile_Properties
       AutoDeactivate  =   True
       Bold            =   False
       Enabled         =   True
-      Height          =   583
+      Height          =   642
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -53,7 +53,7 @@ Begin Window Window_Profile_Properties
       TextUnit        =   0
       Top             =   16
       Underline       =   False
-      Value           =   2
+      Value           =   0
       Visible         =   True
       Width           =   623
       Begin Label StaticText1
@@ -78,7 +78,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Label"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -113,7 +112,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -234,7 +232,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Field Y (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -269,7 +266,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Linac Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -390,7 +386,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Field X (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -468,7 +463,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -504,7 +498,7 @@ Begin Window Window_Profile_Properties
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   505
+         Top             =   540
          Underline       =   False
          Visible         =   True
          Width           =   407
@@ -531,7 +525,7 @@ Begin Window Window_Profile_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   532
+            Top             =   567
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -560,7 +554,7 @@ Begin Window Window_Profile_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   532
+            Top             =   567
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -589,7 +583,7 @@ Begin Window Window_Profile_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   532
+            Top             =   567
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -618,7 +612,7 @@ Begin Window Window_Profile_Properties
             TextFont        =   "System"
             TextSize        =   0.0
             TextUnit        =   0
-            Top             =   532
+            Top             =   567
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -690,7 +684,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Depth (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -768,7 +761,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Add-On"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -889,7 +881,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Algorithm"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -967,7 +958,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   21
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Comment"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1045,7 +1035,6 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   23
          TabPanelIndex   =   1
-         TabStop         =   True
          Text            =   "Phantom SSD (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1228,7 +1217,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Z Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1263,7 +1251,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "Y Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1384,7 +1371,6 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
-            TabStop         =   True
             Text            =   "X Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1479,6 +1465,92 @@ Begin Window Window_Profile_Properties
          _ScrollOffset   =   0
          _ScrollWidth    =   -1
       End
+      Begin GroupBox GroupBox3
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   "Radiation Type"
+         Enabled         =   True
+         Height          =   70
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "TabPanel1"
+         Italic          =   False
+         Left            =   84
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         Scope           =   0
+         TabIndex        =   24
+         TabPanelIndex   =   1
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   445
+         Underline       =   False
+         Visible         =   True
+         Width           =   407
+         Begin RadioButton RadioButton_RTypeP
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Photon"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox3"
+            Italic          =   False
+            Left            =   104
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   False
+            LockRight       =   False
+            LockTop         =   False
+            Scope           =   0
+            TabIndex        =   0
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   481
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   73
+         End
+         Begin RadioButton RadioButton_RTypeE
+            AutoDeactivate  =   True
+            Bold            =   False
+            Caption         =   "Electron"
+            Enabled         =   True
+            Height          =   20
+            HelpTag         =   ""
+            Index           =   -2147483648
+            InitialParent   =   "GroupBox3"
+            Italic          =   False
+            Left            =   194
+            LockBottom      =   False
+            LockedInPosition=   False
+            LockLeft        =   False
+            LockRight       =   False
+            LockTop         =   False
+            Scope           =   0
+            TabIndex        =   1
+            TabPanelIndex   =   1
+            TabStop         =   True
+            TextFont        =   "System"
+            TextSize        =   0.0
+            TextUnit        =   0
+            Top             =   481
+            Underline       =   False
+            Value           =   False
+            Visible         =   True
+            Width           =   67
+         End
+      End
    End
 End
 #tag EndWindow
@@ -1519,7 +1591,11 @@ End
 		  EditField_Algorithm.Text=One.Algorithm
 		  EditField_Comment.Text=One.Comment
 		  
-		  
+		  if one.Radiation_Type="Photon" Then
+		    RadioButton_RTypeP.Value=True
+		  elseif one.Radiation_Type="Electron" Then
+		    RadioButton_RTypeE.Value=True
+		  end
 		  
 		  if one.TYPE=0 Then
 		    RadioButton_Type_0.Value=True
@@ -1781,6 +1857,24 @@ End
 		  
 		  
 		  Pop_Listbox
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_RTypeP
+	#tag Event
+		Sub Action()
+		  if me.Value Then
+		    one.Radiation_Type="Photon"
+		  end
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events RadioButton_RTypeE
+	#tag Event
+		Sub Action()
+		  if me.Value then
+		    one.Radiation_Type="Electron"
+		  end
 		End Sub
 	#tag EndEvent
 #tag EndEvents

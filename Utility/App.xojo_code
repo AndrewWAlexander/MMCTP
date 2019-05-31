@@ -36,6 +36,7 @@ Inherits Application
 		  File_ImportTomoXMLFile.Enabled=False
 		  File_Import_DICOMRTPlan.Enabled=False
 		  
+		  File_ImportMEDPHYSTOmcc.Enabled=True
 		  File_ImportRFAdata.Enabled=True
 		  File_ImportProfile.Enabled=True
 		  File_ImportXiOProfile.Enabled=True
@@ -337,6 +338,65 @@ Inherits Application
 	#tag EndMenuHandler
 
 	#tag MenuHandler
+		Function File_ImportMCCdata() As Boolean Handles File_ImportMCCdata.Action
+			//------------------------------
+			//
+			//------------------------------
+			Dim f as FolderItem
+			dim opfi as new OpenDialog
+			//------------------------------
+			
+			
+			
+			
+			
+			
+			
+			opfi.InitialDirectory=gPref.McGillfi
+			opfi.Title="Select any RFA ASCII file"
+			f=opfi.ShowModal
+			
+			
+			if f=nil then //fi.Exists then
+			Return False
+			
+			
+			else
+			
+			Window_MEPHYSTO_Import.Show
+			Window_MEPHYSTO_Import.f=f
+			Window_MEPHYSTO_Import.OpenWin
+			
+			Return True
+			end if
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function File_ImportMEDPHYSTOmcc() As Boolean Handles File_ImportMEDPHYSTOmcc.Action
+			//------------------------------
+			//
+			//------------------------------
+			Dim f as FolderItem
+			dim opfi as new OpenDialog
+			//------------------------------
+			
+			opfi.InitialDirectory=gPref.McGillfi
+			opfi.Title="Select any MCC MEPHYSTO file"
+			f=opfi.ShowModal
+			if f=nil then //fi.Exists then
+			Return False
+			else
+			Window_MEPHYSTO_Import.Show
+			Window_MEPHYSTO_Import.f=f
+			Window_MEPHYSTO_Import.OpenWin
+			Return True
+			end if
+			Return True
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
 		Function File_ImportPatient() As Boolean Handles File_ImportPatient.Action
 			if which_window_Open  Then
 			Window_OpenPatient.Close
@@ -569,7 +629,7 @@ Inherits Application
 			for i=0 to UBound(dd.RT_Plan)
 			pp=gRTOG.Add_Plan
 			
-			pp.Plan_Update_DV(gRTOG.Structures)
+			pp.Plan_Update_DV(grtog.Structures.Structures)
 			ok=pp.Import_DICOM_Plan(dd.RT_Plan(i),1,1,dd)
 			gRTOG.Plan(UBound(gRTOG.Plan)).Write_McGill_Plan(gRTOG.path)
 			
@@ -614,8 +674,8 @@ Inherits Application
 			gRTOG.Convert_DICOM2McGillRT_Structures(dd,xx,yy)
 			f=gRTOG.path
 			f=f.child("McGill_RT")
-			for i=0 to ubound(gRTOG.Structures)
-			gRTOG.write_mcGill_Structures(gRTOG.Structures(i),f,i)
+			for i=0 to ubound(grtog.Structures.Structures)
+			gRTOG.write_mcGill_Structures(grtog.Structures.Structures(i),f,i)
 			next
 			gVis.Open
 			Window_Treatment.Image_Struc_Listbox
@@ -708,11 +768,11 @@ Inherits Application
 			Dim ss as Boolean
 			Dim j,i,x,y as Integer
 			
-			for i=0 to UBound(gRTOG.Structures)
-			for j=0 to UBound(gRTOG.Structures(i).Structure_Data)
-			for x=0 to UBound(gRTOG.Structures(i).Structure_Data(j).segments)
-			for y=0 to UBound(gRTOG.Structures(i).Structure_Data(j).segments(x).points)
-			gRTOG.Structures(i).Structure_Data(j).segments(x).points(y).y=-1*gRTOG.Structures(i).Structure_Data(j).segments(x).points(y).y
+			for i=0 to UBound(grtog.Structures.Structures)
+			for j=0 to UBound(grtog.Structures.Structures(i).Structure_Data)
+			for x=0 to UBound(grtog.Structures.Structures(i).Structure_Data(j).segments)
+			for y=0 to UBound(grtog.Structures.Structures(i).Structure_Data(j).segments(x).points)
+			grtog.Structures.Structures(i).Structure_Data(j).segments(x).points(y).y=-1*grtog.Structures.Structures(i).Structure_Data(j).segments(x).points(y).y
 			
 			
 			
@@ -771,8 +831,8 @@ Inherits Application
 			
 			
 			if f.Exists then
-			for i=0 to ubound(gRTOG.structures)
-			gRTOG.write_mcGill_Structures(gRTOG.structures(i),f,i)
+			for i=0 to ubound(grtog.Structures.Structures)
+			gRTOG.write_mcGill_Structures(grtog.Structures.Structures(i),f,i)
 			next
 			end
 			PW_Show=false

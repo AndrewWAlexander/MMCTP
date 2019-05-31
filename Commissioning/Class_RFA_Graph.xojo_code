@@ -45,6 +45,14 @@ Protected Class Class_RFA_Graph
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		FLSX As Single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		FLSY As Single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		FLSZ As string
 	#tag EndProperty
 
@@ -54,6 +62,10 @@ Protected Class Class_RFA_Graph
 
 	#tag Property, Flags = &h0
 		Label As string = "data1"
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		LinacName As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -150,6 +162,10 @@ Protected Class Class_RFA_Graph
 
 	#tag Property, Flags = &h0
 		WDGL As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Wedge As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

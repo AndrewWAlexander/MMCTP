@@ -13,7 +13,7 @@ Inherits Thread
 		  dim j, cvalue,i,k  as integer
 		  dim p as Picture
 		  Dim a,tran,pixx,pixy,d1,d2 as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_polygon
 		  Dim one_slice as Picture
 		  Dim gg,bb as Graphics
@@ -225,8 +225,8 @@ Inherits Thread
 		  'next
 		  'end
 		  '
-		  'ReDim contour_fill(UBound(gRTOG.Structures))
-		  'ReDim contour_show(UBound(gRTOG.Structures))
+		  'ReDim contour_fill(UBound(grtog.Structures.Structures))
+		  'ReDim contour_show(UBound(grtog.Structures.Structures))
 		  '
 		  'for i =0 to UBound(contour_show)
 		  'contour_fill(i)=False
@@ -332,8 +332,8 @@ Inherits Thread
 		    next
 		  end
 		  
-		  ReDim contour_fill(UBound(gRTOG.Structures))
-		  ReDim contour_show(UBound(gRTOG.Structures))
+		  ReDim contour_fill(UBound(grtog.Structures.Structures))
+		  ReDim contour_show(UBound(grtog.Structures.Structures))
 		  
 		  for i =0 to UBound(contour_show)
 		    contour_fill(i)=False
@@ -405,53 +405,53 @@ Inherits Thread
 		  
 		  
 		  
-		  Redim colour(ubound(gRTOG.structures))
-		  for i =0 to ubound(gRTOG.structures)
-		    if gRTOG.structures(i).colour = "RED" Then
+		  Redim colour(ubound(grtog.Structures.Structures))
+		  for i =0 to ubound(grtog.Structures.Structures)
+		    if grtog.Structures.Structures(i).colour = "RED" Then
 		      colour(i) = &cFF0000
-		    ElseIf gRTOG.structures(i).colour = "Green" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "Green" Then
 		      colour(i) = &c00FF00
-		    ElseIf gRTOG.structures(i).colour = "Blue" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "Blue" Then
 		      colour(i) = &c0000FF
-		    ElseIf gRTOG.structures(i).colour = "Yellow" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "Yellow" Then
 		      colour(i) =cmy(0,0,1)
-		    ElseIf gRTOG.structures(i).colour = "Magenta" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "Magenta" Then
 		      colour(i) =cmy(0,1,0)
-		    ElseIf gRTOG.structures(i).colour = "Cyan" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "Cyan" Then
 		      colour(i) =cmy(1,0,0)
-		    ElseIf gRTOG.structures(i).colour = "White" Then
+		    ElseIf grtog.Structures.Structures(i).colour = "White" Then
 		      colour(i) =&c000000
-		    elseif gRTOG.structures(i).scolor<>RGB(0,0,0) then
-		      colour(i) =gRTOG.structures(i).scolor
-		    elseif gRTOG.structures(i).colour = "" and  gRTOG.structures(i).scolor=RGB(0,0,0) then
-		      if ubound(gRTOG.structures)-i >-1 then
+		    elseif grtog.Structures.Structures(i).scolor<>RGB(0,0,0) then
+		      colour(i) =grtog.Structures.Structures(i).scolor
+		    elseif grtog.Structures.Structures(i).colour = "" and  grtog.Structures.Structures(i).scolor=RGB(0,0,0) then
+		      if ubound(grtog.Structures.Structures)-i >-1 then
 		        colour(i)=&c332211
 		      end
-		      if ubound(gRTOG.structures)-i >0 then
+		      if ubound(grtog.Structures.Structures)-i >0 then
 		        colour(i)=&c00FF00
 		      end
-		      if ubound(gRTOG.structures)-i >1 then
+		      if ubound(grtog.Structures.Structures)-i >1 then
 		        colour(i)=&c0000FF
 		      end
-		      if ubound(gRTOG.structures)-i >2 then
+		      if ubound(grtog.Structures.Structures)-i >2 then
 		        colour(i)=&cFFFF00
 		      end
-		      if ubound(gRTOG.structures)-i >3 then
+		      if ubound(grtog.Structures.Structures)-i >3 then
 		        colour(i)=&c00FFFF
 		      end
-		      if ubound(gRTOG.structures)-i >4 then
+		      if ubound(grtog.Structures.Structures)-i >4 then
 		        colour(i)=&cFF00FF
 		      end
-		      if ubound(gRTOG.structures)-i >5 then
+		      if ubound(grtog.Structures.Structures)-i >5 then
 		        colour(i)=&c2266FF
 		      end
-		      if ubound(gRTOG.structures)-i >6 then
+		      if ubound(grtog.Structures.Structures)-i >6 then
 		        colour(i)=&c442200
 		      end
-		      if ubound(gRTOG.structures)-i >7 then
+		      if ubound(grtog.Structures.Structures)-i >7 then
 		        colour(i)=&c3333FF
 		      end
-		      if ubound(gRTOG.structures)-i >8 then
+		      if ubound(grtog.Structures.Structures)-i >8 then
 		        colour(i)=&c331111
 		      end
 		    end

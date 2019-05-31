@@ -204,6 +204,18 @@ Protected Class Class_DVH_One
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Res_X As single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Res_Y As single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Res_Z As single
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		sbigvolume As double
 	#tag EndProperty
 

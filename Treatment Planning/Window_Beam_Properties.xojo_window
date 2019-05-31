@@ -53,7 +53,7 @@ Begin Window Window_Beam_Properties
       TextUnit        =   0
       Top             =   40
       Underline       =   False
-      Value           =   0
+      Value           =   2
       Visible         =   True
       Width           =   625
       Begin GroupBox GroupBox6

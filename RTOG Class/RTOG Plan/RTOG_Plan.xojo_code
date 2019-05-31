@@ -326,6 +326,7 @@ Protected Class RTOG_Plan
 		    one_beam.Beam_Num=bs.BeamNumber
 		    one_beam.MLC=new Class_MLC
 		    one_beam.Collimator = new Class_Collimator
+		    one_beam.Collimator.NumFields=1
 		    ReDim one_beam.Collimator.Fields(0)
 		    one_beam.Collimator.Fields(0)=new Class_Collimator_Fields
 		    one_beam.Collimator.Fields(0).isocenter = new Class_isocenter
@@ -540,74 +541,76 @@ Protected Class RTOG_Plan
 		        
 		        
 		        
-		      else // loop dynamic Beam info, for RapidArc, Tomotherapy, IMRT
-		        
+		      else // loop dynamic Beam information for control points (VMAT or IMRT with mutliple jaw positions) 
 		        
 		        if one_beam.Beam_Type="DYNAMIC" Then // Reading Beam control points
-		          if bs.ControlPointSequence(x).GantryRotationDirection<>"" or bs.ControlPointSequence(x).TomoType<> "" Then // We have an Arc or Tomo Opening
-		            one_beam.Collimator.Type=one_beam.Beam_Type
-		            ReDim one_beam.Collimator.fields(x)
-		            one_beam.Collimator.fields(x)=new Class_Collimator_Fields
-		            one_beam.Collimator.fields(x).isocenter=new Class_isocenter
+		          one_beam.Collimator.Type=one_beam.Beam_Type
+		          ReDim one_beam.Collimator.fields(x)
+		          one_beam.Collimator.fields(x)=new Class_Collimator_Fields
+		          one_beam.Collimator.fields(x).isocenter=new Class_isocenter
+		          one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
+		          
+		          if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
+		            one_beam.Collimator.fields(x).ARC_Direction=1
+		          elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
+		            one_beam.Collimator.fields(x).ARC_Direction=0
+		          else
+		            one_beam.Collimator.fields(x).ARC_Direction=2
+		          end
+		          
+		          if bs.ControlPointSequence(x).IsocenterPosition="" Then 
+		            // copy and apply the same isocenter values from control point 0 to current control point
+		            one_beam.Collimator.fields(x).isocenter.x=isopoint.X
+		            one_beam.Collimator.fields(x).isocenter.y=isopoint.y
+		            one_beam.Collimator.fields(x).isocenter.z=isopoint.z
+		          else
+		            one_beam.Collimator.fields(x).isocenter.x= val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",1))/10
+		            one_beam.Collimator.fields(x).isocenter.y = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",2))/10
+		            // Apply cosine and image offset
+		            one_beam.Collimator.fields(x).isocenter.X =xx*one_beam.Collimator.fields(x).isocenter.X
+		            one_beam.Collimator.fields(x).isocenter.y =yy*one_beam.Collimator.fields(x).isocenter.y
+		            one_beam.Collimator.fields(x).isocenter.z = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",3))/10
+		          end
+		          
+		          // Collimator angle
+		          if bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="" or  bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
+		          else
+		            one_beam.Collimator.fields(x).Collimator_Angle=bs.ControlPointSequence(x).Beamlimitngdeviceangle
+		          end
+		          
+		          // Couch angle
+		          if bs.ControlPointSequence(x).PatientSupportRotationDirection=""  or bs.ControlPointSequence(x).PatientSupportRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Couch_Angle=one_beam.Collimator.fields(0).Couch_Angle
+		          else
+		            one_beam.Collimator.fields(x).Couch_Angle=bs.ControlPointSequence(x).PatientSupportAngle
+		          end
+		          
+		          // Gantry angle
+		          if bs.ControlPointSequence(x).GantryRotationDirection=""  or bs.ControlPointSequence(x).GantryRotationDirection="NONE" Then
+		            one_beam.Collimator.fields(x).Gantry_Angle=one_beam.Collimator.fields(0).Gantry_Angle
+		          else
 		            one_beam.Collimator.fields(x).Gantry_Angle=bs.ControlPointSequence(x).GantryAngle
-		            one_beam.Collimator.fields(x).Index=bs.ControlPointSequence(x).CumulativeMetersetWeight
-		            
-		            if InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CC")>0 Then
-		              one_beam.Collimator.fields(x).ARC_Direction=1
-		            elseif InStr(bs.ControlPointSequence(x).GantryRotationDirection,"CW")>0 Then
-		              one_beam.Collimator.fields(x).ARC_Direction=0
-		            else
-		              one_beam.Collimator.fields(x).ARC_Direction=2
-		            end
-		            
-		            if bs.ControlPointSequence(x).IsocenterPosition="" Then
-		              one_beam.Collimator.fields(x).isocenter.x=isopoint.X
-		              one_beam.Collimator.fields(x).isocenter.y=isopoint.y
-		              one_beam.Collimator.fields(x).isocenter.z=isopoint.z
-		            else
-		              one_beam.Collimator.fields(x).isocenter.x= val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",1))/10
-		              one_beam.Collimator.fields(x).isocenter.y = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",2))/10
-		              // Apply cosine and image offset
-		              one_beam.Collimator.fields(x).isocenter.X =xx*one_beam.Collimator.fields(x).isocenter.X
-		              one_beam.Collimator.fields(x).isocenter.y =yy*one_beam.Collimator.fields(x).isocenter.y
-		              one_beam.Collimator.fields(x).isocenter.z = val(NthField(bs.ControlPointSequence(x).IsocenterPosition,"\",3))/10
-		            end
-		            
-		            if bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="" or  bs.ControlPointSequence(x).BeamLimitingDeviceRotationDirection="NONE" Then
-		              one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
-		            else
-		              one_beam.Collimator.fields(x).Collimator_Angle=bs.ControlPointSequence(x).Beamlimitngdeviceangle
-		            end
-		            
-		            if bs.ControlPointSequence(x).PatientSupportRotationDirection=""  or bs.ControlPointSequence(x).PatientSupportRotationDirection="NONE" Then
-		              one_beam.Collimator.fields(x).Couch_Angle=one_beam.Collimator.fields(0).Couch_Angle
-		            else
-		              one_beam.Collimator.fields(x).Couch_Angle=bs.ControlPointSequence(x).PatientSupportAngle
-		            end
-		            
-		            
-		            'if bs.ControlPointSequence(x).Beamlimitngdeviceangle="" Then
-		            'one_beam.Collimator.fields(x).Collimator_Angle=one_beam.Collimator.fields(0).Collimator_Angle
-		            'end
-		            
-		            
-		            one_beam.Collimator.fields(x).X1=one_beam.Collimator.fields(0).x1
-		            one_beam.Collimator.fields(x).Y1=one_beam.Collimator.fields(0).y1
-		            one_beam.Collimator.fields(x).X2=one_beam.Collimator.fields(0).x2
-		            one_beam.Collimator.fields(x).Y2=one_beam.Collimator.fields(0).y2
-		            
-		            
-		            // Check for Tomo Sinogram
-		            if bs.ControlPointSequence(x).TomoType<> "" Then
-		              MLCFields=new Class_MLC_Positions
-		              one_beam.MLC.NumberofFields=one_beam.MLC.NumberofFields+1
-		              one_beam.MLC.Fields.Append MLCFields
-		              MLCFields.Indexnum=bs.ControlPointSequence(x).CumulativeMetersetWeight
-		              redim MLCFields.Leaf_A(one_beam.MLC.NumberofLeafPairs-1)
-		              for h=1 to one_beam.MLC.NumberofLeafPairs
-		                MLCFields.Leaf_a(h-1) =val(NthField(bs.ControlPointSequence(x).TomoSinogram,"\",h))
-		              next
-		            end
+		          end
+		          
+		          
+		          
+		          one_beam.Collimator.fields(x).X1=one_beam.Collimator.fields(0).x1
+		          one_beam.Collimator.fields(x).Y1=one_beam.Collimator.fields(0).y1
+		          one_beam.Collimator.fields(x).X2=one_beam.Collimator.fields(0).x2
+		          one_beam.Collimator.fields(x).Y2=one_beam.Collimator.fields(0).y2
+		          
+		          
+		          // Check for Tomo Sinogram
+		          if bs.ControlPointSequence(x).TomoType<> "" Then
+		            MLCFields=new Class_MLC_Positions
+		            one_beam.MLC.NumberofFields=one_beam.MLC.NumberofFields+1
+		            one_beam.MLC.Fields.Append MLCFields
+		            MLCFields.Indexnum=bs.ControlPointSequence(x).CumulativeMetersetWeight
+		            redim MLCFields.Leaf_A(one_beam.MLC.NumberofLeafPairs-1)
+		            for h=1 to one_beam.MLC.NumberofLeafPairs
+		              MLCFields.Leaf_a(h-1) =val(NthField(bs.ControlPointSequence(x).TomoSinogram,"\",h))
+		            next
 		          end
 		        end
 		        
@@ -615,12 +618,19 @@ Protected Class RTOG_Plan
 		        for k=0 to UBound(bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence)
 		          BLDPS=bs.ControlPointSequence(x).BeamLimitingDevicePositionSequence(k)
 		          
-		          
-		          
 		          if InStr(BLDPS.RTBeamLimitingDevice,"X")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            if x>UBound(one_beam.Collimator.Fields) Then
+		              one_beam.Collimator.Fields.Append  new Class_Collimator_Fields
+		              one_beam.Collimator.NumFields=one_beam.Collimator.NumFields+1
+		            end
 		            one_beam.Collimator.fields(x).X1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
 		            one_beam.Collimator.fields(x).X2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
+		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"Y")>0 and InStr(BLDPS.RTBeamLimitingDevice,"MLC" )=0 Then
+		            if x>UBound(one_beam.Collimator.Fields) Then
+		              one_beam.Collimator.Fields.Append  new Class_Collimator_Fields
+		              one_beam.Collimator.NumFields=one_beam.Collimator.NumFields+1
+		            end
 		            one_beam.Collimator.fields(x).Y1=-val(NthField(BLDPS.LeafjawPositions,"\",1))/10
 		            one_beam.Collimator.fields(x).Y2=val(NthField(BLDPS.LeafjawPositions,"\",2))/10
 		            
@@ -647,14 +657,14 @@ Protected Class RTOG_Plan
 		            next
 		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"ASYMY" )>0 Then  // Update the JAW control points
-		            
 		          elseif InStr(BLDPS.RTBeamLimitingDevice,"ASYMX" )>0 Then  // Update the JAW control points
-		            
-		            
 		          end
 		        next
 		      end
 		    next
+		    
+		    
+		    
 		    
 		    
 		    
@@ -864,7 +874,7 @@ Protected Class RTOG_Plan
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Plan_Update_DV(ss() as RTOG_Structure)
+		Sub Plan_Update_DV(ss() as RTOG_Structure_Class)
 		  Dim i as Integer
 		  
 		  
@@ -2225,7 +2235,7 @@ Protected Class RTOG_Plan
 		  //---------------------------------------------
 		  
 		  
-		  for i=0 to UBound(gRTOG.structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    g=Path
 		    g=g.Child("Struct"+Str(i+1)+".pnts")
 		    if g.Exists Then
@@ -3237,7 +3247,7 @@ Protected Class RTOG_Plan
 		  Dim g as FolderItem
 		  Dim cmx,cmy,cmz,xp,yp as Single
 		  Dim tmpimage  as Picture
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_Polygon
 		  Dim temp_file,temp_line, pnt_file, line,x_line_temp,x_line_pnt,endline,name as String
 		  Dim ts as TextOutputStream
@@ -3265,10 +3275,10 @@ Protected Class RTOG_Plan
 		  
 		  
 		  
-		  for i=0 to UBound(gRTOG.structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    if Structure_Dose(i).Use_DV_Constraint or Structure_Dose(i).Use_Min_Dose or Structure_Dose(i).AvgDose_Use  Then
 		      //show progress along the way...to know where we are.
-		      //Window_EMET.StaticText_Structure.text="Writing Struture point file : "+gRTOG.Structures(i).Structure_Name
+		      //Window_EMET.StaticText_Structure.text="Writing Struture point file : "+grtog.Structures.Structures(i).Structure_Name
 		      
 		      //for each structure
 		      //initialize the stuff
@@ -3292,7 +3302,7 @@ Protected Class RTOG_Plan
 		      temp_file=""
 		      Structure_Dose(i).Num_Points=0
 		      
-		      name=gRTOG.Structures(i).Structure_Name
+		      name=grtog.Structures.Structures(i).Structure_Name
 		      While InStr(name," ")>0 
 		        name=Replace(name," ","")
 		      wend
@@ -3318,8 +3328,8 @@ Protected Class RTOG_Plan
 		        tmpimage.graphics.penwidth=0
 		        //
 		        
-		        file = new RTOG_Structure_One_Structure
-		        file = gRTOG.structures(i).structure_Data(n)
+		        file = new RTOG_Structure_Slice
+		        file = grtog.Structures.Structures(i).structure_Data(n)
 		        //for each segment of each structure.
 		        for j = 0 to ubound(file.segments)
 		          poly = new class_polygon

@@ -88,7 +88,7 @@ Protected Class Class_VMC
 		  
 		  DMX= new Class_VMC_DMX_Settings
 		  ReDim DMX.Contours(-1)
-		  for i=0 to UBound(gRTOG.Structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    DMXc= new Class_VMC_DMX_Contour
 		    DMXc.RTOG_Contour_Index=i
 		    DMX.Contours.Append DMXc
@@ -489,7 +489,7 @@ Protected Class Class_VMC
 		    else
 		      Check="No"
 		    end
-		    temp=temp+"Structure # "+Str(i+1)+" : "+gRTOG.structures(DMX.Contours(i).RTOG_Contour_Index).Structure_Name+" - "+str(DMX.Contours(i).Use_Density)+_
+		    temp=temp+"Structure # "+Str(i+1)+" : "+grtog.Structures.Structures(DMX.Contours(i).RTOG_Contour_Index).Structure_Name+" - "+str(DMX.Contours(i).Use_Density)+_
 		    " ; "+"Use Density - "+check+" ; Order - "+str(i)+local_endline
 		  next
 		  

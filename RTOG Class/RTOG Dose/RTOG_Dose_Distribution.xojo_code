@@ -52,7 +52,7 @@ Protected Class RTOG_Dose_Distribution
 		  //
 		  //-------------------------------------------
 		  Dim i,j,k,pixx,pixy, c_index,correct_plane,size_x,size_y,d_index,ix,iy as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_polygon
 		  Dim y,x,Isox,Isoy,Dplan_z,z_diff,lowest as Single
 		  Dim Structure_ready,haspoints as Boolean
@@ -60,14 +60,14 @@ Protected Class RTOG_Dose_Distribution
 		  Dim cc as Color
 		  //-------------------------------------------
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    if gRTOG.Structures(i).Structure_Name="BODY" Then
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    if grtog.Structures.Structures(i).Structure_Name="BODY" Then
 		      c_index=i
 		    end
 		  Next
 		  
 		  
-		  if c_index<0 or c_index> UBound(gRTOG.Structures) Then
+		  if c_index<0 or c_index> UBound(grtog.Structures.Structures) Then
 		    Return
 		  end
 		  
@@ -98,8 +98,8 @@ Protected Class RTOG_Dose_Distribution
 		    
 		    // Find slice value
 		    lowest=5
-		    for j=0 to UBound(gRTOG.structures(c_index).Structure_Data)
-		      z_diff=abs(Dplan_z-gRTOG.structures(c_index).Structure_Data(j).z)
+		    for j=0 to UBound(grtog.Structures.Structures(c_index).Structure_Data)
+		      z_diff=abs(Dplan_z-grtog.Structures.Structures(c_index).Structure_Data(j).z)
 		      if z_diff<lowest Then
 		        lowest=z_diff
 		        correct_plane=j
@@ -109,8 +109,8 @@ Protected Class RTOG_Dose_Distribution
 		    
 		    // Remake the Structure contours
 		    haspoints=False
-		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(c_index).structure_Data(correct_plane)
+		    file = new RTOG_Structure_Slice
+		    file = grtog.Structures.Structures(c_index).structure_Data(correct_plane)
 		    for j = 0 to ubound(file.segments)
 		      poly = new class_polygon
 		      for k =0 to ubound(file.segments(j).Points)

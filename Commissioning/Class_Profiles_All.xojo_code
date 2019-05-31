@@ -66,6 +66,64 @@ Protected Class Class_Profiles_All
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Export_DVH_PyPlot()
+		  //---------------------------------------
+		  // Export DVH data into pyplot format
+		  //
+		  //---------------------------------------
+		  Dim f as FolderItem
+		  Dim i,j as integer
+		  Dim ts as TextOutputStream
+		  Dim dvh_file, line,header,label,x,y as String
+		  //---------------------------------------
+		  
+		  f=GetSaveFolderItem("","DVH")
+		  
+		  if f=nil Then
+		    Return
+		  end
+		  ts=f.CreateTextFile
+		  if ts=nil Then
+		    Return
+		  end
+		  ts.Delimiter=EndOfLine.UNIX
+		  
+		  ts.WriteLine "import numpy as np"
+		  ts.WriteLine "import matplotlib.pyplot as plt"
+		  ts.WriteLine "from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,AutoMinorLocator)"
+		  ts.WriteLine "minorLocator = AutoMinorLocator(2)"
+		  ts.WriteLine "plt.ylabel('Volume (%)', fontsize=20)"
+		  ts.WriteLine "plt.xlabel('Dose (Gy)', fontsize=20)"
+		  ts.WriteLine "plt.title('DVH', fontsize=20)"
+		  
+		  for j=0 to UBound(One_Profile)
+		    label="label='"+ One_Profile(j).Label+"'"
+		    x=""
+		    y=""
+		    for i=0 to UBound(One_Profile(j).Points)  //n bins
+		      x = x+Format(One_Profile(j).Points(i).x_cm,"-#.#######e")
+		      y=y+Format(One_Profile(j).Points(i).value,"-#.#######e")
+		      if i<>UBound(One_Profile(j).Points) Then
+		        x=x+", "
+		        y=y+", "
+		      end
+		    next
+		    ts.WriteLine "x="+x
+		    ts.WriteLine "y="+y
+		    ts.WriteLine "plt.plot(x,y, "+label+", linestyle="""",marker=""o"")"
+		  next
+		  
+		  ts.WriteLine "ax = plt.axes()  "
+		  ts.WriteLine "plt.yticks(np.arange(0, 110, 10))"
+		  //ts.WriteLine "plt.xticks(np.arange(0, 21, 2))"
+		  ts.WriteLine "ax.yaxis.grid(True)"
+		  ts.WriteLine "ax.xaxis.grid(True)"
+		  ts.WriteLine "plt.show()"
+		  ts.Close
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Export_DVH_XMGR()
 		  //---------------------------------------
 		  // Export DVH data into XMGR format
@@ -269,7 +327,6 @@ Protected Class Class_Profiles_All
 		    Exit
 		  end
 		  
-		  
 		  pp= new Class_Profile_One
 		  pp.Pointa=new Class_Points
 		  pp.Pointb=new Class_Points
@@ -283,7 +340,6 @@ Protected Class Class_Profiles_All
 		    if InStr(temp,"NAME")>0 Then
 		      pp.Label=Trim(NthField(temp,":=",2))
 		      
-		      
 		    elseif InStr(temp,"Date")>0 Then
 		      pp.Date=Trim(NthField(temp,":=",2))
 		      
@@ -295,28 +351,25 @@ Protected Class Class_Profiles_All
 		      pp.Colour= rgb(val(NthField(temp,"/",1)),val(NthField(temp,"/",2)),val(NthField(temp,"/",3)))
 		      
 		    elseif InStr(temp,"X LABEL")>0 Then
-		      
-		      pp.X_label=NthField(temp,":=",2)
+		      pp.X_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Y LABEL")>0 Then
-		      pp.y_label=NthField(temp,":=",2)
+		      pp.y_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Z LABEL")>0 Then
-		      pp.z_label=NthField(temp,":=",2)
+		      pp.z_label=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"X UNITS")>0 Then
-		      pp.Units_x=NthField(temp,":=",2)
+		      pp.Units_x=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Y UNITS")>0 Then
-		      pp.Units_y=NthField(temp,":=",2)
+		      pp.Units_y=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"Z UNITS")>0 Then
-		      pp.Units_z=NthField(temp,":=",2)
-		      
+		      pp.Units_z=Trim(NthField(temp,":=",2))
 		      
 		    elseif InStr(temp,"SSD")>0 Then
 		      pp.SSD=val(NthField(temp,":=",2))
-		      
 		      
 		    elseif InStr(temp,"POINT 1")>0 Then
 		      temp=NthField(temp,":=",2)
@@ -338,7 +391,6 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Distance=val(Temp)
 		      
-		      
 		    elseif InStr(temp,"NORMALIZATION")>0 Then
 		      temp=NthField(temp,":=",2)
 		      pp.Normalize_value=val(Temp)
@@ -352,7 +404,6 @@ Protected Class Class_Profiles_All
 		      pp.Field_X=val(Temp)
 		      
 		    elseif InStr(temp,"FIELD SIZE Y")>0 Then
-		      
 		      temp=NthField(temp,":=",2)
 		      pp.Field_y=val(Temp)
 		      
@@ -368,9 +419,13 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Algorithm=Trim(Temp)
 		      
-		    elseif InStr(temp,"TYPE")>0 Then
+		    elseif InStr(temp,"TYPE")>0 and InStr(temp,"RADIATIONTYPE")=0 Then
 		      temp=NthField(temp,":=",2)
 		      pp.TYPE=val(Temp)
+		      
+		    elseif InStr(temp,"RADIATIONTYPE")>0 Then
+		      temp=NthField(temp,":=",2)
+		      pp.Radiation_Type=Trim(Temp)
 		      
 		    elseif InStr(temp,"Source")>0 Then
 		      temp=NthField(temp,":=",2)
@@ -380,13 +435,9 @@ Protected Class Class_Profiles_All
 		      temp=NthField(temp,":=",2)
 		      pp.Comment=Trim(Temp)
 		      
-		      
 		    elseif InStr(temp,"NUMBER OF POINTS")>0 Then
-		      
 		      i=val(NthField(temp,":=",2))
-		      
 		      ReDim pp.Points(i-1)
-		      
 		      for k=0 to i-1
 		        pp.Points(k) = new Class_Points
 		        temp=ts.ReadLine
@@ -396,7 +447,6 @@ Protected Class Class_Profiles_All
 		        pp.Points(k).Value=val(NthField(temp,",",4))
 		        pp.Points(k).uncertainty=val(NthField(temp,",",5))
 		      next
-		      
 		    end
 		  Wend
 		  ts.Close
@@ -449,11 +499,9 @@ Protected Class Class_Profiles_All
 		      spaces(ts,"X LABEL", 31, One_Profile(i).X_label)
 		      spaces(ts,"Y LABEL", 31, One_Profile(i).Y_label)
 		      spaces(ts,"Z LABEL", 31, One_Profile(i).Z_label)
-		      
 		      spaces(ts,"X UNITS", 31, One_Profile(i).Units_x)
 		      spaces(ts,"Y UNITS", 31, One_Profile(i).Units_y)
 		      spaces(ts,"Z UNITS", 31, One_Profile(i).Units_Z)
-		      
 		      
 		      spaces(ts,"POINT 1", 31, Format(One_Profile(i).Pointa.x_cm,"-#.###e")+","+Format(One_Profile(i).Pointa.y_cm,"-#.###e")+","+Format(One_Profile(i).Pointa.z_cm,"-#.###e"))
 		      spaces(ts,"POINT 2", 31, Format(One_Profile(i).Pointb.x_cm,"-#.###e")+","+Format(One_Profile(i).Pointb.y_cm,"-#.###e")+","+Format(One_Profile(i).Pointb.z_cm,"-#.###e"))
@@ -473,6 +521,7 @@ Protected Class Class_Profiles_All
 		      spaces(ts,"Algor", 31, One_Profile(i).Algorithm)
 		      spaces(ts,"Comment", 31, One_Profile(i).Comment)
 		      spaces(ts,"SSD", 31, Format(One_Profile(i).SSD,"-##.###e"))
+		      spaces(ts,"RADIATIONTYPE", 31, One_Profile(i).Radiation_Type)
 		      
 		      spaces(ts,"NUMBER OF POINTS", 31, str(UBound(One_Profile(i).Points)+1))
 		      for k=0 to UBound(One_Profile(i).Points)

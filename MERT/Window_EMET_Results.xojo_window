@@ -1454,8 +1454,8 @@ End
 		  PopupMenu_DVH.deleteAllRows
 		  PopupMenu_DVH.addRow "ALL"
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_DVH.addRow gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_DVH.addRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
 		  PopupMenu_DVH.ListIndex=0
@@ -1599,9 +1599,9 @@ End
 		    else
 		      pp.Show=False
 		    end
-		    for i=0 to UBound(gRTOG.structures)
-		      if DVHs.All_DVH(k).struc_names=gRTOG.structures(i).Structure_Name Then
-		        pp.Colour=gRTOG.structures(i).scolor
+		    for i=0 to UBound(grtog.Structures.Structures)
+		      if DVHs.All_DVH(k).struc_names=grtog.Structures.Structures(i).Structure_Name Then
+		        pp.Colour=grtog.Structures.Structures(i).scolor
 		      end
 		    next
 		  next
@@ -2099,16 +2099,16 @@ End
 		  '
 		  'Oarray=new Class_Optimization_ORGANARRAY
 		  '
-		  'redim Oarray.Organ(UBound(gRTOG.Structures))
+		  'redim Oarray.Organ(UBound(grtog.Structures.Structures))
 		  'ReDim IPbeams(-1)
 		  '
-		  'for i=0 to UBound(gRTOG.Structures)
+		  'for i=0 to UBound(grtog.Structures.Structures)
 		  'Oarray.Organ(i)=new Class_Optimization_ORGANDOSE
 		  'Oarray.organ(i).OrganID=i
-		  'Oarray.Organ(i).Organ_Name=gRTOG.Structures(i).Structure_Name
+		  'Oarray.Organ(i).Organ_Name=grtog.Structures.Structures(i).Structure_Name
 		  'Oarray.organ(i).DVH = new Class_DVH_One
-		  'Oarray.organ(i).DVH.stru_color=gRTOG.Structures(i).scolor
-		  'Oarray.organ(i).DVH.struc_names=gRTOG.Structures(i).Structure_Name
+		  'Oarray.organ(i).DVH.stru_color=grtog.Structures.Structures(i).scolor
+		  'Oarray.organ(i).DVH.struc_names=grtog.Structures.Structures(i).Structure_Name
 		  'Oarray.organ(i).DVH.dvh_bins=100
 		  'Oarray.organ(i).Voxel_REs=128
 		  'redim Oarray.organ(i).DVH.dVH(100)

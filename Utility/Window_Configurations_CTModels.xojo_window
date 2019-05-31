@@ -118,7 +118,6 @@ Begin Window Window_Configurations_CTModels
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -153,7 +152,6 @@ Begin Window Window_Configurations_CTModels
          Selectable      =   False
          TabIndex        =   2
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Pegs file"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -274,7 +272,6 @@ Begin Window Window_Configurations_CTModels
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
-         TabStop         =   True
          Text            =   "Number of Materials"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -435,7 +432,6 @@ Begin Window Window_Configurations_CTModels
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Model name"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -534,8 +530,8 @@ End
 		  Listbox_CT_Materials.Heading(0)="Material"
 		  Listbox_CT_Materials.Heading(1)="HU Low"
 		  Listbox_CT_Materials.Heading(2)="HU High"
-		  Listbox_CT_Materials.Heading(3)="Density Low"
-		  Listbox_CT_Materials.Heading(4)="Density High"
+		  Listbox_CT_Materials.Heading(3)="Density Low (g/cc)"
+		  Listbox_CT_Materials.Heading(4)="Density High (g/cc)"
 		  
 		  
 		  DoNothing=False

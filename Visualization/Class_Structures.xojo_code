@@ -4,7 +4,7 @@ Protected Class Class_Structures
 		Sub Change()
 		  Dim i,k,test as integer
 		  Dim temp as RTOG_Structure_Segment
-		  Dim other_temp as RTOG_Structure_One_Structure
+		  Dim other_temp as RTOG_Structure_Slice
 		  Dim pp as RTOG_Structure_Segment
 		  
 		  k=Window_Contouring.PopupMenu_Segments.listIndex
@@ -40,10 +40,10 @@ Protected Class Class_Structures
 
 	#tag Method, Flags = &h0
 		Sub Load(struc as integer)
-		  Struct=new RTOG_Structure
+		  Struct=new RTOG_Structure_Class
 		  structure_num=struc
-		  if struc<= UBound(gRTOG.Structures) Then
-		    Struct=gRTOG.structures(struc)
+		  if struc<= UBound(grtog.Structures.Structures) Then
+		    Struct=grtog.Structures.Structures(struc)
 		  end
 		  
 		  
@@ -151,9 +151,9 @@ Protected Class Class_Structures
 		  // Save the edited contour back into the main array 
 		  // which houses structure data
 		  //----------------------------------------
-		  gRTOG.structures(struc)=Struct
-		  gRTOG.structures(struc).Loaded_Poly=False
-		  gRTOG.structures(struc).Loaded_Points=False
+		  grtog.Structures.Structures(struc)=Struct
+		  grtog.Structures.Structures(struc).Loaded_Poly=False
+		  grtog.Structures.Structures(struc).Loaded_Points=False
 		  
 		  gVis.contours.Recalculate_Poly
 		  gVis.contours.Recalculate_Images
@@ -167,7 +167,7 @@ Protected Class Class_Structures
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Struct As Rtog_Structure
+		Struct As RTOG_Structure_Class
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

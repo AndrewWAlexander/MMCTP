@@ -314,7 +314,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   196
+            Width           =   214
          End
          Begin TextField EditField_Clean_density
             AcceptTabs      =   False
@@ -382,7 +382,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             TabIndex        =   3
             TabPanelIndex   =   1
             TabStop         =   True
-            Text            =   "Density Outside Contour\r"
+            Text            =   "Density Outside Contour (g/cc)"
             TextAlign       =   0
             TextColor       =   &c00000000
             TextFont        =   "System"
@@ -392,7 +392,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Transparent     =   False
             Underline       =   False
             Visible         =   True
-            Width           =   188
+            Width           =   214
          End
          Begin PopupMenu PopupMenu_MediumOutside
             AutoDeactivate  =   True
@@ -1794,8 +1794,8 @@ End
 		  
 		  PopupMenu_CTModel.ListIndex=gDOSXYZ.EGSPhantSettings.CT_model
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_CleanContour.AddRow gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_CleanContour.AddRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
 		  PopupMenu_CleanContour.ListIndex=gDOSXYZ.EGSPhantSettings.Cleancontour_index
@@ -1867,7 +1867,7 @@ End
 		  for i=0 to ubound(gDOSXYZ.EGSPhantSettings.Contous)
 		    ListBox_ContourFill.addrow str(i+1)
 		    x=gDOSXYZ.EGSPhantSettings.Contous(i).RTOG_Contour_Index
-		    ListBox_ContourFill.Cell(i,1)=gRTOG.Structures(x).Structure_Name
+		    ListBox_ContourFill.Cell(i,1)=grtog.Structures.Structures(x).Structure_Name
 		    ListBox_ContourFill.cell(i,3)=gDOSXYZ.EGSPhantSettings.Contous(i).materials
 		    ListBox_ContourFill.CellCheck(i,2)=gDOSXYZ.EGSPhantSettings.Contous(i).Use_Material
 		    ListBox_ContourFill.cell(i,4)=Format(gDOSXYZ.EGSPhantSettings.Contous(i).density,"#.###")
@@ -1903,7 +1903,7 @@ End
 		  Listbox_Manual.Heading(4)="Y to"
 		  Listbox_Manual.Heading(5)="Z from"
 		  Listbox_Manual.Heading(6)="Z to"
-		  Listbox_Manual.Heading(7)="Density"
+		  Listbox_Manual.Heading(7)="Density (g/cc)"
 		  
 		  if egsphant.Del_X>0 Then
 		    egsphant.Nx=Round((gDOSXYZ.EGSPhantSettings.X_Max-gDOSXYZ.EGSPhantSettings.X_min)/gDOSXYZ.EGSPhantSettings.Del_X)
@@ -2061,7 +2061,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  if row <= UBound(gRTOG.structures) then
+		  if row <= UBound(grtog.Structures.Structures) then
 		    if column=4 Then
 		      gDOSXYZ.EGSPhantSettings.Contous(row).density=val(me.cell(row,4))
 		    elseif column=3 then

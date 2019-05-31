@@ -6436,7 +6436,7 @@ End
 		  Dim x,y,x_cm,x_cm_new,y_cm,y_cm_new,del_x,ex_distance,length,cang,ang,ang_2, _
 		  ssd_length,ang_ssd,iso_app_x,iso_app_y,z_depth_start,z_depth_end,max_x1,max_x2,max_y1,max_y2 as Single
 		  Dim gg as Graphics
-		  Dim file,file_ex,file2 as RTOG_Structure_One_Structure
+		  Dim file,file_ex,file2 as RTOG_Structure_Slice
 		  Dim poly_target(-1),poly_external(-1),p3 as Class_Polygon
 		  Dim pp as Class_Optimization_Projections_One
 		  Dim exitBoo as Boolean
@@ -6451,7 +6451,7 @@ End
 		  
 		  
 		  Normal=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		  file = new RTOG_Structure_One_Structure
+		  file = new RTOG_Structure_Slice
 		  
 		  if Normal=nil Then
 		    Return
@@ -6466,7 +6466,7 @@ End
 		  
 		  
 		  for i=0 to UBound(gRTOG.Scan)
-		    file = gRTOG.structures(target_index).structure_Data(i)
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
 		    
 		    poly_target(i) = new class_polygon
 		    poly_external(i) = new Class_Polygon
@@ -6485,8 +6485,8 @@ End
 		    
 		    
 		    // Get external contour
-		    file_ex = new RTOG_Structure_One_Structure
-		    file_ex = gRTOG.structures(external_index).structure_Data(i)
+		    file_ex = new RTOG_Structure_Slice
+		    file_ex = grtog.Structures.Structures(external_index).structure_Data(i)
 		    for j = 0 to ubound(file_ex.segments)
 		      
 		      for k =0 to ubound(file_ex.segments(j).Points)
@@ -6516,7 +6516,7 @@ End
 		    gg.ForeColor=RGB(0,0,0)
 		    gg.FillRect(0,0,gg.Width,gg.Height)
 		    
-		    file = gRTOG.structures(target_index).structure_Data(i)
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
 		    
 		    if UBound(file.Segments)>-1 Then
 		      if UBound(file.Segments(0).Points)>0 Then
@@ -6533,8 +6533,8 @@ End
 		        gg.PenHeight=1
 		        gg.foreColor =RGB(0,200,0)
 		        // Get external contour
-		        file_ex = new RTOG_Structure_One_Structure
-		        file_ex = gRTOG.structures(external_index).structure_Data(i)
+		        file_ex = new RTOG_Structure_Slice
+		        file_ex = grtog.Structures.Structures(external_index).structure_Data(i)
 		        for j = 0 to ubound(file_ex.segments)
 		          p3=new Class_Polygon
 		          for k =0 to ubound(file_ex.segments(j).Points)
@@ -6704,7 +6704,7 @@ End
 		              // Determine the amount of target in Z+1,Z+2... and Z-1,Z-2...
 		              // Determine if beam is centered over target Volume
 		              for m=0 to i-1
-		                file2 = gRTOG.structures(target_index).structure_Data(m)
+		                file2 = grtog.Structures.Structures(target_index).structure_Data(m)
 		                if UBound(file2.Segments)>-1 Then
 		                  if UBound(file2.Segments(0).Points)>0 Then
 		                    pp.Target_Z_Minus=pp.Target_Z_Minus+gVis.scale_thickness
@@ -6713,7 +6713,7 @@ End
 		              next
 		              
 		              for m=i+1 to UBound(gRTOG.Scan)
-		                file2 = gRTOG.structures(target_index).structure_Data(m)
+		                file2 = grtog.Structures.Structures(target_index).structure_Data(m)
 		                if UBound(file2.Segments)>-1 Then
 		                  if UBound(file2.Segments(0).Points)>0 Then
 		                    pp.Target_Z_Pluse=pp.Target_Z_Pluse+gVis.scale_thickness
@@ -6727,7 +6727,7 @@ End
 		              // Determine the max field size setttings
 		              
 		              for m=0 to UBound(gRTOG.Scan)
-		                file2 = gRTOG.structures(target_index).structure_Data(m)
+		                file2 = grtog.Structures.Structures(target_index).structure_Data(m)
 		                if UBound(file2.Segments)>-1 Then
 		                  if UBound(file2.Segments(0).Points)>0 Then
 		                    //MaxSetting=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
@@ -6739,7 +6739,7 @@ End
 		              
 		              
 		              for m= UBound(gRTOG.Scan) DownTo 0
-		                file2 = gRTOG.structures(target_index).structure_Data(m)
+		                file2 = grtog.Structures.Structures(target_index).structure_Data(m)
 		                if UBound(file2.Segments)>-1 Then
 		                  if UBound(file2.Segments(0).Points)>0 Then
 		                    //MaxSetting=NewPicture(nx,nx,32)
@@ -6753,7 +6753,7 @@ End
 		              max_x2=0
 		              for m=0 to UBound(gRTOG.Scan)
 		                // Determine Projection width
-		                file2 = gRTOG.structures(target_index).structure_Data(m)
+		                file2 = grtog.Structures.Structures(target_index).structure_Data(m)
 		                if UBound(file2.Segments)>-1 Then
 		                  if UBound(file2.Segments(0).Points)>0 Then
 		                    max_x1=poly_target(m).CrossSectionWidth(pp.Gantry_Angle)
@@ -6902,7 +6902,7 @@ End
 		  Dim temp_min as Single
 		  Dim Normal,Rot,isoshift as Picture
 		  Dim i,pixx,pixy,k,j,y,x,rotation_x,rotation_y ,y_lower, a,x1,x2,y1,y2,y_higher as Integer
-		  Dim file,file_ex as RTOG_Structure_One_Structure
+		  Dim file,file_ex as RTOG_Structure_Slice
 		  Dim poly_target,poly_external as Class_Polygon
 		  Dim px as PixmapShape
 		  Dim ff as Class_MERT_Field_One
@@ -6927,10 +6927,10 @@ End
 		  
 		  // Check that the target and external contours only have one segment
 		  for i=0 to UBound(gVis.scans)
-		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(target_index).structure_Data(i)
-		    file_ex = new RTOG_Structure_One_Structure
-		    file_ex = gRTOG.structures(external_index).structure_Data(i)
+		    file = new RTOG_Structure_Slice
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
+		    file_ex = new RTOG_Structure_Slice
+		    file_ex = grtog.Structures.Structures(external_index).structure_Data(i)
 		    
 		    // Get Target contour
 		    if UBound(file.Segments)>0 Then
@@ -6954,8 +6954,8 @@ End
 		    ProgressBar_Depths.Refresh
 		    
 		    
-		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(target_index).structure_Data(i)
+		    file = new RTOG_Structure_Slice
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
 		    
 		    poly_target = new class_polygon
 		    poly_external = new Class_Polygon
@@ -6972,8 +6972,8 @@ End
 		        next
 		        
 		        // Get external contour
-		        file_ex = new RTOG_Structure_One_Structure
-		        file_ex = gRTOG.structures(external_index).structure_Data(i)
+		        file_ex = new RTOG_Structure_Slice
+		        file_ex = grtog.Structures.Structures(external_index).structure_Data(i)
 		        for j = 0 to ubound(file_ex.segments)
 		          for k =0 to ubound(file_ex.segments(j).Points)
 		            x=Round((file_ex.segments(j).Points(k).x-gVis.xoff_set)/ff.del_x )
@@ -7172,7 +7172,7 @@ End
 		  'Dim max_z,min_z ,temp_min as Single
 		  'Dim Normal,Rot,isoshift as Picture
 		  'Dim i,pixx,pixy,k,j,y,x,rotation_x,rotation_y ,y_lower, a,x1,x2,y1,y2,y_higher as Integer
-		  'Dim file,file_ex as RTOG_Structure_One_Structure
+		  'Dim file,file_ex as RTOG_Structure_Slice
 		  'Dim poly_target,poly_external as Class_Polygon
 		  'Dim px as PixmapShape
 		  'Dim subff as Class_MERT_Field_Sub
@@ -7276,7 +7276,7 @@ End
 		  Dim Normal,Rotated as Picture
 		  Dim iso_x,iso_y,iso_ypri,iso_xpri,iso_z,x_off,y_off,y,x,gantry,del_x,low_side,high_side,z_low,z_high,z_current,del_z as Single
 		  Dim gg as Graphics
-		  Dim file,file_ex,file2 as RTOG_Structure_One_Structure
+		  Dim file,file_ex,file2 as RTOG_Structure_Slice
 		  Dim poly_target(-1),poly_external(-1),p3 as Class_Polygon
 		  Dim pp(-1),onep as Class_Optimization_Target_Projection
 		  Dim points(-1),onepoint as Class_Points
@@ -7301,7 +7301,7 @@ End
 		  del_x=gvis.scale_width
 		  
 		  Normal=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		  file = new RTOG_Structure_One_Structure
+		  file = new RTOG_Structure_Slice
 		  
 		  del_z=val(TextField_SC_delZ.Text)
 		  
@@ -7338,7 +7338,7 @@ End
 		  ProgressBar_Angles.Maximum=UBound(gRTOG.Scan)+1
 		  
 		  for i=0 to UBound(gRTOG.Scan)
-		    file = gRTOG.structures(target_index).structure_Data(i)
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
 		    poly_target(i) = new class_polygon
 		    //poly_external(i) = new Class_Polygon
 		    
@@ -7371,7 +7371,7 @@ End
 		    gg.ForeColor=RGB(0,0,0)
 		    gg.FillRect(0,0,gg.Width,gg.Height)
 		    
-		    file = gRTOG.structures(target_index).structure_Data(i)
+		    file = grtog.Structures.Structures(target_index).structure_Data(i)
 		    
 		    if UBound(file.Segments)>-1 Then
 		      if UBound(file.Segments(0).Points)>0 Then
@@ -8178,14 +8178,14 @@ End
 		  PopupMenu_External.DeleteAllRows
 		  PopupMenu_SC_Target.DeleteAllRows
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_Target.AddRow gRTOG.Structures(i).Structure_Name
-		    PopupMenu_External.AddRow gRTOG.Structures(i).Structure_Name
-		    PopupMenu_SC_Target.AddRow gRTOG.Structures(i).Structure_Name
-		    if InStr(gRTOG.Structures(i).Structure_Name,"Body")> 0 Then
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_Target.AddRow grtog.Structures.Structures(i).Structure_Name
+		    PopupMenu_External.AddRow grtog.Structures.Structures(i).Structure_Name
+		    PopupMenu_SC_Target.AddRow grtog.Structures.Structures(i).Structure_Name
+		    if InStr(grtog.Structures.Structures(i).Structure_Name,"Body")> 0 Then
 		      external_index=i
 		    end
-		    if InStr(gRTOG.Structures(i).Structure_Name,"PTV")> 0 Then
+		    if InStr(grtog.Structures.Structures(i).Structure_Name,"PTV")> 0 Then
 		      target_index=i
 		    end
 		  next
