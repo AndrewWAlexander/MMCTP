@@ -2562,7 +2562,7 @@ Inherits Canvas
 		  elseif gRTOG.PatientPosition="HFP" Then
 		    ss="A"
 		  end
-		  Display.Graphics.DrawString ss,Display.Graphics.Width/2,me.Graphics.Height-10
+		  Display.Graphics.DrawString ss,Display.Graphics.Width/2,Display.Graphics.Height-10
 		  
 		  
 		End Sub
@@ -3558,6 +3558,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
