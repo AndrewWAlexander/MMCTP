@@ -54,7 +54,7 @@ Begin Window Window_Configurations_TPS_System
       Top             =   8
       Transparent     =   True
       Underline       =   False
-      Value           =   5
+      Value           =   0
       Visible         =   True
       Width           =   1093
       Begin GroupBox GroupBox2
