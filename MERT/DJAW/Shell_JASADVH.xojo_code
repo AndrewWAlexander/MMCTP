@@ -201,7 +201,7 @@ Inherits Shell
 		  'WriteLine Format(gOpt.dvh_bin,"#")
 		  '
 		  'elseif InStr(all,"Organs")> 0 Then
-		  'WriteLine str(UBound(gRTOG.Structures)+1)
+		  'WriteLine str(UBound(grtog.Structures.Structures)+1)
 		  '
 		  'elseif InStr(all,"COIN")> 0 Then
 		  'WriteLine trim(Window_EMET_Run.EditField_Conf_Dose.Text)

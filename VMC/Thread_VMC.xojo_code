@@ -728,7 +728,7 @@ Inherits Thread
 		  Dim ts as textOutputStream
 		  Dim dmxfile,headerfile,f as folderItem
 		  Dim maskrgb(-1) as RGBSurface
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_Polygon
 		  Dim temp,check as String
 		  Dim vv as Class_VMC
@@ -789,7 +789,7 @@ Inherits Thread
 		      imagemask(k).graphics.forecolor=rgb(255,255,255) '255 Means we'll get the CT2density value for that pixel
 		    end
 		    imagemask(k).graphics.fillrect 0,0,imagemask(k).graphics.width, imagemask(k).graphics.height 'sets image to 200 or 255
-		    for order = 1 to UBound(gRTOG.structures) +1
+		    for order = 1 to UBound(grtog.Structures.Structures) +1
 		      ' The order is set by the user, largest structures should go 1st to avoid overlaping
 		      if DMXSettings.Contours(order-1).Use_Density or _
 		        (DMXSettings.Cleancontours and DMXSettings.Cleancontour=DMXSettings.Contours(order-1).RTOG_Contour_Index)  then
@@ -800,8 +800,8 @@ Inherits Thread
 		        
 		        // Look for closest structure plane to Z value
 		        z_index=-1
-		        for p=0 to UBound(gRTOG.structures(j).structure_Data)
-		          if abs(z-gRTOG.structures(j).structure_Data(p).Z)< gRTOG.Scan(0).Slice_Thickness then
+		        for p=0 to UBound(grtog.Structures.Structures(j).structure_Data)
+		          if abs(z-grtog.Structures.Structures(j).structure_Data(p).Z)< gRTOG.Scan(0).Slice_Thickness then
 		            z_index=p
 		            exit
 		          end
@@ -813,8 +813,8 @@ Inherits Thread
 		        end
 		        
 		        
-		        file = new RTOG_Structure_One_Structure
-		        file = gRTOG.structures(j).structure_Data(z_index)
+		        file = new RTOG_Structure_Slice
+		        file = grtog.Structures.Structures(j).structure_Data(z_index)
 		        for i=0 to ubound(file.segments)
 		          poly = new class_polygon
 		          for p =0 to ubound(file.segments(i).Points)
@@ -881,7 +881,7 @@ Inherits Thread
 		          cvalue=RTOG_Image_Interpolate(x,y,z)
 		          tmpval=vmc_CT_2_Dens(cvalue)
 		          
-		        elseif (maskval-1)<=ubound(gRTOG.structures) then
+		        elseif (maskval-1)<=ubound(grtog.Structures.Structures) then
 		          //use override density which the user has selected
 		          tmpval=DMXSettings.Contours(maskval-1).density
 		        elseif maskval=200 Then
@@ -1371,7 +1371,7 @@ Inherits Thread
 		  next
 		  
 		  ReDim DMXSettings.Contours(-1)
-		  for i=0 to UBound(gRTOG.Structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    DMXc= new Class_VMC_DMX_Contour
 		    DMXc.RTOG_Contour_Index=i
 		    DMXSettings.Contours.Append DMXc
@@ -1597,7 +1597,7 @@ Inherits Thread
 	#tag Method, Flags = &h0
 		Sub vmc_Set_DMX_Settings()
 		  Dim i,k,x as Integer
-		  Dim ss as RTOG_Structure
+		  Dim ss as RTOG_Structure_Class
 		  
 		  
 		  if UBound(gRTOG.Scan)>-1 Then
@@ -1624,9 +1624,9 @@ Inherits Thread
 		    
 		    
 		    
-		    for i=0 to UBound(gRTOG.Structures)
-		      if gRTOG.Structures(i).Structure_Name="BODY" or gRTOG.Structures(i).Structure_Name="EXTERNAL"  Then
-		        ss=gRTOG.Structures(i)
+		    for i=0 to UBound(grtog.Structures.Structures)
+		      if grtog.Structures.Structures(i).Structure_Name="BODY" or grtog.Structures.Structures(i).Structure_Name="EXTERNAL"  Then
+		        ss=grtog.Structures.Structures(i)
 		        DMXSettings.X_Max=-100000
 		        DMXSettings.X_Min=100000
 		        DMXSettings.y_Max=-10000

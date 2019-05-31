@@ -315,7 +315,7 @@ Begin Window Window_VMC_DMXSettings
          LockTop         =   False
          Maximum         =   100
          Scope           =   0
-         TabIndex        =   "4"
+         TabIndex        =   4
          TabPanelIndex   =   2
          TabStop         =   True
          Top             =   472
@@ -1275,8 +1275,8 @@ End
 		  
 		  
 		  PopupMenu_CleanContour.DeleteAllRows
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_CleanContour.AddRow gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_CleanContour.AddRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
 		  
@@ -1325,7 +1325,7 @@ End
 		  for i=0 to UBound(gVMC.DMXSettings.Contours)
 		    ListBox_Fill.addrow str(i+1)
 		    x=gVMC.DMXSettings.Contours(i).RTOG_Contour_Index
-		    ListBox_Fill.Cell(i,1)=gRTOG.Structures(x).Structure_Name
+		    ListBox_Fill.Cell(i,1)=grtog.Structures.Structures(x).Structure_Name
 		    ListBox_Fill.CellCheck(i,2)=gVMC.DMXSettings.Contours(i).use_density
 		    ListBox_Fill.cell(i,3)=Format(gVMC.DMXSettings.Contours(i).density,"#.###")
 		  next
@@ -1350,7 +1350,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  if row <= UBound(gRTOG.structures) then
+		  if row <= UBound(grtog.Structures.Structures) then
 		    
 		    
 		    if column=3 Then

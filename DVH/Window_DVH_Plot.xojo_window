@@ -192,7 +192,7 @@ Begin Window Window_DVH_Plot
       AutoHideScrollbars=   True
       Bold            =   False
       Border          =   True
-      ColumnCount     =   11
+      ColumnCount     =   12
       ColumnsResizable=   True
       ColumnWidths    =   ""
       DataField       =   ""
@@ -1152,11 +1152,11 @@ End
 		  ReDim DVH(-1)
 		  
 		  for k=0 to Window_Treatment.ListBox_DVH_Graphs.ColumnCount
-		    for i=0 to ubound(gRTOG.structures)
+		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
 		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
-		            gDVH.All_DVH(x).struc_names=gRTOG.Structures(i).Structure_Name Then
+		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            temp_DVH=gDVH.All_DVH(x)
 		            DVH.Append temp_DVH
 		          end
@@ -1182,10 +1182,11 @@ End
 		  Listbox_Graphs.Heading(6)="min dose"
 		  Listbox_Graphs.Heading(7)="max dose"
 		  Listbox_Graphs.Heading(8)="D50"
-		  Listbox_Graphs.Heading(9)="Pixel Vol cm^3"
-		  Listbox_Graphs.Heading(10)="Geo Vol cm^3"
+		  Listbox_Graphs.Heading(9)="Unit voxel Vol cm^3"
+		  Listbox_Graphs.Heading(10)="Total voxel Vol cm^3"
+		  Listbox_Graphs.Heading(11)="Geo Vol cm^3"
 		  
-		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%"
+		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%,10%"
 		  
 		  for i=0 to ubound(DVH)
 		    Listbox_Graphs.addRow DVH(i).Name +" "+DVH(i).struc_names
@@ -1229,17 +1230,27 @@ End
 		      Listbox_Graphs.Cell(i,8)=Format(DVH(i).D50,"-0.00##")
 		    end
 		    
-		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    if abs(DVH(i).pixelvolume)>0.001 Then
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
+		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###e")
+		    end
+		    
+		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		    else
+		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
 		    end
 		    
 		    if abs(DVH(i).svolume)>0.001 Then
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).svolume,"-0.00###e")
+		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###e")
 		    end
+		    
+		    
+		    
+		    
 		  next
 		  Listbox_Graphs.listIndex=-1
 		  

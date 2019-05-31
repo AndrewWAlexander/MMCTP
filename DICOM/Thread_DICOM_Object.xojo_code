@@ -43,7 +43,7 @@ Inherits Thread
 		    end
 		    
 		    if Export_Structures Then
-		      if UBound(gRTOG.Structures)>=0 Then
+		      if UBound(grtog.Structures.Structures)>=0 Then
 		        gRTOG.Convert_McGillRT2DICOM_RTStructures
 		      end
 		    end

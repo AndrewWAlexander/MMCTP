@@ -629,7 +629,7 @@ Inherits Application
 			for i=0 to UBound(dd.RT_Plan)
 			pp=gRTOG.Add_Plan
 			
-			pp.Plan_Update_DV(gRTOG.Structures)
+			pp.Plan_Update_DV(grtog.Structures.Structures)
 			ok=pp.Import_DICOM_Plan(dd.RT_Plan(i),1,1,dd)
 			gRTOG.Plan(UBound(gRTOG.Plan)).Write_McGill_Plan(gRTOG.path)
 			
@@ -674,8 +674,8 @@ Inherits Application
 			gRTOG.Convert_DICOM2McGillRT_Structures(dd,xx,yy)
 			f=gRTOG.path
 			f=f.child("McGill_RT")
-			for i=0 to ubound(gRTOG.Structures)
-			gRTOG.write_mcGill_Structures(gRTOG.Structures(i),f,i)
+			for i=0 to ubound(grtog.Structures.Structures)
+			gRTOG.write_mcGill_Structures(grtog.Structures.Structures(i),f,i)
 			next
 			gVis.Open
 			Window_Treatment.Image_Struc_Listbox
@@ -768,11 +768,11 @@ Inherits Application
 			Dim ss as Boolean
 			Dim j,i,x,y as Integer
 			
-			for i=0 to UBound(gRTOG.Structures)
-			for j=0 to UBound(gRTOG.Structures(i).Structure_Data)
-			for x=0 to UBound(gRTOG.Structures(i).Structure_Data(j).segments)
-			for y=0 to UBound(gRTOG.Structures(i).Structure_Data(j).segments(x).points)
-			gRTOG.Structures(i).Structure_Data(j).segments(x).points(y).y=-1*gRTOG.Structures(i).Structure_Data(j).segments(x).points(y).y
+			for i=0 to UBound(grtog.Structures.Structures)
+			for j=0 to UBound(grtog.Structures.Structures(i).Structure_Data)
+			for x=0 to UBound(grtog.Structures.Structures(i).Structure_Data(j).segments)
+			for y=0 to UBound(grtog.Structures.Structures(i).Structure_Data(j).segments(x).points)
+			grtog.Structures.Structures(i).Structure_Data(j).segments(x).points(y).y=-1*grtog.Structures.Structures(i).Structure_Data(j).segments(x).points(y).y
 			
 			
 			
@@ -831,8 +831,8 @@ Inherits Application
 			
 			
 			if f.Exists then
-			for i=0 to ubound(gRTOG.structures)
-			gRTOG.write_mcGill_Structures(gRTOG.structures(i),f,i)
+			for i=0 to ubound(grtog.Structures.Structures)
+			gRTOG.write_mcGill_Structures(grtog.Structures.Structures(i),f,i)
 			next
 			end
 			PW_Show=false

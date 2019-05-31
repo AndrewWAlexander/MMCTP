@@ -7,14 +7,20 @@ Inherits Thread
 		  Dim b1, b2 as Boolean
 		  
 		  
+		  if HR_struc Then
+		    TP_DVH_Text="Updating contour points for DVH calculations"
+		    HR_struc=False
+		    gRTOG.Structures.Structures_HR
+		  end
+		  
 		  
 		  if gRTOG<> nil Then
 		    for l=0 to UBound(gRTOG.plan)
 		      for k=0 to UBound(gRTOG.plan(l).dose)
-		        if ubound(gRTOG.structures) >-1  then
-		          for i=0 to UBound(gRTOG.Structures)
-		            if gRTOG.structures(i).Loaded_Points and gRTOG.Structures(i).DVH_Calculate Then
-		              if Calculate_DVH(i,l,k,False) or Calculate_HF_VH(i) Then
+		        if ubound(grtog.Structures.Structures) >-1  then
+		          for i=0 to UBound(grtog.Structures.Structures)
+		            if grtog.Structures.Structures(i).Loaded_Points and grtog.Structures.Structures(i).DVH_Calculate Then
+		              if Calculate_DVH_HR(i,l,k,False) or Calculate_HF_VH(i) Then
 		                gDVH.Update_Window=True
 		              end
 		            end
@@ -34,7 +40,7 @@ Inherits Thread
 		  // selected structure volume and dose distribution
 		  //
 		  //=========================
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly,p2,p3 as class_Polygon
 		  Dim j, ii,jj,k,n,di,tmpint,pixx,pixy,dose_int as integer
 		  Dim  cmx,cmy,cmz,tmpdose,_
@@ -67,13 +73,13 @@ Inherits Thread
 		  
 		  DVH.name=gRTOG.Plan(PIndex).Plan_ID+String_Separate+doseM.dose_name
 		  DVH.Dose_Name=doseM.Dose_name
-		  DVH.Calculate=gRTOG.Structures(struc).DVH_Calculate
+		  DVH.Calculate=grtog.Structures.Structures(struc).DVH_Calculate
 		  
 		  //if no structure and no patient loaded then then return
 		  DVH.pixelvolume=gvis.scale_height*gvis.scale_width*gvis.scale_thickness
 		  
 		  //for each structure
-		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
+		  DVH.struc_names=grtog.Structures.Structures(struc).Structure_Name
 		  
 		  
 		  //Check if DVH is already calculated
@@ -107,25 +113,25 @@ Inherits Thread
 		  DVH.stru_color=gvis.colour(struc)
 		  DVH.mindose=500000000000000
 		  DVH.maxdose=-50000000000000
-		  DVH.svolume=gRTOG.structures(struc).Structure_Volume
+		  DVH.svolume=grtog.Structures.Structures(struc).Structure_Volume
 		  
 		  
 		  //show progress along the way...to know where we are.
-		  out=gRTOG.structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
+		  out=grtog.Structures.Structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
 		  
 		  for n=0 to ubound(gRTOG.Scan)
 		    //for each structure find volume in cm^3...
-		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(struc).structure_Data(n)
+		    file = new RTOG_Structure_Slice
+		    file = grtog.Structures.Structures(struc).structure_Data(n)
 		    //for each segment of each structure.
 		    
 		    TP_DVH_Text=out+Format((n+1)*100/(UBound(gRTOG.Scan)+1),"#")+" %"
 		    
 		    
-		    for jj=0 to UBound(gRTOG.structures(struc).structure_Data(n).Axial_Points_Y)
+		    for jj=0 to UBound(grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_Y)
 		      
-		      cmx= gRTOG.structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
-		      cmy= gRTOG.structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
+		      cmx= grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
+		      cmy= grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
 		      cmz=gRTOG.Scan(n).Z_Value   //centerofthezslice
 		      
 		      tmpdose=RTOG_Dose_Interpolate(cmx,cmy,cmz,doseM)  //interpolate in the current plan_index and dose_index
@@ -220,7 +226,7 @@ Inherits Thread
 		  // selected structure volume and dose distribution
 		  //
 		  //=========================
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly,p2,p3 as class_Polygon
 		  Dim j, ii,jj,k,n,di,tmpint,pixx,pixy,dose_int as integer
 		  Dim  cmx,cmy,cmz,tmpdose,_
@@ -238,6 +244,9 @@ Inherits Thread
 		  
 		  if PIndex<0 or PIndex>UBound(gRTOG.Plan) Then
 		    Return False
+		  elseif grtog.Structures.Structures(struc).Loaded_PointsHR=False or grtog.Structures.Structures(struc).Loaded_PolyHR=False Then
+		    TP_DVH_Text=grtog.Structures.Structures(struc).Structure_Name+" not ready for DVH calculations; creating structure points"
+		    Return False
 		  else
 		    if RTdose_index<0 or RTdose_index>UBound(gRTOG.Plan(PIndex).Dose) Then
 		      Return False
@@ -248,18 +257,16 @@ Inherits Thread
 		  
 		  
 		  DVH.Dose_Units=doseM.Dose_Units
-		  
 		  ReDim dvh.DVH(dvh.DVH_bins-1)
-		  
 		  DVH.name=gRTOG.Plan(PIndex).Plan_ID+String_Separate+doseM.dose_name
 		  DVH.Dose_Name=doseM.Dose_name
-		  DVH.Calculate=gRTOG.Structures(struc).DVH_Calculate
-		  
-		  //if no structure and no patient loaded then then return
-		  DVH.pixelvolume=gvis.scale_height*gvis.scale_width*gvis.scale_thickness
-		  
+		  DVH.Calculate=grtog.Structures.Structures(struc).DVH_Calculate
+		  DVH.Res_X=grtog.Structures.HR_Res_X
+		  DVH.Res_Y=grtog.Structures.HR_Res_Y
+		  DVH.Res_Z=grtog.Structures.HR_Res_z
+		  DVH.pixelvolume=DVH.Res_X*DVH.Res_Y*DVH.Res_Z
 		  //for each structure
-		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
+		  DVH.struc_names=grtog.Structures.Structures(struc).Structure_Name
 		  
 		  
 		  //Check if DVH is already calculated
@@ -267,7 +274,6 @@ Inherits Thread
 		  for n=0 to UBound(All_DVH)
 		    if All_DVH(n).Name=dvh.Name and All_DVH(n).struc_names=DVH.struc_names Then
 		      found=True
-		      
 		      // If found then override and remove
 		      if override Then
 		        All_DVH.Remove n
@@ -293,26 +299,25 @@ Inherits Thread
 		  DVH.stru_color=gvis.colour(struc)
 		  DVH.mindose=500000000000000
 		  DVH.maxdose=-50000000000000
-		  DVH.svolume=gRTOG.structures(struc).Structure_Volume
+		  DVH.svolume=grtog.Structures.Structures(struc).Structure_Volume
 		  
 		  
 		  //show progress along the way...to know where we are.
-		  out=gRTOG.structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
+		  out=grtog.Structures.Structures(struc).Structure_Name+" DVH caluclation on dose : "+doseM.Dose_name+", progress : "
 		  
-		  for n=0 to ubound(gRTOG.Scan)
+		  for n=0 to ubound(grtog.Structures.Structures(struc).Structure_DataHR)
 		    //for each structure find volume in cm^3...
-		    file = new RTOG_Structure_One_Structure
-		    file = gRTOG.structures(struc).structure_Data(n)
+		    file = new RTOG_Structure_Slice
+		    file = grtog.Structures.Structures(struc).Structure_DataHR(n)
 		    //for each segment of each structure.
 		    
-		    TP_DVH_Text=out+Format((n+1)*100/(UBound(gRTOG.Scan)+1),"#")+" %"
+		    TP_DVH_Text=out+Format((n+1)*100/(ubound(grtog.Structures.Structures(struc).Structure_DataHR)+1),"#")+" %"
 		    
 		    
-		    for jj=0 to UBound(gRTOG.structures(struc).structure_Data(n).Axial_Points_Y)
-		      
-		      cmx= gRTOG.structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
-		      cmy= gRTOG.structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
-		      cmz=gRTOG.Scan(n).Z_Value   //centerofthezslice
+		    for jj=0 to UBound(grtog.Structures.Structures(struc).Structure_DataHR(n).Axial_Points_Y)
+		      cmx= grtog.Structures.Structures(struc).Structure_DataHR(n).Axial_Points_X(jj)*grtog.Structures.HR_Res_X+gVis.xoff_set   'cm coordinate of pixel center!
+		      cmy= grtog.Structures.Structures(struc).Structure_DataHR(n).Axial_Points_Y(jj)*grtog.Structures.HR_Res_Y+gVis.yoff_set   'cm coordinate of pixel center
+		      cmz=grtog.Structures.Structures(struc).Structure_DataHR(n).Z  //centerofthezslice
 		      
 		      tmpdose=RTOG_Dose_Interpolate(cmx,cmy,cmz,doseM)  //interpolate in the current plan_index and dose_index
 		      
@@ -332,6 +337,7 @@ Inherits Thread
 		    
 		  next ' End for each scan
 		  
+		  TP_DVH_Text=out+" 100 %"
 		  
 		  '=================================================
 		  //-----------------Now calculate the DVH--------------------
@@ -407,7 +413,7 @@ Inherits Thread
 		  //
 		  // This method calculates a Hounsfield Unit DVH
 		  //=========================
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly,p2,p3 as class_Polygon
 		  Dim j, ii,jj,k,n,di,tmpint,pixx,pixy,dose_int as integer
 		  Dim tmparea, tmpvolume,cmx,cmy,cmz,tmpdose,_
@@ -431,7 +437,7 @@ Inherits Thread
 		  DVH.pixelvolume=gvis.scale_height*gvis.scale_width*gvis.scale_thickness
 		  
 		  //for each structure
-		  DVH.struc_names=gRTOG.structures(struc).Structure_Name
+		  DVH.struc_names=grtog.Structures.Structures(struc).Structure_Name
 		  
 		  
 		  //Check if DVH is already calculated
@@ -457,17 +463,17 @@ Inherits Thread
 		  DVH.stru_color=gvis.colour(struc)
 		  DVH.mindose=500000000000000
 		  DVH.maxdose=-50000000000000
-		  DVH.svolume=gRTOG.structures(struc).Structure_Volume
+		  DVH.svolume=grtog.Structures.Structures(struc).Structure_Volume
 		  
 		  
 		  //show progress along the way...to know where we are.
-		  out=gRTOG.structures(struc).Structure_Name+" HUVH caluclation on, progress : "
+		  out=grtog.Structures.Structures(struc).Structure_Name+" HUVH caluclation on, progress : "
 		  
 		  for n=0 to ubound(gRTOG.Scan)
 		    TP_DVH_Text=out+Format((n+1)*100/(UBound(gRTOG.Scan)+1),"#")+" %"
-		    for jj=0 to UBound(gRTOG.structures(struc).structure_Data(n).Axial_Points_Y)
-		      cmx= gRTOG.structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
-		      cmy= gRTOG.structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
+		    for jj=0 to UBound(grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_Y)
+		      cmx= grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_X(jj)*gvis.scale_width+gVis.xoff_set   'cm coordinate of pixel center!
+		      cmy= grtog.Structures.Structures(struc).structure_Data(n).Axial_Points_Y(jj)*gvis.scale_height+gVis.yoff_set   'cm coordinate of pixel center
 		      cmz=gRTOG.Scan(n).Z_Value   //centerofthezslice
 		      tmpdose=RTOG_Image_Interpolate(cmx,cmy,cmz)  //interpolate in the current plan_index and dose_index
 		      dose_values.append tmpdose
@@ -700,8 +706,16 @@ Inherits Thread
 		  dvh_file=dvh_file+line
 		  line="Normalize : "+Format(DVH.Normalize,"-#.#####e")+local_endline
 		  dvh_file=dvh_file+line
+		  line="ResX : "+Format(DVH.Res_X,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
+		  line="ResY : "+Format(DVH.Res_Y,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
+		  line="ResZ : "+Format(DVH.Res_Z,"0.00####e")+local_endline
+		  dvh_file=dvh_file+line
 		  line="Bins : "+Format(DVH.DVH_bins,"#")+local_endline
 		  dvh_file=dvh_file+line
+		  
+		  
 		  for i=0 to DVH.DVH_bins-1   //n bins
 		    line = Format(DVH.DVH(i),"-#.#####e") +local_endline
 		    dvh_file=dvh_file+line
@@ -820,6 +834,15 @@ Inherits Thread
 		      dv.stdev=val(NthField(line,":",2))
 		      
 		      
+		    elseif InStr(line,"ResZ")>0 Then
+		      dv.Res_Z=val(NthField(line,":",2))
+		    elseif InStr(line,"ResX")>0 Then
+		      dv.Res_X=val(NthField(line,":",2))
+		    elseif InStr(line,"ResY")>0 Then
+		      dv.Res_Y=val(NthField(line,":",2))
+		      
+		      
+		      
 		    elseif InStr(line,"Bins")>0 Then
 		      dv.DVH_bins=val(NthField(line,":",2))
 		      ReDim dv.DVH(dv.DVH_bins-1)
@@ -900,6 +923,10 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		HR_struc As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Save_DVH As Boolean = false
 	#tag EndProperty
 
@@ -918,6 +945,12 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="50"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HR_struc"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

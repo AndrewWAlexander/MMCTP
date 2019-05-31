@@ -282,6 +282,17 @@ Protected Class Class_Preference
 		      modstr=trim(NthField(tempstr,":=",2))
 		      DVH_Calc=Val(modstr)
 		      
+		      
+		    elseif instr(tempstr,"DVHGridCalc")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      DVH_Calc_Grid=Val(modstr)
+		      
+		    elseif instr(tempstr,"DVHGridSize")>0 then
+		      modstr=trim(NthField(tempstr,":=",2))
+		      DVH_Calc_Grid_Size=Val(modstr)
+		      
+		      
+		      
 		    elseif instr(tempstr,"DICOMImportInvertContour")>0 then
 		      modstr=trim(NthField(tempstr,":=",2))
 		      if modstr="Yes" Then
@@ -540,6 +551,8 @@ Protected Class Class_Preference
 		  
 		  ts.writeline "EXPORTinterpolation := "+Format(Dose_Interpolate,"#")
 		  ts.writeline "DVHCalc := "+Format(DVH_Calc,"#")
+		  ts.writeline "DVHGridCalc := "+Format(DVH_Calc_Grid,"#")
+		  ts.writeline "DVHGridSize := "+Format(DVH_Calc_Grid_Size,"#.#####")
 		  
 		  if DICOM_IN_Inverse Then
 		    ts.writeline "DICOMImportInvertContour := Yes"
@@ -726,6 +739,32 @@ Protected Class Class_Preference
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Graphics
+			
+			0 for CT Grid
+			
+			1 for Dose Grid
+			
+			2 for User set Grid
+		#tag EndNote
+		DVH_Calc_Grid As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			Graphics
+			
+			0 for CT Grid
+			
+			1 for Dose Grid
+			
+			2 for User set Grid
+		#tag EndNote
+		DVH_Calc_Grid_Size As Single = 0.25
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		DVH_clean As Boolean
 	#tag EndProperty
 
@@ -768,6 +807,9 @@ Protected Class Class_Preference
 	#tag Property, Flags = &h0
 		#tag Note
 			_
+
+			
+
 		#tag EndNote
 		McGillRT_Dose_Skip As Boolean = false
 	#tag EndProperty
@@ -887,6 +929,18 @@ Protected Class Class_Preference
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DVH_Calc_Grid"
+			Group="Behavior"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DVH_Calc_Grid_Size"
+			Group="Behavior"
+			InitialValue="0.25"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_clean"

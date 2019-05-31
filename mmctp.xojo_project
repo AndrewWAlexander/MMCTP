@@ -13,12 +13,12 @@ Class=RTOG_Plan_Struture_Constraint;RTOG Class/RTOG Plan/RTOG_Plan_Struture_Cons
 Class=RTOG_Plan;RTOG Class/RTOG Plan/RTOG_Plan.xojo_code;&hBEB396E5;&h25BAFFF;false
 Class=RTOG_Seed_Geometry;RTOG Class/RTOG Plan/RTOG_Seed_Geometry.xojo_code;&hBE628788;&h25BAFFF;false
 Class=RTOG_Dose_Volume_Histogram;RTOG Class/RTOG Plan/RTOG_Dose_Volume_Histogram.xojo_code;&hBE628772;&h25BAFFF;false
-Class=RTOG_Structure_One_Structure;RTOG Class/RTOG Structure/RTOG_Structure_One_Structure.xojo_code;&hBEBD35EC;&hBEC34D2A;false
+Class=RTOG_Structure_Slice;RTOG Class/RTOG Structure/RTOG_Structure_Slice.xojo_code;&hBEBD35EC;&hBEC34D2A;false
 Class=RTOG_Structure_Point;RTOG Class/RTOG Structure/RTOG_Structure_Point.xojo_code;&hBEBD3476;&hBEC34D2A;false
 Class=RTOG_Structure_Segment;RTOG Class/RTOG Structure/RTOG_Structure_Segment.xojo_code;&hBEBD3485;&hBEC34D2A;false
 Class=RTOG_Dose_Plane;RTOG Class/RTOG Dose/RTOG_Dose_Plane.xojo_code;&hBEC146AE;&hBEC34DB0;false
 Class=RTOG_Dose_Distribution;RTOG Class/RTOG Dose/RTOG_Dose_Distribution.xojo_code;&hBE62875C;&hBEC34DB0;false
-Class=RTOG_Structure;RTOG Class/RTOG Structure/RTOG_Structure.xojo_code;&hBE62870D;&hBEC34D2A;false
+Class=RTOG_Structure_Class;RTOG Class/RTOG Structure/RTOG_Structure_Class.xojo_code;&hBE62870D;&hBEC34D2A;false
 Class=RTOG_Beam_Geometry;RTOG Class/RTOG Beam Geometry/RTOG_Beam_Geometry.xojo_code;&hBE6286DF;&hBEC37D2E;false
 Class=Class_isocenter;RTOG Class/RTOG Beam Geometry/Class_isocenter.xojo_code;&hBEC37D60;&hBEC37D2E;false
 Class=Class_Collimator;RTOG Class/RTOG Beam Geometry/Class_Collimator.xojo_code;&hBEC37E11;&hBEC37D2E;false
@@ -345,12 +345,18 @@ Class=CustomReportField;Utility/CustomReportField.xojo_code;&h2103FFFF;&h22CC0B1
 Class=Class_BEAM_CM_CONESTAK;BEAMnrc/BEAMnrc-CMS/Class_BEAM_CM_CONESTAK.xojo_code;&h786E07FF;&h39B4467D;false
 Window=Window_ColourWash;Treatment Planning/Window_ColourWash.xojo_window;&h60417FF;&h628F7F8;false
 Class=Class_DICOM_Plan_ApplicatorSequence;DICOM/DICOM_Plan/Class_DICOM_Plan_ApplicatorSequence.xojo_code;&hB985FFF;&h5C6D37F3;false
+
 Class=Class_MCCData;Commissioning/Class_MCCData.xojo_code;&h7B4F17FF;&h7DC31AD8;false
+Class=RTOG_Structure;RTOG Class/RTOG Structure/RTOG_Structure.xojo_code;&h56B7F7FF;&hBEC34D2A;false
+
 AppMenuBar=File
 MajorVersion=9
 MinorVersion=2
 SubVersion=0
-NonRelease=489
+
+NonRelease=490
+
+
 Release=2
 InfoVersion=
 LongVersion=
@@ -360,11 +366,11 @@ WinInternalName=
 WinProductName=McGill Monte Carlo Treatment Planning
 WinFileDescription=
 AutoIncrementVersionInformation=True
-BuildFlags=&h4900
+BuildFlags=&h910
 BuildLanguage=&h1
 DebugLanguage=&h1
 Region=0
-WindowsName=MMCTP33
+WindowsName=MMCTP
 MacCarbonMachName=MMCTP
 LinuxX86Name=MMCTP
 MacCreator=????

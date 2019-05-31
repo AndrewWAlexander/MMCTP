@@ -177,6 +177,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "www.webelements.com"
             TextAlign       =   0
             TextColor       =   &c0003CB00
@@ -302,6 +303,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Material Outside Contour"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -379,6 +381,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Density Outside Contour (g/cc)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -515,6 +518,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "EGSPhant Name"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -638,6 +642,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Default Pegs file"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -824,6 +829,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "CT Model"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1010,6 +1016,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   3
+         TabStop         =   True
          Text            =   "Medium of region outside phantom "
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1157,6 +1164,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "X min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1191,6 +1199,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "X max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1225,6 +1234,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Y max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1345,6 +1355,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Z min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1465,6 +1476,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Z max (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1542,6 +1554,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Z del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1619,6 +1632,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Y del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1696,6 +1710,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "X del (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1730,6 +1745,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "Y min (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1778,8 +1794,8 @@ End
 		  
 		  PopupMenu_CTModel.ListIndex=gDOSXYZ.EGSPhantSettings.CT_model
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    PopupMenu_CleanContour.AddRow gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    PopupMenu_CleanContour.AddRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
 		  PopupMenu_CleanContour.ListIndex=gDOSXYZ.EGSPhantSettings.Cleancontour_index
@@ -1851,7 +1867,7 @@ End
 		  for i=0 to ubound(gDOSXYZ.EGSPhantSettings.Contous)
 		    ListBox_ContourFill.addrow str(i+1)
 		    x=gDOSXYZ.EGSPhantSettings.Contous(i).RTOG_Contour_Index
-		    ListBox_ContourFill.Cell(i,1)=gRTOG.Structures(x).Structure_Name
+		    ListBox_ContourFill.Cell(i,1)=grtog.Structures.Structures(x).Structure_Name
 		    ListBox_ContourFill.cell(i,3)=gDOSXYZ.EGSPhantSettings.Contous(i).materials
 		    ListBox_ContourFill.CellCheck(i,2)=gDOSXYZ.EGSPhantSettings.Contous(i).Use_Material
 		    ListBox_ContourFill.cell(i,4)=Format(gDOSXYZ.EGSPhantSettings.Contous(i).density,"#.###")
@@ -2045,7 +2061,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  if row <= UBound(gRTOG.structures) then
+		  if row <= UBound(grtog.Structures.Structures) then
 		    if column=4 Then
 		      gDOSXYZ.EGSPhantSettings.Contous(row).density=val(me.cell(row,4))
 		    elseif column=3 then

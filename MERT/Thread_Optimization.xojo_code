@@ -114,11 +114,11 @@ Inherits Thread
 		  
 		  ReDim IPbeams(-1)
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    gRTOG.Plan(PIndex).Structure_Dose(i).Organ_Name=gRTOG.Structures(i).Structure_Name
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    gRTOG.Plan(PIndex).Structure_Dose(i).Organ_Name=grtog.Structures.Structures(i).Structure_Name
 		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH = new Class_DVH_One
-		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH.stru_color=gRTOG.Structures(i).scolor
-		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH.struc_names=gRTOG.Structures(i).Structure_Name
+		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH.stru_color=grtog.Structures.Structures(i).scolor
+		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH.struc_names=grtog.Structures.Structures(i).Structure_Name
 		    gRTOG.Plan(PIndex).Structure_Dose(i).DVH.dvh_bins=100
 		    gRTOG.Plan(PIndex).Structure_Dose(i).Voxel_REs=128
 		    redim gRTOG.Plan(PIndex).Structure_Dose(i).DVH.dVH(100)

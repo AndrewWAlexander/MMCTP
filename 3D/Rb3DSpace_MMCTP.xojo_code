@@ -124,7 +124,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'dim nstruct as integer
 		  'dim thiscolor as Color
 		  'dim i,j,k,n as integer
-		  'dim file as RTOG_Structure_One_Structure
+		  'dim file as RTOG_Structure_Slice
 		  'dim z,himidangle,lomidangle as double
 		  'dim start(-1) as integer
 		  'dim nvert,s,count,ncurve,new_index as Integer
@@ -142,7 +142,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'dim p as picture
 		  '//---------------------------------------------------------
 		  '//---------------------------------------------------------
-		  'nstruct=ubound(gRTOG.Structures) //how many structures
+		  'nstruct=ubound(grtog.Structures.Structures) //how many structures
 		  '//initialize the global trimesh array to the number of structure.
 		  '
 		  '
@@ -168,8 +168,8 @@ Protected Class Rb3DSpace_MMCTP
 		  'redim npointincurve(ncurve)
 		  'for n=0 to ncurve //for each image
 		  'z=n*gRTOG.Scan(0).Slice_Thickness  //get slice thickness
-		  'file = new RTOG_Structure_One_Structure //get the contour of that structure on that image
-		  'file = gRTOG.Structures(s).structure_Data(n)
+		  'file = new RTOG_Structure_Slice //get the contour of that structure on that image
+		  'file = grtog.Structures.Structures(s).structure_Data(n)
 		  '//for each segment of each structure.
 		  '//for now assume only one segment....?
 		  'for j=0 to 0//ubound(file.Segments) //for each segment....or just do segment 0?...
@@ -551,7 +551,7 @@ Protected Class Rb3DSpace_MMCTP
 		  '//---------------------------------------------------------
 		  'dim thiscolor as Color
 		  'dim i,j,k,n as integer
-		  'dim file as RTOG_Structure_One_Structure
+		  'dim file as RTOG_Structure_Slice
 		  'dim z,himidangle,lomidangle as double
 		  'dim start(-1) as integer
 		  'dim nvert,s,count,ncurve,new_index as Integer
@@ -572,7 +572,7 @@ Protected Class Rb3DSpace_MMCTP
 		  '
 		  '//initialize the global trimesh array to the number of structure.
 		  '
-		  'redim gTM(UBound(gRTOG.Structures))
+		  'redim gTM(UBound(grtog.Structures.Structures))
 		  '
 		  'for s=0 to  0//nstruct-1  //only body for now             //nstruct  //for each structure can make this an external...
 		  'redim X_vertices(10000)
@@ -595,8 +595,8 @@ Protected Class Rb3DSpace_MMCTP
 		  'redim npointincurve(ncurve)
 		  'for n=0 to ncurve //for each image
 		  'z=n*gRTOG.Scan(0).Slice_Thickness  //get slice thickness
-		  'file = new RTOG_Structure_One_Structure //get the contour of that structure on that image
-		  'file = gRTOG.Structures(s).structure_Data(n)
+		  'file = new RTOG_Structure_Slice //get the contour of that structure on that image
+		  'file = grtog.Structures.Structures(s).structure_Data(n)
 		  '//for each segment of each structure.
 		  '//for now assume only one segment....?
 		  'for j=0 to 0//ubound(file.Segments) //for each segment....or just do segment 0?...
@@ -633,7 +633,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'dim mycolor as color
 		  'dim struct_pictures(-1),tmpimage as picture
 		  'Dim points(-1) as Boolean
-		  'Dim file as RTOG_Structure_One_Structure
+		  'Dim file as RTOG_Structure_Slice
 		  'Dim poly as Class_Polygon
 		  'dim allx(-1), ally(-1),allz(-1) as single // this is the place to store all vertices (each group of 3 sequentially are a triangle)
 		  'dim maxX, minX, maxY, minY as UInt32
@@ -653,14 +653,14 @@ Protected Class Rb3DSpace_MMCTP
 		  '
 		  'redim struct_pictures(ubound(gRTOG.Scan))
 		  'redim points(ubound(gRTOG.Scan))
-		  'redim gTM(ubound(gRTOG.Structures))
+		  'redim gTM(ubound(grtog.Structures.Structures))
 		  '
 		  '//show progress along the way...to know where we are.
 		  'PW_Title="Triangulation..."
 		  'PW_Progress_Max= ubound(gRTOG.Scan)
 		  'PW_Show=true
 		  '
-		  'for i=0 to ubound(gRTOG.Structures) 'for each structure
+		  'for i=0 to ubound(grtog.Structures.Structures) 'for each structure
 		  '
 		  'minX=gvis.nx
 		  'minY=gvis.ny
@@ -679,7 +679,7 @@ Protected Class Rb3DSpace_MMCTP
 		  '
 		  'for n=0 to ubound(gRTOG.Scan)
 		  'points(n)=true
-		  'PW_StaticText="Triangulating for : "+ gRTOG.Structures(i).Structure_Name _
+		  'PW_StaticText="Triangulating for : "+ grtog.Structures.Structures(i).Structure_Name _
 		  '+chr(13)+"Image number : "+str(n+1)
 		  'PW_Progress=n
 		  '
@@ -694,8 +694,8 @@ Protected Class Rb3DSpace_MMCTP
 		  'tmpimage.graphics.penHeight=0
 		  'tmpimage.graphics.penwidth=0
 		  '//for each structure find volume in cm^3...
-		  'file = new RTOG_Structure_One_Structure
-		  'file = grtOG.Structures(i).structure_Data(n)
+		  'file = new RTOG_Structure_Slice
+		  'file = grtog.Structures.Structures(i).structure_Data(n)
 		  '//for each segment of each structure.
 		  '
 		  'for j = 0 to ubound(file.segments)
@@ -733,7 +733,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'pixdy=gvis.scale_height/2
 		  '
 		  'for n=1 to ubound(gRTOG.Scan)-1 // have to stop one slice before the end...
-		  'PW_StaticText="Triangulating : "+ gRTOG.Structures(i).Structure_Name _
+		  'PW_StaticText="Triangulating : "+ grtog.Structures.Structures(i).Structure_Name _
 		  '+chr(13)+"Image number : "+str(n+1)
 		  'PW_Progress=n
 		  '
@@ -1448,7 +1448,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'dim i,n,j as integer
 		  'dim p as picture
 		  'dim tmpstring as string
-		  'dim file as RTOG_Structure_One_Structure
+		  'dim file as RTOG_Structure_Slice
 		  'dim colorstring as string
 		  'dim mymask as picture
 		  '//------------------------------------------
@@ -1783,7 +1783,7 @@ Protected Class Rb3DSpace_MMCTP
 		  'dim i,n,j as integer
 		  'dim p as picture
 		  'dim tmpstring as string
-		  'dim file as RTOG_Structure_One_Structure
+		  'dim file as RTOG_Structure_Slice
 		  'dim colorstring as string
 		  'dim mymask as picture
 		  '//------------------------------------------
@@ -1799,15 +1799,15 @@ Protected Class Rb3DSpace_MMCTP
 		  'if Window_3DView.CheckBox_show_struc.Value Then
 		  '//now load the structures.
 		  '//=============================
-		  'redim Object_Structure(UBound(gRTOG.Structures))
-		  'for i=0 to UBound(gRTOG.Structures)
+		  'redim Object_Structure(UBound(grtog.Structures.Structures))
+		  'for i=0 to UBound(grtog.Structures.Structures)
 		  'Object_Structure(i)=new Object3D
 		  'tmpstring=""
 		  'colorstring=str(gvis.colour(i).red/255)+" "+str(gvis.colour(i).Green/255)+" "+str(gvis.colour(i).Blue/255)
 		  'tmpstring="3DMetafile ( 1 6 Stream tableofcontents0> )"+chr(13)
 		  'for n=0 to ubound(gRTOG.Scan) //for each image
-		  'file = new RTOG_Structure_One_Structure
-		  'file = grtOG.Structures(i).structure_Data(n)
+		  'file = new RTOG_Structure_Slice
+		  'file = grtog.Structures.Structures(i).structure_Data(n)
 		  '//for each segment of each structure.
 		  'for j=0 to ubound(file.Segments)
 		  'tmpstring=tmpstring+Makeone3dContour(file.Segments(j),gRTOG.Scan(n).Z_Value,colorstring)

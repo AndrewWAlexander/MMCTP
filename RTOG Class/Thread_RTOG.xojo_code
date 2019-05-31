@@ -93,22 +93,22 @@ Inherits Thread
 		  //
 		  //
 		  //---------------------------
-		  Dim s as RTOG_Structure
+		  Dim s as RTOG_Structure_Class
 		  Dim i as integer
 		  //---------------------------
 		  
-		  s=new RTOG_Structure
+		  s=new RTOG_Structure_Class
 		  s.Structure_Name="New Structure"
 		  s.scolor=gVis.Make_Clour
 		  i=UBound(Scan)
 		  redim s.Structure_Data(i)
 		  for i=0 to UBound(Scan)
-		    s.Structure_Data(i)=new RTOG_Structure_One_Structure
+		    s.Structure_Data(i)=new RTOG_Structure_Slice
 		    s.Structure_Data(i).scan_Num=i
 		    s.Structure_Data(i).Z=Scan(i).Z_Value
 		  next
 		  s.num_of_Scans=UBound(Scan)+1
-		  Structures.Append s
+		  Structures.Structures.Append s
 		  gvis.contour_show.Append True
 		  gvis.contour_fill.Append True
 		End Sub
@@ -126,13 +126,13 @@ Inherits Thread
 		  dim done as boolean
 		  dim a,b,c,i,j,k,nimage,m,n,ii,plan_origin_set,caddate,dosenorm,normfac,numfield as integer
 		  dim bs,bsf as BinaryStream
-		  dim tmpstruct as RTOG_Structure_One_Structure
+		  dim tmpstruct as RTOG_Structure_Slice
 		  dim dx,dy,thickness,grid,dose_offset_x,dose_offset_y,plan_orgin_x,plan_orgin_y,norm_f,tmpint as double
 		  dim d as Date
 		  dim mb as MemoryBlock
 		  Dim zpos(-1) As Double
 		  Dim IndStruct As Integer
-		  dim OrdStructures(-1) as RTOG_Structure_One_Structure
+		  dim OrdStructures(-1) as RTOG_Structure_Slice
 		  Dim DimScan As Integer
 		  Dim num_removed as Integer
 		  Dim bb as Boolean
@@ -161,9 +161,9 @@ Inherits Thread
 		    if CADPLAN.Scan(i).scan_type<>"TRANSVERSE" then
 		      CADPLAN.Scan.Remove i
 		      // Also remove Structure on that plane
-		      for IndStruct = 0 to UBound(CADPLAN.Structures)
-		        if i>-1 and i<=UBound(CADPLAN.Structures(IndStruct).Structure_Data) Then
-		          CADPLAN.Structures(IndStruct).Structure_Data.remove i
+		      for IndStruct = 0 to UBound(CADPLAN.Structures.Structures)
+		        if i>-1 and i<=UBound(CADPLAN.Structures.Structures(IndStruct).Structure_Data) Then
+		          CADPLAN.Structures.Structures(IndStruct).Structure_Data.remove i
 		        end
 		      next
 		      
@@ -191,18 +191,18 @@ Inherits Thread
 		  
 		  // =====Arrange Structures in Z order
 		  
-		  ReDim zpos(UBound(CADPLAN.Structures(0).Structure_Data))
+		  ReDim zpos(UBound(CADPLAN.Structures.Structures(0).Structure_Data))
 		  
-		  for IndStruct = 0 to UBound(CADPLAN.Structures)
-		    for i=0 to UBound(CADPLAN.Structures(IndStruct).Structure_Data)
-		      zpos(i) = CADPLAN.Structures(IndStruct).Structure_Data(i).z
+		  for IndStruct = 0 to UBound(CADPLAN.Structures.Structures)
+		    for i=0 to UBound(CADPLAN.Structures.Structures(IndStruct).Structure_Data)
+		      zpos(i) = CADPLAN.Structures.Structures(IndStruct).Structure_Data(i).z
 		    next
-		    zpos.SortWith(CADPLAN.Structures(IndStruct).Structure_Data)
+		    zpos.SortWith(CADPLAN.Structures.Structures(IndStruct).Structure_Data)
 		  next
 		  
-		  for i=0 to UBound(CADPLAN.Structures)
-		    Structures.Append CADPLAN.Structures(i)
-		    Structures(i).Num_of_Scans=UBound(zpos)+1
+		  for i=0 to UBound(CADPLAN.Structures.Structures)
+		    Structures.Structures.Append CADPLAN.Structures.Structures(i)
+		    Structures.Structures(i).Num_of_Scans=UBound(zpos)+1
 		  Next
 		  
 		  ''======================Arrange Dose Distribution===============
@@ -379,7 +379,7 @@ Inherits Thread
 		    end
 		    if FrameOfReferenceUID=DICOM.RT_Plan(j).FrameOfReferenceUID or tempss=ReferencedStructureSetSequence Then
 		      ppp= new RTOG_Plan
-		      ppp.Plan_Update_DV(Structures)
+		      ppp.Plan_Update_DV(Structures.Structures)
 		      plan_check=ppp.Import_DICOM_Plan(DICOM.RT_Plan(j),xx,yy,DICOM)
 		      if plan_check Then
 		        z=UBound(Plan)+2
@@ -436,12 +436,12 @@ Inherits Thread
 		  // 2012 - A Alexander, new method to match contour segments with axial images. Now we use the image UID if avaiable, otherwise use old method. 
 		  //-------------------------------------------------
 		  Dim i,b,z,k,x,segnum,num_points,scan_num as Integer
-		  Dim srt as RTOG_Structure
+		  Dim srt as RTOG_Structure_Class
 		  Dim pp as RTOG_Structure_Point
 		  Dim id_found,slice_found as Boolean
 		  Dim new_segment as RTOG_Structure_Segment
 		  Dim sss as Class_DICOM_Structures
-		  Dim sdata as RTOG_Structure_One_Structure
+		  Dim sdata as RTOG_Structure_Slice
 		  Dim points_data as String
 		  Dim z_axial_value,MaxSliceDistance as Single
 		  Dim roiObseq as Class_DICOM_Structure_ROI_Obv_Sequence
@@ -464,7 +464,7 @@ Inherits Thread
 		      else // The DICOM structure dataset is a match to the image study instance UID
 		        ReferencedStructureSetSequence=sss.SOPInstanceUID
 		        for i=0 to UBound(sss.SetROISequence) // i loops for each structure
-		          srt= new RTOG_Structure // new RTOG structure for each DICOM strucutre within sss.SetROISequence
+		          srt= new RTOG_Structure_Class // new RTOG structure for each DICOM strucutre within sss.SetROISequence
 		          srt.Structure_Name=sss.SetROISequence(i).ROIName
 		          srt.Num_of_Scans=UBound(Scan)+1
 		          srt.ROI_Number=sss.SetROISequence(i).ROI_num
@@ -474,7 +474,7 @@ Inherits Thread
 		          
 		          // Create McGill RT structure format of one 
 		          for k=0 to UBound(Scan)
-		            sdata=new RTOG_Structure_One_Structure
+		            sdata=new RTOG_Structure_Slice
 		            sdata.Z=Scan(k).Z_Value
 		            sdata.scan_Num=k
 		            srt.Structure_Data.Append sdata
@@ -580,15 +580,15 @@ Inherits Thread
 		          // All segments of the contour have been addressed, now time to append data structure to main class
 		          // Determine if we should overwrite or append
 		          id_found=False
-		          for b=0 to UBound(Structures)
-		            if Structures(b).Structure_Name=srt.Structure_Name Then
-		              Structures(b)=srt
+		          for b=0 to UBound(Structures.Structures)
+		            if Structures.Structures(b).Structure_Name=srt.Structure_Name Then
+		              Structures.Structures(b)=srt
 		              id_found=True
 		              Exit for b
 		            end
 		          next
 		          if id_found=False Then
-		            Structures.Append srt
+		            Structures.Structures.Append srt
 		          end
 		          
 		          
@@ -757,7 +757,7 @@ Inherits Thread
 		  dicomD.rows=Dose.Size_of_Dimension2
 		  dicomD.NumberofFrames=Dose.Size_of_Dimension3
 		  
-		  dicomD.PixelSpacing=Format(10*Dose.Horizontal_Grid,"-#.#######")+"\"+Format(10*Dose.Vertical_Grid,"-#.#######")
+		  dicomD.PixelSpacing=Format(10*Dose.Vertical_Grid,"-#.#######")+"\"+Format(10*Dose.Horizontal_Grid,"-#.#######")
 		  dicomD.Image_Presentation_Group_Length=150
 		  
 		  if gPref.DICOM_Z_Invert Then
@@ -1091,13 +1091,13 @@ Inherits Thread
 		  
 		  // Get the target and OAR values into the plan file
 		  k=0
-		  for i=0 to UBound(gRTOG.Structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    if gRTOG.Plan(planidex).Structure_Dose(i).Use_Max_Dose or gRTOG.Plan(planidex).Structure_Dose(i).Use_Min_Dose or gRTOG.Plan(planidex).Structure_Dose(i).Use_DV_Constraint Then 
 		      k=k+1
 		      drs = new Class_DICOM_Plan_DoseReferenceSequence
 		      dicomP.DoseReferenceSequence.Append drs
 		      drs.DoseReferenceNumber=k
-		      drs.ReferencedROINumb=gRTOG.Structures(i).ROI_Number
+		      drs.ReferencedROINumb=grtog.Structures.Structures(i).ROI_Number
 		      
 		      if gRTOG.Plan(planidex).Structure_Dose(i).Use_Min_Dose Then
 		        drs.DoseReferenceDescription="Target"
@@ -1402,7 +1402,7 @@ Inherits Thread
 		  Dim pp as RTOG_Structure_Point
 		  Dim id_found,slice_found as Boolean
 		  Dim new_segment as RTOG_Structure_Segment
-		  Dim sdata as RTOG_Structure_One_Structure
+		  Dim sdata as RTOG_Structure_Slice
 		  Dim points_data as String
 		  Dim z_axial_value,MaxSliceDistance as Single
 		  dim nowdate as date
@@ -1472,24 +1472,24 @@ Inherits Thread
 		  // End referenced Frame of RS
 		  
 		  // Structure Set ROI Sequence
-		  for z=0 to UBound(Structures)
+		  for z=0 to UBound(Structures.Structures)
 		    SetROISequence=new Class_DICOM_Structure_SetROISequence
 		    dicomS.SetROISequence.Append SetROISequence
-		    SetROISequence.ROIName=Structures(z).Structure_Name
-		    SetROISequence.ROI_num=Structures(z).ROI_Number
+		    SetROISequence.ROIName=Structures.Structures(z).Structure_Name
+		    SetROISequence.ROI_num=Structures.Structures(z).ROI_Number
 		    SetROISequence.ReferencedFrameofRefUID=FrameOfReferenceUID
 		    SetROISequence.ROI_Algorithm="MANUAL"
 		  Next
 		  
 		  
 		  // ---------ROI Contour Sequence-------
-		  for z=0 to UBound(Structures)
+		  for z=0 to UBound(Structures.Structures)
 		    ROI = new Class_DICOM_Structure_ROContourSequence
 		    dicomS.ROIContourSequence.Append ROI
-		    ROI.ROIColour=Structures(z).scolor
-		    roi.ReferencedROINumber=Format(Structures(z).ROI_Number,"#")
-		    for i=0 to UBound(Structures(z).Structure_Data)
-		      if UBound(Structures(z).Structure_Data(i).Segments)>-1 Then
+		    ROI.ROIColour=Structures.Structures(z).scolor
+		    roi.ReferencedROINumber=Format(Structures.Structures(z).ROI_Number,"#")
+		    for i=0 to UBound(Structures.Structures(z).Structure_Data)
+		      if UBound(Structures.Structures(z).Structure_Data(i).Segments)>-1 Then
 		        cs = new Class_DICOM_Structure_ContourSequence
 		        ROI.ContourSequence.Append cs
 		        cis = new Class_DICOM_Structure_ContourImageSequence
@@ -1499,10 +1499,10 @@ Inherits Thread
 		        cs.GeometricType="CLOSED_PLANAR"
 		        cs.SlabThickness=Format(gVis.scale_thickness*10,"-0.0")
 		        cs.OffsetVector="0.0\0.0\0.0"
-		        cs.numberofcontourpoints=UBound(Structures(z).Structure_Data(i).Segments(0).Points)+1
+		        cs.numberofcontourpoints=UBound(Structures.Structures(z).Structure_Data(i).Segments(0).Points)+1
 		        cs.data=""
 		        for x=0 to cs.numberofcontourpoints-1
-		          points_data=Format(Structures(z).Structure_Data(i).Segments(0).Points(x).x*10,"-0.0###")+"\"+Format(Structures(z).Structure_Data(i).Segments(0).Points(x).y*10,"-0.0###")+"\"+Format(Structures(z).Structure_Data(i).Segments(0).Points(x).z*10,"-0.0###")
+		          points_data=Format(Structures.Structures(z).Structure_Data(i).Segments(0).Points(x).x*10,"-0.0###")+"\"+Format(Structures.Structures(z).Structure_Data(i).Segments(0).Points(x).y*10,"-0.0###")+"\"+Format(Structures.Structures(z).Structure_Data(i).Segments(0).Points(x).z*10,"-0.0###")
 		          if x=0 Then
 		            cs.data=points_data
 		          else
@@ -1516,17 +1516,17 @@ Inherits Thread
 		  
 		  
 		  // ---------ROI Contour Sequence-------
-		  for z=0 to UBound(Structures)
+		  for z=0 to UBound(Structures.Structures)
 		    RTROI_Ob= new Class_DICOM_Structure_ROI_Obv_Sequence
 		    dicomS.ROI_Obs_Seq.Append RTROI_Ob
 		    RTROI_Ob.Ob_num=z+1
-		    RTROI_Ob.ReferencedROI_Num=Format(Structures(z).ROI_Number,"#")
-		    RTROI_Ob.RT_ROI_Inter_Type=Structures(z).StructureType
+		    RTROI_Ob.ReferencedROI_Num=Format(Structures.Structures(z).ROI_Number,"#")
+		    RTROI_Ob.RT_ROI_Inter_Type=Structures.Structures(z).StructureType
 		    RTROI_Ob.ROI_Inter=""
-		    if Structures(z).ElectronDensityOverride Then
+		    if Structures.Structures(z).ElectronDensityOverride Then
 		      RTROI_Ob.ROI_Phys_Prop_Sequ.Append(new Class_DICOM_Structure_ROI_Physical_Prop_Seq)
 		      RTROI_Ob.ROI_Phys_Prop_Sequ(0).ROI_Phys_Prop="REL_ELEC_DENSITY"
-		      RTROI_Ob.ROI_Phys_Prop_Sequ(0).ROI_Phys_Prop_Value=Format(Structures(z).ElectronDensity*100,"-0.00#")
+		      RTROI_Ob.ROI_Phys_Prop_Sequ(0).ROI_Phys_Prop_Value=Format(Structures.Structures(z).ElectronDensity*100,"-0.00#")
 		    end
 		  Next
 		  //-----------------------------------------
@@ -1550,7 +1550,7 @@ Inherits Thread
 		  Dim p_name,matched  as boolean
 		  Dim pp as RTOG_Plan
 		  Dim zpos(-1) ,x_offset,y_offset as Single
-		  Dim test as RTOG_Structure
+		  Dim test as RTOG_Structure_Class
 		  '==================================
 		  
 		  
@@ -1649,20 +1649,20 @@ Inherits Thread
 		  //-------------------------------------------------------------------------
 		  
 		  
-		  for i=0 to UBound(RTOG.Structures)
-		    for k=0 to UBound(RTOG.Structures(i).Structure_Data)
-		      RTOG.Structures(i).Structure_Data(k).z=-1*RTOG.Structures(i).Structure_Data(k).z
+		  for i=0 to UBound(RTOG.Structures.Structures)
+		    for k=0 to UBound(RTOG.Structures.Structures(i).Structure_Data)
+		      RTOG.Structures.Structures(i).Structure_Data(k).z=-1*RTOG.Structures.Structures(i).Structure_Data(k).z
 		    next
 		  next
 		  
-		  for i=0 to (UBound(RTOG.Structures))
-		    Redim zpos(UBound(RTOG.Structures(i).Structure_Data))
+		  for i=0 to (UBound(RTOG.Structures.Structures))
+		    Redim zpos(UBound(RTOG.Structures.Structures(i).Structure_Data))
 		    for k=0 to UBound(zpos)
-		      zpos(k)=RTOG.Structures(i).Structure_Data(k).Z
+		      zpos(k)=RTOG.Structures.Structures(i).Structure_Data(k).Z
 		    Next
-		    zpos.SortWith(RTOG.Structures(i).Structure_Data)
-		    for k=0 to UBound(RTOG.Structures(i).Structure_Data)
-		      RTOG.Structures(i).Structure_Data(k).scan_num=(k+1)
+		    zpos.SortWith(RTOG.Structures.Structures(i).Structure_Data)
+		    for k=0 to UBound(RTOG.Structures.Structures(i).Structure_Data)
+		      RTOG.Structures.Structures(i).Structure_Data(k).scan_num=(k+1)
 		    next
 		  next
 		  
@@ -1671,12 +1671,12 @@ Inherits Thread
 		  
 		  
 		  // Remove x,y offsets on Structures
-		  for i=0 to UBound(Structures)
-		    for j=0 to UBound(Structures(i).Structure_Data)
-		      for x =0 to UBound(Structures(i).Structure_Data(j).segments)
-		        for y= 0 to UBound(Structures(i).Structure_Data(j).segments(x).points)
-		          Structures(i).Structure_Data(j).segments(x).points(y).x=Structures(i).Structure_Data(j).segments(x).points(y).x-x_offset
-		          Structures(i).Structure_Data(j).segments(x).points(y).y=-(Structures(i).Structure_Data(j).segments(x).points(y).y-y_offset)
+		  for i=0 to UBound(Structures.Structures)
+		    for j=0 to UBound(Structures.Structures(i).Structure_Data)
+		      for x =0 to UBound(Structures.Structures(i).Structure_Data(j).segments)
+		        for y= 0 to UBound(Structures.Structures(i).Structure_Data(j).segments(x).points)
+		          Structures.Structures(i).Structure_Data(j).segments(x).points(y).x=Structures.Structures(i).Structure_Data(j).segments(x).points(y).x-x_offset
+		          Structures.Structures(i).Structure_Data(j).segments(x).points(y).y=-(Structures.Structures(i).Structure_Data(j).segments(x).points(y).y-y_offset)
 		        next
 		      next
 		    next
@@ -1790,7 +1790,7 @@ Inherits Thread
 		  
 		  
 		  
-		  gRTOG.Structures.Remove num
+		  grtog.Structures.Structures.Remove num
 		  
 		  gvis.contour_fill.Remove num
 		  gvis.contour_show.Remove num
@@ -1806,8 +1806,8 @@ Inherits Thread
 		  next
 		  
 		  
-		  for i=0 to UBound(gRTOG.Structures)
-		    Write_McGill_Structures(gRTOG.Structures(i),f,i)
+		  for i=0 to UBound(grtog.Structures.Structures)
+		    Write_McGill_Structures(grtog.Structures.Structures(i),f,i)
 		  next
 		  
 		  
@@ -2540,9 +2540,9 @@ Inherits Thread
 		  end//end writing scan
 		  
 		  '===============================Structure==================
-		  if ubound(me.Structures)>-1 then
-		    for i =0 to ubound(me.Structures)
-		      spaces(ts,"IMAGE #", 31, str(me.Structures(i).File_Num))
+		  if ubound(me.Structures.Structures)>-1 then
+		    for i =0 to ubound(me.Structures.Structures)
+		      spaces(ts,"IMAGE #", 31, str(me.Structures.Structures(i).File_Num))
 		      
 		      spaces(ts,"IMAGE TYPE", 31, "STRUCTURE")
 		      
@@ -2550,16 +2550,16 @@ Inherits Thread
 		      
 		      spaces(ts,"PATIENT NAME", 31, (me.patient_Name))
 		      
-		      spaces(ts,"STRUCTURE NAME", 31, (me.Structures(i).structure_Name))
+		      spaces(ts,"STRUCTURE NAME", 31, (me.Structures.Structures(i).structure_Name))
 		      
-		      spaces(ts,"NUMBER REPRESENTATION", 31, (me.Structures(i).number_Rep))
+		      spaces(ts,"NUMBER REPRESENTATION", 31, (me.Structures.Structures(i).number_Rep))
 		      
-		      spaces(ts,"STRUCTURE FORMAT", 31, (me.Structures(i).structure_Format))
+		      spaces(ts,"STRUCTURE FORMAT", 31, (me.Structures.Structures(i).structure_Format))
 		      
-		      spaces(ts,"NUMBER OF SCANS", 31, str(me.Structures(i).num_of_Scans))
+		      spaces(ts,"NUMBER OF SCANS", 31, str(me.Structures.Structures(i).num_of_Scans))
 		      
 		      ts.writeLine
-		      put_RTOG_Structures(Structures(i),f)
+		      put_RTOG_Structures(Structures.Structures(i),f)
 		    next // writing each structure
 		  end //writing structures
 		  
@@ -2935,7 +2935,7 @@ Inherits Thread
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Put_RTOG_Structures(structures as rtOG_Structure, f as folderItem)
+		Sub Put_RTOG_Structures(structures as rtOG_Structure_Class, f as folderItem)
 		  Dim fname , line,a,b,c as string
 		  Dim ts as textoutputStream
 		  dim i,j,k ,l as integer
@@ -2995,7 +2995,7 @@ Inherits Thread
 		  dim done as boolean
 		  dim a,b,c,i,j,k,nimage,m,n,ii,plan_origin_set,caddate,dosenorm,normfac,numfield as integer
 		  dim bs,bsf as BinaryStream
-		  dim tmpstruct as RTOG_Structure_One_Structure
+		  dim tmpstruct as RTOG_Structure_Slice
 		  dim dx,dy,thickness,grid,dose_offset_x,dose_offset_y,plan_orgin_x,plan_orgin_y,norm_f,tmpint as double
 		  dim d as Date
 		  dim mb as MemoryBlock
@@ -3060,37 +3060,37 @@ Inherits Thread
 		        Patient_Name=Trim(NthField(Patient_Name,"^",2))
 		        
 		        'Enter in defaut Struct stuff
-		        redim Structures(9) //make space for 10
+		        redim Structures.Structures(9) //make space for 10
 		        for i=0 to 9
-		          Structures(i)=new RTOG_Structure
-		          Structures(i).Structure_Name="Contour "+str(i+1)
-		          Structures(i).Structure_Format="SCAN-BASED"
-		          Structures(i).Number_Rep="CHARACTER"
-		          Structures(i).Num_of_Scans=nimage
-		          redim Structures(i).Structure_Data(nimage-1)
+		          Structures.Structures(i)=new RTOG_Structure_Class
+		          Structures.Structures(i).Structure_Name="Contour "+str(i+1)
+		          Structures.Structures(i).Structure_Format="SCAN-BASED"
+		          Structures.Structures(i).Number_Rep="CHARACTER"
+		          Structures.Structures(i).Num_of_Scans=nimage
+		          redim Structures.Structures(i).Structure_Data(nimage-1)
 		        next
 		        
-		        //making up some default colors for cadplan structures
-		        Structures(0).scolor=&c00FF00
-		        Structures(0).colour="GREEN"
-		        Structures(1).scolor=&c0000FF
-		        Structures(1).colour="BLUE"
-		        Structures(2).scolor=&cFFFF00
-		        Structures(2).colour="COLOR2"
-		        Structures(3).scolor=&c00FFFF
-		        Structures(3).colour="COLOR3"
-		        Structures(4).scolor=&cFF00FF
-		        Structures(4).colour="COLOR4"
-		        Structures(5).scolor=&c2266FF
-		        Structures(5).colour="COLOR5"
-		        Structures(6).scolor=&c442200
-		        Structures(6).colour="COLOR6"
-		        Structures(7).scolor=&c3333FF
-		        Structures(7).colour="COLOR7"
-		        Structures(8).scolor=&c331111
-		        Structures(8).colour="COLOR8"
-		        Structures(9).scolor=&c332211
-		        Structures(9).colour="COLOR9"
+		        //making up some default colors for cadplan Structures.Structures
+		        Structures.Structures(0).scolor=&c00FF00
+		        Structures.Structures(0).colour="GREEN"
+		        Structures.Structures(1).scolor=&c0000FF
+		        Structures.Structures(1).colour="BLUE"
+		        Structures.Structures(2).scolor=&cFFFF00
+		        Structures.Structures(2).colour="COLOR2"
+		        Structures.Structures(3).scolor=&c00FFFF
+		        Structures.Structures(3).colour="COLOR3"
+		        Structures.Structures(4).scolor=&cFF00FF
+		        Structures.Structures(4).colour="COLOR4"
+		        Structures.Structures(5).scolor=&c2266FF
+		        Structures.Structures(5).colour="COLOR5"
+		        Structures.Structures(6).scolor=&c442200
+		        Structures.Structures(6).colour="COLOR6"
+		        Structures.Structures(7).scolor=&c3333FF
+		        Structures.Structures(7).colour="COLOR7"
+		        Structures.Structures(8).scolor=&c331111
+		        Structures.Structures(8).colour="COLOR8"
+		        Structures.Structures(9).scolor=&c332211
+		        Structures.Structures(9).colour="COLOR9"
 		        
 		        
 		      end'End of 1st image
@@ -3177,8 +3177,8 @@ Inherits Thread
 		      for i=0 to 9
 		        bs.position=1024+i*2
 		        tmpint=bs.ReadInt16 //gives how many points for that contour i on that images (image #0)
-		        Structures(i).Structure_Data(k) =  new  RTOG_Structure_One_Structure//for images k
-		        tmpstruct=new RTOG_Structure_One_Structure
+		        Structures.Structures(i).Structure_Data(k) =  new  RTOG_Structure_Slice//for images k
+		        tmpstruct=new RTOG_Structure_Slice
 		        redim tmpstruct.Segments(0) //only one segment per contour per slice with cadplan
 		        tmpstruct.Segments(0)=new RTOG_Structure_Segment
 		        //fill in the values for that i contour on image 0
@@ -3205,7 +3205,7 @@ Inherits Thread
 		        //put tmpstruct in at the proper place
 		        tmpstruct.scan_Num=k+1
 		        tmpstruct.Z=Scan(k).Z_Value
-		        Structures(i).Structure_Data(k)=tmpstruct
+		        Structures.Structures(i).Structure_Data(k)=tmpstruct
 		      next
 		      '==========End Structure points=========
 		      
@@ -3385,7 +3385,8 @@ Inherits Thread
 		    end
 		  next
 		  redim Scan(scan_count-1)
-		  redim Structures(struct_count-1)
+		  Structures= new RTOG_Structure
+		  redim Structures.Structures(struct_count-1)
 		  if scan_count>0 Then
 		    Read_McGill_RT(f)
 		    PW_Progress_Max=scan_count
@@ -3411,7 +3412,7 @@ Inherits Thread
 		        Plan(plan_count-1).Plan_Name=NthField(f.Item(i).Name,Chr(126)+Chr(126),3)
 		        Plan(plan_count-1).Path=f.Child(f.Item(i).Name)
 		        Plan(plan_count-1).Read_McGill_Plan
-		        Plan(plan_count-1).Plan_Update_DV(Structures)
+		        Plan(plan_count-1).Plan_Update_DV(Structures.Structures)
 		        Plan(plan_count-1).Read_DV_Contraints_File
 		        Plan(plan_count-1).Read_Structure_Files
 		      end
@@ -3423,11 +3424,9 @@ Inherits Thread
 		  
 		  PW_Show=False
 		  
-		  Structures_HR
+		  Structures.Structures_HR
 		  
-		  gVis.contours.Recalculate_Poly
-		  gVis.contours.Recalculate_Images
-		  gVis.contours.Recalculate_Points
+		  
 		  
 		  Try
 		    
@@ -3658,16 +3657,28 @@ Inherits Thread
 		  Dim i,num,scan_num,segment_num,num_points,k,j,w as Integer
 		  Dim ts as TextInputStream
 		  Dim tmpstr,fname,reading(1),rgb_color,zero_test as string
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim S as RTOG_Structure_Segment
 		  Dim p as RTOG_Structure_Point
 		  Dim Z_value as Single
 		  '========================================
 		  
 		  
+		  Structures.X_Offset=Scan(0).X_Offset
+		  Structures.Y_Offset=Scan(0).Y_offset
+		  
+		  Structures.nx=Scan(0).Size_of_Dimension1
+		  Structures.ny=Scan(0).Size_of_Dimension1
+		  Structures.nz=UBound(Scan)+1
+		  
+		  Structures.Res_X=Scan(0).Grid_Units_Width
+		  Structures.Res_Y=Scan(0).Grid_Units_Height
+		  Structures.Res_Z=Scan(0).Slice_Thickness
+		  
+		  
 		  PW_Progress_Max=struct_count-1
 		  for i=0 to struct_count-1
-		    me.Structures(i)= new RTOG_Structure
+		    me.Structures.Structures(i)= new RTOG_Structure_Class
 		    fname=str(i+1)
 		    while len(fname)<3
 		      fname="0"+fname
@@ -3679,55 +3690,55 @@ Inherits Thread
 		      reading = ts.readline.split(":=")
 		      if ubound(reading) >-1 then
 		        if Instr(reading(0),"STRUCTURE NAME" )>0 then
-		          me.Structures(i).Structure_name = trim(reading(1))
-		          me.Structures(i).structure_n=true
+		          me.Structures.Structures(i).Structure_name = trim(reading(1))
+		          me.Structures.Structures(i).structure_n=true
 		        end
 		        if Instr(reading(0),"NUMBER REPRESENTATION" )>0 then
-		          me.Structures(i).number_Rep= trim(reading(1))
-		          me.Structures(i).number_R=true
+		          me.Structures.Structures(i).number_Rep= trim(reading(1))
+		          me.Structures.Structures(i).number_R=true
 		        end
 		        if Instr(reading(0),"STRUCTURE FORMAT" )>0 then
-		          me.Structures(i).structure_format = trim(reading(1))
-		          me.Structures(i).structure_F=true
+		          me.Structures.Structures(i).structure_format = trim(reading(1))
+		          me.Structures.Structures(i).structure_F=true
 		        end
 		        if Instr(reading(0),"NUMBER OF SCANS" )>0 then
-		          me.Structures(i).num_of_scans = val(trim(reading(1)))
-		          me.Structures(i).num_S=true
+		          me.Structures.Structures(i).num_of_scans = val(trim(reading(1)))
+		          me.Structures.Structures(i).num_S=true
 		        end
 		        
 		        if Instr(reading(0),"STRUCTURE TYPE" )>0 then
-		          me.Structures(i).StructureType = (trim(reading(1)))
+		          me.Structures.Structures(i).StructureType = (trim(reading(1)))
 		        end
 		        if Instr(reading(0),"STRUCTURE eDENSITY" )>0 then
-		          me.Structures(i).ElectronDensity = val(trim(reading(1)))
+		          me.Structures.Structures(i).ElectronDensity = val(trim(reading(1)))
 		        end
 		        
 		        if Instr(reading(0),"STRUCTURE DENSITY" )>0 then
 		          if  "YES" = (trim(reading(1))) Then
-		            me.Structures(i).ElectronDensityOverride=true
+		            me.Structures.Structures(i).ElectronDensityOverride=true
 		          else
-		            me.Structures(i).ElectronDensityOverride =False
+		            me.Structures.Structures(i).ElectronDensityOverride =False
 		          end
 		        end
 		        if Instr(reading(0),"STRUCTURE ROINUMBER" )>0 then
-		          me.Structures(i).ROI_Number = val(trim(reading(1)))
+		          me.Structures.Structures(i).ROI_Number = val(trim(reading(1)))
 		        end
 		        if Instr(reading(0),"STRUCTURE COLOUR RGB" )>0 then
 		          rgb_color=trim(reading(1))
-		          me.Structures(i).scolor=rgb(CDbl(NthField(rgb_color,"/",1)),CDbl(NthField(rgb_color,"/",2)),CDbl(NthField(rgb_color,"/",3)))
+		          me.Structures.Structures(i).scolor=rgb(CDbl(NthField(rgb_color,"/",1)),CDbl(NthField(rgb_color,"/",2)),CDbl(NthField(rgb_color,"/",3)))
 		        end
 		      end
 		    loop until ubound(reading) =-1
 		    '===============================================================================
-		    PW_StaticText="Reading : "+me.Structures(i).Structure_name+chr(13)+ "File        : "+fname
+		    PW_StaticText="Reading : "+me.Structures.Structures(i).Structure_name+chr(13)+ "File        : "+fname
 		    PW_Progress=i
 		    
 		    '===============================================================================
 		    tmpstr=ts.readline
 		    num=val(NthField(tmpstr,"""",3))// Number of scans
-		    redim me.Structures(i).structure_Data(num-1)
+		    redim me.Structures.Structures(i).structure_Data(num-1)
 		    for w = 1 to num//Get all points per scan
-		      file = new RTOG_Structure_One_Structure
+		      file = new RTOG_Structure_Slice
 		      tmpstr=ts.readline
 		      tmpstr=NthField(tmpstr,":",2)
 		      scan_num=Val(NthField(tmpstr,",",1))
@@ -3759,9 +3770,9 @@ Inherits Thread
 		      else
 		        redim file.segments(-1)
 		      end // end segments
-		      me.Structures(i).Structure_Data(w-1)=file
-		      me.Structures(i).structure_Data(w-1).scan_Num=scan_num
-		      me.Structures(i).structure_Data(w-1).Z=Z_value
+		      me.Structures.Structures(i).Structure_Data(w-1)=file
+		      me.Structures.Structures(i).structure_Data(w-1).scan_Num=scan_num
+		      me.Structures.Structures(i).structure_Data(w-1).Z=Z_value
 		    next// end get all points
 		    ts.Close
 		    f=f.Parent
@@ -4415,38 +4426,38 @@ Inherits Thread
 		  Dim scan_num, segment_num ,j ,i ,k,num_points, num_struc,num ,pp as integer
 		  Dim p as RTOG_Structure_Point
 		  Dim S as RTOG_Structure_Segment
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  '==================================================
-		  num_struc=ubound(me.Structures)+1
-		  redim structures(num_struc)
-		  structures(num_struc) = new rtOG_Structure
-		  structures(num_struc).file_Num=filenumber
+		  num_struc=ubound(me.Structures.Structures)+1
+		  redim Structures.Structures(num_struc)
+		  Structures.Structures(num_struc) = new RTOG_Structure_Class
+		  Structures.Structures(num_struc).file_Num=filenumber
 		  '========================================
 		  'Set flags to false
-		  structures(num_struc).Number_R=false
-		  structures(num_struc).Num_S=false
-		  structures(num_struc).Structure_F=false
-		  structures(num_struc).Structure_N=false
+		  Structures.Structures(num_struc).Number_R=false
+		  Structures.Structures(num_struc).Num_S=false
+		  Structures.Structures(num_struc).Structure_F=false
+		  Structures.Structures(num_struc).Structure_N=false
 		  '=========================================
 		  'pop variables from 0000 file
 		  do
 		    reading = ts.readline.split(":=")
 		    if ubound(reading) >-1 then
 		      if Instr(reading(0),"STRUCTURE NAME" )>0 then
-		        me.structures(num_struc).Structure_name = trim(reading(1))
-		        me.structures(num_struc).structure_n=true
+		        me.Structures.Structures(num_struc).Structure_name = trim(reading(1))
+		        me.Structures.Structures(num_struc).structure_n=true
 		      end
 		      if Instr(reading(0),"NUMBER REPRESENTATION" )>0 then
-		        me.structures(num_struc).number_Rep= trim(reading(1))
-		        me.structures(num_struc).number_R=true
+		        me.Structures.Structures(num_struc).number_Rep= trim(reading(1))
+		        me.Structures.Structures(num_struc).number_R=true
 		      end
 		      if Instr(reading(0),"STRUCTURE FORMAT" )>0 then
-		        me.structures(num_struc).structure_format = trim(reading(1))
-		        me.Structures(num_struc).structure_F=true
+		        me.Structures.Structures(num_struc).structure_format = trim(reading(1))
+		        me.Structures.Structures(num_struc).structure_F=true
 		      end
 		      if Instr(reading(0),"NUMBER OF SCANS" )>0 then
-		        me.Structures(num_struc).num_of_scans = val(trim(reading(1)))
-		        me.Structures(num_struc).num_S=true
+		        me.Structures.Structures(num_struc).num_of_scans = val(trim(reading(1)))
+		        me.Structures.Structures(num_struc).num_S=true
 		      end
 		    end
 		  loop until ubound(reading) =-1
@@ -4456,26 +4467,26 @@ Inherits Thread
 		    fname="0"+fname
 		  wend
 		  fname="aapm"+fname
-		  PW_StaticText="Reading : Structure "+Structures(num_struc).Structure_name+chr(13)+ "File        : "+fname
+		  PW_StaticText="Reading : Structure "+Structures.Structures(num_struc).Structure_name+chr(13)+ "File        : "+fname
 		  PW_Progress=filenumber
 		  
 		  '==========================================
 		  'error window popup
 		  name="Structure"
 		  
-		  if structures(num_struc).Number_R = false then
+		  if Structures.Structures(num_struc).Number_R = false then
 		    error="Number Representation"
 		    Error_window(name,error,filenumber)
 		  end
-		  if structures(num_struc).Num_S = false then
+		  if Structures.Structures(num_struc).Num_S = false then
 		    error="Number of Scans"
 		    Error_window(name,error,filenumber)
 		  end
-		  if structures(num_struc).Structure_F = false then
+		  if Structures.Structures(num_struc).Structure_F = false then
 		    error="Structure Format"
 		    Error_window(name,error,filenumber)
 		  end
-		  if structures(num_struc).Structure_N = false then
+		  if Structures.Structures(num_struc).Structure_N = false then
 		    error="Structure Name"
 		    Error_window(name,error,filenumber)
 		  end
@@ -4484,14 +4495,14 @@ Inherits Thread
 		  f0=f0.parent.child(fname)//open file
 		  ts_struc=f0.openAsTextFile
 		  tmpstr=ts_struc.readline
-		  num=val(NthField(tmpstr,"""",3))// Number of structures
-		  redim me.Structures(num_struc).structure_Data(num-1)
+		  num=val(NthField(tmpstr,"""",3))// Number of Structures.Structures
+		  redim me.Structures.Structures(num_struc).structure_Data(num-1)
 		  for i = 1 to num//Get all points per structure
 		    tmpstr=ts_struc.readline
 		    scan_num=Val(NthField(tmpstr,"""",3))
 		    tmpstr=ts_struc.readline
 		    segment_num=Val(NthField(tmpstr,"""",3))
-		    file = new RTOG_Structure_One_Structure
+		    file = new RTOG_Structure_Slice
 		    
 		    if segment_num >0 then //if we have segmnets
 		      redim file.Segments(segment_num-1)
@@ -4521,86 +4532,11 @@ Inherits Thread
 		    else
 		      redim file.segments(-1)
 		    end // end segments
-		    me.Structures(num_struc).Structure_Data(i-1)=file
-		    me.Structures(num_struc).structure_Data(i-1).scan_Num=scan_num
-		    me.Structures(num_struc).structure_Data(i-1).Z=me.Scan(scan_num-1).Z_Value
+		    me.Structures.Structures(num_struc).Structure_Data(i-1)=file
+		    me.Structures.Structures(num_struc).structure_Data(i-1).scan_Num=scan_num
+		    me.Structures.Structures(num_struc).structure_Data(i-1).Z=me.Scan(scan_num-1).Z_Value
 		  next// end get all points
 		  ts_struc.Close
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Structures_HR()
-		  //------------------------------------------------------
-		  // Create High Resoultion Structures
-		  //========================================
-		  Dim i,num,scan_num,segment_num,num_points,k,j,w,normal_index as Integer
-		  Dim ts as TextInputStream
-		  Dim tmpstr,fname,reading(1),rgb_color,zero_test as string
-		  Dim file as RTOG_Structure_One_Structure
-		  Dim S as RTOG_Structure_Segment
-		  Dim p as RTOG_Structure_Point
-		  Dim Z_value,temp as Single
-		  Dim needupdate as Boolean
-		  '========================================
-		  
-		  needupdate=False
-		  For i = 0 to UBound(Plan)
-		    for j=0 to UBound(Plan(i).Dose)
-		      if HR_Struc_Z> Plan(i).Dose(j).Depth_Grid Then
-		        HR_Struc_Z=Plan(i).Dose(j).Depth_Grid
-		        needupdate=True
-		      end
-		      if HR_Struc_Y>Plan(i).Dose(j).Vertical_Grid Then
-		        HR_Struc_Y=Plan(i).Dose(j).Vertical_Grid
-		        needupdate=True
-		      end
-		      if HR_Struc_X>Plan(i).Dose(j).Horizontal_Grid Then
-		        HR_Struc_X=Plan(i).Dose(j).Horizontal_Grid
-		        needupdate=True
-		      end
-		    Next
-		  next
-		  
-		  temp=gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value-gRTOG.Scan(0).Z_Value
-		  num=Round(temp/HR_Struc_Z)
-		  HR_Struc_Z =temp/num
-		  
-		  redim Structures_HR(UBound(Structures))
-		  
-		  for i=0 to UBound(Structures)
-		    Structures_HR(i)=new RTOG_Structure
-		    redim me.Structures_HR(i).structure_Data(num-1)
-		    for w = 1 to num//Get all points per scan
-		      file = new RTOG_Structure_One_Structure
-		      scan_num=w
-		      Z_value=gRTOG.Scan(0).Z_Value+(w-1)*HR_Struc_Z
-		      temp=(Z_value-gRTOG.Scan(0).Z_Value)/gRTOG.Scan(0).Slice_Thickness
-		      normal_index=Round(temp)
-		      segment_num=UBound(gRTOG.Structures(i).Structure_Data(normal_index).Segments)+1
-		      if segment_num >0 then //if we have segmnets
-		        redim file.Segments(segment_num-1)
-		        for j=1 to segment_num // Get the points per scan number per segment
-		          num_points=UBound(gRTOG.Structures(i).Structure_Data(normal_index).Segments(j-1).Points)+1
-		          S = new RTOG_Structure_Segment
-		          redim s.Points(num_points-1)
-		          for k = 1 to num_points// read points per segment
-		            p = new RTOG_Structure_Point
-		            p.X=gRTOG.Structures(i).Structure_Data(normal_index).Segments(j-1).Points(k-1).X
-		            p.y=gRTOG.Structures(i).Structure_Data(normal_index).Segments(j-1).Points(k-1).y
-		            p.z=Z_value
-		            s.Points(k-1)=p
-		          next // end read points per segment
-		          file.segments(j-1)=s
-		        next//
-		      else
-		        redim file.segments(-1)
-		      end // end segments
-		      me.Structures_HR(i).Structure_Data(w-1)=file
-		      me.Structures_HR(i).structure_Data(w-1).scan_Num=w
-		      me.Structures_HR(i).structure_Data(w-1).Z=Z_value
-		    next// end get all points
-		  next
 		End Sub
 	#tag EndMethod
 
@@ -4664,9 +4600,9 @@ Inherits Thread
 		      write_McGill_CT_Scan(f,i)
 		    next
 		    
-		    PW_Progress_Max=ubound(Structures)+1
-		    for i=0 to ubound(Structures)
-		      write_mcGill_Structures(Structures(i),f,i)
+		    PW_Progress_Max=ubound(Structures.Structures)+1
+		    for i=0 to ubound(Structures.Structures)
+		      write_mcGill_Structures(Structures.Structures(i),f,i)
 		    next
 		    
 		  end
@@ -4773,7 +4709,7 @@ Inherits Thread
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Write_McGill_Structures(structures as rtoG_Structure, f as folderItem, index as integer)
+		Sub Write_McGill_Structures(structures as rtoG_Structure_class, f as folderItem, index as integer)
 		  '====Write the strucutre files in McGill RT format
 		  Dim fname , line,a,b,c as string
 		  Dim ts as textoutputStream
@@ -4891,9 +4827,9 @@ Inherits Thread
 		    ''write_McGill_CT_Scan(scan(i),f,i)
 		    'next
 		    
-		    PW_Progress_Max=ubound(Structures)+1
-		    for i=0 to ubound(Structures)
-		      write_mcGill_Structures(Structures(i),f,i)
+		    PW_Progress_Max=ubound(Structures.Structures)+1
+		    for i=0 to ubound(Structures.Structures)
+		      write_mcGill_Structures(Structures.Structures(i),f,i)
 		    next
 		    
 		  end
@@ -4969,18 +4905,6 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		HR_Struc_X As Single = 100
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		HR_Struc_Y As Single = 100
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		HR_Struc_Z As Single = 100
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
 		Normalization As Single
 	#tag EndProperty
 
@@ -5044,11 +4968,7 @@ Inherits Thread
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Structures(-1) As RTOG_Structure
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Structures_HR(-1) As RTOG_Structure
+		Structures As RTOG_Structure
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -5088,6 +5008,7 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
+
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -5139,24 +5060,6 @@ Inherits Thread
 			InitialValue="1.2.840.113704.1.111.8064.1334342892.4"
 			Type="String"
 			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HR_Struc_X"
-			Group="Behavior"
-			InitialValue="100"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HR_Struc_Y"
-			Group="Behavior"
-			InitialValue="100"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HR_Struc_Z"
-			Group="Behavior"
-			InitialValue="100"
-			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"

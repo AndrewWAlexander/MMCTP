@@ -11,41 +11,19 @@ Inherits Thread
 		    
 		    if Update_Poly Then
 		      Update_Poly=False
-		      for i=0 to UBound(gRTOG.Structures)
-		        if gRTOG.Structures(i).Loaded_Poly=False Then
-		          
-		          gRTOG.Structures(i).X_Offset=gVis.xoff_set
-		          gRTOG.Structures(i).Y_Offset=gVis.yoff_set 
-		          gRTOG.Structures(i).nx=gVis.nx
-		          gRTOG.Structures(i).ny=gVis.ny
-		          gRTOG.Structures(i).nz=gVis.nz
-		          
-		          gRTOG.Structures(i).Res_X=gVis.scale_width
-		          gRTOG.Structures(i).Res_Y=gVis.scale_height
-		          gRTOG.Structures(i).Res_Z=gVis.scale_thickness
-		          
-		          gRTOG.Structures(i).Make_Polygon
+		      for i=0 to UBound(grtog.Structures.Structures)
+		        if grtog.Structures.Structures(i).Loaded_Poly=False Then
+		          grtog.Structures.Structures(i).Loaded_Poly=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_Data,gRTOG.Structures.Res_X,gRTOG.Structures.Res_Y,gRTOG.Structures.Res_Z)
 		        end
-		        if UBound(gRTOG.Structures_HR)>=i Then
-		          if gRTOG.Structures_HR(i).Loaded_Poly=False Then
-		            
-		            gRTOG.Structures_HR(i).X_Offset=gVis.xoff_set
-		            gRTOG.Structures_HR(i).Y_Offset=gVis.yoff_set 
-		            
-		            gRTOG.Structures_HR(i).nx=gVis.nx*gVis.scale_width/gRTOG.HR_Struc_x
-		            gRTOG.Structures_HR(i).ny=gVis.ny*gVis.scale_height/gRTOG.HR_Struc_y
-		            gRTOG.Structures_HR(i).nz=gVis.nz*gVis.scale_thickness/gRTOG.HR_Struc_Z
-		            
-		            gRTOG.Structures_HR(i).Res_X=gRTOG.HR_Struc_X
-		            gRTOG.Structures_HR(i).Res_Y=gRTOG.HR_Struc_Y
-		            gRTOG.Structures_HR(i).Res_Z=gRTOG.HR_Struc_Z
-		            
-		            gRTOG.Structures_HR(i).Make_Polygon
-		            
+		        if UBound(grtog.Structures.Structures)>=i Then
+		          if grtog.Structures.Structures(i).Loaded_PolyHR=False Then
+		            grtog.Structures.Structures(i).Loaded_PolyHR=grtog.Structures.Structures(i).Make_Polygon(grtog.Structures.Structures(i).Structure_DataHR,gRTOG.Structures.HR_Res_X,gRTOG.Structures.HR_Res_Y,gRTOG.Structures.HR_Res_Z)
 		          end
 		        end
 		      next
 		    end
+		    
+		    
 		    
 		    if Update_Images Then
 		      Update_Images=False
@@ -57,9 +35,14 @@ Inherits Thread
 		    
 		    if Update_Points Then
 		      Update_Points=False
-		      for i=0 to UBound(gRTOG.Structures)
-		        if gRTOG.Structures(i).Loaded_Points=False Then
-		          gRTOG.Structures(i).Make_Array_of_Points
+		      for i=0 to UBound(grtog.Structures.Structures)
+		        if grtog.Structures.Structures(i).Loaded_Points=False and grtog.Structures.Structures(i).Loaded_Poly=True Then
+		          grtog.Structures.Structures(i).Loaded_Points=grtog.Structures.Structures(i).Make_Array_of_Points(grtog.Structures.Structures(i).Structure_Data,gRTOG.Structures.Res_X,gRTOG.Structures.Res_Y,gRTOG.Structures.Res_Z,gRTOG.Structures.nx,gRTOG.Structures.ny,gRTOG.Structures.nz)
+		        end
+		        if UBound(grtog.Structures.Structures(i).Structure_DataHR)>=0 Then
+		          if grtog.Structures.Structures(i).Loaded_PointsHR=False and grtog.Structures.Structures(i).Loaded_PolyHR=True Then
+		            grtog.Structures.Structures(i).Loaded_PointsHR=grtog.Structures.Structures(i).Make_Array_of_Points(grtog.Structures.Structures(i).Structure_DataHR,gRTOG.Structures.hr_Res_X,gRTOG.Structures.HR_Res_Y,gRTOG.Structures.HR_Res_Z,gRTOG.Structures.HRnx,gRTOG.Structures.HRny,gRTOG.Structures.HRnz)
+		          end
 		        end
 		      next
 		    end
@@ -79,7 +62,7 @@ Inherits Thread
 		  // called when the gvis is opened
 		  //---------------------------------------------
 		  Dim i,j,x,y,k,pixx,pixy,start_x,start_y as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_polygon
 		  Dim gg,g_mask as Graphics
 		  Dim p as Picture
@@ -89,11 +72,11 @@ Inherits Thread
 		  
 		  
 		  
-		  for i = 0 to ubound(gRTOG.structures)
+		  for i = 0 to ubound(grtog.Structures.Structures)
 		    if gvis.contour_show(i) and gvis.contour_fill(i) then // Contour show and fill are on
-		      file = new RTOG_Structure_One_Structure
-		      if gRTOG.structures(i).Structure_Data(slice)<> nil then
-		        file = gRTOG.structures(i).structure_Data(slice)
+		      file = new RTOG_Structure_Slice
+		      if grtog.Structures.Structures(i).Structure_Data(slice)<> nil then
+		        file = grtog.Structures.Structures(i).structure_Data(slice)
 		        
 		        p=New Picture(gVis.nx,gVis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		        arepoints_b=False
@@ -201,7 +184,7 @@ Inherits Thread
 		  //--------------------------------------
 		  dim j, cvalue,i,k  as integer
 		  Dim a,tran,pixx,pixy,d1,d2 as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_polygon
 		  Dim one_slice,pic as Picture
 		  Dim one_slice_mask_g,pic_g,pic_mask_g as Graphics
@@ -229,10 +212,10 @@ Inherits Thread
 		    
 		    one_slice_mask_g=one_slice.Mask.Graphics
 		    one_slice_mask_g.ClearRect 0,0,gvis.nx,gvis.ny
-		    for i = 0 to ubound(gRTOG.structures)
+		    for i = 0 to ubound(grtog.Structures.Structures)
 		      if gvis.contour_show(i) and gvis.contour_fill(i) then
 		        paint_b=False
-		        file = gRTOG.structures(i).structure_Data(a)
+		        file = grtog.Structures.Structures(i).structure_Data(a)
 		        for j = 0 to ubound(file.segments)
 		          if j=0 Then
 		            // Make new picture for one structure

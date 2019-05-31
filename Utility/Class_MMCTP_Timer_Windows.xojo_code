@@ -36,10 +36,9 @@ Inherits Timer
 		      gDVH.Update_Window=False
 		    end
 		    
-		    if gDVH.State=0 Then
-		      Window_Treatment.StaticText_DVH.Text=TP_DVH_Text
-		    else
-		      Window_Treatment.StaticText_DVH.Text=""
+		    
+		    if Window_Treatment.StaticText_DVH.Text<>TP_DVH_Text Then
+		       Window_Treatment.StaticText_DVH.Text=TP_DVH_Text 
 		    end
 		    
 		    if Window_Treatment.Canvas_refresh_Image_WL Then

@@ -874,7 +874,7 @@ Protected Class RTOG_Plan
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Plan_Update_DV(ss() as RTOG_Structure)
+		Sub Plan_Update_DV(ss() as RTOG_Structure_Class)
 		  Dim i as Integer
 		  
 		  
@@ -2235,7 +2235,7 @@ Protected Class RTOG_Plan
 		  //---------------------------------------------
 		  
 		  
-		  for i=0 to UBound(gRTOG.structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    g=Path
 		    g=g.Child("Struct"+Str(i+1)+".pnts")
 		    if g.Exists Then
@@ -3247,7 +3247,7 @@ Protected Class RTOG_Plan
 		  Dim g as FolderItem
 		  Dim cmx,cmy,cmz,xp,yp as Single
 		  Dim tmpimage  as Picture
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly as class_Polygon
 		  Dim temp_file,temp_line, pnt_file, line,x_line_temp,x_line_pnt,endline,name as String
 		  Dim ts as TextOutputStream
@@ -3275,10 +3275,10 @@ Protected Class RTOG_Plan
 		  
 		  
 		  
-		  for i=0 to UBound(gRTOG.structures)
+		  for i=0 to UBound(grtog.Structures.Structures)
 		    if Structure_Dose(i).Use_DV_Constraint or Structure_Dose(i).Use_Min_Dose or Structure_Dose(i).AvgDose_Use  Then
 		      //show progress along the way...to know where we are.
-		      //Window_EMET.StaticText_Structure.text="Writing Struture point file : "+gRTOG.Structures(i).Structure_Name
+		      //Window_EMET.StaticText_Structure.text="Writing Struture point file : "+grtog.Structures.Structures(i).Structure_Name
 		      
 		      //for each structure
 		      //initialize the stuff
@@ -3302,7 +3302,7 @@ Protected Class RTOG_Plan
 		      temp_file=""
 		      Structure_Dose(i).Num_Points=0
 		      
-		      name=gRTOG.Structures(i).Structure_Name
+		      name=grtog.Structures.Structures(i).Structure_Name
 		      While InStr(name," ")>0 
 		        name=Replace(name," ","")
 		      wend
@@ -3328,8 +3328,8 @@ Protected Class RTOG_Plan
 		        tmpimage.graphics.penwidth=0
 		        //
 		        
-		        file = new RTOG_Structure_One_Structure
-		        file = gRTOG.structures(i).structure_Data(n)
+		        file = new RTOG_Structure_Slice
+		        file = grtog.Structures.Structures(i).structure_Data(n)
 		        //for each segment of each structure.
 		        for j = 0 to ubound(file.segments)
 		          poly = new class_polygon

@@ -1110,8 +1110,8 @@ End
 		  
 		  ListBox_Struc.deleteAllRows
 		  
-		  for i=0 to ubound(gRTOG.structures)
-		    ListBox_Struc.addrow gRTOG.structures(i).Structure_name
+		  for i=0 to ubound(grtog.Structures.Structures)
+		    ListBox_Struc.addrow grtog.Structures.Structures(i).Structure_name
 		    ListBox_Struc.celltype(i,0)=3
 		    
 		    ListBox_Struc.celltype(i,2)=2
@@ -1121,12 +1121,12 @@ End
 		    ListBox_Struc.cellCheck(i,3)=gVis.contour_show(i)
 		    
 		    ListBox_Struc.celltype(i,4)=2
-		    ListBox_Struc.CellCheck(i,4)=gRTOG.structures(i).ElectronDensityOverride
+		    ListBox_Struc.CellCheck(i,4)=grtog.Structures.Structures(i).ElectronDensityOverride
 		    
-		    ListBox_Struc.Cell(i,5)= Format(gRTOG.structures(i).ElectronDensity,"-0.00##")
+		    ListBox_Struc.Cell(i,5)= Format(grtog.Structures.Structures(i).ElectronDensity,"-0.00##")
 		    ListBox_Struc.celltype(i,5)=3
 		    
-		    ListBox_Struc.Cell(i,6)= gRTOG.structures(i).StructureType
+		    ListBox_Struc.Cell(i,6)= grtog.Structures.Structures(i).StructureType
 		    ListBox_Struc.celltype(i,6)=3
 		    
 		  next
@@ -1178,7 +1178,7 @@ End
 		  Dim pixel_vale as String
 		  Dim g as Graphics
 		  Dim ROI_width,ROI_height,i,j as integer
-		  Dim file as RTOG_Structure_One_Structure
+		  Dim file as RTOG_Structure_Slice
 		  Dim poly, poly2 as Class_Polygon
 		  Dim x,y as Single
 		  //------------------------------------------
@@ -1219,12 +1219,12 @@ End
 		  
 		  
 		  if Window_Contouring.CheckBox_Structures.Value Then //Tanner
-		    for i =0 to UBound(gRTOG.structures)
+		    for i =0 to UBound(grtog.Structures.Structures)
 		      if gVis.contour_show(i) Then
 		        if BevelButton_edit.Value and Edit_Contour_Index=i then
 		          // Do nothing as structure is in temp array and contour has already been painted
 		        else
-		          file = gRTOG.structures(i).structure_Data(slice)
+		          file = grtog.Structures.Structures(i).structure_Data(slice)
 		          for j=0 to UBound(file.Structure_Poly)
 		            
 		            poly2 = new class_polygon'now draw contour out lines
@@ -1739,7 +1739,7 @@ End
 		    tmpcolor=gvis.colour(row)
 		    if(selectcolor(tmpcolor,"Select a color")) then
 		      gvis.colour(row)=tmpcolor
-		      gRTOG.structures(row).scolor=tmpcolor
+		      grtog.Structures.Structures(row).scolor=tmpcolor
 		      Make_Contours
 		    end
 		    
@@ -1757,7 +1757,7 @@ End
 	#tag Event
 		Function CellBackgroundPaint(g As Graphics, row As Integer, column As Integer) As Boolean
 		  if column=1 then
-		    if row <= ubound(gRTOG.structures) and ubound(gvis.colour)>-1 then
+		    if row <= ubound(grtog.Structures.Structures) and ubound(gvis.colour)>-1 then
 		      g.foreColor=gvis.colour(row)
 		      g.fillrect 0,0, g.width, g.height
 		    end
@@ -1773,7 +1773,7 @@ End
 		    Make_Contours
 		    
 		  elseif column=4 Then
-		    gRTOG.Structures(row).ElectronDensityOverride=me.CellCheck(row,column)
+		    grtog.Structures.Structures(row).ElectronDensityOverride=me.CellCheck(row,column)
 		    
 		  end
 		  
@@ -1822,9 +1822,9 @@ End
 		    StructureNum=me.ListIndex
 		    
 		    
-		    if StructureNum>-1 and StructureNum<=UBound(gRTOG.Structures) Then
+		    if StructureNum>-1 and StructureNum<=UBound(grtog.Structures.Structures) Then
 		      
-		      i=MsgBox("Are you sure you want to delete Structure "+chr(13)+gRTOG.Structures(StructureNum).Structure_Name+" ?",1,"Warning")
+		      i=MsgBox("Are you sure you want to delete Structure "+chr(13)+grtog.Structures.Structures(StructureNum).Structure_Name+" ?",1,"Warning")
 		      
 		      if i=1 Then
 		        gRTOG.Delete_Structure(StructureNum)
@@ -1842,9 +1842,9 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=0 then
-		    gRTOG.structures(row).Structure_Name=ListBox_Struc.Cell(row,column)
+		    grtog.Structures.Structures(row).Structure_Name=ListBox_Struc.Cell(row,column)
 		  elseif column=5 Then
-		    gRTOG.Structures(row).ElectronDensity=val(me.Cell(row,column))
+		    grtog.Structures.Structures(row).ElectronDensity=val(me.Cell(row,column))
 		  end
 		End Sub
 	#tag EndEvent
@@ -1935,7 +1935,7 @@ End
 		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
 		  Dim i  as integer
 		  Dim temp as RTOG_Structure_Segment
-		  Dim other_temp as RTOG_Structure_One_Structure
+		  Dim other_temp as RTOG_Structure_Slice
 		  
 		  
 		  select Case hititem.Text
