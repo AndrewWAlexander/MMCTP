@@ -250,6 +250,9 @@ Inherits Thread
 		  PW_Title="Transfering DICOM to McGill RT"
 		  PW_Show=true
 		  
+		  
+		  Structures= new RTOG_Structure
+		  
 		  //-------------IMAGES ----------------------
 		  PW_StaticText="Sorting Images...please wait (this can take a while)"
 		  
@@ -580,6 +583,9 @@ Inherits Thread
 		          // All segments of the contour have been addressed, now time to append data structure to main class
 		          // Determine if we should overwrite or append
 		          id_found=False
+		          if Structures=nil Then
+		            Return
+		          end
 		          for b=0 to UBound(Structures.Structures)
 		            if Structures.Structures(b).Structure_Name=srt.Structure_Name Then
 		              Structures.Structures(b)=srt
@@ -5008,7 +5014,6 @@ Inherits Thread
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
 			Group="Behavior"
-
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
