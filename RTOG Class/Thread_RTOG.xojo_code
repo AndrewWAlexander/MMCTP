@@ -238,8 +238,8 @@ Inherits Thread
 		  //-------------------------------------------------
 		  Dim i,j,nimage,k,h,a,num,x,segnum,num_points,segindex(-1),rtp,z as integer
 		  Dim all_ct,id_found ,found as Boolean
-		  Dim z_index,zvale,zpos(-1),dicom_image_pp_x,dicom_image_pp_y,dicom_image_pp_z,Xx,Yy,scan_thick,scan_thick2  as Single
-		  Dim di_plans(-1),di_dose(-1),points_data,temp,file_dicom,tempss as string
+		  Dim z_index,zvale,zpos(-1),dicom_image_pp_x,dicom_image_pp_y,dicom_image_pp_z,Xx,Yy,scan_thick,scan_thick2,row_x,row_y,row_z,col_x,col_y,col_z  as Single
+		  Dim di_plans(-1),di_dose(-1),points_data,temp,file_dicom,tempss,temp2,temp3 as string
 		  Dim f,g as FolderItem
 		  Dim ppp as RTOG_Plan
 		  Dim image as RTOG_Scan
@@ -261,7 +261,25 @@ Inherits Thread
 		  // Remove all scan which are not Axial
 		  for i= UBound(DICOM.RT_Images) DownTo 0
 		    temp= DICOM.RT_Images(i).Image_Type
+		    temp2=DICOM.RT_Images(i).ImageOrientationPatient
+		    
+		    //row (X) direction cosine of the Image Orientation (Patient) (0020,0037) 
+		    //column (Y) direction cosine of the Image Orientation (Patient) (0020,0037) 
+		    row_x=val(NthField(temp2,"\",1))
+		    row_y=val(NthField(temp2,"\",2))
+		    row_z=val(NthField(temp2,"\",3))
+		    col_x=val(NthField(temp2,"\",4))
+		    col_y=val(NthField(temp2,"\",5))
+		    col_z=val(NthField(temp2,"\",6))
+		    
+		    temp3=DICOM.RT_Images(i).patient_position
+		    
+		    
+		    
 		    if InStr(Temp,"Axial")= 0 Then
+		      
+		      
+		      
 		      Errors.Append "Image "+Temp+" "+DICOM.RT_Images(i).Image_Type+ " removed"
 		      DICOM.RT_Images.Remove i
 		    end
