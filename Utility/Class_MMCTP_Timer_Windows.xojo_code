@@ -10,11 +10,18 @@ Inherits Timer
 		  me.Reset
 		  
 		  
+		  
 		  if UBound(Errors)>-1 Then
-		    ss=Errors(0)
-		    Errors.Remove(0)
+		    ss=""
+		    While UBound(Errors)>-1
+		      ss=ss+Errors(0)+chr(13)
+		      Errors.Remove(0)
+		    Wend
 		    MsgBox ss
 		  end
+		  
+		  
+		  
 		  
 		  if UBound(App.Error_Msg)>-1 Then
 		    ss=""
@@ -38,7 +45,7 @@ Inherits Timer
 		    
 		    
 		    if Window_Treatment.StaticText_DVH.Text<>TP_DVH_Text Then
-		       Window_Treatment.StaticText_DVH.Text=TP_DVH_Text 
+		      Window_Treatment.StaticText_DVH.Text=TP_DVH_Text 
 		    end
 		    
 		    if Window_Treatment.Canvas_refresh_Image_WL Then

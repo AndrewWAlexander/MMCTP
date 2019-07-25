@@ -426,7 +426,7 @@ Protected Class RTOG_Structure_Class
 		          poly.AddPoint pixx,pixy
 		          
 		          if pixx<0 or pixy<0 Then
-		            MsgBox("Pix less than 0")
+		            Errors.append ("Error within Make Polygon, Pix value is less than 0")
 		          end
 		          
 		          for bb=0 to UBound(file.Structure_Poly)
