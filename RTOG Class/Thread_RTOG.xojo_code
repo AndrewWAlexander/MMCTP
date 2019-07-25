@@ -278,7 +278,9 @@ Inherits Thread
 		    
 		    //Check for Axial images
 		    // Axial if row_y, and row_z=0 col_x, col_z=0
-		    if row_y==0 and row_z==0 and col_x==0 and col_z==0 Then
+		    if (row_y=0 and row_z=0 and col_x=0 and col_z=0) Then
+		      // We have axial Images
+		    else
 		      //if InStr(Temp,"Axial")= 0 Then
 		      Errors.Append "Image type for image : "+DICOM.RT_Images(i).MediaStorageSOPInstanceUID+chr(13)+ " can not be determined to be Axial and will be removed"+chr(13)+"Image type : " +Temp
 		      DICOM.RT_Images.Remove i
