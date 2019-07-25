@@ -239,7 +239,7 @@ Inherits Thread
 		  Dim i,j,nimage,k,h,a,num,x,segnum,num_points,segindex(-1),rtp,z as integer
 		  Dim all_ct,id_found ,found as Boolean
 		  Dim z_index,zvale,zpos(-1),dicom_image_pp_x,dicom_image_pp_y,dicom_image_pp_z,Xx,Yy,scan_thick,scan_thick2  as Single
-		  Dim di_plans(-1),di_dose(-1),points_data,temp,file_dicom,tempss as string
+		  Dim di_plans(-1),di_dose(-1),points_data,temp,temp2,file_dicom,tempss as string
 		  Dim f,g as FolderItem
 		  Dim ppp as RTOG_Plan
 		  Dim image as RTOG_Scan
@@ -261,8 +261,11 @@ Inherits Thread
 		  // Remove all scan which are not Axial
 		  for i= UBound(DICOM.RT_Images) DownTo 0
 		    temp= DICOM.RT_Images(i).Image_Type
+		    temp2=DICOM.RT_Images(i).Modality
+		    
+		    
 		    if InStr(Temp,"Axial")= 0 Then
-		      Errors.Append "Image "+Temp+" "+DICOM.RT_Images(i).Image_Type+ " removed"
+		      Errors.Append "Image type for image : "+DICOM.RT_Images(i).MediaStorageSOPInstanceUID+chr(13)+ " can not be determined to be Axial and will be removed"+chr(13)+"Image type : " +Temp
 		      DICOM.RT_Images.Remove i
 		    end
 		  next
@@ -339,7 +342,7 @@ Inherits Thread
 		      ReDim image.voxel(UBound(DICOM.RT_Images(i).PixelData))
 		      for j=0 to Image.Size_of_Dimension2-1
 		        for k=0 to Image.Size_of_Dimension1-1
-		          Image.voxel(k+j*Image.Size_of_Dimension1)=DICOM.RT_Images(i).PixelData(k+j*Image.Size_of_Dimension1)+DICOM.RT_Images(i).rescaleintercept
+		          Image.voxel(k+j*Image.Size_of_Dimension1)=DICOM.RT_Images(i).rescaleslope*DICOM.RT_Images(i).PixelData(k+j*Image.Size_of_Dimension1)+DICOM.RT_Images(i).rescaleintercept
 		        next
 		      next
 		      Scan.Append Image
@@ -4755,7 +4758,7 @@ Inherits Thread
 		  line = """NUMBER OF LEVELS""       " +str(structures.num_of_Scans)
 		  ts.writeline line
 		  for i = 0 to (structures.Num_of_Scans-1)
-		    line = "Image Number and Z Value : " +str(i+1)+" , " +Format(structures.Structure_Data(i).Z,"-#.###")
+		    line = "Image Number and Z Value : " +str(i+1)+" , " +Format(structures.Structure_Data(i).Z,"-#.####")
 		    ts.writeline line
 		    line = """# OF SEGMENTS"" " +str(Ubound(structures.structure_Data(i).Segments)+1)
 		    ts.writeline line
@@ -4770,9 +4773,9 @@ Inherits Thread
 		        line = """# OF POINTS""  " +str(Ubound(structures.structure_Data(i).Segments(j).points)+1)
 		        ts.writeline line
 		        for k=0 to  Ubound(structures.structure_Data(i).Segments(j).points)// for each point in each segment
-		          a=str(structures.structure_Data(i).Segments(j).points(k).x)+","
-		          b=str(structures.structure_Data(i).Segments(j).points(k).y)+","
-		          c=str(structures.structure_Data(i).z)
+		          a=Format(structures.structure_Data(i).Segments(j).points(k).x,"-#.####")+","
+		          b=Format(structures.structure_Data(i).Segments(j).points(k).y,"-#.####")+","
+		          c=Format(structures.structure_Data(i).z,"-#.####")
 		          while len(a)<8
 		            a=chrB(32)+a
 		          wend
