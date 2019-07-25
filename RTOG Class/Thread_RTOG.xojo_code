@@ -239,6 +239,7 @@ Inherits Thread
 		  Dim i,j,nimage,k,h,a,num,x,segnum,num_points,segindex(-1),rtp,z as integer
 		  Dim all_ct,id_found ,found as Boolean
 		  Dim z_index,zvale,zpos(-1),dicom_image_pp_x,dicom_image_pp_y,dicom_image_pp_z,Xx,Yy,scan_thick,scan_thick2  as Single
+		  Dim row_x,row_y,row_z, col_z,col_y,col_x as Single
 		  Dim di_plans(-1),di_dose(-1),points_data,temp,temp2,temp4,temp3,file_dicom,tempss as string
 		  Dim f,g as FolderItem
 		  Dim ppp as RTOG_Plan
@@ -264,7 +265,7 @@ Inherits Thread
 		    temp2=DICOM.RT_Images(i).ImageOrientationPatient
 		    temp3=DICOM.RT_Images(i).Modality
 		    temp4=DICOM.RT_Images(i).patient_position
-
+		    
 		    //row (X) direction cosine of the Image Orientation (Patient) (0020,0037) 
 		    //column (Y) direction cosine of the Image Orientation (Patient) (0020,0037) 
 		    row_x=val(NthField(temp2,"\",1))
@@ -275,8 +276,10 @@ Inherits Thread
 		    col_z=val(NthField(temp2,"\",6))
 		    
 		    
-
-		    if InStr(Temp,"Axial")= 0 Then
+		    //Check for Axial images
+		    // Axial if row_y, and row_z=0 col_x, col_z=0
+		    if row_y==0 and row_z==0 and col_x==0 and col_z==0 Then
+		      //if InStr(Temp,"Axial")= 0 Then
 		      Errors.Append "Image type for image : "+DICOM.RT_Images(i).MediaStorageSOPInstanceUID+chr(13)+ " can not be determined to be Axial and will be removed"+chr(13)+"Image type : " +Temp
 		      DICOM.RT_Images.Remove i
 		    end
