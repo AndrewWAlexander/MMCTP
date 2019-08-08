@@ -3694,96 +3694,101 @@ Inherits Thread
 		    wend
 		    fname=fname+".struct"
 		    f=f.Child(fname)
-		    ts=f.OpenAsTextFile
-		    do
-		      reading = ts.readline.split(":=")
-		      if ubound(reading) >-1 then
-		        if Instr(reading(0),"STRUCTURE NAME" )>0 then
-		          me.Structures.Structures(i).Structure_name = trim(reading(1))
-		          me.Structures.Structures(i).structure_n=true
-		        end
-		        if Instr(reading(0),"NUMBER REPRESENTATION" )>0 then
-		          me.Structures.Structures(i).number_Rep= trim(reading(1))
-		          me.Structures.Structures(i).number_R=true
-		        end
-		        if Instr(reading(0),"STRUCTURE FORMAT" )>0 then
-		          me.Structures.Structures(i).structure_format = trim(reading(1))
-		          me.Structures.Structures(i).structure_F=true
-		        end
-		        if Instr(reading(0),"NUMBER OF SCANS" )>0 then
-		          me.Structures.Structures(i).num_of_scans = val(trim(reading(1)))
-		          me.Structures.Structures(i).num_S=true
-		        end
-		        
-		        if Instr(reading(0),"STRUCTURE TYPE" )>0 then
-		          me.Structures.Structures(i).StructureType = (trim(reading(1)))
-		        end
-		        if Instr(reading(0),"STRUCTURE eDENSITY" )>0 then
-		          me.Structures.Structures(i).ElectronDensity = val(trim(reading(1)))
-		        end
-		        
-		        if Instr(reading(0),"STRUCTURE DENSITY" )>0 then
-		          if  "YES" = (trim(reading(1))) Then
-		            me.Structures.Structures(i).ElectronDensityOverride=true
-		          else
-		            me.Structures.Structures(i).ElectronDensityOverride =False
+		    if f.Exists=False Then
+		      
+		      Errors.Append "Error within Read McGill Structures this file does not exist "+f.Name
+		    else
+		      ts=f.OpenAsTextFile
+		      do
+		        reading = ts.readline.split(":=")
+		        if ubound(reading) >-1 then
+		          if Instr(reading(0),"STRUCTURE NAME" )>0 then
+		            me.Structures.Structures(i).Structure_name = trim(reading(1))
+		            me.Structures.Structures(i).structure_n=true
+		          end
+		          if Instr(reading(0),"NUMBER REPRESENTATION" )>0 then
+		            me.Structures.Structures(i).number_Rep= trim(reading(1))
+		            me.Structures.Structures(i).number_R=true
+		          end
+		          if Instr(reading(0),"STRUCTURE FORMAT" )>0 then
+		            me.Structures.Structures(i).structure_format = trim(reading(1))
+		            me.Structures.Structures(i).structure_F=true
+		          end
+		          if Instr(reading(0),"NUMBER OF SCANS" )>0 then
+		            me.Structures.Structures(i).num_of_scans = val(trim(reading(1)))
+		            me.Structures.Structures(i).num_S=true
+		          end
+		          
+		          if Instr(reading(0),"STRUCTURE TYPE" )>0 then
+		            me.Structures.Structures(i).StructureType = (trim(reading(1)))
+		          end
+		          if Instr(reading(0),"STRUCTURE eDENSITY" )>0 then
+		            me.Structures.Structures(i).ElectronDensity = val(trim(reading(1)))
+		          end
+		          
+		          if Instr(reading(0),"STRUCTURE DENSITY" )>0 then
+		            if  "YES" = (trim(reading(1))) Then
+		              me.Structures.Structures(i).ElectronDensityOverride=true
+		            else
+		              me.Structures.Structures(i).ElectronDensityOverride =False
+		            end
+		          end
+		          if Instr(reading(0),"STRUCTURE ROINUMBER" )>0 then
+		            me.Structures.Structures(i).ROI_Number = val(trim(reading(1)))
+		          end
+		          if Instr(reading(0),"STRUCTURE COLOUR RGB" )>0 then
+		            rgb_color=trim(reading(1))
+		            me.Structures.Structures(i).scolor=rgb(CDbl(NthField(rgb_color,"/",1)),CDbl(NthField(rgb_color,"/",2)),CDbl(NthField(rgb_color,"/",3)))
 		          end
 		        end
-		        if Instr(reading(0),"STRUCTURE ROINUMBER" )>0 then
-		          me.Structures.Structures(i).ROI_Number = val(trim(reading(1)))
-		        end
-		        if Instr(reading(0),"STRUCTURE COLOUR RGB" )>0 then
-		          rgb_color=trim(reading(1))
-		          me.Structures.Structures(i).scolor=rgb(CDbl(NthField(rgb_color,"/",1)),CDbl(NthField(rgb_color,"/",2)),CDbl(NthField(rgb_color,"/",3)))
-		        end
-		      end
-		    loop until ubound(reading) =-1
-		    '===============================================================================
-		    PW_StaticText="Reading : "+me.Structures.Structures(i).Structure_name+chr(13)+ "File        : "+fname
-		    PW_Progress=i
-		    
-		    '===============================================================================
-		    tmpstr=ts.readline
-		    num=val(NthField(tmpstr,"""",3))// Number of scans
-		    redim me.Structures.Structures(i).structure_Data(num-1)
-		    for w = 1 to num//Get all points per scan
-		      file = new RTOG_Structure_Slice
+		      loop until ubound(reading) =-1
+		      '===============================================================================
+		      PW_StaticText="Reading : "+me.Structures.Structures(i).Structure_name+chr(13)+ "File        : "+fname
+		      PW_Progress=i
+		      
+		      '===============================================================================
 		      tmpstr=ts.readline
-		      tmpstr=NthField(tmpstr,":",2)
-		      scan_num=Val(NthField(tmpstr,",",1))
-		      Z_value=Val(NthField(tmpstr,",",2))
-		      tmpstr=ts.readline
-		      segment_num=Val(NthField(tmpstr,"""",3))
-		      if segment_num >0 then //if we have segmnets
-		        redim file.Segments(segment_num-1)
-		        for j=1 to segment_num // Get the points per scan number per segment
-		          tmpstr=ts.readline
-		          num_points=Val(NthField(tmpstr,"""",3))
-		          S = new RTOG_Structure_Segment
-		          redim s.Points(num_points-1)
-		          for k = 1 to num_points// read points per segment
+		      num=val(NthField(tmpstr,"""",3))// Number of scans
+		      redim me.Structures.Structures(i).structure_Data(num-1)
+		      for w = 1 to num//Get all points per scan
+		        file = new RTOG_Structure_Slice
+		        tmpstr=ts.readline
+		        tmpstr=NthField(tmpstr,":",2)
+		        scan_num=Val(NthField(tmpstr,",",1))
+		        Z_value=Val(NthField(tmpstr,",",2))
+		        tmpstr=ts.readline
+		        segment_num=Val(NthField(tmpstr,"""",3))
+		        if segment_num >0 then //if we have segmnets
+		          redim file.Segments(segment_num-1)
+		          for j=1 to segment_num // Get the points per scan number per segment
 		            tmpstr=ts.readline
-		            p = new RTOG_Structure_Point
-		            zero_test=(NthField(tmpstr,",",1))'only here because of bad files which put zeros infront of values
-		            if asc(zero_test)= 0 then'only here because of bad files which put zeros infront of values
-		              p.x = val(right(zero_test,6))'only here because of bad files which put zeros infront of values
-		            else
-		              p.X=Val(NthField(tmpstr,",",1))
-		            end
-		            p.y=Val(NthField(tmpstr,",",2))
-		            p.z=Val(NthField(tmpstr,",",3))
-		            s.Points(k-1)=p
-		          next // end read points per segment
-		          file.segments(j-1)=s
-		        next//
-		      else
-		        redim file.segments(-1)
-		      end // end segments
-		      me.Structures.Structures(i).Structure_Data(w-1)=file
-		      me.Structures.Structures(i).structure_Data(w-1).scan_Num=scan_num
-		      me.Structures.Structures(i).structure_Data(w-1).Z=Z_value
-		    next// end get all points
-		    ts.Close
+		            num_points=Val(NthField(tmpstr,"""",3))
+		            S = new RTOG_Structure_Segment
+		            redim s.Points(num_points-1)
+		            for k = 1 to num_points// read points per segment
+		              tmpstr=ts.readline
+		              p = new RTOG_Structure_Point
+		              zero_test=(NthField(tmpstr,",",1))'only here because of bad files which put zeros infront of values
+		              if asc(zero_test)= 0 then'only here because of bad files which put zeros infront of values
+		                p.x = val(right(zero_test,6))'only here because of bad files which put zeros infront of values
+		              else
+		                p.X=Val(NthField(tmpstr,",",1))
+		              end
+		              p.y=Val(NthField(tmpstr,",",2))
+		              p.z=Val(NthField(tmpstr,",",3))
+		              s.Points(k-1)=p
+		            next // end read points per segment
+		            file.segments(j-1)=s
+		          next//
+		        else
+		          redim file.segments(-1)
+		        end // end segments
+		        me.Structures.Structures(i).Structure_Data(w-1)=file
+		        me.Structures.Structures(i).structure_Data(w-1).scan_Num=scan_num
+		        me.Structures.Structures(i).structure_Data(w-1).Z=Z_value
+		      next// end get all points
+		      ts.Close
+		    end
 		    f=f.Parent
 		  next
 		End Sub
