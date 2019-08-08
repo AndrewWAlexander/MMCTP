@@ -2582,6 +2582,10 @@ Inherits Thread
 		  f=gPref.BEAMnrc_fi
 		  f=f.Child("DOS-Settings.txt")
 		  
+		  if f=nil Then
+		    Return
+		  end
+		  
 		  if f.Exists=False Then
 		    Return
 		  end
