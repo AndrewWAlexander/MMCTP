@@ -3,7 +3,6 @@ Begin Window Window_Configurations_Shell
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Configurations_Shell
    HasBackColor    =   False
    Height          =   779
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -52,6 +51,7 @@ Begin Window Window_Configurations_Shell
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   8
+      Transparent     =   False
       Underline       =   False
       Value           =   3
       Visible         =   True
@@ -239,6 +239,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   125
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -247,7 +248,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_ShellKill_Refresh
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Kill all shell tasks"
          Default         =   False
@@ -271,6 +272,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   699
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   159
@@ -278,7 +280,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_Shell_Restart_Refresh
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Restart current shell task"
          Default         =   False
@@ -302,6 +304,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   699
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   177
@@ -309,7 +312,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_Clear_Refresh
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Clear"
          Default         =   False
@@ -333,6 +336,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   699
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -376,6 +380,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -443,6 +448,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   205
@@ -471,6 +477,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   72
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   945
@@ -512,6 +519,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -555,6 +563,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   93
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -598,6 +607,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   121
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -641,6 +651,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   120
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -684,6 +695,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   150
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -727,6 +739,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   150
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -770,6 +783,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   209
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -813,6 +827,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   209
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -856,6 +871,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   237
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1229,6 +1245,7 @@ Begin Window Window_Configurations_Shell
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   183
+            Transparent     =   False
             Visible         =   True
             Width           =   658
          End
@@ -1320,6 +1337,7 @@ Begin Window Window_Configurations_Shell
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   474
+            Transparent     =   False
             Visible         =   True
             Width           =   658
          End
@@ -1361,6 +1379,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   522
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1404,6 +1423,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   592
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1517,6 +1537,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   209
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1595,6 +1616,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   237
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1653,6 +1675,7 @@ Begin Window Window_Configurations_Shell
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   275
+            Transparent     =   False
             Visible         =   True
             Width           =   658
          End
@@ -1764,6 +1787,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   304
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1807,6 +1831,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   304
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1885,6 +1910,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   491
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1928,7 +1954,7 @@ Begin Window Window_Configurations_Shell
          Begin PushButton PushButton_ConnectionTest
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Connection Test"
             Default         =   False
@@ -1952,6 +1978,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   149
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   126
@@ -2029,6 +2056,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   557
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2093,6 +2121,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2122,6 +2151,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2151,6 +2181,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2180,6 +2211,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   358
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   329
@@ -2207,6 +2239,7 @@ Begin Window Window_Configurations_Shell
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   409
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -2236,6 +2269,7 @@ Begin Window Window_Configurations_Shell
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   384
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -2314,6 +2348,7 @@ Begin Window Window_Configurations_Shell
                TextSize        =   12.0
                TextUnit        =   0
                Top             =   382
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -2322,7 +2357,7 @@ Begin Window Window_Configurations_Shell
             Begin PushButton PushButton_ConnectionTest_FTP
                AutoDeactivate  =   True
                Bold            =   False
-               ButtonStyle     =   "0"
+               ButtonStyle     =   0
                Cancel          =   False
                Caption         =   "Connection Test"
                Default         =   False
@@ -2346,6 +2381,7 @@ Begin Window Window_Configurations_Shell
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   408
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   126
@@ -2404,6 +2440,7 @@ Begin Window Window_Configurations_Shell
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   338
+            Transparent     =   False
             Visible         =   True
             Width           =   658
          End
@@ -2469,6 +2506,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   408
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   157
@@ -2546,6 +2584,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   440
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2624,6 +2663,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   407
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2691,6 +2731,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   363
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   157
@@ -2733,6 +2774,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   208
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2765,8 +2807,9 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   121
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   61
          End
@@ -2843,6 +2886,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   491
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2886,6 +2930,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   440
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2930,7 +2975,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_ShellKillallFTP
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Kill all shell tasks"
          Default         =   False
@@ -2954,6 +2999,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   42
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   159
@@ -3066,6 +3112,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   690
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -3109,6 +3156,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   655
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -3167,6 +3215,7 @@ Begin Window Window_Configurations_Shell
          TabPanelIndex   =   4
          TabStop         =   True
          Top             =   632
+         Transparent     =   False
          Visible         =   True
          Width           =   658
       End
@@ -3229,6 +3278,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   80
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1069
@@ -3270,7 +3320,7 @@ Begin Window Window_Configurations_Shell
          Begin PushButton PushButton_Shell_RestartFTPTask
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Restart current shell task"
             Default         =   False
@@ -3294,6 +3344,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   260
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   177
@@ -3463,6 +3514,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   294
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1069
@@ -3509,6 +3561,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   318
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3518,7 +3571,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_ClearFTP
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Clear Log"
          Default         =   False
@@ -3542,6 +3595,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   42
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   101
@@ -3584,7 +3638,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_ShellKill_Run
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Kill all shell tasks"
          Default         =   False
@@ -3608,6 +3662,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   159
@@ -3615,7 +3670,7 @@ Begin Window Window_Configurations_Shell
       Begin PushButton PushButton_Clear_Run
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Clear log"
          Default         =   False
@@ -3639,6 +3694,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -3667,6 +3723,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   89
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1063
@@ -3813,7 +3870,7 @@ Begin Window Window_Configurations_Shell
          Begin PushButton PushButton_Shell_Restart_Run
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Restart current shell task"
             Default         =   False
@@ -3837,6 +3894,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   176
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   177
@@ -3866,6 +3924,7 @@ Begin Window Window_Configurations_Shell
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   234
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1063
@@ -3912,6 +3971,7 @@ Begin Window Window_Configurations_Shell
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   258
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4757,46 +4817,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DoNothing"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -4813,143 +4870,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name_Change"
 		Group="Behavior"
-		InitialValue="false"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -4960,31 +4917,148 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoNothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name_Change"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="save_linac"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_Login"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -4992,6 +5066,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -4999,7 +5074,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -5007,5 +5082,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

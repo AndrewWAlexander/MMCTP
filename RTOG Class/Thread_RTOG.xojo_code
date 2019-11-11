@@ -5009,78 +5009,103 @@ Inherits Thread
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="changed"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Date_Created"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Age"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Birthdate"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_ImageOrientationPatient"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Physician"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Sex"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Study_Date"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Study_Description"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_Study_Time"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DoseNoAtIso"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DosePrescription"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FrameOfReferenceUID"
+			Visible=false
 			Group="Behavior"
 			InitialValue="1.2.840.113704.1.111.8064.1334342892.4"
 			Type="String"
@@ -5092,23 +5117,27 @@ Inherits Thread
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Normalization"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PatientPosition"
+			Visible=false
 			Group="Behavior"
 			InitialValue="HFS"
 			Type="String"
@@ -5116,6 +5145,7 @@ Inherits Thread
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Patient_ID"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="string"
@@ -5123,13 +5153,17 @@ Inherits Thread
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Patient_Name"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Patient_Surname"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -5139,28 +5173,37 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="5"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ReferencedStructureSetSequence"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="seriesdescription"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SeriesInstanceUID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SeriesNumber"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -5170,16 +5213,21 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StudyID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StudyInstanceUID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -5187,8 +5235,9 @@ Inherits Thread
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

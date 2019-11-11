@@ -327,25 +327,35 @@ Inherits Thread
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Contour_Axial"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Current_Previous_EndTime"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Current_Run_Start"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_Axial"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -353,14 +363,15 @@ Inherits Thread
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Priority"
@@ -368,12 +379,15 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="5"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Run_Now"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StackSize"
@@ -381,36 +395,47 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Update"
+			Visible=false
 			Group="Behavior"
 			InitialValue="true"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Update_Images"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Update_Points"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Update_Poly"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

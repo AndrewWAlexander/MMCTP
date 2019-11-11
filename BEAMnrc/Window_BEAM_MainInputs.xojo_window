@@ -3,7 +3,6 @@ Begin Window Window_BEAM_MainInputs
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   1
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_BEAM_MainInputs
    HasBackColor    =   False
    Height          =   715
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -64,6 +63,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   160
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -91,6 +91,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Bremstrahlung Splitting"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -130,6 +131,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   20
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -156,6 +158,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -190,6 +193,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Untitled"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -224,6 +228,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Global electron cutoff energy - ECUT (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -239,7 +244,7 @@ Begin Window Window_BEAM_MainInputs
    Begin PushButton PushButton_Close
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Close"
       Default         =   False
@@ -263,6 +268,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   675
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   135
@@ -289,6 +295,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Global photon cutoff energy - PCUT (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -339,6 +346,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   194
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -366,6 +374,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Electron range rejection"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -405,6 +414,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   228
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -447,6 +457,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   271
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -474,6 +485,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Z of front of 1st CM to reference plane (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -524,6 +536,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   376
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -532,7 +545,7 @@ Begin Window Window_BEAM_MainInputs
    Begin PushButton PushButton_Reload
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Reload default"
       Default         =   False
@@ -556,6 +569,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   675
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   135
@@ -598,6 +612,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   305
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -625,6 +640,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   18
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Initial RNG seed 1"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -675,6 +691,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   342
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -702,6 +719,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Initial RNG seed 2"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -736,6 +754,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Run Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -775,6 +794,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   142
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -782,7 +802,7 @@ Begin Window Window_BEAM_MainInputs
    Begin PushButton PushButton_EGSnrc
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Edit EGSnrc Inputs"
       Default         =   False
@@ -806,6 +826,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   675
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   159
@@ -837,6 +858,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   126
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -863,6 +885,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Source Number"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -902,6 +925,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   271
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -928,6 +952,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Score Last Z"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -962,6 +987,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "IWATCH Output"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1001,6 +1027,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   74
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -1032,6 +1059,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   176
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -1058,6 +1086,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Output Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1097,6 +1126,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   85
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -1123,6 +1153,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   33
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Incident particle"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1162,6 +1193,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   108
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -1188,6 +1220,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "RNG Seed Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1222,6 +1255,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   36
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Medium"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1272,6 +1306,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   46
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1304,6 +1339,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   203
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -1330,6 +1366,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   39
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Store Data Array"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1369,6 +1406,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   237
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   351
@@ -1395,6 +1433,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   41
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "LATCH Options"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1445,6 +1484,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   376
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1472,6 +1512,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   43
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Max CPU Hours"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1511,6 +1552,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   54
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -1537,6 +1579,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   44
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Split electrons or photons at CM"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1571,6 +1614,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   45
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Global electron cutoff (ESAVE_GLOBAL, range rejection, MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1610,6 +1654,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   305
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -1636,6 +1681,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   47
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Photon forcing"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1651,7 +1697,7 @@ Begin Window Window_BEAM_MainInputs
    Begin PushButton PushButton_Save
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Save as default"
       Default         =   False
@@ -1675,6 +1721,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   675
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   135
@@ -1706,6 +1753,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   342
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   262
@@ -1732,6 +1780,7 @@ Begin Window Window_BEAM_MainInputs
       Selectable      =   False
       TabIndex        =   49
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Number of scoring planes"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1768,6 +1817,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   410
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   1121
@@ -1782,6 +1832,7 @@ Begin Window Window_BEAM_MainInputs
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1814,6 +1865,7 @@ Begin Window Window_BEAM_MainInputs
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   443
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1864,6 +1916,7 @@ Begin Window Window_BEAM_MainInputs
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   443
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1908,6 +1961,7 @@ Begin Window Window_BEAM_MainInputs
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   605
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1917,7 +1971,7 @@ Begin Window Window_BEAM_MainInputs
    Begin PushButton PushButton_egslst
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Open egslst file"
       Default         =   False
@@ -1941,6 +1995,7 @@ Begin Window Window_BEAM_MainInputs
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   675
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   135
@@ -2618,40 +2673,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -2668,137 +2726,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2809,10 +2773,108 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="popupbrem"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -2820,14 +2882,15 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2835,6 +2898,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2842,7 +2906,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2850,5 +2914,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -3,7 +3,6 @@ Begin Window Window_Cutout_Options
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   1
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Cutout_Options
    HasBackColor    =   False
    Height          =   719
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -29,7 +28,7 @@ Begin Window Window_Cutout_Options
    Begin PushButton PushButton_Close
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Close"
       Default         =   False
@@ -53,6 +52,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   687
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -81,6 +81,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   374
@@ -111,6 +112,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   65
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   150
@@ -177,6 +179,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   91
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   150
@@ -289,6 +292,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   36
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -332,6 +336,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   124
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -397,6 +402,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   304
@@ -508,6 +514,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   93
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -586,6 +593,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   123
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -618,6 +626,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   37
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   150
@@ -695,6 +704,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   63
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -725,6 +735,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   171
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   689
@@ -801,6 +812,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   277
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -914,6 +926,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   193
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -992,6 +1005,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   222
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1024,6 +1038,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   251
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -1136,6 +1151,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   222
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1179,6 +1195,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   193
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1222,6 +1239,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   307
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1300,6 +1318,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   334
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1413,6 +1432,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   367
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1456,6 +1476,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   192
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1569,6 +1590,7 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   400
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1578,7 +1600,7 @@ Begin Window Window_Cutout_Options
    Begin PushButton PushButton_Run
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Run"
       Default         =   False
@@ -1602,6 +1624,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   470
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   111
@@ -1633,6 +1656,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   537
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   160
@@ -1699,15 +1723,16 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   537
+      Transparent     =   False
       Underline       =   False
-      Value           =   False
+      Value           =   "False"
       Visible         =   True
       Width           =   119
    End
    Begin PushButton PushButton_ReloadDefault
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Reload default"
       Default         =   False
@@ -1731,6 +1756,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   497
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   111
@@ -1759,6 +1785,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   448
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   151
@@ -1789,8 +1816,9 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   493
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   122
       End
@@ -1821,8 +1849,9 @@ Begin Window Window_Cutout_Options
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   471
+         Transparent     =   False
          Underline       =   False
-         Value           =   True
+         Value           =   "True"
          Visible         =   True
          Width           =   122
       End
@@ -1854,8 +1883,9 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   576
+      Transparent     =   False
       Underline       =   False
-      Value           =   False
+      Value           =   "False"
       Visible         =   True
       Width           =   292
    End
@@ -1932,6 +1962,7 @@ Begin Window Window_Cutout_Options
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   607
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1964,8 +1995,9 @@ Begin Window Window_Cutout_Options
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   647
+      Transparent     =   False
       Underline       =   False
-      Value           =   False
+      Value           =   "False"
       Visible         =   True
       Width           =   183
    End
@@ -2329,46 +2361,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="beam_index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -2385,137 +2414,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2526,10 +2461,116 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="beam_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="pop_refresh"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -2537,14 +2578,15 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2552,6 +2594,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2559,7 +2602,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2567,5 +2610,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

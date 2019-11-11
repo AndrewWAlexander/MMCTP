@@ -3,7 +3,6 @@ Begin Window Window_EMET_Run
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_EMET_Run
    HasBackColor    =   False
    Height          =   759
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -52,6 +51,7 @@ Begin Window Window_EMET_Run
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   11
+      Transparent     =   False
       Underline       =   False
       Value           =   1
       Visible         =   True
@@ -68,7 +68,7 @@ Begin Window Window_EMET_Run
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   True
+         EraseBackground =   "True"
          Graph_Title     =   ""
          Height          =   634
          HelpTag         =   ""
@@ -198,6 +198,7 @@ Begin Window Window_EMET_Run
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   54
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -206,7 +207,7 @@ Begin Window Window_EMET_Run
       Begin PushButton PushButton_SADVH
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "saDVH"
          Default         =   False
@@ -230,6 +231,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -272,6 +274,7 @@ Begin Window Window_EMET_Run
          TextSize        =   15.0
          TextUnit        =   0
          Top             =   86
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -315,7 +318,7 @@ Begin Window Window_EMET_Run
       Begin PushButton PushButton_OutputClear1
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Clear"
          Default         =   False
@@ -339,6 +342,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   86
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -386,6 +390,7 @@ Begin Window Window_EMET_Run
          TextSize        =   11.0
          TextUnit        =   0
          Top             =   49
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -415,6 +420,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   521
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   255
@@ -442,6 +448,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   542
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -471,6 +478,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   569
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -500,6 +508,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   596
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -529,6 +538,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   650
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -558,6 +568,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   676
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -587,6 +598,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   623
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -611,6 +623,7 @@ Begin Window Window_EMET_Run
          TabPanelIndex   =   3
          TabStop         =   True
          Top             =   46
+         Transparent     =   False
          Visible         =   True
          Width           =   35
       End
@@ -673,6 +686,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   199
@@ -749,6 +763,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -781,8 +796,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   132
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   94
          End
@@ -824,6 +840,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   131
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -856,8 +873,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   158
+            Transparent     =   False
             Underline       =   False
-            Value           =   True
+            Value           =   "True"
             Visible         =   True
             Width           =   187
          End
@@ -969,6 +987,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   207
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1012,6 +1031,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   182
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1055,6 +1075,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   233
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1120,6 +1141,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   211
@@ -1196,6 +1218,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   131
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1239,6 +1262,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   100
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1317,6 +1341,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   71
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1416,6 +1441,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   179
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1445,6 +1471,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   179
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1474,6 +1501,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   179
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1503,6 +1531,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   158
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1532,6 +1561,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   207
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1561,6 +1591,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   207
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1610,6 +1641,7 @@ Begin Window Window_EMET_Run
          TextSize        =   11.0
          TextUnit        =   0
          Top             =   278
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1639,6 +1671,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   185
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   183
@@ -1666,6 +1699,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   373
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1709,6 +1743,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   405
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1738,6 +1773,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   341
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1767,6 +1803,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   309
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1796,6 +1833,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   277
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1825,6 +1863,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   245
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1854,6 +1893,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   213
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1884,6 +1924,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   185
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   259
@@ -1925,6 +1966,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   397
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2038,6 +2080,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   364
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2081,6 +2124,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   332
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2159,6 +2203,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   298
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2272,6 +2317,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   269
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2315,6 +2361,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   213
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2382,8 +2429,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   449
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   170
          End
@@ -2414,8 +2462,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   424
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   113
          End
@@ -2457,6 +2506,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2487,6 +2537,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   156
@@ -2517,8 +2568,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   185
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   84
          End
@@ -2560,7 +2612,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_OutputClearJaw
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Clear"
             Default         =   False
@@ -2584,6 +2636,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   209
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   70
@@ -2591,7 +2644,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_Jaw_Kill
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Kill"
             Default         =   False
@@ -2615,6 +2668,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   208
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   58
@@ -2622,7 +2676,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_SAJAWDVH
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "sa-Jaw-DVH"
             Default         =   False
@@ -2646,6 +2700,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   71
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   107
@@ -2668,6 +2723,7 @@ Begin Window Window_EMET_Run
             TabPanelIndex   =   4
             TabStop         =   True
             Top             =   72
+            Transparent     =   False
             Visible         =   False
             Width           =   35
          End
@@ -2709,6 +2765,7 @@ Begin Window Window_EMET_Run
             TextSize        =   15.0
             TextUnit        =   0
             Top             =   105
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2752,6 +2809,7 @@ Begin Window Window_EMET_Run
             TextSize        =   15.0
             TextUnit        =   0
             Top             =   156
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2760,7 +2818,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_NLO_Save1
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Save Run"
             Default         =   False
@@ -2784,6 +2842,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   237
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   105
@@ -2813,13 +2872,14 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   64
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   552
          Begin PushButton PushButton_GradDVH_LoadDD
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Load DD"
             Default         =   False
@@ -2843,6 +2903,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   88
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   68
@@ -2850,7 +2911,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_GradDVH_OptKill
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Kill"
             Default         =   False
@@ -2874,6 +2935,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   88
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   44
@@ -2881,7 +2943,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_GradDVH
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Run GradDVH"
             Default         =   False
@@ -2905,6 +2967,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   88
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   118
@@ -2912,7 +2975,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_GradDVH_Save
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Save Run"
             Default         =   False
@@ -2936,6 +2999,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   88
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   68
@@ -2951,6 +3015,7 @@ Begin Window Window_EMET_Run
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -2983,6 +3048,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   125
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2993,7 +3059,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_GradDVH_OutputClear
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Clear"
             Default         =   False
@@ -3017,6 +3083,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   88
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   48
@@ -3046,6 +3113,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   173
@@ -3073,6 +3141,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   96
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3102,6 +3171,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   123
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3131,6 +3201,7 @@ Begin Window Window_EMET_Run
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   153
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3160,6 +3231,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   69
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3190,6 +3262,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -3219,6 +3292,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -3248,6 +3322,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -3277,6 +3352,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -3306,6 +3382,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -3338,6 +3415,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   695
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   163
@@ -3366,6 +3444,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   695
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   317
@@ -3393,6 +3472,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   702
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3422,6 +3502,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   702
+            Transparent     =   False
             Underline       =   False
             Value           =   True
             Visible         =   True
@@ -3454,8 +3535,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   702
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   92
          End
@@ -3463,7 +3545,7 @@ Begin Window Window_EMET_Run
       Begin PushButton PushButton_LoadDVHs
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Reload DVHs"
          Default         =   False
@@ -3487,6 +3569,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   696
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   94
@@ -3515,6 +3598,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   220
@@ -3556,6 +3640,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   69
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3669,6 +3754,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   94
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3712,6 +3798,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   121
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3790,6 +3877,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   146
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3868,6 +3956,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   175
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3981,6 +4070,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   206
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4011,6 +4101,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   87
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1152
@@ -4076,6 +4167,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   114
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   168
@@ -4107,8 +4199,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   114
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   100
          End
@@ -4139,6 +4232,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   113
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   168
@@ -4170,8 +4264,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   113
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   109
          End
@@ -4202,6 +4297,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   113
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   168
@@ -4233,8 +4329,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   113
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   100
          End
@@ -4249,6 +4346,7 @@ Begin Window Window_EMET_Run
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -4281,6 +4379,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   178
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4350,6 +4449,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   145
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   168
@@ -4381,8 +4481,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   145
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   100
          End
@@ -4413,6 +4514,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   145
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   168
@@ -4444,8 +4546,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   146
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   100
          End
@@ -4473,6 +4576,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   437
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   236
@@ -4503,8 +4607,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   499
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   195
             End
@@ -4535,8 +4640,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   531
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   195
             End
@@ -4567,8 +4673,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   595
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   195
             End
@@ -4599,8 +4706,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   563
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   195
             End
@@ -4631,8 +4739,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   627
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   195
             End
@@ -4674,7 +4783,7 @@ Begin Window Window_EMET_Run
             Begin PushButton PushButton_GenerateFlec_Positionfile
                AutoDeactivate  =   True
                Bold            =   False
-               ButtonStyle     =   "0"
+               ButtonStyle     =   0
                Cancel          =   False
                Caption         =   "Generate FLEC Position file"
                Default         =   False
@@ -4698,6 +4807,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   659
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   184
@@ -4710,7 +4820,7 @@ Begin Window Window_EMET_Run
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   525
             HelpTag         =   ""
             Index           =   -2147483648
@@ -4734,7 +4844,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_CopyBeams
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Copy Beams"
             Default         =   False
@@ -4758,6 +4868,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   658
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   102
@@ -4786,6 +4897,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   437
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   212
@@ -4816,8 +4928,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   499
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   162
             End
@@ -4848,8 +4961,9 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   531
+               Transparent     =   False
                Underline       =   False
-               Value           =   False
+               Value           =   "False"
                Visible         =   True
                Width           =   162
             End
@@ -4914,6 +5028,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   58
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   803
@@ -4928,6 +5043,7 @@ Begin Window Window_EMET_Run
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -4960,6 +5076,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   87
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4992,13 +5109,14 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   52
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   500
          Begin PushButton PushButton_NLO
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Run-NLO"
             Default         =   False
@@ -5022,6 +5140,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   68
@@ -5029,7 +5148,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_NLO_Reload_Weights
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "ReLoad-Weights"
             Default         =   False
@@ -5053,6 +5172,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   122
@@ -5060,7 +5180,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_NLO_Save
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Save Run"
             Default         =   False
@@ -5084,6 +5204,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   68
@@ -5091,7 +5212,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_NLO_Reload_Text
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "ReLoad-Text"
             Default         =   False
@@ -5115,6 +5236,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   105
@@ -5122,7 +5244,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_NLO_LoadDD
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Load DD"
             Default         =   False
@@ -5146,6 +5268,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   76
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   68
@@ -5161,6 +5284,7 @@ Begin Window Window_EMET_Run
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -5193,6 +5317,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   119
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5224,6 +5349,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   428
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   172
@@ -5251,6 +5377,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   449
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5280,6 +5407,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   474
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5309,6 +5437,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   502
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5338,6 +5467,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   552
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5367,6 +5497,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   529
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5396,6 +5527,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   578
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5425,6 +5557,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   602
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5454,6 +5587,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   626
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5483,6 +5617,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   674
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5512,6 +5647,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   650
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5542,6 +5678,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   428
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   244
@@ -5569,6 +5706,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   555
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5612,6 +5750,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   561
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -5641,6 +5780,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   523
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5670,6 +5810,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   458
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5699,6 +5840,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   459
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5728,6 +5870,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   491
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5757,6 +5900,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   491
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -5788,6 +5932,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   55
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -5831,6 +5976,7 @@ Begin Window Window_EMET_Run
          TextSize        =   15.0
          TextUnit        =   0
          Top             =   155
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -5839,7 +5985,7 @@ Begin Window Window_EMET_Run
       Begin PushButton PushButton_SA_Save
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Save Run"
          Default         =   False
@@ -5863,6 +6009,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   79
@@ -5940,6 +6087,7 @@ Begin Window Window_EMET_Run
          TextSize        =   15.0
          TextUnit        =   0
          Top             =   120
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -6023,6 +6171,7 @@ Begin Window Window_EMET_Run
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   68
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -6052,6 +6201,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   58
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   331
@@ -6093,6 +6243,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   87
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -6160,8 +6311,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   123
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   129
          End
@@ -6192,8 +6344,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   155
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   129
          End
@@ -6224,8 +6377,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   123
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   164
          End
@@ -6256,8 +6410,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   155
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   164
          End
@@ -6288,8 +6443,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   181
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   129
          End
@@ -6320,8 +6476,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   181
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   129
          End
@@ -6352,8 +6509,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   87
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   135
          End
@@ -6382,6 +6540,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   220
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   331
@@ -6412,8 +6571,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   285
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   75
          End
@@ -6444,8 +6604,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   253
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   76
          End
@@ -6476,8 +6637,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   253
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   77
          End
@@ -6508,8 +6670,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   253
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   65
          End
@@ -6540,8 +6703,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   253
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   70
          End
@@ -6572,8 +6736,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   285
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   54
          End
@@ -6604,8 +6769,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   317
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   90
          End
@@ -6647,6 +6813,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   343
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -6679,8 +6846,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   343
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   152
          End
@@ -6711,6 +6879,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   418
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   184
@@ -6742,8 +6911,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   386
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   187
          End
@@ -6774,6 +6944,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   489
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   184
@@ -6805,8 +6976,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   457
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   143
          End
@@ -6837,8 +7009,9 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   533
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   259
          End
@@ -6867,6 +7040,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   585
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   331
@@ -6908,6 +7082,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   618
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -6940,15 +7115,16 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   704
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   281
          End
          Begin PushButton PushButton_PB_Set_Weights
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Set Gradient Weights to ="
             Default         =   False
@@ -6972,6 +7148,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   618
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   184
@@ -7014,6 +7191,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   649
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7022,7 +7200,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_PB_Update_By_Dose
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Un-select PB with taget maxdose <"
             Default         =   False
@@ -7046,6 +7224,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   650
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   267
@@ -7053,7 +7232,7 @@ Begin Window Window_EMET_Run
          Begin PushButton PushButton_Set_IntWeights
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Round GradWeights"
             Default         =   False
@@ -7077,6 +7256,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   679
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   184
@@ -7106,6 +7286,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   284
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   204
@@ -7133,6 +7314,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   310
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -7162,6 +7344,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   339
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -7191,6 +7374,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   432
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -7220,6 +7404,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   455
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -7263,6 +7448,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   339
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7306,6 +7492,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   471
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7370,6 +7557,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -7448,6 +7636,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   519
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7491,6 +7680,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   554
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7639,6 +7829,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   365
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -7669,6 +7860,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   494
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   552
@@ -7696,6 +7888,7 @@ Begin Window Window_EMET_Run
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   523
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   257
@@ -7723,6 +7916,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   548
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7752,6 +7946,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   548
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7781,6 +7976,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   548
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7810,6 +8006,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   548
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7839,6 +8036,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   580
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7882,6 +8080,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   610
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -7911,6 +8110,7 @@ Begin Window Window_EMET_Run
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   612
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7929,6 +8129,7 @@ Begin Window Window_EMET_Run
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -7961,6 +8162,7 @@ Begin Window Window_EMET_Run
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   69
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -10796,63 +10998,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="bb"
-		Group="Behavior"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="constraint_index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="DVH"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DVH_index"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -10869,161 +11051,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Map_Grad"
-		Group="Behavior"
-		InitialValue="0"
-		Type="picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="nx"
-		Group="Behavior"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Open_Plan_Index"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="organ_index"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -11034,19 +11098,180 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="bb"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="constraint_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DVH"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DVH_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Map_Grad"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="nx"
+		Visible=false
+		Group="Behavior"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Open_Plan_Index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="organ_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -11054,6 +11279,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -11061,7 +11287,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -11069,5 +11295,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

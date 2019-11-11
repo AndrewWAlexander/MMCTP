@@ -3,7 +3,6 @@ Begin Window Window_Profile_Properties
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Profile_Properties
    HasBackColor    =   False
    Height          =   677
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -52,6 +51,7 @@ Begin Window Window_Profile_Properties
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   16
+      Transparent     =   False
       Underline       =   False
       Value           =   0
       Visible         =   True
@@ -78,6 +78,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   0
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Label"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -112,6 +113,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -162,6 +164,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   103
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -205,6 +208,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   167
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -232,6 +236,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Field Y (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -266,6 +271,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Linac Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -316,6 +322,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   199
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -359,6 +366,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   134
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -386,6 +394,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Field X (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -436,6 +445,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   233
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -463,6 +473,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -499,6 +510,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   540
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   407
@@ -526,6 +538,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   567
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -555,6 +568,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   567
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -584,6 +598,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   567
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -613,6 +628,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   567
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -657,6 +673,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   298
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -684,6 +701,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Depth (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -734,6 +752,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   332
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -761,6 +780,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Add-On"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -811,6 +831,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   70
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -854,6 +875,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   366
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -881,6 +903,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Algorithm"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -931,6 +954,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   398
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -958,6 +982,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   21
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Comment"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1008,6 +1033,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   264
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1035,6 +1061,7 @@ Begin Window Window_Profile_Properties
          Selectable      =   False
          TabIndex        =   23
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Phantom SSD (cm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1071,6 +1098,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   284
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   525
@@ -1085,6 +1113,7 @@ Begin Window Window_Profile_Properties
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -1117,6 +1146,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   308
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1149,6 +1179,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   46
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   525
@@ -1190,6 +1221,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   147
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1217,6 +1249,7 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Z Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1251,6 +1284,7 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Y Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1301,6 +1335,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   115
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1344,6 +1379,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   83
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1371,6 +1407,7 @@ Begin Window Window_Profile_Properties
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "X Offset (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1386,7 +1423,7 @@ Begin Window Window_Profile_Properties
          Begin PushButton PushButton_Apply
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Shift"
             Default         =   False
@@ -1410,6 +1447,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   83
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   80
@@ -1426,6 +1464,7 @@ Begin Window Window_Profile_Properties
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1458,6 +1497,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   15.0
          TextUnit        =   0
          Top             =   79
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1489,6 +1529,7 @@ Begin Window Window_Profile_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   445
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   407
@@ -1516,6 +1557,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1545,6 +1587,7 @@ Begin Window Window_Profile_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1880,40 +1923,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1930,137 +1976,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2071,19 +2023,116 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2091,6 +2140,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2098,7 +2148,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2106,5 +2156,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

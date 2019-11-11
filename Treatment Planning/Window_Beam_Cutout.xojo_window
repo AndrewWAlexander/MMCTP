@@ -3,7 +3,6 @@ Begin Window Window_Beam_Cutout
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   3
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Beam_Cutout
    HasBackColor    =   False
    Height          =   567
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -33,7 +32,7 @@ Begin Window Window_Beam_Cutout
       Backdrop        =   0
       DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
+      EraseBackground =   "True"
       Height          =   465
       HelpTag         =   ""
       Index           =   -2147483648
@@ -93,6 +92,7 @@ Begin Window Window_Beam_Cutout
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   470
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -137,6 +137,7 @@ Begin Window Window_Beam_Cutout
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   508
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -215,6 +216,7 @@ Begin Window Window_Beam_Cutout
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   477
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -312,8 +314,9 @@ Begin Window Window_Beam_Cutout
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
-      TickStyle       =   "0"
+      TickStyle       =   0
       Top             =   502
+      Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   190
@@ -790,40 +793,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -840,191 +846,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="gmovingorigin"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="gmovingruler1"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="gmovingruler2"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="gpixpercm"
-		Group="Behavior"
-		InitialValue="0"
-		Type="integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="justopen"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="mouse_xcm"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="mouse_ycm"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="originx"
-		Group="Behavior"
-		InitialValue="0"
-		Type="double"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="originy"
-		Group="Behavior"
-		InitialValue="0"
-		Type="double"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1035,43 +893,220 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="gmovingorigin"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="gmovingruler1"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="gmovingruler2"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="gpixpercm"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="justopen"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="mouse_xcm"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="mouse_ycm"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="originx"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="double"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="originy"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="double"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="rulerx1"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="rulerx2"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="rulery1"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="rulery2"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -1079,6 +1114,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -1086,7 +1122,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -1094,5 +1130,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -1137,29 +1137,52 @@ Inherits Canvas
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="AcceptFocus"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AcceptTabs"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoDeactivate"
+			Name="AllowAutoDeactivate"
 			Visible=true
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tooltip"
+			Visible=true
+			Group="Appearance"
+			InitialValue=""
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocusRing"
+			Visible=true
+			Group="Appearance"
+			InitialValue="True"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocus"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowTabs"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axis_Grid"
+			Visible=false
 			Group="Behavior"
 			InitialValue="true"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axis_Visible"
@@ -1167,19 +1190,23 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Backdrop"
 			Visible=true
 			Group="Appearance"
+			InitialValue=""
 			Type="Picture"
-			EditorType="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BG"
+			Visible=false
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="Color"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Box"
@@ -1187,6 +1214,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Center_Scale"
@@ -1194,12 +1222,15 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Display"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DoubleBuffer"
@@ -1207,18 +1238,23 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="False"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="drawXsub"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="drawYsub"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"
@@ -1226,24 +1262,21 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EraseBackground"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Errors"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Graph_Title"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -1253,40 +1286,45 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HelpTag"
-			Visible=true
-			Group="Appearance"
-			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="InitialParent"
+			Visible=false
+			Group=""
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Interactive"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Interactive_index"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Interactive_String"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -1294,51 +1332,65 @@ Inherits Canvas
 			Name="Left"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockBottom"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockLeft"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockRight"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockTop"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NewScale"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabIndex"
@@ -1346,12 +1398,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabPanelIndex"
+			Visible=false
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabStop"
@@ -1359,12 +1414,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Transparent"
@@ -1372,14 +1430,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
-			EditorType="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UseFocusRing"
-			Visible=true
-			Group="Appearance"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
@@ -1387,6 +1438,7 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
@@ -1394,54 +1446,71 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X1_Old"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X2_New"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xLabelPower"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xLabelPowerAuto"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xRange"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xScaleMax"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xScaleMin"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xyz_index"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_bottom"
@@ -1449,11 +1518,13 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X_Label"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -1463,6 +1534,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_Minimum"
@@ -1470,22 +1542,29 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_mouse"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_mouse_value"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_mouse_value_str"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -1495,6 +1574,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="x_top"
@@ -1502,48 +1582,63 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y1_Old"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y2_New"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="yLabelPower"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="yLabelPowerAuto"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="yRange"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="yScaleMax"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="yScaleMin"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_bottom"
@@ -1551,11 +1646,13 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y_Label"
 			Visible=true
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -1565,6 +1662,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_Minimum"
@@ -1572,21 +1670,27 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_mouse"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_mouse_value"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_mouse_value_str"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="String"
@@ -1598,6 +1702,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="y_top"
@@ -1605,6 +1710,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -1649,135 +1649,179 @@ Inherits Application
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="BackColour"
+			Visible=false
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MMCTP_Open"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Previous_Version"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="User_Licence"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_3d"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_adddose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_BEAM_Options"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_BEAM_Phsp"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_Commission"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_Contouring"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_DOSXYZ_EGSphant"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_DOSYXZ_Options"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_DVH"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_EMET_Results"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_EMET_Run"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_Open"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_planinfo"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_progress"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_shell"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_Transfer"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_TreatmentPlanning"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="which_window_TreatmentPlanning_Plan"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

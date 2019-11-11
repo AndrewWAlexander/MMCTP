@@ -3,7 +3,6 @@ Begin Window Window_Configurations_Beam_Model
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   1
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Configurations_Beam_Model
    HasBackColor    =   False
    Height          =   675
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -52,6 +51,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   77
+      Transparent     =   False
       Underline       =   False
       Value           =   1
       Visible         =   True
@@ -80,6 +80,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   119
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   852
@@ -94,6 +95,7 @@ Begin Window Window_Configurations_Beam_Model
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -126,6 +128,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   231
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -171,6 +174,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   145
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -198,6 +202,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "BEAMnrc particle density"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -232,6 +237,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   3
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "BEAMnrc input file (wth ext)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -282,6 +288,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   174
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -325,6 +332,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   204
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -352,6 +360,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   4
+            TabStop         =   True
             Text            =   "BEAMnrc pegs file (no ext)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -389,6 +398,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   138
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   406
@@ -430,6 +440,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   171
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -457,6 +468,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Number of Wedges"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -480,6 +492,7 @@ Begin Window Window_Configurations_Beam_Model
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -512,6 +525,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   297
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -557,6 +571,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   234
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -584,6 +599,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Number of wedge orientations"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -623,6 +639,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   202
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   142
@@ -649,6 +666,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Wedge"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -683,6 +701,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Wedges Angle"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -733,6 +752,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   267
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -763,6 +783,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   138
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   406
@@ -804,6 +825,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   161
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -831,6 +853,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Number of Applicators"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -854,6 +877,7 @@ Begin Window Window_Configurations_Beam_Model
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -886,6 +910,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   192
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -918,6 +943,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   148
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   842
@@ -945,6 +971,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   203
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   803
@@ -970,6 +997,7 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   0
                TabPanelIndex   =   2
+               TabStop         =   True
                Text            =   "Number of leafpairs or binary leaves:"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1020,6 +1048,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   304
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -1063,6 +1092,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   224
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -1090,6 +1120,7 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   3
                TabPanelIndex   =   2
+               TabStop         =   True
                Text            =   "MLC Name:"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1113,6 +1144,7 @@ Begin Window Window_Configurations_Beam_Model
                DataField       =   ""
                DataSource      =   ""
                DefaultRowHeight=   -1
+               DropIndicatorVisible=   False
                Enabled         =   True
                EnableDrag      =   False
                EnableDragReorder=   False
@@ -1145,6 +1177,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   366
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -1176,6 +1209,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   271
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -1205,6 +1239,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   271
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -1248,6 +1283,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   332
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -1275,6 +1311,7 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   8
                TabPanelIndex   =   2
+               TabStop         =   True
                Text            =   "Abutting leaf air gap (cm)"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1311,6 +1348,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   224
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -1338,6 +1376,7 @@ Begin Window Window_Configurations_Beam_Model
                   TextSize        =   0.0
                   TextUnit        =   0
                   Top             =   257
+                  Transparent     =   False
                   Underline       =   False
                   Value           =   False
                   Visible         =   True
@@ -1368,6 +1407,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   329
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -1395,6 +1435,7 @@ Begin Window Window_Configurations_Beam_Model
                   TextSize        =   0.0
                   TextUnit        =   0
                   Top             =   349
+                  Transparent     =   False
                   Underline       =   False
                   Value           =   False
                   Visible         =   True
@@ -1424,6 +1465,7 @@ Begin Window Window_Configurations_Beam_Model
                   TextSize        =   0.0
                   TextUnit        =   0
                   Top             =   381
+                  Transparent     =   False
                   Underline       =   False
                   Value           =   False
                   Visible         =   True
@@ -1454,6 +1496,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   285
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -1497,6 +1540,7 @@ Begin Window Window_Configurations_Beam_Model
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   431
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -1524,6 +1568,7 @@ Begin Window Window_Configurations_Beam_Model
                Selectable      =   False
                TabIndex        =   13
                TabPanelIndex   =   2
+               TabStop         =   True
                Text            =   "MLC Source to device distance (cm):"
                TextAlign       =   0
                TextColor       =   &c00000000
@@ -1564,6 +1609,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   169
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   293
@@ -1607,6 +1653,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   169
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1651,6 +1698,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   169
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1679,6 +1727,7 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   2
+         TabStop         =   True
          Text            =   "MLC name for linac"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1718,6 +1767,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   112
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   275
@@ -1749,6 +1799,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   150
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   293
@@ -1775,6 +1826,7 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Beam Mode:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1825,6 +1877,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   191
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1852,6 +1905,7 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   3
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Linac name:"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1902,6 +1956,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   224
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1929,6 +1984,7 @@ Begin Window Window_Configurations_Beam_Model
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   1
+         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1965,6 +2021,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   274
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   494
@@ -1992,6 +2049,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   391
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2021,6 +2079,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   307
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2050,6 +2109,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   423
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2079,6 +2139,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   455
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2108,6 +2169,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   332
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2137,6 +2199,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   359
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -2167,6 +2230,7 @@ Begin Window Window_Configurations_Beam_Model
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   448
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   406
@@ -2192,6 +2256,7 @@ Begin Window Window_Configurations_Beam_Model
             Selectable      =   False
             TabIndex        =   0
             TabPanelIndex   =   3
+            TabStop         =   True
             Text            =   "Varian 60 deg Dynamic Wedge STT file"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -2242,6 +2307,7 @@ Begin Window Window_Configurations_Beam_Model
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   500
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2252,7 +2318,7 @@ Begin Window Window_Configurations_Beam_Model
    Begin PushButton PushButton_Linac_Del
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Delete"
       Default         =   False
@@ -2276,6 +2342,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   45
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -2283,7 +2350,7 @@ Begin Window Window_Configurations_Beam_Model
    Begin PushButton PushButton_Linac_Add
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Add"
       Default         =   False
@@ -2307,6 +2374,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   13
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -2338,6 +2406,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   20
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   104
@@ -2364,6 +2433,7 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Beam Energy:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2403,6 +2473,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   20
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   217
@@ -2429,6 +2500,7 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Linac Name:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2468,6 +2540,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   20
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   162
@@ -2494,6 +2567,7 @@ Begin Window Window_Configurations_Beam_Model
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Beam Mode:"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -2509,7 +2583,7 @@ Begin Window Window_Configurations_Beam_Model
    Begin PushButton PushButton1
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Close"
       Default         =   False
@@ -2533,6 +2607,7 @@ Begin Window Window_Configurations_Beam_Model
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   644
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -3709,46 +3784,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DoNothing"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -3765,190 +3837,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Linac_Energy_Change"
+		Name="HasMinimizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Linac_energy_Top"
-		Group="Behavior"
-		Type="String"
-		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Linac_Mode_Change"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Linac_Mode_Top"
-		Group="Behavior"
-		Type="String"
-		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Linac_Name_Top"
-		Group="Behavior"
-		Type="String"
-		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Linac_Wedge_Edit"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MacProcID"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MC_DOSXYZ_Column"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MLC_Edit"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name_Change"
-		Group="Behavior"
-		InitialValue="false"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -3959,37 +3884,220 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoNothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_Energy_Change"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_energy_Top"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_Mode_Change"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_Mode_Top"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_Name_Top"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Linac_Wedge_Edit"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MC_DOSXYZ_Column"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MLC_Edit"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name_Change"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="save_linac"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_MLC"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_Model"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -3997,6 +4105,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -4004,7 +4113,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -4012,5 +4121,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -3,7 +3,6 @@ Begin Window Window_Configurations_TPS_System
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   1
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Configurations_TPS_System
    HasBackColor    =   False
    Height          =   657
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -114,7 +113,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   77
             Transparent     =   True
             Underline       =   False
-            Value           =   True
+            Value           =   "True"
             Visible         =   True
             Width           =   325
          End
@@ -191,7 +190,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   77
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   355
          End
@@ -1365,7 +1364,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   341
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   161
       End
@@ -1398,7 +1397,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   370
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   161
       End
@@ -1431,7 +1430,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   402
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   161
       End
@@ -1516,7 +1515,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   437
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   130
       End
@@ -1621,7 +1620,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   91
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   174
          End
@@ -1714,7 +1713,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   91
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   190
          End
@@ -2154,7 +2153,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   94
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   249
          End
@@ -2266,7 +2265,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   138
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   249
          End
@@ -2299,7 +2298,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   170
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   249
          End
@@ -2332,7 +2331,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   202
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   249
          End
@@ -2365,7 +2364,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   234
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   249
          End
@@ -2516,7 +2515,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   164
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   183
          End
@@ -2549,7 +2548,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   164
             Transparent     =   True
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   90
          End
@@ -2672,7 +2671,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   71
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   644
       End
@@ -2705,7 +2704,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   125
          Transparent     =   True
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   644
       End
@@ -2738,7 +2737,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   166
          Transparent     =   True
          Underline       =   False
-         Value           =   True
+         Value           =   "True"
          Visible         =   True
          Width           =   644
       End
@@ -3028,7 +3027,7 @@ Begin Window Window_Configurations_TPS_System
    Begin PushButton PushButton1
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Close"
       Default         =   False
@@ -4148,46 +4147,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DoNothing"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -4204,137 +4200,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -4345,24 +4247,132 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoNothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_DoseStat"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -4370,6 +4380,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -4377,7 +4388,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -4385,5 +4396,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

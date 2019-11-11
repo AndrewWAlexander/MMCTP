@@ -3,7 +3,6 @@ Begin Window Window_RFA_Import
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_RFA_Import
    HasBackColor    =   False
    Height          =   809
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -50,6 +49,7 @@ Begin Window Window_RFA_Import
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   823
@@ -77,6 +77,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   41
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -106,6 +107,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   41
+         Transparent     =   False
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -114,7 +116,7 @@ Begin Window Window_RFA_Import
       Begin PushButton PushButton_OK
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Read file"
          Default         =   False
@@ -138,6 +140,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   40
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   81
@@ -180,6 +183,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   41
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -207,6 +211,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   4
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "File Name"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -244,6 +249,7 @@ Begin Window Window_RFA_Import
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   96
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   823
@@ -258,6 +264,7 @@ Begin Window Window_RFA_Import
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -290,6 +297,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   313
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -324,6 +332,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   120
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   93
@@ -366,6 +375,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   180
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -409,6 +419,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   113
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -452,6 +463,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   209
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -479,6 +491,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Comment"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -513,6 +526,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -547,6 +561,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   15
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Axis"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -581,6 +596,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "SSD (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -615,6 +631,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   17
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Field (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -665,6 +682,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   241
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -692,6 +710,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   19
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Depth (mm)"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -742,6 +761,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   276
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -785,6 +805,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   145
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -812,6 +833,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "BMTY"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -862,6 +884,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   126
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -889,6 +912,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   28
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Energy"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -939,6 +963,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   160
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -966,6 +991,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   37
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "DETY"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1000,6 +1026,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   38
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "TYPE"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1050,6 +1077,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   192
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1077,6 +1105,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   40
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Operator"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1127,6 +1156,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   177
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1170,6 +1200,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   226
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1197,6 +1228,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   43
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Detector"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1231,6 +1263,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   44
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "WDGL"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1281,6 +1314,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   210
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1308,6 +1342,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   46
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "WDGD"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1358,6 +1393,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   244
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1401,6 +1437,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   151
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1444,6 +1481,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   259
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1471,6 +1509,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   50
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "AddOn"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1521,6 +1560,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   279
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1548,6 +1588,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   52
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Linac"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1563,7 +1604,7 @@ Begin Window Window_RFA_Import
       Begin PushButton PushButton_Import
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Import Current"
          Default         =   True
@@ -1587,6 +1628,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   120
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   100
@@ -1594,7 +1636,7 @@ Begin Window Window_RFA_Import
       Begin PushButton PushButton_Import1
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Import all"
          Default         =   False
@@ -1618,6 +1660,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   120
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -1647,13 +1690,14 @@ Begin Window Window_RFA_Import
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   564
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   807
       Begin PushButton PushButton_PDI1
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "PDI to PDD (Burns)"
          Default         =   False
@@ -1677,6 +1721,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   676
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   132
@@ -1703,6 +1748,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   1
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "cylindrical ion chambers\rI50  =\rR50 =1.029I50-0.06\rR50 =1.059I50-0.37"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -1753,6 +1799,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   718
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1796,6 +1843,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   691
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1804,7 +1852,7 @@ Begin Window Window_RFA_Import
       Begin PushButton PushButton_Shift
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Shift"
          Default         =   False
@@ -1828,6 +1876,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   676
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
@@ -1870,6 +1919,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   642
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1897,6 +1947,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Z offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -1931,6 +1982,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   7
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Y offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -1981,6 +2033,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   619
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2024,6 +2077,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   596
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2051,6 +2105,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "X offset (cm)"
          TextAlign       =   2
          TextColor       =   &c00000000
@@ -2101,6 +2156,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   594
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2128,6 +2184,7 @@ Begin Window Window_RFA_Import
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "cylindrical chambers\r0.6 r for photon\r0.5 r for electron\r"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -2143,7 +2200,7 @@ Begin Window Window_RFA_Import
       Begin PushButton PushButton_PDI
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Gradient Shift"
          Default         =   False
@@ -2167,6 +2224,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   596
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   115
@@ -2195,6 +2253,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   710
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -2224,6 +2283,7 @@ Begin Window Window_RFA_Import
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   742
+         Transparent     =   False
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -3039,40 +3099,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -3089,143 +3152,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Index_g"
+		Name="HasMaximizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasMinimizeButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MacProcID"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -3236,19 +3199,124 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_g"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -3256,6 +3324,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -3263,7 +3332,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -3271,23 +3340,30 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="x_off"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="y_off"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="z_off"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

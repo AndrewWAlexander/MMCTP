@@ -3,7 +3,6 @@ Begin Window Window_Commisssioning
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Commisssioning
    HasBackColor    =   False
    Height          =   853
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -52,6 +51,7 @@ Begin Window Window_Commisssioning
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Value           =   0
       Visible         =   True
@@ -67,6 +67,7 @@ Begin Window Window_Commisssioning
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -99,6 +100,7 @@ Begin Window Window_Commisssioning
          TextSize        =   14.0
          TextUnit        =   0
          Top             =   82
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -117,6 +119,7 @@ Begin Window Window_Commisssioning
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -149,6 +152,7 @@ Begin Window Window_Commisssioning
          TextSize        =   14.0
          TextUnit        =   0
          Top             =   54
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -195,6 +199,7 @@ Begin Window Window_Commisssioning
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -239,6 +244,7 @@ Begin Window Window_Commisssioning
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -283,6 +289,7 @@ Begin Window Window_Commisssioning
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   36
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -327,6 +334,7 @@ Begin Window Window_Commisssioning
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -357,6 +365,7 @@ Begin Window Window_Commisssioning
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   405
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   1270
@@ -375,7 +384,7 @@ Begin Window Window_Commisssioning
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   True
+         EraseBackground =   "True"
          Errors          =   False
          Graph_Title     =   ""
          Height          =   405
@@ -438,7 +447,7 @@ Begin Window Window_Commisssioning
       Begin PushButton PushButton_Export
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Export Profile .txt"
          Default         =   False
@@ -462,6 +471,7 @@ Begin Window Window_Commisssioning
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   808
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   172
@@ -490,6 +500,7 @@ Begin Window Window_Commisssioning
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   428
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   293
@@ -520,6 +531,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   451
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   133
@@ -546,6 +558,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   1
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "Y Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -596,6 +609,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   511
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -639,6 +653,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   512
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -666,6 +681,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "Y Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -700,6 +716,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "X Max"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -750,6 +767,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -793,6 +811,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   481
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -820,6 +839,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   8
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "X Min"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -854,6 +874,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "Graph X Axis"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -893,8 +914,9 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   560
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   146
          End
@@ -936,6 +958,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   651
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -963,6 +986,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "Y (Dose) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1013,6 +1037,7 @@ Begin Window Window_Commisssioning
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   617
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1040,6 +1065,7 @@ Begin Window Window_Commisssioning
             Selectable      =   False
             TabIndex        =   14
             TabPanelIndex   =   0
+            TabStop         =   True
             Text            =   "X (Position (cm)) ="
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1056,7 +1082,7 @@ Begin Window Window_Commisssioning
       Begin PushButton PushButton_Export_mcc
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Export Profile .mcc"
          Default         =   False
@@ -1080,6 +1106,7 @@ Begin Window Window_Commisssioning
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   771
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   172
@@ -1087,7 +1114,7 @@ Begin Window Window_Commisssioning
       Begin PushButton PushButton_Export_pyplot
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Export Profile .pyplot"
          Default         =   False
@@ -1111,6 +1138,7 @@ Begin Window Window_Commisssioning
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   734
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   172
@@ -2650,40 +2678,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -2700,236 +2731,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Index_Addon"
-		Group="Behavior"
-		InitialValue="1"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Algor"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Colour"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Depth"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Energy"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_FieldSize"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_gProfile_Index"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Label"
-		Group="Behavior"
-		InitialValue="1"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Maxvalue"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Norm"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Norm_Value"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Pointa"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Pointb"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Show_Line"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Show_Points"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_SSD"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Type"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Index_Unit"
-		Group="Behavior"
-		InitialValue="1"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="NewScale"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2940,24 +2778,276 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Addon"
+		Visible=false
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Algor"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Colour"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Depth"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Energy"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_FieldSize"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_gProfile_Index"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Label"
+		Visible=false
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Maxvalue"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Norm"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Norm_Value"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Pointa"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Pointb"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Show_Line"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Show_Points"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_SSD"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Type"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index_Unit"
+		Visible=false
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="NewScale"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Results_Mouse_Column"
+		Visible=false
 		Group="Behavior"
+		InitialValue=""
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2965,6 +3055,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2972,7 +3063,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2980,5 +3071,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

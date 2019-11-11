@@ -3,7 +3,6 @@ Begin Window Window_Treatment
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Treatment
    HasBackColor    =   False
    Height          =   800
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -37,6 +36,7 @@ Begin Window Window_Treatment
       DataField       =   ""
       DataSource      =   ""
       DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
       Enabled         =   True
       EnableDrag      =   False
       EnableDragReorder=   False
@@ -69,6 +69,7 @@ Begin Window Window_Treatment
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   30
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -107,7 +108,7 @@ Begin Window Window_Treatment
       Dose_Value      =   ""
       DoubleBuffer    =   True
       Enabled         =   True
-      EraseBackground =   False
+      EraseBackground =   "False"
       Height          =   275
       HelpTag         =   ""
       Image_Value     =   ""
@@ -175,7 +176,7 @@ Begin Window Window_Treatment
       Dose_Value      =   ""
       DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   False
+      EraseBackground =   "False"
       Height          =   100
       HelpTag         =   ""
       Image_Value     =   ""
@@ -243,7 +244,7 @@ Begin Window Window_Treatment
       Dose_Value      =   ""
       DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   False
+      EraseBackground =   "False"
       Height          =   100
       HelpTag         =   ""
       Image_Value     =   ""
@@ -302,8 +303,9 @@ Begin Window Window_Treatment
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      TickStyle       =   "0"
+      TickStyle       =   0
       Top             =   30
+      Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   25
@@ -330,8 +332,9 @@ Begin Window Window_Treatment
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      TickStyle       =   "0"
+      TickStyle       =   0
       Top             =   506
+      Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   982
@@ -362,6 +365,7 @@ Begin Window Window_Treatment
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   537
+      Transparent     =   False
       Underline       =   False
       Value           =   4
       Visible         =   True
@@ -405,6 +409,7 @@ Begin Window Window_Treatment
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   566
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -421,6 +426,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -453,6 +459,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   574
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -471,6 +478,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -503,6 +511,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   571
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -521,6 +530,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -553,6 +563,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   570
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -584,13 +595,14 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   560
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   169
          Begin PushButton PushButton_VMX_DMX
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Generate DMX"
             Default         =   False
@@ -614,6 +626,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   583
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   142
@@ -658,6 +671,7 @@ Begin Window Window_Treatment
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   566
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -807,6 +821,7 @@ Begin Window Window_Treatment
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   566
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -836,6 +851,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   575
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   304
@@ -863,6 +879,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   656
+            Transparent     =   False
             Underline       =   False
             Value           =   True
             Visible         =   True
@@ -892,6 +909,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   656
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -921,6 +939,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   656
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -953,8 +972,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   601
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   100
          End
@@ -1066,6 +1086,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   688
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1109,6 +1130,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   720
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1153,6 +1175,7 @@ Begin Window Window_Treatment
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   599
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1170,6 +1193,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1202,6 +1226,7 @@ Begin Window Window_Treatment
          TextSize        =   14.0
          TextUnit        =   0
          Top             =   601
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1220,6 +1245,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1252,6 +1278,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   576
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          User_column     =   0
@@ -1271,6 +1298,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1303,6 +1331,7 @@ Begin Window Window_Treatment
          TextSize        =   14.0
          TextUnit        =   0
          Top             =   568
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1321,6 +1350,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1353,6 +1383,7 @@ Begin Window Window_Treatment
          TextSize        =   14.0
          TextUnit        =   0
          Top             =   568
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1398,6 +1429,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   600
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1477,6 +1509,7 @@ Begin Window Window_Treatment
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   742
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1556,6 +1589,7 @@ Begin Window Window_Treatment
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   761
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1585,6 +1619,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   570
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   418
@@ -1599,6 +1634,7 @@ Begin Window Window_Treatment
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -1631,6 +1667,7 @@ Begin Window Window_Treatment
             TextSize        =   14.0
             TextUnit        =   0
             Top             =   619
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1665,8 +1702,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   593
+            Transparent     =   False
             Underline       =   False
-            Value           =   True
+            Value           =   "True"
             Visible         =   True
             Width           =   73
          End
@@ -1692,8 +1730,9 @@ Begin Window Window_Treatment
             TabIndex        =   2
             TabPanelIndex   =   5
             TabStop         =   True
-            TickStyle       =   "0"
+            TickStyle       =   0
             Top             =   593
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   310
@@ -1723,6 +1762,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   570
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   240
@@ -1753,8 +1793,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   593
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   142
          End
@@ -1785,15 +1826,16 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   674
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   117
          End
          Begin PushButton PushButton_Image_Isodose
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Properties"
             Default         =   False
@@ -1817,6 +1859,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   672
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   82
@@ -1848,8 +1891,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   701
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   82
          End
@@ -1880,8 +1924,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   725
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   133
          End
@@ -1912,8 +1957,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   747
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   142
          End
@@ -1939,8 +1985,9 @@ Begin Window Window_Treatment
             TabIndex        =   6
             TabPanelIndex   =   5
             TabStop         =   True
-            TickStyle       =   "0"
+            TickStyle       =   0
             Top             =   619
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   211
@@ -1970,6 +2017,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   570
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   433
@@ -1995,8 +2043,9 @@ Begin Window Window_Treatment
             TabIndex        =   0
             TabPanelIndex   =   5
             TabStop         =   True
-            TickStyle       =   "0"
+            TickStyle       =   0
             Top             =   631
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   242
@@ -2058,8 +2107,9 @@ Begin Window Window_Treatment
             TabIndex        =   3
             TabPanelIndex   =   5
             TabStop         =   True
-            TickStyle       =   "0"
+            TickStyle       =   0
             Top             =   688
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   242
@@ -2086,8 +2136,9 @@ Begin Window Window_Treatment
             TabIndex        =   5
             TabPanelIndex   =   5
             TabStop         =   True
-            TickStyle       =   "0"
+            TickStyle       =   0
             Top             =   751
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   242
@@ -2165,6 +2216,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   720
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2232,8 +2284,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   599
+            Transparent     =   False
             Underline       =   False
-            Value           =   True
+            Value           =   "True"
             Visible         =   True
             Width           =   88
          End
@@ -2264,8 +2317,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   625
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   130
          End
@@ -2296,8 +2350,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   674
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   71
          End
@@ -2328,8 +2383,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   648
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   134
          End
@@ -2358,6 +2414,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   570
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   100
@@ -2388,8 +2445,9 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   599
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   84
          End
@@ -2405,6 +2463,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -2437,6 +2496,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   576
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2490,6 +2550,7 @@ Begin Window Window_Treatment
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -2522,6 +2583,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   572
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2553,6 +2615,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   572
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   399
@@ -2567,6 +2630,7 @@ Begin Window Window_Treatment
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -2599,6 +2663,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   631
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2644,6 +2709,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   599
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2687,6 +2753,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   598
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2787,6 +2854,7 @@ Begin Window Window_Treatment
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   572
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   818
@@ -2814,6 +2882,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   590
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   380
@@ -2841,6 +2910,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   617
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -2873,6 +2943,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   650
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -2901,6 +2972,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   681
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -2942,6 +3014,7 @@ Begin Window Window_Treatment
                   TextSize        =   0.0
                   TextUnit        =   0
                   Top             =   736
+                  Transparent     =   False
                   Underline       =   False
                   UseFocusRing    =   True
                   Visible         =   True
@@ -3055,6 +3128,7 @@ Begin Window Window_Treatment
                   TextSize        =   0.0
                   TextUnit        =   0
                   Top             =   705
+                  Transparent     =   False
                   Underline       =   False
                   UseFocusRing    =   True
                   Visible         =   True
@@ -3085,6 +3159,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   617
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -3114,6 +3189,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   674
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -3143,6 +3219,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   645
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -3186,6 +3263,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   706
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -3194,7 +3272,7 @@ Begin Window Window_Treatment
             Begin PushButton PushButton_Dose_Norm
                AutoDeactivate  =   True
                Bold            =   False
-               ButtonStyle     =   "0"
+               ButtonStyle     =   0
                Cancel          =   False
                Caption         =   "apply"
                Default         =   False
@@ -3218,6 +3296,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   739
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   100
@@ -3247,6 +3326,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   589
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   201
@@ -3288,6 +3368,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   647
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -3296,7 +3377,7 @@ Begin Window Window_Treatment
             Begin PushButton PushButton_SetDose
                AutoDeactivate  =   True
                Bold            =   False
-               ButtonStyle     =   "0"
+               ButtonStyle     =   0
                Cancel          =   False
                Caption         =   "apply"
                Default         =   False
@@ -3320,6 +3401,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   738
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -3397,6 +3479,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   705
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -3429,6 +3512,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   615
+               Transparent     =   False
                Underline       =   False
                Visible         =   True
                Width           =   176
@@ -3473,6 +3557,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   599
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3502,6 +3587,7 @@ Begin Window Window_Treatment
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   672
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   158
@@ -3544,6 +3630,7 @@ Begin Window Window_Treatment
                TextSize        =   9.0
                TextUnit        =   0
                Top             =   735
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -3587,6 +3674,7 @@ Begin Window Window_Treatment
                TextSize        =   0.0
                TextUnit        =   0
                Top             =   699
+               Transparent     =   False
                Underline       =   False
                UseFocusRing    =   True
                Visible         =   True
@@ -3666,6 +3754,7 @@ Begin Window Window_Treatment
                TextSize        =   9.0
                TextUnit        =   0
                Top             =   735
+               Transparent     =   False
                Underline       =   False
                Value           =   False
                Visible         =   True
@@ -7328,111 +7417,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Backdrop"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Canvas_height"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Canvas_refresh_Image_Contours"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Canvas_refresh_Image_WL"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Canvas_Width"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
+		Name="MaximumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="colour_wash"
-		Group="Behavior"
-		InitialValue="2"
+		Group="Size"
+		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Composite"
+		Name="MaximumHeight"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DoNothing"
-		Group="Behavior"
-		InitialValue="0"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="dose_index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="dose_paint_index"
-		Group="Behavior"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="dose_paint_size"
-		Group="Behavior"
-		InitialValue="1"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DOSXYZnrc_Column"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DVH_Column"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DVH_Row"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -7449,149 +7470,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MC_egs_beam_progress_update"
 		Group="Behavior"
-		InitialValue="false"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Move_CrossHairs"
-		Group="Behavior"
-		InitialValue="false"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -7602,43 +7517,260 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Canvas_height"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Canvas_refresh_Image_Contours"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Canvas_refresh_Image_WL"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Canvas_Width"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="colour_wash"
+		Visible=false
+		Group="Behavior"
+		InitialValue="2"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoNothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dose_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dose_paint_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dose_paint_size"
+		Visible=false
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DOSXYZnrc_Column"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DVH_Column"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DVH_Row"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MC_egs_beam_progress_update"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Move_CrossHairs"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ruler_change"
+		Visible=false
 		Group="Behavior"
 		InitialValue="true"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_Beams"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Save_Dose"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ScaleFlag"
+		Visible=false
 		Group="Behavior"
 		InitialValue="1"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -7646,6 +7778,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -7653,7 +7786,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -7661,11 +7794,14 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Window_update_plan_now"
+		Visible=false
 		Group="Behavior"
 		InitialValue="false"
 		Type="boolean"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

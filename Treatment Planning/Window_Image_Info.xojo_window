@@ -3,7 +3,6 @@ Begin Window Window_Image_Info
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Image_Info
    HasBackColor    =   False
    Height          =   626
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -50,6 +49,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   551
@@ -91,6 +91,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   39
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -118,6 +119,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   5
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "STUDYInstanceUID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -152,6 +154,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   6
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "ReferencedStructureSetSequence "
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -202,6 +205,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   76
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -229,6 +233,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   8
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Study Date"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -279,6 +284,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   112
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -306,6 +312,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   10
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Patient Position"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -356,6 +363,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   144
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -383,6 +391,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   12
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Study Description"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -433,6 +442,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   176
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -460,6 +470,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   14
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Image Orientation Patient"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -510,6 +521,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   237
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -537,6 +549,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   16
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Study ID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -587,6 +600,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   208
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -614,6 +628,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   18
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "FrameOfReferenceUID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -664,6 +679,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   274
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -691,6 +707,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   20
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "SeriesNumber"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -741,6 +758,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   312
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -768,6 +786,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   22
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Series Description"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -818,6 +837,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   349
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -845,6 +865,7 @@ Begin Window Window_Image_Info
          Selectable      =   False
          TabIndex        =   24
          TabPanelIndex   =   0
+         TabStop         =   True
          Text            =   "Series Instance UID"
          TextAlign       =   0
          TextColor       =   &c00000000
@@ -895,6 +916,7 @@ Begin Window Window_Image_Info
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   386
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -938,6 +960,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   469
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -965,6 +988,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "x offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -999,6 +1023,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "y offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1048,6 +1073,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   503
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1075,6 +1101,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "z offset (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1124,6 +1151,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   428
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1166,6 +1194,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   469
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1193,6 +1222,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "y res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1242,6 +1272,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   503
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1269,6 +1300,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   22
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "z res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1303,6 +1335,7 @@ Begin Window Window_Image_Info
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "x res (mm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1353,6 +1386,7 @@ Begin Window Window_Image_Info
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   428
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1510,40 +1544,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1560,137 +1597,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1701,19 +1644,116 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -1721,6 +1761,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -1728,7 +1769,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -1736,5 +1777,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
