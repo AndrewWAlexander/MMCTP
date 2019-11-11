@@ -71,7 +71,7 @@ Protected Class RTOG_Structure_Class
 		          gg = p.graphics
 		          gg.foreColor =RGB(255,255,255) //White
 		          gg.FillRect(0,0,gg.Width,gg.Height)
-		          gg.UseOldRenderer=True
+		          //gg.UseOldRenderer=True
 		        end
 		        
 		        if UBound(file.Segments(j).Points)>0 Then
@@ -175,7 +175,7 @@ Protected Class RTOG_Structure_Class
 		          gg = p.graphics
 		          gg.foreColor =RGB(255,255,255) //White
 		          gg.FillRect(0,0,gg.Width,gg.Height)
-		          gg.UseOldRenderer=True
+		          //gg.UseOldRenderer=True
 		        end
 		        
 		        if UBound(file.Segments(j).Points)>0 Then
@@ -554,38 +554,51 @@ Protected Class RTOG_Structure_Class
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="changed"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="colour"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_Calculate"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ElectronDensity"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ElectronDensityOverride"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="File_Num"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -593,6 +606,7 @@ Protected Class RTOG_Structure_Class
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -600,112 +614,151 @@ Protected Class RTOG_Structure_Class
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Loaded_Points"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Loaded_PointsHR"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Loaded_Poly"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Loaded_PolyHR"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Number_R"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Number_Rep"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Num_of_Scans"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Num_S"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ROI_Number"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="scolor"
+			Visible=false
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StructureType"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Structure_F"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Structure_Format"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Structure_N"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Structure_Name"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Structure_Volume"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -713,6 +766,7 @@ Protected Class RTOG_Structure_Class
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

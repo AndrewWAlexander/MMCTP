@@ -3343,7 +3343,7 @@ Protected Class RTOG_Plan
 		          
 		          
 		          //draw that segment to  picture
-		          tmpimage.graphics.UseOldRenderer=True
+		          //tmpimage.graphics.UseOldRenderer=True
 		          tmpimage.Graphics.DrawPolygon poly.Points
 		          tmpimage.graphics.fillPolygon poly.points
 		          

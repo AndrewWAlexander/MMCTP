@@ -1746,7 +1746,7 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Type(-1) As String
+		WType(-1) As String
 	#tag EndProperty
 
 

@@ -7103,7 +7103,7 @@ End
 		        next
 		        
 		        Normal=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        Normal.Graphics.UseOldRenderer=True
+		        //Normal.Graphics.UseOldRenderer=True
 		        
 		        Normal.Graphics.ForeColor=rgb(255,255,255)
 		        Normal.Graphics.FillRect(0,0,nx,nx)
@@ -7119,7 +7119,7 @@ End
 		        Normal.Graphics.FillOval(rotation_x-1,rotation_y-1,2,2)
 		        
 		        isoshift=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        isoshift.Graphics.UseOldRenderer=True
+		        //isoshift.Graphics.UseOldRenderer=True
 		        isoshift.Graphics.DrawPicture(Normal, nx/2-rotation_x,nx/2-rotation_y,nx,nx,0,0,nx,nx)
 		        
 		        px =new PixmapShape(isoshift)
@@ -7127,7 +7127,7 @@ End
 		        px.X=nx/2
 		        px.y=nx/2
 		        Rot=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        Rot.Graphics.UseOldRenderer=True
+		        //Rot.Graphics.UseOldRenderer=True
 		        x1=0
 		        y1=0
 		        Rot.Graphics.DrawObject(px,x1,y1)
@@ -7344,7 +7344,7 @@ End
 		  
 		  //Summarize into one plot
 		  Normal=New Picture(ff.nx,ff.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		  Normal.Graphics.UseOldRenderer=True
+		  //Normal.Graphics.UseOldRenderer=True
 		  Normal.Graphics.ForeColor=RGB(0,0,0)
 		  Normal.Graphics.FillRect(0,0,ff.nx,ff.nz)
 		  
@@ -7372,7 +7372,7 @@ End
 		  
 		  
 		  ff.Plot=new Picture(Normal.Width,Normal.Height,32)
-		  ff.Plot.Graphics.UseOldRenderer=True
+		  //ff.Plot.Graphics.UseOldRenderer=True
 		  ff.Plot.Graphics.DrawPicture Normal,0,0
 		  
 		  ff.Plot.Graphics.ForeColor=RGB(0,255,0)

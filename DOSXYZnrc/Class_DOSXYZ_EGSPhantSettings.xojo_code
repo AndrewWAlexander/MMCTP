@@ -22,7 +22,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		    gdosxyz.egs_msg.append "Creating Image Map "+Format(k/ny,"#") //Commented out by William Davis to avoid crash due to exception
 		    z=z_min+Del_Z/2+Del_z*k
 		    imagemask(k)=New Picture(nx,nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		    imagemask(k).Graphics.Useoldrenderer=true
+		    //imagemask(k).Graphics.Useoldrenderer=true
 		    if Cleancontours then //fill with air or not
 		      imagemask(k).graphics.forecolor=rgb(200,200,200) 'Fill with 200 means air!
 		    else
@@ -73,7 +73,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		            
 		            imagemask(k).graphics.penHeight=0
 		            imagemask(k).graphics.penwidth=0
-		            imagemask(k).Graphics.UseOldRenderer=True
+		            //imagemask(k).Graphics.UseOldRenderer=True
 		            imagemask(k).graphics.fillPolygon poly.points
 		          end if
 		        next 'for all segments points within slize
@@ -713,23 +713,31 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Auto_Make"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Cleancontours"
+			Visible=false
 			Group="Behavior"
 			InitialValue="true"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Cleancontour_Index"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Cleancontour_Name"
+			Visible=false
 			Group="Behavior"
 			InitialValue="BODY"
 			Type="String"
@@ -737,6 +745,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Clean_density"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0.0012"
 			Type="string"
@@ -744,6 +753,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Clean_material"
+			Visible=false
 			Group="Behavior"
 			InitialValue="AIR521ICRU"
 			Type="string"
@@ -751,43 +761,57 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Create_wth_CTcontours"
+			Visible=false
 			Group="Behavior"
 			InitialValue="true"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CT_model"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CT_modelName"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Del_X"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Del_Y"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Del_Z"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="filename"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -797,6 +821,7 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -804,69 +829,91 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Loaded"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Make_EGSPhant"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="maxdensity"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="media_of_outside"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mindensity"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Non_CT_Phantom"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Nx"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Ny"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Nz"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pegsfile"
+			Visible=false
 			Group="Behavior"
 			InitialValue="CTStudy"
 			Type="string"
@@ -876,7 +923,9 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -884,42 +933,55 @@ Protected Class Class_DOSXYZ_EGSPhantSettings
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X_Max"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X_min"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y_max"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y_min"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Z_max"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Z_min"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

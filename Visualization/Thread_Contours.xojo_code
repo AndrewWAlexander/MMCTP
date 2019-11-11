@@ -221,12 +221,12 @@ Inherits Thread
 		            // Make new picture for one structure
 		            pic=New Picture(gvis.nx,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
 		            pic_g=pic.Graphics
-		            pic_g.UseOldRenderer=True
+		            //pic_g.UseOldRenderer=True
 		            
 		            // draw the picture mask
 		            //  mask is for transparance setting
 		            pic_mask_g=pic.Mask.Graphics
-		            pic_mask_g.UseOldRenderer=True
+		            //pic_mask_g.UseOldRenderer=True
 		            pic_mask_g.ClearRect 0,0,gvis.nx,gvis.ny
 		          end
 		          

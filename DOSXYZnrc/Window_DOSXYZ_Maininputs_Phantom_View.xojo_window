@@ -999,7 +999,7 @@ End
 		  
 		  g=Display.Graphics
 		  
-		  g.UseOldRenderer=True
+		  //g.UseOldRenderer=True
 		  //media map
 		  if Prefshowmedia then
 		    if XYZ=1 Then

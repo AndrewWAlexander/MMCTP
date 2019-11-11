@@ -782,7 +782,7 @@ Inherits Thread
 		    z=vv.DMX.z_min+vv.DMX.Del_Z/2+vv.DMX.Del_z*k
 		    
 		    imagemask(k)=New Picture(vv.DMX.X_num,vv.DMX.Y_num,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		    imagemask(k).Graphics.UseOldRenderer=true
+		    //imagemask(k).Graphics.UseOldRenderer=true
 		    if  DMXSettings.Cleancontours then //fill with set density
 		      imagemask(k).graphics.forecolor=rgb(200,200,200) 'Fill with 200 means set density
 		    else
@@ -832,7 +832,7 @@ Inherits Thread
 		            end if
 		            imagemask(k).graphics.penHeight=0
 		            imagemask(k).graphics.penwidth=0
-		            imagemask(k).Graphics.UseOldRenderer=True
+		            //imagemask(k).Graphics.UseOldRenderer=True
 		            imagemask(k).graphics.fillPolygon poly.points
 		          end if
 		        next 'for all segments

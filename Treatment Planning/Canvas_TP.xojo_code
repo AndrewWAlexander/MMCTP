@@ -1777,11 +1777,11 @@ Inherits Canvas
 		  end
 		  
 		  Pic_Structure.Graphics.ForeColor=bg
-		  Pic_Structure.Graphics.UseOldRenderer=True
+		  //Pic_Structure.Graphics.UseOldRenderer=True
 		  Pic_Structure.Graphics.FillRect(0,0,size_x,size_y)
 		  Pic_Structure.Mask.Graphics.ForeColor=RGB(255,255,255)
 		  Pic_Structure.Mask.Graphics.FillRect(0,0,size_x,size_y)
-		  Pic_Structure.Mask.Graphics.UseOldRenderer=True
+		  //Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		  
 		  
 		  
@@ -1870,12 +1870,12 @@ Inherits Canvas
 		    if Pic_Structure=nil Then
 		      Return
 		    end
-		    Pic_Structure.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Graphics.UseOldRenderer=True
 		    Pic_Structure.Mask.Graphics.Underline=True
 		    for a=0 to UBound(gvis.Contours.Axial_Pic)
 		      if  gVis.Contours.Update  Then
 		        pstrip=New Picture(gvis.nx,1,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        pstrip.Graphics.UseOldRenderer=True
+		        //pstrip.Graphics.UseOldRenderer=True
 		        pstrip.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a),0,-(canvas_cor)
 		        Pic_Structure.Graphics.DrawPicture pstrip,0,a
 		        Pic_Structure.Mask.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a).mask,0,a,gvis.nx,1,0,canvas_cor,gvis.nx,1
@@ -1921,9 +1921,9 @@ Inherits Canvas
 		    for a=0 to UBound(gvis.contours.Axial_Pic)
 		      if gVis.Contours.Update Then
 		        pstrip=New Picture(1,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        pstrip.Graphics.UseOldRenderer=True
+		        //pstrip.Graphics.UseOldRenderer=True
 		        pstrip.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a),-(canvas_sag),0
-		        sagbuffer.Graphics.UseOldRenderer=True
+		        //sagbuffer.Graphics.UseOldRenderer=True
 		        sagbuffer.Graphics.DrawPicture pstrip,UBound(gvis.contours.Axial_Pic)-a,0
 		        sagbuffer.Mask.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a).mask,UBound(gvis.contours.Axial_Pic)-a,0, 1,gvis.ny,canvas_sag,0,1,gvis.ny
 		      end
@@ -1942,8 +1942,8 @@ Inherits Canvas
 		      Errors.Append "Error within Make Strucutre Sagittal : "+e.Reason
 		    end
 		    
-		    Pic_Structure.Graphics.UseOldRenderer=True
-		    Pic_Structure.Mask.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		    if gvis.nz Mod 2=0 then
 		      Pic_Structure.Graphics.DrawObject px,0,-1
 		      Pic_Structure.Mask.Graphics.DrawObject py,0,-1
@@ -2234,16 +2234,16 @@ Inherits Canvas
 		  image_sizey=Round(gvis.ny*canvas_scale*gvis.scale_height/gvis.pixel_resolution)
 		  
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.ny)
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  // Redraw Structures
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil  Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.ny)
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  
@@ -2259,7 +2259,7 @@ Inherits Canvas
 		  
 		  // Redraw Structures
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil  Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    for i=0 to UBound(Poly_Structures)
 		      if Poly_Structures(i)<> nil Then
 		        for j=0 to UBound(Poly_Structures(i).Structure_Poly)
@@ -2270,7 +2270,7 @@ Inherits Canvas
 		        Next
 		      end
 		    next
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  
@@ -2592,7 +2592,7 @@ Inherits Canvas
 		  
 		  image_sizex=Round(gvis.nx*canvas_scale*gvis.scale_width/gvis.pixel_resolution)
 		  image_sizey=Round(gvis.nz*canvas_scale*gvis.scale_thickness/gvis.pixel_resolution)
-		  Display.Graphics.UseOldRenderer=True
+		  //Display.Graphics.UseOldRenderer=True
 		  
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.nz)
@@ -2602,7 +2602,7 @@ Inherits Canvas
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.nz)
 		  end
-		  Display.Graphics.UseOldRenderer=False
+		  //Display.Graphics.UseOldRenderer=False
 		  
 		  
 		  // Redraw Dose Distribution
@@ -2900,7 +2900,7 @@ Inherits Canvas
 		  
 		  image_sizex=Round(gvis.ny*canvas_scale*gvis.scale_height/gvis.pixel_resolution)
 		  image_sizey=Round(gvis.nz*canvas_scale*gvis.scale_thickness/gvis.pixel_resolution)
-		  Display.Graphics.UseOldRenderer=True
+		  //Display.Graphics.UseOldRenderer=True
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.ny,gvis.nz)
 		  end
@@ -2909,7 +2909,7 @@ Inherits Canvas
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs and Pic_Structure<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.ny,gvis.nz)
 		  end
-		  Display.Graphics.UseOldRenderer=False
+		  //Display.Graphics.UseOldRenderer=False
 		  
 		  
 		  // Redraw Dose Distribution

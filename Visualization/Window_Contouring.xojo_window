@@ -1056,7 +1056,7 @@ End
 		  
 		  
 		  gVis.Contours.Contour_Axial=New Picture(gVis.nx,gVis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		  gVis.Contours.Contour_Axial.Graphics.UseOldRenderer=True
+		  //gVis.Contours.Contour_Axial.Graphics.UseOldRenderer=True
 		  //gVis.Contours.Contour_Axial.Graphics.ClearRect 0,0,gvis.nx,gvis.ny
 		  gVis.Contours.Contour_Axial.Mask.Graphics.ClearRect 0,0,gvis.nx,gvis.ny
 		  tran=Round((Window_Contouring.Slider_Trans.Value/100)*255)
