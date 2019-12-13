@@ -3,7 +3,6 @@ Begin Window Window_EMET_Results
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_EMET_Results
    HasBackColor    =   False
    Height          =   874
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -52,6 +51,7 @@ Begin Window Window_EMET_Results
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   246
+      Transparent     =   False
       Underline       =   False
       Value           =   0
       Visible         =   True
@@ -68,7 +68,7 @@ Begin Window Window_EMET_Results
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   True
+         EraseBackground =   "True"
          Graph_Title     =   ""
          Height          =   516
          HelpTag         =   ""
@@ -170,7 +170,7 @@ Begin Window Window_EMET_Results
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   True
+         EraseBackground =   "True"
          Errors          =   False
          Graph_Title     =   ""
          Height          =   356
@@ -233,7 +233,7 @@ Begin Window Window_EMET_Results
       Begin PushButton PushButton_Calculate_MU
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Calculate"
          Default         =   False
@@ -257,6 +257,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   463
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   113
@@ -299,6 +300,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   313
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -363,6 +365,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   303
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -392,6 +395,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   335
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -421,6 +425,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   814
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   243
@@ -448,6 +453,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   819
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -477,6 +483,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   819
+            Transparent     =   False
             Underline       =   False
             Value           =   True
             Visible         =   True
@@ -507,6 +514,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   285
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1239
@@ -521,6 +529,7 @@ Begin Window Window_EMET_Results
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -553,6 +562,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   350
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -587,15 +597,16 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   318
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   152
          End
          Begin PushButton PushButton1
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Push PB field data back to Run Window"
             Default         =   False
@@ -619,6 +630,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   318
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   268
@@ -648,6 +660,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   294
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -677,6 +690,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   294
+         Transparent     =   False
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -725,6 +739,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   501
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -773,6 +788,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   284
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -816,7 +832,7 @@ Begin Window Window_EMET_Results
       Begin PushButton PushButton_GenerateFlec_Positionfile
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Generate FLEC Position file"
          Default         =   False
@@ -840,6 +856,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   292
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   184
@@ -868,6 +885,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   326
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   594
@@ -878,7 +896,7 @@ Begin Window Window_EMET_Results
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   426
             HelpTag         =   ""
             Index           =   -2147483648
@@ -926,8 +944,9 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   353
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   182
          End
@@ -969,6 +988,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   352
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1012,6 +1032,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   352
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1055,6 +1076,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   352
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1098,6 +1120,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   351
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1128,6 +1151,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   284
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   605
@@ -1142,6 +1166,7 @@ Begin Window Window_EMET_Results
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -1174,6 +1199,7 @@ Begin Window Window_EMET_Results
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   316
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1209,6 +1235,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   817
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   206
@@ -1240,8 +1267,9 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   817
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1288,6 +1316,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   284
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1332,6 +1361,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   814
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1376,6 +1406,7 @@ Begin Window Window_EMET_Results
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   814
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1393,6 +1424,7 @@ Begin Window Window_EMET_Results
       DataField       =   ""
       DataSource      =   ""
       DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
       Enabled         =   True
       EnableDrag      =   True
       EnableDragReorder=   True
@@ -1425,6 +1457,7 @@ Begin Window Window_EMET_Results
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -2707,46 +2740,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="DoNot"
-		Group="Behavior"
-		InitialValue="false"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -2763,143 +2793,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Map_Grad"
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2910,19 +2840,132 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DoNot"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Map_Grad"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2930,6 +2973,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2937,7 +2981,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2945,17 +2989,22 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="X_res"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0.01"
 		Type="Single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Y_res"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0.01"
 		Type="Single"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

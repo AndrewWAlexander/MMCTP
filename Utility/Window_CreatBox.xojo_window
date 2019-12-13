@@ -3,7 +3,6 @@ Begin Window Window_CreatBox
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_CreatBox
    HasBackColor    =   False
    Height          =   508
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -29,7 +28,7 @@ Begin Window Window_CreatBox
    Begin PushButton PushButton_Make
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Creat patient"
       Default         =   False
@@ -53,6 +52,7 @@ Begin Window Window_CreatBox
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   468
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   144
@@ -83,6 +83,7 @@ Begin Window Window_CreatBox
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   53
+      Transparent     =   False
       Underline       =   False
       Value           =   0
       Visible         =   True
@@ -111,6 +112,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   90
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   514
@@ -136,6 +138,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   4
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Patient Name"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -170,6 +173,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   5
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Patient Surname"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -204,6 +208,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   6
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Patient ID"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -254,6 +259,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   189
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -297,6 +303,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   155
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -340,6 +347,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   121
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -367,6 +375,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   7
             TabPanelIndex   =   1
+            TabStop         =   True
             Text            =   "Patient Position"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -417,6 +426,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   224
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -461,6 +471,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   117
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -490,6 +501,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   90
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   512
@@ -515,6 +527,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   2
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "nz (Number of voxels in z)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -565,6 +578,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   116
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -608,6 +622,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   150
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -651,6 +666,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   183
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -694,6 +710,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   115
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -737,6 +754,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   150
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -780,6 +798,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   181
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -807,6 +826,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   9
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "ny (Number of voxels in y)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -841,6 +861,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   10
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "nx (Number of voxels in x)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -875,6 +896,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   11
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "dy (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -909,6 +931,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   12
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "dx (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -943,6 +966,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   13
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "dz (voxel size cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -993,6 +1017,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   286
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1020,6 +1045,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   15
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "coordiante 1st y (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1054,6 +1080,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   16
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "coordiante 1st x (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1104,6 +1131,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   253
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1147,6 +1175,7 @@ Begin Window Window_CreatBox
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   219
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1174,6 +1203,7 @@ Begin Window Window_CreatBox
             Selectable      =   False
             TabIndex        =   19
             TabPanelIndex   =   2
+            TabStop         =   True
             Text            =   "coordiante 1st z (cm)"
             TextAlign       =   0
             TextColor       =   &c00000000
@@ -1211,6 +1241,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   117
+         Transparent     =   False
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -1240,6 +1271,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   184
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1256,6 +1288,7 @@ Begin Window Window_CreatBox
          DataField       =   ""
          DataSource      =   ""
          DefaultRowHeight=   -1
+         DropIndicatorVisible=   False
          Enabled         =   True
          EnableDrag      =   False
          EnableDragReorder=   False
@@ -1288,6 +1321,7 @@ Begin Window Window_CreatBox
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   222
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1318,6 +1352,7 @@ Begin Window Window_CreatBox
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "This windows allows the user to creat a mock McGill RT patient based on the values below"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1565,58 +1600,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="dx"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="dy"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="dz"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1633,155 +1653,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="nx"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ny"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="nz"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1792,19 +1700,164 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dx"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dy"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="dz"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="nx"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ny"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="nz"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -1812,6 +1865,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -1819,7 +1873,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -1827,23 +1881,30 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="x1"
+		Visible=false
 		Group="Behavior"
 		InitialValue="-20"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="y1"
+		Visible=false
 		Group="Behavior"
 		InitialValue="-20"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="z1"
+		Visible=false
 		Group="Behavior"
 		InitialValue="-20"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

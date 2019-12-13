@@ -1620,13 +1620,13 @@ Inherits Canvas
 		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_jet(tmpint)
 		              else
 		                Pic_Dose.RGBSurface.Pixel(j,i)=gvis.colour_map_hot(tmpint)
-
+		                
 		              end
 		              if tmpint=0 Then
 		                ggb.Pixel(j,i)=rgb(255,255,255)
 		              else
 		                ggb.Pixel(j,i)=rgb(tran,tran,tran)
-
+		                
 		              end
 		            next
 		          next
@@ -1777,11 +1777,11 @@ Inherits Canvas
 		  end
 		  
 		  Pic_Structure.Graphics.ForeColor=bg
-		  Pic_Structure.Graphics.UseOldRenderer=True
+		  //Pic_Structure.Graphics.UseOldRenderer=True
 		  Pic_Structure.Graphics.FillRect(0,0,size_x,size_y)
 		  Pic_Structure.Mask.Graphics.ForeColor=RGB(255,255,255)
 		  Pic_Structure.Mask.Graphics.FillRect(0,0,size_x,size_y)
-		  Pic_Structure.Mask.Graphics.UseOldRenderer=True
+		  //Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		  
 		  
 		  
@@ -1870,12 +1870,12 @@ Inherits Canvas
 		    if Pic_Structure=nil Then
 		      Return
 		    end
-		    Pic_Structure.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Graphics.UseOldRenderer=True
 		    Pic_Structure.Mask.Graphics.Underline=True
 		    for a=0 to UBound(gvis.Contours.Axial_Pic)
 		      if  gVis.Contours.Update  Then
 		        pstrip=New Picture(gvis.nx,1,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        pstrip.Graphics.UseOldRenderer=True
+		        //pstrip.Graphics.UseOldRenderer=True
 		        pstrip.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a),0,-(canvas_cor)
 		        Pic_Structure.Graphics.DrawPicture pstrip,0,a
 		        Pic_Structure.Mask.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a).mask,0,a,gvis.nx,1,0,canvas_cor,gvis.nx,1
@@ -1921,9 +1921,9 @@ Inherits Canvas
 		    for a=0 to UBound(gvis.contours.Axial_Pic)
 		      if gVis.Contours.Update Then
 		        pstrip=New Picture(1,gvis.ny,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        pstrip.Graphics.UseOldRenderer=True
+		        //pstrip.Graphics.UseOldRenderer=True
 		        pstrip.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a),-(canvas_sag),0
-		        sagbuffer.Graphics.UseOldRenderer=True
+		        //sagbuffer.Graphics.UseOldRenderer=True
 		        sagbuffer.Graphics.DrawPicture pstrip,UBound(gvis.contours.Axial_Pic)-a,0
 		        sagbuffer.Mask.Graphics.DrawPicture gvis.contours.Axial_Pic(gvis.nz-1-a).mask,UBound(gvis.contours.Axial_Pic)-a,0, 1,gvis.ny,canvas_sag,0,1,gvis.ny
 		      end
@@ -1942,8 +1942,8 @@ Inherits Canvas
 		      Errors.Append "Error within Make Strucutre Sagittal : "+e.Reason
 		    end
 		    
-		    Pic_Structure.Graphics.UseOldRenderer=True
-		    Pic_Structure.Mask.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Graphics.UseOldRenderer=True
+		    //Pic_Structure.Mask.Graphics.UseOldRenderer=True
 		    if gvis.nz Mod 2=0 then
 		      Pic_Structure.Graphics.DrawObject px,0,-1
 		      Pic_Structure.Mask.Graphics.DrawObject py,0,-1
@@ -2234,16 +2234,16 @@ Inherits Canvas
 		  image_sizey=Round(gvis.ny*canvas_scale*gvis.scale_height/gvis.pixel_resolution)
 		  
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.ny)
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  // Redraw Structures
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil  Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.ny)
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  
@@ -2259,7 +2259,7 @@ Inherits Canvas
 		  
 		  // Redraw Structures
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil  Then
-		    Display.Graphics.UseOldRenderer=True
+		    //Display.Graphics.UseOldRenderer=True
 		    for i=0 to UBound(Poly_Structures)
 		      if Poly_Structures(i)<> nil Then
 		        for j=0 to UBound(Poly_Structures(i).Structure_Poly)
@@ -2270,7 +2270,7 @@ Inherits Canvas
 		        Next
 		      end
 		    next
-		    Display.Graphics.UseOldRenderer=False
+		    //Display.Graphics.UseOldRenderer=False
 		  end
 		  
 		  
@@ -2592,7 +2592,7 @@ Inherits Canvas
 		  
 		  image_sizex=Round(gvis.nx*canvas_scale*gvis.scale_width/gvis.pixel_resolution)
 		  image_sizey=Round(gvis.nz*canvas_scale*gvis.scale_thickness/gvis.pixel_resolution)
-		  Display.Graphics.UseOldRenderer=True
+		  //Display.Graphics.UseOldRenderer=True
 		  
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.nz)
@@ -2602,7 +2602,7 @@ Inherits Canvas
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs  and Pic_Structure<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.nx,gvis.nz)
 		  end
-		  Display.Graphics.UseOldRenderer=False
+		  //Display.Graphics.UseOldRenderer=False
 		  
 		  
 		  // Redraw Dose Distribution
@@ -2900,7 +2900,7 @@ Inherits Canvas
 		  
 		  image_sizex=Round(gvis.ny*canvas_scale*gvis.scale_height/gvis.pixel_resolution)
 		  image_sizey=Round(gvis.nz*canvas_scale*gvis.scale_thickness/gvis.pixel_resolution)
-		  Display.Graphics.UseOldRenderer=True
+		  //Display.Graphics.UseOldRenderer=True
 		  if Window_Treatment.CheckBox_image.Value and Pic_Image<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Image,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.ny,gvis.nz)
 		  end
@@ -2909,7 +2909,7 @@ Inherits Canvas
 		  if Window_Treatment.CheckBox_show_struc.Value and not Window_Treatment.Move_CrossHairs and Pic_Structure<> nil Then
 		    Display.Graphics.DrawPicture(Pic_Structure,Axial_Image_x1,Axial_Image_y1,image_sizex,image_sizey,0,0,gvis.ny,gvis.nz)
 		  end
-		  Display.Graphics.UseOldRenderer=False
+		  //Display.Graphics.UseOldRenderer=False
 		  
 		  
 		  // Redraw Dose Distribution
@@ -3373,170 +3373,242 @@ Inherits Canvas
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="AcceptFocus"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AcceptTabs"
-			Visible=true
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoDeactivate"
+			Name="AllowAutoDeactivate"
 			Visible=true
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tooltip"
+			Visible=true
+			Group="Appearance"
+			InitialValue=""
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocusRing"
+			Visible=true
+			Group="Appearance"
+			InitialValue="True"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowFocus"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowTabs"
+			Visible=true
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_delx"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_dely"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_Max_x1"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_Max_y1"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_Min_x1"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_Min_y1"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_num"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_x1"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Axial_Dose_y1"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="axial_Dose_Zvalue"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Backdrop"
 			Visible=true
 			Group="Appearance"
+			InitialValue=""
 			Type="Picture"
-			EditorType="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BG"
+			Visible=false
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="Color"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="buffer_offx"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="buffer_offy"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="canvas_cor"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="canvas_sag"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="canvas_scale"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="canvas_slice"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cross_axial"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cross_coronal"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="cross_sagittal"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Display"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dose_Error"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dose_Units"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dose_Value"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -3546,6 +3618,7 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="False"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"
@@ -3553,14 +3626,7 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EraseBackground"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
-			Type="Boolean"
-			EditorType="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
@@ -3568,17 +3634,13 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HelpTag"
-			Visible=true
-			Group="Appearance"
-			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Image_Value"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -3586,134 +3648,177 @@ Inherits Canvas
 			Name="Index"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="InitialParent"
+			Visible=false
+			Group=""
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="initial_WL"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="initial_WW"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockBottom"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockLeft"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockRight"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockTop"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MouseCross"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mouse_xcm"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mouse_xpixel"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mouse_ycm"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mouse_ypixel"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mouse_zcm"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="pan_x"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="pan_y"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pic_Dose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pic_Image"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pic_Structure"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Picture"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabIndex"
@@ -3721,12 +3826,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabPanelIndex"
+			Visible=false
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabStop"
@@ -3734,12 +3842,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Transparent"
@@ -3747,20 +3858,15 @@ Inherits Canvas
 			Group="Behavior"
 			InitialValue="True"
 			Type="Boolean"
-			EditorType="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UseFocusRing"
-			Visible=true
-			Group="Appearance"
-			InitialValue="True"
-			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ViewFlag"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Visible"
@@ -3768,6 +3874,7 @@ Inherits Canvas
 			Group="Appearance"
 			InitialValue="True"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
@@ -3775,12 +3882,15 @@ Inherits Canvas
 			Group="Position"
 			InitialValue="100"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="WL_Mouse"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

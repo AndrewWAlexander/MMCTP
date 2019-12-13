@@ -782,7 +782,7 @@ Inherits Thread
 		    z=vv.DMX.z_min+vv.DMX.Del_Z/2+vv.DMX.Del_z*k
 		    
 		    imagemask(k)=New Picture(vv.DMX.X_num,vv.DMX.Y_num,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		    imagemask(k).Graphics.UseOldRenderer=true
+		    //imagemask(k).Graphics.UseOldRenderer=true
 		    if  DMXSettings.Cleancontours then //fill with set density
 		      imagemask(k).graphics.forecolor=rgb(200,200,200) 'Fill with 200 means set density
 		    else
@@ -832,7 +832,7 @@ Inherits Thread
 		            end if
 		            imagemask(k).graphics.penHeight=0
 		            imagemask(k).graphics.penwidth=0
-		            imagemask(k).Graphics.UseOldRenderer=True
+		            //imagemask(k).Graphics.UseOldRenderer=True
 		            imagemask(k).graphics.fillPolygon poly.points
 		          end if
 		        next 'for all segments
@@ -1982,37 +1982,49 @@ Inherits Thread
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="auto_importD"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="auto_refresh"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="auto_run"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BEAMnrc_dir"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Default_Device_Type"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DMX_Name"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -2020,15 +2032,17 @@ Inherits Thread
 			Name="Index"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="Integer"
-			EditorType="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Priority"
@@ -2036,6 +2050,7 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="5"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StackSize"
@@ -2043,83 +2058,109 @@ Inherits Thread
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
-			EditorType="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_adddose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_chrLimit"
+			Visible=false
 			Group="Behavior"
 			InitialValue="20"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_clean_density"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_DMX_make"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_dose_water"
+			Visible=false
 			Group="Behavior"
 			InitialValue="1"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_numb_hist"
+			Visible=false
 			Group="Behavior"
 			InitialValue="-20"
 			Type="Int64"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_Res_X"
+			Visible=false
 			Group="Behavior"
 			InitialValue=".5"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_Res_Y"
+			Visible=false
 			Group="Behavior"
 			InitialValue=".5"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_Res_Z"
+			Visible=false
 			Group="Behavior"
 			InitialValue=".5"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_run"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_status"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="xvmc_folder"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

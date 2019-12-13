@@ -3,7 +3,6 @@ Begin Window Window_Beam_Properties
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   3
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_Beam_Properties
    HasBackColor    =   False
    Height          =   755
    ImplicitInstance=   True
-   LiveResize      =   False
+   LiveResize      =   "False"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -52,6 +51,7 @@ Begin Window Window_Beam_Properties
       TextSize        =   12.0
       TextUnit        =   0
       Top             =   40
+      Transparent     =   False
       Underline       =   False
       Value           =   2
       Visible         =   True
@@ -80,6 +80,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   87
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   603
@@ -180,6 +181,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   116
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   265
@@ -211,6 +213,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   161
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   264
@@ -242,6 +245,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   195
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   264
@@ -284,6 +288,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   328
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -327,6 +332,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   370
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -499,6 +505,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   229
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   264
@@ -541,6 +548,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   286
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -606,6 +614,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   535
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   592
@@ -636,6 +645,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   645
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   117
@@ -737,6 +747,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   679
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   117
@@ -765,6 +776,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   611
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -843,6 +855,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   560
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -886,6 +899,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   643
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -918,6 +932,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   677
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   133
@@ -946,6 +961,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   611
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -975,6 +991,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   611
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1005,13 +1022,14 @@ Begin Window Window_Beam_Properties
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   77
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   589
          Begin PushButton PushButton_mlc_import
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Import MLC file"
             Default         =   False
@@ -1035,6 +1053,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   361
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   134
@@ -1046,7 +1065,7 @@ Begin Window Window_Beam_Properties
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   377
             HelpTag         =   ""
             Index           =   -2147483648
@@ -1070,7 +1089,7 @@ Begin Window Window_Beam_Properties
          Begin PushButton PushButton_mlc_delete
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Delete MLC"
             Default         =   False
@@ -1094,6 +1113,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   393
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   134
@@ -1136,6 +1156,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   184
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1179,6 +1200,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   246
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1292,6 +1314,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   307
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1356,6 +1379,7 @@ Begin Window Window_Beam_Properties
             TabPanelIndex   =   3
             TabStop         =   True
             Top             =   486
+            Transparent     =   False
             Value           =   0
             Visible         =   True
             Width           =   414
@@ -1363,7 +1387,7 @@ Begin Window Window_Beam_Properties
          Begin PushButton PushButton_mlc_positions
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Edit Leaf positions"
             Default         =   False
@@ -1387,6 +1411,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   468
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   134
@@ -1429,6 +1454,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   126
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1494,6 +1520,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   150
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   592
@@ -1640,6 +1667,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   174
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1683,6 +1711,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   174
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1726,6 +1755,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   174
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1755,6 +1785,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   208
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1784,6 +1815,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   208
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -1814,13 +1846,14 @@ Begin Window Window_Beam_Properties
          TextSize        =   12.0
          TextUnit        =   0
          Top             =   82
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   603
          Begin PushButton PushButton_Electron_Cutout
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Edit Cut Out Shape"
             Default         =   False
@@ -1844,6 +1877,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   131
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   147
@@ -1886,6 +1920,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   12.0
             TextUnit        =   0
             Top             =   206
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -1968,7 +2003,7 @@ Begin Window Window_Beam_Properties
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   299
             HelpTag         =   ""
             Index           =   -2147483648
@@ -2063,6 +2098,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   116
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2141,6 +2177,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   82
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2205,6 +2242,7 @@ Begin Window Window_Beam_Properties
          TabPanelIndex   =   2
          TabStop         =   True
          Top             =   116
+         Transparent     =   False
          Value           =   0
          Visible         =   True
          Width           =   124
@@ -2282,6 +2320,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   116
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2311,6 +2350,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   248
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   592
@@ -2352,6 +2392,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   265
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2382,6 +2423,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   306
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   593
@@ -2423,6 +2465,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   336
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2501,6 +2544,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   336
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2615,6 +2659,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   84
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -2644,6 +2689,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   378
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   593
@@ -2685,6 +2731,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2763,6 +2810,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2841,6 +2889,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2954,6 +3003,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -3032,6 +3082,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -3110,6 +3161,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   404
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -3122,7 +3174,7 @@ Begin Window Window_Beam_Properties
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   264
             HelpTag         =   ""
             Index           =   -2147483648
@@ -3168,6 +3220,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   458
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   602
@@ -3209,6 +3262,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   586
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3322,6 +3376,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   552
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3365,6 +3420,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   518
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3443,6 +3499,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   484
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3521,6 +3578,7 @@ Begin Window Window_Beam_Properties
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   620
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3600,6 +3658,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   266
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -3643,6 +3702,7 @@ Begin Window Window_Beam_Properties
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   266
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   False
          Visible         =   True
@@ -3781,6 +3841,7 @@ Begin Window Window_Beam_Properties
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -5508,51 +5569,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="beam_index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="donothing"
-		Group="Behavior"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -5569,177 +5622,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="jaw"
-		Group="Behavior"
-		Type="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="jaw_field"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MLC"
-		Group="Behavior"
-		Type="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="mlc_field"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Mouse_X"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Mouse_Y"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Ok_beam_energy"
-		Group="Behavior"
-		InitialValue="false"
-		Type="boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -5750,19 +5669,188 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="beam_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="donothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="jaw"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="jaw_field"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MLC"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="mlc_field"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Mouse_X"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Mouse_Y"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Ok_beam_energy"
+		Visible=false
+		Group="Behavior"
+		InitialValue="false"
+		Type="boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -5770,6 +5858,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -5777,7 +5866,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -5785,5 +5874,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

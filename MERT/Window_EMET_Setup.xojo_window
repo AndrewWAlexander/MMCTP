@@ -3,7 +3,6 @@ Begin Window Window_EMET_Setup
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_EMET_Setup
    HasBackColor    =   False
    Height          =   759
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   True
@@ -52,6 +51,7 @@ Begin Window Window_EMET_Setup
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       Value           =   3
       Visible         =   True
@@ -80,6 +80,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   945
@@ -94,6 +95,7 @@ Begin Window Window_EMET_Setup
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -126,6 +128,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   75
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -171,6 +174,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   530
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -249,6 +253,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   619
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -292,6 +297,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   589
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -405,6 +411,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   562
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -483,6 +490,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   531
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -526,6 +534,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   561
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -639,6 +648,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   591
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -682,6 +692,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   622
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -725,7 +736,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_Make_Feathered_Beams
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Generate Feathered Beams"
             Default         =   False
@@ -749,6 +760,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   587
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   195
@@ -756,7 +768,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_Make_Raybeams
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Generate Raster Beams"
             Default         =   False
@@ -780,6 +792,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   616
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   195
@@ -857,6 +870,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   560
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -900,6 +914,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   531
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -980,6 +995,7 @@ Begin Window Window_EMET_Setup
             Enabled         =   True
             Height          =   20
             HelpTag         =   ""
+            Indeterminate   =   False
             Index           =   -2147483648
             InitialParent   =   "GroupBox_BeamLogic"
             Left            =   990
@@ -992,9 +1008,10 @@ Begin Window Window_EMET_Setup
             Scope           =   0
             TabIndex        =   23
             TabPanelIndex   =   4
-            TabStop         =   True
+            TabStop         =   "True"
             Top             =   542
-            Value           =   0
+            Transparent     =   False
+            Value           =   0.0
             Visible         =   True
             Width           =   179
          End
@@ -1037,6 +1054,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   66
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1115,6 +1133,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   98
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1193,6 +1212,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   130
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1271,6 +1291,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   162
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1384,6 +1405,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   226
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1427,6 +1449,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   194
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1494,6 +1517,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   71
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   194
@@ -1536,7 +1560,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_MakeBeamlets_old
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Use old Beamlets"
          Default         =   False
@@ -1560,6 +1584,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   61
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   194
@@ -1626,6 +1651,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   52
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   128
@@ -1657,8 +1683,9 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   52
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1689,8 +1716,9 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   84
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1721,8 +1749,9 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   116
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1753,8 +1782,9 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   148
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1785,8 +1815,9 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   180
+         Transparent     =   False
          Underline       =   False
-         Value           =   False
+         Value           =   "False"
          Visible         =   True
          Width           =   100
       End
@@ -1828,6 +1859,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   108
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -1941,6 +1973,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   141
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2019,6 +2052,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   212
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2097,6 +2131,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   260
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2105,7 +2140,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_Cal_SlidingCouch
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Calculate Beams"
          Default         =   False
@@ -2129,6 +2164,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   53
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   155
@@ -2195,6 +2231,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   77
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   128
@@ -2272,6 +2309,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   175
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -2280,7 +2318,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_DOS_Source1
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "DOSXYZnrc Source 1"
          Default         =   False
@@ -2304,6 +2342,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   72
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   240
@@ -2311,7 +2350,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_VMC_Source0
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "VMC Source 0"
          Default         =   False
@@ -2335,6 +2374,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   110
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   240
@@ -2363,6 +2403,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   47
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   465
@@ -2393,6 +2434,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   78
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   446
@@ -2402,6 +2444,7 @@ Begin Window Window_EMET_Setup
             Enabled         =   True
             Height          =   15
             HelpTag         =   ""
+            Indeterminate   =   False
             Index           =   -2147483648
             InitialParent   =   "GroupBox_Depth_Cal"
             Left            =   40
@@ -2414,9 +2457,10 @@ Begin Window Window_EMET_Setup
             Scope           =   0
             TabIndex        =   1
             TabPanelIndex   =   2
-            TabStop         =   True
+            TabStop         =   "True"
             Top             =   383
-            Value           =   0
+            Transparent     =   False
+            Value           =   0.0
             Visible         =   True
             Width           =   446
          End
@@ -2431,6 +2475,7 @@ Begin Window Window_EMET_Setup
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -2463,6 +2508,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   158
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -2473,7 +2519,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_Cal_Depth_at_Projection
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Calculate"
             Default         =   False
@@ -2497,6 +2543,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   354
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   113
@@ -2596,6 +2643,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   48
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   201
@@ -2637,6 +2685,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   123
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2680,6 +2729,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   215
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2723,6 +2773,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   156
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2766,6 +2817,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   188
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2809,6 +2861,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   247
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -2852,6 +2905,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   279
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -3269,6 +3323,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   92
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   183
@@ -3347,6 +3402,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   303
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -3391,7 +3447,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_Photon_MakeBeamlets
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Cal new Beamlet"
          Default         =   False
@@ -3415,6 +3471,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   401
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   151
@@ -3443,6 +3500,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   47
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1150
@@ -3473,6 +3531,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   70
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   128
@@ -3574,6 +3633,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   70
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   128
@@ -3581,7 +3641,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_Cal_Angles
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Calculate Angle Map"
             Default         =   False
@@ -3605,6 +3665,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   70
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   155
@@ -3647,6 +3708,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   70
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -3692,6 +3754,7 @@ Begin Window Window_EMET_Setup
             Enabled         =   True
             Height          =   22
             HelpTag         =   ""
+            Indeterminate   =   False
             Index           =   -2147483648
             InitialParent   =   "GroupBox1"
             Left            =   839
@@ -3704,9 +3767,10 @@ Begin Window Window_EMET_Setup
             Scope           =   0
             TabIndex        =   7
             TabPanelIndex   =   1
-            TabStop         =   True
+            TabStop         =   "True"
             Top             =   70
-            Value           =   0
+            Transparent     =   False
+            Value           =   0.0
             Visible         =   True
             Width           =   327
          End
@@ -3749,6 +3813,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   133
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -3827,6 +3892,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   70
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -3905,6 +3971,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   103
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -3948,7 +4015,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_Positions_Apply
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "Apply settings to all beams"
          Default         =   False
@@ -3972,6 +4039,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   9.0
          TextUnit        =   0
          Top             =   311
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   141
@@ -4014,6 +4082,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   165
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -4092,6 +4161,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   196
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -4170,6 +4240,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   229
+         Transparent     =   False
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
@@ -4234,6 +4305,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   117
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   1135
@@ -4248,6 +4320,7 @@ Begin Window Window_EMET_Setup
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -4280,6 +4353,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   146
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4294,7 +4368,7 @@ Begin Window Window_EMET_Setup
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   368
             HelpTag         =   ""
             Index           =   -2147483648
@@ -4318,7 +4392,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_angles_Beam
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Generate New Beam"
             Default         =   False
@@ -4342,6 +4416,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   158
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   141
@@ -4371,13 +4446,14 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   410
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   465
          Begin PushButton PushButton_Deptp_MakeBeams
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Make Beams"
             Default         =   False
@@ -4401,6 +4477,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   695
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   165
@@ -4416,6 +4493,7 @@ Begin Window Window_EMET_Setup
             DataField       =   ""
             DataSource      =   ""
             DefaultRowHeight=   -1
+            DropIndicatorVisible=   False
             Enabled         =   True
             EnableDrag      =   False
             EnableDragReorder=   False
@@ -4448,6 +4526,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   437
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4458,7 +4537,7 @@ Begin Window Window_EMET_Setup
          Begin PushButton PushButton_Deptp_ExportText
             AutoDeactivate  =   True
             Bold            =   False
-            ButtonStyle     =   "0"
+            ButtonStyle     =   0
             Cancel          =   False
             Caption         =   "Export Text"
             Default         =   False
@@ -4482,6 +4561,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   695
+            Transparent     =   False
             Underline       =   False
             Visible         =   True
             Width           =   165
@@ -4511,6 +4591,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   47
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   665
@@ -4521,7 +4602,7 @@ Begin Window Window_EMET_Setup
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   True
+            EraseBackground =   "True"
             Height          =   541
             HelpTag         =   ""
             Index           =   -2147483648
@@ -4580,6 +4661,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   74
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4644,6 +4726,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   74
+            Transparent     =   False
             Underline       =   False
             Value           =   True
             Visible         =   True
@@ -4673,6 +4756,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   73
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -4705,8 +4789,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   75
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   65
          End
@@ -4737,8 +4822,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   75
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   53
          End
@@ -4769,8 +4855,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   75
+            Transparent     =   False
             Underline       =   False
-            Value           =   True
+            Value           =   "True"
             Visible         =   True
             Width           =   55
          End
@@ -4801,8 +4888,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   75
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   104
          End
@@ -4844,6 +4932,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   695
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -4922,6 +5011,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   695
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5021,6 +5111,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   105
+            Transparent     =   False
             Underline       =   False
             Value           =   False
             Visible         =   True
@@ -5064,6 +5155,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   103
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5107,6 +5199,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   103
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5139,8 +5232,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   105
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   75
          End
@@ -5171,8 +5265,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   103
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   144
          End
@@ -5214,6 +5309,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   103
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5257,6 +5353,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   103
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   True
             Visible         =   True
@@ -5287,6 +5384,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   358
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   201
@@ -5363,6 +5461,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   471
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5406,6 +5505,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   439
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5473,8 +5573,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   386
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   162
          End
@@ -5503,6 +5604,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   110
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   194
@@ -5579,6 +5681,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   204
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5622,6 +5725,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   172
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5689,8 +5793,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   138
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   162
          End
@@ -5719,6 +5824,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   267
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   194
@@ -5795,6 +5901,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   361
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5838,6 +5945,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   329
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -5905,8 +6013,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   297
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   162
          End
@@ -5948,6 +6057,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   395
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -6013,6 +6123,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   542
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   201
@@ -6089,6 +6200,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   634
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -6132,6 +6244,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   602
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -6199,8 +6312,9 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   570
+            Transparent     =   False
             Underline       =   False
-            Value           =   False
+            Value           =   "False"
             Visible         =   True
             Width           =   162
          End
@@ -6242,6 +6356,7 @@ Begin Window Window_EMET_Setup
             TextSize        =   0.0
             TextUnit        =   0
             Top             =   668
+            Transparent     =   False
             Underline       =   False
             UseFocusRing    =   False
             Visible         =   True
@@ -6286,7 +6401,7 @@ Begin Window Window_EMET_Setup
       Begin PushButton PushButton_VMC_Source01
          AutoDeactivate  =   True
          Bold            =   False
-         ButtonStyle     =   "0"
+         ButtonStyle     =   0
          Cancel          =   False
          Caption         =   "VMC Source Sepctrum"
          Default         =   False
@@ -6310,6 +6425,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   161
+         Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   240
@@ -6338,6 +6454,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   265
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -6367,6 +6484,7 @@ Begin Window Window_EMET_Setup
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   297
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -6985,7 +7103,7 @@ End
 		        next
 		        
 		        Normal=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        Normal.Graphics.UseOldRenderer=True
+		        //Normal.Graphics.UseOldRenderer=True
 		        
 		        Normal.Graphics.ForeColor=rgb(255,255,255)
 		        Normal.Graphics.FillRect(0,0,nx,nx)
@@ -7001,7 +7119,7 @@ End
 		        Normal.Graphics.FillOval(rotation_x-1,rotation_y-1,2,2)
 		        
 		        isoshift=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        isoshift.Graphics.UseOldRenderer=True
+		        //isoshift.Graphics.UseOldRenderer=True
 		        isoshift.Graphics.DrawPicture(Normal, nx/2-rotation_x,nx/2-rotation_y,nx,nx,0,0,nx,nx)
 		        
 		        px =new PixmapShape(isoshift)
@@ -7009,7 +7127,7 @@ End
 		        px.X=nx/2
 		        px.y=nx/2
 		        Rot=New Picture(nx,nx,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		        Rot.Graphics.UseOldRenderer=True
+		        //Rot.Graphics.UseOldRenderer=True
 		        x1=0
 		        y1=0
 		        Rot.Graphics.DrawObject(px,x1,y1)
@@ -7226,7 +7344,7 @@ End
 		  
 		  //Summarize into one plot
 		  Normal=New Picture(ff.nx,ff.nz,32) //Changed to "New Picture" by William Davis on finding that "NewPicture" had been deprecated
-		  Normal.Graphics.UseOldRenderer=True
+		  //Normal.Graphics.UseOldRenderer=True
 		  Normal.Graphics.ForeColor=RGB(0,0,0)
 		  Normal.Graphics.FillRect(0,0,ff.nx,ff.nz)
 		  
@@ -7254,7 +7372,7 @@ End
 		  
 		  
 		  ff.Plot=new Picture(Normal.Width,Normal.Height,32)
-		  ff.Plot.Graphics.UseOldRenderer=True
+		  //ff.Plot.Graphics.UseOldRenderer=True
 		  ff.Plot.Graphics.DrawPicture Normal,0,0
 		  
 		  ff.Plot.Graphics.ForeColor=RGB(0,255,0)
@@ -9701,94 +9819,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Backdrop"
+		Name="MinimumHeight"
 		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Beam_Index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="MaximumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Composite"
+		Name="MaximumHeight"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="constraint_index"
-		Group="Behavior"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="external_index"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_Move_X"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_Move_Y"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_Number_X"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_Number_Y"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_OpenX"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Feather_OpenY"
-		Group="Behavior"
-		InitialValue="0"
-		Type="single"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -9805,161 +9872,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="0"
-		Type="Integer"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Map_Grad"
-		Group="Behavior"
-		InitialValue="0"
-		Type="picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
+		Name="HasFullScreenButton"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="DefaultLocation"
 		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="nx"
-		Group="Behavior"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Open_Plan_Index"
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="organ_index"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -9970,34 +9919,244 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="projection_index"
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Beam_Index"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="constraint_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="external_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_Move_X"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_Move_Y"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_Number_X"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_Number_Y"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_OpenX"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Feather_OpenY"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="single"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Map_Grad"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="nx"
+		Visible=false
+		Group="Behavior"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Open_Plan_Index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="organ_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="projection_index"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Ray_delx"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Ray_dely"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="single"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Ray_X_Quad"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Ray_Y_Quad"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -10005,20 +10164,23 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="target_index"
+		Visible=false
 		Group="Behavior"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -10026,6 +10188,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -10033,7 +10196,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -10041,5 +10204,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -3,7 +3,6 @@ Begin Window Window_BEAM_Options_DYNVMLC
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
-   Compatibility   =   ""
    Composite       =   False
    Frame           =   1
    FullScreen      =   False
@@ -11,7 +10,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    HasBackColor    =   False
    Height          =   694
    ImplicitInstance=   True
-   LiveResize      =   True
+   LiveResize      =   "True"
    MacProcID       =   0
    MaxHeight       =   32000
    MaximizeButton  =   False
@@ -29,7 +28,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    Begin PushButton PushButton_Close
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Close"
       Default         =   False
@@ -53,6 +52,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   654
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -95,6 +95,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   14
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -138,6 +139,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   42
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -165,6 +167,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -199,6 +202,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Half width of outer square boundary (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -249,6 +253,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   72
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -276,6 +281,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Distance of front of material in CM to reference plane (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -312,6 +318,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   106
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   228
@@ -339,6 +346,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   135
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -368,6 +376,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
          TextSize        =   0.0
          TextUnit        =   0
          Top             =   135
+         Transparent     =   False
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -401,8 +410,9 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   113
+      Transparent     =   False
       Underline       =   False
-      Value           =   False
+      Value           =   "False"
       Visible         =   True
       Width           =   352
    End
@@ -444,6 +454,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   174
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -471,6 +482,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   10
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Thickness of leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -521,6 +533,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   203
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -548,6 +561,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   12
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "number of leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -598,6 +612,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   237
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -625,6 +640,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   14
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Starting position of leaf sides"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -675,6 +691,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   271
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -702,6 +719,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   16
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Width of air gap (cm)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -752,6 +770,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   305
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -779,6 +798,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   18
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Z focus of leaf sides"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -829,6 +849,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   339
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -856,6 +877,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   20
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Radius of leaf end"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -890,6 +912,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Leaf end type"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -929,6 +952,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   341
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   145
@@ -957,6 +981,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   392
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -986,6 +1011,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   392
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -1015,6 +1041,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   392
+      Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
@@ -1058,6 +1085,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   391
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1085,6 +1113,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   27
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "LATCH bit"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1119,6 +1148,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   28
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Dose Zone"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1153,6 +1183,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   29
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "PCUTIN (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1187,6 +1218,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   30
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "ECUTIN (MeV)"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1221,6 +1253,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   31
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Material"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1271,6 +1304,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   471
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1298,6 +1332,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   33
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Opening(s) +air gaps"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1332,6 +1367,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   34
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Collimator leaves"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1366,6 +1402,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Selectable      =   False
       TabIndex        =   35
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Driving screw holes"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -1416,6 +1453,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   500
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1459,6 +1497,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   534
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1502,6 +1541,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   568
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1545,6 +1585,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   602
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1588,6 +1629,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   469
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1631,6 +1673,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   498
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1674,6 +1717,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   532
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1717,6 +1761,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   566
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1760,6 +1805,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   600
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1803,6 +1849,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   467
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1846,6 +1893,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   496
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1889,6 +1937,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   530
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1932,6 +1981,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   564
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1975,6 +2025,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   598
+      Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -1983,7 +2034,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    Begin PushButton PushButton1
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Define leaf cross-sections"
       Default         =   False
@@ -2007,6 +2058,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   87
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   203
@@ -2014,7 +2066,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    Begin PushButton PushButton2
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Define leaf types"
       Default         =   False
@@ -2038,6 +2090,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   119
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   203
@@ -2045,7 +2098,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    Begin PushButton PushButton3
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Define leaf openings"
       Default         =   False
@@ -2069,6 +2122,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   147
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   203
@@ -2076,7 +2130,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
    Begin PushButton PushButton4
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "View leaf offsets"
       Default         =   False
@@ -2100,6 +2154,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       TextSize        =   0.0
       TextUnit        =   0
       Top             =   179
+      Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   203
@@ -2487,46 +2542,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="BackColor"
+		Name="MinimumWidth"
 		Visible=true
-		Group="Appearance"
-		InitialValue="&hFFFFFF"
-		Type="Color"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Backdrop"
-		Visible=true
-		Group="Appearance"
-		Type="Picture"
-		EditorType="Picture"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Composite"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="donothing"
-		Group="Behavior"
-		InitialValue="0"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Frame"
-		Visible=true
-		Group="Appearance"
-		InitialValue="0"
+		Group="Size"
+		InitialValue="64"
 		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinimumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="64"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumWidth"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MaximumHeight"
+		Visible=true
+		Group="Size"
+		InitialValue="32000"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Frame"
+		InitialValue="0"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -2543,137 +2595,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreen"
+		Name="HasCloseButton"
 		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Position"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Interfaces"
+		Name="HasMaximizeButton"
 		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Visible=true
-		Group="Appearance"
+		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MacProcID"
+		Name="HasMinimizeButton"
 		Visible=true
-		Group="Appearance"
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasFullScreenButton"
+		Visible=true
+		Group="Frame"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="DefaultLocation"
+		Visible=true
+		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaximizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MaxWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="32000"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBar"
-		Visible=true
-		Group="Appearance"
-		Type="MenuBar"
-		EditorType="MenuBar"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MenuBarVisible"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinHeight"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Appearance"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
-		Visible=true
-		Group="Position"
-		InitialValue="64"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -2684,19 +2642,124 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+		EditorType="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Backdrop"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="Picture"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="donothing"
+		Visible=false
+		Group="Behavior"
+		InitialValue="0"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="FullScreen"
+		Visible=true
+		Group="Appearance"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Position"
+		InitialValue="400"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=true
+		Group="Appearance"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBar"
+		Visible=true
+		Group="Appearance"
+		InitialValue=""
+		Type="MenuBar"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MenuBarVisible"
+		Visible=true
+		Group="Appearance"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Resizeable"
 		Visible=true
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -2704,6 +2767,7 @@ End
 		Group="Appearance"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -2711,7 +2775,7 @@ End
 		Group="Appearance"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -2719,5 +2783,6 @@ End
 		Group="Position"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -3321,7 +3321,7 @@ Protected Class RTOG_Plan
 		        
 		        //create a blank image to draw the segments of the specific structure on
 		        tmpimage.graphics.foreColor =  rgb(0,0,0)  //black
-		        tmpimage.graphics.UseOldRenderer =  true
+		        //tmpimage.graphics.UseOldRenderer =  true
 		        tmpimage.graphics.fillrect 0,0,tmpimage.width,tmpimage.height
 		        tmpimage.graphics.foreColor=rgb(255,255,255) //set to white now...
 		        tmpimage.graphics.penHeight=0
@@ -3343,7 +3343,7 @@ Protected Class RTOG_Plan
 		          
 		          
 		          //draw that segment to  picture
-		          tmpimage.graphics.UseOldRenderer=True
+		          //tmpimage.graphics.UseOldRenderer=True
 		          tmpimage.Graphics.DrawPolygon poly.Points
 		          tmpimage.graphics.fillPolygon poly.points
 		          
@@ -3503,31 +3503,43 @@ Protected Class RTOG_Plan
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="ApprovalStatus"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_SeriesInstanceUID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_SeriesNumber"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DICOM_SOPInstanceUID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="dvh_bin"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -3535,6 +3547,7 @@ Protected Class RTOG_Plan
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -3542,31 +3555,43 @@ Protected Class RTOG_Plan
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MaximumSegments"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MaximumSegmentsPriority"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Organ_Constra"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Plan_Date"
+			Visible=false
 			Group="Behavior"
 			InitialValue="20120425"
 			Type="String"
@@ -3574,18 +3599,23 @@ Protected Class RTOG_Plan
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Plan_ID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Plan_Name"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Plan_Time"
+			Visible=false
 			Group="Behavior"
 			InitialValue="120228"
 			Type="String"
@@ -3593,31 +3623,41 @@ Protected Class RTOG_Plan
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ReviewDate"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ReviewerName"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ReviewTime"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Save_Plan"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SeriesDescription"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -3625,7 +3665,9 @@ Protected Class RTOG_Plan
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -3633,11 +3675,15 @@ Protected Class RTOG_Plan
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="UseMaxSegement"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
