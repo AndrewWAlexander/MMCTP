@@ -455,7 +455,7 @@ Begin Window Window_VMC_DMXSettings
             Top             =   426
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   151
          End

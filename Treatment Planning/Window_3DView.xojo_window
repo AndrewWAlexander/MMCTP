@@ -401,7 +401,7 @@ Begin Window Window_3DView
          Top             =   471
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   87
       End
@@ -434,7 +434,7 @@ Begin Window Window_3DView
          Top             =   501
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   102
       End
@@ -467,7 +467,7 @@ Begin Window Window_3DView
          Top             =   469
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   123
       End
@@ -500,7 +500,7 @@ Begin Window Window_3DView
          Top             =   439
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   131
       End
@@ -533,7 +533,7 @@ Begin Window Window_3DView
          Top             =   439
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   77
       End
@@ -566,7 +566,7 @@ Begin Window Window_3DView
          Top             =   533
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   71
       End
@@ -599,7 +599,7 @@ Begin Window Window_3DView
          Top             =   439
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   89
       End
@@ -632,7 +632,7 @@ Begin Window Window_3DView
          Top             =   501
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   103
       End
@@ -665,7 +665,7 @@ Begin Window Window_3DView
          Top             =   564
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   93
       End
@@ -698,7 +698,7 @@ Begin Window Window_3DView
          Top             =   422
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   94
       End
@@ -731,7 +731,7 @@ Begin Window Window_3DView
          Top             =   488
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   123
       End
@@ -793,7 +793,7 @@ Begin Window Window_3DView
          Top             =   454
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   109
       End
@@ -945,7 +945,7 @@ Begin Window Window_3DView
          Top             =   407
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1007,7 +1007,7 @@ Begin Window Window_3DView
          Top             =   521
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   109
       End

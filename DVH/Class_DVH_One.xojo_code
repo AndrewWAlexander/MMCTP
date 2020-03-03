@@ -255,50 +255,67 @@ Protected Class Class_DVH_One
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="avgdose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="avg_error"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Calculate"
+			Visible=false
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="D50"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dose_Name"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dose_Units"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_bins"
+			Visible=false
 			Group="Behavior"
 			InitialValue="1000"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DVH_Symbol"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -306,6 +323,7 @@ Protected Class Class_DVH_One
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -313,96 +331,127 @@ Protected Class Class_DVH_One
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="maxdose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mindose"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Normalize"
+			Visible=false
 			Group="Behavior"
 			InitialValue="1"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NumberofPixels"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="pixelvolume"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="sbigvolume"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ssmallvolume"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="stdev"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StringFile"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="struc_names"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="stru_color"
+			Visible=false
 			Group="Behavior"
 			InitialValue="&h000000"
 			Type="color"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="svolume"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="svolumeerror"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -410,12 +459,39 @@ Protected Class Class_DVH_One
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="volumes"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_X"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="single"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Y"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="single"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Res_Z"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

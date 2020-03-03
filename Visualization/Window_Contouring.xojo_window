@@ -140,7 +140,7 @@ Begin Window Window_Contouring
       Top             =   510
       Transparent     =   False
       Underline       =   False
-      Value           =   "True"
+      Value           =   True
       Visible         =   True
       Width           =   20
    End
@@ -295,7 +295,7 @@ Begin Window Window_Contouring
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
-      MenuValue       =   0
+      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
@@ -375,7 +375,7 @@ Begin Window Window_Contouring
       Top             =   478
       Transparent     =   False
       Underline       =   False
-      Value           =   "True"
+      Value           =   True
       Visible         =   True
       Width           =   20
    End

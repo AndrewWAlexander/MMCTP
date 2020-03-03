@@ -138,7 +138,7 @@ Begin Window Window_OpenPatient
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      MenuValue       =   0
+      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0

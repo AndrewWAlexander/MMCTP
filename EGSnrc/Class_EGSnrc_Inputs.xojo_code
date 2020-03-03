@@ -225,36 +225,47 @@ Protected Class Class_EGSnrc_Inputs
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Atomicrelaxations"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BcA"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BoundComptonscattering"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Brems_angular_sampling"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Brems_cross_sections"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Comptoncrossqsections"
+			Visible=false
 			Group="Behavior"
 			InitialValue="default"
 			Type="String"
@@ -262,6 +273,7 @@ Protected Class Class_EGSnrc_Inputs
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Electronimpactionization"
+			Visible=false
 			Group="Behavior"
 			InitialValue="off"
 			Type="string"
@@ -269,33 +281,43 @@ Protected Class Class_EGSnrc_Inputs
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Electron_Step_Algorithm"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ESTEPE"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Global_ECUT"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Global_PCUT"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Global_SMAX"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -303,6 +325,7 @@ Protected Class Class_EGSnrc_Inputs
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -310,21 +333,27 @@ Protected Class Class_EGSnrc_Inputs
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pairangularsampling"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Paircrosssections"
+			Visible=false
 			Group="Behavior"
 			InitialValue="BH"
 			Type="String"
@@ -332,12 +361,15 @@ Protected Class Class_EGSnrc_Inputs
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Photoelectronangularsampling"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Photoncrosssections"
+			Visible=false
 			Group="Behavior"
 			InitialValue="Storm-Israel (PEGS4)"
 			Type="string"
@@ -345,6 +377,7 @@ Protected Class Class_EGSnrc_Inputs
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Photoncrosssectionsoutput"
+			Visible=false
 			Group="Behavior"
 			InitialValue="Off"
 			Type="String"
@@ -352,18 +385,23 @@ Protected Class Class_EGSnrc_Inputs
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Rayleighscattering"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Skin_depth_BCA"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Spin_effects"
+			Visible=false
 			Group="Behavior"
 			InitialValue="On"
 			Type="string"
@@ -373,7 +411,9 @@ Protected Class Class_EGSnrc_Inputs
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -381,17 +421,23 @@ Protected Class Class_EGSnrc_Inputs
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Untitled"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="XImax"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -412,7 +412,7 @@ Begin Window Window_BEAM_Options_DYNVMLC
       Top             =   113
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   352
    End

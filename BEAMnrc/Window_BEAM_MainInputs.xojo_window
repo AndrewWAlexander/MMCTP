@@ -1951,7 +1951,7 @@ Begin Window Window_BEAM_MainInputs
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0

@@ -111,7 +111,7 @@ Begin Window Window_DOSXYZ_Maininputs_Phantom_View
       Top             =   14
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -144,7 +144,7 @@ Begin Window Window_DOSXYZ_Maininputs_Phantom_View
       Top             =   14
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -582,7 +582,7 @@ Begin Window Window_DOSXYZ_Maininputs_Phantom_View
       Top             =   577
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -615,7 +615,7 @@ Begin Window Window_DOSXYZ_Maininputs_Phantom_View
       Top             =   602
       Transparent     =   False
       Underline       =   False
-      Value           =   "True"
+      Value           =   True
       Visible         =   True
       Width           =   100
    End

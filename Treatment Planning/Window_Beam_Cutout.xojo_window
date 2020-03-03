@@ -82,7 +82,7 @@ Begin Window Window_Beam_Cutout
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      MenuValue       =   0
+      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
@@ -127,7 +127,7 @@ Begin Window Window_Beam_Cutout
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      MenuValue       =   0
+      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0

@@ -113,7 +113,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   77
             Transparent     =   True
             Underline       =   False
-            Value           =   "True"
+            Value           =   True
             Visible         =   True
             Width           =   325
          End
@@ -190,7 +190,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   77
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   355
          End
@@ -663,7 +663,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   2
@@ -708,7 +708,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   10
          TabPanelIndex   =   2
@@ -753,7 +753,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   2
@@ -798,7 +798,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   12
          TabPanelIndex   =   2
@@ -843,7 +843,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   2
@@ -967,7 +967,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   16
          TabPanelIndex   =   2
@@ -1091,7 +1091,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   19
          TabPanelIndex   =   2
@@ -1215,7 +1215,7 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   22
          TabPanelIndex   =   2
@@ -1364,7 +1364,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   341
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   161
       End
@@ -1397,7 +1397,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   370
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   161
       End
@@ -1430,7 +1430,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   402
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   161
       End
@@ -1515,7 +1515,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   437
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   130
       End
@@ -1620,7 +1620,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   91
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   174
          End
@@ -1713,7 +1713,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   91
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   190
          End
@@ -2153,7 +2153,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   94
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   249
          End
@@ -2265,7 +2265,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   138
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   249
          End
@@ -2298,7 +2298,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   170
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   249
          End
@@ -2331,7 +2331,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   202
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   249
          End
@@ -2364,7 +2364,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   234
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   249
          End
@@ -2515,7 +2515,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   164
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   183
          End
@@ -2548,7 +2548,7 @@ Begin Window Window_Configurations_TPS_System
             Top             =   164
             Transparent     =   True
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   90
          End
@@ -2671,7 +2671,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   71
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   644
       End
@@ -2704,7 +2704,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   125
          Transparent     =   True
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   644
       End
@@ -2737,7 +2737,7 @@ Begin Window Window_Configurations_TPS_System
          Top             =   166
          Transparent     =   True
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   644
       End

@@ -1725,7 +1725,7 @@ Begin Window Window_Cutout_Options
       Top             =   537
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   119
    End
@@ -1818,7 +1818,7 @@ Begin Window Window_Cutout_Options
          Top             =   493
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   122
       End
@@ -1851,7 +1851,7 @@ Begin Window Window_Cutout_Options
          Top             =   471
          Transparent     =   False
          Underline       =   False
-         Value           =   "True"
+         Value           =   True
          Visible         =   True
          Width           =   122
       End
@@ -1885,7 +1885,7 @@ Begin Window Window_Cutout_Options
       Top             =   576
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   292
    End
@@ -1997,7 +1997,7 @@ Begin Window Window_Cutout_Options
       Top             =   647
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   183
    End

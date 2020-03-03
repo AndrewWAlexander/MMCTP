@@ -574,7 +574,7 @@ Begin Window Window_BEAM_Options
          Top             =   618
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   390
       End
@@ -636,7 +636,7 @@ Begin Window Window_BEAM_Options
          Top             =   420
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   390
       End
@@ -736,7 +736,7 @@ Begin Window Window_BEAM_Options
          Top             =   332
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -833,7 +833,7 @@ Begin Window Window_BEAM_Options
          Top             =   300
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   119
       End

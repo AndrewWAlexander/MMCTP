@@ -54,7 +54,7 @@ Begin Window Window_Export_DICOM
       Top             =   41
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -87,7 +87,7 @@ Begin Window Window_Export_DICOM
       Top             =   73
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -120,7 +120,7 @@ Begin Window Window_Export_DICOM
       Top             =   105
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -153,7 +153,7 @@ Begin Window Window_Export_DICOM
       Top             =   137
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End

@@ -271,7 +271,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   305
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1000,7 +1000,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   272
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1353,7 +1353,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   506
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   160
       End
@@ -1386,7 +1386,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   410
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   545
       End
@@ -1489,7 +1489,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   378
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   354
       End

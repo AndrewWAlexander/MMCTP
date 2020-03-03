@@ -12,13 +12,17 @@ Protected Class Class_DICOM_Plan_PrimaryFluenceModeSQ
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="FluenceMode"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FluenceModeID"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -28,6 +32,7 @@ Protected Class Class_DICOM_Plan_PrimaryFluenceModeSQ
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -35,18 +40,23 @@ Protected Class Class_DICOM_Plan_PrimaryFluenceModeSQ
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -54,12 +64,7 @@ Protected Class Class_DICOM_Plan_PrimaryFluenceModeSQ
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Undefined"
-			Group="Behavior"
-			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

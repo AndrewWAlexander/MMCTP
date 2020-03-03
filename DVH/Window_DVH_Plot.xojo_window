@@ -830,7 +830,7 @@ Begin Window Window_DVH_Plot
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   0
@@ -875,7 +875,7 @@ Begin Window Window_DVH_Plot
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   0
@@ -920,7 +920,7 @@ Begin Window Window_DVH_Plot
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -965,7 +965,7 @@ Begin Window Window_DVH_Plot
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   3
          TabPanelIndex   =   0

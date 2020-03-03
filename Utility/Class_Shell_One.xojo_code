@@ -175,12 +175,15 @@ Protected Class Class_Shell_One
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="ActiveJobs"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="bash"
+			Visible=false
 			Group="Behavior"
 			InitialValue="bash"
 			Type="string"
@@ -188,6 +191,7 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="batch"
+			Visible=false
 			Group="Behavior"
 			InitialValue="NQS"
 			Type="string"
@@ -195,24 +199,31 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BeamnrcJobs"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Beamnrc_v"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DosxyznrcJobs"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="egsnrc_folder_path"
+			Visible=false
 			Group="Behavior"
 			InitialValue="/Users/"
 			Type="string"
@@ -220,12 +231,15 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="File_Transfer_Index"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ftplinefeed"
+			Visible=false
 			Group="Behavior"
 			InitialValue="ftp>"
 			Type="string"
@@ -237,6 +251,7 @@ Protected Class Class_Shell_One
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -244,9 +259,11 @@ Protected Class Class_Shell_One
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="linefeed"
+			Visible=false
 			Group="Behavior"
 			InitialValue=">"
 			Type="string"
@@ -254,6 +271,7 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles"
+			Visible=false
 			Group="Behavior"
 			InitialValue="ls -l"
 			Type="string"
@@ -261,95 +279,127 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles_column_num"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles_dateA"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles_dateB"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles_name"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="listfiles_time"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="login"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="machine"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MaxJobs"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="online"
+			Visible=false
 			Group="Behavior"
 			InitialValue="true"
 			Type="boolean"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="OS"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="password"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Pending_jobs"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="tail_after"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="tail_c"
+			Visible=false
 			Group="Behavior"
 			InitialValue="tail"
 			Type="string"
@@ -357,7 +407,9 @@ Protected Class Class_Shell_One
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="title"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -367,22 +419,29 @@ Protected Class Class_Shell_One
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="VMCJobs"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_folder"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="vmc_path"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

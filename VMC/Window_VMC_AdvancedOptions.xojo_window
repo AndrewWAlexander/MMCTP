@@ -2195,7 +2195,7 @@ Begin Window Window_VMC_AdvancedOptions
          Top             =   560
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   185
       End
@@ -2737,7 +2737,7 @@ Begin Window Window_VMC_AdvancedOptions
       Top             =   599
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   208
    End

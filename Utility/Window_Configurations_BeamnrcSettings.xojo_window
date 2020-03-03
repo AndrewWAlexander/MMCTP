@@ -427,7 +427,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   38
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   80
       End
@@ -460,7 +460,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   38
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   93
       End
@@ -522,7 +522,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   458
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   250
       End
@@ -599,7 +599,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   351
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   231
       End
@@ -676,7 +676,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   383
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   213
       End
@@ -709,7 +709,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   286
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   164
       End
@@ -742,7 +742,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   318
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   171
       End
@@ -775,7 +775,7 @@ Begin Window Window_Configurations_BeamnrcSettings
          Top             =   416
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   195
       End

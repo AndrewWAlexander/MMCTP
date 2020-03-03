@@ -399,7 +399,7 @@ Begin Window Window_Treatment
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   70
          TabPanelIndex   =   8
@@ -661,7 +661,7 @@ Begin Window Window_Treatment
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   63
          TabPanelIndex   =   8
@@ -811,7 +811,7 @@ Begin Window Window_Treatment
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   57
          TabPanelIndex   =   8
@@ -974,7 +974,7 @@ Begin Window Window_Treatment
             Top             =   601
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   100
          End
@@ -1165,7 +1165,7 @@ Begin Window Window_Treatment
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   True
-            MenuValue       =   0
+            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   8
             TabPanelIndex   =   8
@@ -1499,7 +1499,7 @@ Begin Window Window_Treatment
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   6
@@ -1579,7 +1579,7 @@ Begin Window Window_Treatment
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   6
@@ -1704,7 +1704,7 @@ Begin Window Window_Treatment
             Top             =   593
             Transparent     =   False
             Underline       =   False
-            Value           =   "True"
+            Value           =   True
             Visible         =   True
             Width           =   73
          End
@@ -1795,7 +1795,7 @@ Begin Window Window_Treatment
             Top             =   593
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   142
          End
@@ -1828,7 +1828,7 @@ Begin Window Window_Treatment
             Top             =   674
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   117
          End
@@ -1893,7 +1893,7 @@ Begin Window Window_Treatment
             Top             =   701
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   82
          End
@@ -1926,7 +1926,7 @@ Begin Window Window_Treatment
             Top             =   725
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   133
          End
@@ -1959,7 +1959,7 @@ Begin Window Window_Treatment
             Top             =   747
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   142
          End
@@ -2286,7 +2286,7 @@ Begin Window Window_Treatment
             Top             =   599
             Transparent     =   False
             Underline       =   False
-            Value           =   "True"
+            Value           =   True
             Visible         =   True
             Width           =   88
          End
@@ -2319,7 +2319,7 @@ Begin Window Window_Treatment
             Top             =   625
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   130
          End
@@ -2352,7 +2352,7 @@ Begin Window Window_Treatment
             Top             =   674
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   71
          End
@@ -2385,7 +2385,7 @@ Begin Window Window_Treatment
             Top             =   648
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   134
          End
@@ -2447,7 +2447,7 @@ Begin Window Window_Treatment
             Top             =   599
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   84
          End
@@ -3547,7 +3547,7 @@ Begin Window Window_Treatment
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   0
+            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   1
             TabPanelIndex   =   7
@@ -3620,7 +3620,7 @@ Begin Window Window_Treatment
                LockLeft        =   False
                LockRight       =   False
                LockTop         =   False
-               MenuValue       =   0
+               MenuValue       =   "0"
                Scope           =   0
                TabIndex        =   0
                TabPanelIndex   =   7
@@ -3744,7 +3744,7 @@ Begin Window Window_Treatment
                LockLeft        =   False
                LockRight       =   False
                LockTop         =   False
-               MenuValue       =   0
+               MenuValue       =   "0"
                Scope           =   0
                TabIndex        =   3
                TabPanelIndex   =   7

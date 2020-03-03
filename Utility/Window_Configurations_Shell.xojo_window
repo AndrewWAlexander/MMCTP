@@ -370,7 +370,7 @@ Begin Window Window_Configurations_Shell
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   16
          TabPanelIndex   =   4
@@ -2809,7 +2809,7 @@ Begin Window Window_Configurations_Shell
             Top             =   121
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   61
          End

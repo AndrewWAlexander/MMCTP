@@ -82,7 +82,7 @@ Begin Window Window_Configurations_VMC_Settings
          Top             =   58
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   82
       End
@@ -115,7 +115,7 @@ Begin Window Window_Configurations_VMC_Settings
          Top             =   85
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   155
       End
@@ -227,7 +227,7 @@ Begin Window Window_Configurations_VMC_Settings
          Top             =   58
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   97
       End

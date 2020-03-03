@@ -814,7 +814,7 @@ Begin Window Window_VMC_Properties
          Top             =   79
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   349
       End
@@ -1132,7 +1132,7 @@ Begin Window Window_VMC_Properties
             Top             =   260
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   125
          End
@@ -1166,7 +1166,7 @@ Begin Window Window_VMC_Properties
          Top             =   111
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   349
       End
@@ -1269,7 +1269,7 @@ Begin Window Window_VMC_Properties
          Top             =   145
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   349
       End

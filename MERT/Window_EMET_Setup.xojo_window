@@ -1685,7 +1685,7 @@ Begin Window Window_EMET_Setup
          Top             =   52
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1718,7 +1718,7 @@ Begin Window Window_EMET_Setup
          Top             =   84
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1751,7 +1751,7 @@ Begin Window Window_EMET_Setup
          Top             =   116
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1784,7 +1784,7 @@ Begin Window Window_EMET_Setup
          Top             =   148
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1817,7 +1817,7 @@ Begin Window Window_EMET_Setup
          Top             =   180
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -3392,7 +3392,7 @@ Begin Window Window_EMET_Setup
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   0
+            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   20
             TabPanelIndex   =   4
@@ -4791,7 +4791,7 @@ Begin Window Window_EMET_Setup
             Top             =   75
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   65
          End
@@ -4824,7 +4824,7 @@ Begin Window Window_EMET_Setup
             Top             =   75
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   53
          End
@@ -4857,7 +4857,7 @@ Begin Window Window_EMET_Setup
             Top             =   75
             Transparent     =   False
             Underline       =   False
-            Value           =   "True"
+            Value           =   True
             Visible         =   True
             Width           =   55
          End
@@ -4890,7 +4890,7 @@ Begin Window Window_EMET_Setup
             Top             =   75
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   104
          End
@@ -5234,7 +5234,7 @@ Begin Window Window_EMET_Setup
             Top             =   105
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   75
          End
@@ -5267,7 +5267,7 @@ Begin Window Window_EMET_Setup
             Top             =   103
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   144
          End
@@ -5575,7 +5575,7 @@ Begin Window Window_EMET_Setup
             Top             =   386
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   162
          End
@@ -5795,7 +5795,7 @@ Begin Window Window_EMET_Setup
             Top             =   138
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   162
          End
@@ -6015,7 +6015,7 @@ Begin Window Window_EMET_Setup
             Top             =   297
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   162
          End
@@ -6314,7 +6314,7 @@ Begin Window Window_EMET_Setup
             Top             =   570
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   162
          End

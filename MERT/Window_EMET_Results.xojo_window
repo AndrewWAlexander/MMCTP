@@ -599,7 +599,7 @@ Begin Window Window_EMET_Results
             Top             =   318
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   152
          End
@@ -946,7 +946,7 @@ Begin Window Window_EMET_Results
             Top             =   353
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   182
          End
@@ -1269,7 +1269,7 @@ Begin Window Window_EMET_Results
          Top             =   817
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   100
       End
@@ -1351,7 +1351,7 @@ Begin Window Window_EMET_Results
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   1
@@ -1396,7 +1396,7 @@ Begin Window Window_EMET_Results
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   1

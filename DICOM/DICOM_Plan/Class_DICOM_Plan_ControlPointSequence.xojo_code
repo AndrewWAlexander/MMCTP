@@ -92,6 +92,7 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="BeamLimitingDeviceRotationDirection"
+			Visible=false
 			Group="Behavior"
 			InitialValue="NONE"
 			Type="String"
@@ -99,37 +100,49 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Beamlimitngdeviceangle"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ControlPointIndex"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CumulativeMetersetWeight"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DoseRateSet"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="GantryAngle"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="GantryRotationDirection"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -139,10 +152,13 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsocenterPosition"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -152,27 +168,35 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="NominalBeamEnergy"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PatientSupportAngle"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PatientSupportRotationDirection"
+			Visible=false
 			Group="Behavior"
 			InitialValue="NONE"
 			Type="String"
@@ -180,18 +204,23 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SSD"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TableTopEccentricAngle"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0.0"
 			Type="String"
@@ -199,6 +228,7 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TableTopEccentricRotationDirection"
+			Visible=false
 			Group="Behavior"
 			InitialValue="NONE"
 			Type="String"
@@ -206,31 +236,41 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TableTopLateralPosition"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TableTopLongitudinalPosition"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TableTopVerticalPosition"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TomoSinogram"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TomoType"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
@@ -240,6 +280,7 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

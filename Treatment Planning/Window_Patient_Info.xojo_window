@@ -319,7 +319,7 @@ Begin Window Window_Patient_Info
          Top             =   33
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   149
       End

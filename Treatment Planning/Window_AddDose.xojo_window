@@ -178,7 +178,7 @@ Begin Window Window_AddDose
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -342,7 +342,7 @@ Begin Window Window_AddDose
          Top             =   360
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   165
       End
@@ -375,7 +375,7 @@ Begin Window Window_AddDose
          Top             =   360
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   131
       End

@@ -372,7 +372,7 @@ Begin Window Window_Configurations_CTModels
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      MenuValue       =   0
+      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0

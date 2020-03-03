@@ -191,7 +191,7 @@ Begin Window Window_Licence
       Top             =   555
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   565
    End

@@ -16,7 +16,7 @@ Protected Class RTOG_Structure
 		  '========================================
 		  
 		  
-
+		  
 		  if gPref.DVH_Calc_Grid=1 Then // Detemine dose grid size
 		    needupdate=False
 		    For i = 0 to UBound(gRTOG.Plan)
@@ -24,7 +24,7 @@ Protected Class RTOG_Structure
 		        if HR_Res_Z> gRTOG.Plan(i).Dose(j).Depth_Grid Then
 		          HR_Res_Z=gRTOG.Plan(i).Dose(j).Depth_Grid
 		          needupdate=True
-
+		          
 		        end
 		        if HR_Res_Y>gRTOG.Plan(i).Dose(j).Vertical_Grid Then
 		          HR_Res_Y=gRTOG.Plan(i).Dose(j).Vertical_Grid
@@ -34,10 +34,10 @@ Protected Class RTOG_Structure
 		          HR_Res_X=gRTOG.Plan(i).Dose(j).Horizontal_Grid
 		          needupdate=True
 		        end
-
+		        
 		      Next
 		    next
-
+		    
 		    
 		    if needupdate=False Then
 		      Return
@@ -63,9 +63,9 @@ Protected Class RTOG_Structure
 		    HR_Res_y=gVis.scale_height
 		    HR_Res_z=gVis.scale_thickness
 		    
-
+		    
 		  end
-
+		  
 		  
 		  HRnx=gVis.nx*gVis.scale_width/HR_Res_X
 		  HRny=gVis.ny*gVis.scale_height/HR_Res_Y
@@ -73,6 +73,11 @@ Protected Class RTOG_Structure
 		  
 		  temp=(gRTOG.Scan(UBound(gRTOG.Scan)).Z_Value-gRTOG.Scan(0).Z_Value)+gVis.scale_thickness
 		  num=Round(temp/HR_Res_Z)
+		  
+		  if num>gVis.nz Then
+		    num=gVis.nz
+		  end
+		  
 		  HR_Res_Z =temp/num
 		  
 		  Z_limit_lower=gRTOG.Scan(0).Z_Value-gVis.scale_thickness/2
@@ -186,39 +191,51 @@ Protected Class RTOG_Structure
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="HRnx"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HRny"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HRnz"
+			Visible=false
 			Group="Behavior"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HR_Res_X"
+			Visible=false
 			Group="Behavior"
 			InitialValue="100"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HR_Res_Y"
+			Visible=false
 			Group="Behavior"
 			InitialValue="100"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HR_Res_Z"
+			Visible=false
 			Group="Behavior"
 			InitialValue="100"
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -226,6 +243,7 @@ Protected Class RTOG_Structure
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -233,48 +251,71 @@ Protected Class RTOG_Structure
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="nx"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ny"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="nz"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Res_X"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Res_Y"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Res_Z"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -282,16 +323,23 @@ Protected Class RTOG_Structure
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="X_Offset"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y_Offset"
+			Visible=false
 			Group="Behavior"
+			InitialValue=""
 			Type="Single"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

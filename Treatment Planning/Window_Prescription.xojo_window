@@ -274,7 +274,7 @@ Begin Window Window_Prescription
          Top             =   691
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   172
       End
@@ -648,7 +648,7 @@ Begin Window Window_Prescription
             Top             =   678
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   251
          End

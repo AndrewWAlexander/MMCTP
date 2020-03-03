@@ -189,7 +189,7 @@ Begin Window Window_Commisssioning
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   8
          TabPanelIndex   =   1
@@ -234,7 +234,7 @@ Begin Window Window_Commisssioning
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   9
          TabPanelIndex   =   1
@@ -279,7 +279,7 @@ Begin Window Window_Commisssioning
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   True
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   1
          TabPanelIndex   =   2
@@ -324,7 +324,7 @@ Begin Window Window_Commisssioning
          LockLeft        =   True
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   0
+         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   10
          TabPanelIndex   =   1
@@ -916,7 +916,7 @@ Begin Window Window_Commisssioning
             Top             =   560
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   146
          End

@@ -1072,7 +1072,7 @@ Begin Window Window_DOSXYZ_Maininputs
       Top             =   269
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   187
    End

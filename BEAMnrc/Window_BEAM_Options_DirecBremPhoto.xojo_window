@@ -323,7 +323,7 @@ Begin Window Window_BEAM_Options_DirecBremPhoto
       Top             =   21
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   142
    End
@@ -356,7 +356,7 @@ Begin Window Window_BEAM_Options_DirecBremPhoto
       Top             =   117
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   228
    End
@@ -769,7 +769,7 @@ Begin Window Window_BEAM_Options_DirecBremPhoto
          Top             =   379
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   228
       End

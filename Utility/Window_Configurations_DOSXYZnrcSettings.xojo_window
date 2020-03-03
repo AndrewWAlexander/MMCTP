@@ -82,7 +82,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   422
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   265
       End
@@ -115,7 +115,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   323
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   288
       End
@@ -148,7 +148,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   355
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   226
       End
@@ -181,7 +181,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   454
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   147
       End
@@ -214,7 +214,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   291
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   324
       End
@@ -247,7 +247,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   259
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   299
       End
@@ -280,7 +280,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   390
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   183
       End
@@ -357,7 +357,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   486
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   265
       End
@@ -419,7 +419,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   35
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   129
       End
@@ -452,7 +452,7 @@ Begin Window Window_Configurations_DOSXYZnrcSettings
          Top             =   35
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   129
       End

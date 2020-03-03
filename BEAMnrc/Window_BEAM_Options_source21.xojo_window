@@ -718,7 +718,7 @@ Begin Window Window_BEAM_Options_source21
       Top             =   153
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   220
    End

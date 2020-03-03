@@ -284,7 +284,7 @@ Begin Window Window_DOSXYZ_EGSPhant_Materials
             Top             =   563
             Transparent     =   False
             Underline       =   False
-            Value           =   "False"
+            Value           =   False
             Visible         =   True
             Width           =   151
          End

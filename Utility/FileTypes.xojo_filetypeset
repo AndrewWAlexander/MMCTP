@@ -7,10 +7,12 @@
 		MacType=TEXT
 		Name=text
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=True
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 	#tag FileType
@@ -22,10 +24,12 @@
 		MacType=????
 		Name=any
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=True
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 	#tag FileType
@@ -36,10 +40,12 @@
 		MacType=
 		Name=egsinp
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=True
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 	#tag FileType
@@ -50,10 +56,12 @@
 		MacType=JPEG
 		Name=image/jpeg
 		UTI=
-		UTIConformsTo=
+		UTIConformsTo=,public.data
 		Description=
 		MimeType=
 		Imported=True
+		HandlerRank=&h9
+		UTIPhysicalType=public.data
 	#tag EndFileType
 
 #tag EndFileTypeSet

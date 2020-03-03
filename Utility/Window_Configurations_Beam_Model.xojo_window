@@ -1643,7 +1643,7 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   0
+            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   2
             TabPanelIndex   =   2
@@ -1688,7 +1688,7 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   0
+            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   3
             TabPanelIndex   =   2

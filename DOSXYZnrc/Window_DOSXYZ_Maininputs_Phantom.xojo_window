@@ -367,7 +367,7 @@ Begin Window Window_DOSXYZ_Maininputs_Phantom
          Top             =   273
          Transparent     =   False
          Underline       =   False
-         Value           =   "False"
+         Value           =   False
          Visible         =   True
          Width           =   176
       End

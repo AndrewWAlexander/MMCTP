@@ -323,7 +323,7 @@ Begin Window Window_BEAM_Options_WEDGE
       Top             =   108
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -356,7 +356,7 @@ Begin Window Window_BEAM_Options_WEDGE
       Top             =   108
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
@@ -1861,7 +1861,7 @@ Begin Window Window_BEAM_Options_WEDGE
       Top             =   108
       Transparent     =   False
       Underline       =   False
-      Value           =   "False"
+      Value           =   False
       Visible         =   True
       Width           =   100
    End
