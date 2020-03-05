@@ -2284,18 +2284,22 @@ Inherits Thread
 		      // Determine ARC directions and theta values
 		      count=0
 		      counter=0
-		      for k=0 to UBound(egsinp.DYNARC)-1
-		        if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=0  Then // For clockwise motion
-		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle > gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
-		            count=count+1
+		      
+		      if UBound(gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields)>0 Then
+		        for k=0 to UBound(egsinp.DYNARC)-1
+		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=0  Then // For clockwise motion
+		            if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle > gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
+		              count=count+1
+		            end
+		            egsinp.theta(k+1)=egsinp.theta(k+1)+(count*360)
+		          elseif gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=1  Then // For counter clockwise motion
+		            if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle< gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
+		              counter=counter+1
+		            end
 		          end
-		          egsinp.theta(k+1)=egsinp.theta(k+1)+(count*360)
-		        elseif gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=1  Then // For counter clockwise motion
-		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).Gantry_Angle< gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k+1).Gantry_Angle Then
-		            counter=counter+1
-		          end
-		        end
-		      Next
+		        Next
+		      end
+		      
 		      if counter>0 Then
 		        for k=0 to UBound(egsinp.DYNARC)-1
 		          if gRTOG.Plan(Plan_Index).Beam(beam).Collimator.Fields(k).ARC_Direction=1  Then // For counter clockwise motion
