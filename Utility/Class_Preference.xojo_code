@@ -47,46 +47,73 @@ Protected Class Class_Preference
 		  // A Alexander 2012
 		  // Update MsgBox for main folder location
 		  //-------------------------------------------------
-		  Dim fi,b,c as FolderItem
+		  Var fi,b,c As FolderItem
 		  //---------------------------------------------------
 		  
-		  if  TargetWindows Then
-		    fi=SpecialFolder.Applications
+		  
+		  #If  TargetWindows Then
+		    
+		    fi_new=Xojo.IO.SpecialFolder.ApplicationSupport
 		    b=fi.child("McGill Medical Physics")
-		    if b= nil Then
+		    
+		    If b= Nil Then
+		      
 		      MsgBox("MMCTP not installed. The folder called 'McGill Medical Physics' was not found within applications folder " +fi.name+ ". Nil object returned.")
 		      Quit
-		    else
+		      
+		    Else
+		      
 		      c=b.Child("MMCTP")
-		      if c=nil Then
+		      
+		      If c=Nil Then
+		        
 		        MsgBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +b.name+ ". Nil object returned.")
 		        Quit
-		      else
+		        
+		      Else
+		        
 		        Return c
-		      end
-		    end
-		  elseif TargetMacOS Then
-		    fi=SpecialFolder.Applications
-		    b=fi.child("MMCTP")
-		  elseif TargetLinux Then
+		        
+		      End
+		      
+		    End
+		    
+		  #ElseIf TargetMacOS Then
+		    // Changed from special folder due to catalina problems.
+		    //SpecialFolder.Applications gives a native path of /System/Applications
+		    // Change by Wamied ABdel-Rahman 18 July 2020
+		    
+		    fi= New FolderItem("/Applications", FolderItem.PathModes.Native)
+		    b = fi.Child("MMCTP")
+		    
+		  #ElseIf TargetLinux Then
+		    
 		    fi=SpecialFolder.UserLibrary //2011 Linux UPDATE for MMCTP Install area
 		    b=fi.child("MMCTP")
-		  else
+		    
+		  #Else
+		    
 		    MsgBox("OS not determined!")
 		    Quit
-		  end
+		    
+		  #EndIf
 		  
-		  if b=nil Then
+		  If b=Nil Then
 		    MsgBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +fi.name+ ". Nil object returned.")
 		    Quit
-		  end
+		    
+		  End
 		  
-		  if b.Exists=False Then
+		  If b.Exists=False Then
+		    
 		    MsgBox("MMCTP not installed, app folder at location "+b.ShellPath+" does not exist")
 		    Quit
-		  else
+		    
+		  Else
+		    
 		    Return b
-		  end
+		    
+		  End
 		End Function
 	#tag EndMethod
 
