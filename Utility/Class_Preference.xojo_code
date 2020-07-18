@@ -83,7 +83,7 @@ Protected Class Class_Preference
 		    //SpecialFolder.Applications gives a native path of /System/Applications
 		    // Change by Wamied ABdel-Rahman 18 July 2020
 		    
-		    f i= New FolderItem("/Applications", FolderItem.PathModes.Native)
+		    fi= New FolderItem("/Applications", FolderItem.PathModes.Native)
 		    b = fi.Child("MMCTP")
 		    
 		  #ElseIf TargetLinux Then
