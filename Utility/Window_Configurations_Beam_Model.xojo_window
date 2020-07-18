@@ -1643,7 +1643,6 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   2
             TabPanelIndex   =   2
@@ -1688,7 +1687,6 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   3
             TabPanelIndex   =   2
@@ -3467,7 +3465,7 @@ End
 #tag Events RadioButton_MLC_SimpleParser
 	#tag Event
 		Sub Action()
-		  if me.Value Then
+		  If Me.Value Then
 		    MLC.Parser=1
 		  end
 		  Save_MLC=True

@@ -1043,7 +1043,7 @@ Protected Class RTOG_Plan
 		  //-----------------------------------
 		  Dim i,w,k as integer
 		  Dim fname,reading(1),values,bar,temp,names(-1) as string
-		  Dim ts as TextInputStream
+		  Dim ts As TextInputStream
 		  Dim beam_Geometry as RTOG_Beam_Geometry
 		  Dim collimator as Class_Collimator
 		  Dim iso as Class_isocenter

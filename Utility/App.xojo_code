@@ -97,40 +97,51 @@ Inherits Application
 
 	#tag Event
 		Sub Open()
-		  Dim f as FolderItem
-		  Dim i as Integer
+		  Var f As FolderItem
 		  
 		  String_Separate=Chr(126)+Chr(126)
 		  
 		  AutoQuit=False
 		  
-		  if TargetWindows then
+		  #If TargetWindows Then
+		    
 		    local_endline=EndOfLine.Windows
 		    App.MDIWindow.Height=720
 		    App.MDIWindow.Width=1200
-		    if Screen(0)<>nil Then
+		    
+		    If Screen(0)<>Nil Then
+		      
 		      App.MDIWindow.Top= Screen(0).height/2 - App.MDIWindow.height/2
-		      App.MDIWindow.Left = screen(0).Width/2 - (App.MDIWindow.Width/2)
-		    end
-		  elseif TargetMacOS then
-		    local_endline=EndOfLine.Macintosh
-		  else
+		      App.MDIWindow.Left = Screen(0).Width/2 - (App.MDIWindow.Width/2)
+		      
+		    End
+		    
+		  #Else
+		    
+		    
+		    //removed mac and unix conditions. THey are redundent.
+		    //Wamied Abdel-Rahman 18 July 
 		    local_endline=EndOfLine.unix
-		  end
+		    
+		  #EndIf
 		  
 		  
-		  gpref=new Class_Preference
+		  gpref=New Class_Preference
 		  gpref.initialize
 		  
 		  // Look for User license agreement
-		  if MMCTP_Read_License Then
+		  If MMCTP_Read_License Then
+		    
 		    Window_Licence.Show
-		  else
+		    
+		  Else
+		    
 		    MMCTP_Open_Application
-		  end
+		    
+		  End
 		  
 		  
-		  BackColour=rgb(200,200,200)
+		  BackColour=RGB(200,200,200)
 		End Sub
 	#tag EndEvent
 

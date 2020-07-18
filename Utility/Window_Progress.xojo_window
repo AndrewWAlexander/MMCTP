@@ -78,7 +78,7 @@ Begin Window Window_Progress
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
-      TabStop         =   "True"
+      TabStop         =   True
       Top             =   90
       Transparent     =   False
       Value           =   0.0

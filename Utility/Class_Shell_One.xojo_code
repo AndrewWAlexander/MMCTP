@@ -2,30 +2,30 @@
 Protected Class Class_Shell_One
 	#tag Method, Flags = &h0
 		Function Queue_Submit(queuevalue as string, inputfile as String) As String
-		  Dim command as String
+		  Dim command As String
 		  
 		  
-		  if batch="at"  then
+		  If batch="at"  Then
 		    command="at -q d -f "+inputfile+" -m  now"
 		    
-		  elseif batch="nqs"  then
-		    if queuevalue="" Then
+		  Elseif batch="nqs"  Then
+		    If queuevalue="" Then
 		      queuevalue="medium"
-		    end
+		    End
 		    command="qsub -q "+queuevalue+" -x "+inputfile
 		    
-		  elseif batch="keg" or batch="pbs"  then
+		  Elseif batch="keg" Or batch="pbs"  Then
 		    command="qsub -V "+inputfile
 		    
-		  elseif batch="moab" Then
+		  Elseif batch="moab" Then
 		    command="msub -V "+inputfile
 		    
-		  elseif batch="SLURM" Then
+		  Elseif batch="slurm" Then
 		    command="sbatch  "+inputfile+ " -srun"
 		    
-		  else
+		  Else
 		    MsgBox "Error: No command line for batch = "+batch
-		  end
+		  End
 		  
 		  Return command
 		  

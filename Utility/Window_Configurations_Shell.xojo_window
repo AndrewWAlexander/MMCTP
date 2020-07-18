@@ -370,7 +370,6 @@ Begin Window Window_Configurations_Shell
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   16
          TabPanelIndex   =   4
@@ -4049,7 +4048,7 @@ End
 		  PopupMenu_Batch.AddRow "moab"
 		  PopupMenu_Batch.AddRow "keg"
 		  PopupMenu_Batch.AddRow "pbs"
-		  PopupMenu_Batch.AddRow "SLURM"
+		  PopupMenu_Batch.AddRow "slurm"
 		  
 		  
 		  EditField_plink.Text=gShells.Plink
@@ -4122,7 +4121,7 @@ End
 		    PopupMenu_Batch.ListIndex=3
 		  elseif ss.batch="pbs" Then
 		    PopupMenu_Batch.ListIndex=4
-		  elseif ss.batch="SLURM" Then
+		  elseif ss.batch="slurm" Then
 		    PopupMenu_Batch.ListIndex=5
 		  end
 		  
