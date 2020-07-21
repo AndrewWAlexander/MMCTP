@@ -2072,7 +2072,7 @@ End
 		  next
 		  PopupMenu_Gap_Material.ListIndex=list_index
 		  
-		  //EditField_cutout_thick.Text=str(Cutout.CutOutThickness)
+		  //EditField_cutout_thick.value = str(Cutout.CutOutThickness)
 		  
 		  
 		  '===================
@@ -2096,23 +2096,23 @@ End
 		  end
 		  '===================
 		  
-		  EditField_histories.Text=Format(Cutout.NHistories,"#")
-		  EditField_jobs.Text=Format(Cutout.jobs,"#")
-		  EditField_pegs.Text=Cutout.pegsfile
-		  EditField_CutoutThickness.Text=Format(Cutout.CutOutThickness,"-#.####")
+		  EditField_histories.value = Format(Cutout.NHistories,"#")
+		  EditField_jobs.value = Format(Cutout.jobs,"#")
+		  EditField_pegs.value = Cutout.pegsfile
+		  EditField_CutoutThickness.value = Format(Cutout.CutOutThickness,"-#.####")
 		  PopupMenu_Shell.ListIndex=Cutout.Shell_Index
-		  EditField_ECUT.Text=Format(Cutout.ECUT,"-#.####")
-		  EditField_PCUT.Text=Format(Cutout.PCUT,"-#.####")
-		  EditField_airgapthickness.Text=Format(Cutout.GapThickness,"-#.####")
-		  EditField_phsppath.Text=Cutout.InputPhaseSpaceName
-		  EditField_MC_Seed.Text=Format(Cutout.seed,"#")
-		  EditField_Read_buff.Text=Format(Cutout.nreadbuffer,"#")
-		  EditField_write_buff.Text=Format(Cutout.nwritebuffer,"#")
+		  EditField_ECUT.value = Format(Cutout.ECUT,"-#.####")
+		  EditField_PCUT.value = Format(Cutout.PCUT,"-#.####")
+		  EditField_airgapthickness.value = Format(Cutout.GapThickness,"-#.####")
+		  EditField_phsppath.value = Cutout.InputPhaseSpaceName
+		  EditField_MC_Seed.value = Format(Cutout.seed,"#")
+		  EditField_Read_buff.value = Format(Cutout.nreadbuffer,"#")
+		  EditField_write_buff.value = Format(Cutout.nwritebuffer,"#")
 		  
-		  EditField_scoring_thick.Text=Format(Cutout.ScoringRegionThickness,"#.###")
-		  EditField_phantom_thick.Text=Format(Cutout.phantomthickness,"#.###")
-		  EditField_Scoring_rad.Text=Format(Cutout.ScoringRegionRadius,"#.###")
-		  EditField_phspdistance.Text=Format(Cutout.DistInputPhsp,"#.###")
+		  EditField_scoring_thick.value = Format(Cutout.ScoringRegionThickness,"#.###")
+		  EditField_phantom_thick.value = Format(Cutout.phantomthickness,"#.###")
+		  EditField_Scoring_rad.value = Format(Cutout.ScoringRegionRadius,"#.###")
+		  EditField_phspdistance.value = Format(Cutout.DistInputPhsp,"#.###")
 		  
 		  
 		  If Cutout.OutputType=1 Then
@@ -2137,7 +2137,7 @@ End
 		  
 		  
 		  CheckBox_Finished.Value=Cutout.Finished
-		  EditField_progress.Text=Format(Cutout.progress,"#")
+		  EditField_progress.value = Format(Cutout.progress,"#")
 		End Sub
 	#tag EndMethod
 

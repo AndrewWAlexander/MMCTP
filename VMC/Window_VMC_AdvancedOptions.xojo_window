@@ -2883,38 +2883,38 @@ End
 		  
 		  DoNothing=True
 		  
-		  EditField_num_his.Text=Format(vmc_inputfile.num_histories,"-###,###,###")
-		  EditField_his_reps.Text=Format(vmc_inputfile.num_hist_rep,"#")
-		  EditField_rnds1.Text=Format(vmc_inputfile.rndseed1,"#")
-		  EditField_rnds2.Text=Format(vmc_inputfile.rndseed2,"#")
-		  EditField_rnds3.Text=Format(vmc_inputfile.rndseed3,"#")
-		  EditField_rnds4.Text=Format(vmc_inputfile.rndseed4,"#")
-		  EditField_SAD.text=Format(vmc_inputfile.CHANGESAD,"-#.###")
-		  EditField_BeamWeight.text=Format(vmc_inputfile.BEAMWEIGHT,"-#.###")
-		  EditField_DeviceKey.text=vmc_inputfile.DEVICEKEY
-		  EditField_Isocenterdist.text=Format(vmc_inputfile.ISOCENTERDIST,"-#.###")
-		  EditField_tableangle.text=Format(vmc_inputfile.TABLEANGLE,"-#.###")
-		  EditField_num_batches.Text=Format(vmc_inputfile.num_batches,"#")
-		  EditField_his_rotation.Text=Format(vmc_inputfile.num_further_rep,"#")
-		  EditField_Isocenterdist.text=Format(vmc_inputfile.ISOCENTERDIST,"-#.###")
-		  EditField_Isocenterx.text=Format(vmc_inputfile.ISOCENTERx,"-#.###")
-		  EditField_Isocentery.text=Format(vmc_inputfile.ISOCENTERy,"-#.###")
-		  EditField_Isocenterz.text=Format(vmc_inputfile.ISOCENTERz,"-#.###")
-		  EditField_gantry.text=Format(vmc_inputfile.GANTRYANGLE_Value1,"-#.###")
-		  EditField_collangle.text=Format(vmc_inputfile.COLLANGLE,"-#.###")
-		  EditField_tableangle.text=Format(vmc_inputfile.TABLEANGLE,"-#.###")
-		  EditField_ecut.text=Format(vmc_inputfile.Ecut,"-#.###")
-		  EditField_pcut.text=Format(vmc_inputfile.pcut,"-#.###")
-		  EditField_Coll_Width_X.Text=Format(vmc_inputfile.Coll_Width_X,"-#.###")
-		  EditField_Coll_Width_y.Text=Format(vmc_inputfile.Coll_Width_y,"-#.###")
-		  EditField_irreg_num.Text=Format(vmc_inputfile.IRREGULAR_Num,"#")
-		  EditField_NormialEnergy.Text=Format(vmc_inputfile.NominalEnergy,"#.###")
-		  EditField_refx.text=Format(vmc_inputfile.RefPointx,"-#.###")
-		  EditField_refy.text=Format(vmc_inputfile.RefPointy,"-#.###")
-		  EditField_refz.text=Format(vmc_inputfile.RefPointz,"-#.###")
+		  EditField_num_his.value = Format(vmc_inputfile.num_histories,"-###,###,###")
+		  EditField_his_reps.value = Format(vmc_inputfile.num_hist_rep,"#")
+		  EditField_rnds1.value = Format(vmc_inputfile.rndseed1,"#")
+		  EditField_rnds2.value = Format(vmc_inputfile.rndseed2,"#")
+		  EditField_rnds3.value = Format(vmc_inputfile.rndseed3,"#")
+		  EditField_rnds4.value = Format(vmc_inputfile.rndseed4,"#")
+		  EditField_SAD.value = Format(vmc_inputfile.CHANGESAD,"-#.###")
+		  EditField_BeamWeight.value = Format(vmc_inputfile.BEAMWEIGHT,"-#.###")
+		  EditField_DeviceKey.value = vmc_inputfile.DEVICEKEY
+		  EditField_Isocenterdist.value = Format(vmc_inputfile.ISOCENTERDIST,"-#.###")
+		  EditField_tableangle.value = Format(vmc_inputfile.TABLEANGLE,"-#.###")
+		  EditField_num_batches.value = Format(vmc_inputfile.num_batches,"#")
+		  EditField_his_rotation.value = Format(vmc_inputfile.num_further_rep,"#")
+		  EditField_Isocenterdist.value = Format(vmc_inputfile.ISOCENTERDIST,"-#.###")
+		  EditField_Isocenterx.value = Format(vmc_inputfile.ISOCENTERx,"-#.###")
+		  EditField_Isocentery.value = Format(vmc_inputfile.ISOCENTERy,"-#.###")
+		  EditField_Isocenterz.value = Format(vmc_inputfile.ISOCENTERz,"-#.###")
+		  EditField_gantry.value = Format(vmc_inputfile.GANTRYANGLE_Value1,"-#.###")
+		  EditField_collangle.value = Format(vmc_inputfile.COLLANGLE,"-#.###")
+		  EditField_tableangle.value = Format(vmc_inputfile.TABLEANGLE,"-#.###")
+		  EditField_ecut.value = Format(vmc_inputfile.Ecut,"-#.###")
+		  EditField_pcut.value = Format(vmc_inputfile.pcut,"-#.###")
+		  EditField_Coll_Width_X.value = Format(vmc_inputfile.Coll_Width_X,"-#.###")
+		  EditField_Coll_Width_y.value = Format(vmc_inputfile.Coll_Width_y,"-#.###")
+		  EditField_irreg_num.value = Format(vmc_inputfile.IRREGULAR_Num,"#")
+		  EditField_NormialEnergy.value = Format(vmc_inputfile.NominalEnergy,"#.###")
+		  EditField_refx.value = Format(vmc_inputfile.RefPointx,"-#.###")
+		  EditField_refy.value = Format(vmc_inputfile.RefPointy,"-#.###")
+		  EditField_refz.value = Format(vmc_inputfile.RefPointz,"-#.###")
 		  
-		  EditField_BEAMInputfile.text=vmc_inputfile.BEAMnrc_INPUT
-		  EditField_BEAMpegs.text=vmc_inputfile.BEAMnrc_PEGS
+		  EditField_BEAMInputfile.value = vmc_inputfile.BEAMnrc_INPUT
+		  EditField_BEAMpegs.value = vmc_inputfile.BEAMnrc_PEGS
 		  
 		  
 		  
@@ -2931,7 +2931,7 @@ End
 		  
 		  if vmc_inputfile.num_histories<0 Then
 		    RadioButton_stat.Value=True
-		    EditField_stat.Text=Format(-1*vmc_inputfile.num_histories/10,"#.#")
+		    EditField_stat.value = Format(-1*vmc_inputfile.num_histories/10,"#.#")
 		  else
 		    RadioButton_his.Value=True
 		  end
@@ -3179,7 +3179,7 @@ End
 		  
 		  
 		  vmc_inputfile.num_histories=-1*s*10
-		  EditField_num_his.Text=Format(vmc_inputfile.num_histories,"-#.#")
+		  EditField_num_his.value = Format(vmc_inputfile.num_histories,"-#.#")
 		End Sub
 	#tag EndEvent
 #tag EndEvents

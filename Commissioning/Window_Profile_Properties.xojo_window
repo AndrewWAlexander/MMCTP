@@ -1620,19 +1620,19 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Open_Pro()
-		  EditField_Label.Text=one.Label
-		  EditField_Energy.Text=Format(one.Energy,"-#.##")
-		  EditField_FieldX.Text=Format(one.Field_X,"-#.##")
-		  EditField_Fieldy.Text=Format(one.Field_Y,"-#.##")
-		  EditField_Depth.Text=Format(one.Depth,"-#.##")
-		  EditField_SSD.Text=Format(one.SSD,"-#.##")
+		  EditField_Label.value = one.Label
+		  EditField_Energy.value = Format(one.Energy,"-#.##")
+		  EditField_FieldX.value = Format(one.Field_X,"-#.##")
+		  EditField_Fieldy.value = Format(one.Field_Y,"-#.##")
+		  EditField_Depth.value = Format(one.Depth,"-#.##")
+		  EditField_SSD.value = Format(one.SSD,"-#.##")
 		  
-		  EditField_Date.Text=one.Date
-		  EditField_Linacname.Text=One.Linac
-		  EditField_AddOn.Text=One.AddOn
+		  EditField_Date.value = one.Date
+		  EditField_Linacname.value = One.Linac
+		  EditField_AddOn.value = One.AddOn
 		  
-		  EditField_Algorithm.Text=One.Algorithm
-		  EditField_Comment.Text=One.Comment
+		  EditField_Algorithm.value = One.Algorithm
+		  EditField_Comment.value = One.Comment
 		  
 		  if one.Radiation_Type="Photon" Then
 		    RadioButton_RTypeP.Value=True

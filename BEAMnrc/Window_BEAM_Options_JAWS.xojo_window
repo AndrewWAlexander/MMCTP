@@ -676,13 +676,13 @@ End
 		  
 		  
 		  
-		  EditField_numpairs.Text=str(S.ISCM_MAX)
-		  EditField_radius.Text=Format(S.RMAX_CM,"-#.###")
-		  EditField_title.Text=str(S.Title_CM)
-		  EditField_ECUT.Text=Format(S.ECUT_Openings,"-#.###")
-		  EditField_pCUT.Text=Format(S.pCUT_Openings,"-#.###")
-		  EditField_Dosezone.Text=Format(S.Dose_zone_opening,"#")
-		  EditField_Latchbit.Text=Format(S.Iregion_opening,"#")
+		  EditField_numpairs.value = str(S.ISCM_MAX)
+		  EditField_radius.value = Format(S.RMAX_CM,"-#.###")
+		  EditField_title.value = str(S.Title_CM)
+		  EditField_ECUT.value = Format(S.ECUT_Openings,"-#.###")
+		  EditField_pCUT.value = Format(S.pCUT_Openings,"-#.###")
+		  EditField_Dosezone.value = Format(S.Dose_zone_opening,"#")
+		  EditField_Latchbit.value = Format(S.Iregion_opening,"#")
 		  
 		  
 		End Sub

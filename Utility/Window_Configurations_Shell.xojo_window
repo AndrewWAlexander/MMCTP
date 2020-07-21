@@ -4013,15 +4013,15 @@ End
 		  DoNothing=True
 		  
 		  if UBound(MMCTP_Shell_Refresh.All)>-1 Then
-		    StaticText_Task_Refresh.Text=MMCTP_Shell_Refresh.All(0).command
+		    StaticText_Task_Refresh.value = MMCTP_Shell_Refresh.All(0).command
 		  end
 		  
 		  if UBound(MMCTP_Shell_Run.All)>-1 Then
-		    StaticText_Task_Run.Text=MMCTP_Shell_Run.All(0).command
+		    StaticText_Task_Run.value = MMCTP_Shell_Run.All(0).command
 		  end
 		  
-		  EditField_ShellRefresh.Text=MMCTP_Shell_Refresh.Total_Output
-		  EditField_ShellRun.Text=MMCTP_Shell_Run.Total_Output
+		  EditField_ShellRefresh.value = MMCTP_Shell_Refresh.Total_Output
+		  EditField_ShellRun.value = MMCTP_Shell_Run.Total_Output
 		  
 		  Login_Open
 		  DoNothing=False
@@ -4051,8 +4051,8 @@ End
 		  PopupMenu_Batch.AddRow "slurm"
 		  
 		  
-		  EditField_plink.Text=gShells.Plink
-		  EditField_pscp.Text=gShells.pscp
+		  EditField_plink.value = gShells.Plink
+		  EditField_pscp.value = gShells.pscp
 		  
 		  
 		  
@@ -4063,29 +4063,33 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Login_Popup()
-		  //-----------------------------------
-		  //
-		  //
-		  //-----------------------------------
-		  Dim i as Integer
-		  Dim ff as Boolean
-		  Dim snew as Class_Shell_One
-		  //-----------------------------------
+		  '//-----------------------------------
+		  '//
+		  '//
+		  '//-----------------------------------
+		  'Dim i as Integer
+		  'Dim ff as Boolean
+		  'Dim snew as Class_Shell_One
+		  '//-----------------------------------
 		  
 		  
 		  
-		  DoNothing=True
-		  ff=False
+		  DoNothing = True
+		  Var ff As Boolean = False
 		  
-		  for i =0 to UBound(gShells.shells)
-		    if PopupMenu_Shell.Text= gShells.shells(i).title Then
+		  For i As Integer = 0 To gShells.shells.LastRowIndex
+		    
+		    If PopupMenu_Shell.SelectedRowValue =  gShells.shells(i).title Then
+		      
 		      ss= gShells.shells(i)
-		      ff=True
-		    end
+		      ff = True
+		      
+		    End
 		  Next
 		  
-		  if ff=False Then
-		    snew=new Class_Shell_One
+		  If ff = False Then
+		    
+		    Var snew As New Class_Shell_One
 		    snew.title= "New Shell"
 		    gShells.Shells.Append snew
 		    Login_Open
@@ -4095,89 +4099,125 @@ End
 		    save_linac=True
 		    Save_Login=True
 		    Return
-		  end
+		  End
 		  
-		  CheckBox_Shell_Online.Value=ss.online
-		  
-		  
-		  EditField_logintext.text= ss.login
-		  
-		  EditField_MC_BEAMnrc_Version.Text=ss.Beamnrc_v
-		  EditField_machinetext.text=  ss.machine
-		  EditField_passwordtext.text=  ss.password
-		  EditField_linefeed.Text=ss.linefeed
-		  EditField_egsnrc_folder.Text=ss.egsnrc_folder_path
-		  EditField_listfiles.Text=ss.listfiles
-		  EditField_ftpLF.Text=ss.ftplinefeed
+		  CheckBox_Shell_Online.Value = ss.online
 		  
 		  
-		  if ss.batch="at" Then
-		    PopupMenu_Batch.ListIndex=0 
-		  elseif ss.batch="nqs" Then
-		    PopupMenu_Batch.ListIndex=1
-		  elseif ss.batch="moab" Then
-		    PopupMenu_Batch.ListIndex=2
-		  elseif ss.batch="keg" Then
-		    PopupMenu_Batch.ListIndex=3
-		  elseif ss.batch="pbs" Then
-		    PopupMenu_Batch.ListIndex=4
-		  elseif ss.batch="slurm" Then
-		    PopupMenu_Batch.ListIndex=5
-		  end
+		  EditField_logintext.Value =  ss.login
+		  
+		  EditField_MC_BEAMnrc_Version.value = ss.Beamnrc_v
+		  EditField_machinetext.value =   ss.machine
+		  EditField_passwordtext.value =   ss.password
+		  EditField_linefeed.value = ss.linefeed
+		  EditField_egsnrc_folder.value = ss.egsnrc_folder_path
+		  EditField_listfiles.value = ss.listfiles
+		  EditField_ftpLF.value = ss.ftplinefeed
 		  
 		  
-		  if Name_Change=False Then
-		    Editfield_Shell_title.Text=ss.title
-		  end
-		  EditField_vmc_exe.Text=ss.vmc_path
-		  EditField_vmc_folder.Text=ss.vmc_folder
-		  EditField_bash.Text=ss.bash
-		  EditField_listfile_name.Text=str(ss.listfiles_name)
-		  EditField_listfiles_size.Text=str(ss.listfiles_column_num)
-		  EditField_listfiles_dateA.Text=str(ss.listfiles_dateA)
-		  EditField_listfiles_dateb.Text=str(ss.listfiles_dateB)
+		  If ss.batch="at" Then 
+		    
+		    PopupMenu_Batch.SelectedRowIndex = 0
+		     
+		  Elseif ss.batch="nqs" Then
+		    
+		    PopupMenu_Batch.SelectedRowIndex=1
+		    
+		  Elseif ss.batch="moab" Then
+		    
+		    PopupMenu_Batch.SelectedRowIndex=2
+		    
+		  Elseif ss.batch="keg" Then
+		    
+		    PopupMenu_Batch.SelectedRowIndex=3
+		    
+		  Elseif ss.batch="pbs" Then
+		    
+		    PopupMenu_Batch.SelectedRowIndex=4
+		    
+		  Elseif ss.batch="slurm" Then
+		    
+		    PopupMenu_Batch.SelectedRowIndex=5
+		    
+		  End
 		  
-		  EditField_listfiles_time.Text=str(ss.listfiles_time)
 		  
-		  EditField_tail_c.Text=ss.tail_c
-		  EditField_tail_after.Text=ss.tail_after
+		  If Name_Change = False Then
+		    
+		    Editfield_Shell_title.value = ss.title
+		    
+		  End
 		  
-		  EditField_MC_jobs.Text=str(ss.MaxJobs)
-		  if ss.OS=1 Then
-		    RadioButton_Mac.Value=True
-		  elseif ss.OS=2 Then
-		    RadioButton_Linux.Value=True
-		  else
-		    RadioButton_PC.Value=True
-		  end
+		  EditField_vmc_exe.value = ss.vmc_path
+		  EditField_vmc_folder.value = ss.vmc_folder
+		  EditField_bash.value = ss.bash
+		  EditField_listfile_name.value = str(ss.listfiles_name)
+		  EditField_listfiles_size.value = str(ss.listfiles_column_num)
+		  EditField_listfiles_dateA.value = str(ss.listfiles_dateA)
+		  EditField_listfiles_dateb.value = str(ss.listfiles_dateB)
 		  
-		  if ss.File_Transfer_Index=0 Then
-		    RadioButton_FTP.Value=True
-		  else
-		    RadioButton_SCP.Value=True
-		  end
+		  EditField_listfiles_time.value = str(ss.listfiles_time)
 		  
-		  EditField_NumberofQueues.Text=str(UBound(ss.Queue)+1)
+		  EditField_tail_c.value = ss.tail_c
+		  EditField_tail_after.value = ss.tail_after
 		  
-		  PopupMenu_Shell_Queue.DeleteAllRows
-		  for i=0 to UBound(ss.Queue)
-		    PopupMenu_Shell_Queue.AddRow ss.Queue(i)+" - "+Str(ss.QueueTime(i))
-		  next
-		  PopupMenu_Shell_Queue.ListIndex=0
+		  EditField_MC_jobs.value = Str(ss.MaxJobs)
 		  
-		  i=PopupMenu_Shell_Queue.ListIndex
-		  if Name_Change=False Then
-		    if i>=0 and i<= UBound(ss.Queue) Then
-		      EditField_QueueName.Text=ss.Queue(i)
-		      EditField_QueueName1.Text=Str(ss.QueueTime(i))
+		  Select Case ss.Os
+		  Case 1
+		    
+		    RadioButton_Mac.Value = True
+		    
+		  Case 2
+		    
+		    RadioButton_Linux.Value = True
+		    
+		  Else
+		    
+		    RadioButton_PC.Value = True
+		    
+		  End Select
+		  
+		  If ss.File_Transfer_Index = 0 Then
+		    
+		    RadioButton_FTP.Value = True
+		    
+		  Else
+		    
+		    RadioButton_SCP.Value = True
+		    
+		  End
+		  
+		  EditField_NumberofQueues.value = Str(ss.Queue.LastRowIndex + 1)
+		  
+		  PopupMenu_Shell_Queue.RemoveAllRows
+		  
+		  For i As Integer = 0 To ss.Queue.LastRowIndex
+		    
+		    PopupMenu_Shell_Queue.AddRow( _
+		    ss.Queue(i)+" - " +ss.QueueTime(i).ToString)
+		    
+		  Next
+		  
+		  PopupMenu_Shell_Queue.SelectedRowIndex = 0
+		  
+		  If Name_Change = False Then
+		    
+		    If PopupMenu_Shell_Queue.SelectedRowIndex >= 0 And _
+		      PopupMenu_Shell_Queue.SelectedRowIndex <= ss.Queue.LastRowIndex Then
+		      EditField_QueueName.value = ss.Queue( _
+		      PopupMenu_Shell_Queue.SelectedRowIndex)
+		      EditField_QueueName1.value = ss.QueueTime( _
+		      PopupMenu_Shell_Queue.SelectedRowIndex).ToString
 		      
-		    else
-		      EditField_QueueName.Text=""
-		      EditField_QueueName1.Text=""
+		    Else
 		      
-		    end
-		  end
-		  DoNothing=False
+		      EditField_QueueName.value = ""
+		      EditField_QueueName1.value = ""
+		      
+		    End
+		  End
+		  DoNothing = False
 		End Sub
 	#tag EndMethod
 
@@ -4227,7 +4267,7 @@ End
 #tag Events PushButton_Clear_Refresh
 	#tag Event
 		Sub Action()
-		  EditField_ShellRefresh.Text=""
+		  EditField_ShellRefresh.value = ""
 		  MMCTP_Shell_Refresh.Total_Output=""
 		  
 		End Sub
@@ -4255,23 +4295,28 @@ End
 #tag Events PopupMenu_Shell
 	#tag Event
 		Sub Change()
-		  Dim i as Integer
-		  Dim snew as Class_Shell_One
+		  'Dim i as Integer
+		  'Dim snew as Class_Shell_One
 		  
-		  if DoNothing=True Then
+		  If DoNothing Then
+		    
 		    Return
-		  end
+		    
+		  End
 		  
-		  if PopupMenu_Shell.Text="Add new Shell" Then
-		    snew = new Class_Shell_One
+		  If PopupMenu_Shell.SelectedRowValue = "Add new Shell" Then
+		    
+		    Var snew As New Class_Shell_One
 		    snew.title= "New Shell"
-		    gShells.Shells.Append snew
+		    gShells.Shells.AddRow( snew )
 		    Login_Open
 		    gLinacs.Update_Shells_Add
-		    PopupMenu_Shell.ListIndex=PopupMenu_Shell.ListCount-2
+		    PopupMenu_Shell.SelectedRowIndex = PopupMenu_Shell.RowCount - 2
 		    Save_Login=True
 		    save_linac=True
-		  end
+		    
+		  End
+		  
 		  Login_Popup
 		End Sub
 	#tag EndEvent
@@ -4471,7 +4516,7 @@ End
 #tag Events PushButton_ConnectionTest
 	#tag Event
 		Sub Action()
-		  StaticText_ConnectionTest.Text=""
+		  StaticText_ConnectionTest.value = ""
 		  cc= new Class_MMCTP_Commands
 		  cc.shell=ss
 		  cc.command="ls"
@@ -4603,7 +4648,7 @@ End
 		  
 		  
 		  
-		  StaticText_ConnectionTest_FTP.Text=""
+		  StaticText_ConnectionTest_FTP.value = ""
 		  cc= new Class_MMCTP_Commands
 		  cc.shell=ss
 		  cc.Shell_Test_FTP=True
@@ -4634,8 +4679,8 @@ End
 		  if Name_Change=False Then
 		    i=me.ListIndex
 		    if i>=0 and i<= UBound(ss.Queue) Then
-		      EditField_QueueName.Text=ss.Queue(i)
-		      EditField_QueueName1.Text=Str(ss.QueueTime(i))
+		      EditField_QueueName.value = ss.Queue(i)
+		      EditField_QueueName1.value = Str(ss.QueueTime(i))
 		      
 		    end
 		  end
@@ -4786,7 +4831,7 @@ End
 #tag Events PushButton_ClearFTP
 	#tag Event
 		Sub Action()
-		  EditField_ShellFTP.Text=""
+		  EditField_ShellFTP.value = ""
 		  MMCTP_Download.Total_Output=""
 		End Sub
 	#tag EndEvent
@@ -4802,7 +4847,7 @@ End
 #tag Events PushButton_Clear_Run
 	#tag Event
 		Sub Action()
-		  EditField_ShellRun.Text=""
+		  EditField_ShellRun.value = ""
 		  MMCTP_Shell_Run.Total_Output=""
 		End Sub
 	#tag EndEvent

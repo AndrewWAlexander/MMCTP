@@ -1128,23 +1128,23 @@ End
 		    CheckBox_FAT_DBS.Value=False
 		  end
 		  
-		  EditField_Isocenter_X.Text=Format(dosxyz_input.xiso,"-#.###")
-		  EditField_Isocenter_y.Text=Format(dosxyz_input.yiso,"-#.###")
-		  EditField_Isocenter_z.Text=Format(dosxyz_input.ziso,"-#.###")
+		  EditField_Isocenter_X.value = Format(dosxyz_input.xiso,"-#.###")
+		  EditField_Isocenter_y.value = Format(dosxyz_input.yiso,"-#.###")
+		  EditField_Isocenter_z.value = Format(dosxyz_input.ziso,"-#.###")
 		  
-		  EditField_theta.Text=Format(dosxyz_input.theta(0),"-#.###")
-		  EditField_phi.Text=Format(dosxyz_input.phi(0),"-#.###")
-		  EditField_phicol.Text=Format(dosxyz_input.phicol(0),"-#.###")
+		  EditField_theta.value = Format(dosxyz_input.theta(0),"-#.###")
+		  EditField_phi.value = Format(dosxyz_input.phi(0),"-#.###")
+		  EditField_phicol.value = Format(dosxyz_input.phicol(0),"-#.###")
 		  
-		  EditField_distance_source.Text=Format(dosxyz_input.dsource,"#.###")
-		  EditField_esplit.Text=Format(dosxyz_input.e_split,"-#")
-		  EditField_BEAM_exe.Text=dosxyz_input.the_beam_code
-		  EditField_BEAM_Inputfile.Text=dosxyz_input.the_input_file
-		  EditField_Pegs.Text=dosxyz_input.the_pegs_file
-		  EditField_path.Text=dosxyz_input.path11
+		  EditField_distance_source.value = Format(dosxyz_input.dsource,"#.###")
+		  EditField_esplit.value = Format(dosxyz_input.e_split,"-#")
+		  EditField_BEAM_exe.value = dosxyz_input.the_beam_code
+		  EditField_BEAM_Inputfile.value = dosxyz_input.the_input_file
+		  EditField_Pegs.value = dosxyz_input.the_pegs_file
+		  EditField_path.value = dosxyz_input.path11
 		  
-		  EditField_ipp.Text=Format(dosxyz_input.tomo_ipp,"-#.####")
-		  EditField_pitch.Text=Format(dosxyz_input.tomo_pitch,"-#.####")
+		  EditField_ipp.value = Format(dosxyz_input.tomo_ipp,"-#.####")
+		  EditField_pitch.value = Format(dosxyz_input.tomo_pitch,"-#.####")
 		  
 		  PopupMenu_LatchBitFilter.DeleteAllRows
 		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=0"

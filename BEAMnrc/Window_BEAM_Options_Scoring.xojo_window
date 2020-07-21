@@ -471,10 +471,10 @@ End
 		  
 		  
 		  PopupMenu_zonetype.ListIndex=BEAM.NSC(NSC_Index).MZONE_TYPE
-		  EditField_scor_cmnum.Text=str(BEAM.NSC(NSC_Index).IPLANE_to_CM)
+		  EditField_scor_cmnum.value = str(BEAM.NSC(NSC_Index).IPLANE_to_CM)
 		  
 		  
-		  EditField_NumScoringZones.Text=str(BEAM.NSC(NSC_Index).NSC_ZONES)
+		  EditField_NumScoringZones.value = str(BEAM.NSC(NSC_Index).NSC_ZONES)
 		  
 		  
 		  Update_Listbox

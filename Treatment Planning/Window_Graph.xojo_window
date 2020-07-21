@@ -738,8 +738,8 @@ End
 		  me.Redraw
 		  
 		  
-		  EditField_X.Text=Format(me.x_mouse_value,"-#.####")
-		  EditField_Y.Text=Format(me.y_mouse_value,"-#.####e")
+		  EditField_X.value = Format(me.x_mouse_value,"-#.####")
+		  EditField_Y.value = Format(me.y_mouse_value,"-#.####e")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -943,7 +943,7 @@ End
 		    gg=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Value_at_Point(x,y,z,false)
 		    
 		    
-		    EditField_Y.Text=Format(gg,"-#.####e")
+		    EditField_Y.value = Format(gg,"-#.####e")
 		  end
 		End Sub
 	#tag EndEvent

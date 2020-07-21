@@ -362,9 +362,9 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  EditField_1stname.Text=gRTOG.Patient_Name
-		  EditField_lastName.Text=gRTOG.Patient_Surname
-		  EditField_ID.Text=gRTOG.Patient_ID
+		  EditField_1stname.value = gRTOG.Patient_Name
+		  EditField_lastName.value = gRTOG.Patient_Surname
+		  EditField_ID.value = gRTOG.Patient_ID
 		  CheckBox_Show.Value=gPref.Show_Patient_Info
 		  
 		End Sub

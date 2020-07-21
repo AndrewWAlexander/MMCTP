@@ -890,14 +890,14 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Refresh_window()
-		  EditField_distanceZ.Text=str(BEAM.DISTZ)
-		  EditField_rbeam.Text=str(Abs(BEAM.RBEAM))
-		  EditField_gamma.Text=str(BEAM.GAMMA)
-		  EditField_xinl.Text=str(BEAM.XINL)
-		  EditField_xinu.Text=str(BEAM.XINU)
-		  EditField_yinl.Text=str(BEAM.yINL)
-		  EditField_yinu.Text=str(BEAM.yINU)
-		  EditField_KeV.Text=str(BEAM.EIN)
+		  EditField_distanceZ.value = str(BEAM.DISTZ)
+		  EditField_rbeam.value = str(Abs(BEAM.RBEAM))
+		  EditField_gamma.value = str(BEAM.GAMMA)
+		  EditField_xinl.value = str(BEAM.XINL)
+		  EditField_xinu.value = str(BEAM.XINU)
+		  EditField_yinl.value = str(BEAM.yINL)
+		  EditField_yinu.value = str(BEAM.yINU)
+		  EditField_KeV.value = str(BEAM.EIN)
 		  
 		  if BEAM.RBEAM>0 Then
 		    RadioButton_cir.Value=True

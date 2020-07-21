@@ -33,7 +33,7 @@ Inherits Timer
 		      
 		      
 		      if app.which_window_shell Then
-		        Window_Configurations_Shell.StaticText_Timer_Run.Text=Time
+		        Window_Configurations_Shell.StaticText_Timer_Run.value = Time
 		      end
 		      
 		      // If current task has exceeded time limit
@@ -41,7 +41,7 @@ Inherits Timer
 		        if (MMCTP_Shell_Run.All(0).FTP_Now and Min>MMCTP_Shell_Run.Max_TimeStamp_FTP) or _
 		          (MMCTP_Shell_Run.All(0).FTP_Now=False and Min>MMCTP_Shell_Run.Max_TimeStamp_SSH) Then
 		          if app.which_window_shell Then
-		            Window_Configurations_Shell.StaticText_Timer_Run.Text="Max timeout exceeded ! "+Time
+		            Window_Configurations_Shell.StaticText_Timer_Run.value = "Max timeout exceeded ! "+Time
 		            Window_Configurations_Shell.EditField_ShellRun.AppendText chr(13)+ "Max timeout exceeded ! "+Time+chr(13)+"Connection Closed"+chr(13)
 		          end
 		          MMCTP_Shell_Run.All(0).started=False

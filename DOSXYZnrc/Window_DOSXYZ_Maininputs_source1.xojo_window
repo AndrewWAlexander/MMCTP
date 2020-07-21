@@ -543,11 +543,11 @@ End
 		  end
 		  
 		  
-		  EditField_Isocenter.Text=Format(dosxyz_input.xiso,"-#.###")+", "+Format(dosxyz_input.yiso,"-#.###")+", "+Format(dosxyz_input.ziso,"-#.###")
-		  EditField_Angles.Text=Format(dosxyz_input.theta(0),"-#.###")+", "+Format(dosxyz_input.phi(0),"-#.###")+", "+Format(dosxyz_input.phicol(0),"-#.###")
-		  EditField_Energy.Text=Format(dosxyz_input.ein,"-#.####")
-		  EditField_xcol.Text=Format(dosxyz_input.xcol,"-#.####")
-		  EditField_y_col.Text=Format(dosxyz_input.ycol,"-#.####")
+		  EditField_Isocenter.value = Format(dosxyz_input.xiso,"-#.###")+", "+Format(dosxyz_input.yiso,"-#.###")+", "+Format(dosxyz_input.ziso,"-#.###")
+		  EditField_Angles.value = Format(dosxyz_input.theta(0),"-#.###")+", "+Format(dosxyz_input.phi(0),"-#.###")+", "+Format(dosxyz_input.phicol(0),"-#.###")
+		  EditField_Energy.value = Format(dosxyz_input.ein,"-#.####")
+		  EditField_xcol.value = Format(dosxyz_input.xcol,"-#.####")
+		  EditField_y_col.value = Format(dosxyz_input.ycol,"-#.####")
 		  
 		  
 		  do_nothing=False

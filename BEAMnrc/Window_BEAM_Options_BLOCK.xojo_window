@@ -1481,26 +1481,26 @@ End
 		  Dim i as Integer
 		  
 		  
-		  EditField_dosezoneair_B.Text=str(BLOCK.DOSE_ZONE_AIR)
-		  EditField_Ecut_B.Text=str(BLOCK.ECUT_Block)
-		  EditField_LATCHbitair_B.Text=str(BLOCK.IRegion_Air)
-		  EditField_numsubregions.Text=str(BLOCK.ISUB_MAX_BLOCK)
-		  EditField_Pcut_B.Text=str(BLOCK.PCUT_Block)
-		  EditField_radius.Text=str(BLOCK.RMAX_CM)
-		  EditField_title.Text=str(BLOCK.Title_CM)
-		  EditField_zmax.Text=Format(BLOCK.ZMAX_BLOCK,"-#.###")
-		  EditField_zmin.Text=Format(Block.ZMIN_BLOCK,"-#.###")
-		  EditField_ZFOCUS_BLOCK.Text=Format(Block.ZFOCUS_BLOCK,"-#.###")
+		  EditField_dosezoneair_B.value = str(BLOCK.DOSE_ZONE_AIR)
+		  EditField_Ecut_B.value = str(BLOCK.ECUT_Block)
+		  EditField_LATCHbitair_B.value = str(BLOCK.IRegion_Air)
+		  EditField_numsubregions.value = str(BLOCK.ISUB_MAX_BLOCK)
+		  EditField_Pcut_B.value = str(BLOCK.PCUT_Block)
+		  EditField_radius.value = str(BLOCK.RMAX_CM)
+		  EditField_title.value = str(BLOCK.Title_CM)
+		  EditField_zmax.value = Format(BLOCK.ZMAX_BLOCK,"-#.###")
+		  EditField_zmin.value = Format(Block.ZMIN_BLOCK,"-#.###")
+		  EditField_ZFOCUS_BLOCK.value = Format(Block.ZFOCUS_BLOCK,"-#.###")
 		  
 		  
 		  
 		  
-		  EditField_XNMAX.Text=Format(Block.XNMAX_BLOCK,"-#.###")
-		  EditField_XPMAX.Text=Format(Block.XPMAX_BLOCK,"-#.###")
-		  EditField_YNMAX.Text=Format(Block.YNMAX_BLOCK,"-#.###")
-		  EditField_YPMAX.Text=Format(Block.YPMAX_BLOCK,"-#.###")
+		  EditField_XNMAX.value = Format(Block.XNMAX_BLOCK,"-#.###")
+		  EditField_XPMAX.value = Format(Block.XPMAX_BLOCK,"-#.###")
+		  EditField_YNMAX.value = Format(Block.YNMAX_BLOCK,"-#.###")
+		  EditField_YPMAX.value = Format(Block.YPMAX_BLOCK,"-#.###")
 		  
-		  EditField_BLOCK_M.Text=Block.Medium_In_Block
+		  EditField_BLOCK_M.value = Block.Medium_In_Block
 		  
 		  
 		  PopupMenu_Subregion.DeleteAllRows
@@ -1512,7 +1512,7 @@ End
 		  
 		  i=PopupMenu_Subregion.ListIndex
 		  if i>-1 and i<=UBound(BLOCK.Subregions) Then
-		    EditField_numsubregion_points.Text=str(Block.Subregions(i).NSUB_BLOCK)
+		    EditField_numsubregion_points.value = str(Block.Subregions(i).NSUB_BLOCK)
 		  end
 		End Sub
 	#tag EndMethod
@@ -1688,7 +1688,7 @@ End
 		  
 		  i=PopupMenu_Subregion.ListIndex
 		  if i>-1 and i<=UBound(BLOCK.Subregions) Then
-		    EditField_numsubregion_points.Text=str(Block.Subregions(i).NSUB_BLOCK)
+		    EditField_numsubregion_points.value = str(Block.Subregions(i).NSUB_BLOCK)
 		  end
 		End Sub
 	#tag EndEvent

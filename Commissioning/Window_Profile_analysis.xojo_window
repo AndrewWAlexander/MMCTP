@@ -1131,7 +1131,7 @@ End
 		  ppb=Profiles(PopupMenu_Calculated.ListIndex)
 		  
 		  pp=Gamma_1D(delD,dta,ppa,ppb)
-		  EditField_GammaPass.Text=Format(pp.Gamma_Value,"#.#")
+		  EditField_GammaPass.value = Format(pp.Gamma_Value,"#.#")
 		  
 		  pp=Dose_Difference_1D(ppa,ppb,kk)
 		  gProfiles.One_Profile.Append pp
@@ -1141,7 +1141,7 @@ End
 		  gProfiles.One_Profile.Append ppdta
 		  
 		  
-		  EditField_Chi.Text=Format(pp.Chi,"-#.##")
+		  EditField_Chi.value = Format(pp.Chi,"-#.##")
 		  if app.which_window_Commission Then
 		    Window_Commisssioning.Update_Profile
 		  end

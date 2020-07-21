@@ -1332,10 +1332,10 @@ End
 		  //window with the plot_Canvas.
 		  Canvas_Graph.Refresh
 		  
-		  EditField_xmin.Text=Format(Canvas_Graph.x_Minimum,"-0.0###E")
-		  EditField_xmax.Text=Format(Canvas_Graph.x_Maximum,"-0.0###e")
-		  EditField_YMIN.Text=Format(Canvas_Graph.y_Minimum,"-0.0###e")
-		  EditField_ymax.Text=Format(Canvas_Graph.y_Maximum,"-0.0###e")
+		  EditField_xmin.value = Format(Canvas_Graph.x_Minimum,"-0.0###E")
+		  EditField_xmax.value = Format(Canvas_Graph.x_Maximum,"-0.0###e")
+		  EditField_YMIN.value = Format(Canvas_Graph.y_Minimum,"-0.0###e")
+		  EditField_ymax.value = Format(Canvas_Graph.y_Maximum,"-0.0###e")
 		  
 		End Sub
 	#tag EndMethod
@@ -1889,11 +1889,11 @@ End
 		  dd=Get_Dictionary_For_menu
 		  if dd<> Nil Then
 		    kk=new MenuItem
-		    kk.Text="Select all"
+		    kk.value = "Select all"
 		    base.Append(kk)
 		    
 		    kk=new MenuItem
-		    kk.Text="Deselect all"
+		    kk.value = "Deselect all"
 		    base.Append(kk)
 		    
 		    for i=0 to dd.Count-1
@@ -1912,7 +1912,7 @@ End
 		          kk.Checked=False
 		        end
 		      end
-		      kk.Text=test(i)
+		      kk.value = test(i)
 		      base.Append(kk)
 		    Next
 		  end
@@ -2221,10 +2221,10 @@ End
 		  me.Redraw
 		  
 		  
-		  EditField_X.Text=Format(me.x_mouse_value,"-#.####")
+		  EditField_X.value = Format(me.x_mouse_value,"-#.####")
 		  
 		  if me.Interactive=False Then
-		    EditField_Y.Text=Format(me.y_mouse_value,"-#.####e")
+		    EditField_Y.value = Format(me.y_mouse_value,"-#.####e")
 		  end
 		End Sub
 	#tag EndEvent
@@ -2381,9 +2381,9 @@ End
 		      
 		      
 		      if (x<0.1 and x>-0.1) or (abs(x)>1000) Then
-		        EditField_Y.Text=Format(x,"-#.####e")
+		        EditField_Y.value = Format(x,"-#.####e")
 		      else
-		        EditField_Y.Text=Format(x,"-#.####")
+		        EditField_Y.value = Format(x,"-#.####")
 		      end
 		      
 		      

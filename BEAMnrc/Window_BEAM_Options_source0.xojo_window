@@ -532,11 +532,11 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Refresh_window()
-		  EditField_radius.Text=str(BEAM.RBEAM)
-		  EditField_KeV.Text=str(BEAM.EIN)
-		  EditField_xaxis.Text=str(BEAM.UINC)
-		  EditField_yaxis.Text=str(BEAM.VINC)
-		  EditField_zaxis.Text=str(BEAM.WINC)
+		  EditField_radius.value = str(BEAM.RBEAM)
+		  EditField_KeV.value = str(BEAM.EIN)
+		  EditField_xaxis.value = str(BEAM.UINC)
+		  EditField_yaxis.value = str(BEAM.VINC)
+		  EditField_zaxis.value = str(BEAM.WINC)
 		  
 		  
 		  if BEAM.MONOEN=1 Then

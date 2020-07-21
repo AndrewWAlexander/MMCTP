@@ -804,11 +804,11 @@ End
 		  Dim i,num as Integer
 		  Dim znum as Single
 		  
-		  EditField_brem_field_radius.Text=str(BremSplit.fs)
-		  EditField_brem_splitting_num.Text=str(Window_BEAM_MainInputs.BEAM.NBRSPL)
-		  EditField_ssd.Text=str(BremSplit.ssd)
-		  EditField_z_RR.Text=str(BremSplit.ZRR_DBS)
-		  //EditField_e_splitting_plane_no.Text=str(BremSplit.ZPLANEDBS)
+		  EditField_brem_field_radius.value = str(BremSplit.fs)
+		  EditField_brem_splitting_num.value = str(Window_BEAM_MainInputs.BEAM.NBRSPL)
+		  EditField_ssd.value = str(BremSplit.ssd)
+		  EditField_z_RR.value = str(BremSplit.ZRR_DBS)
+		  //EditField_e_splitting_plane_no.value = str(BremSplit.ZPLANEDBS)
 		  
 		  
 		  for i=0 to PopupMenu_CM.ListCount
@@ -858,7 +858,7 @@ End
 		    CheckBox_AugmentRR.Value=True
 		  end
 		  
-		  EditField_z_RP.Text=str(BremSplit.Z_REJPLN)
+		  EditField_z_RP.value = str(BremSplit.Z_REJPLN)
 		End Sub
 	#tag EndMethod
 

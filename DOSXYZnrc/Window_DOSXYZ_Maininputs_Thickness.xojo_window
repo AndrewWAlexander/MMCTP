@@ -502,11 +502,11 @@ End
 		  
 		  
 		  
-		  EditField_neg_y_thickness.Text=Format(dosxyz_input.dsurround4,"#.###")
-		  EditField_pos_y_thickness.Text=Format(dosxyz_input.dsurround3,"#.###")
-		  EditField_uniform.Text=Format(dosxyz_input.dsurround1,"#.###")
-		  EditField_x_thickness.Text=Format(dosxyz_input.dsurround1,"#.###")
-		  EditField_zthickness.Text=Format(dosxyz_input.dsurround2,"#.###")
+		  EditField_neg_y_thickness.value = Format(dosxyz_input.dsurround4,"#.###")
+		  EditField_pos_y_thickness.value = Format(dosxyz_input.dsurround3,"#.###")
+		  EditField_uniform.value = Format(dosxyz_input.dsurround1,"#.###")
+		  EditField_x_thickness.value = Format(dosxyz_input.dsurround1,"#.###")
+		  EditField_zthickness.value = Format(dosxyz_input.dsurround2,"#.###")
 		End Sub
 	#tag EndEvent
 

@@ -3081,8 +3081,8 @@ End
 		  DoNothing=True
 		  CheckBox_auto_Check.Value=MC_Auto_Check
 		  CheckBox_auto_Run.Value=MC_Run_Logic
-		  EditField_AutoCheck.Text=str(gTimer_Refresh.Check_Period/(60*1000))
-		  EditField_AutoRun.Text=str(gTimer_Run.Check_Period/(60*1000))
+		  EditField_AutoCheck.value = str(gTimer_Refresh.Check_Period/(60*1000))
+		  EditField_AutoRun.value = str(gTimer_Run.Check_Period/(60*1000))
 		  Update_Preferences
 		  CheckBox_McGillRTDoseload.Value=gPref.McGillRT_Dose_Skip
 		  CheckBox_McGillRTProfileLoad.Value=gPref.McGillRT_Profile_Skip
@@ -3096,14 +3096,14 @@ End
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
 		  Super.Constructor
-		  TextField_McRT.Text=gPref.mcgillfi.ShellPath
-		  TextField_DICOM.Text=gPref.DICOMfi.ShellPath
-		  TextField_CADPLAN.Text=gPref.cadplanfi.ShellPath
-		  TextField_RTOG.Text=gPref.rtogfi.ShellPath
-		  TextField_BEAMnrc.Text=gPref.BEAMnrc_fi.ShellPath
-		  TextField_VMC.Text=gPref.VMC_fi.ShellPath
-		  TextField_Commission.Text=gPref.Commission_fi.ShellPath
-		  TextField_McGillCutout.Text=gPref.McGillCUtout.ShellPath
+		  TextField_McRT.value = gPref.mcgillfi.ShellPath
+		  TextField_DICOM.value = gPref.DICOMfi.ShellPath
+		  TextField_CADPLAN.value = gPref.cadplanfi.ShellPath
+		  TextField_RTOG.value = gPref.rtogfi.ShellPath
+		  TextField_BEAMnrc.value = gPref.BEAMnrc_fi.ShellPath
+		  TextField_VMC.value = gPref.VMC_fi.ShellPath
+		  TextField_Commission.value = gPref.Commission_fi.ShellPath
+		  TextField_McGillCutout.value = gPref.McGillCUtout.ShellPath
 		  
 		  if gPref.endian Then
 		    RadioButton_Endian_little.Value=True
@@ -3191,7 +3191,7 @@ End
 		  else
 		    CheckBox_Stat_Sparing.Value=True
 		  end
-		  TextField_Stat_SparingDose.Text=Format(gDoseStats.spin_dose,"-#.#####e")
+		  TextField_Stat_SparingDose.value = Format(gDoseStats.spin_dose,"-#.#####e")
 		  
 		  
 		  for i=0 to UBound(gDoseStats.DoseVolume)
@@ -3310,14 +3310,14 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Update_Preferences()
-		  TextField_McRT.Text=gPref.mcgillfi.ShellPath
-		  TextField_DICOM.Text=gPref.DICOMfi.ShellPath
-		  TextField_CADPLAN.Text=gPref.cadplanfi.ShellPath
-		  TextField_RTOG.Text=gPref.rtogfi.ShellPath
-		  TextField_BEAMnrc.Text=gPref.BEAMnrc_fi.ShellPath
-		  TextField_VMC.Text=gPref.VMC_fi.ShellPath
-		  TextField_Commission.Text=gPref.Commission_fi.ShellPath
-		  TextField_McGillCutout.Text=gPref.McGillCUtout.ShellPath
+		  TextField_McRT.value = gPref.mcgillfi.ShellPath
+		  TextField_DICOM.value = gPref.DICOMfi.ShellPath
+		  TextField_CADPLAN.value = gPref.cadplanfi.ShellPath
+		  TextField_RTOG.value = gPref.rtogfi.ShellPath
+		  TextField_BEAMnrc.value = gPref.BEAMnrc_fi.ShellPath
+		  TextField_VMC.value = gPref.VMC_fi.ShellPath
+		  TextField_Commission.value = gPref.Commission_fi.ShellPath
+		  TextField_McGillCutout.value = gPref.McGillCUtout.ShellPath
 		  
 		  if gPref.endian Then
 		    RadioButton_Endian_little.Value=True
@@ -3326,7 +3326,7 @@ End
 		  end
 		  
 		  CheckBox_DICOMImport.Value=gPref.DICOM_IN_Inverse
-		  TextField_DICOM_Import_Structure_Slice.Text=Format(gPref.DICOM_In_Structure_Slice_Assigment,"-#.###e")
+		  TextField_DICOM_Import_Structure_Slice.value = Format(gPref.DICOM_In_Structure_Slice_Assigment,"-#.###e")
 		  
 		  
 		  if TargetWindows Then
@@ -3349,7 +3349,7 @@ End
 		    RadioButton_DVH_Grid_User.Value=True
 		  end
 		  
-		  EditField_DVH_grid.Text=Format(gPref.DVH_Calc_Grid_Size,"#.#####")
+		  EditField_DVH_grid.value = Format(gPref.DVH_Calc_Grid_Size,"#.#####")
 		  
 		  CheckBox_DVH_Delete.Value=gPref.DVH_clean
 		End Sub

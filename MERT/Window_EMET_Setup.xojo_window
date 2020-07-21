@@ -7065,7 +7065,7 @@ End
 		  
 		  
 		  
-		  StaticText_Depth_Progress.Text="Making axial and rotated images"
+		  StaticText_Depth_Progress.value = "Making axial and rotated images"
 		  ProgressBar_Depths.Maximum=UBound(gVis.scans)
 		  for i=0 to UBound(gVis.scans)
 		    ProgressBar_Depths.Value=i
@@ -7159,7 +7159,7 @@ End
 		  
 		  
 		  //--------------------------------------------------------------
-		  StaticText_Depth_Progress.Text="Filter depth range on rotated images in Y pixels"
+		  StaticText_Depth_Progress.value = "Filter depth range on rotated images in Y pixels"
 		  ProgressBar_Depths.Maximum=nx*2
 		  ProgressBar_Depths.Refresh
 		  y_lower=0
@@ -7196,7 +7196,7 @@ End
 		  
 		  
 		  //--------------------------------------------------------------
-		  StaticText_Depth_Progress.Text="Calculate depth for each target pixel on rotated images"
+		  StaticText_Depth_Progress.value = "Calculate depth for each target pixel on rotated images"
 		  ProgressBar_Depths.Maximum=-1
 		  ProgressBar_Depths.Refresh
 		  for y=y_lower DownTo y_higher // Seach within y range to speed things up
@@ -7300,7 +7300,7 @@ End
 		  '
 		  '
 		  '
-		  'StaticText_Depth_Progress.Text="Making depth plot"
+		  'StaticText_Depth_Progress.value = "Making depth plot"
 		  'ProgressBar_Depths.Maximum=-1
 		  'ProgressBar_Depths.Refresh
 		  '
@@ -7349,7 +7349,7 @@ End
 		  Normal.Graphics.FillRect(0,0,ff.nx,ff.nz)
 		  
 		  
-		  StaticText_Depth_Progress.Text="Making depth plot"
+		  StaticText_Depth_Progress.value = "Making depth plot"
 		  ProgressBar_Depths.Maximum=ff.nx-1
 		  ProgressBar_Depths.Refresh
 		  
@@ -7999,12 +7999,12 @@ End
 
 	#tag Method, Flags = &h0
 		Sub FLEC_Populate_Beam()
-		  EditField_FLEC_x1.Text=str(FLEC.x1)
-		  EditField_FLEC_x2.Text=str(FLEC.x2)
-		  EditField_FLEC_Y1.Text=str(FLEC.y1)
-		  EditField_FLEC_Y2.Text=str(FLEC.y2)
-		  EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
-		  EditField_FLEC_FieldY.Text=str(FLEC.y1+FLEC.y2)
+		  EditField_FLEC_x1.value = str(FLEC.x1)
+		  EditField_FLEC_x2.value = str(FLEC.x2)
+		  EditField_FLEC_Y1.value = str(FLEC.y1)
+		  EditField_FLEC_Y2.value = str(FLEC.y2)
+		  EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
+		  EditField_FLEC_FieldY.value = str(FLEC.y1+FLEC.y2)
 		End Sub
 	#tag EndMethod
 
@@ -8279,11 +8279,11 @@ End
 		  
 		  //---------------------------------Ray Beam Settings--------------------------------
 		  
-		  EditField_RayX.Text=str(1)
-		  EditField_RayY.Text=str(1)
+		  EditField_RayX.value = str(1)
+		  EditField_RayY.value = str(1)
 		  
-		  EditField_Ray_delX.Text=str((FLEC.x1+FLEC.x2)/val(EditField_RayX.Text))
-		  EditField_Ray_delY.Text=str((FLEC.y1+FLEC.y2)/val(EditField_Rayy.Text))
+		  EditField_Ray_delX.value = str((FLEC.x1+FLEC.x2)/val(EditField_RayX.Text))
+		  EditField_Ray_delY.value = str((FLEC.y1+FLEC.y2)/val(EditField_Rayy.Text))
 		  
 		  
 		  //---------------------------------Ray Beam Settings--------------------------------
@@ -8310,7 +8310,7 @@ End
 		  PopupMenu_SC_Target.ListIndex=target_index
 		  PopupMenu_Target.ListIndex=target_index
 		  PopupMenu_External.ListIndex=external_index
-		  EditField_Angle_nx.Text=str(nx)
+		  EditField_Angle_nx.value = str(nx)
 		  
 		  
 		  
@@ -8439,7 +8439,7 @@ End
 		  
 		  
 		  
-		  EditField_Ray_delX.Text=str(Ray_delx)
+		  EditField_Ray_delX.value = str(Ray_delx)
 		  
 		  
 		  
@@ -8453,7 +8453,7 @@ End
 		  Ray_Y_Quad=val(me.Text)
 		  
 		  Ray_dely=(fLEC.y1+FLEC.y2)/Ray_y_Quad
-		  EditField_Ray_dely.Text=str(Ray_dely)
+		  EditField_Ray_dely.value = str(Ray_dely)
 		  
 		End Sub
 	#tag EndEvent
@@ -8475,7 +8475,7 @@ End
 		    end
 		  end
 		  
-		  EditField_Feathered_Number_X.Text=Format(Feather_Number_X,"#")
+		  EditField_Feathered_Number_X.value = Format(Feather_Number_X,"#")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8494,7 +8494,7 @@ End
 		      Feather_Number_y=1
 		    end
 		  end
-		  EditField_Feathered_Number_y.Text=Format(Feather_Number_Y,"-#")
+		  EditField_Feathered_Number_y.value = Format(Feather_Number_Y,"-#")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8526,7 +8526,7 @@ End
 		      Feather_Number_y=1
 		    end
 		  end
-		  EditField_Feathered_Number_y.Text=Format(Feather_Number_Y,"-#")
+		  EditField_Feathered_Number_y.value = Format(Feather_Number_Y,"-#")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8546,7 +8546,7 @@ End
 		    end
 		  end
 		  
-		  EditField_Feathered_Number_X.Text=Format(Feather_Number_X,"#")
+		  EditField_Feathered_Number_X.value = Format(Feather_Number_X,"#")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8770,8 +8770,8 @@ End
 		Sub Change()
 		  if me.ListIndex>-1 Then
 		    Beam=gRTOG.Plan(Plan_Index).Beam(me.ListIndex)
-		    StaticText_Depth_OneBeam.Text="Isocenter X,Y,Z : ("+Format(Beam.Collimator.Fields(0).isocenter.X,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.y,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.z,"-#.###")+")"
-		    StaticText_Depth_OneBeam.Text=StaticText_Depth_OneBeam.Text+chr(10)+"Gantry angle : "+Format(Beam.Collimator.Fields(0).Gantry_Angle,"-#.###")
+		    StaticText_Depth_OneBeam.value = "Isocenter X,Y,Z : ("+Format(Beam.Collimator.Fields(0).isocenter.X,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.y,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.z,"-#.###")+")"
+		    StaticText_Depth_OneBeam.value = StaticText_Depth_OneBeam.Text+chr(10)+"Gantry angle : "+Format(Beam.Collimator.Fields(0).Gantry_Angle,"-#.###")
 		    
 		  end
 		  
@@ -8880,8 +8880,8 @@ End
 		  if Key=chr(13) or key=chr(9) then
 		    FLEC.x1=val(me.text)/2
 		    FLEC.x2=val(me.text)/2
-		    EditField_FLEC_x1.Text=str(FLEC.x1)
-		    EditField_FLEC_x2.Text=str(FLEC.x2)
+		    EditField_FLEC_x1.value = str(FLEC.x1)
+		    EditField_FLEC_x2.value = str(FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).X2=val(me.text)/2+0.5
 		    
@@ -8899,8 +8899,8 @@ End
 		    FLEC.y1=val(me.text)/2
 		    FLEC.y2=val(me.text)/2
 		    
-		    EditField_FLEC_Y1.Text=str(FLEC.y1)
-		    EditField_FLEC_Y2.Text=str(FLEC.y2)
+		    EditField_FLEC_Y1.value = str(FLEC.y1)
+		    EditField_FLEC_Y2.value = str(FLEC.y2)
 		    
 		    Beam.Collimator.fields(0).Y1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).Y2=val(me.text)/2+0.5
@@ -8916,7 +8916,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -8929,7 +8929,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x2=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X2=val(me.text)+0.5
 		    
 		    
@@ -8943,7 +8943,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    FLEC.y1=Val(me.Text)
 		    
-		    EditField_FLEC_FieldY.Text=str(FLEC.y1+FLEC.y2)
+		    EditField_FLEC_FieldY.value = str(FLEC.y1+FLEC.y2)
 		    
 		    Beam.Collimator.fields(0).Y1=val(me.text)+0.5
 		    
@@ -8958,7 +8958,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.y2=Val(me.Text)
-		    EditField_FLEC_FieldY.Text=str(FLEC.y1+FLEC.y2)
+		    EditField_FLEC_FieldY.value = str(FLEC.y1+FLEC.y2)
 		    Beam.Collimator.fields(0).Y2=val(me.text)+0.5
 		    
 		  end if
@@ -9537,10 +9537,10 @@ End
 		  '
 		  '
 		  '
-		  'EditField_PP_X.Text=Format(xcm,"-#.##") 
-		  'EditField_PP_y.Text=Format(ycm,"-#.##")
+		  'EditField_PP_X.value = Format(xcm,"-#.##") 
+		  'EditField_PP_y.value = Format(ycm,"-#.##")
 		  '
-		  'StaticText_Depth_Pixel.Text="Offset Pixel X : "+Format((x-buffer_offx)/zoomx,"#")+" Y: "+Format((y-buffer_offy)/zoomy,"#")
+		  'StaticText_Depth_Pixel.value = "Offset Pixel X : "+Format((x-buffer_offx)/zoomx,"#")+" Y: "+Format((y-buffer_offy)/zoomy,"#")
 		  '
 		  'if CheckBox_Plot_Point.Value Then
 		  'me.Refresh
@@ -9659,7 +9659,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -9672,8 +9672,8 @@ End
 		  if Key=chr(13) or key=chr(9) then
 		    FLEC.x1=val(me.text)/2
 		    FLEC.x2=val(me.text)/2
-		    EditField_FLEC_x1.Text=str(FLEC.x1)
-		    EditField_FLEC_x2.Text=str(FLEC.x2)
+		    EditField_FLEC_x1.value = str(FLEC.x1)
+		    EditField_FLEC_x2.value = str(FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).X2=val(me.text)/2+0.5
 		    
@@ -9690,7 +9690,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -9703,8 +9703,8 @@ End
 		  if Key=chr(13) or key=chr(9) then
 		    FLEC.x1=val(me.text)/2
 		    FLEC.x2=val(me.text)/2
-		    EditField_FLEC_x1.Text=str(FLEC.x1)
-		    EditField_FLEC_x2.Text=str(FLEC.x2)
+		    EditField_FLEC_x1.value = str(FLEC.x1)
+		    EditField_FLEC_x2.value = str(FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).X2=val(me.text)/2+0.5
 		    
@@ -9721,7 +9721,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -9734,8 +9734,8 @@ End
 		  if Key=chr(13) or key=chr(9) then
 		    FLEC.x1=val(me.text)/2
 		    FLEC.x2=val(me.text)/2
-		    EditField_FLEC_x1.Text=str(FLEC.x1)
-		    EditField_FLEC_x2.Text=str(FLEC.x2)
+		    EditField_FLEC_x1.value = str(FLEC.x1)
+		    EditField_FLEC_x2.value = str(FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).X2=val(me.text)/2+0.5
 		    
@@ -9752,7 +9752,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -9765,7 +9765,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if
@@ -9778,8 +9778,8 @@ End
 		  if Key=chr(13) or key=chr(9) then
 		    FLEC.x1=val(me.text)/2
 		    FLEC.x2=val(me.text)/2
-		    EditField_FLEC_x1.Text=str(FLEC.x1)
-		    EditField_FLEC_x2.Text=str(FLEC.x2)
+		    EditField_FLEC_x1.value = str(FLEC.x1)
+		    EditField_FLEC_x2.value = str(FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)/2+0.5
 		    Beam.Collimator.fields(0).X2=val(me.text)/2+0.5
 		    
@@ -9796,7 +9796,7 @@ End
 		  if Key=chr(13) or key=chr(9) then // chr(13) or key=chr(9) = Carriage return
 		    
 		    FLEC.x1=Val(me.Text)
-		    EditField_FLEC_FieldX.Text=str(FLEC.x1+FLEC.x2)
+		    EditField_FLEC_FieldX.value = str(FLEC.x1+FLEC.x2)
 		    Beam.Collimator.fields(0).X1=val(me.text)+0.5
 		    
 		  end if

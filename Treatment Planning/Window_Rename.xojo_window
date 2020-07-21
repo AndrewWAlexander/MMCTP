@@ -254,13 +254,13 @@ End
 		Sub OpenWin()
 		  if Dose Then
 		    me.Title="Rename Dose "
-		    StaticText_old.Text=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
-		    EditField_new.Text=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
+		    StaticText_old.value = gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
+		    EditField_new.value = gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
 		    
 		  Else
 		    me.Title="Rename Plan "+gRTOG.Plan(Plan_Index).Plan_ID
-		    StaticText_old.Text=(gRTOG.Plan(Plan_Index).Plan_Name)
-		    EditField_new.Text=(gRTOG.Plan(Plan_Index).Plan_Name)
+		    StaticText_old.value = (gRTOG.Plan(Plan_Index).Plan_Name)
+		    EditField_new.value = (gRTOG.Plan(Plan_Index).Plan_Name)
 		  end
 		  
 		End Sub
@@ -298,7 +298,7 @@ End
 		    newname=Replace(newname," ","-")
 		  Wend
 		  
-		  EditField_new.Text=NewName
+		  EditField_new.value = NewName
 		  
 		  
 		  if Dose Then

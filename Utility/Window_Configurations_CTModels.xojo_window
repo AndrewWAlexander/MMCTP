@@ -372,7 +372,6 @@ Begin Window Window_Configurations_CTModels
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      MenuValue       =   "0"
       Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
@@ -527,16 +526,19 @@ End
 
 	#tag Method, Flags = &h0
 		Sub CT_Open()
-		  DIm i as Integer
+		  'DIm i as Integer
 		  
-		  DoNothing=True
+		  DoNothing =True
 		  
 		  PopupMenu_CT_Model.DeleteAllRows
-		  for i =0 to UBound(gCT.All_CT)
-		    PopupMenu_CT_Model.AddRow gCT.All_CT(i).Model_name
+		  For i As Integer =0 To gCT.All_CT.LastRowIndex
+		    
+		    PopupMenu_CT_Model.AddRow( gCT.All_CT(i).Model_name )
+		    
 		  Next
+		  
 		  PopupMenu_CT_Model.AddRow "Add new model"
-		  PopupMenu_CT_Model.ListIndex=0
+		  PopupMenu_CT_Model.SelectedRowIndex = 0
 		  
 		  
 		  Listbox_CT_Materials.Heading(0)="Material"
@@ -553,67 +555,70 @@ End
 
 	#tag Method, Flags = &h0
 		Sub CT_Popup()
-		  Dim i as Integer
-		  Dim ff as Boolean
-		  Dim snew as Class_CT2Density
+		  'Dim i as Integer
+		  'Dim ff as Boolean
+		  'Dim snew as Class_CT2Density
 		  
-		  DoNothing=True
-		  
-		  
-		  ff=False
+		  DoNothing = True
 		  
 		  
-		  for i =0 to UBound(gCT.All_CT)
-		    if PopupMenu_CT_Model.Text= gCT.All_CT(i).Model_name Then
+		  Var ff As Boolean = False
+		  
+		  
+		  For i As Integer = 0 To gCT.All_CT.LastRowIndex
+		    
+		    If PopupMenu_CT_Model.SelectedRowValue =  gCT.All_CT(i).Model_name Then
+		      
 		      CT_Model= gCT.All_CT(i)
 		      ff=True
-		    end
+		      
+		    End
+		    
 		  Next
 		  
-		  if ff=False Then
-		    snew=new Class_CT2Density
+		  If ff = False Then
+		    Var snew As New Class_CT2Density
 		    snew.Model_name= "New model"
-		    gCT.All_CT.Append snew
+		    gCT.All_CT.AddRow( snew )
 		    CT_Open
 		    CT_Popup
 		    Return
-		  end
+		  End
 		  
 		  
-		  if Name_Change=False Then
-		    EditField_CT_Name.Text=CT_Model.Model_name
-		  end
-		  
-		  EditField_CT_Pegs.Text=CT_Model.Pegs_file
-		  EditField_CT_Material_Num.Text=str(UBound(CT_Model.CalibrationM)+1)
-		  
-		  
-		  
-		  Listbox_CT_Materials.DeleteAllRows
-		  
-		  
-		  for i=0 to UBound(CT_Model.CalibrationM)
-		    Listbox_CT_Materials.AddRow CT_Model.CalibrationM(i).M_name
-		    Listbox_CT_Materials.Cell(i,1)= Format(CT_Model.CalibrationM(i).HU_l,"-#.#")
-		    Listbox_CT_Materials.Cell(i,2) =Format(CT_Model.CalibrationM(i).HU_h,"-#.#")
-		    Listbox_CT_Materials.Cell(i,3) =Format(CT_Model.CalibrationM(i).p_l,"-#.#####")
-		    Listbox_CT_Materials.Cell(i,4) =Format(CT_Model.CalibrationM(i).p_h,"-#.#####")
+		  If Name_Change = False Then
 		    
+		    EditField_CT_Name.value = CT_Model.Model_name
 		    
-		  next
+		  End
+		  
+		  EditField_CT_Pegs.value = CT_Model.Pegs_file
+		  EditField_CT_Material_Num.value = Str(CT_Model.CalibrationM.LastRowIndex + 1)
+		  
+		  Listbox_CT_Materials.RemoveAllRows
+		  
+		  For i As Integer = 0 To CT_Model.CalibrationM.LastRowIndex
+		    
+		    Listbox_CT_Materials.AddRow( CT_Model.CalibrationM(i).M_name )
+		    Listbox_CT_Materials.CellValueAt(i, 1) = Format(CT_Model.CalibrationM(i).HU_l,"-#.#")
+		    Listbox_CT_Materials.CellValueAt(i, 2) = Format(CT_Model.CalibrationM(i).HU_h,"-#.#")
+		    Listbox_CT_Materials.CellValueAt(i, 3) = Format(CT_Model.CalibrationM(i).p_l,"-#.#####")
+		    Listbox_CT_Materials.CellValueAt(i, 4) = Format(CT_Model.CalibrationM(i).p_h,"-#.#####")
+		    
+		  Next
 		  
 		  
-		  Listbox_CT_Materials.ColumnType(0)=3
-		  Listbox_CT_Materials.ColumnType(1)=3
-		  Listbox_CT_Materials.ColumnType(2)=3
-		  Listbox_CT_Materials.ColumnType(3)=3
-		  Listbox_CT_Materials.ColumnType(4)=3
+		  Listbox_CT_Materials.ColumnTypeAt(0) = Listbox.CellTypes.TextField
+		  Listbox_CT_Materials.ColumnTypeAt(1) = Listbox.CellTypes.TextField
+		  Listbox_CT_Materials.ColumnTypeAt(2) = Listbox.CellTypes.TextField
+		  Listbox_CT_Materials.ColumnTypeAt(3) = Listbox.CellTypes.TextField
+		  Listbox_CT_Materials.ColumnTypeAt(4) = Listbox.CellTypes.TextField
 		  
 		  
 		  
 		  
 		  
-		  DoNothing=False
+		  DoNothing = False
 		End Sub
 	#tag EndMethod
 
@@ -733,52 +738,72 @@ End
 #tag Events EditField_CT_Material_Num
 	#tag Event
 		Sub TextChange()
-		  Dim i,num as Integer
-		  
-		  if DoNothing=False Then
-		    num=val(me.Text)
+		  If DoNothing = False Then
 		    
-		    ReDim CT_Model.CalibrationM(num-1)
+		    If Me.Value.ToInteger > 20 Then Me.Value = "20"
 		    
-		    for i=0 to UBound(CT_Model.CalibrationM)
-		      if CT_Model.CalibrationM(i)=nil Then
-		        CT_Model.CalibrationM(i)=new Class_CT_Materials
-		      end
-		    next
+		    CT_Model.CalibrationM.ResizeTo( Me.Value.ToInteger - 1 )
+		    
+		    For i As Integer = 0 To CT_Model.CalibrationM.LastRowIndex
+		      
+		      If CT_Model.CalibrationM(i)=Nil Then
+		        
+		        CT_Model.CalibrationM(i) = New Class_CT_Materials
+		      End
+		    Next
 		    Save_Model=True
 		    CT_Popup
-		  end
+		  End
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  Return General_Module.Accept_Real_Numbers(Key)
+		  
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub KeyUp(Key As String)
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events Listbox_CT_Materials
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  Dim i as Integer
-		  Dim temp as String
+		  'Dim i As Integer
+		  'Dim temp as String
 		  
-		  if DoNothing=False Then
-		    temp=Trim(me.Cell(row,column))
+		  If DoNothing = False Then
+		    Var temp As String = Me.CellValueAt(row,column).Trim
 		    
-		    if column=0 Then
+		    If column = 0 Then
 		      
-		      CT_Model.CalibrationM(row).M_name=Trim(temp)
+		      CT_Model.CalibrationM(row).M_name = Temp.Trim
 		      
-		    elseif column=1 Then
-		      CT_Model.CalibrationM(row).HU_l=val(temp)
+		    Elseif column=1 Then
 		      
-		    elseif column=2 Then
-		      CT_Model.CalibrationM(row).HU_h=val(temp)
+		      CT_Model.CalibrationM(row).HU_l = Temp.Trim.ToDouble
+		      Me.CellValueAt( row, column) = CT_Model.CalibrationM(row).HU_l.ToText
 		      
-		    elseif column=3 Then
-		      CT_Model.CalibrationM(row).p_l=val(temp)
+		    Elseif column=2 Then
 		      
-		    elseif column=4 Then
-		      CT_Model.CalibrationM(row).p_h=val(temp)
-		    end
+		      CT_Model.CalibrationM(row).HU_h = Temp.Trim.ToDouble
+		      
+		    Elseif column=3 Then
+		      
+		      CT_Model.CalibrationM(row).p_l = Temp.Trim.ToDouble
+		      
+		    Elseif column=4 Then
+		      
+		      CT_Model.CalibrationM(row).p_h = Temp.Trim.ToDouble
+		      
+		    End
 		    
 		    Save_Model=True
-		  end
+		    
+		  End
+		  Me.InvalidateCell(row, column)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -801,20 +826,19 @@ End
 #tag Events PopupMenu_CT_Model
 	#tag Event
 		Sub Change()
-		  Dim i as Integer
-		  Dim snew as Class_CT2Density
+		  'Dim i as Integer
+		  'Dim snew as Class_CT2Density
 		  
-		  if DoNothing=True Then
-		    Return
-		  end
+		  If DoNothing Then Return
 		  
-		  if PopupMenu_CT_Model.Text="Add new model" Then
-		    snew = new Class_CT2Density
+		  
+		  If PopupMenu_CT_Model.SelectedRowValue = "Add new model" Then
+		    Var snew As New Class_CT2Density
 		    snew.Model_name= "New model"
-		    gCT.All_CT.Append snew
+		    gCT.All_CT.AddRow( snew )
 		    CT_Open
-		    PopupMenu_CT_Model.ListIndex=PopupMenu_CT_Model.ListCount-2
-		  end
+		    PopupMenu_CT_Model.SelectedRowIndex = PopupMenu_CT_Model.RowCount - 2
+		  End
 		  
 		  
 		  CT_Popup

@@ -175,7 +175,7 @@ Inherits Thread
 		    
 		    Return True
 		  else
-		    Window_Treatment.StaticText_Cutout_Status.Text="Error : shell index on beam "+str(beam+1)+" is out of bounds"
+		    Window_Treatment.StaticText_Cutout_Status.value = "Error : shell index on beam "+str(beam+1)+" is out of bounds"
 		    Return False
 		  end
 		  

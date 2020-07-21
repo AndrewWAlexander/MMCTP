@@ -267,7 +267,7 @@ End
 		  
 		  
 		  if Pair_Index<=UBound(app.DYN_Openings) and Pair_Index>-1 Then
-		    EditField_OpeningNum.Text=Format(app.Number_Fields,"#")
+		    EditField_OpeningNum.value = Format(app.Number_Fields,"#")
 		    for i=1 to app.Number_Fields
 		      ffindex=(i-1)*app.ISCM_MAX+Pair_Index
 		      Listbox_Pairs.AddRow Format(app.Index(i-1),"-#.####")

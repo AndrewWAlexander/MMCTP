@@ -1040,10 +1040,10 @@ End
 		Sub Open()
 		  ListBox_Isodose.heading(1)="Colour"
 		  ListBox_Isodose.heading(2)="Show"
-		  EditField_LineThickness.text=str(gvis.Iso.thickness)
-		  EditField_Font.text=(gvis.Iso.FONT)
-		  EditField_Font_Size.text=str(gvis.Iso.FONT_Size)
-		  EditField_LineThicknessSave.Text=Str(gVis.Iso.thicknessSave)
+		  EditField_LineThickness.value = str(gvis.Iso.thickness)
+		  EditField_Font.value = (gvis.Iso.FONT)
+		  EditField_Font_Size.value = str(gvis.Iso.FONT_Size)
+		  EditField_LineThicknessSave.value = Str(gVis.Iso.thicknessSave)
 		  
 		  ListBox_Isodose.columnalignment(0)=2
 		  ListBox_Isodose.columnalignment(1)=2
@@ -1083,7 +1083,7 @@ End
 		  end
 		  
 		  if RadioButton_Relative.Value Then
-		    EditField_normalize.text=str(gvis.Iso.normalization_value)
+		    EditField_normalize.value = str(gvis.Iso.normalization_value)
 		    if gvis.Iso.Show_Type=2 then
 		      RadioButton_max.Value=True
 		    elseif gVis.Iso.Show_Type=3 Then

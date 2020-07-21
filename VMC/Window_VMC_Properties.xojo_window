@@ -1334,29 +1334,29 @@ End
 		  
 		  me.Title="VMC Properties, DMX : "+gVMC.VMC(dmx_index).DMX.dmx_name
 		  vmc_inputfile=gVMC.VMC(dmx_index).BEAMS(beam_index)
-		  StaticText_beamid.Text="Beam ID: "+str(gRTOG.Plan(  plan_index).Beam(beam_index).beam_num)
-		  StaticText_beam_energy.Text=gRTOG.Plan(  plan_index).Beam(beam_index).beam_energy
-		  StaticText_beam_linac.Text=gRTOG.Plan(  plan_index).Beam(beam_index).rt_name
-		  StaticText_phsp_pho.Text=Format(gBEAM.Beams(beam_index).egs_phsp_num_photons,"###,###,###")
-		  StaticText_phsp_par.Text=Format(gBEAM.Beams(beam_index).egs_phsp_num_particles,"###,###,###")
+		  StaticText_beamid.value = "Beam ID: "+str(gRTOG.Plan(  plan_index).Beam(beam_index).beam_num)
+		  StaticText_beam_energy.value = gRTOG.Plan(  plan_index).Beam(beam_index).beam_energy
+		  StaticText_beam_linac.value = gRTOG.Plan(  plan_index).Beam(beam_index).rt_name
+		  StaticText_phsp_pho.value = Format(gBEAM.Beams(beam_index).egs_phsp_num_photons,"###,###,###")
+		  StaticText_phsp_par.value = Format(gBEAM.Beams(beam_index).egs_phsp_num_particles,"###,###,###")
 		  c=gBEAM.Beams(beam_index).egs_phsp_num_photons/gBEAM.Beams(beam_index).egs_phsp_num_particles
-		  StaticText_per_phot.Text=Format(100*c,"#.###")
+		  StaticText_per_phot.value = Format(100*c,"#.###")
 		  a=gRTOG.Plan(plan_index).Beam(beam_index).Collimator.fields(0).x1+gRTOG.Plan(plan_index).Beam(beam_index).Collimator.fields(0).x2
 		  b=gRTOG.Plan(plan_index).Beam(beam_index).Collimator.fields(0).y1+gRTOG.Plan(plan_index).Beam(beam_index).Collimator.fields(0).y2
-		  StaticText_beam_field.Text=Format(a*b,"-#.###")
-		  StaticText_part_par_area.Text=Format(gBEAM.Beams(beam_index).egs_phsp_num_particles/(a*b),"-#.##")
+		  StaticText_beam_field.value = Format(a*b,"-#.###")
+		  StaticText_part_par_area.value = Format(gBEAM.Beams(beam_index).egs_phsp_num_particles/(a*b),"-#.##")
 		  CheckBox_Simulation_Start.Caption="Job Started : "+vmc_inputfile.Start_Time
 		  CheckBox_Simulation_Start.Value=vmc_inputfile.vmc_started
 		  CheckBox_Downloaded_d3d.Value=vmc_inputfile.downloaded_d3d
 		  CheckBox_Downloaded_hed.Value=vmc_inputfile.downloaded_hed
 		  
-		  EditField_caldose.Text=Format(vmc_inputfile.dose,"#.#######e")
-		  EditField_dw.Text=Format(vmc_inputfile.dose_to_water,"#.#######")
-		  EditField_queue.Text=vmc_inputfile.queue
+		  EditField_caldose.value = Format(vmc_inputfile.dose,"#.#######e")
+		  EditField_dw.value = Format(vmc_inputfile.dose_to_water,"#.#######")
+		  EditField_queue.value = vmc_inputfile.queue
 		  PopupMenu_Shell.ListIndex=vmc_inputfile.Shell_Index
 		  CheckBox_Auto_Shell.Value=vmc_inputfile.auto_shell
-		  StaticText_Uncertainty.Text="Uncertainty region d > 50%  (%) : "+Format(vmc_inputfile.uncertainty,"#.###")
-		  StaticText_CPUTime.Text="Total CPU Time : "+Calculate_Real_Time
+		  StaticText_Uncertainty.value = "Uncertainty region d > 50%  (%) : "+Format(vmc_inputfile.uncertainty,"#.###")
+		  StaticText_CPUTime.value = "Total CPU Time : "+Calculate_Real_Time
 		End Sub
 	#tag EndMethod
 

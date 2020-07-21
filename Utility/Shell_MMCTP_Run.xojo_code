@@ -200,9 +200,9 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_ShellRunNum.Text="Number of tasks to run: "+str(UBound(All)+1)
-		    Window_Configurations_Shell.StaticText_Task_Run.Text=All(0).command
-		    Window_Configurations_Shell.StaticText_Timer_Run.Text=""
+		    Window_Configurations_Shell.StaticText_ShellRunNum.value = "Number of tasks to run: "+str(UBound(All)+1)
+		    Window_Configurations_Shell.StaticText_Task_Run.value = All(0).command
+		    Window_Configurations_Shell.StaticText_Timer_Run.value = ""
 		  end
 		  
 		  
@@ -436,9 +436,9 @@ Inherits Shell
 		  if gg.Shell_Test_FTP Then
 		    
 		    if transferyesno Then
-		      Window_Configurations_Shell.StaticText_ConnectionTest_FTP.Text="ok"
+		      Window_Configurations_Shell.StaticText_ConnectionTest_FTP.value = "ok"
 		    else
-		      Window_Configurations_Shell.StaticText_ConnectionTest_FTP.Text="failed"
+		      Window_Configurations_Shell.StaticText_ConnectionTest_FTP.value = "failed"
 		    end
 		    f=new FolderItem
 		    f=f.Child("MMCTP-FTP-Test")
@@ -493,7 +493,7 @@ Inherits Shell
 		  ElseIf gg.egs_run_script Then
 		    // Remove beamnrc run script
 		    if transferyesno Then
-		      Window_Treatment.StaticText_VMC_Status.Text="Input script file ("+gg.inpfilename+") uploaded to "+gg.shell.machine
+		      Window_Treatment.StaticText_VMC_Status.value = "Input script file ("+gg.inpfilename+") uploaded to "+gg.shell.machine
 		      f=gRTOG.Plan(Plan_Index).Path
 		      f=f.Child("j"+MC_file_name+str(gg.beam_num+1)+"_run")
 		      if f.Exists Then
@@ -530,8 +530,8 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_Task_Run.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_Run.Text=""
+		    Window_Configurations_Shell.StaticText_Task_Run.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_Run.value = ""
 		  end
 		End Sub
 	#tag EndMethod
@@ -595,8 +595,8 @@ Inherits Shell
 		  
 		  if app.which_window_shell Then
 		    Window_Configurations_Shell.EditField_ShellRun.AppendText s
-		    Window_Configurations_Shell.StaticText_Task_Run.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_Run.Text=""
+		    Window_Configurations_Shell.StaticText_Task_Run.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_Run.value = ""
 		  end
 		  
 		  
@@ -623,9 +623,9 @@ Inherits Shell
 		    //----------------------------------------
 		    if gg.shell_Test Then
 		      if gg.command_done Then
-		        Window_Configurations_Shell.StaticText_ConnectionTest.Text="Connection ok"
+		        Window_Configurations_Shell.StaticText_ConnectionTest.value = "Connection ok"
 		      else
-		        Window_Configurations_Shell.StaticText_ConnectionTest.Text="Connection NOT ok"
+		        Window_Configurations_Shell.StaticText_ConnectionTest.value = "Connection NOT ok"
 		      end
 		      
 		      
@@ -704,7 +704,7 @@ Inherits Shell
 		        
 		        
 		      else
-		        Window_Treatment.StaticText_VMC_Status.Text="Error, "+gg.inpfilename+" job not submitted"
+		        Window_Treatment.StaticText_VMC_Status.value = "Error, "+gg.inpfilename+" job not submitted"
 		        gBEAM.Beams(gg.beam_num).egs_BEAMnrc_started=False
 		        gBEAM.Beams(gg.beam_num).egs_BEAMnrc_active_jobs=0
 		      end
@@ -838,14 +838,14 @@ Inherits Shell
 		      
 		      tmpstr=gg.OutPut
 		      if InStr(tmpstr,"error")=0 and InStr(tmpstr,"No such file or directory")=0 Then
-		        Window_Treatment.StaticText_VMC_Status.Text=gg.inpfilename+ " job submitted"
+		        Window_Treatment.StaticText_VMC_Status.value = gg.inpfilename+ " job submitted"
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).vmc_started=True
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).start_Time=sysdate.AbbreviatedDate+" "+sysdate.LongTime
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).start_Time_Seconds=sysdate.TotalSeconds
 		        
 		        
 		      else
-		        Window_Treatment.StaticText_VMC_Status.Text= "Error, "+gg.inpfilename+" job not submitted"
+		        Window_Treatment.StaticText_VMC_Status.value =  "Error, "+gg.inpfilename+" job not submitted"
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).vmc_started=False
 		      end
 		      gVMC.VMC(gg.vmc_dmx_index).Write_VMC_Settings
@@ -860,12 +860,12 @@ Inherits Shell
 		    elseif gg.cutout_run Then
 		      tmpstr=gg.OutPut
 		      if InStr(tmpstr,"error")=0 Then
-		        Window_Treatment.StaticText_Cutout_Status.Text=gg.inpfilename+ " job submitted"
+		        Window_Treatment.StaticText_Cutout_Status.value = gg.inpfilename+ " job submitted"
 		        gCutout.Beams(gg.beam_num).Started=True
 		        //gBEAM.Beams(gg.beam_num).egs_BEAMnrc_active_jobs=gBEAM.Beams(gg.beam_num).egs_jobs
 		        gCutout.Beams(gg.beam_num).startdate=sysdate.AbbreviatedDate+" "+sysdate.LongTime
 		      else
-		        Window_Treatment.StaticText_Cutout_Status.Text= "Error, "+gg.inpfilename+" job not submitted"
+		        Window_Treatment.StaticText_Cutout_Status.value =  "Error, "+gg.inpfilename+" job not submitted"
 		        gCutout.Beams(gg.beam_num).Started=False
 		        //gBEAM.Beams(gg.beam_num).egs_BEAMnrc_active_jobs=0
 		      end

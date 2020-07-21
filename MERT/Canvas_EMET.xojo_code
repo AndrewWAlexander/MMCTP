@@ -525,7 +525,7 @@ Inherits Canvas
 		        else
 		          g.DrawString ss,x_mouse+5,y_mouse-5
 		        end
-		        //Window_EMET.EditField_XY.Text=ss
+		        //Window_EMET.EditField_XY.value = ss
 		        
 		        Exit
 		      end

@@ -1920,16 +1920,16 @@ End
 		  
 		  PopupMenu_mediumthickness.ListIndex=dosxyz_input.dflag
 		  
-		  EditField_title.Text=dosxyz_input.TITLE
-		  EditField_nrcycl.Text=Format(dosxyz_input.NRCYCL,"#")
-		  EditField_pcut.Text=Format(dosxyz_input.PCUT,"#.###")
-		  EditField_ecut.Text=Format(dosxyz_input.ECUTIN,"#.###")
-		  EditField_rng1.Text=Format(dosxyz_input.INSEED1,"#")
-		  EditField_rng2.Text=Format(dosxyz_input.INSEED2,"#")
-		  EditField_maxtime.Text=Format(dosxyz_input.TIMMAX,"#.##")
-		  EditField_beam_size.Text=Format(dosxyz_input.BEAM_SIZE,"#.##")
-		  EditField_Esave.Text=Format(dosxyz_input.ESAVE_GLOBAL,"#.###")
-		  EditField_N_Split.Text=Format(dosxyz_input.n_split,"#")
+		  EditField_title.value = dosxyz_input.TITLE
+		  EditField_nrcycl.value = Format(dosxyz_input.NRCYCL,"#")
+		  EditField_pcut.value = Format(dosxyz_input.PCUT,"#.###")
+		  EditField_ecut.value = Format(dosxyz_input.ECUTIN,"#.###")
+		  EditField_rng1.value = Format(dosxyz_input.INSEED1,"#")
+		  EditField_rng2.value = Format(dosxyz_input.INSEED2,"#")
+		  EditField_maxtime.value = Format(dosxyz_input.TIMMAX,"#.##")
+		  EditField_beam_size.value = Format(dosxyz_input.BEAM_SIZE,"#.##")
+		  EditField_Esave.value = Format(dosxyz_input.ESAVE_GLOBAL,"#.###")
+		  EditField_N_Split.value = Format(dosxyz_input.n_split,"#")
 		  
 		  
 		  PopupMenu_mediumoutside.DeleteAllRows
@@ -2070,18 +2070,18 @@ End
 		      
 		      
 		    ElseIf me.ListIndex=1 Then
-		      //PopupMenu_source.Text="2 - Full phase-space source file" Then
+		      //PopupMenu_source.value = "2 - Full phase-space source file" Then
 		      dosxyz_input.isource=2
 		      Window_DOSXYZ_Maininputs_source2.Show
 		      
 		      
 		    ElseIf me.ListIndex=2 Then
-		      //PopupMenu_source.Text="3 - Point source from front" Then
+		      //PopupMenu_source.value = "3 - Point source from front" Then
 		      dosxyz_input.isource=3
 		      Window_DOSXYZ_Maininputs_source3.Show
 		      
 		    ElseIf me.ListIndex=3 Then
-		      //PopupMenu_source.Text="3 - Point source from front" Then
+		      //PopupMenu_source.value = "3 - Point source from front" Then
 		      dosxyz_input.isource=8
 		      Window_DOSXYZ_Maininputs_source8.Show
 		      

@@ -1092,12 +1092,12 @@ End
 		  End
 		  
 		  
-		  EditField_Med_Density.Text=str(DOSXYZ_Input.DENSITY)
+		  EditField_Med_Density.value = str(DOSXYZ_Input.DENSITY)
 		  
 		  if dosxyz_input.dos_Non_CT Then
-		    EditField_NumMed.Text=str(DOSXYZ_Input.nmed)
+		    EditField_NumMed.value = str(DOSXYZ_Input.nmed)
 		  else
-		    EditField_NumMed.Text=str(UBound(gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.Materials)+1)
+		    EditField_NumMed.value = str(UBound(gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.Materials)+1)
 		    EditField_NumMed.ReadOnly=True
 		  end
 		  

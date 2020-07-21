@@ -724,8 +724,8 @@ End
 		  
 		  
 		  CheckBox_MaxSegment.Value=plan.UseMaxSegement
-		  EditField_Max_Segments.Text=Format(plan.MaximumSegments,"#")
-		  EditField_Max_Segpriority.Text=Format(plan.MaximumSegmentsPriority,"#.0000e")
+		  EditField_Max_Segments.value = Format(plan.MaximumSegments,"#")
+		  EditField_Max_Segpriority.value = Format(plan.MaximumSegmentsPriority,"#.0000e")
 		  
 		  Update_Listbox_OrganConst
 		  Update_Listbox_TargetConst

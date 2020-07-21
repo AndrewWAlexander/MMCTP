@@ -68,7 +68,6 @@ Begin Window Window_EMET_Results
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   "True"
          Graph_Title     =   ""
          Height          =   516
          HelpTag         =   ""
@@ -170,7 +169,6 @@ Begin Window Window_EMET_Results
          drawXsub        =   False
          drawYsub        =   False
          Enabled         =   True
-         EraseBackground =   "True"
          Errors          =   False
          Graph_Title     =   ""
          Height          =   356
@@ -896,7 +894,6 @@ Begin Window Window_EMET_Results
             Backdrop        =   0
             DoubleBuffer    =   False
             Enabled         =   True
-            EraseBackground =   "True"
             Height          =   426
             HelpTag         =   ""
             Index           =   -2147483648
@@ -1351,7 +1348,6 @@ Begin Window Window_EMET_Results
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   False
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   5
          TabPanelIndex   =   1
@@ -1396,7 +1392,6 @@ Begin Window Window_EMET_Results
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   False
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   6
          TabPanelIndex   =   1
@@ -1591,53 +1586,83 @@ End
 		  // Load the DVHs into graph points, to plot!
 		  //
 		  //------------------------------------------
-		  Dim i ,k as Integer
-		  Dim pp as Class_Profile_One
-		  Dim pxy as Class_Points
-		  Dim dvalue,vvalue as Single
+		  //Dim i ,k as Integer
+		  //Dim pp as Class_Profile_One
+		  //Dim pxy as Class_Points
+		  //Dim dvalue,vvalue as Single
 		  //------------------------------------------
 		  
-		  ReDim DVHGraph.Profiles.One_Profile(UBound(DVHs.All_DVH))
+		  DVHGraph.Profiles.One_Profile.ResizeTo( DVHs.All_DVH.LastRowIndex )
 		  
 		  // Load DVHs to Profile plots
-		  for k=0 to UBound(DVHs.All_DVH)
-		    if DVHGraph.Profiles.One_Profile(k)=nil Then
-		      DVHGraph.Profiles.One_Profile(k)=new Class_Profile_One
-		    end
-		    pp= DVHGraph.Profiles.One_Profile(k)
-		    pp.Symbol=DVHs.All_DVH(k).DVH_Symbol
-		    pp.Label=DVHs.All_DVH(k).Name+" "+DVHs.All_DVH(k).struc_names
-		    if PopupMenu_DVH.Text="ALL" or PopupMenu_DVH.Text=DVHs.All_DVH(k).struc_names Then
+		  For k As Integer = 0 To DVHs.All_DVH.LastRowIndex
+		    
+		    If DVHGraph.Profiles.One_Profile(k) = Nil Then
+		      
+		      DVHGraph.Profiles.One_Profile(k) = New Class_Profile_One
+		      
+		    End
+		    
+		    Var pp as Class_Profile_One = DVHGraph.Profiles.One_Profile(k)
+		    pp.Symbol = DVHs.All_DVH(k).DVH_Symbol
+		    pp.Label = DVHs.All_DVH(k).Name + " " + DVHs.All_DVH(k).struc_names
+		    
+		    If PopupMenu_DVH.SelectedRowValue = "ALL" Or _
+		       PopupMenu_DVH.SelectedRowValue = DVHs.All_DVH(k).struc_names Then
+		      
 		      pp.Show=True
 		      
-		      if UBound(pp.Points)<>DVHs.All_DVH(k).DVH_bins-1 Then
-		        ReDim pp.Points(DVHs.All_DVH(k).DVH_bins-1)
-		      end
+		      If pp.Points.LastRowIndex <> _
+		        DVHs.All_DVH(k).DVH_bins - 1 Then
+		        
+		        pp.Points.ResizeTo(DVHs.All_DVH(k).DVH_bins - 1)
+		        
+		      End
 		      
-		      StaticText_DVH_Stat.Text="Min, Avg, Max dose : "+str(DVHs.All_DVH(k).mindose)+", "+str(DVHs.All_DVH(k).avgdose)+", "+str(DVHs.All_DVH(k).maxdose)
+		      StaticText_DVH_Stat.value = "Min, Avg, Max dose : " _
+		      + Str(DVHs.All_DVH(k).mindose) + ", " _
+		      + Str(DVHs.All_DVH(k).avgdose) + ", " _
+		      + Str(DVHs.All_DVH(k).maxdose)
 		      
-		      for i=0 to DVHs.All_DVH(k).DVH_bins-1   //n bins
-		        if pp.Points(i)= nil Then
-		          pp.Points(i)= new Class_Points
-		        end
-		        pxy=pp.Points(i)
-		        pxy.X_cm=DVHs.All_DVH(k).mindose+(DVHs.All_DVH(k).maxdose-DVHs.All_DVH(k).mindose)*(i+0.5)/DVHs.All_DVH(k).DVH_bins
+		      For i As Integer = 0 To DVHs.All_DVH(k).DVH_bins - 1   //n bins
+		        
+		        If pp.Points(i)= Nil Then
+		          
+		          pp.Points(i)= New Class_Points
+		          
+		        End
+		        
+		        Var pxy as Class_Points = pp.Points(i)
+		        pxy.X_cm= DVHs.All_DVH(k).mindose _
+		        + (DVHs.All_DVH(k).maxdose - DVHs.All_DVH(k).mindose) _
+		        * (i+0.5)/DVHs.All_DVH(k).DVH_bins
 		        pxy.X_cm=DVHs.All_DVH(k).Normalize*pxy.X_cm
-		        if CumuRadioButton.Value then
+		        
+		        If CumuRadioButton.Value Then
+		          
 		          pxy.Y_cm=DVHs.All_DVH(k).DVH_Cum(i)
-		        else
+		          
+		        Else
+		          
 		          pxy.Y_cm=DVHs.All_DVH(k).DVH(i)
-		        end
-		      next
-		    else
+		          
+		        End
+		      Next
+		    Else
+		      
 		      pp.Show=False
-		    end
-		    for i=0 to UBound(grtog.Structures.Structures)
-		      if DVHs.All_DVH(k).struc_names=grtog.Structures.Structures(i).Structure_Name Then
+		      
+		    End
+		    
+		    For i As Integer = 0 To grtog.Structures.Structures.LastRowIndex
+		      
+		      If DVHs.All_DVH(k).struc_names=grtog.Structures.Structures(i).Structure_Name Then
+		        
 		        pp.Colour=grtog.Structures.Structures(i).scolor
-		      end
-		    next
-		  next
+		        
+		      End
+		    Next
+		  Next
 		  
 		  DVHGraph.Default_Settings
 		  DVHGraph.Refresh
@@ -1716,17 +1741,17 @@ End
 		  
 		  i=Listbox_Results.ListIndex
 		  
-		  TextArea_Input.Text=""
-		  TextArea_Output.Text=""
+		  TextArea_Input.value = ""
+		  TextArea_Output.value = ""
 		  
 		  
 		  
 		  if i>=0 and i<=Listbox_Results.ListCount Then
-		    TextArea_Input.Text=Listbox_Results.Cell(i,5)+Chr(10)+"----Organ & Target Values ------ "+chr(10)+Listbox_Results.Cell(i,9)
-		    TextArea_Output.Text=Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
-		    TextArea_Output.Text=Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
+		    TextArea_Input.value = Listbox_Results.Cell(i,5)+Chr(10)+"----Organ & Target Values ------ "+chr(10)+Listbox_Results.Cell(i,9)
+		    TextArea_Output.value = Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
+		    TextArea_Output.value = Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
 		    DoNot=True
-		    TextArea_Note.Text=Listbox_Results.Cell(i,12)
+		    TextArea_Note.value = Listbox_Results.Cell(i,12)
 		    DoNot=False
 		  end
 		  

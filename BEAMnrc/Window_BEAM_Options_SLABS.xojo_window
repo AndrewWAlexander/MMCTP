@@ -439,10 +439,10 @@ End
 		  
 		  
 		  
-		  EditField_numslabs.Text=str(S.N_SLABS)
-		  EditField_radius.Text=str(S.RMAX_CM)
-		  EditField_title.Text=str(S.Title_CM)
-		  EditField_zmin.Text=Format(S.Zmin,"-#.#####")
+		  EditField_numslabs.value = str(S.N_SLABS)
+		  EditField_radius.value = str(S.RMAX_CM)
+		  EditField_title.value = str(S.Title_CM)
+		  EditField_zmin.value = Format(S.Zmin,"-#.#####")
 		  
 		  
 		  

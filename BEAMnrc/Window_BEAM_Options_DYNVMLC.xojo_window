@@ -2206,34 +2206,34 @@ End
 		    RadioButton_par_x.Value=True
 		  end
 		  
-		  EditField_numleaves.Text=str(DYNVMLC.Numleaves)
-		  EditField_radius.Text=Format(DYNVMLC.RMAX_CM,"-#.###")
-		  EditField_title.Text=str(DYNVMLC.Title_CM)
+		  EditField_numleaves.value = str(DYNVMLC.Numleaves)
+		  EditField_radius.value = Format(DYNVMLC.RMAX_CM,"-#.###")
+		  EditField_title.value = str(DYNVMLC.Title_CM)
 		  
-		  EditField_ecut_holes.Text=Format(DYNVMLC.Ecut_Holes,"-#.###")
-		  EditField_Ecut_leaves.Text=Format(DYNVMLC.Ecut_Leaves,"-#.###")
-		  EditField_ECUT_Open.Text=Format(DYNVMLC.Ecut_Air,"-#.###")
+		  EditField_ecut_holes.value = Format(DYNVMLC.Ecut_Holes,"-#.###")
+		  EditField_Ecut_leaves.value = Format(DYNVMLC.Ecut_Leaves,"-#.###")
+		  EditField_ECUT_Open.value = Format(DYNVMLC.Ecut_Air,"-#.###")
 		  
-		  EditField_PcutOpen.Text=Format(DYNVMLC.Pcut_air,"-#.###")
-		  EditField_pcut_holes.Text=Format(DYNVMLC.Pcut_holes,"-#.###")
-		  EditField_Pcut_leaves.Text=Format(DYNVMLC.Pcut_Leaves,"-#.###")
+		  EditField_PcutOpen.value = Format(DYNVMLC.Pcut_air,"-#.###")
+		  EditField_pcut_holes.value = Format(DYNVMLC.Pcut_holes,"-#.###")
+		  EditField_Pcut_leaves.value = Format(DYNVMLC.Pcut_Leaves,"-#.###")
 		  
-		  EditField_file.Text=DYNVMLC.MLC_File_Path
+		  EditField_file.value = DYNVMLC.MLC_File_Path
 		  
-		  EditField_DoseZone_open.Text=Format(DYNVMLC.Dose_Zone_air,"#")
-		  EditField_dose_zone_holes.Text=Format(DYNVMLC.Dose_Zone_holes,"#")
-		  EditField_dose_zone_leaves.Text=Format(DYNVMLC.Dose_Zone_Leaves,"#")
+		  EditField_DoseZone_open.value = Format(DYNVMLC.Dose_Zone_air,"#")
+		  EditField_dose_zone_holes.value = Format(DYNVMLC.Dose_Zone_holes,"#")
+		  EditField_dose_zone_leaves.value = Format(DYNVMLC.Dose_Zone_Leaves,"#")
 		  
-		  EditField_latch_holes.Text=Format(DYNVMLC.IRegion_to_bit_holes,"#")
-		  EditField_latch_leaves.Text=Format(DYNVMLC.IRegion_to_bit_Leaves,"#")
-		  EditField_Latch_open.Text=Format(DYNVMLC.IRegion_to_bit_air,"#")
+		  EditField_latch_holes.value = Format(DYNVMLC.IRegion_to_bit_holes,"#")
+		  EditField_latch_leaves.value = Format(DYNVMLC.IRegion_to_bit_Leaves,"#")
+		  EditField_Latch_open.value = Format(DYNVMLC.IRegion_to_bit_air,"#")
 		  
-		  EditField_zmin.Text=Format(DYNVMLC.ZMIN,"-#.#####")
-		  EditField_leavesthick.Text=Format(DYNVMLC.ZThick,"-#.#####")
+		  EditField_zmin.value = Format(DYNVMLC.ZMIN,"-#.#####")
+		  EditField_leavesthick.value = Format(DYNVMLC.ZThick,"-#.#####")
 		  
-		  EditField_startleaf.Text=Format(DYNVMLC.Start,"-#.#####")
-		  EditField_zfocussides.Text=Format(DYNVMLC.zfocus_sides,"-#.#####")
-		  EditField_widthgap.Text=Format(DYNVMLC.Leafgap,"-#.#####")
+		  EditField_startleaf.value = Format(DYNVMLC.Start,"-#.#####")
+		  EditField_zfocussides.value = Format(DYNVMLC.zfocus_sides,"-#.#####")
+		  EditField_widthgap.value = Format(DYNVMLC.Leafgap,"-#.#####")
 		  
 		  if DYNVMLC.IGNOREGAPS=1 Then
 		    CheckBox_ignore.Value=True
@@ -2242,12 +2242,12 @@ End
 		  
 		  if DYNVMLC.Endtype=0 Then
 		    PopupMenu_Leaftype.ListIndex=0
-		    StaticText_Radius.Text="Radius of leaf ends"
-		    EditField_Zfocus_and_Radiusleafend.Text=Format(DYNVMLC.Leafradius,"-#.#####")
+		    StaticText_Radius.value = "Radius of leaf ends"
+		    EditField_Zfocus_and_Radiusleafend.value = Format(DYNVMLC.Leafradius,"-#.#####")
 		  elseif DYNVMLC.Endtype=1 Then
 		    PopupMenu_Leaftype.ListIndex=1
-		    StaticText_Radius.Text="Zfocus of leaf ends"
-		    EditField_Zfocus_and_Radiusleafend.Text=Format(DYNVMLC.zfocus_ends,"-#.#####")
+		    StaticText_Radius.value = "Zfocus of leaf ends"
+		    EditField_Zfocus_and_Radiusleafend.value = Format(DYNVMLC.zfocus_ends,"-#.#####")
 		  end
 		  
 		  if DYNVMLC.MODE_DYNVMLC=0 Then
@@ -2258,9 +2258,9 @@ End
 		    RadioButton_Step.Value=True
 		  end
 		  
-		  EditField_material_holes.Text=DYNVMLC.Med_In_holes
-		  EditField_Mat_open.Text=DYNVMLC.Med_In_Air
-		  EditField_material_leaves.Text=DYNVMLC.Med_In_Leaves
+		  EditField_material_holes.value = DYNVMLC.Med_In_holes
+		  EditField_Mat_open.value = DYNVMLC.Med_In_Air
+		  EditField_material_leaves.value = DYNVMLC.Med_In_Leaves
 		  
 		  donothing=False
 		End Sub

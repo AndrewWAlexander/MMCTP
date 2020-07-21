@@ -721,13 +721,13 @@ End
 		    CheckBox_VMC_refresh.Value=gVMC.auto_refresh
 		    CheckBox_VMC_Run.Value=gVMC.auto_run
 		    CheckBox_MC_VMC_ImportD.Value=gVMC.auto_importD
-		    EditField_MC_VMC_ChrLimit.Text=Format(gVMC.vmc_chrLimit,"#")
-		    EditField_MC_VMC_DosetoWater.Text=Format(gVMC.vmc_dose_water,"-#.####")
-		    EditField_VMC_DMXName.Text=gVMC.dmx_name
-		    EditField_VMC_Res_X.Text=Format(gVMC.vmc_res_x,"-#.####")
-		    EditField_VMC_Res_y.Text=Format(gVMC.vmc_res_y,"-#.####")
-		    EditField_VMC_Res_z.Text=Format(gVMC.vmc_res_z,"-#.####")
-		    EditField_MC_VMC_Numhist.Text=Format(gVMC.vmc_numb_hist,"-#")
+		    EditField_MC_VMC_ChrLimit.value = Format(gVMC.vmc_chrLimit,"#")
+		    EditField_MC_VMC_DosetoWater.value = Format(gVMC.vmc_dose_water,"-#.####")
+		    EditField_VMC_DMXName.value = gVMC.dmx_name
+		    EditField_VMC_Res_X.value = Format(gVMC.vmc_res_x,"-#.####")
+		    EditField_VMC_Res_y.value = Format(gVMC.vmc_res_y,"-#.####")
+		    EditField_VMC_Res_z.value = Format(gVMC.vmc_res_z,"-#.####")
+		    EditField_MC_VMC_Numhist.value = Format(gVMC.vmc_numb_hist,"-#")
 		    
 		    if gVMC.Default_Device_Type=1 Then
 		      RadioButton_VMC_ShLib.Value=True

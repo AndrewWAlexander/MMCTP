@@ -8394,7 +8394,7 @@ End
 		  CheckBox_6MV.Caption="6 MV : "+str(p6)
 		  CheckBox_18MV.Caption="18 MV : "+str(p18)
 		  
-		  Window_EMET_Run.StaticText_NumofOpenings.Text="Number of unique openings : "+ str(UBound(FLEC_Fields)+1)
+		  Window_EMET_Run.StaticText_NumofOpenings.value = "Number of unique openings : "+ str(UBound(FLEC_Fields)+1)
 		End Sub
 	#tag EndMethod
 
@@ -8751,7 +8751,7 @@ End
 		  Listbox_GradDVH_Status.CellCheck(13,0)=gOpt.Grad.NormDD
 		  Listbox_GradDVH_Status.CellCheck(14,0)=gOpt.Grad.WriteDose
 		  Listbox_GradDVH_Status.Cell(14,1)=gOpt.Grad.DoseOutputName
-		  Window_EMET_Run.EditField_Grad_Weight_Value.Text=str(gOpt.Grad.Init_Weight)
+		  Window_EMET_Run.EditField_Grad_Weight_Value.value = str(gOpt.Grad.Init_Weight)
 		End Sub
 	#tag EndMethod
 
@@ -9239,7 +9239,7 @@ End
 		    end
 		  next
 		  gopt.Write_Fields
-		  EditField_Num.Text=str(gopt.Num_Fields)
+		  EditField_Num.value = str(gopt.Num_Fields)
 		  Update_Listbox_BEAMS
 		End Sub
 	#tag EndMethod
@@ -9558,7 +9558,7 @@ End
 #tag Events PushButton_OutputClear1
 	#tag Event
 		Sub Action()
-		  EditField_ShelloutSA.Text=""
+		  EditField_ShelloutSA.value = ""
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9717,7 +9717,7 @@ End
 #tag Events PushButton_OutputClearJaw
 	#tag Event
 		Sub Action()
-		  EditField_Shellout_Jaw.Text=""
+		  EditField_Shellout_Jaw.value = ""
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9849,7 +9849,7 @@ End
 #tag Events PushButton_GradDVH_OutputClear
 	#tag Event
 		Sub Action()
-		  EditField_Grad_Output.Text=""
+		  EditField_Grad_Output.value = ""
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9905,7 +9905,7 @@ End
 		  'DVH_index=me.ListIndex-1
 		  'DVHGraph.Interactive=True
 		  'DVH=gopt.Oarray.organ(DVH_index).DVH
-		  'StaticText_DVH_Stat.Text="Max dose : "+Format(dvh.maxdose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Min dose : "+Format(dvh.mindose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Avg dose : "+Format(dvh.avgdose,"-#.#####e")+" "+dvh.Dose_Units
+		  'StaticText_DVH_Stat.value = "Max dose : "+Format(dvh.maxdose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Min dose : "+Format(dvh.mindose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Avg dose : "+Format(dvh.avgdose,"-#.#####e")+" "+dvh.Dose_Units
 		  '
 		  '
 		  'for i =0 to UBound(DVHGraph.Profiles.One_Profile)
@@ -9921,7 +9921,7 @@ End
 		  'DVHGraph.Profiles.One_Profile(i).Show=True
 		  'next
 		  'DVHGraph.Interactive=False
-		  'StaticText_DVH_Stat.Text=""
+		  'StaticText_DVH_Stat.value = ""
 		  '
 		  '
 		  'end if

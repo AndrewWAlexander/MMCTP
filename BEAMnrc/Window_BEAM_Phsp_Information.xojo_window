@@ -1565,48 +1565,48 @@ End
 		    
 		    
 		    StaticText_linac_name.Text =gRTOG.Plan(k).beam(i).RT_name
-		    StaticText_beam_energy.Text=(gRTOG.Plan(k).beam(i).beam_energy )
+		    StaticText_beam_energy.value = (gRTOG.Plan(k).beam(i).beam_energy )
 		    
-		    //StaticText_ganty_rtn.Text=str(gRTOG.Plan(k).beam(i).gantry_Angle)
-		    //StaticText_coll_rtn.text=str(gRTOG.Plan(k).beam(i).collimator_angle)
-		    //StaticText_couch_rtn.text=str(gRTOG.Plan(k).beam(i).couch_Angle)
+		    //StaticText_ganty_rtn.value = str(gRTOG.Plan(k).beam(i).gantry_Angle)
+		    //StaticText_coll_rtn.value = str(gRTOG.Plan(k).beam(i).collimator_angle)
+		    //StaticText_couch_rtn.value = str(gRTOG.Plan(k).beam(i).couch_Angle)
 		    
 		    
-		    StaticText_Phsp_name.Text=gBEAM.Beams(i).egs_Phsp_name
+		    StaticText_Phsp_name.value = gBEAM.Beams(i).egs_Phsp_name
 		    
-		    StaticText_Phsp_size.Text=Format(gBEAM.Beams(i).egs_phsp_size,"###,###,###,###")
+		    StaticText_Phsp_size.value = Format(gBEAM.Beams(i).egs_phsp_size,"###,###,###,###")
 		    
 		    if gBEAM.Beams(i).egs_phsp_size>0 Then
 		      StaticText_Phsp_found.TextColor=RGB(0,255,0)
-		      StaticText_Phsp_found.Text="Yes"
+		      StaticText_Phsp_found.value = "Yes"
 		    else
 		      StaticText_Phsp_found.TextColor=RGB(255,0,0)
-		      StaticText_Phsp_found.Text="No"
+		      StaticText_Phsp_found.value = "No"
 		    end
 		    
 		    
 		    
 		    if gBEAM.Beams(i).egs_phsp_link Then
 		      StaticText_Phsp_linkyn.TextColor=RGB(0,0,255)
-		      StaticText_Phsp_linkyn.Text="Yes"
-		      StaticText_Phsp_linkyname.Text=gBEAM.Beams(i).egs_phsp_name
+		      StaticText_Phsp_linkyn.value = "Yes"
+		      StaticText_Phsp_linkyname.value = gBEAM.Beams(i).egs_phsp_name
 		    else
 		      StaticText_Phsp_linkyn.TextColor=RGB(0,0,0)
-		      StaticText_Phsp_linkyn.Text="No"
-		      StaticText_Phsp_linkyname.Text=""
+		      StaticText_Phsp_linkyn.value = "No"
+		      StaticText_Phsp_linkyname.value = ""
 		    end
 		    
 		    
 		    StaticText_wedge.text =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)
 		    
 		    
-		    StaticText_beam_mode.text=gRTOG.Plan(k).Beam(i).beam_mode
+		    StaticText_beam_mode.value = gRTOG.Plan(k).Beam(i).beam_mode
 		    
-		    StaticText_Beam_Number.Text=str(beam_index+1)
+		    StaticText_Beam_Number.value = str(beam_index+1)
 		    
-		    StaticText_xjaws.Text=str(col.X1+col.x2)
+		    StaticText_xjaws.value = str(col.X1+col.x2)
 		    
-		    StaticText_yjaws.Text=str(col.y1+col.y2)
+		    StaticText_yjaws.value = str(col.y1+col.y2)
 		    
 		  end
 		End Sub
@@ -1737,7 +1737,7 @@ End
 		      wedge=rs.Field("WEDGE").StringValue
 		      app=rs.Field("APP").StringValue
 		      
-		      if InStr(mode+" "+jaw+" "+name+" "+eng+" "+opening+" "+linac+" "+Shell,EditField_Filter.Text)>0 or EditField_Filter.Text="" Then
+		      if InStr(mode+" "+jaw+" "+name+" "+eng+" "+opening+" "+linac+" "+Shell,EditField_Filter.Text)>0 or EditField_Filter.value = "" Then
 		        Listbox_PhaseSpace.AddRow mode
 		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,1)=name
 		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,2)=eng

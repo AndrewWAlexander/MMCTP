@@ -1760,11 +1760,11 @@ End
 		  
 		  if UBound(gRTOG.Plan(Plan_Index).Dose)>= Window_Treatment.dose_index and Window_Treatment.dose_index>-1  Then
 		    dd=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index)
-		    EditField_Dose_SOP.Text=dd.SOP_Instance_UID
-		    EditField_Dose_Comments.Text=dd.Dose_Comment
-		    EditField_Dose_Type.Text=dd.SumType
-		    EditField_Dose_Engine.Text=dd.engine
-		    EditField_Dose_Series.Text=dd.SeriesDescription
+		    EditField_Dose_SOP.value = dd.SOP_Instance_UID
+		    EditField_Dose_Comments.value = dd.Dose_Comment
+		    EditField_Dose_Type.value = dd.SumType
+		    EditField_Dose_Engine.value = dd.engine
+		    EditField_Dose_Series.value = dd.SeriesDescription
 		    
 		    dx=dd.Horizontal_Grid
 		    dy=dd.Vertical_Grid
@@ -1775,50 +1775,50 @@ End
 		    z=dd.Coord_3_1st_point
 		    
 		    
-		    EditField_1stx_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point-dd.Horizontal_Grid/2,"-#.#####")
-		    EditField_1stY_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point-dd.Vertical_Grid/2,"-#.#####")
-		    EditField_1stZ_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point-dd.Depth_Grid/2,"-#.#####")
+		    EditField_1stx_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point-dd.Horizontal_Grid/2,"-#.#####")
+		    EditField_1stY_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point-dd.Vertical_Grid/2,"-#.#####")
+		    EditField_1stZ_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point-dd.Depth_Grid/2,"-#.#####")
 		    
-		    EditField_1stx.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point,"-#.#####")
-		    EditField_1sty.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point,"-#.#####")
-		    EditField_1stz.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point,"-#.#####")
+		    EditField_1stx.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point,"-#.#####")
+		    EditField_1sty.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point,"-#.#####")
+		    EditField_1stz.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point,"-#.#####")
 		    
-		    EditField_dx.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).horizontal_grid,"-#.#####")
-		    EditField_dy.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Vertical_Grid,"-#.#####")
-		    EditField_dz.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).depth_grid,"-#.#####")
+		    EditField_dx.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).horizontal_grid,"-#.#####")
+		    EditField_dy.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Vertical_Grid,"-#.#####")
+		    EditField_dz.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).depth_grid,"-#.#####")
 		    
 		    
-		    EditField_LastX.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point+_
+		    EditField_LastX.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).horizontal_grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension1-1),"-#.#####")
 		    
-		    EditField_Lasty.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point+_
+		    EditField_Lasty.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Vertical_Grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension2-1),"-#.#####")
 		    
-		    EditField_Lastz.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point+_
+		    EditField_Lastz.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).depth_grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension3-1),"-#.#####")
 		    
-		    EditField_LastX_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point-dd.Horizontal_Grid/2+_
+		    EditField_LastX_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_1_1st_point-dd.Horizontal_Grid/2+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).horizontal_grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension1),"-#.#####")
 		    
-		    EditField_LastY_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point-dd.Vertical_Grid/2+_
+		    EditField_LastY_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_2_1st_point-dd.Vertical_Grid/2+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Vertical_Grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension2),"-#.#####")
 		    
-		    EditField_lastZ_BL.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point-dd.Depth_Grid/2+_
+		    EditField_lastZ_BL.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Coord_3_1st_point-dd.Depth_Grid/2+_
 		    gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).depth_grid*_
 		    (gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension3),"-#.#####")
 		    
-		    EditField_nx.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension1,"#")
-		    EditField_ny.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension2,"#")
-		    EditField_nz.Text=Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension3,"#")
+		    EditField_nx.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension1,"#")
+		    EditField_ny.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension2,"#")
+		    EditField_nz.value = Format(gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).Size_of_Dimension3,"#")
 		    
-		    EditField_Dose_units.Text=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_units
+		    EditField_Dose_units.value = gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_units
 		    
-		    EditField_Dname.Text=gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
+		    EditField_Dname.value = gRTOG.Plan(Plan_Index).Dose(Window_Treatment.dose_index).dose_name
 		    
 		    
 		    

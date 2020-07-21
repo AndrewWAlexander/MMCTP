@@ -527,7 +527,7 @@ End
 		  'Canvas_digitizer.graphics.drawOval rulerx1-5,rulery1-5, 11,11
 		  'Canvas_digitizer.graphics.drawOval rulerx2-5,rulery2-5, 11,11
 		  'Canvas_digitizer.graphics.drawline rulerx1, rulery1, rulerx2, rulery2
-		  'pixpercmtextbox.text="Pixel/cm: " + str(gpixpercm)
+		  'pixpercmtextbox.value = "Pixel/cm: " + str(gpixpercm)
 		End Sub
 	#tag EndMethod
 

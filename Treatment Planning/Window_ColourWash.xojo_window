@@ -224,8 +224,8 @@ End
 
 	#tag Event
 		Sub Open()
-		  EditField_ColourMax.text=Format(gvis.ColourWashMax,"-#.####e")
-		  EditField_ColourMin.text=Format(gvis.ColourWashMin,"-#.####e")
+		  EditField_ColourMax.value = Format(gvis.ColourWashMax,"-#.####e")
+		  EditField_ColourMin.value = Format(gvis.ColourWashMin,"-#.####e")
 		  
 		End Sub
 	#tag EndEvent

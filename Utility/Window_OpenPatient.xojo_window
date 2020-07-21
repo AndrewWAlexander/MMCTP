@@ -461,7 +461,7 @@ End
 		  EditField_Current_Dir.TextSize=9
 		  
 		  if gPref.mcgillfi<> nil Then
-		    EditField_Current_Dir.Text=gPref.mcgillfi.ShellPath
+		    EditField_Current_Dir.value = gPref.mcgillfi.ShellPath
 		  end
 		  
 		  u=CountFields(name_id,",")

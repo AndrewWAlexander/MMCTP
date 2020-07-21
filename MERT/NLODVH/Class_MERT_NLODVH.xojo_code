@@ -250,7 +250,7 @@ Protected Class Class_MERT_NLODVH
 		  'end
 		  '
 		  '
-		  '//Window_EMET_Run.StaticText_Grad_RunTime.Text="Time : "+Time
+		  '//Window_EMET_Run.StaticText_Grad_RunTime.value = "Time : "+Time
 		  '//Window_EMET_Run.ProgressWheel_Grad.Visible=Running
 		  '
 		  'if Running  Then
@@ -269,7 +269,7 @@ Protected Class Class_MERT_NLODVH
 		  'oneline=ts.ReadAll
 		  'ts.Close
 		  'if oneline<>Window_EMET_Run.EditField_NLO_Output.Text Then
-		  'Window_EMET_Run.EditField_NLO_Output.Text=oneline
+		  'Window_EMET_Run.EditField_NLO_Output.value = oneline
 		  'end
 		  'end
 		  '
@@ -292,7 +292,7 @@ Protected Class Class_MERT_NLODVH
 		  'ts.Close
 		  'if InStr(oneline,"NLO finished")>0 Then
 		  'if oneline<>Window_EMET_Run.EditField_NLO_Output.Text Then
-		  'Window_EMET_Run.EditField_NLO_Output.Text=oneline
+		  'Window_EMET_Run.EditField_NLO_Output.value = oneline
 		  'end
 		  'Runtime=val(NthField(oneline,"Execution time (min) :",2))
 		  'Score_Initial=val(NthField(oneline,"Initial Best Obj :",2))
@@ -301,7 +301,7 @@ Protected Class Class_MERT_NLODVH
 		  'Read_Output=True
 		  'S.Read_Results(oneline)
 		  'elseif Window_EMET_Run.EditField_NLO_Output.Text ="" Then
-		  'Window_EMET_Run.EditField_NLO_Output.Text=oneline
+		  'Window_EMET_Run.EditField_NLO_Output.value = oneline
 		  'end
 		  '
 		  '
@@ -336,7 +336,7 @@ Protected Class Class_MERT_NLODVH
 		  '//Set inital values
 		  'Running=True
 		  'Score_Previous=Score
-		  'Window_EMET_Run.EditField_NLO_Output.Text=""
+		  'Window_EMET_Run.EditField_NLO_Output.value = ""
 		  'Score_Initial=-1
 		  'Time=""
 		  'Score=-1

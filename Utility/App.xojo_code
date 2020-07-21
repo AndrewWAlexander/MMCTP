@@ -56,7 +56,7 @@ Inherits Application
 		  FileConfigurationsVMCsettings.Enabled=True
 		  
 		  
-		  if gRTOG<>nil Then
+		  If gRTOG<>Nil Then
 		    Task_TreatmentPlanning.Enabled=True
 		    Task_Contour.Enabled=True
 		    Task_AddDose.Enabled=True
@@ -67,9 +67,9 @@ Inherits Application
 		    
 		    FileImageInformation.Enabled=True
 		    
-		    if which_window_Contouring Then
+		    If which_window_Contouring Then
 		      File_Save_Contours.Enabled=True
-		    end
+		    End
 		    
 		    File_Save_DoseDistributions.Enabled=True
 		    FileSaveProfiles.Enabled=True
@@ -85,13 +85,13 @@ Inherits Application
 		    File_Import_DICOMRTPlanD.Enabled=True
 		    File_Import_DICOMStrutures.Enabled=True
 		    File_Import_DICOMRTPlan.Enabled=True
-		    if which_window_TreatmentPlanning Then
+		    If which_window_TreatmentPlanning Then
 		      Task_3DViewer.Enabled=True
 		      File_Export_DosePlane.Enabled=True
-		    else
+		    Else
 		      File_Export_DosePlane.Enabled=False
-		    end
-		  end
+		    End
+		  End
 		End Sub
 	#tag EndEvent
 
@@ -147,13 +147,13 @@ Inherits Application
 
 	#tag Event
 		Function UnhandledException(error As RuntimeException) As Boolean
-		  If error isa OutOfBoundsException Then
+		  If error IsA OutOfBoundsException Then
 		    MsgBox("An OutOfBounds Exception has occurred")
-		  elseif error isa OutOfMemoryException Then
+		  Elseif error IsA OutOfMemoryException Then
 		    MsgBox("An OutOf Memory Exception has occurred")
-		  else
+		  Else
 		    MsgBox("An error has occured : "+error.Reason)
-		  end
+		  End
 		End Function
 	#tag EndEvent
 
@@ -1080,16 +1080,15 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub MMCTP_Check_Version()
-		  Dim i,magv,minv as Integer
+		  Var magv As Integer = Val(NthField(Previous_Version,".",1))
+		  Var minv As Integer = Val(NthField(Previous_Version,".",2))
 		  
 		  
-		  magv=val(NthField(Previous_Version,".",1))
-		  minv=val(NthField(Previous_Version,".",2))
-		  
-		  
-		  if magv<7 Then
+		  If magv < 7 Then
+		    
 		    MMCTP_Version_Update_7
-		  end
+		    
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -1104,41 +1103,49 @@ Inherits Application
 		  MMCTP_Shell_Run.Close
 		  
 		  
-		  ReDim MMCTP_Shell_Refresh.All(-1)
-		  ReDim MMCTP_Shell_Run.All(-1)
+		  MMCTP_Shell_Refresh.All.ResizeTo(-1)
+		  MMCTP_Shell_Run.All.ResizeTo(-1)
 		  
 		  // Kill gvis runs
-		  if gvis<>Nil then
-		    if gVis.Contours<> nil Then
-		      gVis.Contours.kill
-		      gVis.contours=nil
-		    end
-		    gvis.kill
-		    ReDim gvis.scans(-1)
-		    gvis=nil
-		  end
-		  gvis=new Thread_Visualization
-		  
-		  
-		  if App.which_window_TreatmentPlanning  then
-		    Window_Treatment.Close
-		    if app.which_window_TreatmentPlanning=False Then
-		      gRTOG=nil
-		    else
-		      Return false
+		  If gvis <> Nil Then
+		    
+		    If gVis.Contours <> Nil Then
 		      
-		    end
+		      gVis.Contours.kill
+		      gVis.contours = Nil
+		      
+		    End
 		    
+		    gvis.kill
+		    gvis.scans.ResizeTo(-1)
+		    gvis = Nil
 		    
+		  End
+		  
+		  gvis = New Thread_Visualization
+		  
+		  If App.which_window_TreatmentPlanning  Then
 		    
-		  elseif App.which_window_Contouring  then
+		    Window_Treatment.Close
+		    
+		    If app.which_window_TreatmentPlanning=False Then
+		      
+		      gRTOG = Nil
+		      
+		    Else
+		      
+		      Return False
+		      
+		    End
+		    
+		  Elseif App.which_window_Contouring  Then
+		    
 		    Window_Contouring.Close
-		    gRTOG=nil
-		  end
+		    gRTOG=Nil
+		    
+		  End
 		  
-		  
-		  
-		  Return true
+		  Return True
 		End Function
 	#tag EndMethod
 
@@ -1146,69 +1153,68 @@ Inherits Application
 		Sub MMCTP_Open_Application()
 		  // Open MMCTP Settings
 		  
-		  if MMCTP_Open Then
+		  If MMCTP_Open Then
+		    
 		    Return
-		  end
+		    
+		  End
 		  
-		  gShells = new Class_Shells
+		  gShells = New Class_Shells
 		  gShells.Read_login
 		  
-		  gLinacs=new Class_Linacs
+		  gLinacs = New Class_Linacs
 		  gLinacs.Read_MLCs
 		  gLinacs.Read_Linacs
 		  
-		  gDoseStats=new Class_Dose_Stats
+		  gDoseStats = New Class_Dose_Stats
 		  gDoseStats.read
 		  
-		  gTimer_Refresh=new Class_MMCTP_Timer_Refresh
-		  gTimer_Run=new Class_MMCTP_Timer_Run
-		  gTimer_Download=new Class_MMCTP_Timer_Download
-		  gTimer_PW=new Class_MMCTP_Timer_ProgressWindow
-		  gTimer_Windows=new Class_MMCTP_Timer_Windows
-		  gTimer_PW.Enabled=True
-		  gTimer_Windows.Enabled=True
+		  gTimer_Refresh = New Class_MMCTP_Timer_Refresh
+		  gTimer_Run = New Class_MMCTP_Timer_Run
+		  gTimer_Download = New Class_MMCTP_Timer_Download
+		  gTimer_PW = New Class_MMCTP_Timer_ProgressWindow
+		  gTimer_Windows = New Class_MMCTP_Timer_Windows
+		  gTimer_PW.Enabled = True
+		  gTimer_Windows.Enabled = True
 		  gTimer_Windows.Mode=Timer.ModeMultiple
 		  gTimer_PW.Mode=Timer.ModeMultiple
 		  
+		  gDVH = New Thread_DVH
 		  
+		  gOpt = New Thread_Optimization
 		  
-		  
-		  
-		  gDVH=new Thread_DVH
-		  
-		  gOpt=new Thread_Optimization
-		  
-		  gDICOM= new Thread_DICOM_Object
+		  gDICOM = New Thread_DICOM_Object
 		  gDICOM.Read_Dictionary
 		  
-		  gCT=new Class_CT
+		  gCT = New Class_CT
 		  gct.Read_CT_Calibration
 		  
-		  MMCTP_Shell_Refresh=new Shell_MMCTP_Refresh
-		  MMCTP_Download= new Shell_MMCTP_Download
-		  MMCTP_Shell_Run=new Shell_MMCTP_Run
+		  MMCTP_Shell_Refresh = New Shell_MMCTP_Refresh
+		  MMCTP_Download = New Shell_MMCTP_Download
+		  MMCTP_Shell_Run = New Shell_MMCTP_Run
 		  
 		  MMCTP_ReadConfig
 		  MMCTP_Check_Version
 		  
 		  
-		  gOutput=new Class_OutPut
-		  gProfiles=new Class_Profiles_All
-		  if gPref.McGillRT_Profile_Skip=False Then
+		  gOutput = New Class_OutPut
+		  gProfiles = New Class_Profiles_All
+		  
+		  If gPref.McGillRT_Profile_Skip = False Then
+		    
 		    gOutput.Read_All_Tables
 		    gProfiles.Read_All_Profiles(gPref.Commission_fi)
-		  end
+		    
+		  End
 		  
 		  Window_OpenPatient.Show
 		  
-		  MMCTP_Open=True
+		  MMCTP_Open =True
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub MMCTP_Open_Patient(f as folderItem)
-		  Dim answer as Boolean
-		  
 		  Window_OpenPatient.Close
 		  gRTOG.path=f
 		  gRTOG.Run
@@ -1222,80 +1228,107 @@ Inherits Application
 		  // Read MMCTP Config file MMCTP-Settings
 		  //
 		  //-------------------------------------
-		  Dim i as Integer
-		  Dim f as FolderItem
-		  Dim ts as TextInputStream
-		  Dim temp,ss,shell as String
+		  
+		  //Dim f As FolderItem
+		  //Dim ts as TextInputStream
+		  //Dim temp,ss,shell As String
 		  //-------------------------------------
 		  
 		  
 		  
-		  f=gPref.Settings_fi
+		  Var f As FolderItem = gPref.Settings_fi.Child("MMCTP-Settings.txt")
 		  
-		  f=f.Child("MMCTP-Settings.txt")
-		  
-		  if f=Nil Then
+		  If f = Nil Then
+		    
 		    Return
-		  end
+		    
+		  End
 		  
-		  if f.Exists=False Then
+		  If f.Exists = False Then
+		    
 		    Return
-		  end
-		  ts=f.OpenAsTextFile
-		  if ts=nil Then
-		    Return
-		  end
+		    
+		  End
 		  
-		  while ts.EOF=False 
-		    temp=ts.ReadLine
-		    if InStr(temp,"Auto Check")>0 Then
-		      Temp=NthField(Temp,":=",2)
-		      if InStr(Temp,"no")>0 Then
-		        MC_Auto_Check=False
-		      else
-		        MC_Auto_Check=True
-		      end
+		  Var ts As TextInputStream = f.OpenAsTextFile
+		  
+		  If ts = Nil Then
+		    
+		    Return
+		    
+		  End
+		  
+		  While ts.EOF=False 
+		    
+		    Var temp as String = ts.ReadLine
+		    
+		    If InStr(temp,"Auto Check")>0 Then
 		      
-		    ElseIf InStr(temp,"MMCTP-Version")>0 Then
+		      Temp=NthField(Temp,":=",2)
+		      
+		      If InStr(Temp,"no")>0 Then
+		        
+		        MC_Auto_Check=False
+		        
+		      Else
+		        
+		        MC_Auto_Check=True
+		        
+		      End
+		      
+		    Elseif InStr(temp,"MMCTP-Version")>0 Then
+		      
 		      Temp=NthField(Temp,":=",2)
 		      Previous_Version=Trim(temp)
 		      
-		      
-		      
 		    Elseif InStr(temp,"Auto Timer")>0 Then
+		      
 		      Temp=NthField(Temp,":=",2)
-		      gTimer_Refresh.Check_Period=val(Temp)
+		      gTimer_Refresh.Check_Period=Val(Temp)
 		      gTimer_Download.Check_Period=gTimer_Refresh.Check_Period
 		      
 		    Elseif InStr(temp,"AutoRUNTIMER")>0 Then
-		      Temp=NthField(Temp,":=",2)
-		      gTimer_Run.Check_Period=val(Temp)
 		      
-		      
-		    elseif InStr(temp,"MC Run Logic")>0 Then
 		      Temp=NthField(Temp,":=",2)
-		      if InStr(Temp,"no")>0 Then
+		      gTimer_Run.Check_Period=Val(Temp)
+		      
+		    Elseif InStr(temp,"MC Run Logic")>0 Then
+		      
+		      Temp=NthField(Temp,":=",2)
+		      
+		      If InStr(Temp,"no")>0 Then
+		        
 		        MC_Run_Logic=False
-		      else
+		        
+		      Else
+		        
 		        MC_Run_Logic=True
-		      end
+		        
+		      End
 		      
-		    elseif InStr(temp,"Shell Online")>0 Then
-		      Temp=NthField(Temp,"Shell Online",2)
-		      ss=NthField(Temp,":=",2)
-		      Shell=Trim(NthField(Temp,":=",1))
+		    Elseif InStr(temp,"Shell Online")>0 Then
 		      
-		      for i=0 to UBound(gShells.Shells)
-		        if Shell=gShells.Shells(i).title Then
-		          if InStr(ss,"no")>0 Then
+		      temp = NthField(Temp,"Shell Online",2)
+		      Var ss As String = NthField(Temp,":=",2)
+		      Var Shell As String =Trim(NthField(Temp,":=",1))
+		      
+		      For i As Integer = 0 To UBound(gShells.Shells)
+		        
+		        If Shell=gShells.Shells(i).title Then
+		          
+		          If InStr(ss,"no")>0 Then
+		            
 		            gShells.Shells(i).online=False
-		          else
+		            
+		          Else
+		            
 		            gShells.Shells(i).online=True
-		          end
-		        end
-		      next
+		            
+		          End
+		        End
+		      Next
 		      
-		    end
+		    End
 		  Wend
 		  ts.Close
 		End Sub
@@ -1307,62 +1340,75 @@ Inherits Application
 		  //
 		  //
 		  //---------------------------------
-		  Dim fi as FolderItem
-		  Dim op as Boolean
-		  Dim ts as TextInputStream
-		  Dim fileread as String
+		  //Dim fi As FolderItem
+		  //Dim op As Boolean
+		  //Dim ts As TextInputStream
+		  //Dim fileread As String
 		  //---------------------------------
 		  
 		  
-		  fi=gPref.Settings_fi
-		  if fi.Exists =False Then
-		    MsgBox "Error, could not find User folder"+chr(13)+"Goodbye"
-		    Quit
-		  else
-		    fi=fi.child(".llc")
-		    op=True
-		    if fi.Exists Then
-		      ts=fi.OpenAsTextFile
-		      fileread=ts.ReadLine
-		      if fileread=fi.NativePath Then
-		        op=False
-		      else
-		        op=true
-		      end
+		  Var f As FolderItem = gPref.Settings_fi
+		  
+		  If f.Exists Then
+		    
+		    f=f.child(".llc")
+		    Var op As Boolean = True
+		    
+		    If f.Exists Then
+		      
+		      Var ts As TextInputStream = f.OpenAsTextFile
+		      Var fileread As String = ts.ReadLine
+		      
+		      If fileread=f.NativePath Then
+		        
+		        op = False
+		        
+		      End
+		      
 		      ts.Close
-		    end
+		      
+		    End
+		    
 		    Return op
-		  end
+		    
+		  Else
+		    
+		    MsgBox "Error, could not find User folder"+Chr(13)+"Goodbye"
+		    Quit
+		    
+		  End
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub MMCTP_Save_Dose()
-		  Dim i,k as Integer
-		  
-		  
-		  
-		  
 		  PW_Title="Saving Dose"
 		  PW_Progress_Max=0
-		  PW_Show=true
+		  PW_Show =True
 		  
-		  for i=0 to UBound(gRTOG.Plan)
-		    for k=0 to UBound(gRTOG.Plan(i).Dose)
-		      if gRTOG.Plan(i).Dose(k).save Then
+		  For i  As Integer = 0 To gRTOG.Plan.LastRowIndex
+		    
+		    For k As Integer=0 To gRTOG.Plan(i).Dose.LastRowIndex
+		      
+		      If gRTOG.Plan(i).Dose(k).save Then
+		        
 		        gRTOG.Plan(i).Write_McGill_Dose(k)
-		        gRTOG.Plan(i).Dose(k).save=False
-		      end
+		        gRTOG.Plan(i).Dose(k).save = False
+		        
+		      End
 		    Next
 		  Next
 		  
 		  
-		  PW_Show=false
-		  if app.which_window_TreatmentPlanning Then
+		  PW_Show = False
+		  
+		  If app.which_window_TreatmentPlanning Then
+		    
 		    Window_Treatment.Window_update_plan
 		    Window_Treatment.Window_canvas_refresh
-		    Window_Treatment.Save_Dose=False
-		  end
+		    Window_Treatment.Save_Dose = False
+		    
+		  End
 		  
 		  
 		  
@@ -1372,27 +1418,31 @@ Inherits Application
 
 	#tag Method, Flags = &h0
 		Sub MMCTP_Save_Plan()
-		  Dim i as integer
-		  Dim fname as String
+		  Var fname As String = _
+		  gRTOG.Patient_Name+String_Separate + _
+		  gRTOG.Patient_Surname+String_Separate+(gRTOG.Patient_ID)
 		  
+		  PW_Title = "Saving McGill files..."
+		  PW_StaticText = fname
+		  PW_Show = True
 		  
-		  fname=gRTOG.Patient_Name+String_Separate+gRTOG.Patient_Surname+String_Separate+(gRTOG.Patient_ID)
-		  PW_Title="Saving McGill files..."
-		  PW_StaticText=fname
-		  PW_Show=true
-		  
-		  for i =0 to UBound(gRTOG.Plan)
-		    if gRTOG.Plan(i).Save_Plan Then
+		  For i As Integer =0 To gRTOG.Plan.LastRowIndex
+		    
+		    If gRTOG.Plan(i).Save_Plan Then
+		      
 		      gRTOG.Plan(i).Write_McGill_Beam
-		      gRTOG.Plan(i).Save_Plan=False
-		    end
-		  next
+		      gRTOG.Plan(i).Save_Plan = False
+		      
+		    End
+		  Next
 		  
-		  PW_Show=false
+		  PW_Show=False
 		  
-		  if app.which_window_TreatmentPlanning Then
+		  If app.which_window_TreatmentPlanning Then
+		    
 		    Window_Treatment.Save_Beams=False
-		  end
+		    
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -1402,54 +1452,90 @@ Inherits Application
 		  // Update for new string delim
 		  //
 		  //-----------------------------------
-		  Dim g,imageset,plans as FolderItem
-		  Dim i,k,p as Integer
-		  Dim name,temp  as String
-		  Dim exith as Boolean
+		  //Dim g,imageset,plans As FolderItem
+		  //Dim i,k,p As Integer
+		  //Dim name,temp  As String
+		  //Dim exith As Boolean
 		  '==================Find Strings for folder listbox
 		  ' get McGill folder
 		  
 		  
-		  g=gPref.mcgillfi
-		  Break
+		  Var g As FolderItem = gPref.mcgillfi
 		  
-		  if g<>nil Then
-		    for i =1 to g.count
-		      name=g.item(i).name
-		      if g.item(i).Visible and g.Item(i).directory=True and g.item(i).Locked=False Then
+		  
+		  If g <> Nil Then
+		    
+		    For i As Integer = 1 To g.Count
+		      
+		      Var name As String = g.item(i).name
+		      
+		      If g.item(i).Visible And g.Item(i).directory =True And g.item(i).Locked = False Then
 		        
-		        exith=False // exit condition
-		        While InStr(g.item(i).Name,"_")>0 and exith=False
-		          temp=g.item(i).Name
-		          g.item(i).Name=Replace(g.item(i).Name,"_",String_Separate)
-		          if temp=g.item(i).Name Then
-		            exith=True
-		          end
+		        Var exith As Boolean = False // exit condition
+		        
+		        While InStr(g.item(i).Name,"_")>0 And exith=False
+		          
+		          Var temp As String = g.item(i).Name
+		          g.item(i).Name = Replace(g.item(i).Name,"_",String_Separate)
+		          
+		          If temp=g.item(i).Name Then
+		            
+		            exith =True
+		            
+		          End
+		          
 		        Wend
 		        
-		        imageset=g.Item(i)
-		        if imageset<>nil Then
-		          for k =1 to imageset.count
+		        Var imageset As FolderItem = g.Item(i)
+		        
+		        If imageset<>Nil Then
+		          
+		          For k As Integer =1 To imageset.count
+		            
 		            name=imageset.item(k).name
-		            if imageset.item(k).Visible and imageset.item(k).Locked=False  and imageset.item(k).Directory=True  Then
-		              While InStr(imageset.item(k).Name,"_")>0
+		            
+		            If imageset.item(k).Visible And _
+		              imageset.item(k).Locked = False  And _
+		              imageset.item(k).Directory = True  Then
+		              
+		              While InStr(imageset.item(k).Name,"_") > 0
+		                
 		                imageset.item(k).Name=Replace(imageset.item(k).Name,"_",String_Separate)
+		                
 		              Wend
-		              plans=imageset.Item(k)
-		              for p =1 to plans.count
+		              
+		              Var plans as FolderItem = imageset.Item(k)
+		              
+		              For p As Integer = 1 To plans.count
+		                
 		                name=plans.item(p).name
-		                if name<>"McGill_RT" and plans.Item(p).Visible and plans.Item(p).Locked=False and plans.Item(p).Directory=True  Then
-		                  While InStr(plans.item(p).Name,"_")>0
+		                
+		                If name<>"McGill_RT" And _
+		                  plans.Item(p).Visible And _
+		                  plans.Item(p).Locked = False And _
+		                  plans.Item(p).Directory =True  Then
+		                  
+		                  While InStr(plans.item(p).Name,"_") > 0
+		                    
 		                    plans.item(p).Name=Replace(plans.item(p).Name,"_",String_Separate)
+		                    
 		                  Wend
-		                end
-		              next
-		            end
-		          next
-		        end
-		      end
-		    next
-		  end
+		                  
+		                End
+		                
+		              Next
+		              
+		            End
+		            
+		          Next
+		          
+		        End
+		        
+		      End
+		      
+		    Next
+		    
+		  End
 		  
 		  MMCTP_WriteConfig
 		End Sub
@@ -1461,60 +1547,90 @@ Inherits Application
 		  // Write MMCTP Config file MMCTP-Settings
 		  //
 		  //-------------------------------------
-		  Dim i as Integer
-		  Dim f as FolderItem
-		  Dim ts as TextOutputStream
-		  Dim temp as String
+		  //Dim i as Integer
+		  //Dim f as FolderItem
+		  //Dim ts as TextOutputStream
+		  //Dim temp as String
 		  //-------------------------------------
 		  
 		  
-		  f=gPref.Settings_fi
+		  Var f As FolderItem = gPref.Settings_fi
 		  
 		  f=f.Child("MMCTP-Settings.txt")
 		  
-		  if f.Exists Then
+		  If f.Exists Then
+		    
 		    f.Delete
-		  end
+		    
+		  End
 		  
-		  ts=f.CreateTextFile
-		  i=0
-		  while ts=nil 
-		    ts=f.CreateTextFile
-		    i=i+1
-		    if i>100 Then
-		      Return
-		    end
-		  Wend
+		  Var ts As TextOutputStream = TextOutputStream.Create(f)
 		  
-		  Temp=Format(app.MajorVersion,"#")+"."+Format(app.MinorVersion,"#")
+		  For j As Integer = 0 To 100 
+		    
+		    If ts = Nil Then
+		      
+		      ts =TextOutputStream.Create(f)
+		      
+		    Else 
+		      
+		      Exit For
+		      
+		    End If
+		    
+		  Next
+		  
+		  If ts = Nil Then Return
+		  
+		  
+		  Var Temp As String = Format(app.MajorVersion,"#")+"."+Format(app.MinorVersion,"#")
+		  
 		  spaces(ts,"MMCTP-Version",31,temp)
 		  
 		  
-		  if MC_Auto_Check Then
+		  If MC_Auto_Check Then
+		    
 		    Temp="yes"
-		  else
+		    
+		  Else
+		    
 		    Temp="no"
-		  end
-		  spaces(ts,"Auto Check",31,temp)
-		  spaces(ts,"Auto Timer",31,str(gTimer_Refresh.Check_Period))
-		  spaces(ts,"AutoRUNTIMER",31,str(gTimer_Run.Check_Period))
+		    
+		  End
 		  
-		  if MC_Run_Logic Then
+		  spaces(ts,"Auto Check",31,temp)
+		  spaces(ts,"Auto Timer",31,Str(gTimer_Refresh.Check_Period))
+		  spaces(ts,"AutoRUNTIMER",31,Str(gTimer_Run.Check_Period))
+		  
+		  If MC_Run_Logic Then
+		    
 		    Temp="yes"
-		  else
+		    
+		  Else
+		    
 		    Temp="no"
-		  end
+		    
+		  End
+		  
 		  spaces(ts,"MC Run Logic",31,temp)
 		  
 		  
-		  for i =0 to UBound(gShells.Shells)
-		    if gShells.Shells(i).online Then
+		  For i As Integer = 0 To gShells.Shells.LastRowIndex
+		    
+		    If gShells.Shells(i).online Then
+		      
 		      Temp="yes"
-		    else
+		      
+		    Else
+		      
 		      Temp="no"
-		    end
+		      
+		    End
+		    
 		    spaces(ts,"Shell Online "+gShells.Shells(i).title,31,temp)
-		  next
+		    
+		  Next
+		  
 		  ts.Close
 		  
 		End Sub
@@ -1526,19 +1642,24 @@ Inherits Application
 		  //
 		  //
 		  //------------------------------------
-		  Dim fi as FolderItem
-		  Dim text as String
-		  Dim ts as TextOutputStream
+		  //Dim fi as FolderItem
+		  //Dim text as String
+		  //Dim ts as TextOutputStream
 		  //------------------------------------
 		  
 		  
-		  fi=gPref.Settings_fi
-		  fi=fi.child(".llc")
-		  if fi.Exists Then
-		    fi.Delete
-		  end
-		  ts=fi.CreateTextFile()
-		  ts.WriteLine fi.NativePath
+		  Var f As FolderItem = gPref.Settings_fi.Child(".llc")
+		  //f=f.child(".llc")
+		  
+		  If f.Exists Then
+		    
+		    f.Delete
+		    
+		  End
+		  
+		  Var ts As TextOutputStream = TextOutputStream.Create(f)
+		  
+		  ts.WriteLine(f.NativePath)
 		  ts.Close
 		  Window_Licence.Close
 		End Sub

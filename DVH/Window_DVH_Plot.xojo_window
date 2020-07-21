@@ -1326,8 +1326,8 @@ End
 		  
 		  Editing_donothing_X=True
 		  Editing_donothing_Y=True
-		  EditField_X.Text=me.x_mouse_value_str
-		  EditField_Y.Text=me.y_mouse_value_str
+		  EditField_X.value = me.x_mouse_value_str
+		  EditField_Y.value = me.y_mouse_value_str
 		  Editing_donothing_X=False
 		  Editing_donothing_Y=False
 		  
@@ -1456,7 +1456,7 @@ End
 		      end
 		      ff=fff(0)
 		      r=ff.X_cm
-		      EditField_X.Text=Format(r,"-#.###")
+		      EditField_X.value = Format(r,"-#.###")
 		      DVHGraph.x_mouse_value=r
 		      DVHGraph.y_mouse_value=gg
 		      DVHGraph.x_mouse=DVHGraph.XS(DVHGraph.x_mouse_value)
@@ -1481,7 +1481,7 @@ End
 		      gg=val(me.Text)
 		      DVHGraph.x_mouse_value=gg
 		      r=DVHGraph.Profiles.One_Profile(DVHGraph.Interactive_index).Get_Value_at_Point(gg,0,0,false)
-		      EditField_Y.Text=Format(r,"-#.###")
+		      EditField_Y.value = Format(r,"-#.###")
 		      DVHGraph.y_mouse_value=r
 		      DVHGraph.x_mouse=DVHGraph.XS(DVHGraph.x_mouse_value)
 		      DVHGraph.y_mouse=DVHGraph.YS(DVHGraph.y_mouse_value)

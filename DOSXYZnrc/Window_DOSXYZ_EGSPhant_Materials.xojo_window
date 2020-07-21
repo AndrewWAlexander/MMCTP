@@ -1850,19 +1850,19 @@ End
 		  next
 		  
 		  
-		  EditField_Clean_density.Text=md
-		  EditField_Pegs4.Text=gDOSXYZ.EGSPhantSettings.Pegsfile
-		  EditField_Xdel.Text=Format(gDOSXYZ.EGSPhantSettings.Del_X,"-#.###")
-		  EditField_Xmax.Text=Format(gDOSXYZ.EGSPhantSettings.X_Max,"-#.###")
-		  EditField_Xmin.Text=Format(gDOSXYZ.EGSPhantSettings.X_min,"-#.###")
-		  EditField_ydel.Text=Format(gDOSXYZ.EGSPhantSettings.Del_y,"-#.###")
-		  EditField_ymax.Text=Format(gDOSXYZ.EGSPhantSettings.y_Max,"-#.###")
-		  EditField_ymin.Text=Format(gDOSXYZ.EGSPhantSettings.y_min,"-#.###")
-		  EditField_zdel.Text=Format(gDOSXYZ.EGSPhantSettings.Del_z,"-#.###")
-		  EditField_zmax.Text=Format(gDOSXYZ.EGSPhantSettings.z_Max,"-#.###")
-		  EditField_zmin.Text=Format(gDOSXYZ.EGSPhantSettings.z_min,"-#.###")
-		  EditField_egsphantname.Text=gDOSXYZ.EGSPhantSettings.Name
-		  EditField_outsidemedium.Text=egsphant.media_of_outside
+		  EditField_Clean_density.value = md
+		  EditField_Pegs4.value = gDOSXYZ.EGSPhantSettings.Pegsfile
+		  EditField_Xdel.value = Format(gDOSXYZ.EGSPhantSettings.Del_X,"-#.###")
+		  EditField_Xmax.value = Format(gDOSXYZ.EGSPhantSettings.X_Max,"-#.###")
+		  EditField_Xmin.value = Format(gDOSXYZ.EGSPhantSettings.X_min,"-#.###")
+		  EditField_ydel.value = Format(gDOSXYZ.EGSPhantSettings.Del_y,"-#.###")
+		  EditField_ymax.value = Format(gDOSXYZ.EGSPhantSettings.y_Max,"-#.###")
+		  EditField_ymin.value = Format(gDOSXYZ.EGSPhantSettings.y_min,"-#.###")
+		  EditField_zdel.value = Format(gDOSXYZ.EGSPhantSettings.Del_z,"-#.###")
+		  EditField_zmax.value = Format(gDOSXYZ.EGSPhantSettings.z_Max,"-#.###")
+		  EditField_zmin.value = Format(gDOSXYZ.EGSPhantSettings.z_min,"-#.###")
+		  EditField_egsphantname.value = gDOSXYZ.EGSPhantSettings.Name
+		  EditField_outsidemedium.value = egsphant.media_of_outside
 		  
 		  Listbox_Materials.Heading(0)="Index"
 		  Listbox_Materials.Heading(1)="Material"
@@ -2186,7 +2186,7 @@ End
 	#tag Event
 		Sub Change()
 		  gDOSXYZ.EGSPhantSettings.Clean_material=me.Text
-		  EditField_Clean_density.Text=str(gDOSXYZ.dosxyz_materials(me.ListIndex).Material_Density)
+		  EditField_Clean_density.value = str(gDOSXYZ.dosxyz_materials(me.ListIndex).Material_Density)
 		  egsphant.Update_MaterialsUD
 		  Materials_Listbox
 		End Sub
@@ -2197,7 +2197,7 @@ End
 		Sub TextChange()
 		  if InStr(me.Text,"_")>0 Then
 		    While  InStr(me.Text,"_")>0
-		      me.Text=Replace(me.Text,"_","")
+		      me.value = Replace(me.Text,"_","")
 		    Wend
 		  end
 		  
@@ -2291,7 +2291,7 @@ End
 		  i=me.ListIndex
 		  gDOSXYZ.EGSPhantSettings.CT_model=i
 		  if i>-1 and i<=UBound(gCT.All_CT) Then
-		    EditField_Pegs4.Text=gct.All_CT(i).Pegs_file
+		    EditField_Pegs4.value = gct.All_CT(i).Pegs_file
 		    egsphant.Pegsfile=gct.All_CT(i).Pegs_file
 		    egsphant.Update_MaterialsUD
 		    Materials_Listbox

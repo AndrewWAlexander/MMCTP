@@ -996,16 +996,16 @@ End
 		    CheckBox_DBS.Value=False
 		  end
 		  
-		  EditField_DBS_splittingR.Text=Format(dosxyz_input.r_dbs,"#.###")
-		  EditField_ssd_DBS.Text=Format(dosxyz_input.ssd_dbs,"#.###")
-		  EditField_Z_scored.Text=Format(dosxyz_input.z_dbs,"#.###")
-		  EditField_Isocenter_X.Text=Format(dosxyz_input.xiso,"-#.###")
-		  EditField_Isocenter_Y.Text=Format(dosxyz_input.yiso,"-#.###")
-		  EditField_Isocenter_Z.Text=Format(dosxyz_input.ziso,"-#.###")
+		  EditField_DBS_splittingR.value = Format(dosxyz_input.r_dbs,"#.###")
+		  EditField_ssd_DBS.value = Format(dosxyz_input.ssd_dbs,"#.###")
+		  EditField_Z_scored.value = Format(dosxyz_input.z_dbs,"#.###")
+		  EditField_Isocenter_X.value = Format(dosxyz_input.xiso,"-#.###")
+		  EditField_Isocenter_Y.value = Format(dosxyz_input.yiso,"-#.###")
+		  EditField_Isocenter_Z.value = Format(dosxyz_input.ziso,"-#.###")
 		  
 		  
-		  EditField_dsource.Text=Format(dosxyz_input.dsource,"#.###")
-		  EditField_Phsp.Text=dosxyz_input.FILNAM
+		  EditField_dsource.value = Format(dosxyz_input.dsource,"#.###")
+		  EditField_Phsp.value = dosxyz_input.FILNAM
 		  
 		  if UBound(dosxyz_input.theta)=-1 Then
 		    ReDim dosxyz_input.theta(0)
@@ -1016,9 +1016,9 @@ End
 		  end
 		  
 		  
-		  EditField_theta.Text=Format(dosxyz_input.theta(0),"-#.###")
-		  EditField_phi.Text=Format(dosxyz_input.phi(0),"-#.###")
-		  EditField_coll.Text=Format(dosxyz_input.phicol(0),"-#.###")
+		  EditField_theta.value = Format(dosxyz_input.theta(0),"-#.###")
+		  EditField_phi.value = Format(dosxyz_input.phi(0),"-#.###")
+		  EditField_coll.value = Format(dosxyz_input.phicol(0),"-#.###")
 		  
 		  
 		  PopupMenu_ScoreLastZ.DeleteAllRows

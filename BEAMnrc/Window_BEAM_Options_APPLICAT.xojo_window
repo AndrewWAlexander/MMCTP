@@ -813,14 +813,14 @@ End
 		  Dim i as Integer
 		  
 		  
-		  EditField_dosezoneair.Text=str(app.DOSE_ZONE_AIR)
-		  EditField_Ecut.Text=str(app.ECUT)
-		  EditField_LATCHbitair.Text=str(app.IREGION_TO_BIT_AIR)
-		  EditField_numscrapers.Text=str(app.N_APPLICAT)
-		  EditField_Pcut.Text=str(app.PCUT)
-		  EditField_radius.Text=str(app.RMAX_CM)
-		  EditField_title.Text=str(app.Title_CM)
-		  EditField_zback.Text=str(app.ZBACK_APPLICAT)
+		  EditField_dosezoneair.value = str(app.DOSE_ZONE_AIR)
+		  EditField_Ecut.value = str(app.ECUT)
+		  EditField_LATCHbitair.value = str(app.IREGION_TO_BIT_AIR)
+		  EditField_numscrapers.value = str(app.N_APPLICAT)
+		  EditField_Pcut.value = str(app.PCUT)
+		  EditField_radius.value = str(app.RMAX_CM)
+		  EditField_title.value = str(app.Title_CM)
+		  EditField_zback.value = str(app.ZBACK_APPLICAT)
 		  
 		  
 		  if app.Ishape=0 Then

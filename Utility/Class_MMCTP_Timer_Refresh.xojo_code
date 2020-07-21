@@ -34,7 +34,7 @@ Inherits Timer
 		      
 		      
 		      if app.which_window_shell Then
-		        Window_Configurations_Shell.StaticText_Timer_refresh.Text=Time
+		        Window_Configurations_Shell.StaticText_Timer_refresh.value = Time
 		      end
 		      
 		      // If current task has exceeded time limit
@@ -42,7 +42,7 @@ Inherits Timer
 		        if (MMCTP_Shell_Refresh.All(0).FTP_Now and Min>MMCTP_Shell_Refresh.Max_TimeStamp_FTP) or _
 		          (MMCTP_Shell_Refresh.All(0).FTP_Now=False and Min>MMCTP_Shell_Refresh.Max_TimeStamp_SSH) Then
 		          if app.which_window_shell Then
-		            Window_Configurations_Shell.StaticText_Timer_refresh.Text="Max timeout exceeded ! "+Time
+		            Window_Configurations_Shell.StaticText_Timer_refresh.value = "Max timeout exceeded ! "+Time
 		          end
 		          MMCTP_Shell_Refresh.All(0).started=False
 		          MMCTP_Shell_Refresh.Restart_Job

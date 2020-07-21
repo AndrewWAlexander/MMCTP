@@ -286,7 +286,7 @@ Protected Class Class_MERT_GradDVH
 		    ts.Close
 		    if InStr(oneline,"GradDVH finished")>0 Then
 		      if oneline<>Window_EMET_Run.EditField_Grad_Output.Text Then
-		        Window_EMET_Run.EditField_Grad_Output.Text=oneline
+		        Window_EMET_Run.EditField_Grad_Output.value = oneline
 		      end
 		      Runtime=(val(NthField(oneline,"Execution time (min) :",2)))
 		      hours=Floor(Runtime/60)
@@ -302,7 +302,7 @@ Protected Class Class_MERT_GradDVH
 		      end
 		      
 		    elseif Window_EMET_Run.EditField_Grad_Output.Text ="" Then
-		      Window_EMET_Run.EditField_Grad_Output.Text=oneline
+		      Window_EMET_Run.EditField_Grad_Output.value = oneline
 		    end
 		  end
 		  
@@ -341,7 +341,7 @@ Protected Class Class_MERT_GradDVH
 		  oneline=ts.ReadAll
 		  ts.Close
 		  if oneline<>Window_EMET_Run.EditField_Grad_Output.Text Then
-		    Window_EMET_Run.EditField_Grad_Output.Text=oneline
+		    Window_EMET_Run.EditField_Grad_Output.value = oneline
 		  end
 		End Sub
 	#tag EndMethod
@@ -368,7 +368,7 @@ Protected Class Class_MERT_GradDVH
 		  
 		  gOpt.Write_Fields
 		  
-		  Window_EMET_Run.EditField_Grad_Output.Text=""
+		  Window_EMET_Run.EditField_Grad_Output.value = ""
 		  app.TodayDate=new Date
 		  Submit_Date=app.TodayDate.AbbreviatedDate +" "+App.TodayDate.ShortTime
 		  

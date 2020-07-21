@@ -1472,15 +1472,15 @@ End
 		      Time=Time/60 // Hours
 		      if time> 36 Then
 		        Time=Time/24 // days
-		        StaticText_TotalTime.Text="Approx CPU time per job (day) "+Format(time,"###,###,###.##")
+		        StaticText_TotalTime.value = "Approx CPU time per job (day) "+Format(time,"###,###,###.##")
 		      else
-		        StaticText_TotalTime.Text="Approx CPU time per job (hr) "+Format(time,"###,###,###.##")
+		        StaticText_TotalTime.value = "Approx CPU time per job (hr) "+Format(time,"###,###,###.##")
 		      end
 		    else
-		      StaticText_TotalTime.Text="Approx CPU time per job (min) "+Format(time,"###,###,###.##")
+		      StaticText_TotalTime.value = "Approx CPU time per job (min) "+Format(time,"###,###,###.##")
 		    end
 		  else
-		    StaticText_TotalTime.Text="Approx CPU time per job (sec) "+Format(time,"###,###,###.##")
+		    StaticText_TotalTime.value = "Approx CPU time per job (sec) "+Format(time,"###,###,###.##")
 		  end
 		End Sub
 	#tag EndMethod
@@ -1504,31 +1504,31 @@ End
 		  next i
 		  
 		  PopupMenu_Shell.ListIndex=gBEAM.Beams(beam_num).egs_Shell_Index
-		  EditField_testrun.Text=Format(gBEAM.Beams(beam_num).Num_test_hist,"#")
+		  EditField_testrun.value = Format(gBEAM.Beams(beam_num).Num_test_hist,"#")
 		  
 		  CheckBox_Simulation_Start.Caption="Started "+gBEAM.Beams(beam_num).egs_Start_Time+" active jobs : "+str(gBEAM.Beams(beam_num).egs_BEAMnrc_active_jobs)
 		  
 		  StaticText_part_per_history.Text ="Number particles per history "+Format(gBEAM.Beams(beam_num).egs_particle_per_history,"-#.######")
-		  StaticText_beamid.Text="Beam ID: "+str(gRTOG.Plan(Plan_Index).Beam(beam_num).beam_num)
-		  StaticText_CPU.Text="CPU time per history (s) "+Format(gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"-#.######")
-		  StaticText_phsp_num_part.Text="Number particles in PhSp file "+Format(gBEAM.Beams(beam_num).egs_phsp_num_particles,"###,###,###,###")
+		  StaticText_beamid.value = "Beam ID: "+str(gRTOG.Plan(Plan_Index).Beam(beam_num).beam_num)
+		  StaticText_CPU.value = "CPU time per history (s) "+Format(gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"-#.######")
+		  StaticText_phsp_num_part.value = "Number particles in PhSp file "+Format(gBEAM.Beams(beam_num).egs_phsp_num_particles,"###,###,###,###")
 		  
 		  if gBEAM.Beams(beam_num).egs_CPU_time_per_hist>0 Then
-		    StaticText_part_per_s.Text="Particles per second "+Format(gBEAM.Beams(beam_num).egs_particle_per_history/gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"###,###,###.##")
+		    StaticText_part_per_s.value = "Particles per second "+Format(gBEAM.Beams(beam_num).egs_particle_per_history/gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"###,###,###.##")
 		  else
-		    StaticText_part_per_s.Text="Particles per second Unknown"
+		    StaticText_part_per_s.value = "Particles per second Unknown"
 		  end
 		  
 		  jarea=gBEAM.egs_Calculate_Area(beam_num)
 		  
-		  StaticText_jawarea.Text="Aperture area cm^2 "+Format(jarea,"###,###.##")
+		  StaticText_jawarea.value = "Aperture area cm^2 "+Format(jarea,"###,###.##")
 		  
-		  EditField_numhist.Text=Format(gBEAM.Beams(beam_num).egs_num_histories,"###,###,###,###")
-		  EditField_desired.Text=Format(gBEAM.Beams(beam_num).egs_desired_phsp_particle_density,"###,###,###,###")
+		  EditField_numhist.value = Format(gBEAM.Beams(beam_num).egs_num_histories,"###,###,###,###")
+		  EditField_desired.value = Format(gBEAM.Beams(beam_num).egs_desired_phsp_particle_density,"###,###,###,###")
 		  
-		  EditField_jobs.Text=str(gBEAM.Beams(beam_num).egs_jobs)
-		  EditField_pegs.Text=gBEAM.Beams(beam_num).egs_pegs_file
-		  EditField_progress.Text=Format(gBEAM.Beams(beam_num).egs_progress,"-#.#")
+		  EditField_jobs.value = str(gBEAM.Beams(beam_num).egs_jobs)
+		  EditField_pegs.value = gBEAM.Beams(beam_num).egs_pegs_file
+		  EditField_progress.value = Format(gBEAM.Beams(beam_num).egs_progress,"-#.#")
 		  
 		  if gBEAM.Beams(beam_num).egs_BEAMnrc_started Then
 		    CheckBox_Simulation_Start.Value=True
@@ -1785,7 +1785,7 @@ End
 		    
 		    if gBEAM.Beams(beam_num).egs_particle_per_history>0 Then
 		      gBEAM.beams(beam_num).egs_num_histories=Round(gBEAM.Beams(beam_num).egs_desired_phsp_particle_density*jarea/gBEAM.Beams(beam_num).egs_particle_per_history)
-		      EditField_numhist.Text=Format(gBEAM.beams(beam_num).egs_num_histories,"###,###,###,###")
+		      EditField_numhist.value = Format(gBEAM.beams(beam_num).egs_num_histories,"###,###,###,###")
 		    end
 		  end
 		End Sub

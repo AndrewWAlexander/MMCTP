@@ -21,7 +21,7 @@ Inherits Timer
 		    Window_Progress.Close
 		    
 		  ElseIf app.which_window_progress Then
-		    Window_Progress.StaticText.Text=PW_StaticText
+		    Window_Progress.StaticText.value = PW_StaticText
 		    Window_Progress.ProgressBar.Maximum=PW_Progress_Max
 		    Window_Progress.ProgressBar.Value=PW_Progress
 		    Window_Progress.ProgressBar.Refresh(False)

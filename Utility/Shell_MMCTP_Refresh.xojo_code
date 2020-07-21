@@ -178,8 +178,8 @@ Inherits Shell
 		  me.Mode=2
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_Task_Refresh.Text=All(0).command
-		    Window_Configurations_Shell.StaticText_Timer_refresh.Text=""
+		    Window_Configurations_Shell.StaticText_Task_Refresh.value = All(0).command
+		    Window_Configurations_Shell.StaticText_Timer_refresh.value = ""
 		  end
 		  
 		  
@@ -197,10 +197,10 @@ Inherits Shell
 		    gdosxyz.egs_msg.append "About to download "+all(0).inpfilename
 		    
 		  elseif all(0).vmc_refresh_d3d or all(0).vmc_refresh_pro Then
-		    Window_Treatment.StaticText_vmc_Status.Text="Looking for "+all(0).inpfilename
+		    Window_Treatment.StaticText_vmc_Status.value = "Looking for "+all(0).inpfilename
 		    
 		  elseif all(0).vmc_download_d3d Then
-		    Window_Treatment.StaticText_vmc_Status.Text="About to download "+all(0).inpfilename
+		    Window_Treatment.StaticText_vmc_Status.value = "About to download "+all(0).inpfilename
 		  end
 		  
 		  
@@ -358,8 +358,8 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_Task_Refresh.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_refresh.Text=""
+		    Window_Configurations_Shell.StaticText_Task_Refresh.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_refresh.value = ""
 		  end
 		End Sub
 	#tag EndMethod
@@ -428,8 +428,8 @@ Inherits Shell
 		  
 		  if app.which_window_shell Then
 		    Window_Configurations_Shell.EditField_ShellRefresh.AppendText s
-		    Window_Configurations_Shell.StaticText_Task_Refresh.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_refresh.Text=""
+		    Window_Configurations_Shell.StaticText_Task_Refresh.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_refresh.value = ""
 		  end
 		  
 		  
@@ -460,7 +460,7 @@ Inherits Shell
 		    // Shell Test run complete
 		    //----------------------------------------
 		    if gg.shell_Test Then
-		      Window_Configurations_Shell.StaticText_ConnectionTest.Text="Connection ok"
+		      Window_Configurations_Shell.StaticText_ConnectionTest.value = "Connection ok"
 		      
 		      //----------------------------------------------------------
 		      // BEAMnrc Read the phase space file size
@@ -866,7 +866,7 @@ Inherits Shell
 		      // VMC refresh d3d file
 		      //----------------------------------------------------------
 		    ElseIf gg.vmc_refresh_d3d  Then
-		      Window_Treatment.StaticText_vmc_Status.Text=""
+		      Window_Treatment.StaticText_vmc_Status.value = ""
 		      tmpstr=gg.OutPut
 		      //look for d3d file first
 		      if InStr(tmpstr,"No such file ")=0 Then
@@ -883,7 +883,7 @@ Inherits Shell
 		      // VMC refresh progress file
 		      //----------------------------------------------------------
 		    ElseIf gg.vmc_refresh_pro  Then
-		      Window_Treatment.StaticText_vmc_Status.Text=""
+		      Window_Treatment.StaticText_vmc_Status.value = ""
 		      
 		      tmpstr=gg.OutPut
 		      if InStr(tmpstr,"No such file ")=0 Then
@@ -951,10 +951,10 @@ Inherits Shell
 		      
 		      tmpstr=gg.OutPut
 		      if InStr(tmpstr,"error")=0 Then
-		        Window_Treatment.StaticText_VMC_Status.Text=gg.inpfilename+ " job submitted"
+		        Window_Treatment.StaticText_VMC_Status.value = gg.inpfilename+ " job submitted"
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).vmc_started=True
 		      else
-		        Window_Treatment.StaticText_VMC_Status.Text= "Error, "+gg.inpfilename+" job not submitted"
+		        Window_Treatment.StaticText_VMC_Status.value =  "Error, "+gg.inpfilename+" job not submitted"
 		        gVMC.VMC(gg.vmc_dmx_index).BEAMS(gg.beam_num).vmc_started=False
 		      end
 		      gVMC.VMC(gg.vmc_dmx_index).Write_VMC_Settings
@@ -964,7 +964,7 @@ Inherits Shell
 		      // Cutout status refresh
 		      //----------------------------------------------------------
 		    ElseIf gg.cutout_refresh Then
-		      Window_Treatment.StaticText_Cutout_Status.Text=""
+		      Window_Treatment.StaticText_Cutout_Status.value = ""
 		      s=gg.OutPut
 		      While InStr(s,"  ")>0
 		        s=Replace(s,"  "," ")

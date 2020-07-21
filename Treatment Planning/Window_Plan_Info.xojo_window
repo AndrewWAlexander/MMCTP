@@ -287,7 +287,7 @@ End
 		  
 		  
 		  if UBound(gRTOG.Plan)>-1 Then
-		    //EditField_CurrentPlan.Text=gRTOG.Plan(Plan_Index).Plan_ID+ " "+gRTOG.Plan(Plan_Index).Plan_Name
+		    //EditField_CurrentPlan.value = gRTOG.Plan(Plan_Index).Plan_ID+ " "+gRTOG.Plan(Plan_Index).Plan_Name
 		    for i=0 to UBound(gShells.Shells)
 		      Listbox_MC_Running.AddRow gShells.Shells(i).title
 		      if gBEAM<> nil Then

@@ -1382,15 +1382,15 @@ End
 		  Listbox_Gradient.AddRow "HU step size","100"
 		  
 		  
-		  EditField1_slices.Text=Str(nz)
-		  EditField_nx.Text=Str(nx)
-		  EditField_ny.Text=Str(ny)
-		  EditField_dz.Text=Str(dz)
-		  EditField_dx.Text=Str(dx)
-		  EditField_dy.Text=Str(dy)
-		  EditField1_slices1.Text=Str(z1)
-		  EditField_nx1.Text=Str(x1)
-		  EditField_ny1.Text=Str(y1)
+		  EditField1_slices.value = Str(nz)
+		  EditField_nx.value = Str(nx)
+		  EditField_ny.value = Str(ny)
+		  EditField_dz.value = Str(dz)
+		  EditField_dx.value = Str(dx)
+		  EditField_dy.value = Str(dy)
+		  EditField1_slices1.value = Str(z1)
+		  EditField_nx1.value = Str(x1)
+		  EditField_ny1.value = Str(y1)
 		End Sub
 	#tag EndEvent
 

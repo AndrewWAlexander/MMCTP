@@ -1365,7 +1365,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub OpenWin()
-		  EditField_File.Text=f.Name
+		  EditField_File.value = f.Name
 		End Sub
 	#tag EndMethod
 
@@ -1410,17 +1410,17 @@ End
 		      Listbox_Points.Cell(i,4)=str(gg.Points(i).value)
 		    next
 		    
-		    EditField_Date.Text=gg.Date
-		    EditField_Comment.Text=gg.Comment
-		    EditField_ssd.Text=str(gg.SSD)
-		    EditField_FieldX.Text=str(gg.Field_X)
-		    EditField_FieldY.Text=Str(gg.Field_Y)
+		    EditField_Date.value = gg.Date
+		    EditField_Comment.value = gg.Comment
+		    EditField_ssd.value = str(gg.SSD)
+		    EditField_FieldX.value = str(gg.Field_X)
+		    EditField_FieldY.value = Str(gg.Field_Y)
 		    
-		    EditField_Depth.text=str(gg.Depth)
-		    EditField_Energy.Text=str(gg.Energy)
-		    EditField_TYPE.text=Str(gg.Type)
-		    EditField_AddOn.Text=gg.addon
-		    EditField_RadType.Text=gg.Radiation_Type
+		    EditField_Depth.value = str(gg.Depth)
+		    EditField_Energy.value = str(gg.Energy)
+		    EditField_TYPE.value = Str(gg.Type)
+		    EditField_AddOn.value = gg.addon
+		    EditField_RadType.value = gg.Radiation_Type
 		    
 		  end
 		  

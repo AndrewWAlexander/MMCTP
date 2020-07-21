@@ -2197,15 +2197,15 @@ End
 		  popupbrem=True
 		  
 		  
-		  EditField_gECUT_rangerejection.Text=str(BEAM.ESAVE_Global)
-		  EditField_gPCUT.Text=str(BEAM.PCUT)
-		  EditField_gECUT.Text=str(BEAM.ECUT)
-		  EditField_z.Text=BEAM.z_of_front
-		  EditField_RNG1.Text=str(BEAM.RNG_1)
-		  EditField_RNG2.Text=str(BEAM.RNG_2)
-		  EditField_Medium.Text=BEAM.medium
-		  EditField_MaxCPU.Text=str(BEAM.Max_CPU_hr)
-		  StaticText_title.Text=BEAM.title
+		  EditField_gECUT_rangerejection.value = str(BEAM.ESAVE_Global)
+		  EditField_gPCUT.value = str(BEAM.PCUT)
+		  EditField_gECUT.value = str(BEAM.ECUT)
+		  EditField_z.value = BEAM.z_of_front
+		  EditField_RNG1.value = str(BEAM.RNG_1)
+		  EditField_RNG2.value = str(BEAM.RNG_2)
+		  EditField_Medium.value = BEAM.medium
+		  EditField_MaxCPU.value = str(BEAM.Max_CPU_hr)
+		  StaticText_title.value = BEAM.title
 		  
 		  
 		  
@@ -2592,7 +2592,7 @@ End
 		  Dim k,i as Integer
 		  
 		  i=me.ListIndex
-		  EditField_CM.Text=""
+		  EditField_CM.value = ""
 		  
 		  if i>=0 and i<= UBound(BEAM.CMs) Then
 		    EditField_CM.AppendText BEAM.CMs(i).CM_Names +EndOfLine.UNIX

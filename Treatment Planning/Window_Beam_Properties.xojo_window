@@ -4235,7 +4235,7 @@ End
 		Sub Accessories_MLC_info()
 		  
 		  
-		  EditField_mlc_Model.Text=beam.MLC.Model
+		  EditField_mlc_Model.value = beam.MLC.Model
 		  
 		  if mlc_field>UBound(beam.MLC.Fields) Then
 		    mlc_field=UBound(beam.MLC.Fields)
@@ -4256,20 +4256,20 @@ End
 		    end
 		    
 		    
-		    EditField_mlc_type.Text=beam.MLC.MLC_Type
+		    EditField_mlc_type.value = beam.MLC.MLC_Type
 		    EditField_mlc_type.Enabled=True
 		    EditField_mlc_field_index.Enabled=True
 		    ScrollBar_mlcfields.Minimum=0
 		    ScrollBar_mlcfields.Maximum=UBound(beam.MLC.Fields)
-		    EditField_mlc_field_index.Text=str(beam.MLC.Fields(mlc_field).Indexnum)
-		    EditField_mlc_fields.Text=str(beam.MLC.NumberofFields)
+		    EditField_mlc_field_index.value = str(beam.MLC.Fields(mlc_field).Indexnum)
+		    EditField_mlc_fields.value = str(beam.MLC.NumberofFields)
 		    ScrollBar_mlcfields.Enabled=True
 		  else
-		    EditField_mlc_type.Text=""
+		    EditField_mlc_type.value = ""
 		    EditField_mlc_type.Enabled=False
 		    EditField_mlc_field_index.Enabled=False
-		    EditField_mlc_field_index.Text=""
-		    EditField_mlc_fields.Text=""
+		    EditField_mlc_field_index.value = ""
+		    EditField_mlc_fields.value = ""
 		    ScrollBar_mlcfields.Enabled=False
 		  end
 		  
@@ -4301,7 +4301,7 @@ End
 		    RadioButton_Wedge_Dynamic.Value=True
 		    EditField_Wedge_Dynamic_Angle.Enabled=True
 		    PopupMenu_Wedge_Dynamic_Or.Enabled=True
-		    EditField_Wedge_Dynamic_Angle.Text=beam.Wedge_Angle
+		    EditField_Wedge_Dynamic_Angle.value = beam.Wedge_Angle
 		    
 		    Accessories_pop_wedge_dyn_rot
 		    
@@ -4516,7 +4516,7 @@ End
 		  
 		  EditField_BType.Text = beam.Beam_Type
 		  EditField_BWeight.Text = str(beam.Beam_Weight)
-		  EditField_DR.Text=beam.Beam_DoseRate
+		  EditField_DR.value = beam.Beam_DoseRate
 		  EditField_MU.Text = Str(beam.MU)
 		  EditField_NoTx.Text = str(beam.Number_of_Tx)
 		  EditField_TxDose.Text = str(beam.Rx_Dose)
@@ -4615,8 +4615,8 @@ End
 		  end
 		  ScrollBar_JAWfields.Minimum=1
 		  ScrollBar_JAWfields.Maximum=UBound(beam.Collimator.Fields)+1
-		  EditField_JAW_fields.Text=str(UBound(beam.Collimator.Fields)+1)
-		  EditField_JAW_type.Text=beam.Collimator.Type
+		  EditField_JAW_fields.value = str(UBound(beam.Collimator.Fields)+1)
+		  EditField_JAW_type.value = beam.Collimator.Type
 		  Geometry_populate_Field
 		  
 		  
@@ -4634,21 +4634,21 @@ End
 		  donothing=True
 		  EditField_Coll_Ang.text =str(Beam.Collimator.Fields(jaw_field).Collimator_Angle, "-##.####")
 		  EditField_FieldX.Text = str(beam.Collimator.fields(jaw_field).X1+beam.Collimator.fields(jaw_field).X2, "-##.####")
-		  EditField_X1.Text=str(beam.Collimator.fields(jaw_field).X1, "-##.####")
-		  EditField_X2.Text=str(beam.Collimator.fields(jaw_field).X2, "-##.####")
-		  EditField_BS.Text=Format(beam.Collimator.BackScatter,"-#.###")
+		  EditField_X1.value = str(beam.Collimator.fields(jaw_field).X1, "-##.####")
+		  EditField_X2.value = str(beam.Collimator.fields(jaw_field).X2, "-##.####")
+		  EditField_BS.value = Format(beam.Collimator.BackScatter,"-#.###")
 		  EditField_FieldY.Text = str(beam.Collimator.fields(jaw_field).Y1+beam.Collimator.fields(jaw_field).Y2, "-##.####")
-		  EditField_Y1.Text=str(beam.Collimator.fields(jaw_field).Y1, "-##.####")
-		  EditField_Y2.Text=str(beam.Collimator.fields(jaw_field).Y2, "-##.####")
+		  EditField_Y1.value = str(beam.Collimator.fields(jaw_field).Y1, "-##.####")
+		  EditField_Y2.value = str(beam.Collimator.fields(jaw_field).Y2, "-##.####")
 		  EditField_Gantry_Ang.text  =str(Beam.Collimator.Fields(jaw_field).Gantry_Angle, "-##.####")
 		  EditField_Couch_Ang.text =str(beam.Collimator.Fields(jaw_field).couch_Angle, "-##.####")
-		  EditField_Iso_X.Text=str(beam.Collimator.Fields(jaw_field).isocenter.X, "-##.####")
-		  EditField_Iso_Y.Text=str(beam.Collimator.Fields(jaw_field).isocenter.Y, "-##.####")
-		  EditField_Iso_Z.Text=str(beam.Collimator.Fields(jaw_field).isocenter.z, "-##.####")
-		  EditField_Isoc.Text=str(beam.nominal_Isocenter, "-##.####")
-		  EditField_SSD.Text=str(Beam.SSD, "-##.####")
-		  EditField_JAW_type.Text=beam.Collimator.Type
-		  EditField_JAW_field_index.Text=Format(beam.Collimator.Fields(jaw_field).Index,"-#.######")
+		  EditField_Iso_X.value = str(beam.Collimator.Fields(jaw_field).isocenter.X, "-##.####")
+		  EditField_Iso_Y.value = str(beam.Collimator.Fields(jaw_field).isocenter.Y, "-##.####")
+		  EditField_Iso_Z.value = str(beam.Collimator.Fields(jaw_field).isocenter.z, "-##.####")
+		  EditField_Isoc.value = str(beam.nominal_Isocenter, "-##.####")
+		  EditField_SSD.value = str(Beam.SSD, "-##.####")
+		  EditField_JAW_type.value = beam.Collimator.Type
+		  EditField_JAW_field_index.value = Format(beam.Collimator.Fields(jaw_field).Index,"-#.######")
 		  Accessories_Jaw_Draw
 		  
 		  if beam.Collimator.Fields(jaw_field).ARC_Direction=0 Then
@@ -5110,8 +5110,8 @@ End
 		  if i>-1 and i<=UBound(beam.MLC.Fields) Then
 		    mlc_field=i
 		    Accessories_MLC_Draw
-		    StaticText_MLC_fieldnum.Text="Index of field : "+str(mlc_field+1)
-		    EditField_mlc_field_index.Text=Format(beam.MLC.Fields(mlc_field).Indexnum,"#.#####")
+		    StaticText_MLC_fieldnum.value = "Index of field : "+str(mlc_field+1)
+		    EditField_mlc_field_index.value = Format(beam.MLC.Fields(mlc_field).Indexnum,"#.#####")
 		  end
 		End Sub
 	#tag EndEvent
@@ -5175,7 +5175,7 @@ End
 		Function KeyDown(Key As String) As Boolean
 		  if val(me.text)<0.001 or val(me.text)>2.0 then
 		    MsgBox "cut out thickness has to be between 0.001 and 2.0 cm"
-		    me.text="1.5"
+		    me.value = "1.5"
 		    me.refresh
 		  end if
 		End Function
@@ -5254,7 +5254,7 @@ End
 		  
 		  ScrollBar_JAWfields.Minimum=1
 		  ScrollBar_JAWfields.Maximum=beam.Collimator.NumFields
-		  //EditField_JAW_fields.Text=str(UBound(beam.Collimator.Fields)+1)
+		  //EditField_JAW_fields.value = str(UBound(beam.Collimator.Fields)+1)
 		  
 		End Sub
 	#tag EndEvent
@@ -5274,8 +5274,8 @@ End
 		  
 		  if i>-1 and i<=UBound(beam.Collimator.Fields) Then
 		    jaw_field=i
-		    StaticText_Jaw_Index.Text="Index of field :"+str(i+1)
-		    EditField_JAW_field_index.Text=Format(beam.Collimator.Fields(i).Index,"#.######")
+		    StaticText_Jaw_Index.value = "Index of field :"+str(i+1)
+		    EditField_JAW_field_index.value = Format(beam.Collimator.Fields(i).Index,"#.######")
 		    Geometry_populate_Field
 		    Canvas_JAWS.Refresh
 		  end

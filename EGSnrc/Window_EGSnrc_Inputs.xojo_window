@@ -1346,10 +1346,10 @@ End
 		  
 		  popupbrem=True
 		  
-		  EditField_max_stepSize.Text=str(EGSnrc.Global_SMAX)
-		  EditField_max_frac_loss.Text=str(EGSnrc.ESTEPE)
-		  EditField_XImax.Text=str(EGSnrc.XImax)
-		  EditField_SkinDepth.Text=Format(EGSnrc.Skin_depth_BCA,"-#.####e")
+		  EditField_max_stepSize.value = str(EGSnrc.Global_SMAX)
+		  EditField_max_frac_loss.value = str(EGSnrc.ESTEPE)
+		  EditField_XImax.value = str(EGSnrc.XImax)
+		  EditField_SkinDepth.value = Format(EGSnrc.Skin_depth_BCA,"-#.####e")
 		End Sub
 	#tag EndMethod
 

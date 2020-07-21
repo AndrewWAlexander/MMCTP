@@ -742,14 +742,14 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Refresh_window()
-		  EditField_ICM.Text=str(BEAM.INIT_ICM)
-		  EditField_IPARALLEL.Text=str(BEAM.IPARALLEL)
-		  EditField_PARNUM.Text=str(BEAM.PARNUM)
-		  EditField_PhSPName.Text=(BEAM.SPCNAM)
-		  EditField_recycle.Text=str(BEAM.NRCYCL)
-		  EditField_RSRC.Text=str(BEAM.RSRCDBS)
-		  EditField_SSDSRC.Text=str(BEAM.SSDSRCDBS)
-		  EditField_ZSRC.Text=str(BEAM.ZSRCDBS)
+		  EditField_ICM.value = str(BEAM.INIT_ICM)
+		  EditField_IPARALLEL.value = str(BEAM.IPARALLEL)
+		  EditField_PARNUM.value = str(BEAM.PARNUM)
+		  EditField_PhSPName.value = (BEAM.SPCNAM)
+		  EditField_recycle.value = str(BEAM.NRCYCL)
+		  EditField_RSRC.value = str(BEAM.RSRCDBS)
+		  EditField_SSDSRC.value = str(BEAM.SSDSRCDBS)
+		  EditField_ZSRC.value = str(BEAM.ZSRCDBS)
 		  
 		  if BEAM.ISRCDBS=1 Then
 		    CheckBox_DBS.Value=True

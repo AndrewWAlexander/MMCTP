@@ -1093,63 +1093,63 @@ End
 		  if dosxyz_input.iMAX<0 Then
 		    X_Pro=True
 		    GroupBox3.Caption="X Voxels"
-		    EditField_Num_Groups.Text=str(abs(dosxyz_input.iMAX))
+		    EditField_Num_Groups.value = str(abs(dosxyz_input.iMAX))
 		    
 		    
 		    GroupBox1.Caption="Y Voxels"
-		    EditField_1_high.Text=Format(dosxyz_input.jMAX_Bound(2),"-#.###")
-		    EditField_1_Low.Text=Format(dosxyz_input.jMAX_Bound(1),"-#.###")
-		    EditField_1_Max.Text=Format(dosxyz_input.jMAX_Bound(3),"-#.###")
-		    EditField_1_Min.Text=Format(dosxyz_input.jMAX_Bound(0),"-#.###")
+		    EditField_1_high.value = Format(dosxyz_input.jMAX_Bound(2),"-#.###")
+		    EditField_1_Low.value = Format(dosxyz_input.jMAX_Bound(1),"-#.###")
+		    EditField_1_Max.value = Format(dosxyz_input.jMAX_Bound(3),"-#.###")
+		    EditField_1_Min.value = Format(dosxyz_input.jMAX_Bound(0),"-#.###")
 		    
 		    
 		    GroupBox2.Caption="Z Voxels"
-		    EditField_2_high.Text=Format(dosxyz_input.kMAX_Bound(2),"-#.###")
-		    EditField_2_Low.Text=Format(dosxyz_input.kMAX_Bound(1),"-#.###")
-		    EditField_2_Max.Text=Format(dosxyz_input.kMAX_Bound(3),"-#.###")
-		    EditField_2_Min.Text=Format(dosxyz_input.kMAX_Bound(0),"-#.###")
+		    EditField_2_high.value = Format(dosxyz_input.kMAX_Bound(2),"-#.###")
+		    EditField_2_Low.value = Format(dosxyz_input.kMAX_Bound(1),"-#.###")
+		    EditField_2_Max.value = Format(dosxyz_input.kMAX_Bound(3),"-#.###")
+		    EditField_2_Min.value = Format(dosxyz_input.kMAX_Bound(0),"-#.###")
 		    
 		    
 		  elseif dosxyz_input.jMAX<0 Then
 		    Y_Pro=True
-		    EditField_Num_Groups.Text=str(abs(dosxyz_input.jMAX))
+		    EditField_Num_Groups.value = str(abs(dosxyz_input.jMAX))
 		    
 		    GroupBox3.Caption="Y Voxels"
 		    
 		    
 		    GroupBox1.Caption="X Voxels"
-		    EditField_1_high.Text=Format(dosxyz_input.iMAX_Bound(2),"-#.###")
-		    EditField_1_Low.Text=Format(dosxyz_input.iMAX_Bound(1),"-#.###")
-		    EditField_1_Max.Text=Format(dosxyz_input.iMAX_Bound(3),"-#.###")
-		    EditField_1_Min.Text=Format(dosxyz_input.iMAX_Bound(0),"-#.###")
+		    EditField_1_high.value = Format(dosxyz_input.iMAX_Bound(2),"-#.###")
+		    EditField_1_Low.value = Format(dosxyz_input.iMAX_Bound(1),"-#.###")
+		    EditField_1_Max.value = Format(dosxyz_input.iMAX_Bound(3),"-#.###")
+		    EditField_1_Min.value = Format(dosxyz_input.iMAX_Bound(0),"-#.###")
 		    
 		    
 		    GroupBox2.Caption="Z Voxels"
-		    EditField_2_high.Text=Format(dosxyz_input.kMAX_Bound(2),"-#.###")
-		    EditField_2_Low.Text=Format(dosxyz_input.kMAX_Bound(1),"-#.###")
-		    EditField_2_Max.Text=Format(dosxyz_input.kMAX_Bound(3),"-#.###")
-		    EditField_2_Min.Text=Format(dosxyz_input.kMAX_Bound(0),"-#.###")
+		    EditField_2_high.value = Format(dosxyz_input.kMAX_Bound(2),"-#.###")
+		    EditField_2_Low.value = Format(dosxyz_input.kMAX_Bound(1),"-#.###")
+		    EditField_2_Max.value = Format(dosxyz_input.kMAX_Bound(3),"-#.###")
+		    EditField_2_Min.value = Format(dosxyz_input.kMAX_Bound(0),"-#.###")
 		    
 		    
 		    
 		  elseif dosxyz_input.kMAX<0 Then
 		    Z_Pro=True
 		    GroupBox3.Caption="Z Voxels"
-		    EditField_Num_Groups.Text=str(abs(dosxyz_input.KMAX))
+		    EditField_Num_Groups.value = str(abs(dosxyz_input.KMAX))
 		    
 		    
 		    GroupBox1.Caption="X Voxels"
-		    EditField_1_high.Text=Format(dosxyz_input.iMAX_Bound(2),"-#.###")
-		    EditField_1_Low.Text=Format(dosxyz_input.iMAX_Bound(1),"-#.###")
-		    EditField_1_Max.Text=Format(dosxyz_input.iMAX_Bound(3),"-#.###")
-		    EditField_1_Min.Text=Format(dosxyz_input.iMAX_Bound(0),"-#.###")
+		    EditField_1_high.value = Format(dosxyz_input.iMAX_Bound(2),"-#.###")
+		    EditField_1_Low.value = Format(dosxyz_input.iMAX_Bound(1),"-#.###")
+		    EditField_1_Max.value = Format(dosxyz_input.iMAX_Bound(3),"-#.###")
+		    EditField_1_Min.value = Format(dosxyz_input.iMAX_Bound(0),"-#.###")
 		    
 		    
 		    GroupBox2.Caption="Y Voxels"
-		    EditField_2_high.Text=Format(dosxyz_input.jMAX_Bound(2),"-#.###")
-		    EditField_2_Low.Text=Format(dosxyz_input.jMAX_Bound(1),"-#.###")
-		    EditField_2_Max.Text=Format(dosxyz_input.jMAX_Bound(3),"-#.###")
-		    EditField_2_Min.Text=Format(dosxyz_input.jMAX_Bound(0),"-#.###")
+		    EditField_2_high.value = Format(dosxyz_input.jMAX_Bound(2),"-#.###")
+		    EditField_2_Low.value = Format(dosxyz_input.jMAX_Bound(1),"-#.###")
+		    EditField_2_Max.value = Format(dosxyz_input.jMAX_Bound(3),"-#.###")
+		    EditField_2_Min.value = Format(dosxyz_input.jMAX_Bound(0),"-#.###")
 		  end
 		  
 		  
@@ -1192,7 +1192,7 @@ End
 		    
 		  end
 		  
-		  EditField_Max.Text=Format(s,"-#.###")
+		  EditField_Max.value = Format(s,"-#.###")
 		  
 		End Sub
 	#tag EndMethod
@@ -1258,8 +1258,8 @@ End
 		    min=dosxyz_input.jMAX_Group_Min
 		  end
 		  
-		  EditField_Max.Text=Format(s,"-#.###")
-		  EditField_Min.Text=Format(min,"-#.###")
+		  EditField_Max.value = Format(s,"-#.###")
+		  EditField_Min.value = Format(min,"-#.###")
 		End Sub
 	#tag EndMethod
 

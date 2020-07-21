@@ -115,9 +115,9 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_FTP.Text=All(0).command
-		    Window_Configurations_Shell.StaticText_Timer_FTP.Text=""
-		    Window_Configurations_Shell.StaticText_FTP_Info.Text="Get file "+all(0).FTP_Files.name+" from "+ All(0).shell.machine+chr(13)+_
+		    Window_Configurations_Shell.StaticText_FTP.value = All(0).command
+		    Window_Configurations_Shell.StaticText_Timer_FTP.value = ""
+		    Window_Configurations_Shell.StaticText_FTP_Info.value = "Get file "+all(0).FTP_Files.name+" from "+ All(0).shell.machine+chr(13)+_
 		    "Remote Directory " +all(0).FTP_Remote_Path+chr(13)+"Local Directory "+all(0).FTP_Local_Path
 		    
 		    
@@ -127,16 +127,16 @@ Inherits Shell
 		  
 		  
 		  if All(0).vmc_download_d3d Then
-		    Window_Treatment.StaticText_VMC_Status.Text="About to download "+all(0).inpfilename
+		    Window_Treatment.StaticText_VMC_Status.value = "About to download "+all(0).inpfilename
 		    
 		  elseif all(0).dos_download_3ddose Then
 		    gdosxyz.egs_msg.append "About to download "+all(0).inpfilename
 		    
 		  elseif all(0).vmc_download_d3d Then
-		    Window_Treatment.StaticText_vmc_Status.Text="About to download "+all(0).inpfilename
+		    Window_Treatment.StaticText_vmc_Status.value = "About to download "+all(0).inpfilename
 		    
 		  elseif all(0).egs_download_egslst Then
-		    Window_Treatment.StaticText_VMC_Status.Text="About to download "+all(0).inpfilename
+		    Window_Treatment.StaticText_VMC_Status.value = "About to download "+all(0).inpfilename
 		  end
 		  
 		  
@@ -243,8 +243,8 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_FTP.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_FTP.Text=""
+		    Window_Configurations_Shell.StaticText_FTP.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_FTP.value = ""
 		  end
 		  
 		  
@@ -342,13 +342,13 @@ Inherits Shell
 		  elseif gg.vmc_download_d3d Then
 		    
 		    if bb Then
-		      Window_Treatment.StaticText_VMC_Status.Text=gg.inpfilename+" dose file downloaded"
+		      Window_Treatment.StaticText_VMC_Status.value = gg.inpfilename+" dose file downloaded"
 		      gVMC.VMC(gg.vmc_dmx_index).Write_VMC_Settings
 		      Window_Treatment.MC_vmc_beam_progress
 		      gVMC.VMC(gg.vmc_dmx_index).beams(gg.beam_num).downloaded_d3d=true
 		    else
 		      gVMC.VMC(gg.vmc_dmx_index).beams(gg.beam_num).downloaded_d3d=False
-		      Window_Treatment.StaticText_VMC_Status.Text="Error : "+gg.inpfilename+" file not downloaded"
+		      Window_Treatment.StaticText_VMC_Status.value = "Error : "+gg.inpfilename+" file not downloaded"
 		    end
 		    
 		    
@@ -358,7 +358,7 @@ Inherits Shell
 		  elseif gg.vmc_download_hed Then
 		    
 		    if bb Then
-		      Window_Treatment.StaticText_VMC_Status.Text=gg.inpfilename+" file downloaded"
+		      Window_Treatment.StaticText_VMC_Status.value = gg.inpfilename+" file downloaded"
 		      if gVMC.auto_importD Then
 		        gVMC.AddDoseList.Append str(gg.vmc_dmx_index)+","+str(gg.beam_num)+Chr(10)
 		        gVMC.vmc_adddose=True
@@ -376,7 +376,7 @@ Inherits Shell
 		      if UBound(gVMC.VMC)>=gg.vmc_dmx_index Then
 		        if UBound(gVMC.VMC(gg.vmc_dmx_index).BEAMS)>=gg.beam_num Then
 		          gVMC.VMC(gg.vmc_dmx_index).beams(gg.beam_num).downloaded_hed=False
-		          Window_Treatment.StaticText_VMC_Status.Text="Error : "+gg.inpfilename+" file not downloaded"
+		          Window_Treatment.StaticText_VMC_Status.value = "Error : "+gg.inpfilename+" file not downloaded"
 		        end
 		      end
 		    end
@@ -399,8 +399,8 @@ Inherits Shell
 		  
 		  
 		  if app.which_window_shell Then
-		    Window_Configurations_Shell.StaticText_FTP.Text=""
-		    Window_Configurations_Shell.StaticText_Timer_FTP.Text=""
+		    Window_Configurations_Shell.StaticText_FTP.value = ""
+		    Window_Configurations_Shell.StaticText_Timer_FTP.value = ""
 		  end
 		End Sub
 	#tag EndMethod

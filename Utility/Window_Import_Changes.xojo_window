@@ -444,11 +444,11 @@ End
 		  
 		  edit_rtog=Window_Transfer.McGillRT
 		  
-		  EditField_first.Text=edit_rtog.Patient_Name
-		  EditField_last.Text=edit_rtog.Patient_Surname
-		  EditField_id.Text=edit_rtog.Patient_ID
+		  EditField_first.value = edit_rtog.Patient_Name
+		  EditField_last.value = edit_rtog.Patient_Surname
+		  EditField_id.value = edit_rtog.Patient_ID
 		  if UBound(edit_rtog.Scan)>= 0 Then
-		    EditField_imageset.Text=edit_rtog.Scan(0).Scan_date
+		    EditField_imageset.value = edit_rtog.Scan(0).Scan_date
 		  end
 		  
 		End Sub

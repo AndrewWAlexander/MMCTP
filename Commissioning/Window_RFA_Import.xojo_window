@@ -2306,7 +2306,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub OpenWin()
-		  EditField_RFA_File.Text=f.Name
+		  EditField_RFA_File.value = f.Name
 		End Sub
 	#tag EndMethod
 
@@ -2344,7 +2344,7 @@ End
 		  
 		  I50=pointpp.Z_cm
 		  
-		  Window_RFA_Import.EditField_I50.Text=str(I50)
+		  Window_RFA_Import.EditField_I50.value = str(I50)
 		  
 		  
 		  if I50<=10 Then
@@ -2357,7 +2357,7 @@ End
 		  
 		  
 		  
-		  EditField_R50.Text=str(r50)
+		  EditField_R50.value = str(r50)
 		  
 		  
 		  
@@ -2437,22 +2437,22 @@ End
 		      Listbox_Points.Cell(i,4)=str(rfa.Graphs(k).Points(i).value)
 		    next
 		    
-		    EditField_Date.Text=RFA.Graphs(k).Date
-		    EditField_Comment.Text=RFA.Graphs(k).Comment
-		    EditField_ssd.Text=str(RFA.Graphs(k).SSD)
-		    EditField_axis.Text=RFA.Graphs(k).AXIS
-		    EditField_Field.Text=RFA.Graphs(k).FLSZ
-		    EditField_Depth.text=str(RFA.Graphs(k).DPTH)
-		    EditField_Energy.Text=str(rfa.Graphs(k).Energy)
-		    EditField_BMTY.text=RFA.Graphs(k).BMTY
-		    EditField_TYPE.text=RFA.Graphs(k).Type
-		    EditField_DETY.text=RFA.Graphs(k).DETY
-		    EditField_AddOn.Text=rfa.Graphs(k).addon
-		    EditField_Detector.Text=RFA.Graphs(k).Detector
-		    EditField_Operator.Text=RFA.Graphs(k).Operator
+		    EditField_Date.value = RFA.Graphs(k).Date
+		    EditField_Comment.value = RFA.Graphs(k).Comment
+		    EditField_ssd.value = str(RFA.Graphs(k).SSD)
+		    EditField_axis.value = RFA.Graphs(k).AXIS
+		    EditField_Field.value = RFA.Graphs(k).FLSZ
+		    EditField_Depth.value = str(RFA.Graphs(k).DPTH)
+		    EditField_Energy.value = str(rfa.Graphs(k).Energy)
+		    EditField_BMTY.value = RFA.Graphs(k).BMTY
+		    EditField_TYPE.value = RFA.Graphs(k).Type
+		    EditField_DETY.value = RFA.Graphs(k).DETY
+		    EditField_AddOn.value = rfa.Graphs(k).addon
+		    EditField_Detector.value = RFA.Graphs(k).Detector
+		    EditField_Operator.value = RFA.Graphs(k).Operator
 		    
-		    EditField_WDGD.Text=RFA.Graphs(k).WDGD
-		    EditField_WDGL.Text=RFA.Graphs(k).WDGL
+		    EditField_WDGD.value = RFA.Graphs(k).WDGD
+		    EditField_WDGL.value = RFA.Graphs(k).WDGL
 		    
 		    
 		  end

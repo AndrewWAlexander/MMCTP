@@ -3278,7 +3278,7 @@ Protected Class RTOG_Plan
 		  for i=0 to UBound(grtog.Structures.Structures)
 		    if Structure_Dose(i).Use_DV_Constraint or Structure_Dose(i).Use_Min_Dose or Structure_Dose(i).AvgDose_Use  Then
 		      //show progress along the way...to know where we are.
-		      //Window_EMET.StaticText_Structure.text="Writing Struture point file : "+grtog.Structures.Structures(i).Structure_Name
+		      //Window_EMET.StaticText_Structure.value = "Writing Struture point file : "+grtog.Structures.Structures(i).Structure_Name
 		      
 		      //for each structure
 		      //initialize the stuff
@@ -3389,7 +3389,7 @@ Protected Class RTOG_Plan
 		    end
 		  next 'End for each Structure
 		  
-		  //Window_EMET.StaticText_Structure.text="Struture point file finished!"
+		  //Window_EMET.StaticText_Structure.value = "Struture point file finished!"
 		  Window_Prescription.ProgressBar_Struc.Value=0
 		  Window_Prescription.ProgressBar_Struc.Refresh
 		  Window_Prescription.Update_Listbox_Volumes

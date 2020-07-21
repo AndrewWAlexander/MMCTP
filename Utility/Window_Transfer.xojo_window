@@ -420,41 +420,49 @@ End
 	#tag Event
 		Sub Open()
 		  '======Open Transfer window, set initial stuff
-		  Dim s,line as String
-		  Dim i,last as Integer
-		  Dim d as New Date
-		  Dim f as folderItem
-		  Dim inp as textInputStream
+		  'Dim s,line as String
+		  'Dim i,last as Integer
+		  'Dim d as New Date
+		  'Dim f as folderItem
+		  'Dim inp as textInputStream
 		  '================================
 		  
 		  app.which_window_Transfer=True
-		  DICOM= new Thread_DICOM_Object
+		  DICOM= New Thread_DICOM_Object
 		  
 		  '=========Transfer import types. populate
-		  s="DICOM,CADPLAN,RTOG"
-		  last=CountFields(s,",")
-		  PopupMenu_import.DeleteAllRows
-		  For i=1 to last
-		    PopupMenu_import.addRow NthField(s,",",i)
+		  Var s As String = "DICOM,CADPLAN,RTOG"
+		  
+		  PopupMenu_import.RemoveAllRows
+		  For i As Integer = 1 To CountFields(s,",")
+		    
+		    PopupMenu_import.AddRow(s.NthField( "," , i))
+		    
 		  Next
 		  
 		  
 		  
 		  '======== Populate import files
 		  
-		  if PopupMenu_import.text="DICOM" then
-		    ImportStaticText.text=gpref.dicomfi.NativePath
-		  elseif PopupMenu_import.text="CADPLAN" then
-		    ImportStaticText.text=gpref.cadplanfi.NativePath
-		  elseif PopupMenu_import.text="RTOG" then
-		    ImportStaticText.text=gpref.rtogfi.NativePath
-		  end if
+		  If PopupMenu_import.SelectedRowValue = "DICOM" Then
+		    
+		    ImportStaticText.value = gpref.dicomfi.NativePath
+		    
+		  Elseif PopupMenu_import.SelectedRowValue = "CADPLAN" Then
+		    
+		    ImportStaticText.value = gpref.cadplanfi.NativePath
+		    
+		  Elseif PopupMenu_import.SelectedRowValue = "RTOG" Then
+		    
+		    ImportStaticText.value = gpref.rtogfi.NativePath
+		    
+		  End If
 		  
-		  McGillStaticText.text=gPref.mcgillfi.NativePath
+		  McGillStaticText.value = gPref.mcgillfi.NativePath
 		  
 		  
 		  UpDate_McGill
-		  PopupMenu_import.ListIndex=0
+		  PopupMenu_import.SelectedRowIndex = 0
 		End Sub
 	#tag EndEvent
 
@@ -760,18 +768,22 @@ End
 #tag Events PopupMenu_import
 	#tag Event
 		Sub Change()
-		  if me.text="RTOG" then
-		    ImportStaticText.text=gPref.rtogfi.NativePath
+		  If Me.SelectedRowValue = "RTOG" Then
+		    
+		    ImportStaticText.value = gPref.rtogfi.NativePath
 		    UpDate_RTOG
-		  elseif me.text="CadPlan" then
-		    ImportStaticText.text=gpref.cadplanfi.NativePath
+		    
+		  Elseif Me.SelectedRowValue = "CadPlan" Then
+		    
+		    ImportStaticText.value = gpref.cadplanfi.NativePath
 		    UpDate_CadPlan
-		  elseif me.text="DICOM" then
-		    ImportStaticText.text=gpref.DICOMfi.NativePath
+		    
+		  Elseif Me.SelectedRowValue = "DICOM" Then
+		    
+		    ImportStaticText.value = gpref.DICOMfi.NativePath
 		    Update_DICOM_Patients
 		    
-		    
-		  end if
+		  End If
 		  
 		  ImportStaticText.Refresh
 		End Sub
@@ -780,42 +792,59 @@ End
 #tag Events ImportStaticText
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  dim fi,opfi as FolderItem
-		  dim fdlg as new SelectFolderDialog
+		  //dim fi,opfi as FolderItem
+		  //dim fdlg as new SelectFolderDialog
 		  
-		  
-		  
-		  if PopupMenu_import.text="DICOM" then
-		    opfi=gPref.DICOMfi
-		  elseif PopupMenu_import.text="CADPLAN" then
-		    opfi=gpref.cadplanfi
-		  elseif PopupMenu_import.text="RTOG" then
-		    opfi=gpref.rtogfi
-		  end
-		  
-		  
-		  
-		  fdlg.InitialDirectory=opfi
+		  Var fdlg As New SelectFolderDialog
 		  fdlg.Title="Select Folder"
-		  fi = fdlg.ShowModal()
 		  
-		  if fi<>nil then
-		    if PopupMenu_import.text="DICOM" then
-		      gPref.DICOMfi=fi
-		      ImportStaticText.text=gpref.dicomfi.NativePath
+		  If PopupMenu_import.SelectedRowValue = "DICOM" Then
+		    
+		    fdlg.InitialFolder = gPref.DICOMfi
+		    
+		  Elseif PopupMenu_import.SelectedRowValue = "CADPLAN" Then
+		    
+		    fdlg.InitialFolder = gpref.cadplanfi
+		    
+		  Elseif PopupMenu_import.SelectedRowValue = "RTOG" Then
+		    
+		    fdlg.InitialFolder = gpref.rtogfi
+		    
+		  End
+		  
+		  
+		  
+		  
+		  
+		  
+		  Var f As FolderItem = fdlg.ShowModal
+		  
+		  If f <> Nil Then
+		    
+		    If PopupMenu_import.SelectedRowValue = "DICOM" Then
+		      
+		      gPref.DICOMfi = f
+		      ImportStaticText.value = gpref.dicomfi.NativePath
 		      Update_DICOM_Patients
-		    elseif PopupMenu_import.text="CADPLAN" then
-		      ImportStaticText.text=gpref.cadplanfi.NativePath
-		      gpref.cadplanfi=fi
+		      
+		    Elseif PopupMenu_import.SelectedRowValue = "CADPLAN" Then
+		      
+		      ImportStaticText.value = gpref.cadplanfi.NativePath
+		      gpref.cadplanfi=f
 		      Update_CadPlan
-		    elseif PopupMenu_import.text="RTOG" then
-		      gpref.rtogfi=fi
-		      ImportStaticText.text=gpref.rtogfi.NativePath
+		      
+		    Elseif PopupMenu_import.SelectedRowValue = "RTOG" Then
+		      
+		      gpref.rtogfi=f
+		      ImportStaticText.value = gpref.rtogfi.NativePath
 		      UpDate_RTOG
-		    end if
+		      
+		    End If
+		    
 		    ImportStaticText.Refresh
 		    gpref.Write_Pref
-		  end if
+		    
+		  End If
 		  
 		End Function
 	#tag EndEvent
@@ -836,7 +865,7 @@ End
 		  
 		  if fi<>nil then //fi.Exists then
 		    gPref.McGillfi=fi
-		    McGillStaticText.text=gpref.mcgillfi.NativePath
+		    McGillStaticText.value = gpref.mcgillfi.NativePath
 		    McGillStaticText.Refresh
 		    gpref.Write_Pref
 		    UpDate_McGill
@@ -854,86 +883,92 @@ End
 		  //
 		  //
 		  //----------------------------------------------------------------------
-		  Dim f,g as folderItem
-		  Dim i,k,Z as integer
-		  dim fname,Temp,lname, id_string as string
-		  Dim ts_in as TextInputStream
-		  Dim ts as TextInputStream
-		  Dim found as Boolean
+		  'Dim f,g as folderItem
+		  'Dim i,k,Z as integer
+		  'dim fname,Temp,lname, id_string as string
+		  'Dim ts_in as TextInputStream
+		  'Dim ts as TextInputStream
+		  'Dim found as Boolean
 		  //----------------------------------------------------------------------
 		  
 		  
 		  
-		  i=ListBox_import.listindex
-		  if i>=0 then
-		    if PopupMenu_import.text="DICOM" then
-		      DICOM=nil
-		      DICOM=new Thread_DICOM_Object
-		      DICOM.File= new Class_DICOM_File
+		  If ListBox_import.SelectedRowIndex >= 0 Then
+		    
+		    If PopupMenu_import.SelectedRowValue = "DICOM" Then
 		      
-		      id_string=ListBox_import.cell(ListBox_import.listindex,1)
-		      fname=ListBox_import.cell(ListBox_import.listindex,0)
-		      DICOM.Import_ID=id_string
-		      DICOM.Import_Name=fname
-		      Dicom.TaskNum=1
+		      DICOM = New Thread_DICOM_Object
+		      DICOM.File= New Class_DICOM_File
+		      
+		      Var id_string As String = ListBox_import.cell(ListBox_import.SelectedRowIndex, 1)
+		      Var fname As String = ListBox_import.cell(ListBox_import.SelectedRowIndex, 0)
+		      DICOM.Import_ID = id_string
+		      DICOM.Import_Name = fname
+		      Dicom.TaskNum = 1
 		      DICOM.Run
-		      DICOM=nil
+		      DICOM = Nil
 		      
 		      
-		    elseif PopupMenu_import.text="CADPLAN" then
+		    Elseif PopupMenu_import.SelectedRowValue = "CADPLAN" Then
 		      //import cadplan
 		      //get the base file name then
-		      fname=ListBox_import.cell(ListBox_import.listindex,3)
-		      f=gPref.cadplanfi.child(fname+"0")  //passing image #0 folder item since all cadplan are in same folder...
-		      if f<>nil then
-		        CADPLAN=nil
-		        CADPLAN=new Thread_RTOG
+		      Var fname As String = ListBox_import.CellValueAt( ListBox_import.SelectedRowIndex, 3)
+		      Var f As FolderItem = gPref.cadplanfi.child(fname+"0")  //passing image #0 folder item since all cadplan are in same folder...
+		      
+		      If f <> Nil Then
+		        CADPLAN=Nil
+		        CADPLAN=New Thread_RTOG
 		        PW_Title="Reading CadPlan files"
-		        PW_Show=true
+		        PW_Show=True
 		        CADPLAN.Read_CadPlan(f)
-		        McGillRT=nil
-		        McGillRT= new Thread_RTOG
+		        McGillRT=Nil
+		        McGillRT= New Thread_RTOG
 		        McGillRT.Convert_CadPlan2McGilRT(CADPLAN)
-		        PW_Show=false
-		      end if
+		        PW_Show =False
+		      End If
 		      
 		      
-		    elseif PopupMenu_import.text="RTOG" then
+		    Elseif PopupMenu_import.SelectedRowValue = "RTOG" Then
 		      //import RTOG
 		      
-		      fname= ListBox_import.cell(i,0)
-		      lname=ListBox_import.cell(i,1)
+		      Var fname As String = ListBox_import.CellValueAt( _
+		      ListBox_import.SelectedRowIndex, 0)
+		      Var lname As String = ListBox_import.CellValueAt( _
+		      ListBox_import.SelectedRowIndex, 1)
 		      
 		      
 		      
-		      for k = 1 to gPref.rtogfi.Count
-		        f=gPref.rtogfi.item(k)
+		      For k As Integer = 1 To gPref.rtogfi.Count
+		        Var f As FolderItem = gPref.rtogfi.item(k)
 		        
-		        if InStr(f.Name,"aapm0000")>0  then
-		          ts=f.OpenAsTextFile
+		        If f.Name.IndexOf("aapm0000") > 0  Then
+		          Var ts As TextInputStream = f.OpenAsTextFile
 		          
-		          While ts.EOF=False
-		            Temp=ts.ReadLine
-		            if InStr(Temp,"Patient name")> 0 Then
-		              exit
-		            end
+		          Var Temp As String
+		          While ts.EOF = False
+		            
+		            Temp = ts.ReadLine
+		            If InStr(Temp,"Patient name")> 0 Then
+		              
+		              Exit
+		            End
 		          Wend
 		          ts.Close
 		          
-		          if InStr(Temp, fname)>0 and InStr(Temp,lname)> 0 Then
+		          If Temp.IndexOf(fname) > 0 And Temp.IndexOf(lname)> 0 Then
 		            
 		            f=f.child("aapm0000")
 		            
 		            PW_Title="Reading RTOG files"
-		            PW_Show=true
+		            PW_Show=True
 		            
-		            RTOG=nil
-		            RTOG=new Thread_RTOG
+		            RTOG=Nil
+		            RTOG=New Thread_RTOG
 		            RTOG.Read_RTOG(f)
 		            
 		            
-		            McGillRT=nil
-		            McGillRT= new Thread_RTOG
+		            McGillRT=Nil
+		            McGillRT= New Thread_RTOG
 		            McGillRT.Convert_RTOG2McGillRT(RTOG)
 		            
 		            
@@ -974,29 +1009,27 @@ End
 		  //
 		  //
 		  //----------------------------------------------------------------------
-		  Dim f,g as folderItem
-		  Dim i,k,Z as integer
-		  dim fname,Temp,lname, id_string as string
-		  Dim ts_in as TextInputStream
-		  Dim ts as TextInputStream
-		  Dim found as Boolean
+		  'Dim f,g as folderItem
+		  'Dim i,k,Z as integer
+		  'dim fname,Temp,lname, id_string as string
+		  'Dim ts_in as TextInputStream
+		  'Dim ts as TextInputStream
+		  'Dim found as Boolean
 		  //----------------------------------------------------------------------
 		  
-		  i=ListBox_import.listindex
-		  if i>=0 then
-		    if PopupMenu_import.text="DICOM" then
-		      DICOM=nil
-		      DICOM=new Thread_DICOM_Object
-		      DICOM.File= new Class_DICOM_File
+		  If ListBox_import.SelectedRowIndex >= 0 Then
+		    
+		    If PopupMenu_import.SelectedRowValue = "DICOM" Then
+		      
+		      DICOM=New Thread_DICOM_Object
+		      DICOM.File= New Class_DICOM_File
 		      DICOM.TaskNum=0
-		      id_string=ListBox_import.cell(ListBox_import.listindex,1)
-		      fname=ListBox_import.cell(ListBox_import.listindex,0)
-		      DICOM.Import_ID=id_string
-		      DICOM.Import_Name=fname
+		      DICOM.Import_ID = ListBox_import.CellValueAt(ListBox_import.SelectedRowIndex, 1)
+		      DICOM.Import_Name = ListBox_import.CellValueAt(ListBox_import.SelectedRowIndex, 0)
 		      DICOM.Run
-		      DICOM=nil
-		    end if
-		  end
+		      DICOM=Nil
+		    End If
+		  End
 		End Sub
 	#tag EndEvent
 #tag EndEvents

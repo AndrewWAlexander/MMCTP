@@ -1398,25 +1398,25 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  EditField_StudyInstanceUID.Text=gRTOG.StudyInstanceUID
-		  EditField_RefernecedSSS.Text=gRTOG.ReferencedStructureSetSequence
-		  EditField_ID.Text=gRTOG.StudyID
-		  EditField_Orientation.Text=gRTOG.DICOM_ImageOrientationPatient
-		  EditField_PatientP.Text=gRTOG.PatientPosition
-		  EditField_FrameOfReferenceUID.Text=gRTOG.FrameOfReferenceUID
-		  EditField_Description.Text=gRTOG.DICOM_Study_Description
-		  EditField_SeriesNumber.Text=gRTOG.SeriesNumber
-		  EditField_StudyDate.Text=gRTOG.DICOM_Study_Date
-		  EditField_seriesdescription.Text=gRTOG.seriesdescription
-		  EditField_seriesUID.Text=gRTOG.SeriesInstanceUID
+		  EditField_StudyInstanceUID.value = gRTOG.StudyInstanceUID
+		  EditField_RefernecedSSS.value = gRTOG.ReferencedStructureSetSequence
+		  EditField_ID.value = gRTOG.StudyID
+		  EditField_Orientation.value = gRTOG.DICOM_ImageOrientationPatient
+		  EditField_PatientP.value = gRTOG.PatientPosition
+		  EditField_FrameOfReferenceUID.value = gRTOG.FrameOfReferenceUID
+		  EditField_Description.value = gRTOG.DICOM_Study_Description
+		  EditField_SeriesNumber.value = gRTOG.SeriesNumber
+		  EditField_StudyDate.value = gRTOG.DICOM_Study_Date
+		  EditField_seriesdescription.value = gRTOG.seriesdescription
+		  EditField_seriesUID.value = gRTOG.SeriesInstanceUID
 		  
-		  EditField_x.Text=Format(gVis.xoff_set,"-#.###e")
-		  EditField_Y.Text=Format(gVis.yoff_set,"-#.###e")
-		  EditField_z.Text=Format(gVis.zoff_set,"-#.###e")
+		  EditField_x.value = Format(gVis.xoff_set,"-#.###e")
+		  EditField_Y.value = Format(gVis.yoff_set,"-#.###e")
+		  EditField_z.value = Format(gVis.zoff_set,"-#.###e")
 		  
-		  EditField_X_Res.Text=Format(10*gVis.scale_width,"-#.###")
-		  EditField_Y_Res.Text=Format(10*gVis.scale_height,"-#.###")
-		  EditField_Z_Res.Text=Format(10*gVis.scale_thickness,"-#.###")
+		  EditField_X_Res.value = Format(10*gVis.scale_width,"-#.###")
+		  EditField_Y_Res.value = Format(10*gVis.scale_height,"-#.###")
+		  EditField_Z_Res.value = Format(10*gVis.scale_thickness,"-#.###")
 		End Sub
 	#tag EndEvent
 

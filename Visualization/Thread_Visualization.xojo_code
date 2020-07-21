@@ -558,8 +558,8 @@ Inherits Thread
 		    end
 		    
 		    
-		    //Window_Treatment.StaticText_Level.Text="Level : "+Format(wl,"-#") //Commented out by William Davis to avoid crash due to exception
-		    //Window_Treatment.StaticText_Window.Text="Window : "+Format(ww,"-#") //Commented out by William Davis to avoid crash due to exception
+		    //Window_Treatment.StaticText_Level.value = "Level : "+Format(wl,"-#") //Commented out by William Davis to avoid crash due to exception
+		    //Window_Treatment.StaticText_Window.value = "Window : "+Format(ww,"-#") //Commented out by William Davis to avoid crash due to exception
 		    
 		    //Window_Treatment.Slider_Window_Level.Value=wl //Commented out by William Davis to avoid crash due to exception
 		    //Window_Treatment.Slider_Window_Width.Value=ww //Commented out by William Davis to avoid crash due to exception

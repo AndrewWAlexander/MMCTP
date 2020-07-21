@@ -1663,7 +1663,7 @@ End
 		        
 		        
 		        
-		        WindowGamma.StaticText2.Text="Percentage of Pixels that Fail: " +  str(100*pixelcountfail/pixelcounttotal) + "%"
+		        WindowGamma.StaticText2.value = "Percentage of Pixels that Fail: " +  str(100*pixelcountfail/pixelcounttotal) + "%"
 		        
 		      else
 		        

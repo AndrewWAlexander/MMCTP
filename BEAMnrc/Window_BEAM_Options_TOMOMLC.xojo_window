@@ -1610,37 +1610,37 @@ End
 		    RadioButton_par_x.Value=True
 		  end
 		  
-		  //EditField_numleaves.Text=str(MLC.Num_leaf)
-		  EditField_radius.Text=Format(MLC.RMAX_CM,"-#.###")
-		  EditField_title.Text=Trim(MLC.Title_CM)
+		  //EditField_numleaves.value = str(MLC.Num_leaf)
+		  EditField_radius.value = Format(MLC.RMAX_CM,"-#.###")
+		  EditField_title.value = Trim(MLC.Title_CM)
 		  
-		  //EditField_Twidth.Text=Format(MLC.TWIDTH_MLC,"-#.###")
-		  
-		  
-		  EditField_ECUT_Inside.Text=Format(MLC.Ecut_Air,"-#.###")
-		  EditField_Ecut_leaves.Text=Format(MLC.Ecut_leaves,"-#.###")
-		  
-		  EditField_Pcut_Inside.Text=Format(MLC.Pcut_air,"-#.###")
-		  EditField_Pcut_leaves.Text=Format(MLC.Pcut_leaves,"-#.###")
-		  
-		  EditField_DoseZone_Inside.Text=Format(MLC.Dose_Zone_air,"#")
-		  EditField_dose_zone_leaves.Text=Format(MLC.Dose_Zone_Leaves,"#")
-		  
-		  EditField_Latch_Inside.Text=Format(MLC.IRegion_to_bit_air,"#")
-		  EditField_latch_leaves.Text=Format(MLC.IRegion_to_bit_Leaves,"#")
+		  //EditField_Twidth.value = Format(MLC.TWIDTH_MLC,"-#.###")
 		  
 		  
-		  //EditField_zmin.Text=Format(MLC.ZMIN,"-#.#####")
-		  //EditField_leavesthick.Text=Format(MLC.ZThick,"-#.#####")
+		  EditField_ECUT_Inside.value = Format(MLC.Ecut_Air,"-#.###")
+		  EditField_Ecut_leaves.value = Format(MLC.Ecut_leaves,"-#.###")
+		  
+		  EditField_Pcut_Inside.value = Format(MLC.Pcut_air,"-#.###")
+		  EditField_Pcut_leaves.value = Format(MLC.Pcut_leaves,"-#.###")
+		  
+		  EditField_DoseZone_Inside.value = Format(MLC.Dose_Zone_air,"#")
+		  EditField_dose_zone_leaves.value = Format(MLC.Dose_Zone_Leaves,"#")
+		  
+		  EditField_Latch_Inside.value = Format(MLC.IRegion_to_bit_air,"#")
+		  EditField_latch_leaves.value = Format(MLC.IRegion_to_bit_Leaves,"#")
 		  
 		  
-		  //EditField_Zsides.Text=Format(MLC.zfocus_sides,"-#.#####")
-		  //EditField_Zends.Text=Format(MLC.zfocus_ends,"-#.#####")
+		  //EditField_zmin.value = Format(MLC.ZMIN,"-#.#####")
+		  //EditField_leavesthick.value = Format(MLC.ZThick,"-#.#####")
 		  
 		  
-		  EditField_Path.Text=MLC.MLC_File_Path
-		  EditField_material_leaves.Text=MLC.Med_In_Leaves
-		  EditField_Mat_Inside.Text=MLC.Med_In_Air
+		  //EditField_Zsides.value = Format(MLC.zfocus_sides,"-#.#####")
+		  //EditField_Zends.value = Format(MLC.zfocus_ends,"-#.#####")
+		  
+		  
+		  EditField_Path.value = MLC.MLC_File_Path
+		  EditField_material_leaves.value = MLC.Med_In_Leaves
+		  EditField_Mat_Inside.value = MLC.Med_In_Air
 		  
 		  donothing=False
 		End Sub

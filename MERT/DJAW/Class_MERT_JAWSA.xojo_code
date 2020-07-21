@@ -146,7 +146,7 @@ Protected Class Class_MERT_JAWSA
 		  else
 		    Window_EMET_Run.EditField_Jaw_Score.TextColor=RGB(255,0,0)
 		  end
-		  Window_EMET_Run.EditField_Jaw_Score.Text=Format(score,"-#.#######e")
+		  Window_EMET_Run.EditField_Jaw_Score.value = Format(score,"-#.#######e")
 		  
 		  
 		  ss=ts.ReadLine
@@ -201,7 +201,7 @@ Protected Class Class_MERT_JAWSA
 		    else
 		      Time=Format(times,"#")+" minutes"
 		    end
-		    Window_EMET_Run.StaticText_JAW_RunTime.Text=Time
+		    Window_EMET_Run.StaticText_JAW_RunTime.value = Time
 		    if Waiting and gOpt.JAW.Run_Thread.Shell.IsRunning Then
 		      i=IBeam_index
 		      
@@ -265,10 +265,10 @@ Protected Class Class_MERT_JAWSA
 		    ts=f.OpenAsTextFile
 		    if ts<> nil Then
 		      w=val(ts.ReadLine)
-		      Window_EMET_Run.EditField_Jaws_Iterations.Text=Format(w,"#")
+		      Window_EMET_Run.EditField_Jaws_Iterations.value = Format(w,"#")
 		      
 		      w=val(ts.ReadLine)
-		      //Window_EMET_Run.EditField_Jaw_DVHBin.Text=str(w)
+		      //Window_EMET_Run.EditField_Jaw_DVHBin.value = str(w)
 		      
 		      temp=ts.ReadLine
 		      if InStr(temp,"yes")>0 Then
@@ -277,24 +277,24 @@ Protected Class Class_MERT_JAWSA
 		        Window_EMET_Run.CheckBox_WriteDoseJaw.Value=False
 		      end
 		      temp=ts.ReadLine
-		      Window_EMET_Run.EditField_Jaw_Dname.Text=temp
+		      Window_EMET_Run.EditField_Jaw_Dname.value = temp
 		      temp=ts.ReadLine
 		      Weight_Range=val(NthField(temp,",",1))
 		      Jaw_Range=val(NthField(temp,",",2))
 		      RateGD=val(NthField(temp,",",3))
 		      RatePD=val(NthField(temp,",",4))
-		      Window_EMET_Run.EditField_Jaw_RangeW.Text=Format(Weight_Range,"-0.0#######")
-		      Window_EMET_Run.EditField_Jaw_RangeO.Text=Format(Jaw_Range,"-0.0#######")
-		      Window_EMET_Run.EditField_Jaw_RateGD.Text=Format(RateGD,"-0.0#######")
-		      Window_EMET_Run.EditField_Jaw_RatePD.Text=Format(RatePD,"-0.0#######")
+		      Window_EMET_Run.EditField_Jaw_RangeW.value = Format(Weight_Range,"-0.0#######")
+		      Window_EMET_Run.EditField_Jaw_RangeO.value = Format(Jaw_Range,"-0.0#######")
+		      Window_EMET_Run.EditField_Jaw_RateGD.value = Format(RateGD,"-0.0#######")
+		      Window_EMET_Run.EditField_Jaw_RatePD.value = Format(RatePD,"-0.0#######")
 		      
 		      temp=ts.ReadLine
 		      w=val(Temp)
-		      Window_EMET_Run.EditField_Jaw_MinWeight.Text=str(w)
+		      Window_EMET_Run.EditField_Jaw_MinWeight.value = str(w)
 		      
 		      temp=ts.ReadLine
 		      w=val(Temp)
-		      Window_EMET_Run.EditField_jaw_MaxWeight.Text=str(w)
+		      Window_EMET_Run.EditField_jaw_MaxWeight.value = str(w)
 		      
 		      temp=ts.ReadLine
 		      w=val(Temp)
@@ -306,7 +306,7 @@ Protected Class Class_MERT_JAWSA
 		      
 		      temp=ts.ReadLine
 		      w=val(Temp)
-		      Window_EMET_Run.EditField_Jaw_StochasticP.Text=str(w)
+		      Window_EMET_Run.EditField_Jaw_StochasticP.value = str(w)
 		      
 		      temp=ts.ReadLine
 		      w=val(Temp)
@@ -325,22 +325,22 @@ Protected Class Class_MERT_JAWSA
 		      end
 		      
 		      temp=ts.ReadLine
-		      Window_EMET_Run.EditField_Jaw_Opt_IterationsJaw.Text=Trim(temp)
+		      Window_EMET_Run.EditField_Jaw_Opt_IterationsJaw.value = Trim(temp)
 		      MoveBeamInt=val(temp)
 		      
 		      
 		      temp=ts.ReadLine
-		      Window_EMET_Run.EditField_Jaw_MinFieldRange.Text=Trim(temp)
+		      Window_EMET_Run.EditField_Jaw_MinFieldRange.value = Trim(temp)
 		      MinFieldRange=val(temp)
 		      
 		      
 		      temp=ts.ReadLine
-		      Window_EMET_Run.EditField_Jaw_MinFieldSize.Text=Trim(temp)
+		      Window_EMET_Run.EditField_Jaw_MinFieldSize.value = Trim(temp)
 		      MinFieldSize=val(temp)
 		      
 		      
 		      temp=ts.ReadLine
-		      Window_EMET_Run.EditField_Jaw_MinFieldMove.Text=Trim(temp)
+		      Window_EMET_Run.EditField_Jaw_MinFieldMove.value = Trim(temp)
 		      MinFieldMove=val(temp)
 		      
 		      temp=ts.ReadLine
@@ -371,7 +371,7 @@ Protected Class Class_MERT_JAWSA
 		      
 		      temp=ts.ReadLine
 		      FLEC_Size=val(Temp)
-		      Window_EMET_Run.EditField_Jaw_FLECLimit.Text=Trim(temp)
+		      Window_EMET_Run.EditField_Jaw_FLECLimit.value = Trim(temp)
 		      ts.Close
 		    end
 		  end
@@ -390,9 +390,9 @@ Protected Class Class_MERT_JAWSA
 		  Running=True
 		  gopt.Write_Fields
 		  Write_sajawDVH_Input
-		  Window_EMET_Run.EditField_Jaw_Score.Text=""
+		  Window_EMET_Run.EditField_Jaw_Score.value = ""
 		  Inital_Score=Score
-		  Window_EMET_Run.EditField_Jaw_Inital_Score.Text=Format(Inital_Score,"0.000000e")
+		  Window_EMET_Run.EditField_Jaw_Inital_Score.value = Format(Inital_Score,"0.000000e")
 		  Run_Thread.Run
 		  
 		  

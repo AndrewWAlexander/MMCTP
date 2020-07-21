@@ -1402,13 +1402,13 @@ End
 		    Window_DOSXYZ_Import.Close
 		  end
 		  
-		  StaticText_X.Text="X axis : nx = "+str(dddose.Nx)+ ", dx = "+Format(dddose.dx,"-#.#####")+", boundaries = "+Format(dddose.boundaryX(0),"-#.#####")+" : "+Format(dddose.boundaryX(UBound(dddose.boundaryX)),"-#.#####")
+		  StaticText_X.value = "X axis : nx = "+str(dddose.Nx)+ ", dx = "+Format(dddose.dx,"-#.#####")+", boundaries = "+Format(dddose.boundaryX(0),"-#.#####")+" : "+Format(dddose.boundaryX(UBound(dddose.boundaryX)),"-#.#####")
 		  
-		  StaticText_y.Text="Y axis : ny = "+str(dddose.Ny)+ ", dy = "+Format(dddose.dy,"-#.#####")+", boundaries = "+Format(dddose.boundaryy(0),"-#.#####")+" : "+Format(dddose.boundaryy(UBound(dddose.boundaryy)),"-#.#####")
+		  StaticText_y.value = "Y axis : ny = "+str(dddose.Ny)+ ", dy = "+Format(dddose.dy,"-#.#####")+", boundaries = "+Format(dddose.boundaryy(0),"-#.#####")+" : "+Format(dddose.boundaryy(UBound(dddose.boundaryy)),"-#.#####")
 		  
-		  StaticText_z.Text="Z axis : nz = "+str(dddose.Nz)+ ", dz = "+Format(dddose.dz,"-#.#####")+", boundaries = "+Format(dddose.boundaryz(0),"-#.#####")+" : "+Format(dddose.boundaryz(UBound(dddose.boundaryz)),"-#.#####")
+		  StaticText_z.value = "Z axis : nz = "+str(dddose.Nz)+ ", dz = "+Format(dddose.dz,"-#.#####")+", boundaries = "+Format(dddose.boundaryz(0),"-#.#####")+" : "+Format(dddose.boundaryz(UBound(dddose.boundaryz)),"-#.#####")
 		  
-		  EditField_Name.Text=f.Name
+		  EditField_Name.value = f.Name
 		  
 		  PopupMenu_x_3ddose.AddRow "x"
 		  PopupMenu_x_3ddose.AddRow "y"
@@ -1456,16 +1456,16 @@ End
 	#tag Event
 		Sub Change()
 		  if me.ListIndex=0 Then
-		    EditField_X_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_X+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_X+X_off,"-#.#####")
 		    
 		  elseif me.ListIndex=1 Then
-		    EditField_X_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_y+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_y+X_off,"-#.#####")
 		    
 		  elseif me.ListIndex=2 Then
-		    EditField_X_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_z+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_z+X_off,"-#.#####")
 		    
 		  end
 		End Sub
@@ -1477,16 +1477,16 @@ End
 		  X_off=Val(me.Text)
 		  
 		  if PopupMenu_x_3ddose.ListIndex=0 Then
-		    EditField_X_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_X+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_X+X_off,"-#.#####")
 		    
 		  elseif PopupMenu_x_3ddose.ListIndex=1 Then
-		    EditField_X_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_y+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_y+X_off,"-#.#####")
 		    
 		  elseif PopupMenu_x_3ddose.ListIndex=2 Then
-		    EditField_X_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_X_coord.Text=Format(dddose.Coord_z+X_off,"-#.#####")
+		    EditField_X_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_X_coord.value = Format(dddose.Coord_z+X_off,"-#.#####")
 		    
 		  end
 		End Sub
@@ -1498,16 +1498,16 @@ End
 		  Y_off=val(me.Text)
 		  
 		  if PopupMenu_y_3ddose.ListIndex=0 Then
-		    EditField_y_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_y_coord.Text=Format(dddose.Coord_X+y_off,"-#.#####")
+		    EditField_y_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_y_coord.value = Format(dddose.Coord_X+y_off,"-#.#####")
 		    
 		  elseif PopupMenu_y_3ddose.ListIndex=1 Then
-		    EditField_y_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_y_coord.Text=Format(dddose.Coord_y+y_off,"-#.#####")
+		    EditField_y_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_y_coord.value = Format(dddose.Coord_y+y_off,"-#.#####")
 		    
 		  elseif PopupMenu_y_3ddose.ListIndex=2 Then
-		    EditField_y_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_y_coord.Text=Format(dddose.Coord_z+y_off,"-#.#####")
+		    EditField_y_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_y_coord.value = Format(dddose.Coord_z+y_off,"-#.#####")
 		    
 		  end
 		End Sub
@@ -1517,14 +1517,14 @@ End
 	#tag Event
 		Sub Change()
 		  if me.ListIndex=0 Then
-		    EditField_y_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_Y_coord.Text=Format(dddose.Coord_x+Y_off,"-#.###")
+		    EditField_y_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_Y_coord.value = Format(dddose.Coord_x+Y_off,"-#.###")
 		  elseif me.ListIndex=1 Then
-		    EditField_y_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_Y_coord.Text=Format(dddose.Coord_y+Y_off,"-#.###")
+		    EditField_y_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_Y_coord.value = Format(dddose.Coord_y+Y_off,"-#.###")
 		  elseif me.ListIndex=2 Then
-		    EditField_y_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_Y_coord.Text=Format(dddose.Coord_z+Y_off,"-#.###")
+		    EditField_y_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_Y_coord.value = Format(dddose.Coord_z+Y_off,"-#.###")
 		  end
 		End Sub
 	#tag EndEvent
@@ -1535,16 +1535,16 @@ End
 		  Z_off=val(me.Text)
 		  
 		  if PopupMenu_z_3ddose.ListIndex=0 Then
-		    EditField_z_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_X+z_off,"-#.#####")
+		    EditField_z_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_X+z_off,"-#.#####")
 		    
 		  elseif PopupMenu_z_3ddose.ListIndex=1 Then
-		    EditField_z_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_y+z_off,"-#.#####")
+		    EditField_z_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_y+z_off,"-#.#####")
 		    
 		  elseif PopupMenu_z_3ddose.ListIndex=2 Then
-		    EditField_z_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_z+z_off,"-#.#####")
+		    EditField_z_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_z+z_off,"-#.#####")
 		    
 		  end
 		End Sub
@@ -1554,16 +1554,16 @@ End
 	#tag Event
 		Sub Change()
 		  if me.ListIndex=0 Then
-		    EditField_z_Grid.Text=Format(dddose.dx,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_x+z_off,"-#.###")
+		    EditField_z_Grid.value = Format(dddose.dx,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_x+z_off,"-#.###")
 		    
 		  elseif me.ListIndex=1 Then
-		    EditField_z_Grid.Text=Format(dddose.dy,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_y+z_off,"-#.###")
+		    EditField_z_Grid.value = Format(dddose.dy,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_y+z_off,"-#.###")
 		    
 		  elseif me.ListIndex=2 Then
-		    EditField_z_Grid.Text=Format(dddose.dz,"-#.#####")
-		    EditField_z_coord.Text=Format(dddose.Coord_z+z_off,"-#.###")
+		    EditField_z_Grid.value = Format(dddose.dz,"-#.#####")
+		    EditField_z_coord.value = Format(dddose.Coord_z+z_off,"-#.###")
 		    
 		  end
 		End Sub

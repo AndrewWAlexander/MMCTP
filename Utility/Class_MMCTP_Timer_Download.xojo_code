@@ -28,14 +28,14 @@ Inherits Timer
 		      time=time+Format(seconds,"00.00")
 		      
 		      if app.which_window_shell Then
-		        Window_Configurations_Shell.StaticText_Timer_FTP.Text=Time
-		        Window_Configurations_Shell.StaticText_ShellDownLoadNum.Text="Number of files to transfer: "+str(UBound(MMCTP_Download.All)+1)
+		        Window_Configurations_Shell.StaticText_Timer_FTP.value = Time
+		        Window_Configurations_Shell.StaticText_ShellDownLoadNum.value = "Number of files to transfer: "+str(UBound(MMCTP_Download.All)+1)
 		      end
 		      
 		      // If current FTP download has exceeded time limit
 		      if  Min>MMCTP_Download.Max_TimeStamp_FTP Then
 		        if app.which_window_shell Then
-		          Window_Configurations_Shell.StaticText_Timer_FTP.Text="Max timeout exceeded ! "+Time
+		          Window_Configurations_Shell.StaticText_Timer_FTP.value = "Max timeout exceeded ! "+Time
 		        end
 		        MMCTP_Download.All(0).started=False
 		        MMCTP_Download.Restart_Job
@@ -57,9 +57,9 @@ Inherits Timer
 		  if UBound(MMCTP_Download.All)=-1 Then
 		    // Reset number of transfers
 		    if app.which_window_shell Then
-		      Window_Configurations_Shell.StaticText_ShellDownLoadNum.Text="Number of files to transfer: "+str(UBound(MMCTP_Download.All)+1)
-		      Window_Configurations_Shell.StaticText_FTP.Text=""
-		      Window_Configurations_Shell.StaticText_FTP_Info.Text=""
+		      Window_Configurations_Shell.StaticText_ShellDownLoadNum.value = "Number of files to transfer: "+str(UBound(MMCTP_Download.All)+1)
+		      Window_Configurations_Shell.StaticText_FTP.value = ""
+		      Window_Configurations_Shell.StaticText_FTP_Info.value = ""
 		      
 		    end
 		    

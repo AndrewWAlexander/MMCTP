@@ -1606,33 +1606,33 @@ End
 		  if  gBEAM.Beams(beam).egs_phsp_num_particles=0 Then
 		    c=0
 		  end
-		  StaticText_phsp_pho.Text="Phsp # Photon :"+Format(gBEAM.beams(beam).egs_phsp_num_photons,"###,###,###")+", "+Format(100*c,"#.##")+"%" 
-		  StaticText_phsp_par.Text="Phsp # Particles :"+Format(gBEAM.beams(beam).egs_phsp_num_particles,"###,###,###")  
-		  statictext_cpu_total.Text="Total CPU time estimate "+Calculate_Time
-		  StaticText_JobTimeReal.Text=Calculate_Real_Time
+		  StaticText_phsp_pho.value = "Phsp # Photon :"+Format(gBEAM.beams(beam).egs_phsp_num_photons,"###,###,###")+", "+Format(100*c,"#.##")+"%" 
+		  StaticText_phsp_par.value = "Phsp # Particles :"+Format(gBEAM.beams(beam).egs_phsp_num_particles,"###,###,###")  
+		  statictext_cpu_total.value = "Total CPU time estimate "+Calculate_Time
+		  StaticText_JobTimeReal.value = Calculate_Real_Time
 		  
-		  StaticText_cpu_time_per_hist.Text="CPU time per history (s) "+Format(DOSXYZ.DOSXYZ_Input(beam).dos_CPU_time,"###.#####")
+		  StaticText_cpu_time_per_hist.value = "CPU time per history (s) "+Format(DOSXYZ.DOSXYZ_Input(beam).dos_CPU_time,"###.#####")
 		  CheckBox_Simulation_Start.Caption="Started "+DOSXYZ.DOSXYZ_Input(beam).dos_start_Date+" active jobs "+str(DOSXYZ.DOSXYZ_Input(beam).dos_num_active_jobs)
 		  
-		  StaticText_AvgError.Text="Average % error of doses >  0.5 of max dose: "
+		  StaticText_AvgError.value = "Average % error of doses >  0.5 of max dose: "
 		  if dosxyz.DOSXYZ_Input(beam).dos_average_error>0.001 Then
-		    StaticText_AvgError.Text=StaticText_AvgError.Text+Format(dosxyz.DOSXYZ_Input(beam).dos_average_error,"-#.###")+"%"
+		    StaticText_AvgError.value = StaticText_AvgError.Text+Format(dosxyz.DOSXYZ_Input(beam).dos_average_error,"-#.###")+"%"
 		  else
-		    StaticText_AvgError.Text=StaticText_AvgError.Text+Format(dosxyz.DOSXYZ_Input(beam).dos_average_error,"-#.###e")+"%"
+		    StaticText_AvgError.value = StaticText_AvgError.Text+Format(dosxyz.DOSXYZ_Input(beam).dos_average_error,"-#.###e")+"%"
 		  end
 		  
-		  StaticText_Pre_hist.Text="Number of histories: " +Format(dosxyz.DOSXYZ_Input(beam).dos_error_math_hist,"-#")
+		  StaticText_Pre_hist.value = "Number of histories: " +Format(dosxyz.DOSXYZ_Input(beam).dos_error_math_hist,"-#")
 		  
-		  EditField_histories.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_num_histories,"###,###,###,###")
-		  EditField_queue.Text=DOSXYZ.DOSXYZ_Input(beam).dos_queue
-		  EditField_dose.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_dose,"#.#######e")
-		  EditField_jobs.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_jobs,"#")
-		  EditField_pegs.Text=DOSXYZ.DOSXYZ_Input(beam).dos_pegs_file
+		  EditField_histories.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_num_histories,"###,###,###,###")
+		  EditField_queue.value = DOSXYZ.DOSXYZ_Input(beam).dos_queue
+		  EditField_dose.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_dose,"#.#######e")
+		  EditField_jobs.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_jobs,"#")
+		  EditField_pegs.value = DOSXYZ.DOSXYZ_Input(beam).dos_pegs_file
 		  
-		  EditField_des_error.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_desired_average_error,"#.##")
-		  EditField_dosetowater.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dose_to_water,"#.###")
-		  EditField_temp_his.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_test_histories,"#")
-		  EditField_MU_BS.Text=Format(dosxyz.DOSXYZ_Input(beam).dos_MU_BS,"-#.###")
+		  EditField_des_error.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_desired_average_error,"#.##")
+		  EditField_dosetowater.value = Format(DOSXYZ.DOSXYZ_Input(beam).dose_to_water,"#.###")
+		  EditField_temp_his.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_test_histories,"#")
+		  EditField_MU_BS.value = Format(dosxyz.DOSXYZ_Input(beam).dos_MU_BS,"-#.###")
 		  
 		  
 		  PopupMenu_Shell.ListIndex=dosxyz.DOSXYZ_Input(beam).dos_Shell_Index
@@ -1715,7 +1715,7 @@ End
 		  gDOSXYZ.DOSXYZ(egsphant).DOSXYZ_Input(beam).dos_jobs=val(me.Text)
 		  
 		  
-		  StaticText_cpu_total.Text="Total CPU time estimate "+Calculate_Time
+		  StaticText_cpu_total.value = "Total CPU time estimate "+Calculate_Time
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1745,7 +1745,7 @@ End
 		      gDOSXYZ.DOSXYZ(egsphant).DOSXYZ_Input(beam).dos_desired_average_error
 		      StartNohist=Round(egs_pro*egs_pro*gDOSXYZ.DOSXYZ(egsphant).DOSXYZ_Input(beam).dos_error_math_hist)
 		      gDOSXYZ.DOSXYZ(egsphant).DOSXYZ_Input(beam).dos_num_histories =StartNohist
-		      EditField_histories.Text=Format(DOSXYZ.DOSXYZ_Input(beam).dos_num_histories,"###,###,###,###")
+		      EditField_histories.value = Format(DOSXYZ.DOSXYZ_Input(beam).dos_num_histories,"###,###,###,###")
 		    end
 		    
 		  end
@@ -1793,7 +1793,7 @@ End
 		    s=Replace(s,",","")
 		  Wend
 		  gDOSXYZ.DOSXYZ(egsphant).DOSXYZ_Input(beam).dos_num_histories=val(s)
-		  StaticText_cpu_total.Text="Total CPU time estimate "+Calculate_Time
+		  StaticText_cpu_total.value = "Total CPU time estimate "+Calculate_Time
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -1083,8 +1083,8 @@ End
 		  
 		  Slider_Window_Level.Value=gvis.WL
 		  Slider_Window_Width.Value=gvis.ww
-		  StaticText_level1.Text=Str(gvis.WL)
-		  StaticText_window1.Text=str(gvis.ww)
+		  StaticText_level1.value = Str(gvis.WL)
+		  StaticText_window1.value = str(gvis.ww)
 		  
 		  Slider_Trans.Maximum=100
 		  Slider_Trans.Minimum=0
@@ -1428,7 +1428,7 @@ End
 		    MI.Text = "Copy Inf"
 		    base.Append MI
 		    MI = New MenuItem
-		    MI.Text= "Define ROI"
+		    MI.value =  "Define ROI"
 		    base.Append MI
 		    MI = New MenuItem
 		    MI.Text = "AutoContour"
@@ -1713,7 +1713,7 @@ End
 		  if me.Value<>gvis.ww then
 		    gvis.ww=me.Value
 		    gvis.WL_Recalculate
-		    StaticText_window1.Text=str(me.Value)
+		    StaticText_window1.value = str(me.Value)
 		  end
 		  
 		End Sub
@@ -1722,7 +1722,7 @@ End
 #tag Events Slider_Window_Level
 	#tag Event
 		Sub ValueChanged()
-		  StaticText_level1.Text=str(me.Value)
+		  StaticText_level1.value = str(me.Value)
 		  if me.Value<>gvis.wl then
 		    gvis.WL=me.Value
 		    gvis.WL_Recalculate
@@ -1914,7 +1914,7 @@ End
 	#tag Event
 		Sub ValueChanged()
 		  scale=Slider_Scale.Value/100
-		  EditField_Scale.Text=Str(Slider_Scale.Value)
+		  EditField_Scale.value = Str(Slider_Scale.Value)
 		  
 		  ReDraw_Canvas
 		  

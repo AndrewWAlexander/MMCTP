@@ -740,12 +740,12 @@ End
 		    RadioButton_hor.Value=True
 		  end
 		  
-		  EditField_RBEAM.Text=str(Abs(BEAM.RBEAM))
-		  EditField_RMINBM.Text=str(BEAM.RMINBM)
-		  EditField_ZSMAX.Text=str(BEAM.ZSMAX)
-		  EditField_ZSMIN.Text=str(BEAM.ZSMIN)
-		  EditField_Path.Text=str(BEAM.Filnam)
-		  EditField_KeV.Text=str(BEAM.EIN)
+		  EditField_RBEAM.value = str(Abs(BEAM.RBEAM))
+		  EditField_RMINBM.value = str(BEAM.RMINBM)
+		  EditField_ZSMAX.value = str(BEAM.ZSMAX)
+		  EditField_ZSMIN.value = str(BEAM.ZSMIN)
+		  EditField_Path.value = str(BEAM.Filnam)
+		  EditField_KeV.value = str(BEAM.EIN)
 		  
 		  
 		  if BEAM.MONOEN=1 Then

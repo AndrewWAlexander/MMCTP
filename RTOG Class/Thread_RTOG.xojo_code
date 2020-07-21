@@ -4576,8 +4576,7 @@ Inherits Thread
 		  '===========Write McGill format to disk=================
 		  Dim f ,g as FolderItem
 		  Dim fname,line,temp,temp2 as string
-		  Dim i ,j ,k as integer
-		  Dim ct as boolean
+		  Dim ct As Boolean
 		  Dim d as date
 		  Dim ts as TextOutputStream
 		  '======================================================
@@ -4627,22 +4626,28 @@ Inherits Thread
 		    f=f.Parent
 		    
 		    PW_Progress_Max=ubound(scan)+1
-		    for i=0 to ubound(scan)
+		    For i As Integer = 0 To ubound(scan)
 		      write_McGill_CT_Scan(f,i)
-		    next
+		    Next
 		    
-		    PW_Progress_Max=ubound(Structures.Structures)+1
-		    for i=0 to ubound(Structures.Structures)
-		      write_mcGill_Structures(Structures.Structures(i),f,i)
-		    next
+		    Try
+		      PW_Progress_Max=ubound(Structures.Structures)+1
+		      For i As Integer = 0 To ubound(Structures.Structures)
+		        write_mcGill_Structures(Structures.Structures(i),f,i)
+		      Next
+		    Catch err As NilObjectException
+		      
+		      
+		      
+		    End Try
 		    
-		  end
+		  End If
 		  
 		  
 		  
-		  for i=0 to ubound(Plan)
+		  For i As Integer = 0 To ubound(Plan)
 		    Plan(i).Write_McGill_Plan(path)
-		  next
+		  Next
 		  
 		  PW_Show=false
 		End Function

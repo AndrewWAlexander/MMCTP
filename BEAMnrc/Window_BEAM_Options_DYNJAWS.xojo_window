@@ -902,21 +902,21 @@ End
 		Sub Refresh_window()
 		  Dim i as Integer
 		  
-		  EditField_Opening_file.Text=s.JAW_File_Path
+		  EditField_Opening_file.value = s.JAW_File_Path
 		  
 		  
 		  
-		  EditField_numpairs.Text=str(S.ISCM_MAX)
-		  EditField_radius.Text=Format(S.RMAX_CM,"-#.###")
-		  EditField_title.Text=str(S.Title_CM)
-		  EditField_ECUT.Text=Format(S.ECUT_Openings,"-#.###")
+		  EditField_numpairs.value = str(S.ISCM_MAX)
+		  EditField_radius.value = Format(S.RMAX_CM,"-#.###")
+		  EditField_title.value = str(S.Title_CM)
+		  EditField_ECUT.value = Format(S.ECUT_Openings,"-#.###")
 		  
-		  EditField_pCUT.Text=Format(S.pCUT_Openings,"-#.###")
+		  EditField_pCUT.value = Format(S.pCUT_Openings,"-#.###")
 		  
 		  
-		  EditField_Dosezone.Text=Format(S.Dose_Zone_air,"#")
+		  EditField_Dosezone.value = Format(S.Dose_Zone_air,"#")
 		  
-		  EditField_Latchbit.Text=Format(S.IREGION_to_bit_air,"#")
+		  EditField_Latchbit.value = Format(S.IREGION_to_bit_air,"#")
 		  
 		  
 		  if s.MODE=0 Then

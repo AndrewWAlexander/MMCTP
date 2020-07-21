@@ -244,8 +244,8 @@ End
 #tag WindowCode
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  me.close
-		  me.hide
+		  Me.close
+		  Me.hide
 		End Function
 	#tag EndEvent
 
@@ -253,7 +253,7 @@ End
 		Sub Open()
 		  //-----------------------------------------
 		  
-		  StaticText_BuildLabel.text="MMCTP built : "+str(app.MajorVersion)+"."+str(app.MinorVersion)+"."+str(app.BugVersion)+CHR(13)+"Build Date : "+app.BuildDate.ShortDate
+		  StaticText_BuildLabel.Value="MMCTP built : "+str(app.MajorVersion)+"."+str(app.MinorVersion)+"."+str(app.BugVersion)+CHR(13)+"Build Date : "+app.BuildDate.ShortDate
 		  
 		  //set the credits to draw
 		  credits = credits + "MMCTP GUI conception: Andrew Alexander" + chr(13)
@@ -350,7 +350,7 @@ End
 #tag Events StaticText_BuildLabel
 	#tag Event
 		Sub Open()
-		  me.text=app.LongVersion
+		  me.value=app.LongVersion
 		End Sub
 	#tag EndEvent
 #tag EndEvents

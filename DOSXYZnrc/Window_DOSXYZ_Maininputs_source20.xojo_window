@@ -968,22 +968,22 @@ End
 		  
 		  UpdateListbox
 		  
-		  EditField_idbs.Text=Format(dosxyz_input.i_dbs,"#")
+		  EditField_idbs.value = Format(dosxyz_input.i_dbs,"#")
 		  
-		  EditField_r_dbs.Text=Format(dosxyz_input.r_dbs,"-#.#####")
-		  EditField_ssd_dbs.Text=Format(dosxyz_input.ssd_dbs,"-#.#####")
-		  EditField_z_dbs.Text=Format(dosxyz_input.z_dbs,"-#.#####")
-		  EditField_i_muidxout.Text=Format(dosxyz_input.i_muidx_out,"-#.######")
+		  EditField_r_dbs.value = Format(dosxyz_input.r_dbs,"-#.#####")
+		  EditField_ssd_dbs.value = Format(dosxyz_input.ssd_dbs,"-#.#####")
+		  EditField_z_dbs.value = Format(dosxyz_input.z_dbs,"-#.#####")
+		  EditField_i_muidxout.value = Format(dosxyz_input.i_muidx_out,"-#.######")
 		  
-		  EditField_e_split.Text=Format(dosxyz_input.e_split,"-#")
-		  EditField_BEAM_exe.Text=dosxyz_input.the_shared_lib
-		  EditField_BEAM_Inputfile.Text=dosxyz_input.the_input_file
-		  EditField_FILNAME.Text=dosxyz_input.FILNAM
-		  
-		  
+		  EditField_e_split.value = Format(dosxyz_input.e_split,"-#")
+		  EditField_BEAM_exe.value = dosxyz_input.the_shared_lib
+		  EditField_BEAM_Inputfile.value = dosxyz_input.the_input_file
+		  EditField_FILNAME.value = dosxyz_input.FILNAM
 		  
 		  
-		  EditField_num_control.Text=Format(dosxyz_input.nset,"#")
+		  
+		  
+		  EditField_num_control.value = Format(dosxyz_input.nset,"#")
 		  if dosxyz_input.calflag=0 Then
 		    RadioButton_CalRun.Value=True
 		  elseif dosxyz_input.calflag=1 Then

@@ -2472,237 +2472,240 @@ Inherits Thread
 		  // DICOM image reader
 		  //
 		  //-------------------------------------------------------
-		  dim i,j,pos as integer
-		  dim found,signed as boolean
-		  Dim Image as Class_DICOM_Image
+		  Dim pos As Integer
+		  Dim found,signed As Boolean
+		  Dim Image As Class_DICOM_Image
 		  //================================================
 		  
 		  found=False
-		  for i=0 to UBound(file.Elements) // look for Image .dcm files
-		    if file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0060" and file.Elements(i).value="CT"  then
-		      found=true
+		  For i As Integer = 0 To UBound(file.Elements) // look for Image .dcm files
+		    If file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0060" And file.Elements(i).value="CT"  Then
+		      found=True
 		      Exit
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0060" and file.Elements(i).value=""  then // Correction for Issam DICOM Data from CERR
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0060" And file.Elements(i).value=""  Then // Correction for Issam DICOM Data from CERR
 		      file.Elements(i).value="CT"
-		      found=true
+		      found=True
 		      Exit
-		    end if
-		  next
+		    End If
+		  Next
 		  
-		  if found Then
-		    Image=new Class_DICOM_Image
-		  else
+		  If found Then
+		    Image=New Class_DICOM_Image
+		  Else
 		    Return
-		  end
+		  End
 		  
 		  
-		  for i=0 to UBound(file.Elements)
-		    if file.Elements(i).tag_a="0002" and file.Elements(i).tag_b="0002" then
+		  For i As Integer = 0 To UBound(file.Elements)
+		    If file.Elements(i).tag_a="0002" And file.Elements(i).tag_b="0002" Then
 		      Image.MediaStorageSOPClassUID=(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0002" and file.Elements(i).tag_b="0003" then
+		    Elseif file.Elements(i).tag_a="0002" And file.Elements(i).tag_b="0003" Then
 		      Image.MediaStorageSOPInstanceUID=(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0002" and file.Elements(i).tag_b="0020"  then
+		    Elseif file.Elements(i).tag_a="0002" And file.Elements(i).tag_b="0020"  Then
 		      Image.PatientOrientation=Trim(file.Elements(i).value) // Patient Orientation
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0008" then // Image Type
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0008" Then // Image Type
 		      Image.Image_Type=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0012" then // Creation Date
-		      Image.InstanceCreationDate=val(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0012" Then // Creation Date
+		      Image.InstanceCreationDate=Val(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0013" then // Creation Time
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0013" Then // Creation Time
 		      Image.InstanceCreationTime=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0016" then // SOP Class UID
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0016" Then // SOP Class UID
 		      Image.SOPClassUID=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0018" then // SOP Instance UID
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0018" Then // SOP Instance UID
 		      Image.SOPInstanceUID=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0020" then // Study Date
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0020" Then // Study Date
 		      Image.StudyDate=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0021" then // Series Date
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0021" Then // Series Date
 		      Image.SeriesDate=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0022" then // AcquisitionDate Date
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0022" Then // AcquisitionDate Date
 		      Image.AcquisitionDate=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0030" then //Study Time
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0030" Then //Study Time
 		      Image.StudyTime=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0031" then // Series Time
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0031" Then // Series Time
 		      Image.SeriesTime=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0032" then // aq Time
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0032" Then // aq Time
 		      Image.AcquisitionTime=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0050" then //
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0050" Then //
 		      Image.AccessionNumber=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0060" then //Modality
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0060" Then //Modality
 		      Image.Modality=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0070" then //Modality
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0070" Then //Modality
 		      Image.Manufacturer=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="0090" then // Referring Physician's name
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="0090" Then // Referring Physician's name
 		      Image.ReferringPhysician=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="1030" then //Study Description
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="1030" Then //Study Description
 		      Image.StudyDescription=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="103E" then //Series Description
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="103E" Then //Series Description
 		      Image.SeriesDescription=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="1048" then //Physician Name
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="1048" Then //Physician Name
 		      Image.Physician=file.Elements(i).value
 		      
-		    elseif file.Elements(i).tag_a="0008" and file.Elements(i).tag_b="2111" then //
+		    Elseif file.Elements(i).tag_a="0008" And file.Elements(i).tag_b="2111" Then //
 		      Image.DerivationDescription=file.Elements(i).value
 		      
 		      
-		    elseif file.Elements(i).tag_a="0010" and file.Elements(i).tag_b="0010" then
-		      Image.PatientName=trim((file.Elements(i).value))
+		    Elseif file.Elements(i).tag_a="0010" And file.Elements(i).tag_b="0010" Then
+		      Image.PatientName=Trim((file.Elements(i).value))
 		      
-		    elseif file.Elements(i).tag_a="0010" and file.Elements(i).tag_b="0020" then
-		      Image.PatientID=trim(file.Elements(i).value) //0010x0020  patient ID
+		    Elseif file.Elements(i).tag_a="0010" And file.Elements(i).tag_b="0020" Then
+		      Image.PatientID=Trim(file.Elements(i).value) //0010x0020  patient ID
 		      
-		    elseif file.Elements(i).tag_a="0010" and file.Elements(i).tag_b="0030" then
-		      Image.PatientBirthDate=trim((file.Elements(i).value)) // Birthdate
+		    Elseif file.Elements(i).tag_a="0010" And file.Elements(i).tag_b="0030" Then
+		      Image.PatientBirthDate=Trim((file.Elements(i).value)) // Birthdate
 		      
-		    elseif file.Elements(i).tag_a="0010" and file.Elements(i).tag_b="0040" then
-		      Image.sex=trim(file.Elements(i).value) //  patient sex
+		    Elseif file.Elements(i).tag_a="0010" And file.Elements(i).tag_b="0040" Then
+		      Image.sex=Trim(file.Elements(i).value) //  patient sex
 		      
-		    elseif file.Elements(i).tag_a="0010" and file.Elements(i).tag_b="1010" then
-		      Image.Age=trim(file.Elements(i).value) //Age
-		      
-		      
-		    elseif file.Elements(i).tag_a="0018" and file.Elements(i).tag_b="0050" then
-		      Image.SliceThickness=cdbl(file.Elements(i).value) //slice thickness in mm
+		    Elseif file.Elements(i).tag_a="0010" And file.Elements(i).tag_b="1010" Then
+		      Image.Age=Trim(file.Elements(i).value) //Age
 		      
 		      
-		    elseif file.Elements(i).tag_a="0018" and file.Elements(i).tag_b="0060" then
+		    Elseif file.Elements(i).tag_a="0018" And file.Elements(i).tag_b="0050" Then
+		      Image.SliceThickness=CDbl(file.Elements(i).value) //slice thickness in mm
+		      
+		      
+		    Elseif file.Elements(i).tag_a="0018" And file.Elements(i).tag_b="0060" Then
 		      Image.Kvp=Trim(file.Elements(i).value) //slice thickness in mm
 		      
-		    elseif file.Elements(i).tag_a="0018" and file.Elements(i).tag_b="1020" then
+		    Elseif file.Elements(i).tag_a="0018" And file.Elements(i).tag_b="1020" Then
 		      Image.SoftwareVersions=Trim(file.Elements(i).value) 
 		      
-		    elseif file.Elements(i).tag_a="0018" and file.Elements(i).tag_b="5100" then
+		    Elseif file.Elements(i).tag_a="0018" And file.Elements(i).tag_b="5100" Then
 		      Image.patient_position=file.Elements(i).value //patient position HFS, etc...
 		      
-		    ElseIf file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="000D"  then // Study instace UID
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="000D"  Then // Study instace UID
 		      Image.StudyInstanceUID=(file.Elements(i).value)
 		      
-		    ElseIf file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="000E"  then // Series Instance UID
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="000E"  Then // Series Instance UID
 		      Image.SeriesInstanceUID=(file.Elements(i).value)
 		      
-		    ElseIf file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0010"  then // Study ID
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0010"  Then // Study ID
 		      Image.StudyID=(file.Elements(i).value)
 		      
-		    ElseIf file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0011"  then // Series Number
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0011"  Then // Series Number
 		      Image.SeriesNumber=(file.Elements(i).value)
 		      
-		    ElseIf file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0013"  then // Series Number
-		      Image.InstanceNumber=val(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0013"  Then // Series Number
+		      Image.InstanceNumber=Val(file.Elements(i).value)
 		      
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0032" then
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0032" Then
 		      Image.ImagePositionPatient=file.Elements(i).value //Image Position Patient
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0037"  then
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0037"  Then
 		      Image.ImageOrientationPatient=Trim(file.Elements(i).value) // ImageOrientationPatient
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="0052" then
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="0052" Then
 		      Image.FrameOfReferenceUID=file.Elements(i).value //Image FrameOfReferenceUID 
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="1002" then
-		      Image.ImagesinAcquisition=val(file.Elements(i).value) //Image FrameOfReferenceUID
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="1002" Then
+		      Image.ImagesinAcquisition=Val(file.Elements(i).value) //Image FrameOfReferenceUID
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="1040" then
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="1040" Then
 		      Image.PositionReferenceIndicator=file.Elements(i).value //Image FrameOfReferenceUID
 		      
-		    elseif file.Elements(i).tag_a="0020" and file.Elements(i).tag_b="1041" then
-		      Image.SliceLocation=val(file.Elements(i).value )// Z coordinate of the slice - in mm
+		    Elseif file.Elements(i).tag_a="0020" And file.Elements(i).tag_b="1041" Then
+		      Image.SliceLocation=Val(file.Elements(i).value )// Z coordinate of the slice - in mm
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0002" then //Smaples per pixel
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0002" Then //Smaples per pixel
 		      Image.SampleperPixel=(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0004" then //Photo
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0004" Then //Photo
 		      Image.PhotometricInterpretation=(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0010" then
-		      Image.row=cdbl(file.Elements(i).value) // No of rows
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0010" Then
+		      Image.row=CDbl(file.Elements(i).value) // No of rows
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0011" then
-		      Image.Columns=cdbl(file.Elements(i).value) // No of columns
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0011" Then
+		      Image.Columns=CDbl(file.Elements(i).value) // No of columns
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0030" then
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0030" Then
 		      Image.PixelSpacing=file.Elements(i).value // Pixel size (x) in mm
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0100" then // Bits allocated per pixel ...
-		      Image.BitsAllocated=cdbl(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0100" Then // Bits allocated per pixel ...
+		      Image.BitsAllocated=CDbl(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0101" then // Bits stored per pixel ...
-		      Image.BitsStored=cdbl(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0101" Then // Bits stored per pixel ...
+		      Image.BitsStored=CDbl(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0102" then // Bits highbit per pixel ...
-		      Image.HighBit=cdbl(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0102" Then // Bits highbit per pixel ...
+		      Image.HighBit=CDbl(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="0103" then
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="0103" Then
 		      Image.PixelRepresentation=CDbl(file.Elements(i).value) //PixelRepresentation
-		      if Image.PixelRepresentation=1 Then
+		      If Image.PixelRepresentation=1 Then
 		        signed=True
-		      else
+		      Else
 		        signed=False
-		      end
+		      End
 		      
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="1050" then
-		      Image.WinLevel=cdbl(file.Elements(i).value) //default window level
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="1050" Then
+		      Image.WinLevel=CDbl(file.Elements(i).value) //default window level
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="1051" then
-		      Image.WinWidth=cdbl(file.Elements(i).value) //default window width
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="1051" Then
+		      Image.WinWidth=CDbl(file.Elements(i).value) //default window width
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="1052" then //Image rescale intercept
-		      Image.rescaleintercept=cdbl(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="1052" Then //Image rescale intercept
+		      Image.rescaleintercept=CDbl(file.Elements(i).value)
 		      
-		    elseif file.Elements(i).tag_a="0028" and file.Elements(i).tag_b="1053" then 
-		      Image.rescaleslope=cdbl(file.Elements(i).value)
+		    Elseif file.Elements(i).tag_a="0028" And file.Elements(i).tag_b="1053" Then 
+		      Image.rescaleslope=CDbl(file.Elements(i).value)
 		      
-		    ElseIf file.Elements(i).tag_a="7FE0" and file.Elements(i).tag_b="0010"  then // Pixel data
-		      if file.TS_Implicit then
+		    Elseif file.Elements(i).tag_a="7FE0" And file.Elements(i).tag_b="0010"  Then // Pixel data
+		      If file.TS_Implicit Then
 		        pos=file.Elements(i).byte_position+8
-		      else
+		      Else
 		        pos=file.Elements(i).byte_position+12
-		      end if
-		    end
-		  next
+		      End If
+		    End
+		  Next
 		  
-		  redim Image.PixelData(Image.row*Image.Columns-1)
+		  Redim Image.PixelData(Image.row*Image.Columns-1)
 		  
 		  //pos=thismemblock.size-imagesize
 		  //for now assume pixel data from end of file up   so rows*width*Bits allocated/8  give size in byte.
 		  //thismemblock.littleEndian=not thismemblock.littleEndian
-		  for j=0 to Image.row-1
-		    for i=0 to Image.Columns-1
+		  Var temp As New Class_DICOM_File
+		  temp =file 
+		  
+		  For j As Integer = 0 To Image.row-1
+		    For i As Integer = 0 To Image.Columns-1
 		      //here read the proper way...8 or 16 bits signed or not. endian is taken care by the memory block .littleendian
-		      if Image.BitsAllocated=16 then
-		        if signed then
-		          Image.PixelData(i+j*Image.Columns)=file.thismemblock.short(pos)// signed 16bit integer
-		        else
+		      If Image.BitsAllocated=16 Then
+		        If signed Then
+		          Image.PixelData(i+j*Image.Columns)=file.thismemblock.Short(pos)// signed 16bit integer
+		        Else
 		          Image.PixelData(i+j*Image.Columns)=file.thismemblock.ushort(pos) //16bit integer
-		        end if
+		        End If
 		        pos=pos+2
 		        
-		      elseif Image.BitsAllocated=8 then
-		        Image.PixelData(i+j*Image.Columns)=file.thismemblock.byte(pos)
+		      Elseif Image.BitsAllocated=8 Then
+		        Image.PixelData(i+j*Image.Columns)=file.thismemblock.Byte(pos)
 		        pos=pos+1
-		      end if
-		    next
-		  next
+		      End If
+		    Next
+		  Next
 		  
 		  RT_Images.Append Image
 		End Sub

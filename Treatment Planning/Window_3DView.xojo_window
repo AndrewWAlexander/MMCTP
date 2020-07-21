@@ -1162,7 +1162,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(X As Integer, Y As Integer)
-		  EditField_Scale.Text=Format(Canvas_3D(0).canvas_scale,"#.##")
+		  EditField_Scale.value = Format(Canvas_3D(0).canvas_scale,"#.##")
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1395,7 +1395,7 @@ End
 #tag Events Slider_Image
 	#tag Event
 		Sub ValueChanged()
-		  EditField_Nz.Text=Str(me.Value)
+		  EditField_Nz.value = Str(me.Value)
 		  Canvas_3D(0).update_Room
 		  
 		End Sub

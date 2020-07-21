@@ -2526,9 +2526,9 @@ End
 		  
 		  
 		  
-		  EditField_radius.Text=str(w.RMAX_CM)
-		  EditField_title.Text=str(w.Title_CM)
-		  EditField_zmin.Text=Format(w.Zmin,"-#.#####")
+		  EditField_radius.value = str(w.RMAX_CM)
+		  EditField_title.value = str(w.Title_CM)
+		  EditField_zmin.value = Format(w.Zmin,"-#.#####")
 		  
 		  
 		  if w.Status=1 Then
@@ -2610,47 +2610,47 @@ End
 		  
 		  
 		  
-		  EditField_Dist_B.Text=Format(w.DBack,"-#.#####")
-		  EditField_Dist_F.Text=Format(w.DFront,"-#.#####")
+		  EditField_Dist_B.value = Format(w.DBack,"-#.#####")
+		  EditField_Dist_F.value = Format(w.DFront,"-#.#####")
 		  
-		  EditField_B_Thick.Text=Format(w.TBack,"-#.#####")
-		  EditField_F_Thick.Text=Format(w.TFront,"-#.#####")
+		  EditField_B_Thick.value = Format(w.TBack,"-#.#####")
+		  EditField_F_Thick.value = Format(w.TFront,"-#.#####")
 		  
-		  EditField_WP1.Text=Format(w.WPos1,"-#.#####")
-		  EditField_WP2.Text=Format(w.WPos2,"-#.#####")
+		  EditField_WP1.value = Format(w.WPos1,"-#.#####")
+		  EditField_WP2.value = Format(w.WPos2,"-#.#####")
 		  
-		  EditField_NProf.Text=Format(w.NProf,"-#.#####")
-		  EditField_NPoint.Text=Format(w.NPoint,"-#.#####")
+		  EditField_NProf.value = Format(w.NProf,"-#.#####")
+		  EditField_NPoint.value = Format(w.NPoint,"-#.#####")
 		  
-		  EditField_Material_Back.Text=w.Medium_In_Back
-		  EditField_Material_Wedge.Text=w.Medium_In_Wedge
-		  EditField_Material_Front.Text=w.Medium_In_Front
+		  EditField_Material_Back.value = w.Medium_In_Back
+		  EditField_Material_Wedge.value = w.Medium_In_Wedge
+		  EditField_Material_Front.value = w.Medium_In_Front
 		  
-		  EditField_dosezoneair.Text=Format(w.DoseZoneAir,"#")
-		  EditField_dosezone_F.Text=Format(w.DoseZoneFront,"#")
-		  EditField_dosezone_B.Text=Format(w.DoseZoneBack,"#")
-		  EditField_dosezone_Wedge.Text=Format(w.DoseZoneWedge,"#")
+		  EditField_dosezoneair.value = Format(w.DoseZoneAir,"#")
+		  EditField_dosezone_F.value = Format(w.DoseZoneFront,"#")
+		  EditField_dosezone_B.value = Format(w.DoseZoneBack,"#")
+		  EditField_dosezone_Wedge.value = Format(w.DoseZoneWedge,"#")
 		  
-		  EditField_LATCHbit_Air.Text=Format(w.Iregion_to_bit_Air,"#")
-		  EditField_LATCHbit_F.Text=Format(w.Iregion_to_bit_Front,"#")
-		  EditField_LATCHbit_B.Text=Format(w.Iregion_to_bit_back,"#")
-		  EditField_LATCHbit_Wedge.Text=Format(w.Iregion_to_bit_Wedge,"#")
-		  
-		  
-		  EditField_ESaveF.Text=Format(w.ESaveIn_Front,"-#.#####")
-		  EditField_ESaveB.Text=Format(w.ESaveIn_Back,"-#.#####")
-		  EditField_EsaveW.Text=Format(w.ESaveIn_Wedge,"-#.#####")
+		  EditField_LATCHbit_Air.value = Format(w.Iregion_to_bit_Air,"#")
+		  EditField_LATCHbit_F.value = Format(w.Iregion_to_bit_Front,"#")
+		  EditField_LATCHbit_B.value = Format(w.Iregion_to_bit_back,"#")
+		  EditField_LATCHbit_Wedge.value = Format(w.Iregion_to_bit_Wedge,"#")
 		  
 		  
-		  EditField_Ecut_Air.Text=Format(w.ECutAir,"-#.#####")
-		  EditField_Ecut_F.Text=Format(w.ECutFront,"-#.#####")
-		  EditField_Ecut_B.Text=Format(w.ECutBack,"-#.#####")
-		  EditField_Ecut_Wedge.Text=Format(w.ECutWedge,"-#.#####")
+		  EditField_ESaveF.value = Format(w.ESaveIn_Front,"-#.#####")
+		  EditField_ESaveB.value = Format(w.ESaveIn_Back,"-#.#####")
+		  EditField_EsaveW.value = Format(w.ESaveIn_Wedge,"-#.#####")
 		  
-		  EditField_pcut_Air.Text=Format(w.PcutAir,"-#.#####")
-		  EditField_pcut_F.Text=Format(w.PcutFront,"-#.#####")
-		  EditField_pcut_B.Text=Format(w.PcutBack,"-#.#####")
-		  EditField_pcut_Wedge.Text=Format(w.PcutWedge,"-#.#####")
+		  
+		  EditField_Ecut_Air.value = Format(w.ECutAir,"-#.#####")
+		  EditField_Ecut_F.value = Format(w.ECutFront,"-#.#####")
+		  EditField_Ecut_B.value = Format(w.ECutBack,"-#.#####")
+		  EditField_Ecut_Wedge.value = Format(w.ECutWedge,"-#.#####")
+		  
+		  EditField_pcut_Air.value = Format(w.PcutAir,"-#.#####")
+		  EditField_pcut_F.value = Format(w.PcutFront,"-#.#####")
+		  EditField_pcut_B.value = Format(w.PcutBack,"-#.#####")
+		  EditField_pcut_Wedge.value = Format(w.PcutWedge,"-#.#####")
 		  
 		  
 		  

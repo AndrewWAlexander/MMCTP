@@ -234,7 +234,7 @@ End
 		  
 		  
 		  
-		  EditField_brem_splitting_num.Text=str(Window_BEAM_MainInputs.BEAM.NBRSPL)
+		  EditField_brem_splitting_num.value = str(Window_BEAM_MainInputs.BEAM.NBRSPL)
 		  
 		  
 		  if Window_BEAM_MainInputs.BEAM.IRRLTT>0 Then

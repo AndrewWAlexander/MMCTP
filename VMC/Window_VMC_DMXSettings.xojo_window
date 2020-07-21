@@ -1306,19 +1306,19 @@ End
 		  
 		  Checkbox_dosxyz_Clean1.Value=DMX.Cleancontours
 		  
-		  EditField_air_density.Text=DMX.Clean_density
-		  EditField_DMXname.Text=DMX.dmx_name
+		  EditField_air_density.value = DMX.Clean_density
+		  EditField_DMXname.value = DMX.dmx_name
 		  
 		  
-		  EditField_Xdel.Text=Format(gVMC.DMXSettings.Del_X,"-#.###")
-		  EditField_Xmax.Text=Format(gVMC.DMXSettings.X_Max,"-#.###")
-		  EditField_Xmin.Text=Format(gVMC.DMXSettings.X_min,"-#.###")
-		  EditField_ydel.Text=Format(gVMC.DMXSettings.Del_y,"-#.###")
-		  EditField_ymax.Text=Format(gVMC.DMXSettings.y_Max,"-#.###")
-		  EditField_ymin.Text=Format(gVMC.DMXSettings.y_min,"-#.###")
-		  EditField_zdel.Text=Format(gVMC.DMXSettings.Del_z,"-#.###")
-		  EditField_zmax.Text=Format(gVMC.DMXSettings.z_Max,"-#.###")
-		  EditField_zmin.Text=Format(gVMC.DMXSettings.z_min,"-#.###")
+		  EditField_Xdel.value = Format(gVMC.DMXSettings.Del_X,"-#.###")
+		  EditField_Xmax.value = Format(gVMC.DMXSettings.X_Max,"-#.###")
+		  EditField_Xmin.value = Format(gVMC.DMXSettings.X_min,"-#.###")
+		  EditField_ydel.value = Format(gVMC.DMXSettings.Del_y,"-#.###")
+		  EditField_ymax.value = Format(gVMC.DMXSettings.y_Max,"-#.###")
+		  EditField_ymin.value = Format(gVMC.DMXSettings.y_min,"-#.###")
+		  EditField_zdel.value = Format(gVMC.DMXSettings.Del_z,"-#.###")
+		  EditField_zmax.value = Format(gVMC.DMXSettings.z_Max,"-#.###")
+		  EditField_zmin.value = Format(gVMC.DMXSettings.z_min,"-#.###")
 		End Sub
 	#tag EndEvent
 

@@ -821,15 +821,15 @@ End
 		    RadioButton_FWHM.Value=True
 		  end
 		  
-		  EditField_radius.Text=str(Abs(BEAM.RBEAM))
-		  EditField_radiusY.Text=str(Abs(BEAM.RBEAMY))
+		  EditField_radius.value = str(Abs(BEAM.RBEAM))
+		  EditField_radiusY.value = str(Abs(BEAM.RBEAMY))
 		  
 		  
-		  EditField_KeV.Text=str(BEAM.EIN)
-		  EditField_xaxis.Text=str(BEAM.UINC)
-		  EditField_yaxis.Text=str(BEAM.VINC)
-		  EditField_zaxis.Text=str(BEAM.WINC)
-		  EditField_mean_ang_spread.Text=str(BEAM.sigma_src19)
+		  EditField_KeV.value = str(BEAM.EIN)
+		  EditField_xaxis.value = str(BEAM.UINC)
+		  EditField_yaxis.value = str(BEAM.VINC)
+		  EditField_zaxis.value = str(BEAM.WINC)
+		  EditField_mean_ang_spread.value = str(BEAM.sigma_src19)
 		  
 		  
 		  

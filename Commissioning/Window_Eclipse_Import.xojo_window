@@ -1350,7 +1350,7 @@ End
 		      Listbox_Points.Cell(i,3)=str(data.Graphs(k).Points(i).z_cm)
 		      Listbox_Points.Cell(i,4)=str(data.Graphs(k).Points(i).value)
 		    next
-		    EditField_FS.Text=DATA.Graphs(k).FLSZ
+		    EditField_FS.value = DATA.Graphs(k).FLSZ
 		  end
 		  
 		  
@@ -1380,7 +1380,7 @@ End
 		  if f.Exists=False Then
 		    Return
 		  end
-		  EditField_RFA_File.Text=f.Name
+		  EditField_RFA_File.value = f.Name
 		  
 		  ts=f.OpenAsTextFile
 		  if ts=Nil Then
@@ -1476,14 +1476,14 @@ End
 		  wend
 		  ts.Close
 		  
-		  EditField_Date.Text=data.exportingdate
-		  EditField_ssd.Text=Format(data.SSD,"-#.####")
-		  EditField_Energy.Text=data.energy
-		  EditField_algorithm.text=data.algorithm
-		  EditField_machine.text=data.machine
-		  EditField_data.Text=data.data
-		  EditField_addon.Text=data.addon
-		  EditField_beamdata.Text=data.beamdata
+		  EditField_Date.value = data.exportingdate
+		  EditField_ssd.value = Format(data.SSD,"-#.####")
+		  EditField_Energy.value = data.energy
+		  EditField_algorithm.value = data.algorithm
+		  EditField_machine.value = data.machine
+		  EditField_data.value = data.data
+		  EditField_addon.value = data.addon
+		  EditField_beamdata.value = data.beamdata
 		  GroupBox2.Enabled=True
 		  Pop_Graphs
 		End Sub

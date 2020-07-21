@@ -1278,12 +1278,12 @@ End
 		    Listbox_MC_DOS_Egsphant.AddRow "Resolution Z (cm)"
 		    Listbox_MC_DOS_Egsphant.AddRow "Auto Make"
 		    
-		    EditField_DOSXYZnrc_Error.Text=Format(gDOSXYZ.dosxyz_desired_average_error,"#.##")
-		    EditField_DOSxyz_NumJobs.Text=Format(gDOSXYZ.dosxyz_desired_number_of_Jobs,"#")
-		    EditField_DOSxyz_defaultSource.Text=Format(gDOSXYZ.dosxyz_defaultsource,"#")
+		    EditField_DOSXYZnrc_Error.value = Format(gDOSXYZ.dosxyz_desired_average_error,"#.##")
+		    EditField_DOSxyz_NumJobs.value = Format(gDOSXYZ.dosxyz_desired_number_of_Jobs,"#")
+		    EditField_DOSxyz_defaultSource.value = Format(gDOSXYZ.dosxyz_defaultsource,"#")
 		    
 		    CheckBox_MC_DOS_autojob.Value=gDOSXYZ.dosxyz_autojobtimer
-		    EditField_DOSxyz_autojobtime.Text=Format(gDOSXYZ.dosxyz_autojobtimer_sec,"#")
+		    EditField_DOSxyz_autojobtime.value = Format(gDOSXYZ.dosxyz_autojobtimer_sec,"#")
 		    
 		    CheckBox_DOSXYZ_Auto.Value=gDOSXYZ.dosxyz_auto_run
 		    CheckBox_DOSXYZ_Refresh.Value=gDOSXYZ.dosxyz_auto_refresh
@@ -1297,9 +1297,9 @@ End
 		    CheckBox_MC_DOS_Zero.Value=gDOSXYZ.Zero_Dose
 		    
 		    
-		    EditField_DOSxyz_Numtest_hist.Text=Format(gDOSXYZ.dosxyz_test_histories,"#")
-		    EditField_DOSxyz_MinNumJobs.Text=Format(gDOSXYZ.dosxyz_min_number_of_Jobs,"#")
-		    EditField_DOSxyz_defaultIDAT.Text=Format(gDOSXYZ.dosxyz_defaultIDAT,"#")
+		    EditField_DOSxyz_Numtest_hist.value = Format(gDOSXYZ.dosxyz_test_histories,"#")
+		    EditField_DOSxyz_MinNumJobs.value = Format(gDOSXYZ.dosxyz_min_number_of_Jobs,"#")
+		    EditField_DOSxyz_defaultIDAT.value = Format(gDOSXYZ.dosxyz_defaultIDAT,"#")
 		    
 		    
 		    if gDOSXYZ.dosxyz_defaultsource20_as_phasespace =False Then

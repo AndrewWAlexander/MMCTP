@@ -808,11 +808,11 @@ End
 		  
 		  UpdateListbox
 		  
-		  EditField_esplit.Text=Format(dosxyz_input.e_split,"-#")
-		  EditField_BEAM_exe.Text=dosxyz_input.the_beam_code
-		  EditField_BEAM_Inputfile.Text=dosxyz_input.the_input_file
-		  EditField_Pegs.Text=dosxyz_input.the_pegs_file
-		  EditField_num_control.Text=Format(dosxyz_input.nset,"#")
+		  EditField_esplit.value = Format(dosxyz_input.e_split,"-#")
+		  EditField_BEAM_exe.value = dosxyz_input.the_beam_code
+		  EditField_BEAM_Inputfile.value = dosxyz_input.the_input_file
+		  EditField_Pegs.value = dosxyz_input.the_pegs_file
+		  EditField_num_control.value = Format(dosxyz_input.nset,"#")
 		  
 		  PopupMenu_LatchBitFilter.DeleteAllRows
 		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=0"
@@ -822,8 +822,8 @@ End
 		  
 		  PopupMenu_LatchBitFilter.ListIndex=dosxyz_input.I_bit_filter
 		  
-		  EditField_vcu_code.Text=dosxyz_input.the_vcu_code
-		  EditField_vcu_file.Text=dosxyz_input.the_vcu_input_file
+		  EditField_vcu_code.value = dosxyz_input.the_vcu_code
+		  EditField_vcu_file.value = dosxyz_input.the_vcu_input_file
 		End Sub
 	#tag EndEvent
 

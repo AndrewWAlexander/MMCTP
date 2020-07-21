@@ -150,7 +150,7 @@ Inherits Thread
 		    da=gRTOG.Plan(plan_index).Dose(a)
 		    Dose = new RTOG_Dose_Distribution
 		    Dose.SOP_Instance_UID=gDICOM.UID_Make
-		    //Window_AddDose.StaticText2.Text="Calculating New Dose Matrix"
+		    //Window_AddDose.StaticText2.value = "Calculating New Dose Matrix"
 		    
 		    Dose.Coord_1_1st_point =da.Coord_1_1st_point
 		    Dose.Coord_2_1st_point =da.Coord_2_1st_point
@@ -185,7 +185,7 @@ Inherits Thread
 		    //dose=Dose_Op_Div(a,b,dose)
 		    //end
 		    
-		    //Window_AddDose.StaticText2.Text="Finished New Dose Matrix"
+		    //Window_AddDose.StaticText2.value = "Finished New Dose Matrix"
 		    
 		    
 		    if Zero Then
@@ -265,7 +265,7 @@ Inherits Thread
 		    //dose=Dose_Op_Div(a,b,dose)
 		    //end
 		    
-		    'Window_AddDose.StaticText2.Text="Finished New Dose Matrix"
+		    'Window_AddDose.StaticText2.value = "Finished New Dose Matrix"
 		    Window_AddDose.ProgressMsg="Finished New Dose Matrix"
 		    
 		    
@@ -309,7 +309,7 @@ Inherits Thread
 		  if b=-1 then'We use the editfield value
 		    edit_value=Val(Window_AddDose.EditField_Dose_Cons.Text)
 		    Dc.Dose_name=Da.Dose_name+"+"+Window_AddDose.EditField_Dose_Cons.Text
-		    'Window_AddDose.StaticText2.Text=dc.Dose_name
+		    'Window_AddDose.StaticText2.value = dc.Dose_name
 		    
 		    for i = 0 to UBound(Dc.Dose_Distribution)
 		      'PW_Progress=i

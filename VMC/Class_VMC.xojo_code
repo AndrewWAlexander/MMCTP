@@ -604,7 +604,7 @@ Protected Class Class_VMC
 		    if wts<> Nil Then
 		      wts.Write ffile
 		      wts.Close
-		      //Window_Treatment.StaticText_VMC_Status.Text=f.Name +" input file written" //Commented out by William Davis to avoid crash due to exception
+		      //Window_Treatment.StaticText_VMC_Status.value = f.Name +" input file written" //Commented out by William Davis to avoid crash due to exception
 		      Return True
 		    else
 		      Errors.append "Error ! "+f.Name +" input file NOT written" //Changed to "Errors.append" by William Davis to avoid crash due to exception

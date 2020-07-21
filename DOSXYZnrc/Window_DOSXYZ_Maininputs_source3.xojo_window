@@ -614,14 +614,14 @@ End
 		    RadioButton_spec.Value=True
 		  end
 		  
-		  EditField_Lowerxbound.Text=Format(dosxyz_input.xinl,"#.###")
-		  EditField_upperxbound.Text=Format(dosxyz_input.xinu,"#.###")
-		  EditField_Lowerybound.Text=Format(dosxyz_input.yinl,"#.###")
-		  EditField_upperybound.Text=Format(dosxyz_input.yinu,"#.###")
-		  EditField_mono.Text=Format(dosxyz_input.ein,"#.###")
-		  EditField_spectrum.Text=dosxyz_input.FILNAM
+		  EditField_Lowerxbound.value = Format(dosxyz_input.xinl,"#.###")
+		  EditField_upperxbound.value = Format(dosxyz_input.xinu,"#.###")
+		  EditField_Lowerybound.value = Format(dosxyz_input.yinl,"#.###")
+		  EditField_upperybound.value = Format(dosxyz_input.yinu,"#.###")
+		  EditField_mono.value = Format(dosxyz_input.ein,"#.###")
+		  EditField_spectrum.value = dosxyz_input.FILNAM
 		  
-		  EditField_ssd.Text=Format(dosxyz_input.ssd,"#.###")
+		  EditField_ssd.value = Format(dosxyz_input.ssd,"#.###")
 		  
 		  
 		  

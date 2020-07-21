@@ -1719,7 +1719,7 @@ End
 
 	#tag Method, Flags = &h0
 		Sub OpenWin()
-		  EditField_RFA_File.Text=f.Name
+		  EditField_RFA_File.value = f.Name
 		End Sub
 	#tag EndMethod
 
@@ -1764,24 +1764,24 @@ End
 		      Listbox_Points.Cell(i,4)=str(mcc.Graphs(k).Points(i).value)
 		    next
 		    
-		    EditField_Date.Text=mcc.Graphs(k).Date
-		    EditField_Comment.Text=mcc.Graphs(k).Comment
-		    EditField_ssd.Text=str(mcc.Graphs(k).SSD)
-		    EditField_Field_Cros.Text=str(mcc.Graphs(k).FLSX)
-		    EditField_Field_In.Text=Str(mcc.Graphs(k).FLSY)
+		    EditField_Date.value = mcc.Graphs(k).Date
+		    EditField_Comment.value = mcc.Graphs(k).Comment
+		    EditField_ssd.value = str(mcc.Graphs(k).SSD)
+		    EditField_Field_Cros.value = str(mcc.Graphs(k).FLSX)
+		    EditField_Field_In.value = Str(mcc.Graphs(k).FLSY)
 		    
-		    EditField_Linac.Text=mcc.Graphs(k).LinacName
+		    EditField_Linac.value = mcc.Graphs(k).LinacName
 		    
 		    
-		    EditField_Depth.text=str(mcc.Graphs(k).DPTH)
-		    EditField_Energy.Text=str(mcc.Graphs(k).Energy)
-		    EditField_BMTY.text=mcc.Graphs(k).BMTY
-		    EditField_TYPE.text=mcc.Graphs(k).Type
-		    EditField_DETY.text=mcc.Graphs(k).DETY
-		    EditField_Detector.Text=mcc.Graphs(k).Detector
-		    EditField_Operator.Text=mcc.Graphs(k).Operator
+		    EditField_Depth.value = str(mcc.Graphs(k).DPTH)
+		    EditField_Energy.value = str(mcc.Graphs(k).Energy)
+		    EditField_BMTY.value = mcc.Graphs(k).BMTY
+		    EditField_TYPE.value = mcc.Graphs(k).Type
+		    EditField_DETY.value = mcc.Graphs(k).DETY
+		    EditField_Detector.value = mcc.Graphs(k).Detector
+		    EditField_Operator.value = mcc.Graphs(k).Operator
 		    
-		    EditField_Wedge.Text=mcc.Graphs(k).Wedge
+		    EditField_Wedge.value = mcc.Graphs(k).Wedge
 		    
 		    
 		  end

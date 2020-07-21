@@ -4823,8 +4823,8 @@ End
 		  end
 		  
 		  
-		  EditField_point1.Text=Format(rr.point1.x_cm,"-##.###")+" , "+Format(rr.point1.y_cm,"-##.###")+" , "+Format(rr.point1.z_cm,"-##.###")
-		  EditField_point2.Text=Format(rr.point2.x_cm,"-##.###")+" , "+Format(rr.point2.y_cm,"-##.###")+" , "+Format(rr.point2.z_cm,"-##.###")
+		  EditField_point1.value = Format(rr.point1.x_cm,"-##.###")+" , "+Format(rr.point1.y_cm,"-##.###")+" , "+Format(rr.point1.z_cm,"-##.###")
+		  EditField_point2.value = Format(rr.point2.x_cm,"-##.###")+" , "+Format(rr.point2.y_cm,"-##.###")+" , "+Format(rr.point2.z_cm,"-##.###")
 		  
 		  ruler_change=True
 		End Sub
@@ -4950,8 +4950,8 @@ End
 		  
 		  Slider_Window_Level.Value=gvis.WL
 		  Slider_Window_Width.Value=gvis.ww
-		  StaticText_level.Text="Level : "+str(gvis.wl)
-		  StaticText_window.Text="Window : "+str(gvis.ww)
+		  StaticText_level.value = "Level : "+str(gvis.wl)
+		  StaticText_window.value = "Window : "+str(gvis.ww)
 		  
 		  Slider_Scale.Maximum=5000
 		  Slider_Scale.Minimum=10
@@ -5023,7 +5023,7 @@ End
 		  
 		  MC_Open_settings(Plan_Index)
 		  gDVH.Read_DVH
-		  EditField_DVHBins.Text=str(gDVH.DVHBins)
+		  EditField_DVHBins.value = str(gDVH.DVHBins)
 		  Dose_DVH_Structures
 		  Dose_DVH
 		  window_update_plan
@@ -6725,7 +6725,7 @@ End
 #tag Events Slider_Window_Level
 	#tag Event
 		Sub ValueChanged()
-		  StaticText_Level.Text="Level : "+Format(me.Value,"-#")
+		  StaticText_Level.value = "Level : "+Format(me.Value,"-#")
 		  if me.Value<>gvis.wl then
 		    gvis.WL=me.Value
 		    gvis.WL_Recalculate
@@ -6757,7 +6757,7 @@ End
 		  if me.Value<>gvis.ww then
 		    gvis.ww=me.Value
 		    gvis.WL_Recalculate
-		    StaticText_window.Text="Window : "+Format(me.Value,"-#")
+		    StaticText_window.value = "Window : "+Format(me.Value,"-#")
 		  end
 		End Sub
 	#tag EndEvent
@@ -6787,25 +6787,25 @@ End
 		    canvas_top.canvas_scale=Slider_Scale.Value/100
 		    Canvas_top.Buffer
 		    Canvas_top.Ruler_cm_to_pix
-		    EditField_Scale.Text=format(canvas_top.canvas_scale*100,"#.##")
+		    EditField_Scale.value = format(canvas_top.canvas_scale*100,"#.##")
 		    Canvas_Top.RePaint
 		  elseif ScaleFlag=2 Then
 		    canvas_left.canvas_scale=Slider_Scale.Value/100
 		    Canvas_left.Buffer
 		    Canvas_Left.Ruler_cm_to_pix
-		    EditField_Scale.Text=Format(canvas_left.canvas_scale*100,"#.##")
+		    EditField_Scale.value = Format(canvas_left.canvas_scale*100,"#.##")
 		    Canvas_left.RePaint
 		    
 		  elseif ScaleFlag=3 Then
 		    canvas_right.canvas_scale=Slider_Scale.Value/100
 		    Canvas_Right.Buffer
 		    Canvas_Right.Ruler_cm_to_pix
-		    EditField_Scale.Text=Format(canvas_right.canvas_scale*100,"#.##")
+		    EditField_Scale.value = Format(canvas_right.canvas_scale*100,"#.##")
 		    Canvas_right.RePaint
 		    
 		  else
 		    //Canvas_3D(0).canvas_scale=Slider_Scale.Value/10
-		    //EditField_Scale.Text=Format(//Canvas_3D(0).canvas_scale,"#.##")
+		    //EditField_Scale.value = Format(//Canvas_3D(0).canvas_scale,"#.##")
 		    //Canvas_3D(0).Update_Camera_Position
 		    //'Canvas_3D(0).Refresh(false)
 		  end
@@ -6837,20 +6837,20 @@ End
 		  Select case hitItem.Text
 		  case "Top"
 		    ScaleFlag=1
-		    StaticText_Scale.Text="Scale Top %"
-		    EditField_Scale.Text=str(Canvas_Top.canvas_scale*100)
+		    StaticText_Scale.value = "Scale Top %"
+		    EditField_Scale.value = str(Canvas_Top.canvas_scale*100)
 		  Case  "Left"
 		    ScaleFlag=2
-		    StaticText_Scale.Text="Scale Left %"
-		    EditField_Scale.Text=str(canvas_left.canvas_scale*100)
+		    StaticText_Scale.value = "Scale Left %"
+		    EditField_Scale.value = str(canvas_left.canvas_scale*100)
 		  case "Right"
 		    ScaleFlag=3
-		    StaticText_Scale.Text="Scale Right %"
-		    EditField_Scale.Text=str(canvas_right.canvas_scale*100)
+		    StaticText_Scale.value = "Scale Right %"
+		    EditField_Scale.value = str(canvas_right.canvas_scale*100)
 		  case  "3D"
 		    ScaleFlag=4
-		    StaticText_Scale.Text="Scale 3D %"
-		    EditField_Scale.Text=str(canvas_right.canvas_scale*100)
+		    StaticText_Scale.value = "Scale 3D %"
+		    EditField_Scale.value = str(canvas_right.canvas_scale*100)
 		  end Select
 		End Function
 	#tag EndEvent

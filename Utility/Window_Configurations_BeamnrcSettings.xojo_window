@@ -847,23 +847,23 @@ End
 		  
 		  DoNothing=True
 		  if gBEAM<> nil Then
-		    EditField_BEAM_MinNumJobs.Text=Format(gBEAM.egs_Min_Num_Jobs,"#.##")
-		    EditField_BEAMnrc_NumJobs.Text=Format(gBEAM.egs_Num_Jobs,"#.##")
+		    EditField_BEAM_MinNumJobs.value = Format(gBEAM.egs_Min_Num_Jobs,"#.##")
+		    EditField_BEAMnrc_NumJobs.value = Format(gBEAM.egs_Num_Jobs,"#.##")
 		    CheckBox_Beam_auto.Value=gBEAM.egs_auto_run
 		    CheckBox_Beam_refresh.Value=gBEAM.egs_auto_refresh
 		    CheckBox_Beam_ForceAddphsp.Value=gBEAM.egs_force_addphsp
-		    EditField_BEAMnrc_Force_AddPhsp.Text=Format(gBEAM.egs_force_addphsp_value,"#.##")
+		    EditField_BEAMnrc_Force_AddPhsp.value = Format(gBEAM.egs_force_addphsp_value,"#.##")
 		    CheckBox_Beam_Addphsp.Value=gBEAM.egs_Addphsp_fullpath
 		    CheckBox_Beam_MC_BEAM_remove_w.Value=gBEAM.Remove_w_files
 		    CheckBox_MC_Beam_auto_Shell.Value=gBEAM.egs_auto_shell
 		    CheckBox_MC_Beam_auto_Phsp.Value=Not(gBEAM.egs_auto_phsp)
-		    EditField_BEAM_defaultIDAT.Text=Format(gBEAM.egs_idat,"-#")
-		    EditField_BEAM_defaultIZLAST.Text=Format(gBEAM.egs_izlast,"-#")
+		    EditField_BEAM_defaultIDAT.value = Format(gBEAM.egs_idat,"-#")
+		    EditField_BEAM_defaultIZLAST.value = Format(gBEAM.egs_izlast,"-#")
 		    CheckBox_MC_Beam_auto_job_num.Value=gBEAM.egs_automaxjob
-		    EditField_BEAM_Autojobtime.Text=str(gBEAM.egs_automaxjobtime,"#")
+		    EditField_BEAM_Autojobtime.value = str(gBEAM.egs_automaxjobtime,"#")
 		    
 		    for i =0 to UBound(gBEAM.egs_msg)
-		      TextArea_msg.Text=TextArea_msg.Text+gBEAM.egs_msg(i)+EndOfLine.UNIX
+		      TextArea_msg.value = TextArea_msg.Text+gBEAM.egs_msg(i)+EndOfLine.UNIX
 		    Next
 		  else
 		    GroupBox_MC_Beam.Enabled=False

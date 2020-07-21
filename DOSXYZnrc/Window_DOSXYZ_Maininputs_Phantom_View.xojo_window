@@ -1080,7 +1080,7 @@ End
 		  else
 		    ss=ss+ "Plane: "+str(ScrollBar_Slice.value+1)+"/"+str(egsphant.Nx)
 		  end
-		  StaticText_Info.Text=ss
+		  StaticText_Info.value = ss
 		  
 		  if Egsphant.Loaded=False Then
 		    g.DrawString "No image as EGSPhant voxels not loaded",5,20
@@ -1178,8 +1178,8 @@ End
 		  
 		  CheckBox_Density.Value=Prefshowphantdensity
 		  CheckBox_Materials.Value=Prefshowmedia
-		  TextField_Max_Density.Text=Format(Egsphant.maxdensity,"-#.#####")
-		  TextField_Min_Density.Text=Format(Egsphant.mindensity,"-#.#####")
+		  TextField_Max_Density.value = Format(Egsphant.maxdensity,"-#.#####")
+		  TextField_Min_Density.value = Format(Egsphant.mindensity,"-#.#####")
 		  
 		  ruler.init(Display.graphics.width-30,30,Display.graphics.width-30,200)
 		  movingruler1=false
@@ -1198,9 +1198,9 @@ End
 		  
 		  RadioButton_XY.Value=True
 		  
-		  StaticText_X.Text="nX "+Str(Egsphant.Nx)+" del X "+Format(Egsphant.Del_X,"-0.000")+" Min X "+Format(Egsphant.boundaryx(0),"-0.000")+" Max X "+Format(Egsphant.boundaryx(UBound(Egsphant.boundaryx)),"-0.000")
-		  StaticText_Y.Text="nY "+Str(Egsphant.Ny)+" del Y "+Format(Egsphant.Del_Y,"-0.000")+" Min Y "+Format(Egsphant.boundaryy(0),"-0.000")+" Max Y "+Format(Egsphant.boundaryy(UBound(Egsphant.boundaryy)),"-0.000")
-		  StaticText_Z.Text="nZ "+Str(Egsphant.Nz)+" del Z "+Format(Egsphant.Del_Z,"-0.000")+" Min Z "+Format(Egsphant.boundaryz(0),"-0.000")+" Max Z "+Format(Egsphant.boundaryz(UBound(Egsphant.boundaryZ)),"-0.000")
+		  StaticText_X.value = "nX "+Str(Egsphant.Nx)+" del X "+Format(Egsphant.Del_X,"-0.000")+" Min X "+Format(Egsphant.boundaryx(0),"-0.000")+" Max X "+Format(Egsphant.boundaryx(UBound(Egsphant.boundaryx)),"-0.000")
+		  StaticText_Y.value = "nY "+Str(Egsphant.Ny)+" del Y "+Format(Egsphant.Del_Y,"-0.000")+" Min Y "+Format(Egsphant.boundaryy(0),"-0.000")+" Max Y "+Format(Egsphant.boundaryy(UBound(Egsphant.boundaryy)),"-0.000")
+		  StaticText_Z.value = "nZ "+Str(Egsphant.Nz)+" del Z "+Format(Egsphant.Del_Z,"-0.000")+" Min Z "+Format(Egsphant.boundaryz(0),"-0.000")+" Max Z "+Format(Egsphant.boundaryz(UBound(Egsphant.boundaryZ)),"-0.000")
 		End Sub
 	#tag EndMethod
 

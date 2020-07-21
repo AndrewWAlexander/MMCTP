@@ -745,11 +745,11 @@ End
 		    CheckBox_DBS.Value=False
 		  end
 		  
-		  EditField_DBS_splittingR.Text=Format(dosxyz_input.r_dbs,"#.###")
-		  EditField_ssd_DBS.Text=Format(dosxyz_input.ssd_dbs,"#.###")
-		  EditField_Z_scored.Text=Format(dosxyz_input.z_dbs,"#.###")
-		  EditField_Isocenter.Text=Format(dosxyz_input.xiso,"-#.###")+", "+Format(dosxyz_input.yiso,"-#.###")+", "+Format(dosxyz_input.ziso,"-#.###")
-		  EditField_dsource.Text=Format(dosxyz_input.dsource,"#.###")
+		  EditField_DBS_splittingR.value = Format(dosxyz_input.r_dbs,"#.###")
+		  EditField_ssd_DBS.value = Format(dosxyz_input.ssd_dbs,"#.###")
+		  EditField_Z_scored.value = Format(dosxyz_input.z_dbs,"#.###")
+		  EditField_Isocenter.value = Format(dosxyz_input.xiso,"-#.###")+", "+Format(dosxyz_input.yiso,"-#.###")+", "+Format(dosxyz_input.ziso,"-#.###")
+		  EditField_dsource.value = Format(dosxyz_input.dsource,"#.###")
 		  
 		  
 		  PopupMenu_ScoreLastZ.DeleteAllRows

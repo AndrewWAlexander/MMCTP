@@ -1489,9 +1489,9 @@ End
 		      Listbox_Points.Cell(i,3)=str(data.Graphs(k).Points(i).z_cm)
 		      Listbox_Points.Cell(i,4)=str(data.Graphs(k).Points(i).value)
 		    next
-		    EditField_Date.Text=data.exportingdate
-		    EditField_Depth.Text=str(data.Graphs(k).DPTH)
-		    EditField_Angle.Text=Str(data.Graphs(k).Angle)
+		    EditField_Date.value = data.exportingdate
+		    EditField_Depth.value = str(data.Graphs(k).DPTH)
+		    EditField_Angle.value = Str(data.Graphs(k).Angle)
 		  end
 		  
 		  
@@ -1515,7 +1515,7 @@ End
 		  if f.Exists=False Then
 		    Return
 		  end
-		  EditField_RFA_File.Text=f.Name
+		  EditField_RFA_File.value = f.Name
 		  
 		  ts=f.OpenAsTextFile
 		  if ts=Nil Then

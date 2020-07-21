@@ -132,7 +132,7 @@ Protected Class Class_MERT_SADVH
 		    Window_EMET_Run.EditField_Sa_Score.TextColor=RGB(255,0,0)
 		  end
 		  
-		  Window_EMET_Run.EditField_Sa_Score.Text=Format(score,"-0.0000##e")
+		  Window_EMET_Run.EditField_Sa_Score.value = Format(score,"-0.0000##e")
 		  
 		  ss=ts.ReadLine
 		  ss=ts.ReadLine
@@ -183,15 +183,15 @@ Protected Class Class_MERT_SADVH
 		  'ts.PositionB=0
 		  '
 		  'w=val(ts.ReadLine)
-		  'Window_EMET_Run.EditField_SA_Iterations.Text=Format(w,"#")
+		  'Window_EMET_Run.EditField_SA_Iterations.value = Format(w,"#")
 		  '
 		  'w=val(ts.ReadLine)
-		  ' //Window_EMET_Run.EditField_DVHBinSA.Text=str(w)
+		  ' //Window_EMET_Run.EditField_DVHBinSA.value = str(w)
 		  '
 		  'w=val(ts.ReadLine)
 		  '
 		  'w=val(ts.ReadLine)
-		  'Window_EMET_Run.EditField_Conf_Dose.Text=str(w)
+		  'Window_EMET_Run.EditField_Conf_Dose.value = str(w)
 		  '
 		  'temp=ts.ReadLine
 		  '
@@ -202,22 +202,22 @@ Protected Class Class_MERT_SADVH
 		  '
 		  'end
 		  'temp=ts.ReadLine
-		  'Window_EMET_Run.EditField_SA_Dname.Text=trim(temp)
+		  'Window_EMET_Run.EditField_SA_Dname.value = trim(temp)
 		  '
 		  'temp=ts.ReadLine
 		  'To_value=val(temp)
-		  'Window_EMET_Run.EditField_ToSA.Text=Format(To_value,"-0.00###e")
+		  'Window_EMET_Run.EditField_ToSA.value = Format(To_value,"-0.00###e")
 		  'temp=ts.ReadLine
 		  'Range=val(temp)
-		  'Window_EMET_Run.EditField_RangeSA.Text=Format(Range,"-0.00###e")
+		  'Window_EMET_Run.EditField_RangeSA.value = Format(Range,"-0.00###e")
 		  'temp=ts.ReadLine
 		  'Alpha=val(temp)
-		  'Window_EMET_Run.EditField_SA_Alpha.Text=Format(Alpha,"-0.00###e")
+		  'Window_EMET_Run.EditField_SA_Alpha.value = Format(Alpha,"-0.00###e")
 		  '
 		  'temp=ts.ReadLine
 		  'Weight_Type=val(temp)
 		  'Init_w=val(NthField(temp," ",2))
-		  'Window_EMET_Run.EditField_SA_InitW.Text=str(Init_w)
+		  'Window_EMET_Run.EditField_SA_InitW.value = str(Init_w)
 		  'if val(temp)=0 Then
 		  'Window_EMET_Run.RadioButton_W_SA_UseValue.Value=True
 		  'elseif val(temp)=1 Then
@@ -234,11 +234,11 @@ Protected Class Class_MERT_SADVH
 		  '
 		  'temp=ts.ReadLine
 		  'w=val(Temp)
-		  'Window_EMET_Run.EditField_MinWeightSA.Text=str(w)
+		  'Window_EMET_Run.EditField_MinWeightSA.value = str(w)
 		  '
 		  'temp=ts.ReadLine
 		  'w=val(Temp)
-		  'Window_EMET_Run.EditField_MaxWeightSA.Text=str(w)
+		  'Window_EMET_Run.EditField_MaxWeightSA.value = str(w)
 		  '
 		  'temp=ts.ReadLine
 		  'w=val(Temp)
@@ -291,7 +291,7 @@ Protected Class Class_MERT_SADVH
 		    Run_Status
 		  end
 		  
-		  Window_EMET_Run.StaticText_SA_RunTime.Text="Run Time : "+Time
+		  Window_EMET_Run.StaticText_SA_RunTime.value = "Run Time : "+Time
 		  Window_EMET_Run.ProgressWheel_SA.Visible=Running
 		  
 		  
@@ -312,7 +312,7 @@ Protected Class Class_MERT_SADVH
 		    whole=""
 		    whole=ts.ReadAll
 		    if whole<>Window_EMET_Run.EditField_ShelloutSA.Text Then
-		      Window_EMET_Run.EditField_ShelloutSA.Text=whole
+		      Window_EMET_Run.EditField_ShelloutSA.value = whole
 		    end
 		    ts.Close
 		  end
@@ -340,18 +340,18 @@ Protected Class Class_MERT_SADVH
 		      Running=False
 		      Read_Output=True
 		      if whole<> Window_EMET_Run.EditField_ShelloutSA.Text Then
-		        Window_EMET_Run.EditField_ShelloutSA.Text=whole
+		        Window_EMET_Run.EditField_ShelloutSA.value = whole
 		      end
 		      Runtime=val(NthField(whole,"Execution time (min) :",2))
-		      Window_EMET_Run.EditField_Sa_Time.Text=Format(Runtime,"#.##")
+		      Window_EMET_Run.EditField_Sa_Time.value = Format(Runtime,"#.##")
 		      
 		      Score_Initial=val(NthField(whole,"Initial Objective:",2))
-		      Window_EMET_Run.EditField_Sa_Score_Intitial.Text=Format(Score_Initial,"#.#####e")
+		      Window_EMET_Run.EditField_Sa_Score_Intitial.value = Format(Score_Initial,"#.#####e")
 		      
 		      SAOArray.Read_Results(whole)
 		      
-		    elseif Window_EMET_Run.EditField_ShelloutSA.Text="" Then
-		      Window_EMET_Run.EditField_ShelloutSA.Text=whole
+		    elseif Window_EMET_Run.EditField_ShelloutSA.value = "" Then
+		      Window_EMET_Run.EditField_ShelloutSA.value = whole
 		    end
 		  end
 		End Sub
@@ -378,7 +378,7 @@ Protected Class Class_MERT_SADVH
 		        Temp=ts.ReadLine
 		        if len(temp)>10 Then
 		          w=val(NthField(temp," ",5))
-		          Window_EMET_Run.EditField_Sa_Score.Text=Format(w,"0.0000##e")
+		          Window_EMET_Run.EditField_Sa_Score.value = Format(w,"0.0000##e")
 		        end
 		      Wend
 		      ts.Close
@@ -402,7 +402,7 @@ Protected Class Class_MERT_SADVH
 		  Delete_SaDVH_files
 		  Write_saDVH_Input
 		  gOpt.Write_Fields
-		  Window_EMET_Run.EditField_Sa_Score.Text=""
+		  Window_EMET_Run.EditField_Sa_Score.value = ""
 		  Read_Output=False
 		  
 		  g=gRTOG.Plan(Plan_Index).Path

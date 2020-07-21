@@ -45,7 +45,7 @@ Inherits Timer
 		    
 		    
 		    if Window_Treatment.StaticText_DVH.Text<>TP_DVH_Text Then
-		      Window_Treatment.StaticText_DVH.Text=TP_DVH_Text 
+		      Window_Treatment.StaticText_DVH.value = TP_DVH_Text 
 		    end
 		    
 		    if Window_Treatment.Canvas_refresh_Image_WL Then
@@ -63,11 +63,11 @@ Inherits Timer
 		    end
 		    
 		    if UBound(gBEAM.egs_msg)>-1 Then
-		      Window_Treatment.StaticText_BEAM_Status.Text=gBEAM.egs_msg(UBound(gBEAM.egs_msg))
+		      Window_Treatment.StaticText_BEAM_Status.value = gBEAM.egs_msg(UBound(gBEAM.egs_msg))
 		    end
 		    
 		    if UBound(gDOSXYZ.egs_msg)>-1 Then
-		      Window_Treatment.StaticText_DOSYXZ_Status.Text= gDOSXYZ.egs_msg(UBound(gDOSXYZ.egs_msg))
+		      Window_Treatment.StaticText_DOSYXZ_Status.value =  gDOSXYZ.egs_msg(UBound(gDOSXYZ.egs_msg))
 		    end
 		    
 		    if app.which_window_DOSYXZ_Options Then
@@ -106,7 +106,7 @@ Inherits Timer
 		  end
 		  
 		  if app.which_window_adddose Then
-		    Window_AddDose.StaticText1.Text=Window_AddDose.ProgressMsg
+		    Window_AddDose.StaticText1.value = Window_AddDose.ProgressMsg
 		    if Window_AddDose.UpdateLists Then
 		      Window_AddDose.UpdateLists=False
 		      Window_AddDose.UpdateNow

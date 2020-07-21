@@ -2767,12 +2767,12 @@ End
 		  // Clear forms
 		  if Name_Change=False Then
 		    
-		    EditField_Linac_Name.Text=""
-		    EditField_Linac_Energy.Text=""
-		    EditField_Linac_BEAMnrc_INputfile.Text=""
-		    EditField_Linac_App.Text=""
-		    EditField_Linac_BEAMnrc_part_density.Text=""
-		    EditField_Linac_BEAMnrc_pegs.Text=""
+		    EditField_Linac_Name.value = ""
+		    EditField_Linac_Energy.value = ""
+		    EditField_Linac_BEAMnrc_INputfile.value = ""
+		    EditField_Linac_App.value = ""
+		    EditField_Linac_BEAMnrc_part_density.value = ""
+		    EditField_Linac_BEAMnrc_pegs.value = ""
 		  end
 		  
 		  
@@ -2859,12 +2859,12 @@ End
 		    Next
 		    
 		    if Name_Change =False Then
-		      EditField_Linac_Name.Text=Linac.RT_name
+		      EditField_Linac_Name.value = Linac.RT_name
 		    end
 		    
-		    EditField_Linac_BEAMnrc_INputfile.Text=Linac.MC_BEAMnrc_input_file
-		    EditField_Linac_Energy.Text=Linac.Energy
-		    EditField_Linac_BEAMnrc_part_density.Text=Format(Linac.MC_BEAMnrc_part_density,"###,###,###")
+		    EditField_Linac_BEAMnrc_INputfile.value = Linac.MC_BEAMnrc_input_file
+		    EditField_Linac_Energy.value = Linac.Energy
+		    EditField_Linac_BEAMnrc_part_density.value = Format(Linac.MC_BEAMnrc_part_density,"###,###,###")
 		    
 		    for i=1 to PopupMenu_Linac_Mode.ListCount
 		      if Linac.Mode=PopupMenu_Linac_Mode.List(i-1) Then
@@ -2875,8 +2875,8 @@ End
 		    
 		    
 		    
-		    EditField_Linac_BEAMnrc_pegs.Text=Linac.MC_BEAMnrc_pegs4
-		    EditField_Linac_Wedge_STT.Text=Linac.STT_Table
+		    EditField_Linac_BEAMnrc_pegs.value = Linac.MC_BEAMnrc_pegs4
+		    EditField_Linac_Wedge_STT.value = Linac.STT_Table
 		    
 		    
 		    
@@ -2927,10 +2927,10 @@ End
 		    Listbox_Linac_applicators.Heading(2)="BEAMnrc CM name"
 		    Listbox_Linac_applicators.Heading(3)="BEAMnrc CM label"
 		    
-		    EditField_Linac_App.Text=str(UBound(Linac.Applicator)+1)
+		    EditField_Linac_App.value = str(UBound(Linac.Applicator)+1)
 		    Linac_Applicator
 		    
-		    EditField_Linac_Num_Wedge.Text=str(UBound(Linac.Wedges)+1)
+		    EditField_Linac_Num_Wedge.value = str(UBound(Linac.Wedges)+1)
 		    Linac_Pop_PhotonWedges
 		    PopupMenu_Linac_Wedge.ListIndex=0
 		  end
@@ -3044,12 +3044,12 @@ End
 		  DoNothing=True
 		  
 		  if MLC_Edit=False Then
-		    EditField_MLC_Name.Text=mlc.MLC_Name
+		    EditField_MLC_Name.value = mlc.MLC_Name
 		  end
 		  
-		  EditField_MLC_Numberofpairs.Text=str(MLC.NumberofLeafPairs)
-		  EditField_MLC_SourceDistance.Text=Format(MLC.Source_to_Device_Distance,"-#.#####")
-		  EditField_MLC_AirGap.Text=Format(MLC.AbuttingGap,"-#.######")
+		  EditField_MLC_Numberofpairs.value = str(MLC.NumberofLeafPairs)
+		  EditField_MLC_SourceDistance.value = Format(MLC.Source_to_Device_Distance,"-#.#####")
+		  EditField_MLC_AirGap.value = Format(MLC.AbuttingGap,"-#.######")
 		  
 		  if MLC.LeafDirection=1 Then
 		    RadioButton_MLC_Y.Value=True
@@ -3221,7 +3221,7 @@ End
 		    if fi<>nil then //fi.Exists then
 		      Linac.MC_BEAMnrc_input_file=fi.Name
 		      save_linac=True
-		      me.Text=fi.Name
+		      me.value = fi.Name
 		    end if
 		  end
 		End Function
@@ -3300,9 +3300,9 @@ End
 		  
 		  w=me.ListIndex
 		  if w>=0 and w<=UBound(Linac.Wedges) Then
-		    EditField_Linac_Wedge_Orientations.Text=str(UBound(Linac.Wedges(w).Rotations)+1)
+		    EditField_Linac_Wedge_Orientations.value = str(UBound(Linac.Wedges(w).Rotations)+1)
 		    if Linac_Wedge_Edit=False Then
-		      EditField_Linac_Wedge_Angle.Text=Linac.Wedges(w).Angle
+		      EditField_Linac_Wedge_Angle.value = Linac.Wedges(w).Angle
 		    end
 		    Linac_Pop_PhotonWedgesOri
 		  end
@@ -3677,7 +3677,7 @@ End
 		      
 		    end if
 		    
-		    me.Text=Linac.STT_Table
+		    me.value = Linac.STT_Table
 		    
 		  end
 		  

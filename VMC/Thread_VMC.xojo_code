@@ -172,8 +172,8 @@ Inherits Thread
 		    
 		    
 		    
-		    //Window_Treatment.StaticText_VMC_Status.Text="VMC to McGill RT Dose" //Commented out by William Davis to avoid crash due to exception
-		    //Window_Treatment.StaticText_VMC_Status.Text="Reading header file : "+vmc(dmx_index).DMX.dmx_name+".hed" //Commented out by William Davis to avoid crash due to exception
+		    //Window_Treatment.StaticText_VMC_Status.value = "VMC to McGill RT Dose" //Commented out by William Davis to avoid crash due to exception
+		    //Window_Treatment.StaticText_VMC_Status.value = "Reading header file : "+vmc(dmx_index).DMX.dmx_name+".hed" //Commented out by William Davis to avoid crash due to exception
 		    
 		    f=gRTOG.Plan(Plan_Index).Path
 		    f=f.Child(MC_file_name+str(first_dose+1)+"00_"+vmc(dmx_index).DMX.dmx_name+".hed")
@@ -201,7 +201,7 @@ Inherits Thread
 		        Return
 		      end
 		    else
-		      //Window_Treatment.StaticText_VMC_Status.Text= "Could not find file : "+f.Name //Commented out by William Davis to avoid crash due to exception
+		      //Window_Treatment.StaticText_VMC_Status.value =  "Could not find file : "+f.Name //Commented out by William Davis to avoid crash due to exception
 		      Return
 		    end
 		    
@@ -771,7 +771,7 @@ Inherits Thread
 		  
 		  
 		  
-		  Window_VMC_DMXSettings.StaticText_VMC_Make.Text="Making DMX file"
+		  Window_VMC_DMXSettings.StaticText_VMC_Make.value = "Making DMX file"
 		  Window_VMC_DMXSettings.ProgressBar.Maximum=vv.DMX.Z_num
 		  
 		  
@@ -910,7 +910,7 @@ Inherits Thread
 		  
 		  //=========Write DMX file, and hed file
 		  h=plan_index
-		  Window_VMC_DMXSettings.StaticText_VMC_Make.Text="Writing DMX file"
+		  Window_VMC_DMXSettings.StaticText_VMC_Make.value = "Writing DMX file"
 		  f=new FolderItem
 		  f=gRTOG.Path.Child("McGill_RT")
 		  dmxfile=f.child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vv.DMX.dmx_name+".dmx")
@@ -922,7 +922,7 @@ Inherits Thread
 		  end
 		  
 		  // now write the header file ".hed"
-		  Window_VMC_DMXSettings.StaticText_VMC_Make.Text="Writing HED file"
+		  Window_VMC_DMXSettings.StaticText_VMC_Make.value = "Writing HED file"
 		  headerfile=f.child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vv.DMX.dmx_name+".hed")
 		  if headerfile<>nil then
 		    ts=headerfile.createTextFile
@@ -934,13 +934,13 @@ Inherits Thread
 		    ts.write chr(10)
 		    ts.close
 		  end
-		  Window_VMC_DMXSettings.StaticText_VMC_Make.Text="Saving DMX Properties"
+		  Window_VMC_DMXSettings.StaticText_VMC_Make.value = "Saving DMX Properties"
 		  
 		  
 		  vv.Write_DMX_Settings
 		  vv.Write_VMC_Settings
 		  vmc.Append vv
-		  Window_VMC_DMXSettings.StaticText_VMC_Make.Text="Finished"
+		  Window_VMC_DMXSettings.StaticText_VMC_Make.value = "Finished"
 		  Window_Treatment.MC_vmc_beam_progress
 		  
 		End Sub
