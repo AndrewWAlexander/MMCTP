@@ -2215,7 +2215,7 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Change Colour"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		End Function
 	#tag EndEvent
@@ -2761,11 +2761,11 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Refresh"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  MI = New MenuItem
 		  MI.Text = "Delete Record"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		End Function

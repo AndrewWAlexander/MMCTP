@@ -5452,10 +5452,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Plan"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Rename"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True
@@ -5771,19 +5771,19 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Add Beam"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Delete Beam"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Copy Beam"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Merge Beams"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Separate dynamic fields"
-		    base.Append MI
+		    base.addmenu( MI )
 		    Return True
 		  end
 		End Function
@@ -5972,10 +5972,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Select all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Deselect all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		  
 		End Function
@@ -6086,17 +6086,17 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Delete DMX file"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    
 		    MI = New MenuItem
 		    MI.Text = "Select all"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    
 		    MI = New MenuItem
 		    MI.Text = "Deselect all"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    Return True
 		  end
@@ -6494,42 +6494,42 @@ End
 		  if gDOSXYZ.State= 4 Then
 		    MI = New MenuItem
 		    MI.Text = "Generate new EGSPhant file"
-		    base.Append MI
+		    base.addmenu( MI )
 		  end
 		  
 		  if gDOSXYZ.State= 4 and column>=0 and UBound(MMCTP_Shell_Refresh.All)=-1 and   UBound(MMCTP_Shell_Run.All)=-1 and   UBound(MMCTP_Download.All)=-1 Then
 		    MI = New MenuItem
 		    MI.Text = "Delete EGSPhant file"
-		    base.Append MI
+		    base.addmenu( MI )
 		  end
 		  
 		  
 		  MI = New MenuItem
 		  MI.Text = "View EGSPhant"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  MI = New MenuItem
 		  MI.Text = "Select all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  MI = New MenuItem
 		  MI.Text = "Deselect all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  MI = New MenuItem
 		  MI.Text = "3ddose to MMCTP"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add plan doses"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add checked doses"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True
@@ -6567,13 +6567,13 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Selecte all row"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Selecte all column"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Deselecte all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True
@@ -6768,10 +6768,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Select all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Deselect all"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		  
 		End Function
@@ -7168,10 +7168,10 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Select all"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Deselect all"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    Return True
 		  end
@@ -7224,10 +7224,10 @@ End
 		  dim MI as MenuItem
 		  MI = New MenuItem
 		  MI.Text = "Add Point of Interest"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Delete Point of Interest"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		End Function
 	#tag EndEvent
@@ -7533,19 +7533,19 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "1x1"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "2x2"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "4x4"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "8x8"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "16x16"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		  
 		End Function

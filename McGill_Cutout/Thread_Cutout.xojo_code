@@ -56,7 +56,7 @@ Inherits Thread
 		  temp="rm -f " +input_file+".* " + input_file+"-cutout*"
 		  cc.beam_num=Beam
 		  cc.command =temp
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		  
@@ -64,7 +64,7 @@ Inherits Thread
 		  temp="rm -f  -r *" +input_file+"-cutout*"
 		  cc.beam_num=Beam
 		  cc.command =temp
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		End Sub
 	#tag EndMethod
@@ -324,14 +324,14 @@ Inherits Thread
 		  cc.FTP_Put_file=True
 		  cc.FTP_Local_Path=path
 		  cc.FTP_Remote_Path=cc.dir+"/"+f.Name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		  
 		  //Change mode to exe
 		  tt=Get_Directory(beam)
 		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		End Sub
 	#tag EndMethod
@@ -479,7 +479,7 @@ Inherits Thread
 		  cc.command =line
 		  cc.cutout_run=True
 		  cc.inpfilename=input_file
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -514,7 +514,7 @@ Inherits Thread
 		    cc.command="put "+path_egsinp+"  "+cc.dir+"/"+egsinp.Name
 		    cc.FTP_Files= egsinp
 		    cc.inpfilename=egsinp.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  f=gRTOG.Plan(Plan_Index).Path
@@ -529,7 +529,7 @@ Inherits Thread
 		    cc.command="put "+path_egsinp+"  "+cc.dir+"/"+egsinp.Name
 		    cc.FTP_Files= egsinp
 		    cc.inpfilename=egsinp.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		End Sub
 	#tag EndMethod

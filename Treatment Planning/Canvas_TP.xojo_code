@@ -7,31 +7,31 @@ Inherits Canvas
 		  
 		  MI = New MenuItem
 		  MI.Text = "Axial"
-		  base.Append MI
+		  base.AddMenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Sagittal"
-		  base.Append MI
+		  base.AddMenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Coronal"
-		  base.Append MI
+		  base.AddMenu( MI )
 		  
 		  'MI = New MenuItem
 		  'MI.Text = "BEV"
-		  'base.Append MI
+		  'base.addmenu( MI )
 		  'MI = New MenuItem
 		  'MI.Text = "DRR"
-		  'base.Append MI
+		  'base.addmenu( MI )
 		  'MI = New MenuItem
 		  'MI.Text = "REV"
-		  'base.Append MI
+		  'base.addmenu( MI )
 		  
 		  
 		  MI = New MenuItem
 		  MI.Text = "Centre Image"
-		  base.Append MI
+		  'base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "BG Colour"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  Return True
 		  

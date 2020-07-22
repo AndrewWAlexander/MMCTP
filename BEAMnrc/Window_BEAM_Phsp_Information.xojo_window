@@ -1477,6 +1477,38 @@ Begin Window Window_BEAM_Phsp_Information
          Visible         =   True
          Width           =   67
       End
+      Begin PushButton PushButton_Refresh
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Cancel          =   False
+         Caption         =   "Refresh"
+         Default         =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   22
+         Index           =   -2147483648
+         InitialParent   =   "TabPanel1"
+         Italic          =   False
+         Left            =   792
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   False
+         LockTop         =   False
+         MacButtonStyle  =   "0"
+         Scope           =   0
+         TabIndex        =   9
+         TabPanelIndex   =   2
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   267
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   121
+      End
    End
 End
 #tag EndWindow
@@ -1512,31 +1544,31 @@ End
 
 	#tag Method, Flags = &h0
 		Sub copy_phsp1()
-		  Dim i as integer
-		  
-		  
-		  
-		  for i =0 to ListBox_Phspfiles.ListCount-1
+		  For i As Integer = 0 To ListBox_Phspfiles.LastRowIndex
 		    
-		    if ListBox_Phspfiles.CellCheck(i,1) then
-		      copy_file=Trim(ListBox_Phspfiles.CellValueAt(i,2))
-		      gBEAM.Beams(beam_index).egs_Phsp_name=copy_file
-		      gBEAM.Beams(beam_index).egs_Phsp_link=True
-		      gBEAM.Beams(beam_index).egs_BEAMnrc_active_jobs=0
-		      gBEAM.Beams(beam_index).egs_progress=100
+		    If ListBox_Phspfiles.CellCheckBoxValueAt(i,1) Then
+		      
+		      copy_file =ListBox_Phspfiles.CellValueAt(i,2).Trim
+		      
+		      gBEAM.Beams(beam_index).egs_Phsp_name = copy_file
+		      gBEAM.Beams(beam_index).egs_Phsp_link = True
+		      gBEAM.Beams(beam_index).egs_BEAMnrc_active_jobs = 0
+		      gBEAM.Beams(beam_index).egs_progress = 100
 		      
 		      
 		      
-		      if gBEAM.State=4 Then
+		      If gBEAM.State = 4 Then
+		        
 		        gBEAM.egs_phsp_list=True
 		        gBEAM.Run
 		        ProgressWheel_phsp.Visible=True
-		      end
-		      exit
-		    end
+		        
+		      End If
+		      Exit
+		    End If
 		    
 		    
-		  next
+		  Next
 		  
 		  
 		  
@@ -1547,132 +1579,163 @@ End
 		Sub pop_beam()
 		  'Display the current beams in the  beam listbox
 		  '==================================
-		  Dim i,k as Integer
-		  Dim col as Class_Collimator_Fields
-		  Dim ss as String
+		  'Dim i,k as Integer
+		  'Dim col as Class_Collimator_Fields
+		  'Dim ss as String
 		  '================================
 		  
 		  
 		  
-		  k=plan_index
 		  
-		  col = new Class_Collimator_Fields
-		  if plan_index >-1 then
-		    i=beam_index
+		  
+		  If plan_index >-1 Then
 		    
-		    col=gRTOG.Plan(k).beam(i).collimator.fields(0)
+		    Var Collimator_Fields as Class_Collimator_Fields = _
+		    gRTOG.Plan(Plan_Index).beam(beam_index).collimator.fields(0)
 		    
-		    
-		    
-		    StaticText_linac_name.Text =gRTOG.Plan(k).beam(i).RT_name
-		    StaticText_beam_energy.value = (gRTOG.Plan(k).beam(i).beam_energy )
+		    StaticText_linac_name.Value =gRTOG.Plan(Plan_Index).beam( beam_index).RT_name
+		    StaticText_beam_energy.Value = (gRTOG.Plan( Plan_Index).beam(beam_index ).beam_energy )
 		    
 		    //StaticText_ganty_rtn.value = str(gRTOG.Plan(k).beam(i).gantry_Angle)
 		    //StaticText_coll_rtn.value = str(gRTOG.Plan(k).beam(i).collimator_angle)
 		    //StaticText_couch_rtn.value = str(gRTOG.Plan(k).beam(i).couch_Angle)
 		    
 		    
-		    StaticText_Phsp_name.value = gBEAM.Beams(i).egs_Phsp_name
+		    StaticText_Phsp_name.value = gBEAM.Beams( beam_index ).egs_Phsp_name
 		    
-		    StaticText_Phsp_size.value = Format(gBEAM.Beams(i).egs_phsp_size,"###,###,###,###")
+		    StaticText_Phsp_size.value = Format(gBEAM.Beams( beam_index ).egs_phsp_size,"###,###,###,###")
 		    
-		    if gBEAM.Beams(i).egs_phsp_size>0 Then
-		      StaticText_Phsp_found.TextColor=RGB(0,255,0)
+		    If gBEAM.Beams( beam_index ).egs_phsp_size > 0 Then
+		      
+		      StaticText_Phsp_found.TextColor = RGB(0,255,0)
 		      StaticText_Phsp_found.value = "Yes"
-		    else
+		      
+		    Else
+		      
 		      StaticText_Phsp_found.TextColor=RGB(255,0,0)
 		      StaticText_Phsp_found.value = "No"
-		    end
+		      
+		    End If
 		    
-		    
-		    
-		    if gBEAM.Beams(i).egs_phsp_link Then
+		    If gBEAM.Beams(beam_index).egs_phsp_link Then
+		      
 		      StaticText_Phsp_linkyn.TextColor=RGB(0,0,255)
 		      StaticText_Phsp_linkyn.value = "Yes"
-		      StaticText_Phsp_linkyname.value = gBEAM.Beams(i).egs_phsp_name
-		    else
+		      StaticText_Phsp_linkyname.value = gBEAM.Beams( beam_index).egs_phsp_name
+		      
+		    Else
+		      
 		      StaticText_Phsp_linkyn.TextColor=RGB(0,0,0)
 		      StaticText_Phsp_linkyn.value = "No"
 		      StaticText_Phsp_linkyname.value = ""
-		    end
+		      
+		    End If
 		    
+		    StaticText_wedge.Value = gRTOG.Plan(Plan_Index).Beam(beam_index).Wedge_Angle + " " _
+		    + Left(gRTOG.Plan( Plan_Index ).Beam(beam_index).Wedge_Rotation,1)
 		    
-		    StaticText_wedge.text =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)
+		    StaticText_beam_mode.value = gRTOG.Plan( Plan_Index ).Beam( beam_index ).beam_mode
 		    
+		    StaticText_Beam_Number.value = Str(beam_index+1)
 		    
-		    StaticText_beam_mode.value = gRTOG.Plan(k).Beam(i).beam_mode
+		    StaticText_xjaws.value = Str(Collimator_Fields.X1 + Collimator_Fields.X2)
 		    
-		    StaticText_Beam_Number.value = str(beam_index+1)
+		    StaticText_yjaws.value = Str(Collimator_Fields.y1 + Collimator_Fields.y2)
 		    
-		    StaticText_xjaws.value = str(col.X1+col.x2)
-		    
-		    StaticText_yjaws.value = str(col.y1+col.y2)
-		    
-		  end
+		  End If 
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub pop_listbox()
-		  Dim i,row,k as integer
-		  Dim test as Int64
-		  Dim ls(-1),one_line(-1),Date1 as string
+		  'Dim i,row,k As Integer
+		  'Dim test as Int64
+		  'Dim ls(-1),one_line(-1),Date1 as string
 		  //----------------------------------------------
 		  
 		  
-		  ListBox_Phspfiles.ColumnAlignment(0)=1
-		  ListBox_Phspfiles.ColumnAlignment(1)=1
-		  ListBox_Phspfiles.ColumnAlignment(2)=1
-		  ListBox_Phspfiles.ColumnAlignment(3)=1
-		  ListBox_Phspfiles.ColumnAlignment(4)=1
-		  ListBox_Phspfiles.ColumnAlignment(5)=4
-		  ListBox_Phspfiles.ColumnAlignmentOffset(5)=0
+		  ListBox_Phspfiles.ColumnAlignmentAt(0) = Listbox.Alignments.Left
+		  ListBox_Phspfiles.ColumnAlignmentAt(1) = Listbox.Alignments.Left
+		  ListBox_Phspfiles.ColumnAlignmentAt(2) = Listbox.Alignments.Left
+		  ListBox_Phspfiles.ColumnAlignmentAt(3) = Listbox.Alignments.Left
+		  ListBox_Phspfiles.ColumnAlignmentAt(4) = Listbox.Alignments.Left
+		  ListBox_Phspfiles.ColumnAlignmentAt(5) = Listbox.Alignments.Decimal
+		  ListBox_Phspfiles.ColumnAlignmentOffsetAt(5) = 0
 		  
 		  
-		  if InStr(ls_list,"No such")=0 Then
+		  If ls_list.IndexOf("No such") = 0 Then
 		    
-		    While InStr(ls_list,chr(10))>0
-		      ls_list=Replace(ls_list,chr(10),chr(13))
-		    Wend
-		    ls=Split(ls_list,chr(13))
-		    
-		    ListBox_Phspfiles.DeleteAllRows
-		    row=-1
-		    
-		    for i=0 to UBound(ls)
-		      One_Line=Split(ls(i)," ")
+		    While ls_list.IndexOf( Chr(10)) > 0
 		      
-		      for k=UBound(one_line) DownTo 0
-		        one_line(k)=Trim(one_line(k))
-		        if Len(one_line(k))=0 Then
-		          one_line.Remove k
-		        elseif one_line(k)=chr(13) or one_line(k)=chr(10) Then
-		          one_line.Remove k
-		        end
-		      next
-		      if UBound(one_line)= (gBEAM.cc.shell.listfiles_name-1 )Then
-		        row=row+1
-		        ListBox_Phspfiles.AddRow Format(row+1,"00")
-		        ListBox_Phspfiles.CellType(row,1)=2
-		        if (gBEAM.cc.shell.listfiles_dateA-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_dateA-1)>=0 Then
-		          Date1=one_line(gBEAM.cc.shell.listfiles_dateA-1)
-		          if (gBEAM.cc.shell.listfiles_dateB-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_dateB-1)>=0Then
-		            Date1=Date1+" - " +one_line(gBEAM.cc.shell.listfiles_dateb-1)
-		          end
+		      ls_list=ls_list.Replace( Chr(10), Chr(13))
+		      
+		    Wend
+		    
+		    Var ls() As String = ls_list.Split( Chr(13) )
+		    
+		    ListBox_Phspfiles.RemoveAllRows
+		    Var row As  Integer = -1
+		    
+		    For i As Integer = 0 To ls.LastRowIndex
+		      
+		      Var One_Line() As String = ls(i).Split(" ")
+		      
+		      For k As Integer = one_line.LastRowIndex DownTo 0
+		        
+		        one_line(k) = one_line(k).Trim
+		        
+		        If one_line(k).Length = 0 Then
 		          
-		          ListBox_Phspfiles.CellValueAt(row,3)=Date1
-		        end
-		        if (gBEAM.cc.shell.listfiles_time-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_time-1)>-1Then
-		          ListBox_Phspfiles.CellValueAt(row,4)=one_line(gBEAM.cc.shell.listfiles_time-1)
-		        end
-		        if (gBEAM.cc.shell.listfiles_column_num-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_column_num-1)>-1 Then
-		          test=val(one_line(gBEAM.cc.shell.listfiles_column_num-1))
-		          ListBox_Phspfiles.CellValueAt(row,5)=Format(test,"###,###,###,###")
-		        end
-		        ListBox_Phspfiles.CellValueAt(row,2)=one_line(gBEAM.cc.shell.listfiles_name-1)
-		      end
-		    next
-		  end
+		          one_line.RemoveRowAt( k )
+		          
+		        Elseif one_line(k) = Chr(13) Or one_line(k) = Chr(10) Then
+		          
+		          one_line.RemoveRowAt( k )
+		          
+		        End If
+		      Next
+		      
+		      If one_line.LastRowIndex = (gBEAM.cc.shell.listfiles_name-1 )Then
+		        
+		        row=row+1
+		        ListBox_Phspfiles.AddRow( Format(row+1,"00") )
+		        ListBox_Phspfiles.CellTypeAt(row,1) = Listbox.CellTypes.CheckBox
+		        
+		        If (gBEAM.cc.shell.listfiles_dateA-1)  <= one_line.LastRowIndex And _
+		           (gBEAM.cc.shell.listfiles_dateA-1) >= 0 Then
+		          
+		          Var Date1 As String = one_line(gBEAM.cc.shell.listfiles_dateA-1)
+		          
+		          if (gBEAM.cc.shell.listfiles_dateB-1) <= one_line.LastRowIndex and _
+		            (gBEAM.cc.shell.listfiles_dateB-1) >= 0 Then
+		            
+		            Date1 = Date1 + " - " +one_line(gBEAM.cc.shell.listfiles_dateb-1)
+		            
+		          End If
+		          
+		          ListBox_Phspfiles.CellValueAt(row,3) = Date1
+		          
+		        End If 
+		        
+		        If (gBEAM.cc.shell.listfiles_time-1) <= one_line.LastRowIndex And _
+		          (gBEAM.cc.shell.listfiles_time-1) > -1Then
+		          
+		          ListBox_Phspfiles.CellValueAt(row,4) = one_line(gBEAM.cc.shell.listfiles_time-1)
+		          
+		        End If
+		        
+		        if (gBEAM.cc.shell.listfiles_column_num-1) <= one_line.LastRowIndex and _
+		          (gBEAM.cc.shell.listfiles_column_num-1)>-1 Then
+		          Var test As Int64 = Val(one_line(gBEAM.cc.shell.listfiles_column_num-1))
+		          ListBox_Phspfiles.CellValueAt(row,5) = Format(test,"###,###,###,###")
+		          
+		        End If
+		        
+		        ListBox_Phspfiles.CellValueAt(row,2) = one_line(gBEAM.cc.shell.listfiles_name-1)
+		      End If
+		    Next
+		  End If
+		  
 		  
 		  ProgressWheel_phsp.Visible=False
 		  
@@ -1681,11 +1744,13 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Refresh_BEAMnrcDir()
-		  if gBEAM.State=4 then
+		  If gBEAM.State = 4 Then
+		    
 		    gBEAM.egs_phsp_list=True
 		    gBEAM.Run
 		    ProgressWheel_phsp.Visible=True
-		  end
+		    
+		  End If
 		  
 		End Sub
 	#tag EndMethod
@@ -1732,7 +1797,7 @@ End
 		    End
 		    
 		    While Not rs.AfterLastRow
-		       
+		      
 		      Var name As String = rs.Column("FileName").StringValue
 		      Var eng As String = rs.Column("BeamEnergy").StringValue
 		      Var opening As String = rs.Column("FLECOpening").StringValue
@@ -1823,7 +1888,7 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Delete Record"
-		  base.Append MI
+		  base.addmenu( MI )
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -1985,6 +2050,16 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag Events PushButton_SearchDB
+	#tag Event
+		Sub Action()
+		  Dim bb as Boolean
+		  
+		  bb=gBEAM.egs_Search_for_Opening(beam_index,1,"")
+		  Refresh
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_Refresh
 	#tag Event
 		Sub Action()
 		  Dim bb as Boolean

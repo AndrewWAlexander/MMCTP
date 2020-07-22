@@ -2087,7 +2087,7 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Table"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  Return True
 		  

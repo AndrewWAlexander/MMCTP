@@ -1561,10 +1561,10 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Add EGSPhant"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Delete EGSPhant"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    
 		  end
@@ -1742,10 +1742,10 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Add row"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Delete row"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    
 		  end

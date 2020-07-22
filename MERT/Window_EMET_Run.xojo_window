@@ -9513,7 +9513,7 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Change Colour"
-		  base.Append MI
+		  base.addmenu( MI )
 		  Return True
 		End Function
 	#tag EndEvent
@@ -10145,10 +10145,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Check Dose"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Uncheck Dose"
-		  base.Append MI
+		  base.addmenu( MI )
 		End Function
 	#tag EndEvent
 	#tag Event

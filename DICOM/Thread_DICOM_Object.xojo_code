@@ -4026,7 +4026,7 @@ Inherits Thread
 		    ee.Tag_a="0002"
 		    ee.Tag_b="0000"
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // FileMetaInfoVersion
 		    ee= new Class_DICOM_Element
@@ -4034,7 +4034,7 @@ Inherits Thread
 		    ee.Tag_b="0001"
 		    ee.Value="256"
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // MediaStorageSOPClassUID
 		    ee= new Class_DICOM_Element
@@ -4042,7 +4042,7 @@ Inherits Thread
 		    ee.Tag_b="0002"
 		    ee.Value=dose.MediaStorageSOPClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // MediaStorageSOPInstanceUID
 		    ee= new Class_DICOM_Element
@@ -4050,7 +4050,7 @@ Inherits Thread
 		    ee.Tag_b="0003"
 		    ee.Value=dose.MediaStorageSOPInstanceUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // TransferSyntax
 		    ee= new Class_DICOM_Element
@@ -4058,7 +4058,7 @@ Inherits Thread
 		    ee.Tag_b="0010"
 		    ee.Value=dose.TransferSyntaxUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // ImplementationClassUID
 		    ee= new Class_DICOM_Element
@@ -4066,7 +4066,7 @@ Inherits Thread
 		    ee.Tag_b="0012"
 		    ee.Value=dose.ImplementationClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    
 		    // Image type
@@ -4075,7 +4075,7 @@ Inherits Thread
 		    ee.Tag_b="0008"
 		    ee.Value=dose.ImageType
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // Instance Creation Date
 		    ee= new Class_DICOM_Element
@@ -4083,7 +4083,7 @@ Inherits Thread
 		    ee.Tag_b="0012"
 		    ee.Value=dose.InstanceCreationDate
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // Instance creation time
 		    ee= new Class_DICOM_Element
@@ -4091,7 +4091,7 @@ Inherits Thread
 		    ee.Tag_b="0013"
 		    ee.Value=dose.InstanceCreationTime
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // SOPClassUID
 		    ee= new Class_DICOM_Element
@@ -4099,7 +4099,7 @@ Inherits Thread
 		    ee.Tag_b="0016"
 		    ee.Value=dose.SOPClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // SOPInstanceUID
 		    ee= new Class_DICOM_Element
@@ -4107,7 +4107,7 @@ Inherits Thread
 		    ee.Tag_b="0018"
 		    ee.Value=dose.SOPInstanceUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    File.UID_Name=dose.SOPInstanceUID
 		    
 		    // StudyDate
@@ -4115,7 +4115,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0020"
 		    ee.Value=dose.StudyDate
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Accession Date
@@ -4123,7 +4123,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0022"
 		    ee.Value=CStr(dose.AcquistionDate)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // StudyTime
@@ -4131,7 +4131,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0030"
 		    ee.Value=dose.StudyTime
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    
@@ -4140,7 +4140,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0032"
 		    ee.Value=CStr(dose.AcquistionTime)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // AccessionNumber
@@ -4148,7 +4148,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0050"
 		    ee.Value=dose.AccessionNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Modality
@@ -4156,7 +4156,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0060"
 		    ee.Value=dose.Modality
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Manufacutre
@@ -4164,7 +4164,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0070"
 		    ee.Value=dose.Manufacturer
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // RP name
@@ -4172,7 +4172,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0090"
 		    ee.Value=dose.ReferringPhysicianName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Station name
@@ -4180,7 +4180,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1010"
 		    ee.Value=dose.StationName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Study Description name
@@ -4188,7 +4188,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1030"
 		    ee.Value=dose.StudyDescription
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Description name
@@ -4196,7 +4196,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="103E"
 		    ee.Value=dose.SeriesDescription
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    if gPref.DICOM_Format=1 Then
@@ -4205,7 +4205,7 @@ Inherits Thread
 		      ee.Tag_a="0008"
 		      ee.Tag_b="1048"
 		      ee.Value=dose.Physician
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      cc=ee.Update
 		    end
 		    
@@ -4214,7 +4214,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1090"
 		    ee.Value=dose.Manufacturer_Model_Name
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    //----------------------------------------------------
 		    
@@ -4224,7 +4224,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0010"
 		    ee.Value=dose.PatientName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient ID
@@ -4232,7 +4232,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0020"
 		    ee.Value=dose.PatientID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Birthdate
@@ -4240,7 +4240,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0030"
 		    ee.Value=dose.PatientBirthDate
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Sex
@@ -4248,7 +4248,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0040"
 		    ee.Value=dose.Sex
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Age
@@ -4256,7 +4256,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="1010"
 		    ee.Value=dose.Age
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    
@@ -4266,7 +4266,7 @@ Inherits Thread
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0050"
 		    ee.Value=str(dose.SliceThickness)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Software Version
@@ -4274,7 +4274,7 @@ Inherits Thread
 		    ee.Tag_a="0018"
 		    ee.Tag_b="1020"
 		    ee.Value=dose.Software_Version
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    
@@ -4284,7 +4284,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000D"
 		    ee.Value=dose.StudyInstanceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Instance UID
@@ -4292,7 +4292,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000E"
 		    ee.Value=dose.SeriesInstanceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Study ID
@@ -4300,7 +4300,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0010"
 		    ee.Value=dose.StudyID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Number
@@ -4308,7 +4308,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0011"
 		    ee.Value=dose.SeriesNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Instance Number
@@ -4316,7 +4316,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0013"
 		    ee.Value=dose.InstanceNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Image Position Patient
@@ -4324,7 +4324,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0032"
 		    ee.Value=dose.ImagePositionPatient
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Image Orientation Patient
@@ -4332,7 +4332,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0037"
 		    ee.Value=dose.ImageOrientationPatient
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Frame of reference UID
@@ -4340,7 +4340,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0052"
 		    ee.Value=dose.FrameOfReferenceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Images in acquistion
@@ -4348,7 +4348,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1002"
 		    ee.Value=CStr(dose.ImagesInAcquistion)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // PositionReferenceIndicator
@@ -4356,7 +4356,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1040"
 		    ee.Value=dose.PositionReferenceIndicator
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Slice Location
@@ -4364,7 +4364,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1041"
 		    ee.Value=Format(dose.SliceLocation,"-0.0")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //-----------------------------------------------
@@ -4373,7 +4373,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0000"
 		    ee.Value=CStr(dose.Image_Presentation_Group_Length)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // SamplesPerPixel
@@ -4381,7 +4381,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0002"
 		    ee.Value=dose.SamplesPerPixel
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Photometric
@@ -4389,7 +4389,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0004"
 		    ee.Value=dose.PhotometrixInter
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Number of Frames
@@ -4397,7 +4397,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0008"
 		    ee.Value=Format(dose.NumberofFrames,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Frame Pointer
@@ -4405,7 +4405,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0009"
 		    ee.Value=dose.FrameIncrementPointer
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Rows
@@ -4413,7 +4413,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0010"
 		    ee.Value=Format(dose.rows,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Columns
@@ -4421,7 +4421,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0011"
 		    ee.Value=Format(dose.columns,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Pixel Spacing
@@ -4429,7 +4429,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0030"
 		    ee.Value=dose.PixelSpacing
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // BitsAllocated
@@ -4437,7 +4437,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0100"
 		    ee.Value=Format(dose.BitsAllocated,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // BitsStored
@@ -4445,7 +4445,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0101"
 		    ee.Value=Format(dose.BitsStored,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // HighBit
@@ -4453,14 +4453,14 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0102"
 		    ee.Value=Format(dose.HighBit,"#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // PixelRepresentation
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0103"
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Smallest Image Pixel Value
@@ -4468,7 +4468,7 @@ Inherits Thread
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0106"
 		    ee.Value=Format(dose.Smallest_Image_Pixel_Value,"-#")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //-----------------------------------------------
@@ -4477,7 +4477,7 @@ Inherits Thread
 		    ee.Tag_a="3004"
 		    ee.Tag_b="0002"
 		    ee.Value=dose.DoseUnits
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // DoseTypes
@@ -4485,7 +4485,7 @@ Inherits Thread
 		    ee.Tag_a="3004"
 		    ee.Tag_b="0004"
 		    ee.Value=dose.DoseType
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // DoseComment
@@ -4493,7 +4493,7 @@ Inherits Thread
 		    ee.Tag_a="3004"
 		    ee.Tag_b="0006"
 		    ee.Value=dose.DoseComment
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // DoseSummationType
@@ -4501,7 +4501,7 @@ Inherits Thread
 		    ee.Tag_a="3004"
 		    ee.Tag_b="000A"
 		    ee.Value=dose.DoseSummationType
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // GridFrameOfffset Vector
@@ -4510,7 +4510,7 @@ Inherits Thread
 		    ee.Tag_b="000C"
 		    ee.VM=InStr(dose.GridFrameOffsetVector,"\")+1
 		    ee.Value=dose.GridFrameOffsetVector
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // DoseGridScaling
@@ -4518,7 +4518,7 @@ Inherits Thread
 		    ee.Tag_a="3004"
 		    ee.Tag_b="000E"
 		    ee.Value=Format(dose.DoseGridScaling,"-#.##########")
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Reference plan sequence
@@ -4528,7 +4528,7 @@ Inherits Thread
 		      ee.Tag_a="300C"
 		      ee.Tag_b="0002"
 		      ee.Value="1"
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      level1_index=UBound(File.Elements)
 		      length_level1=0
 		      cc=ee.Update
@@ -4538,7 +4538,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update
 		        item_level1_length=0
 		        item_level1_index=UBound(File.Elements)
@@ -4548,7 +4548,7 @@ Inherits Thread
 		        ee.Tag_b="1150"
 		        ee.Value=dose.ReferencedRTPSequence(k).ReferencedSOPClassUID
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee= new Class_DICOM_Element
@@ -4556,7 +4556,7 @@ Inherits Thread
 		        ee.Tag_b="1155"
 		        ee.Value=dose.ReferencedRTPSequence(k).ReferencedSOPInstanceUID
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
@@ -4575,7 +4575,7 @@ Inherits Thread
 		      ee.Tag_b="0060"
 		      ee.Value="1"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      level1_index=UBound(File.Elements)
 		      length_level1=0
 		      
@@ -4584,7 +4584,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update
 		        
 		        item_level1_length=0
@@ -4595,7 +4595,7 @@ Inherits Thread
 		        ee.Tag_b="1150"
 		        ee.Value=dose.ReferencedStructureSetSeq(k).ReferencedSOPClassUID
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee= new Class_DICOM_Element
@@ -4603,7 +4603,7 @@ Inherits Thread
 		        ee.Tag_b="1155"
 		        ee.Value=dose.ReferencedStructureSetSeq(k).ReferencedSOPInstanceUID
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        File.Elements(item_level1_index).Sequence_Length=item_level1_length
@@ -4631,7 +4631,7 @@ Inherits Thread
 		      ee.Value_length=4*(UBound(ee.PixelData)+1)
 		    end
 		    
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    File.UID_Name=dose.SOPInstanceUID
@@ -4660,413 +4660,413 @@ Inherits Thread
 		  for i=0 to UBound(RT_Images) // look for Image .dcm files
 		    File=new Class_DICOM_File
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Images(i).IdentifyingGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0008"
 		    ee.Value=RT_Images(i).Image_Type
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0012"
 		    ee.Value=str(RT_Images(i).InstanceCreationDate)
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0013"
 		    ee.Value=RT_Images(i).InstanceCreationTime
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0016"
 		    ee.Value=RT_Images(i).SOPClassUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0018"
 		    ee.Value=RT_Images(i).SOPInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0020"
 		    ee.Value=RT_Images(i).StudyDate
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0021"
 		    ee.Value=RT_Images(i).SeriesDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0022"
 		    ee.Value=RT_Images(i).AcquisitionDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Images(i).StudyTime
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0031"
 		    ee.Value=RT_Images(i).SeriesTime
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0032"
 		    ee.Value=RT_Images(i).AcquisitionTime
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0050"
 		    ee.Value=RT_Images(i).AccessionNumber
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0060"
 		    ee.Value=RT_Images(i).Modality
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0070"
 		    ee.Value=RT_Images(i).Manufacturer
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0090"
 		    ee.Value=RT_Images(i).ReferringPhysician
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1030"
 		    ee.Value=RT_Images(i).StudyDescription
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="103E"
 		    ee.Value=RT_Images(i).SeriesDescription
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1048"
 		    ee.Value=RT_Images(i).Physician
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="2111"
 		    ee.Value=RT_Images(i).DerivationDescription
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0000"
 		    ee.Value=str(RT_Images(i).PatientGroupLength)
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0010"
 		    ee.Value=RT_Images(i).PatientName
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0020"
 		    ee.Value=RT_Images(i).PatientID
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Images(i).PatientBirthDate
 		    found=ee.Update 
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0040"
 		    ee.Value=RT_Images(i).sex
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="1010"
 		    ee.Value=RT_Images(i).Age
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Images(i).AcquisitionGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0050"
 		    ee.Value=Format(RT_Images(i).SliceThickness,"-0.0")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0060"
 		    ee.Value=RT_Images(i).Kvp
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="1020"
 		    ee.Value=RT_Images(i).SoftwareVersions
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="5100"
 		    ee.Value=RT_Images(i).patient_position
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Images(i).RelationshipGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000D"
 		    ee.Value=RT_Images(i).StudyInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000E"
 		    ee.Value=RT_Images(i).SeriesInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0010"
 		    ee.Value=RT_Images(i).StudyID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0011"
 		    ee.Value=RT_Images(i).SeriesNumber
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0012"
 		    ee.Value=str(RT_Images(i).AcquisitionNumber,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0013"
 		    ee.Value=str(RT_Images(i).InstanceNumber,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0032"
 		    ee.Value=RT_Images(i).ImagePositionPatient
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0037"
 		    ee.Value=RT_Images(i).ImageOrientationPatient
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0052"
 		    ee.Value=RT_Images(i).FrameOfReferenceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1002"
 		    ee.Value=Str(RT_Images(i).ImagesinAcquisition,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1040"
 		    ee.Value=(RT_Images(i).PositionReferenceIndicator)
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1041"
 		    ee.Value=Format(RT_Images(i).SliceLocation,"-0.0")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0000"
 		    ee.Value=Format(RT_Images(i).ImagePresenatationGroupLength,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0002"
 		    ee.Value=RT_Images(i).SampleperPixel
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0004"
 		    ee.Value=RT_Images(i).PhotometricInterpretation
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0010"
 		    ee.Value=Format(RT_Images(i).row,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0011"
 		    ee.Value=Format(RT_Images(i).Columns,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Images(i).PixelSpacing
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0100"
 		    ee.Value=Format(RT_Images(i).BitsAllocated,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0101"
 		    ee.Value=Format(RT_Images(i).BitsStored,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0102"
 		    ee.Value=Format(RT_Images(i).highbit,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0103"
 		    ee.Value=Format(RT_Images(i).PixelRepresentation,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="0106"
 		    ee.Value=Format(RT_Images(i).SmallestImagePixelValue,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="1052"
 		    ee.Value=Format(RT_Images(i).rescaleintercept,"-#.0")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0028"
 		    ee.Tag_b="1053"
 		    ee.Value=Format(RT_Images(i).rescaleslope,"0.0")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="7FE0"
 		    ee.Tag_b="0000"
 		    ee.Value=Format(RT_Images(i).PixelDataGroupLength,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="7FE0"
 		    ee.Tag_b="0010"
 		    ReDim ee.PixelData(UBound(RT_Images(i).PixelData))
@@ -5118,7 +5118,7 @@ Inherits Thread
 		    ee.Tag_a="0002"
 		    ee.Tag_b="0000"
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // FileMetaInfoVersion
 		    ee= new Class_DICOM_Element
@@ -5126,7 +5126,7 @@ Inherits Thread
 		    ee.Tag_b="0001"
 		    ee.Value="256"
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // MediaStorageSOPClassUID
 		    ee= new Class_DICOM_Element
@@ -5134,7 +5134,7 @@ Inherits Thread
 		    ee.Tag_b="0002"
 		    ee.Value=planclass.MediaStorageSOPClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // MediaStorageSOPInstanceUID
 		    ee= new Class_DICOM_Element
@@ -5142,7 +5142,7 @@ Inherits Thread
 		    ee.Tag_b="0003"
 		    ee.Value=planclass.MediaStorageSOPInstanceUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // TransferSyntax
 		    ee= new Class_DICOM_Element
@@ -5150,7 +5150,7 @@ Inherits Thread
 		    ee.Tag_b="0010"
 		    ee.Value=planclass.TransferSyntaxUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // ImplementationClassUID
 		    ee= new Class_DICOM_Element
@@ -5158,7 +5158,7 @@ Inherits Thread
 		    ee.Tag_b="0012"
 		    ee.Value=planclass.ImplementationClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    
 		    // Identifying group length
@@ -5166,7 +5166,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0000"
 		    ee.Value="340"
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Instance Creation Date
@@ -5175,7 +5175,7 @@ Inherits Thread
 		    ee.Tag_b="0012"
 		    ee.Value=planclass.InstanceCreationDate
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // Instance creation time
 		    ee= new Class_DICOM_Element
@@ -5183,7 +5183,7 @@ Inherits Thread
 		    ee.Tag_b="0013"
 		    ee.Value=planclass.InstanceCreationTime
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // SOPClassUID
 		    ee= new Class_DICOM_Element
@@ -5191,7 +5191,7 @@ Inherits Thread
 		    ee.Tag_b="0016"
 		    ee.Value=planclass.SOPClassUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    // SOPInstanceUID
 		    ee= new Class_DICOM_Element
@@ -5199,7 +5199,7 @@ Inherits Thread
 		    ee.Tag_b="0018"
 		    ee.Value=planclass.SOPInstanceUID
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    File.UID_Name=planclass.SOPInstanceUID
 		    
 		    // StudyDate
@@ -5207,7 +5207,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0020"
 		    ee.Value=planclass.StudyDate
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Accession Date
@@ -5215,14 +5215,14 @@ Inherits Thread
 		    'ee.Tag_a="0008"
 		    'ee.Tag_b="0022"
 		    'ee.Value=CStr(dose.AcquistionDate)
-		    'File.Elements.Append ee
+		    'File.elements.addrow( ee )
 		    
 		    // StudyTime
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0030"
 		    ee.Value=planclass.StudyTime
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    '// Acq time
@@ -5230,14 +5230,14 @@ Inherits Thread
 		    'ee.Tag_a="0008"
 		    'ee.Tag_b="0032"
 		    'ee.Value=CStr(dose.AcquistionTime)
-		    'File.Elements.Append ee
+		    'File.elements.addrow( ee )
 		    
 		    // AccessionNumber
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0050"
 		    ee.Value=planclass.AccessionNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Modality
@@ -5245,7 +5245,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0060"
 		    ee.Value=planclass.Modality
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Manufacutre
@@ -5253,7 +5253,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0070"
 		    ee.Value=planclass.Manufacturer
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // RP name
@@ -5261,7 +5261,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0090"
 		    ee.Value=planclass.ReferringPhysicianName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Station name
@@ -5269,7 +5269,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1010"
 		    ee.Value=planclass.StationName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Study Description name
@@ -5277,7 +5277,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1030"
 		    ee.Value=planclass.StudyDescription
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Description name
@@ -5285,7 +5285,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="103E"
 		    ee.Value=planclass.SeriesDescription
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Description name
@@ -5293,7 +5293,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1048"
 		    ee.Value=planclass.PhysicianofRecord
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Operator Name
@@ -5301,7 +5301,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1070"
 		    ee.Value=planclass.OperatorsName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Manufacture's Model Name
@@ -5309,7 +5309,7 @@ Inherits Thread
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1090"
 		    ee.Value=planclass.Manufacturer_Model_Name
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //----------------------------------------------------
@@ -5319,7 +5319,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0000"
 		    ee.Value="80"
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Name
@@ -5327,7 +5327,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0010"
 		    ee.Value=planclass.PatientName
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient ID
@@ -5335,7 +5335,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0020"
 		    ee.Value=planclass.PatientID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Birthdate
@@ -5343,7 +5343,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0030"
 		    ee.Value=planclass.Birthdate
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Sex
@@ -5351,7 +5351,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0040"
 		    ee.Value=planclass.Sex
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Patient Age
@@ -5359,7 +5359,7 @@ Inherits Thread
 		    ee.Tag_a="0010"
 		    ee.Tag_b="1010"
 		    ee.Value=planclass.Age
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //-----------------------------------------------
@@ -5368,7 +5368,7 @@ Inherits Thread
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0000"
 		    ee.Value=str(32)
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Software Version
@@ -5376,7 +5376,7 @@ Inherits Thread
 		    ee.Tag_a="0018"
 		    ee.Tag_b="1020"
 		    ee.Value=planclass.SoftwareVersions
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //-----------------------------------------------------
@@ -5385,7 +5385,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0000"
 		    ee.Value=planclass.RelationshipGroupLength
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Study Instance UID
@@ -5393,7 +5393,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000D"
 		    ee.Value=planclass.StudyInstanceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Instance UID
@@ -5401,7 +5401,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000E"
 		    ee.Value=planclass.SeriesInstanceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Study ID
@@ -5409,7 +5409,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0010"
 		    ee.Value=planclass.StudyID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Series Number
@@ -5417,7 +5417,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0011"
 		    ee.Value=planclass.SeriesNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Instance Number
@@ -5425,7 +5425,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0013"
 		    ee.Value=planclass.InstanceNumber
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    '// Image Position Patient
@@ -5434,7 +5434,7 @@ Inherits Thread
 		    'ee.Tag_b="0032"
 		    '
 		    'ee.Value=planclass.ImagePositionPatient
-		    'File.Elements.Append ee
+		    'File.elements.addrow( ee )
 		    
 		    '// Image Orientation Patient
 		    'ee= new Class_DICOM_Element
@@ -5442,14 +5442,14 @@ Inherits Thread
 		    'ee.Tag_b="0037"
 		    '
 		    'ee.Value=dose.ImageOrientationPatient
-		    'File.Elements.Append ee
+		    'File.elements.addrow( ee )
 		    
 		    // Frame of reference UID
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0052"
 		    ee.Value=planclass.FrameOfReferenceUID
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // PositionReferenceIndicator
@@ -5457,7 +5457,7 @@ Inherits Thread
 		    ee.Tag_a="0020"
 		    ee.Tag_b="1040"
 		    ee.Value=planclass.PositionReferenceIndicator
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //-----------------------------------------------
@@ -5467,7 +5467,7 @@ Inherits Thread
 		      ee.Tag_a="300A"
 		      ee.Tag_b="0000"
 		      ee.Value="8   "
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      cc=ee.Update
 		    end
 		    
@@ -5476,7 +5476,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0002"
 		    ee.Value=planclass.RTPlan_Label
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan Name
@@ -5484,7 +5484,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0003"
 		    ee.Value=planclass.RTPlan_Name
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan RTPlan_Description
@@ -5492,7 +5492,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0004"
 		    ee.Value=planclass.RTPlan_Description
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan RTPlan_Description
@@ -5500,7 +5500,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0006"
 		    ee.Value=planclass.RTPlan_Date
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan RTPlan_Description
@@ -5508,7 +5508,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="0007"
 		    ee.Value=planclass.RTPlan_Time
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan RTPlan_Description
@@ -5516,7 +5516,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="000C"
 		    ee.Value=planclass.RTPlan_Geometry
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    // Plan RTPlan_Description
@@ -5524,7 +5524,7 @@ Inherits Thread
 		    ee.Tag_a="300A"
 		    ee.Tag_b="000E"
 		    ee.Value=planclass.Prescription_Description
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    cc=ee.Update
 		    
 		    //---------------------------------------------------------------------------------------------------
@@ -5534,7 +5534,7 @@ Inherits Thread
 		      ee.Tag_a="300A"
 		      ee.Tag_b="0010"
 		      ee.Value="1"
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      cc=ee.Update
 		      level1_index=UBound(File.Elements)
 		      
@@ -5544,7 +5544,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update
 		        item_level1_index=UBound(File.Elements)
 		        
@@ -5552,7 +5552,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0084"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update
 		        ee.Value=Str(planclass.DoseReferenceSequence(k).ReferencedROINumb)
 		        cc=ee.Update  
@@ -5562,7 +5562,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0012"
 		        
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Value=Str(planclass.DoseReferenceSequence(k).DoseReferenceNumber)
 		        cc=ee.Update  
 		        
@@ -5570,7 +5570,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0014"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceStructureType)
 		        cc=ee.Update  
 		        
@@ -5578,7 +5578,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0016"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceDescription)
 		        cc=ee.Update  
 		        
@@ -5587,7 +5587,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0020"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Value=(planclass.DoseReferenceSequence(k).DoseReferenceType)
 		        cc=ee.Update  
 		        
@@ -5596,7 +5596,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0021"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Value=Format(planclass.DoseReferenceSequence(k).ConstraintWeight,"0.0")
 		        cc=ee.Update  
 		        
@@ -5607,7 +5607,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="002A"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskFullVolumeDose,"0.0")
 		          cc=ee.Update  
 		          
@@ -5616,7 +5616,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="002C"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskMaximumDose,"0.0")
 		          cc=ee.Update  
 		          
@@ -5625,7 +5625,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="002D"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).OrganatRiskOverdoseVolumeFraction,"0.00")
 		          cc=ee.Update  
 		          
@@ -5636,7 +5636,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="0010"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value="TOMO_HA_01"
 		            cc=ee.Update  
 		            
@@ -5645,7 +5645,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1010"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=(planclass.DoseReferenceSequence(k).Tomo_Blocked)
 		            cc=ee.Update  
 		            
@@ -5654,7 +5654,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1012"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_Overlap_Prio,"0")
 		            cc=ee.Update  
 		            
@@ -5663,7 +5663,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1018"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_DV_Pen,"0")
 		            cc=ee.Update  
 		            
@@ -5672,7 +5672,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1019"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MaxDose_Pen,"0")
 		            cc=ee.Update  
 		            
@@ -5685,7 +5685,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="0025"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetMinDose,"0.0")
 		          cc=ee.Update  
 		          
@@ -5694,7 +5694,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="0026"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetPxDose,"0.0")
 		          cc=ee.Update  
 		          
@@ -5703,7 +5703,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="0027"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetMaxDose,"0.0")
 		          cc=ee.Update  
 		          
@@ -5712,7 +5712,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300A"
 		          ee.Tag_b="0028"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Value=Format(planclass.DoseReferenceSequence(k).TargetUnderDoseVolume,"0.000")
 		          cc=ee.Update  
 		          
@@ -5722,7 +5722,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="0010"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value="TOMO_HA_01"
 		            cc=ee.Update  
 		            
@@ -5731,7 +5731,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1010"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=(planclass.DoseReferenceSequence(k).Tomo_Blocked)
 		            cc=ee.Update  
 		            
@@ -5740,7 +5740,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1012"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_Overlap_Prio,"0")
 		            cc=ee.Update  
 		            
@@ -5749,7 +5749,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1016"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MinDose_Pen,"0")
 		            cc=ee.Update  
 		            
@@ -5758,7 +5758,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="1017"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=Str(planclass.DoseReferenceSequence(k).Tomo_MaxDose_Pen,"0")
 		            cc=ee.Update  
 		            
@@ -5767,7 +5767,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300D"
 		            ee.Tag_b="101B"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Value=planclass.DoseReferenceSequence(k).Tomo_101B
 		            cc=ee.Update
 		            
@@ -5790,7 +5790,7 @@ Inherits Thread
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300A"
 		      ee.Tag_b="0070"
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      level1_index=UBound(File.Elements)
 		      cc=ee.Update
 		      
@@ -5800,7 +5800,7 @@ Inherits Thread
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        item_level1_index=UBound(File.Elements)
 		        
 		        // Fraction group number
@@ -5808,7 +5808,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0071"
 		        ee.Value=Str(planclass.FractionGroupSequence(k).fractiongroupnumber)
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        // number of fractions planned
@@ -5816,7 +5816,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0078"
 		        ee.Value=Str(planclass.FractionGroupSequence(k).numberoffractionsplanned)
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        // Number of beams
@@ -5824,7 +5824,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0080"
 		        ee.Value=Str(planclass.FractionGroupSequence(k).numberofbeams)
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        // Number of brachy application
@@ -5833,14 +5833,14 @@ Inherits Thread
 		        ee.Tag_b="00A0"
 		        ee.Value=Str(planclass.FractionGroupSequence(k).NumberofBrachyApp)
 		        cc=ee.Update  
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        if UBound(planclass.FractionGroupSequence(k).Referencedbeamsequence)>-1 Then
 		          //Referemced beam sequence
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="300C"
 		          ee.Tag_b="0004"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          level2_index=UBound(file.Elements)
 		          cc=ee.Update
 		          for tt=0 to UBound(planclass.FractionGroupSequence(k).Referencedbeamsequence)
@@ -5849,7 +5849,7 @@ Inherits Thread
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
 		            cc=ee.Update  
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            item_level2_index=UBound(File.Elements)
 		            
 		            //  beam dose weight point
@@ -5858,7 +5858,7 @@ Inherits Thread
 		            ee.Tag_b="0082"
 		            ee.Value=planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beam_Dose_Point
 		            cc=ee.Update
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            
 		            //  beam dose
 		            ee= new Class_DICOM_Element
@@ -5866,7 +5866,7 @@ Inherits Thread
 		            ee.Tag_b="0084"
 		            ee.Value=Format(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Beamdose,"-0.000")
 		            cc=ee.Update  
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            
 		            //  beam meterset
 		            ee= new Class_DICOM_Element
@@ -5874,7 +5874,7 @@ Inherits Thread
 		            ee.Tag_b="0086"
 		            ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).BeamMeterset)
 		            cc=ee.Update  
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            
 		            //  beam Referencedbeamnumber
 		            ee= new Class_DICOM_Element
@@ -5882,7 +5882,7 @@ Inherits Thread
 		            ee.Tag_b="0006"
 		            ee.Value=Str(planclass.FractionGroupSequence(k).Referencedbeamsequence(tt).Referencedbeamnumber)
 		            cc=ee.Update  
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            
 		            if gPref.DICOM_FileStructure=1 Then
 		              //  beam Tomo tag
@@ -5891,7 +5891,7 @@ Inherits Thread
 		              ee.Tag_b="0010"
 		              ee.Value="TOMO_HA_01"
 		              cc=ee.Update  
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              
 		              //  beam Tomo tag
 		              ee= new Class_DICOM_Element
@@ -5899,7 +5899,7 @@ Inherits Thread
 		              ee.Tag_b="1040"
 		              ee.Value="15.0"
 		              cc=ee.Update  
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              
 		              //  beam Tomo tag
 		              ee= new Class_DICOM_Element
@@ -5907,7 +5907,7 @@ Inherits Thread
 		              ee.Tag_b="1080"
 		              ee.Value="0.478333"
 		              cc=ee.Update  
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		            end
 		            
 		            // calculate item length
@@ -5938,7 +5938,7 @@ Inherits Thread
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300A"
 		      ee.Tag_b="00B0"
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      cc=ee.Update
 		      
 		      level1_index=UBound(File.Elements)
@@ -5948,7 +5948,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        item_level1_index=UBound(File.Elements)
@@ -5958,7 +5958,7 @@ Inherits Thread
 		        ee.Tag_a="0008"
 		        ee.Tag_b="0070"
 		        ee.Value=planclass.Manufacturer
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -5967,7 +5967,7 @@ Inherits Thread
 		        ee.Tag_a="0008"
 		        ee.Tag_b="1090"
 		        ee.Value=planclass.Manufacturer_Model_Name
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -5977,14 +5977,14 @@ Inherits Thread
 		        ee.Tag_b="0050"
 		        ee.Value="1"
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        level2_index=UBound(File.Elements)
 		        for c=0 to UBound(planclass.BeamSequence(k).FluenceModeSQ)
 		          // New  Flence sequence item
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="FFFE"
 		          ee.Tag_b="E000"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          item_level2_index=UBound(File.Elements)
 		          
@@ -5992,7 +5992,7 @@ Inherits Thread
 		          ee.Tag_a="3002"
 		          ee.Tag_b="0051"
 		          ee.Value=planclass.BeamSequence(k).FluenceModeSQ(c).FluenceMode
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          File.Update_Item_Length(item_level2_index)
@@ -6009,7 +6009,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00B2"
 		        ee.Value=planclass.BeamSequence(k).TreatmentMachineName
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6018,7 +6018,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00B3"
 		        ee.Value=planclass.BeamSequence(k).PrimaryDosimeterUnit
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6027,7 +6027,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00B4"
 		        ee.Value=Format(planclass.BeamSequence(k).SAD,"-0.0")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6039,7 +6039,7 @@ Inherits Thread
 		        ee.Tag_b="00B6"
 		        ee.Value="1"
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        level2_index=UBound(File.Elements)
 		        
 		        
@@ -6048,7 +6048,7 @@ Inherits Thread
 		          ee= new Class_DICOM_Element
 		          ee.Tag_a="FFFE"
 		          ee.Tag_b="E000"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          item_level2_index=UBound(File.Elements)
 		          
@@ -6056,7 +6056,7 @@ Inherits Thread
 		          ee.Tag_a="300A"
 		          ee.Tag_b="00B8"
 		          ee.Value=planclass.BeamSequence(k).BeamLimitingDevice(c).RTBeamLimitingDeviceType
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          
@@ -6066,7 +6066,7 @@ Inherits Thread
 		          ee.Tag_a="300A"
 		          ee.Tag_b="00BA"
 		          ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).SourceToBeamLimitingDeviceDistance)
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update
 		          
 		          
@@ -6076,7 +6076,7 @@ Inherits Thread
 		          ee.Tag_a="300A"
 		          ee.Tag_b="00BC"
 		          ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).NumberofLeafjawPairs)
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          
@@ -6086,7 +6086,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="00BE"
 		            ee.Value=(planclass.BeamSequence(k).BeamLimitingDevice(c).LeafPositionBoundaries)
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update
 		            
 		          end
@@ -6102,7 +6102,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00C0"
 		        ee.Value=Str(planclass.BeamSequence(k).BeamNumber,"0")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6111,7 +6111,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00C2"
 		        ee.Value=planclass.BeamSequence(k).BeamName
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6120,7 +6120,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00C3"
 		        ee.Value=planclass.BeamSequence(k).BeamDescrip
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6129,7 +6129,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00C4"
 		        ee.Value=planclass.BeamSequence(k).BeamType
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6138,7 +6138,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00C6"
 		        ee.Value=planclass.BeamSequence(k).RadiationType
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6147,7 +6147,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00CE"
 		        ee.Value=planclass.BeamSequence(k).TreatmentDeliveryType
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6156,7 +6156,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00D0"
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofWedges,"0")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6165,7 +6165,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00E0"
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofCompensators,"#")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6174,7 +6174,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00ED"
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofBoli,"#")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6183,7 +6183,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="00F0"
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofBlocks,"#")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6192,7 +6192,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="010E"
 		        ee.Value=Format(planclass.BeamSequence(k).FinalCimulativeMetersetWeight,"0.0")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6201,7 +6201,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0110"
 		        ee.Value=Format(planclass.BeamSequence(k).NumberofControlPoints,"0")
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6212,7 +6212,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0111"
 		        cc=ee.Update
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        level2_index=UBound(File.Elements)
 		        for c=0 to UBound(planclass.BeamSequence(k).ControlPointSequence)
@@ -6221,7 +6221,7 @@ Inherits Thread
 		          ee.Tag_a="FFFE"
 		          ee.Tag_b="E000"
 		          
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          item_level2_index=UBound(File.Elements)
@@ -6233,7 +6233,7 @@ Inherits Thread
 		          ee.Tag_b="0112"
 		          ee.Value=Format(cps.ControlPointIndex,"#")
 		          
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          
@@ -6244,7 +6244,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0114"
 		            ee.Value=Format(cps.NominalBeamEnergy,"0.0")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		          end
@@ -6258,7 +6258,7 @@ Inherits Thread
 		            ee.Tag_b="011A"
 		            ee.Value="1"
 		            cc=ee.Update
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            
 		            level3_index=UBound(File.Elements)
 		            
@@ -6267,7 +6267,7 @@ Inherits Thread
 		              ee= new Class_DICOM_Element
 		              ee.Tag_a="FFFE"
 		              ee.Tag_b="E000"
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              cc=ee.Update  
 		              
 		              item_level3_index=UBound(File.Elements)
@@ -6277,7 +6277,7 @@ Inherits Thread
 		              ee.Tag_a="300A"
 		              ee.Tag_b="00B8"
 		              ee.Value=cps.BeamLimitingDevicePositionSequence(j).RTBeamLimitingDevice
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              cc=ee.Update  
 		              
 		              
@@ -6286,7 +6286,7 @@ Inherits Thread
 		              ee.Tag_a="300A"
 		              ee.Tag_b="011C"
 		              ee.Value=cps.BeamLimitingDevicePositionSequence(j).LeafjawPositions
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              cc=ee.Update  
 		              
 		              
@@ -6306,7 +6306,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="011E"
 		            ee.Value=Format(cps.GantryAngle,"-#.000000")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		          end
@@ -6319,7 +6319,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="011F"
 		            ee.Value=cps.GantryRotationDirection
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6329,7 +6329,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0120"
 		            ee.Value=Format(cps.Beamlimitngdeviceangle,"0.0")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6339,7 +6339,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0121"
 		            ee.Value=cps.BeamLimitingDeviceRotationDirection
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6349,7 +6349,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0122"
 		            ee.Value=Format(cps.PatientSupportAngle,"0.0")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6360,7 +6360,7 @@ Inherits Thread
 		            ee.Tag_b="0123"
 		            ee.Value=cps.PatientSupportRotationDirection
 		            
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6370,7 +6370,7 @@ Inherits Thread
 		            ee.Tag_b="0125"
 		            ee.Value=cps.TableTopEccentricAngle
 		            
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6380,7 +6380,7 @@ Inherits Thread
 		            ee.Tag_b="0126"
 		            ee.Value=cps.TableTopEccentricRotationDirection
 		            
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6389,7 +6389,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0128"
 		            ee.Value=cps.TableTopVerticalPosition
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6399,7 +6399,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0129"
 		            ee.Value=cps.TableTopLongitudinalPosition
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6411,7 +6411,7 @@ Inherits Thread
 		            ee.Tag_b="012A"
 		            ee.Value=cps.TableTopLateralPosition
 		            
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6424,7 +6424,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="012C"
 		            ee.Value=cps.IsocenterPosition
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		          end
@@ -6436,7 +6436,7 @@ Inherits Thread
 		              ee.Tag_a="300A"
 		              ee.Tag_b="0130"
 		              ee.Value=Format(cps.SSD,"0.0##")
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              cc=ee.Update
 		              
 		            end
@@ -6448,7 +6448,7 @@ Inherits Thread
 		          ee.Tag_a="300A"
 		          ee.Tag_b="0134"
 		          ee.Value=Format(cps.CumulativeMetersetWeight,"0.0000000000")
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          
@@ -6459,7 +6459,7 @@ Inherits Thread
 		            ee.Tag_a="300D"
 		            ee.Tag_b="0010"
 		            ee.Value="TOMO_HA_01"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6469,7 +6469,7 @@ Inherits Thread
 		            ee.Tag_a="300D"
 		            ee.Tag_b="10A7"
 		            ee.Value=cps.TomoSinogram
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		          end
@@ -6484,13 +6484,13 @@ Inherits Thread
 		          ee.Tag_a="300C"
 		          ee.Tag_b="0050"
 		          cc=ee.Update
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          level3_index=UBound(File.Elements)
 		          for g=0 to UBound(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence)
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            item_level3_index=UBound(File.Elements)
 		            
@@ -6499,7 +6499,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="010C"
 		            ee.Value=Format(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence(g).CumulativeDoseReferenceCoefficient,"0.0####")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6508,7 +6508,7 @@ Inherits Thread
 		            ee.Tag_a="300C"
 		            ee.Tag_b="0051"
 		            ee.Value=Format(planclass.BeamSequence(k).ControlPointSequence(c).ReferencedDoseReferenceSequence(g).ReferencedDoseReferenceNumber,"#")
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            File.Update_Item_Length(item_level3_index)
@@ -6535,7 +6535,7 @@ Inherits Thread
 		        ee.Tag_a="300C"
 		        ee.Tag_b="006A"
 		        ee.Value="1"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6546,7 +6546,7 @@ Inherits Thread
 		          ee.Tag_a="300D"
 		          ee.Tag_b="0010"
 		          ee.Value="TOMO_HA_01"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		          
@@ -6556,7 +6556,7 @@ Inherits Thread
 		          ee.Tag_a="300D"
 		          ee.Tag_b="1060"
 		          ee.Value="0.287"
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          cc=ee.Update  
 		          
 		        end
@@ -6582,7 +6582,7 @@ Inherits Thread
 		      ee.Tag_a="300A"
 		      ee.Tag_b="0180"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      level1_index=UBound(File.Elements)
 		      
@@ -6591,7 +6591,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        item_level1_index=UBound(File.Elements)
@@ -6601,7 +6601,7 @@ Inherits Thread
 		        ee.Tag_a="0018"
 		        ee.Tag_b="5100"
 		        ee.Value=planclass.PatientSetupSequence(k).PatientPosition
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6610,7 +6610,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="0182"
 		        ee.Value=str(planclass.PatientSetupSequence(k).PatientSetupNumber)
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6619,7 +6619,7 @@ Inherits Thread
 		        ee.Tag_a="300A"
 		        ee.Tag_b="01B0"
 		        ee.Value=planclass.PatientSetupSequence(k).SetupTechnique
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        
 		        
@@ -6629,7 +6629,7 @@ Inherits Thread
 		          ee.Tag_b="01B4"
 		          ee.Value="1"
 		          cc=ee.Update
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          
 		          level2_index=UBound(File.Elements)
 		          
@@ -6638,7 +6638,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            item_level2_index=UBound(File.Elements)
@@ -6648,7 +6648,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="01B6"
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDeviceType
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6657,7 +6657,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="01B8"
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDevicelabel
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6666,7 +6666,7 @@ Inherits Thread
 		            ee.Tag_a="300A"
 		            ee.Tag_b="01BC"
 		            ee.Value=planclass.PatientSetupSequence(k).SetupDeviceSequence(c).SetupDeviceParameter
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            cc=ee.Update  
 		            
 		            
@@ -6688,7 +6688,7 @@ Inherits Thread
 		      ee.Tag_b="0000"
 		      ee.Value="    "
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		    end
 		    //---------------------------------------------------------------------------------------------------
 		    // Reference Structure Set sequence
@@ -6697,7 +6697,7 @@ Inherits Thread
 		      ee.Tag_a="300C"
 		      ee.Tag_b="0060"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      level1_index=UBound(File.Elements)
 		      
 		      for c=0 to UBound(planclass.ReferencedStructureSetSequence) 
@@ -6705,7 +6705,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        item_level1_index=UBound(File.Elements)
 		        
@@ -6714,14 +6714,14 @@ Inherits Thread
 		        ee.Tag_b="1150"
 		        ee.Value=planclass.ReferencedStructureSetSequence(0).ReferencedSOPClassUID
 		        cc=ee.Update  
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="0008"
 		        ee.Tag_b="1155"
 		        ee.Value=planclass.ReferencedStructureSetSequence(0).ReferencedSOPInstanceUID
 		        cc=ee.Update  
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        
 		        File.Update_item_length(item_level1_index)
@@ -6737,7 +6737,7 @@ Inherits Thread
 		      ee.Tag_a="300C"
 		      ee.Tag_b="0080"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      level1_index=UBound(File.Elements)
 		      
 		      for c=0 to UBound(planclass.ReferencedDoseSequence)
@@ -6745,7 +6745,7 @@ Inherits Thread
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        cc=ee.Update  
 		        item_level1_index=UBound(File.Elements)
 		        
@@ -6754,14 +6754,14 @@ Inherits Thread
 		        ee.Tag_b="1150"
 		        ee.Value=planclass.ReferencedDoseSequence(0).ReferencedSOPClassUID
 		        cc=ee.Update  
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        ee= new Class_DICOM_Element
 		        ee.Tag_a="0008"
 		        ee.Tag_b="1155"
 		        ee.Value=planclass.ReferencedDoseSequence(0).ReferencedSOPInstanceUID
 		        cc=ee.Update  
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        
 		        
 		        File.Update_item_length(item_level1_index)
@@ -6778,42 +6778,42 @@ Inherits Thread
 		      ee.Tag_b="0000"
 		      ee.Value="T   "
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300D"
 		      ee.Tag_b="0010"
 		      ee.Value="TOMO_HA_01"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300D"
 		      ee.Tag_b="1014"
 		      ee.Value="2.4 "
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300D"
 		      ee.Tag_b="10A4"
 		      ee.Value="HELICAL "
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300D"
 		      ee.Tag_b="10A9"
 		      ee.Value="-0.34179688\69.6582\-52.500004"
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      
 		      ee= new Class_DICOM_Element
 		      ee.Tag_a="300E"
 		      ee.Tag_b="0000"
 		      ee.Value="F   "
 		      cc=ee.Update
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		    end
 		    //--------------------------------------------------------------------------------------------------
 		    
@@ -6822,28 +6822,28 @@ Inherits Thread
 		    ee.Tag_b="0002"
 		    ee.Value=planclass.ApprovalStatus
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="300E"
 		    ee.Tag_b="0004"
 		    ee.Value=planclass.ReviewDate
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="300E"
 		    ee.Tag_b="0005"
 		    ee.Value=planclass.ReviewTime
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    '
 		    ee= new Class_DICOM_Element
 		    ee.Tag_a="300E"
 		    ee.Tag_b="0008"
 		    ee.Value=planclass.ReviewerName
 		    cc=ee.Update
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    
 		    File.UID_Name=planclass.SOPInstanceUID
 		    File.TempName="RTPLAN_"+File.UID_Name+".dcm"
@@ -6874,238 +6874,238 @@ Inherits Thread
 		  for i=0 to UBound(RT_Structures) // look for Image .dcm files
 		    File=new Class_DICOM_File
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Structures(i).IdentifyingGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0012"
 		    ee.Value=RT_Structures(i).InstanceCreationDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0013"
 		    ee.Value=RT_Structures(i).InstanceCreationTime
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0016"
 		    ee.Value=RT_Structures(i).SOPClassUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0018"
 		    ee.Value=RT_Structures(i).SOPInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0020"
 		    ee.Value=RT_Structures(i).StudyDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Structures(i).StudyTime
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0050"
 		    ee.Value=RT_Structures(i).AcquisitionTime
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0060"
 		    ee.Value=RT_Structures(i).Modality
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0070"
 		    ee.Value=RT_Structures(i).Manufacturer
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="0090"
 		    ee.Value=RT_Structures(i).ReferringPhysician
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1030"
 		    ee.Value=RT_Structures(i).StudyDescription
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="103E"
 		    ee.Value=RT_Structures(i).SeriesDescription
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0008"
 		    ee.Tag_b="1048"
 		    ee.Value=RT_Structures(i).Physician
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0000"
 		    ee.Value=str(RT_Structures(i).PatientGroupLength)
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0010"
 		    ee.Value=RT_Structures(i).PatientName
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0020"
 		    ee.Value=RT_Structures(i).PatientID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0030"
 		    ee.Value=RT_Structures(i).PatientBirthDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="0040"
 		    ee.Value=RT_Structures(i).sex
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0010"
 		    ee.Tag_b="1010"
 		    ee.Value=RT_Structures(i).Age
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Structures(i).AcquisitionGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0018"
 		    ee.Tag_b="1020"
 		    ee.Value=RT_Structures(i).SoftwareVersion
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Structures(i).RelationshipGroupLength
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000D"
 		    ee.Value=RT_Structures(i).StudyInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="000E"
 		    ee.Value=RT_Structures(i).SeriesInstanceUID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0010"
 		    ee.Value=RT_Structures(i).StudyID
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0011"
 		    ee.Value=RT_Structures(i).SeriesNumber
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="0020"
 		    ee.Tag_b="0013"
 		    ee.Value=str(RT_Structures(i).InstanceNumber,"#")
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0000"
 		    ee.Value=RT_Structures(i).Tomo3006
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0002"
 		    ee.Value=RT_Structures(i).StructureSetLabel
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0004"
 		    ee.Value=RT_Structures(i).StructureSetName
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0006"
 		    ee.Value=RT_Structures(i).StructureSetDescription
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0008"
 		    ee.Value=RT_Structures(i).StrutureSetDate
 		    found=ee.Update
 		    
 		    ee=new Class_DICOM_Element
-		    File.Elements.Append ee
+		    File.elements.addrow( ee )
 		    ee.Tag_a="3006"
 		    ee.Tag_b="0009"
 		    ee.Value=RT_Structures(i).StrutureSetTime
@@ -7113,7 +7113,7 @@ Inherits Thread
 		    
 		    if UBound(RT_Structures(i).RFORS)>-1 Then
 		      ee=new Class_DICOM_Element
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      ee.Tag_a="3006"
 		      ee.Tag_b="0010"
 		      ee.Value="1"
@@ -7123,7 +7123,7 @@ Inherits Thread
 		      
 		      for k=0 to UBound(RT_Structures(i).RFORS)
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
 		        ee.Value="1"
@@ -7132,7 +7132,7 @@ Inherits Thread
 		        item_level1_length=0
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="0020"
 		        ee.Tag_b="0052"
 		        ee.Value=RT_Structures(i).RFORS(k).FrameofReferenceUID
@@ -7142,7 +7142,7 @@ Inherits Thread
 		        
 		        if UBound(RT_Structures(i).RFORS(k).ReferencedStudySequence)>-1 Then
 		          ee=new Class_DICOM_Element
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Tag_a="3006"
 		          ee.Tag_b="0012"
 		          ee.Value=RT_Structures(i).StrutureSetTime
@@ -7152,7 +7152,7 @@ Inherits Thread
 		          
 		          for j=0 to UBound(RT_Structures(i).RFORS(k).ReferencedStudySequence)
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
 		            ee.Value="1"
@@ -7162,7 +7162,7 @@ Inherits Thread
 		            rstudys=RT_Structures(i).RFORS(k).ReferencedStudySequence(j)
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="0008"
 		            ee.Tag_b="1150"
 		            ee.Value=rstudys.ReferencedSOPClassUID
@@ -7170,7 +7170,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="0008"
 		            ee.Tag_b="1155"
 		            ee.Value=rstudys.ReferencedSOPInstanceUID
@@ -7180,7 +7180,7 @@ Inherits Thread
 		            
 		            if UBound(rstudys.RTReferencedSeriesSequence)>-1 Then
 		              ee=new Class_DICOM_Element
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              ee.Tag_a="3006"
 		              ee.Tag_b="0014"
 		              ee.Value="1"
@@ -7190,7 +7190,7 @@ Inherits Thread
 		              
 		              for x=0 to UBound(rstudys.RTReferencedSeriesSequence)
 		                ee=new Class_DICOM_Element
-		                File.Elements.Append ee
+		                File.elements.addrow( ee )
 		                ee.Tag_a="FFFE"
 		                ee.Tag_b="E000"
 		                ee.Value="1"
@@ -7199,7 +7199,7 @@ Inherits Thread
 		                item_level3_length=0
 		                
 		                ee=new Class_DICOM_Element
-		                File.Elements.Append ee
+		                File.elements.addrow( ee )
 		                ee.Tag_a="0020"
 		                ee.Tag_b="000E"
 		                ee.Value=rstudys.RTReferencedSeriesSequence(x).SeriesInstanceUID
@@ -7209,7 +7209,7 @@ Inherits Thread
 		                
 		                if UBound(rstudys.RTReferencedSeriesSequence(x).ContourImageSequence)>-1 Then
 		                  ee=new Class_DICOM_Element
-		                  File.Elements.Append ee
+		                  File.elements.addrow( ee )
 		                  ee.Tag_a="3006"
 		                  ee.Tag_b="0016"
 		                  ee.Value="1"
@@ -7219,7 +7219,7 @@ Inherits Thread
 		                  
 		                  for y=0 to UBound(rstudys.RTReferencedSeriesSequence(x).ContourImageSequence)
 		                    ee=new Class_DICOM_Element
-		                    File.Elements.Append ee
+		                    File.elements.addrow( ee )
 		                    ee.Tag_a="FFFE"
 		                    ee.Tag_b="E000"
 		                    ee.Value="1"
@@ -7228,7 +7228,7 @@ Inherits Thread
 		                    item_level4_length=0
 		                    
 		                    ee=new Class_DICOM_Element
-		                    File.Elements.Append ee
+		                    File.elements.addrow( ee )
 		                    ee.Tag_a="0008"
 		                    ee.Tag_b="1150"
 		                    ee.Value=rstudys.RTReferencedSeriesSequence(x).ContourImageSequence(y).ReferencedSOPClassUID
@@ -7236,7 +7236,7 @@ Inherits Thread
 		                    item_level4_length=item_level4_length+ee.Element_Length
 		                    
 		                    ee=new Class_DICOM_Element
-		                    File.Elements.Append ee
+		                    File.elements.addrow( ee )
 		                    ee.Tag_a="0008"
 		                    ee.Tag_b="1155"
 		                    ee.Value=rstudys.RTReferencedSeriesSequence(x).ContourImageSequence(y).ReferencedSOPInstanceUID
@@ -7279,7 +7279,7 @@ Inherits Thread
 		    
 		    if UBound(RT_Structures(i).SetROISequence)>-1 Then
 		      ee=new Class_DICOM_Element
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      ee.Tag_a="3006"
 		      ee.Tag_b="0020"
 		      ee.Value="1"
@@ -7289,7 +7289,7 @@ Inherits Thread
 		      
 		      for x=0 to UBound(RT_Structures(i).SetROISequence)
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
 		        ee.Value="1"
@@ -7298,7 +7298,7 @@ Inherits Thread
 		        item_level1_length=0
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0022"
 		        ee.Value=str(RT_Structures(i).SetROISequence(x).ROI_num)
@@ -7306,7 +7306,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0024"
 		        ee.Value=RT_Structures(i).SetROISequence(x).ReferencedFrameofRefUID
@@ -7314,7 +7314,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0026"
 		        ee.Value=RT_Structures(i).SetROISequence(x).ROIname
@@ -7322,7 +7322,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0036"
 		        ee.Value=(RT_Structures(i).SetROISequence(x).ROI_Algorithm)
@@ -7344,7 +7344,7 @@ Inherits Thread
 		    
 		    if UBound(RT_Structures(i).ROIContourSequence)>-1 Then
 		      ee=new Class_DICOM_Element
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      ee.Tag_a="3006"
 		      ee.Tag_b="0039"
 		      ee.Value="1"
@@ -7354,7 +7354,7 @@ Inherits Thread
 		      
 		      for x=0 to UBound(RT_Structures(i).ROIContourSequence)
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
 		        ee.Value="1"
@@ -7363,7 +7363,7 @@ Inherits Thread
 		        item_level1_length=0
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="002A"
 		        ee.Value=str(RT_Structures(i).ROIContourSequence(x).ROIColour.red)+"\"+str(RT_Structures(i).ROIContourSequence(x).ROIColour.green)+"\"+str(RT_Structures(i).ROIContourSequence(x).ROIColour.blue)
@@ -7372,7 +7372,7 @@ Inherits Thread
 		        
 		        if UBound(RT_Structures(i).ROIContourSequence(x).ContourSequence)>-1 Then
 		          ee=new Class_DICOM_Element
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Tag_a="3006"
 		          ee.Tag_b="0040"
 		          ee.Value="1"
@@ -7383,7 +7383,7 @@ Inherits Thread
 		          for j=0 to UBound(RT_Structures(i).ROIContourSequence(x).ContourSequence)
 		            cs=RT_Structures(i).ROIContourSequence(x).ContourSequence(j)
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
 		            ee.Value="1"
@@ -7393,7 +7393,7 @@ Inherits Thread
 		            
 		            if UBound(cs.contourimagesequence)>-1 Then
 		              ee=new Class_DICOM_Element
-		              File.Elements.Append ee
+		              File.elements.addrow( ee )
 		              ee.Tag_a="3006"
 		              ee.Tag_b="0016"
 		              ee.Value="1"
@@ -7403,7 +7403,7 @@ Inherits Thread
 		              
 		              for k=0 to UBound(cs.contourimagesequence)
 		                ee=new Class_DICOM_Element
-		                File.Elements.Append ee
+		                File.elements.addrow( ee )
 		                ee.Tag_a="FFFE"
 		                ee.Tag_b="E000"
 		                ee.Value="1"
@@ -7412,7 +7412,7 @@ Inherits Thread
 		                item_level3_length=0
 		                
 		                ee=new Class_DICOM_Element
-		                File.Elements.Append ee
+		                File.elements.addrow( ee )
 		                ee.Tag_a="0008"
 		                ee.Tag_b="1150"
 		                ee.Value=cs.contourimagesequence(k).ReferencedSOPClassUID
@@ -7420,7 +7420,7 @@ Inherits Thread
 		                item_level3_length=item_level3_length+ee.Element_Length
 		                
 		                ee=new Class_DICOM_Element
-		                File.Elements.Append ee
+		                File.elements.addrow( ee )
 		                ee.Tag_a="0008"
 		                ee.Tag_b="1155"
 		                ee.Value=cs.contourimagesequence(k).ReferencedSOPInstanceUID
@@ -7436,7 +7436,7 @@ Inherits Thread
 		            end
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="0042"
 		            ee.Value=cs.GeometricType
@@ -7444,7 +7444,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="0044"
 		            ee.Value=cs.SlabThickness
@@ -7452,7 +7452,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="0045"
 		            ee.Value=cs.OffsetVector
@@ -7460,7 +7460,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="0046"
 		            ee.Value=str(cs.numberofcontourpoints)
@@ -7468,7 +7468,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="0050"
 		            ee.Value=cs.data
@@ -7487,7 +7487,7 @@ Inherits Thread
 		        
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0084"
 		        ee.Value=RT_Structures(i).ROIContourSequence(x).ReferencedROINumber
@@ -7506,7 +7506,7 @@ Inherits Thread
 		    
 		    if UBound(RT_Structures(i).ROI_Obs_Seq)>-1 Then
 		      ee=new Class_DICOM_Element
-		      File.Elements.Append ee
+		      File.elements.addrow( ee )
 		      ee.Tag_a="3006"
 		      ee.Tag_b="0080"
 		      ee.Value="1"
@@ -7516,7 +7516,7 @@ Inherits Thread
 		      
 		      for k=0 to UBound(RT_Structures(i).ROI_Obs_Seq)
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="FFFE"
 		        ee.Tag_b="E000"
 		        ee.Value="1"
@@ -7525,7 +7525,7 @@ Inherits Thread
 		        item_level1_length=0
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0082"
 		        ee.Value=str(RT_Structures(i).ROI_Obs_Seq(k).Ob_num)
@@ -7533,7 +7533,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="0084"
 		        ee.Value=(RT_Structures(i).ROI_Obs_Seq(k).ReferencedROI_Num)
@@ -7541,7 +7541,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="00A4"
 		        ee.Value=(RT_Structures(i).ROI_Obs_Seq(k).RT_ROI_Inter_Type)
@@ -7549,7 +7549,7 @@ Inherits Thread
 		        item_level1_length=item_level1_length+ee.Element_Length
 		        
 		        ee=new Class_DICOM_Element
-		        File.Elements.Append ee
+		        File.elements.addrow( ee )
 		        ee.Tag_a="3006"
 		        ee.Tag_b="00A6"
 		        ee.Value=(RT_Structures(i).ROI_Obs_Seq(k).ROI_Inter)
@@ -7559,7 +7559,7 @@ Inherits Thread
 		        
 		        if UBound(RT_Structures(i).ROI_Obs_Seq(k).ROI_Phys_Prop_Sequ)>-1 Then
 		          ee=new Class_DICOM_Element
-		          File.Elements.Append ee
+		          File.elements.addrow( ee )
 		          ee.Tag_a="3006"
 		          ee.Tag_b="00B0"
 		          ee.Value="1"
@@ -7569,7 +7569,7 @@ Inherits Thread
 		          
 		          for x=0 to UBound(RT_Structures(i).ROI_Obs_Seq(k).ROI_Phys_Prop_Sequ)
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="FFFE"
 		            ee.Tag_b="E000"
 		            ee.Value="1"
@@ -7578,7 +7578,7 @@ Inherits Thread
 		            item_level2_length=0
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="00B2"
 		            ee.Value=(RT_Structures(i).ROI_Obs_Seq(k).ROI_Phys_Prop_Sequ(x).ROI_Phys_Prop)
@@ -7586,7 +7586,7 @@ Inherits Thread
 		            item_level2_length=item_level2_length+ee.Element_Length
 		            
 		            ee=new Class_DICOM_Element
-		            File.Elements.Append ee
+		            File.elements.addrow( ee )
 		            ee.Tag_a="3006"
 		            ee.Tag_b="00B4"
 		            ee.Value=(RT_Structures(i).ROI_Obs_Seq(k).ROI_Phys_Prop_Sequ(x).ROI_Phys_Prop_Value)

@@ -478,19 +478,19 @@ Inherits Thread
 		  
 		  MI = New MenuItem
 		  MI.Text = "CT Abdomen: W400, L50"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "CT Bone: W1200, L350"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "CT Head: W300, L120"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "CT Lung: W1500, L-550"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Soft Tissue: W600, L40"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  Return base
 		End Function

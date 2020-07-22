@@ -8832,10 +8832,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Depth"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Remove Depth"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True

@@ -1408,31 +1408,31 @@ End
 		    
 		    MI = New MenuItem
 		    MI.Text = "Add Point"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Move Point"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Delete Point"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Scale"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Move Segment"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Copy Sup"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "Copy Inf"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.value =  "Define ROI"
-		    base.Append MI
+		    base.addmenu( MI )
 		    MI = New MenuItem
 		    MI.Text = "AutoContour"
-		    base.Append MI
+		    base.addmenu( MI )
 		    
 		    Return True
 		  end
@@ -1808,10 +1808,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add New Structure"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Delete Structure"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  

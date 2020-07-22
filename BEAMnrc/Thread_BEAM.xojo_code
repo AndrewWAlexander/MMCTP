@@ -7,63 +7,76 @@ Inherits Thread
 		  // 
 		  //
 		  //--------------------------------------
-		  Dim beam as integer
+		  'Dim beam as integer
 		  //--------------------------------------
 		  
 		  
-		  if egs_run1 then
-		    egs_Run1 =False
-		    for beam=0 to UBound(gRTOG.Plan(Plan_Index).beam)
-		      if Window_Treatment.ListBox_MC_Beam.Cellcheck(beam,0) then
+		  If egs_run1 Then
+		    
+		    egs_Run1 = False
+		    
+		    For beam As Integer =0 To gRTOG.Plan(Plan_Index).beam.LastRowIndex
+		      
+		      If Window_Treatment.ListBox_MC_Beam.Cellcheck(beam,0) Then
 		        egs_Run(beam,True)
-		        exit
-		      end
-		    next
+		        Exit
+		      End If
+		    Next
 		    Window_Treatment.mc_egs_Beam_Progress_update=True
 		    
 		    
 		    
-		  elseif egs_status then
+		  Elseif egs_status Then
+		    
 		    egs_status=False
-		    for beam=0 to UBound(gRTOG.Plan(Plan_Index).beam)
-		      if egs_Refresh(beam) =False Then
+		    
+		    For beam As Integer = 0 To gRTOG.Plan(Plan_Index).beam.LastRowIndex
+		      
+		      If egs_Refresh(beam) =False Then
+		        
 		        Exit
-		      end
-		    next
+		        
+		      End If
+		    Next
 		    
-		    for beam=0 to UBound(gRTOG.Plan(Plan_Index).beam)
-		      if egs_Refresh_PhaseSpace(beam)=False Then
+		    For beam As Integer = 0 To gRTOG.Plan(Plan_Index).beam.LastRowIndex
+		      
+		      If egs_Refresh_PhaseSpace(beam)=False Then
+		        
 		        Exit
-		      end
-		    next
+		        
+		      End If
+		    Next
 		    
 		    
-		  elseif egs_phsp_list then
+		  Elseif egs_phsp_list Then
+		    
 		    egs_phsp_list=False
 		    egs_Read_Phsp_Properties(Window_BEAM_Phsp_Information.beam_index)
 		    egs_Run_beamdp(Window_BEAM_Phsp_Information.beam_index)
 		    egs_Read_all_phsp_files
 		    
 		    
-		  elseif egs_build Then
+		  Elseif egs_build Then
+		    
 		    egs_build=False
 		    egs_Make_Module(Window_BEAM_Options.beam_num)
 		    
+		  Elseif egs_exbeam Then // Run a text simulation
 		    
-		    
-		  elseif egs_exbeam Then // Run a text simulation
 		    egs_exbeam=False
 		    egs_Run_Test(Window_BEAM_Options.beam_num)
 		    
+		  Elseif egs_addphsp Then
 		    
-		  elseif egs_addphsp Then
 		    egs_addphsp=False
-		    beam=Window_BEAM_Options.beam_num
+		    Var beam As Integer = Window_BEAM_Options.beam_num
 		    egs_AddPhSp(beam)
 		    beams(beam).egs_progress=100
 		    egs_Write
 		    Window_Treatment.MC_egs_beam_progress_update=True
-		  end
+		    
+		  End If
 		  
 		  gTimer_Refresh.Period=1000
 		  gTimer_Refresh.Reset
@@ -73,12 +86,12 @@ Inherits Thread
 		  
 		  
 		  
-		  Exception err as TypeMismatchException
-		    Errors.Append "Error within BEAM thread: Tried to retype an object!"
-		  Exception err as NilObjectException
-		    Errors.Append "Error within BEAM thread: Tried to access a Nil object!"
-		  Exception err as RuntimeException  // NOT RECOMMENDED
-		    Errors.Append "Error within BEAM thread: Another exception"
+		  Exception err As TypeMismatchException
+		    Errors.AddRow( "Error within BEAM thread: Tried to retype an object!")
+		    'Exception err As NilObjectException
+		    Errors.AddRow( "Error within BEAM thread: Tried to access a Nil object!")
+		  Exception err As RuntimeException  // NOT RECOMMENDED
+		    Errors.AddRow( "Error within BEAM thread: Another exception" )
 		    
 		End Sub
 	#tag EndEvent
@@ -115,60 +128,69 @@ Inherits Thread
 		  // add phase space files
 		  //
 		  //---------------------------
-		  Dim f as FolderItem
-		  Dim location(-1),path,command,line,temp,egs_jobq, i_iaea , istart, iscore,file_extension as String
-		  Dim ts as TextOutputStream
-		  Dim i as integer
-		  Dim good as Boolean
+		  'Dim f as FolderItem
+		  'Dim location(-1),path,command,line,temp,egs_jobq, i_iaea , istart, iscore,file_extension As String
+		  'Dim ts as TextOutputStream
+		  'Dim i as integer
+		  'Dim good as Boolean
 		  //----------------------------
 		  
-		  good=egs_get_directory(Beam)
-		  temp=str(beam+1)
-		  temp=MC_file_name+temp
+		  Var good As Boolean = egs_get_directory(Beam)
+		  Var temp As String = Str(beam+1)
+		  temp = MC_file_name+temp
 		  
 		  // Use full path for addphsp
-		  if egs_Addphsp_fullpath Then
-		    temp=cc.dir+"/"+temp
-		  end
+		  If egs_Addphsp_fullpath Then
+		    
+		    temp = cc.dir+"/"+temp
+		    
+		  End
 		  
-		  if gBEAM.beams(beam).egs_jobs<=1 Then
+		  If gBEAM.beams(beam).egs_jobs <= 1 Then
 		    // do not need to addphsp for single runs
 		    Return
-		  end
+		    
+		  End
 		  
 		  // Assume there are no longer any jobs running
-		  gBEAM.Beams(beam).egs_BEAMnrc_active_jobs=0
+		  gBEAM.Beams(beam).egs_BEAMnrc_active_jobs = 0
 		  
-		  if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		  Var i_iaea As String
+		  If gBEAM.Beams(beam).Inputfile.IO_OPT = 4 Then
+		    
 		    i_iaea="1"
-		  else
+		    
+		  Else
+		    
 		    i_iaea="0"
-		  end
-		  istart="1"
-		  iscore="1"
+		    
+		  End
 		  
-		  file_extension=".egsphsp1"
+		  Var istart As String = "1"
+		  Var iscore As String = "1"
+		  
+		  Var file_extension As String = ".egsphsp1"
 		  
 		  //remove any old phsp files, addphsp and delete w files and addphsp log
-		  line= "rm -f "+temp+file_extension+transfer_endline+_
-		  "addphsp "+temp+ " "+temp+" "+Format(gBEAM.beams(beam).egs_jobs,"#")+ " "+istart+" "+iscore+" "+i_iaea+" > "+temp+".addphsptxt"
+		  Var line As String =  "rm -f "+temp+file_extension+transfer_endline+_
+		  "addphsp " + temp +  " " + temp + " "+Format(gBEAM.beams(beam).egs_jobs,"#") + " " _
+		  + istart+" " + iscore+" " + i_iaea+" > "+temp+".addphsptxt"
 		  
 		  //Looks to me like this is the section that runs Addphsp.  In Shell Refresh, there's no evidence that this section ever happens.
 		  //Is this actually being sent to the command line?  Well, obviously it's not, but is the command to make it do so here?
 		  //Alternatively, could it just run the executable?
 		  //Observations by William Davis
-		  f=gRTOG.Plan(Plan_Index).Path
-		  f=f.Child("j"+MC_file_name+str(Beam+1)+".addphsp")
-		  ts=f.CreateTextFile
-		  if ts=nil Then
-		    Return
-		  end
+		  Var f As FolderItem = gRTOG.Plan(Plan_Index).Path.Child("j"+MC_file_name+Str(Beam+1)+".addphsp")
+		  Var ts As TextOutputStream = f.CreateTextFile
+		  
+		  If ts = Nil Then Return
+		  
 		  ts.Write line
 		  ts.Close
 		  
-		  path=f.ShellPath
+		  Var path As String = f.ShellPath
 		  // FTP addphsp line to cluster
-		  good=egs_get_directory(Beam)
+		  good = egs_get_directory(Beam)
 		  cc.command="put "+path+" "+cc.dir+"/"+f.Name
 		  cc.FTP_Now=True
 		  cc.egs_addphsp1=True
@@ -177,21 +199,21 @@ Inherits Thread
 		  cc.FTP_Put_file=True
 		  cc.FTP_Local_Path=path
 		  cc.FTP_Remote_Path=cc.dir+"/"+f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  // Change mode to exe and execute
 		  good=egs_get_directory(Beam)
 		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  // determine how to submit job to batch
-		  good=egs_get_directory(Beam)
-		  egs_jobq=MC_Autoqueue(10, cc.shell)
-		  command=cc.shell.Queue_Submit(egs_jobq, f.Name)
-		  cc.command=command
-		  cc.egs_addphsp1=True
-		  cc.inpfilename=MC_file_name+str(Beam+1)
-		  MMCTP_Shell_Refresh.All.Append cc
+		  good = egs_get_directory(Beam)
+		  Var egs_jobq As String = MC_Autoqueue(10, cc.shell)
+		  Var command As String = cc.shell.Queue_Submit(egs_jobq, f.Name)
+		  cc.command = command
+		  cc.egs_addphsp1 = True
+		  cc.inpfilename=MC_file_name+Str(Beam+1)
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -346,7 +368,7 @@ Inherits Thread
 		    temp = MC_file_name + Str(beam+1) + "_* "+MC_file_name+temp _
 		    + ".* "+MC_file_name+temp+"*djaws "
 		    cc.command= "rm -f "+temp
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		    
 		    // Remove beam from database
 		    Var bb As RTOG_Beam_Geometry = gRTOG.Plan(Plan_Index).Beam(Beam)
@@ -402,7 +424,7 @@ Inherits Thread
 		    Return
 		  end
 		  cc.command ="ln -s "+file_name +" "+MC_file_name+str(beam+1)+".egsphsp1"
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  gBEAM.beams(beam).egs_progress=100
 		  gBEAM.beams(beam).egs_phsp_link=True
 		  gBEAM.beams(beam).egs_phsp_name=file_name
@@ -530,97 +552,127 @@ Inherits Thread
 		  
 		  // Updated for DOSXYZnrc isource 20 phsp file runs 2017
 		  //-------------------------------------------------
-		  dim i,x as integer
-		  dim name,energy,mode,temp as String
+		  'dim i,x as integer
+		  'dim name,energy,mode,temp as String
 		  //-------------------------------------------------
 		  
-		  if Plan_Index<0 or Plan_Index>UBound(gRTOG.Plan) Then
+		  If Plan_Index <0 Or Plan_Index > gRTOG.Plan.LastRowIndex Then
+		    
 		    Return False
-		  end
+		    
+		  End If
 		  
-		  if beam<0 or beam>UBound(gRTOG.Plan(Plan_Index).Beam) Then
+		  If beam <0 Or beam > gRTOG.Plan(Plan_Index).Beam.LastRowIndex Then
+		    
 		    Return False
-		  end
+		    
+		  End If
 		  
-		  if Beams(beam).Beamnrc_error Then
+		  If Beams(beam).Beamnrc_error Then
+		    
 		    Return False
-		  end
+		    
+		  End If 
 		  
-		  name=gRTOG.Plan(Plan_Index).beam(beam).rt_name
-		  energy=gRTOG.Plan(Plan_Index).Beam(beam).beam_energy
-		  mode=gRTOG.Plan(Plan_Index).Beam(beam).beam_mode
+		  Var name As String = gRTOG.Plan(Plan_Index).beam(beam).rt_name
+		  Var energy As String = gRTOG.Plan(Plan_Index).Beam(beam).beam_energy
+		  Var mode as String = gRTOG.Plan(Plan_Index).Beam(beam).beam_mode
 		  
-		  if beam> UBound(Beams) or beam< 0 Then
+		  If beam > Beams.LastRowIndex Or beam< 0 Then
+		    
 		    Return False
-		  end
+		    
+		  End If
 		  
-		  Beams(beam).egs_linac_index=-1
+		  Beams(beam).egs_linac_index = -1
 		  
 		  // Update the Linac link
-		  for i=0 to UBound(gLinacs.All_Linacs)
-		    if mode= gLinacs.All_Linacs(i).Mode and _
-		      gLinacs.All_Linacs(i).RT_name =name and _
-		      gLinacs.All_Linacs(i).Energy = energy then
-		      Beams(beam).egs_linac_index=i
-		      exit for i
-		    end
-		  next
+		  For i As Integer = 0 To gLinacs.All_Linacs.LastRowIndex
+		    
+		    If mode= gLinacs.All_Linacs(i).Mode And _
+		      gLinacs.All_Linacs(i).RT_name =name And _
+		      gLinacs.All_Linacs(i).Energy = energy Then
+		      
+		      Beams(beam).egs_linac_index = i
+		      Exit For 
+		      
+		    End If
+		  Next
 		  
-		  if Beams(beam).egs_linac_index=-1 Then
-		    Errors.append "Error : beam "+str(beam+1)+" is not defined within the list of linacs" //Changed to "Errors.append" by William Davis to avert crashing due to exception
+		  If Beams(beam).egs_linac_index=-1 Then
+		    
+		    Errors.append "Error : beam "+Str(beam+1)+" is not defined within the list of linacs" //Changed to "Errors.append" by William Davis to avert crashing due to exception
 		    Beams(beam).Beamnrc_error=True
 		    Return False
-		  end
+		    
+		  End If
 		  
-		  if Beams(beam).egs_Shell_Index>-1 and Beams(beam).egs_Shell_Index<=UBound(gShells.Shells) Then
-		    cc = new Class_MMCTP_Commands
+		  If Beams(beam).egs_Shell_Index>-1 And _
+		    Beams(beam).egs_Shell_Index <= gShells.Shells.LastRowIndex Then
+		    cc = New Class_MMCTP_Commands
 		    cc.shell=gShells.Shells(Beams(beam).egs_Shell_Index)
 		    
 		    // Update the BEAMnrc directory
 		    Beams(beam).egs_BEAMnrc_dir=""
-		    Beams(beam).egs_BEAMnrc_dir=gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_path(Beams(beam).egs_Shell_Index)
-		    Beams(beam).egs_BEAMnrc_Source_phsp_name=gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_phsp_file(Beams(beam).egs_Shell_Index)
+		    Beams(beam).egs_BEAMnrc_dir = _
+		    gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_path(Beams(beam).egs_Shell_Index)
+		    Beams(beam).egs_BEAMnrc_Source_phsp_name = _
+		    gLinacs.All_Linacs(Beams(beam).egs_linac_index).MC_BEAMnrc_phsp_file(Beams(beam).egs_Shell_Index)
 		    
-		    
-		    if Beams(beam).egs_BEAMnrc_dir="" Then
-		      Errors.append "Error : beam "+str(beam+1)+" is not configured on shell "+gShells.Shells(Beams(Beam).egs_Shell_Index).title //Changed to "Errors.append" by William Davis to prevent crash due to exception
+		    If Beams(beam).egs_BEAMnrc_dir="" Then
+		      
+		      Errors.append "Error : beam " + Str(beam+1) + " is not configured on shell " _
+		      + gShells.Shells(Beams(Beam).egs_Shell_Index).title //Changed to "Errors.append" by William Davis to prevent crash due to exception
 		      Beams(beam).Beamnrc_error=True
 		      Return False
-		    end
+		      
+		    End If
 		    
 		    cc.egsnrc_folder_path=gShells.Shells(Beams(beam).egs_Shell_Index).egsnrc_folder_path
 		    
-		    if cc.shell.OS=3 Then
-		      cc.dir=gShells.Shells(Beams(beam).egs_Shell_Index).egsnrc_folder_path+"\"+Beams(beam).egs_BEAMnrc_dir+"\"
-		    else
-		      cc.dir=gShells.Shells(Beams(beam).egs_Shell_Index).egsnrc_folder_path+"/"+Beams(beam).egs_BEAMnrc_dir+"/"
-		    end
+		    If cc.shell.OS = 3 Then
+		      
+		      cc.dir = gShells.Shells(Beams(beam).egs_Shell_Index).egsnrc_folder_path _
+		      + "\"+Beams(beam).egs_BEAMnrc_dir+"\"
+		      
+		    Else
+		      
+		      cc.dir=gShells.Shells(Beams(beam).egs_Shell_Index).egsnrc_folder_path _
+		      + "/"+Beams(beam).egs_BEAMnrc_dir+"/"
+		      
+		    End If
 		    
-		    While InStr(cc.dir,"//")>0
-		      cc.dir=Replace(cc.dir,"//","/")
+		    While cc.dir.IndexOf( "//")> 0
+		      
+		      cc.dir = cc.dir.Replace("//","/")
+		      
 		    Wend
 		    
-		    gVMC.cc = new Class_MMCTP_Commands //Changed from BEAM to VMC to match mod c by William Davis
-		    gBEAM.cc.shell= new Class_Shell_One
-		    gBEAM.cc.shell=gShells.Shells(Beams(beam).egs_Shell_Index)
+		    gVMC.cc = New Class_MMCTP_Commands //Changed from BEAM to VMC to match mod c by William Davis
+		    gBEAM.cc.shell = New Class_Shell_One
+		    gBEAM.cc.shell = gShells.Shells(Beams(beam).egs_Shell_Index)
 		    
-		    for x=0 to UBound(gDOSXYZ.DOSXYZ)
-		      if UBound(gDOSXYZ.DOSXYZ(x).DOSXYZ_Input)>=beam Then
-		        if gDOSXYZ.DOSXYZ(x).DOSXYZ_Input(beam).isource=2 Then
-		          temp=cc.shell.title
+		    For x As Integer = 0 To gDOSXYZ.DOSXYZ.LastRowIndex
+		      
+		      If gDOSXYZ.DOSXYZ(x).DOSXYZ_Input.LastRowIndex >= beam Then
+		        
+		        If gDOSXYZ.DOSXYZ(x).DOSXYZ_Input(beam).isource=2 Then
+		          
+		          Var temp as String = cc.shell.title
 		          gDOSXYZ.DOSXYZ(x).DOSXYZ_Input(beam).dos_shell=cc.shell.title
 		          gDOSXYZ.DOSXYZ(x).DOSXYZ_Input(beam).dos_shell_index=Beams(beam).egs_Shell_Index
 		          
-		        end
-		      end
-		    next
+		        End If
+		      End If
+		    Next
 		    
 		    Return True
-		  else
-		    Errors.append "Error : beam "+str(beam+1)+" is not defined within the list of shells" //Changed to "Errors.append" by William Davis to prevent crash due to exception
+		  Else
+		    
+		    Errors.append "Error : beam "+Str(beam+1)+" is not defined within the list of shells" //Changed to "Errors.append" by William Davis to prevent crash due to exception
 		    Beams(beam).Beamnrc_error=True
 		    Return False
-		  end
+		  End
 		End Function
 	#tag EndMethod
 
@@ -801,19 +853,19 @@ Inherits Thread
 		  cc.FTP_Put_file=True
 		  cc.FTP_Local_Path=path
 		  cc.FTP_Remote_Path=rrpath
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		  //Build the lianc dir
 		  tt=egs_Get_Directory(beam)
 		  cc.command="beam_build.exe " +inputfileN
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		  //Run make on linac
 		  tt=egs_Get_Directory(beam)
 		  cc.command="make "
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		End Sub
@@ -857,12 +909,12 @@ Inherits Thread
 		  cc.FTP_Put_file=True
 		  cc.FTP_Local_Path=path
 		  cc.FTP_Remote_Path=cc.dir+"/"+f.Name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  //Change mode to exe
 		  tt=egs_Get_Directory(beam)
 		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		End Sub
 	#tag EndMethod
@@ -1548,7 +1600,7 @@ Inherits Thread
 		  cc.command =line
 		  cc.egs_run=True
 		  cc.inpfilename=input_file
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -1707,7 +1759,7 @@ Inherits Thread
 		  cc.inpfilename=inpfilename
 		  cc.egs_exbeam=True
 		  cc.OutPutWindow=1
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -1875,7 +1927,7 @@ Inherits Thread
 		      Return True
 		      
 		    Elseif typea=2 Then
-		       // FLEC logic If the number of available jobs is greater than 0, DOSYXZnrc logic
+		      // FLEC logic If the number of available jobs is greater than 0, DOSYXZnrc logic
 		      
 		      For i As Integer = 0 To found_file.LastRowIndex
 		        
@@ -2055,7 +2107,7 @@ Inherits Thread
 		    cc.FTP_Files= egsinp
 		    cc.inpfilename=egsinp.Name
 		    cc.egs_uploade_inp=True
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  // Upload MLC file
@@ -2072,7 +2124,7 @@ Inherits Thread
 		    cc.FTP_Files= mlc
 		    cc.inpfilename=mlc.Name
 		    cc.egs_uploade_inp=True
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  // Upload djaws file
@@ -2089,7 +2141,7 @@ Inherits Thread
 		    cc.command= "put "+path_jaws+"  "+cc.dir+"/"+DJAWS.Name
 		    cc.FTP_Files= DJAWS
 		    cc.inpfilename=DJAWS.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		End Sub
 	#tag EndMethod

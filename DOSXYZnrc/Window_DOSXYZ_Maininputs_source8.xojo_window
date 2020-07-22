@@ -967,10 +967,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add row"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Delete row"
-		  base.Append MI
+		  base.addmenu( MI )
 		End Function
 	#tag EndEvent
 	#tag Event

@@ -757,147 +757,147 @@ Protected Class Rb3DSpace
 		  '//check left
 		  'if tmpsurf.Pixel(ii-1,jj).red<>255 then  //means this current pixel is black but on the left it is white then close left
 		  '///------------------
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  '///-------------------
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  '
 		  'end if
 		  '
 		  '//check right
 		  'if tmpsurf.Pixel(ii+1,jj).red<>255 then  //means this current pixel is black but on the right it is white then close right
 		  '///------------------
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx+pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  '///-------------------
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx+pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  'end if
 		  '
 		  '
 		  '//check bottom
 		  'if tmpsurf.Pixel(ii,jj+1).red<>255 then  //means this current pixel is black but the bottom one  is white then close bottom
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z2 )
 		  '///-------------------
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery-pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery-pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z2 )
 		  'end if
 		  '
 		  '
 		  '//check top
 		  'if tmpsurf.Pixel(ii,jj-1).red<>255 then  //means this current pixel is black but on the top is white then close top
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  '///-------------------
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
 		  '
 		  'end if
 		  '
 		  '//check back
 		  'if tmpsurf2.Pixel(ii,jj).red<>255 then  //means this current pixel is black but on the top is white then close top
 		  '
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z2 )
 		  '///-------------------
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z2
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z2
+		  'allx.addrow( centerx+pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z2 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z2 )
 		  'end if
 		  '
 		  '//check front
 		  'if tmpsurf3.Pixel(ii,jj).red<>255 then  //means this current pixel is black but the one before was white then close top
 		  '
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
+		  'allx.addrow( centerx-pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
 		  '///-------------------
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx-pixdx)
-		  'ally.Append  (centery+pixdy)
-		  'allz.Append z1
-		  'allx.Append (centerx+pixdx)
-		  'ally.Append  (centery-pixdy)
-		  'allz.Append z1
+		  'allx.addrow( centerx+pixdx)
+		  'ally.addrow( centery+pixdy)
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx-pixdx)
+		  'ally.Addrow( centery+pixdy )
+		  'allz.addrow( z1 )
+		  'allx.addrow( centerx+pixdx)
+		  'ally.Addrow( centery-pixdy )
+		  'allz.addrow( z1 )
 		  '
 		  '
 		  '

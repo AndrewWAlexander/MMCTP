@@ -2064,7 +2064,7 @@ End
 		    for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		      MI = New MenuItem
 		      MI.Text = gDOSXYZ.dosxyz_materials(i).Material_Name
-		      base.Append MI
+		      base.addmenu( MI )
 		    next
 		    Return True
 		  end

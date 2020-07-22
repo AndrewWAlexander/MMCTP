@@ -1038,10 +1038,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Constraint"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Delete Constraint"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True

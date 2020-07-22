@@ -428,11 +428,11 @@ Inherits Thread
 		    
 		    ggo=dosxyz_get_shell_Variables(egsphant_index,beam)
 		    cc.command="rm -f "+name+"*"
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		    ggo=dosxyz_get_shell_Variables(egsphant_index,beam)
 		    cc.command="rm -f -r  *"+name+"*"
 		    if ggo Then
-		      MMCTP_Shell_Run.All.Append cc
+		      MMCTP_Shell_Run.All.Addrow( cc )
 		    end
 		    
 		  elseif DOSXYZ(egsphant_index).DOSXYZ_Input(beam).IRESTART=4 Then 
@@ -448,7 +448,7 @@ Inherits Thread
 		    ggo=dosxyz_get_shell_Variables(egsphant_index,beam)
 		    if ggo Then
 		      cc.command="rm -f "+name
-		      MMCTP_Shell_Run.All.Append cc
+		      MMCTP_Shell_Run.All.Addrow( cc )
 		    end
 		  end
 		End Sub
@@ -2601,7 +2601,7 @@ Inherits Thread
 		  else
 		    cc.FTP_Remote_Path=cc.shell.egsnrc_folder_path+"/dosxyznrc/"+f.Name
 		  end
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  '//Change mode to exe
 		  g=dosxyz_get_shell_Variables(egsphant,beam)
@@ -2611,7 +2611,7 @@ Inherits Thread
 		    cc.dir=cc.shell.egsnrc_folder_path+"/dosxyznrc/"
 		  end
 		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -3169,7 +3169,7 @@ Inherits Thread
 		  cc.inpfilename=name
 		  cc.dos_egsphant_index=egsphant_index
 		  cc.beam_num=beam
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  gDOSXYZ.DOSXYZ(egsphant_index).Write_DOSXYZ
 		  Window_Treatment.MC_dosxyz_beam_progress
@@ -3286,7 +3286,7 @@ Inherits Thread
 		  cc.dos_egsphant_index=egs_index
 		  cc.beam_num=beam
 		  cc.inpfilename=inpfilename
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -3407,7 +3407,7 @@ Inherits Thread
 		  cc.FTP_Files=f
 		  cc.dos_inputfile=true
 		  cc.inpfilename=name
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  
 		End Sub
@@ -3454,7 +3454,7 @@ Inherits Thread
 		  cc.FTP_Local_Path=path
 		  cc.FTP_Remote_Path=cc.dir+name
 		  cc.FTP_Files=f
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -3489,7 +3489,7 @@ Inherits Thread
 		  cc.inpfilename=f.Name
 		  cc.dos_egsphant_index=egsphant_num
 		  cc.dos_egsphant_Upload=True
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		End Sub
 	#tag EndMethod

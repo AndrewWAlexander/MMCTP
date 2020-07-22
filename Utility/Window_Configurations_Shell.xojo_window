@@ -4521,7 +4521,7 @@ End
 		  cc.shell=ss
 		  cc.command="ls"
 		  cc.shell_Test=True
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  gTimer_Run.Period=1000
 		  gTimer_Run.Reset
 		End Sub
@@ -4658,7 +4658,7 @@ End
 		  cc.FTP_Remote_Path=f.Name
 		  cc.command="put "+path+"  "+f.Name
 		  cc.FTP_Files= f
-		  MMCTP_Shell_Run.All.Append cc
+		  MMCTP_Shell_Run.All.Addrow( cc )
 		  
 		  gTimer_Run.Period=1000
 		  gTimer_Run.Reset

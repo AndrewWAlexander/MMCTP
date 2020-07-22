@@ -3624,10 +3624,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Dose at Volume Point"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Remove"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True
@@ -3668,10 +3668,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Volume at Dose Point"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Remove"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True
@@ -3734,10 +3734,10 @@ End
 		  
 		  MI = New MenuItem
 		  MI.Text = "Add Dose at Volume Point"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Remove"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True

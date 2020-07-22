@@ -1220,14 +1220,14 @@ Inherits Thread
 		    cc.FTP_Local_Path=f.ShellPath
 		    cc.FTP_Put_file=True
 		    cc.FTP_Remote_Path=VMC_dir+f.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  //Change mode to exe and execute
 		  if vmc_Get_Shell_Enviro(dmx_index,beam) Then
 		    cc.dir=VMC_dir
 		    cc.command="chmod u+x " +f.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  //determine how to submit job to batch
@@ -1238,7 +1238,7 @@ Inherits Thread
 		    cc.vmc_dmx_index=dmx_index
 		    cc.beam_num=beam
 		    cc.command=cc.Shell.Queue_Submit(vmc(dmx_index).BEAMS(beam).queue,f.Name)
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		End Sub
 	#tag EndMethod
@@ -1717,14 +1717,14 @@ Inherits Thread
 		        dir=xvmc_folder+"dat/"
 		        cc.dir=dir
 		        cc.command ="rm -f "+MC_file_name+str(beam+1)+".egs4phsp1"
-		        MMCTP_Shell_Run.All.Append cc
+		        MMCTP_Shell_Run.All.Addrow( cc )
 		      end
 		      
 		      
 		      if vmc_Get_Shell_Enviro(dmx_index,beam) Then
 		        cc.dir=dir
 		        cc.command ="ln -s "+path
-		        MMCTP_Shell_Run.All.Append cc
+		        MMCTP_Shell_Run.All.Addrow( cc )
 		      end
 		      
 		    end
@@ -1757,7 +1757,7 @@ Inherits Thread
 		  if vmc_Get_Shell_Enviro(dmx_index,beam) Then
 		    cc.command ="mkdir "+gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(dmx_index).DMX.dmx_name
 		    cc.dir=xvmc_folder
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  
@@ -1778,7 +1778,7 @@ Inherits Thread
 		    cc.vmc_dmx_upload=True
 		    cc.vmc_dmx_index=dmx_index
 		    cc.command="put "+f.ShellPath+" "+vmc_directoy+f.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  
@@ -1801,7 +1801,7 @@ Inherits Thread
 		    cc.FTP_Now=True
 		    cc.inpfilename=f.Name
 		    cc.command="put "+f.ShellPath+" "+vmc_directoy+f.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		End Sub
 	#tag EndMethod
@@ -1830,7 +1830,7 @@ Inherits Thread
 		  if vmc_Get_Shell_Enviro(dmx_int,beam) Then
 		    cc.command="rm -f "+MC_file_name+str(beam+1)+".*  " +"R"+MC_file_name+str(beam+1)+"_*  " +MC_file_name+str(beam+1)+"00.*"+" "+MC_file_name+str(beam+1)+"_*"
 		    cc.dir=cd
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		  
 		  
@@ -1846,7 +1846,7 @@ Inherits Thread
 		    cc.FTP_Put_file=True
 		    cc.FTP_Local_Path=f.ShellPath
 		    cc.FTP_Remote_Path=cd+f.Name
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.Addrow( cc )
 		  end
 		End Sub
 	#tag EndMethod

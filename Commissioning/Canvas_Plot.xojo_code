@@ -7,13 +7,13 @@ Inherits Canvas
 		  
 		  MI = New MenuItem
 		  MI.Text = "Change Colour"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Change BG Colour"
-		  base.Append MI
+		  base.addmenu( MI )
 		  MI = New MenuItem
 		  MI.Text = "Rescale"
-		  base.Append MI
+		  base.addmenu( MI )
 		  
 		  
 		  Return True

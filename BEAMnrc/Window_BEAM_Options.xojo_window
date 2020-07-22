@@ -1461,27 +1461,39 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Cal_time()
-		  Dim Time as Single
 		  
-		  time=gBEAM.Beams(beam_num).egs_CPU_time_per_hist*gBEAM.beams(beam_num).egs_num_histories/gBEAM.Beams(beam_num).egs_jobs
+		  Var time as Single = gBEAM.Beams(beam_num).egs_CPU_time_per_hist _
+		  * gBEAM.beams(beam_num).egs_num_histories _
+		  / gBEAM.Beams(beam_num).egs_jobs
 		  
 		  
-		  if Time >60 Then
-		    Time=Time/60 // Minutes
-		    if Time>90 Then
+		  If Time > 60 Then
+		    
+		    Time =Time/60 // Minutes
+		    
+		    If Time>90 Then
+		      
 		      Time=Time/60 // Hours
-		      if time> 36 Then
+		      
+		      If Time> 36 Then
+		        
 		        Time=Time/24 // days
 		        StaticText_TotalTime.value = "Approx CPU time per job (day) "+Format(time,"###,###,###.##")
-		      else
+		        
+		      Else
 		        StaticText_TotalTime.value = "Approx CPU time per job (hr) "+Format(time,"###,###,###.##")
-		      end
-		    else
+		        
+		      End If
+		    Else
+		      
 		      StaticText_TotalTime.value = "Approx CPU time per job (min) "+Format(time,"###,###,###.##")
-		    end
-		  else
+		      
+		    End If 
+		  Else
+		    
 		    StaticText_TotalTime.value = "Approx CPU time per job (sec) "+Format(time,"###,###,###.##")
-		  end
+		    
+		  End If
 		End Sub
 	#tag EndMethod
 
@@ -1491,74 +1503,97 @@ End
 		  //
 		  //
 		  //--------------------------------
-		  Dim jarea,time as Single
-		  Dim i as Integer
+		  'Dim jarea,time as Single
+		  'Dim i as Integer
 		  //--------------------------------
 		  
-		  Main_Refresh=True
+		  Main_Refresh = True
 		  UpdateWindow=False
-		  for i = 0 to PopupMenu_JobType.ListCount-1
-		    if PopupMenu_JobType.List(i)= gBEAM.Beams(beam_num).egs_queue then
+		  For i As Integer = 0 To PopupMenu_JobType.LastRowIndex
+		    
+		    If PopupMenu_JobType.List(i)= gBEAM.Beams(beam_num).egs_queue Then
+		      
 		      PopupMenu_JobType.SelectedRowIndex = i
-		    end if
-		  next i
+		      
+		    End If
+		    
+		  Next
 		  
-		  PopupMenu_Shell.SelectedRowIndex=gBEAM.Beams(beam_num).egs_Shell_Index
+		  PopupMenu_Shell.SelectedRowIndex = gBEAM.Beams(beam_num).egs_Shell_Index
 		  EditField_testrun.value = Format(gBEAM.Beams(beam_num).Num_test_hist,"#")
 		  
-		  CheckBox_Simulation_Start.Caption="Started "+gBEAM.Beams(beam_num).egs_Start_Time+" active jobs : "+str(gBEAM.Beams(beam_num).egs_BEAMnrc_active_jobs)
+		  CheckBox_Simulation_Start.Caption = "Started " + gBEAM.Beams(beam_num).egs_Start_Time _
+		  + " active jobs : "+str(gBEAM.Beams(beam_num).egs_BEAMnrc_active_jobs)
 		  
-		  StaticText_part_per_history.Text ="Number particles per history "+Format(gBEAM.Beams(beam_num).egs_particle_per_history,"-#.######")
-		  StaticText_beamid.value = "Beam ID: "+str(gRTOG.Plan(Plan_Index).Beam(beam_num).beam_num)
-		  StaticText_CPU.value = "CPU time per history (s) "+Format(gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"-#.######")
-		  StaticText_phsp_num_part.value = "Number particles in PhSp file "+Format(gBEAM.Beams(beam_num).egs_phsp_num_particles,"###,###,###,###")
+		  StaticText_part_per_history.value = "Number particles per history " _
+		  + Format(gBEAM.Beams(beam_num).egs_particle_per_history,"-#.######")
+		  StaticText_beamid.value = "Beam ID: " + Str(gRTOG.Plan(Plan_Index).Beam(beam_num).beam_num)
+		  StaticText_CPU.value = "CPU time per history (s) " + _
+		  Format(gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"-#.######")
+		  StaticText_phsp_num_part.value = "Number particles in PhSp file " _
+		  + Format(gBEAM.Beams(beam_num).egs_phsp_num_particles,"###,###,###,###")
 		  
-		  if gBEAM.Beams(beam_num).egs_CPU_time_per_hist>0 Then
-		    StaticText_part_per_s.value = "Particles per second "+Format(gBEAM.Beams(beam_num).egs_particle_per_history/gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"###,###,###.##")
-		  else
+		  If gBEAM.Beams(beam_num).egs_CPU_time_per_hist>0 Then
+		    
+		    StaticText_part_per_s.value = "Particles per second " _
+		    + Format(gBEAM.Beams(beam_num).egs_particle_per_history _
+		    / gBEAM.Beams(beam_num).egs_CPU_time_per_hist,"###,###,###.##")
+		    
+		  Else
+		    
 		    StaticText_part_per_s.value = "Particles per second Unknown"
-		  end
+		    
+		  End If
 		  
-		  jarea=gBEAM.egs_Calculate_Area(beam_num)
+		  Var jarea As Single = gBEAM.egs_Calculate_Area(beam_num)
 		  
 		  StaticText_jawarea.value = "Aperture area cm^2 "+Format(jarea,"###,###.##")
 		  
 		  EditField_numhist.value = Format(gBEAM.Beams(beam_num).egs_num_histories,"###,###,###,###")
-		  EditField_desired.value = Format(gBEAM.Beams(beam_num).egs_desired_phsp_particle_density,"###,###,###,###")
+		  EditField_desired.value = _
+		  Format(gBEAM.Beams(beam_num).egs_desired_phsp_particle_density,"###,###,###,###")
 		  
-		  EditField_jobs.value = str(gBEAM.Beams(beam_num).egs_jobs)
+		  EditField_jobs.value = gBEAM.Beams(beam_num).egs_jobs.ToString
 		  EditField_pegs.value = gBEAM.Beams(beam_num).egs_pegs_file
 		  EditField_progress.value = Format(gBEAM.Beams(beam_num).egs_progress,"-#.#")
 		  
-		  if gBEAM.Beams(beam_num).egs_BEAMnrc_started Then
-		    CheckBox_Simulation_Start.Value=True
-		  else
-		    CheckBox_Simulation_Start.Value=False
-		  end
 		  
-		  if gBEAM.Beams(beam_num).egs_AddPhsp_Finished Then
-		    CheckBox_AddPhsp_Finished.Value=True
-		  else
-		    CheckBox_AddPhsp_Finished.Value=False
-		  end
+		  CheckBox_Simulation_Start.Value = gBEAM.Beams(beam_num).egs_BEAMnrc_started
+		  CheckBox_AddPhsp_Finished.Value = gBEAM.Beams(beam_num).egs_AddPhsp_Finished
 		  
-		  time=gBEAM.Beams(beam_num).egs_Sim_Time
-		  if Time >60 Then
+		  Var time As Single = gBEAM.Beams(beam_num).egs_Sim_Time
+		  
+		  If Time >60 Then
+		    
 		    Time=Time/60 // Minutes
-		    if Time>90 Then
-		      Time=Time/60 // Hours
-		      if time> 36 Then
+		    
+		    If Time>90 Then
+		      
+		      Time =Time/60 // Hours
+		      
+		      If Time> 36 Then
+		        
 		        Time=Time/24 // days
-		        CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (day) "+Format(time,"###,###,###.##")
-		      else
-		        CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (hr) "+Format(time,"###,###,###.##")
-		      end
-		    else
-		      CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (min) "+Format(time,"###,###,###.##")
-		    end
-		  else
-		    CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (sec) "+Format(time,"###,###,###.##")
-		  end
+		        CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (day) " _
+		        +Format(time,"###,###,###.##")
+		        
+		      Else
+		        
+		        CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (hr) " _
+		        +Format(time,"###,###,###.##")
+		        
+		      End If
+		    Else
+		      
+		      CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (min) " _
+		      +Format(time,"###,###,###.##")
+		      
+		    End If
+		  Else
+		    
+		    CheckBox_AddPhsp_Finished.Caption="Addphsp finished, Total time (sec) " _
+		    +Format(time,"###,###,###.##")
+		  End If
 		  
 		  CheckBox_AutoQueue.Value=gBEAM.Beams(beam_num).auto_queue
 		  CheckBox_AutoShell.Value=gBEAM.Beams(beam_num).egs_auto_shell
@@ -1566,9 +1601,9 @@ End
 		  Main_Refresh=False
 		  
 		  Exception err
-		    If err IsA OutOfBoundsException then
+		    If err IsA OutOfBoundsException Then
 		      MessageBox "OutOfBoundsException in Refresh Window method"
-		    end if
+		    End If
 		End Sub
 	#tag EndMethod
 
