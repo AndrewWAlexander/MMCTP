@@ -883,7 +883,7 @@ End
 		  
 		  
 		  
-		  mindex=PopupMenu_medium_Number.ListIndex
+		  mindex=PopupMenu_medium_Number.SelectedRowIndex
 		  if mindex>=0 and mindex<=UBound(gDOSXYZ.dosxyz_materials) Then
 		    
 		    if dosxyz_input.dos_Non_CT=True Then
@@ -891,7 +891,7 @@ End
 		      for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		        if name=gDOSXYZ.dosxyz_materials(i).Material_Name Then
 		          do_nothing=True
-		          PopupMenu_All_Medium.ListIndex=i 
+		          PopupMenu_All_Medium.SelectedRowIndex=i 
 		          do_nothing=False
 		          
 		          Return
@@ -912,16 +912,16 @@ End
 		  
 		  
 		  if dosxyz_input.zeroairdose=0 Then
-		    PopupMenu_airdose.ListIndex=0
+		    PopupMenu_airdose.SelectedRowIndex=0
 		  else
-		    PopupMenu_airdose.ListIndex=1
+		    PopupMenu_airdose.SelectedRowIndex=1
 		  end
 		  
 		  
 		  if dosxyz_input.doseprint=0 Then
-		    PopupMenu_dose_output.ListIndex=0
+		    PopupMenu_dose_output.SelectedRowIndex=0
 		  else
-		    PopupMenu_dose_output.listIndex=1
+		    PopupMenu_dose_output.SelectedRowIndex=1
 		  end
 		  
 		  
@@ -949,8 +949,8 @@ End
 		  
 		  
 		  do_nothing=False
-		  PopupMenu_medium_Number.ListIndex=0
-		  PopupMenu_mediuminside.ListIndex=dosxyz_input.MEDIUM-1
+		  PopupMenu_medium_Number.SelectedRowIndex=0
+		  PopupMenu_mediuminside.SelectedRowIndex=dosxyz_input.MEDIUM-1
 		End Sub
 	#tag EndMethod
 
@@ -1128,9 +1128,9 @@ End
 		  'PopupMenu_airdose.AddRow "no"
 		  'PopupMenu_airdose.AddRow "yes"
 		  
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    dosxyz_input.zeroairdose=0
-		  elseif me.ListIndex=1  Then
+		  elseif me.SelectedRowIndex=1  Then
 		    dosxyz_input.zeroairdose=1
 		  end
 		  
@@ -1142,9 +1142,9 @@ End
 #tag Events PopupMenu_dose_output
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    dosxyz_input.doseprint=0
-		  elseif me.ListIndex=1  Then
+		  elseif me.SelectedRowIndex=1  Then
 		    dosxyz_input.doseprint=1
 		  end
 		  
@@ -1215,7 +1215,7 @@ End
 		Sub Change()
 		  Dim i,k as Integer
 		  
-		  k=PopupMenu_mediuminside.ListIndex+1
+		  k=PopupMenu_mediuminside.SelectedRowIndex+1
 		  
 		  if do_nothing=False Then
 		    if k>=1 and k<= dosxyz_input.NMED Then
@@ -1260,7 +1260,7 @@ End
 		  if do_nothing=False Then
 		    
 		    if dosxyz_input.dos_Non_CT=True Then
-		      mindex=PopupMenu_medium_Number.ListIndex
+		      mindex=PopupMenu_medium_Number.SelectedRowIndex
 		      name=me.Text
 		      if mindex>=0 and mindex<=UBound(dosxyz_input.NMedium) Then
 		        dosxyz_input.NMedium(mindex)=name

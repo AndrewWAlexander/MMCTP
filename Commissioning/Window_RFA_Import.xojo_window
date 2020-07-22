@@ -2324,7 +2324,7 @@ End
 		  
 		  
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  
 		  ReDim pp.Points(UBound(RFA.Graphs(k).Points))
 		  
@@ -2386,7 +2386,7 @@ End
 		  Dim GRAD,a,b,c,d,e,f,g,h as Single
 		  Dim pp as new Class_Profile_One
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  grad=val(EditField_Gradient.Text)
 		  
 		  for i=0 to UBound(RFA.Graphs(k).Points)
@@ -2412,7 +2412,7 @@ End
 		Sub Pop_Info()
 		  Dim k,i as Integer
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  
 		  
 		  
@@ -2423,18 +2423,18 @@ End
 		    gg=rfa.Graphs(k)
 		    Listbox_Points.DeleteAllRows
 		    
-		    Listbox_Points.Heading(0)="Point"
-		    Listbox_Points.Heading(1)="X"
-		    Listbox_Points.Heading(2)="Y"
-		    Listbox_Points.Heading(3)="Z"
-		    Listbox_Points.Heading(4)="Value"
+		    Listbox_Points.HeaderAt(0)="Point"
+		    Listbox_Points.HeaderAt(1)="X"
+		    Listbox_Points.HeaderAt(2)="Y"
+		    Listbox_Points.HeaderAt(3)="Z"
+		    Listbox_Points.HeaderAt(4)="Value"
 		    
 		    for i=0 to UBound(rfa.Graphs(k).Points)
 		      Listbox_Points.AddRow str(i+1)
-		      Listbox_Points.Cell(i,1)=str(rfa.Graphs(k).Points(i).x_cm)
-		      Listbox_Points.Cell(i,2)=str(rfa.Graphs(k).Points(i).y_cm)
-		      Listbox_Points.Cell(i,3)=str(rfa.Graphs(k).Points(i).z_cm)
-		      Listbox_Points.Cell(i,4)=str(rfa.Graphs(k).Points(i).value)
+		      Listbox_Points.CellValueAt(i,1)=str(rfa.Graphs(k).Points(i).x_cm)
+		      Listbox_Points.CellValueAt(i,2)=str(rfa.Graphs(k).Points(i).y_cm)
+		      Listbox_Points.CellValueAt(i,3)=str(rfa.Graphs(k).Points(i).z_cm)
+		      Listbox_Points.CellValueAt(i,4)=str(rfa.Graphs(k).Points(i).value)
 		    next
 		    
 		    EditField_Date.value = RFA.Graphs(k).Date
@@ -2828,7 +2828,7 @@ End
 		  Dim x,y,z as Single
 		  Dim pp as new Class_Profile_One
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  
 		  z=val(EditField_Z.Text)
 		  
@@ -2998,7 +2998,7 @@ End
 		  Dim k as Integer
 		  
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  
 		  RFA_Import(k)
 		  

@@ -2300,7 +2300,7 @@ Protected Class RTOG_Plan
 		      if i<=UBound(beam.MLC.Fields) Then
 		        dd=beam.MLC.Fields(i).Indexnum
 		      else
-		        MsgBox("Error within method split dynamic fields")
+		        MessageBox("Error within method split dynamic fields")
 		        Return
 		      end
 		      
@@ -2311,7 +2311,7 @@ Protected Class RTOG_Plan
 		      if i<=UBound(beam.Collimator.Fields) Then
 		        dd=beam.Collimator.Fields(i).Index
 		      else
-		        MsgBox("Error within method split dynamic fields")
+		        MessageBox("Error within method split dynamic fields")
 		        Return
 		      end
 		      
@@ -2328,7 +2328,7 @@ Protected Class RTOG_Plan
 		  
 		  
 		  if mutotal<=0.0 Then
-		    MsgBox("Error within method split dynamic fields")
+		    MessageBox("Error within method split dynamic fields")
 		    Return
 		  end
 		  
@@ -2440,7 +2440,7 @@ Protected Class RTOG_Plan
 		      elseif beam.Collimator.NumFields=1 and (i-1)<=UBound(beam.MLC.Fields)  then
 		        dd=beam.MLC.Fields(i).Indexnum-beam.MLC.Fields(i-1).Indexnum
 		      else
-		        MsgBox("Error within method split dynamic fields")
+		        MessageBox("Error within method split dynamic fields")
 		        Return
 		      end
 		      bbnew.MU=dd*beam.MU
@@ -2800,7 +2800,7 @@ Protected Class RTOG_Plan
 		  end
 		  ts=f.createTextFile
 		  if ts=nil then
-		    MsgBox "Could not write "+f.Name
+		    MessageBox "Could not write "+f.Name
 		    Exit
 		  end
 		  
@@ -3118,7 +3118,7 @@ Protected Class RTOG_Plan
 		    Spaces(ts,"Operator",20,mlc.Fields(i-1).Operator)
 		    Spaces(ts,"Collimator",20,mlc.Fields(i-1).Collimator)
 		    if UBound(mlc.Fields(i-1).Leaf_A)<>(mlc.NumberofLeafPairs-1) Then
-		      MsgBox "Could not write MLC file for beam "+f.Name
+		      MessageBox "Could not write MLC file for beam "+f.Name
 		      ts.Close
 		      Return
 		    end
@@ -3283,7 +3283,7 @@ Protected Class RTOG_Plan
 		      //for each structure
 		      //initialize the stuff
 		      if Structure_Dose(i).Voxel_REs<=0 Then
-		        MsgBox "Wrong voxel size for organ "+str(i+1)+" set at "+str(Structure_Dose(i).Voxel_REs)
+		        MessageBox "Wrong voxel size for organ "+str(i+1)+" set at "+str(Structure_Dose(i).Voxel_REs)
 		        Return
 		      end
 		      

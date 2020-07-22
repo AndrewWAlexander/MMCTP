@@ -253,44 +253,60 @@ Inherits Thread
 		  //Removing previous egsrun beams
 		  //
 		  //--------------------------------------
-		  Dim temp ,phspname,sql as String
-		  Dim hh,record_found as Boolean
-		  Dim bb as RTOG_Beam_Geometry
-		  Dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		  Dim f,g,h as FolderItem
-		  Dim rs as RecordSet
+		  'Dim temp ,phspname,sql As String
+		  'Dim hh,record_found as Boolean
+		  'Dim bb as RTOG_Beam_Geometry
+		  'Dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  'Dim f,g,h As FolderItem
+		  'Dim rs as RecordSet
 		  //--------------------------------------
 		  
 		  
-		  if Beams(beam).Inputfile.IRESTART=0 then
+		  If Beams(beam).Inputfile.IRESTART = 0 Then
 		    // New run
-		    temp=str(beam+1)
+		    Var temp As String = Str(beam+1)
 		    // Remove from local folder
-		    f=gRTOG.Plan(Plan_Index).Path
-		    if f<>nil Then
-		      if f.Exists Then
-		        g=f.Child(MC_file_name+temp+".egsinp")
-		        if g<> nil Then
-		          if g.Exists Then
-		            g.Delete
-		          end
-		        end
-		        g=f.Child(MC_file_name+temp+".djaws")
-		        if g<> nil Then
-		          if g.Exists Then
-		            g.Delete
-		          end
-		        end
-		        g=f.Child(MC_file_name+temp+".mlc")
-		        if g<> nil Then
-		          if g.Exists Then
-		            g.Delete
-		          end
-		        end
-		      end
-		    end
+		    Var f As FolderItem = gRTOG.Plan(Plan_Index).Path
 		    
-		    h=gRTOG.Plan(Plan_Index).Path
+		    If f<>Nil Then
+		      
+		      If f.Exists Then
+		        Var g As FolderItem = f.Child(MC_file_name+temp+".egsinp")
+		        
+		        If g <> Nil Then
+		          
+		          If g.Exists Then
+		            
+		            g.Remove
+		            
+		          End If
+		          
+		        End If
+		        
+		        g = f.Child(MC_file_name+temp+".djaws")
+		        
+		        If g <> Nil Then
+		          If g.Exists Then
+		            
+		            g.Remove
+		            
+		          End If
+		        End If
+		        
+		        g = Nil
+		        g = f.Child(MC_file_name+temp+".mlc")
+		        
+		        If g <> Nil Then
+		          If g.Exists Then
+		            
+		            g.Remove
+		            
+		          End If
+		        End If
+		      End If
+		    End If
+		    
+		    Var h As FolderItem = gRTOG.Plan(Plan_Index).Path
 		    beams(beam).egs_BEAMnrc_active_jobs=0
 		    beams(beam).egs_BEAMnrc_started=False
 		    beams(beam).egs_progress=0
@@ -301,61 +317,76 @@ Inherits Thread
 		    Beams(beam).egs_phsp_num_particles=0
 		    Beams(beam).egs_phsp_num_photons=0
 		    
+		    Var phspname As String
 		    
-		    if Beams(beam).Inputfile.IO_OPT=4 Then
+		    If Beams(beam).Inputfile.IO_OPT=4 Then
+		      
 		      phspname=".1.IAEAphsp"
-		    else
+		      
+		    Else
+		      
 		      phspname=".egsphsp1"
-		    end
-		    beams(beam).egs_phsp_name=MC_file_name+str(beam+1)+phspname
+		      
+		    End If
 		    
-		    
+		    beams(beam).egs_phsp_name = MC_file_name+Str(beam+1) + phspname
 		    Beams(beam).egs_Start_Time=""
 		    Beams(beam).egs_Sim_Time=0
 		    
 		    
-		    hh=egs_Get_Directory(Beam)
-		    temp=str(beam+1)
+		    Var hh As Boolean = egs_Get_Directory(Beam)
+		    temp=Str(beam+1)
 		    temp="*_"+MC_file_name+temp+"_*"
 		    cc.command= "rm -f -r  "+temp
-		    MMCTP_Shell_Run.All.Append cc
+		    MMCTP_Shell_Run.All.AddRow( cc )
 		    
 		    
 		    hh=egs_Get_Directory(Beam)
-		    temp=str(beam+1)
-		    temp=MC_file_name+temp+"_* "+MC_file_name+temp+".* "+MC_file_name+temp+"*djaws "
+		    
+		    temp = MC_file_name + Str(beam+1) + "_* "+MC_file_name+temp _
+		    + ".* "+MC_file_name+temp+"*djaws "
 		    cc.command= "rm -f "+temp
 		    MMCTP_Shell_Run.All.Append cc
 		    
 		    // Remove beam from database
-		    bb=gRTOG.Plan(Plan_Index).Beam(Beam)
+		    Var bb As RTOG_Beam_Geometry = gRTOG.Plan(Plan_Index).Beam(Beam)
 		    
-		    db=PhaseSpace
-		    if bb.FLEC<>nil Then
-		      temp=Format(bb.FLEC.x1,"-#.##")+","+Format(bb.FLEC.x2,"-#.##")+","+Format(bb.FLEC.y1,"-#.##")+","+Format(bb.FLEC.y2,"-#.##")
-		    end
+		    Var db As SQLiteDatabase = PhaseSpace
+		    If bb.FLEC<>Nil Then
+		      
+		      temp = Format(bb.FLEC.x1,"-#.##")+","+Format(bb.FLEC.x2,"-#.##") _
+		      + "," + Format(bb.FLEC.y1,"-#.##")+","+Format(bb.FLEC.y2,"-#.##")
+		      
+		    End If
 		    
-		    if db.Connect Then
-		      sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell from PhaseSpaces"
-		      rs=db.SQLSelect(sql)
-		      if rs=nil Then
+		    If db.Connect Then
+		      
+		      Var sql as String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		      + "LinacName,Shell from PhaseSpaces"
+		      Var rs As RowSet = db.SelectSQL(sql)
+		      
+		      If rs=Nil Then
+		        
 		        Return
-		      end
-		      record_found=False
-		      While not rs.EOF
-		        if rs.Field("LinacName").StringValue=bb.RT_name and _
-		          rs.Field("FileName").StringValue=MC_file_name+str(beam+1) and _
-		          rs.Field("Shell").StringValue=cc.shell.title Then
+		        
+		      End If
+		      Var record_found As Boolean = False
+		      
+		      While Not rs.AfterLastRow
+		        
+		        If rs.Column("LinacName").StringValue=bb.RT_name And _
+		          rs.Column("FileName").StringValue=MC_file_name+Str(beam+1) And _
+		          rs.Column("Shell").StringValue=cc.shell.title Then
 		          record_found=True
-		          rs.DeleteRecord
-		          db.Commit
-		          exit
-		        end
-		        rs.MoveNext
+		          rs.RemoveRow
+		          db.CommitTransaction
+		          Exit
+		        End
+		        rs.MoveToNextRow
 		      Wend
 		      rs.Close
-		    end
-		  end
+		    End
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -1013,7 +1044,7 @@ Inherits Thread
 		  
 		  
 		  Exception exc as RuntimeException
-		    MsgBox "oops - there's something wrong"
+		    MessageBox "oops - there's something wrong"
 		End Sub
 	#tag EndMethod
 
@@ -1687,143 +1718,189 @@ Inherits Thread
 		  // typea=2 Then // FLEC logic If the number of available jobs is greater than 0, DOSYXZnrc logic
 		  //
 		  //------------------------------------------
-		  Dim sql,FLEC,JAW,MLC,WEDGE,APP,shell_name,inputfile(-1) as String
-		  Dim ava_jobs,i,k,shell_index,findex as Integer
-		  Dim found_file(-1) as String
-		  dim good as Boolean
-		  dim tt,record_found as Boolean
-		  Dim bb as RTOG_Beam_Geometry
-		  Dim rs as RecordSet
+		  'Dim sql,FLEC,JAW,MLC,WEDGE,APP,shell_name,inputfile(-1) as String
+		  'Dim ava_jobs,i,k,shell_index,findex as Integer
+		  'Dim found_file(-1) as String
+		  'dim good as Boolean
+		  'dim tt,record_found as Boolean
+		  'Dim bb as RTOG_Beam_Geometry
+		  'Dim rs As RecordSet
 		  //------------------------------------------
 		  
-		  Beams(beam).egs_Phsp_Search=True
-		  bb=gRTOG.Plan(Plan_Index).Beam(Beam)
-		  tt=egs_Get_Directory(Beam)
-		  record_found=False
+		  Beams(beam).egs_Phsp_Search = True
+		  Var bb As RTOG_Beam_Geometry = gRTOG.Plan(Plan_Index).Beam(Beam)
+		  Var tt As Boolean = egs_Get_Directory(Beam)
+		  Var found_file(-1) As String
+		  Var inputfile(-1) As String
 		  
 		  
-		  if bb.Beam_Mode="FLEC" Then
-		    FLEC=Format(bb.FLEC.x1,"-#.##")+","+Format(bb.FLEC.x2,"-#.##")+","+Format(bb.FLEC.y1,"-#.##")+","+Format(bb.FLEC.y2,"-#.##")
-		  end
+		  Var FLEC As String
 		  
-		  App=bb.Aperture_ID
-		  WEDGE=bb.Wedge_Type+bb.Wedge_Angle+bb.Wedge_Rotation
+		  If bb.Beam_Mode="FLEC" Then
+		    
+		    FLEC=Format(bb.FLEC.x1,"-#.##")+","+Format(bb.FLEC.x2,"-#.##")+"," _
+		    + Format(bb.FLEC.y1,"-#.##")+","+Format(bb.FLEC.y2,"-#.##")
+		    
+		  End If
 		  
-		  JAW=Format(bb.Collimator.Fields(0).x1,"-#.##")+","+Format(bb.Collimator.Fields(0).x2,"-#.##")+","+Format(bb.Collimator.Fields(0).y1,"-#.##")+","+Format(bb.Collimator.Fields(0).y2,"-#.##")
+		  Var App As String = bb.Aperture_ID
+		  Var WEDGE As String = bb.Wedge_Type+bb.Wedge_Angle+bb.Wedge_Rotation
 		  
-		  if bb.MLC.MLC_Type<>"" Then
+		  Var JAW As String = Format(bb.Collimator.Fields(0).x1,"-#.##")+"," _
+		  + Format(bb.Collimator.Fields(0).x2,"-#.##")+"," _
+		  + Format(bb.Collimator.Fields(0).y1,"-#.##")+"," _
+		  + Format(bb.Collimator.Fields(0).y2,"-#.##")
+		  Var MLC As String
+		  
+		  If bb.MLC.MLC_Type <> "" Then
+		    
 		    gRTOG.Plan(Plan_Index).Write_McGill_MLC(beam)
-		    MLC=gRTOG.Plan(Plan_Index).Beam(beam).mlc.mlc_file
-		  end
+		    MLC = gRTOG.Plan(Plan_Index).Beam(beam).mlc.mlc_file
+		    
+		  End If
 		  
-		  if PhaseSpace.Connect Then
-		    sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
-		    rs=PhaseSpace.SQLSelect(sql)
-		    if rs= Nil Then
+		  Var record_found As Boolean = False
+		  
+		  If PhaseSpace.Connect Then
+		    
+		    Var sql As String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		    + "LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
+		    Var rs As RowSet = PhaseSpace.SelectSQL(sql)
+		    
+		    If rs = Nil Then
+		      
 		      Return False
-		    end
-		    record_found=False
-		    While not rs.EOF
 		      
-		      if bb.Beam_Mode="FLEC" Then
-		        if rs.Field("BeamMode").StringValue=bb.Beam_Mode and _
-		          rs.Field("BeamEnergy").IntegerValue=val(bb.Beam_Energy) and _
-		          rs.Field("FLECOpening").StringValue=FLEC and _
-		          rs.Field("LinacName").StringValue=bb.RT_name and _
-		          rs.Field("APP").StringValue=APP then
+		    End If
+		    
+		    While Not rs.AfterLastRow
+		      
+		      If bb.Beam_Mode="FLEC" Then
+		        If rs.Column("BeamMode").StringValue = bb.Beam_Mode And _
+		          rs.Column("BeamEnergy").IntegerValue = Val(bb.Beam_Energy) And _
+		          rs.Column("FLECOpening").StringValue = FLEC And _
+		          rs.Column("LinacName").StringValue = bb.RT_name And _
+		          rs.Column("APP").StringValue = APP Then
 		          
-		          //rs.Field("JawOpening").StringValue=JAW and _
-		          //rs.Field("WEDGE").StringValue=WEDGE and _
-		          //rs.Field("MLCOpening").StringValue=MLC and _
-		          inputfile.append rs.Field("FileName").StringValue+".egsphsp1"
-		          found_file.Append rs.Field("Shell").StringValue
-		          record_found=True
-		        end
-		      elseif bb.Beam_Mode="Photon" then
-		        if rs.Field("BeamMode").StringValue=bb.Beam_Mode and _
-		          rs.Field("BeamEnergy").IntegerValue=val(bb.Beam_Energy) and _
-		          rs.Field("FLECOpening").StringValue=FLEC and _
-		          rs.Field("JawOpening").StringValue=JAW and _
-		          rs.Field("MLCOpening").StringValue=MLC and _
-		          rs.Field("WEDGE").StringValue=WEDGE and _
-		          rs.Field("APP").StringValue=APP and _
-		          rs.Field("LinacName").StringValue=bb.RT_name Then
-		          inputfile.append rs.Field("FileName").StringValue+".egsphsp1"
-		          found_file.Append rs.Field("Shell").StringValue
-		          record_found=True
-		        end
+		          //rs.Column("JawOpening").StringValue=JAW and _
+		          //rs.Column("WEDGE").StringValue=WEDGE and _
+		          //rs.Column("MLCOpening").StringValue=MLC and _
+		          inputfile.AddRow( rs.Column("FileName").StringValue+".egsphsp1" )
+		          found_file.AddRow( rs.Column("Shell").StringValue )
+		          record_found = True
+		        End If
 		        
+		      Elseif bb.Beam_Mode = "Photon" Then
 		        
+		        If rs.Column("BeamMode").StringValue = bb.Beam_Mode And _
+		          rs.Column("BeamEnergy").IntegerValue = Val(bb.Beam_Energy) And _
+		          rs.Column("FLECOpening").StringValue = FLEC And _
+		          rs.Column("JawOpening").StringValue = JAW And _
+		          rs.Column("MLCOpening").StringValue = MLC And _
+		          rs.Column("WEDGE").StringValue = WEDGE And _
+		          rs.Column("APP").StringValue = APP And _
+		          rs.Column("LinacName").StringValue = bb.RT_name Then
+		          
+		          inputfile.AddRow( rs.Column("FileName").StringValue+".egsphsp1" )
+		          found_file.AddRow( rs.Column("Shell").StringValue )
+		          record_found = True
+		          
+		        End If
 		        
-		      else
-		        if rs.Field("BeamMode").StringValue=bb.Beam_Mode and _
-		          rs.Field("BeamEnergy").IntegerValue=val(bb.Beam_Energy) and _
-		          rs.Field("FLECOpening").StringValue=FLEC and _
-		          rs.Field("JawOpening").StringValue=JAW and _
-		          rs.Field("MLCOpening").StringValue=MLC and _
-		          rs.Field("WEDGE").StringValue=WEDGE and _
-		          rs.Field("APP").StringValue=APP and _
-		          rs.Field("LinacName").StringValue=bb.RT_name Then
-		          inputfile.append rs.Field("FileName").StringValue+".egsphsp1"
-		          found_file.Append rs.Field("Shell").StringValue
-		          record_found=True
-		        end
+		      Else
 		        
-		      end
+		        If rs.Column("BeamMode").StringValue = bb.Beam_Mode And _
+		          rs.Column("BeamEnergy").IntegerValue = Val(bb.Beam_Energy) And _
+		          rs.Column("FLECOpening").StringValue = FLEC And _
+		          rs.Column("JawOpening").StringValue = JAW And _
+		          rs.Column("MLCOpening").StringValue = MLC And _
+		          rs.Column("WEDGE").StringValue = WEDGE And _
+		          rs.Column("APP").StringValue = APP And _
+		          rs.Column("LinacName").StringValue=bb.RT_name Then
+		          
+		          inputfile.AddRow( rs.Column("FileName").StringValue+".egsphsp1" )
+		          found_file.AddRow( rs.Column("Shell").StringValue )
+		          record_found = True
+		          
+		        End If
+		        
+		      End If
 		      
-		      rs.MoveNext
+		      rs.MoveToNextRow
+		      
 		    Wend
 		    rs.Close
-		  end
+		  End If
 		  
-		  ava_jobs=-1
+		  Var ava_jobs As Integer = -1
 		  
-		  if record_found Then
-		    shell_index=0
-		    shell_name=found_file(0)
-		    if typea=1 Then // If the beam has finished before, BEAMnrc logic
-		      for i=0 to UBound(found_file)
-		        for k=0 to UBound(gShells.Shells)
-		          if gShells.Shells(k).title=found_file(i) and gShells.Shells(k).online Then
-		            if (gShells.Shells(k).MaxJobs- gShells.Shells(k).ActiveJobs)> ava_jobs Then
+		  If record_found Then
+		    
+		    Var shell_index As Integer = 0
+		    Var shell_name As String = found_file(0)
+		    
+		    If typea = 1 Then // If the beam has finished before, BEAMnrc logic
+		      
+		      Var findex As Integer
+		      
+		      For i As Integer = 0 To found_file.LastRowIndex
+		        
+		        For k As Integer = 0 To gShells.Shells.LastRowIndex
+		          
+		          If gShells.Shells(k).title=found_file(i) And gShells.Shells(k).online Then
+		            
+		            If (gShells.Shells(k).MaxJobs- gShells.Shells(k).ActiveJobs)> ava_jobs Then
+		              
 		              ava_jobs=gShells.Shells(k).MaxJobs- gShells.Shells(k).ActiveJobs
-		              shell_index=k
-		              shell_name=found_file(i)
+		              shell_index = k
+		              shell_name = found_file(i)
 		              findex=i
-		            end
-		          end
-		        next
-		      next
-		      gBEAM.Beams(Beam).egs_Shell_Index=shell_index
-		      gBEAM.Beams(Beam).egs_Shell=shell_name
-		      gBEAM.Beams(Beam).egs_Phsp_link=True
-		      gBEAM.Beams(Beam).egs_Phsp_name=inputfile(findex)
-		      gBEAM.Beams(Beam).egs_progress=100
+		              
+		            End If
+		            
+		          End If
+		          
+		        Next
+		        
+		      Next
+		      
+		      gBEAM.Beams(Beam).egs_Shell_Index = shell_index
+		      gBEAM.Beams(Beam).egs_Shell = shell_name
+		      gBEAM.Beams(Beam).egs_Phsp_link = True
+		      gBEAM.Beams(Beam).egs_Phsp_name = inputfile(findex)
+		      gBEAM.Beams(Beam).egs_progress = 100
 		      gBEAM.Beams(Beam).egs_AddPhsp_Finished=True
 		      gBEAM.Beams(Beam).egs_BEAMnrc_started=True
 		      MC_Get_Linac_Properties_for_patientdose(beam)
 		      Return True
 		      
-		    elseif typea=2 Then // FLEC logic If the number of available jobs is greater than 0, DOSYXZnrc logic
-		      for i=0 to UBound(found_file)
-		        for k=0 to UBound(gShells.Shells)
-		          if gShells.Shells(k).title=found_file(i) and gShells.Shells(k).online and Wantedshell_name=found_file(i) Then
-		            shell_index=k
-		            shell_name=found_file(i)
-		            gBEAM.Beams(Beam).egs_Shell_Index=shell_index
-		            gBEAM.Beams(Beam).egs_Shell=shell_name
-		            gBEAM.Beams(Beam).egs_Phsp_link=True
-		            gBEAM.Beams(Beam).egs_Phsp_name=inputfile(i)
-		            gBEAM.Beams(Beam).egs_progress=100
-		            gBEAM.Beams(Beam).egs_AddPhsp_Finished=True
-		            gBEAM.Beams(Beam).egs_BEAMnrc_started=True
+		    Elseif typea=2 Then
+		       // FLEC logic If the number of available jobs is greater than 0, DOSYXZnrc logic
+		      
+		      For i As Integer = 0 To found_file.LastRowIndex
+		        
+		        For k As Integer = 0 To gShells.Shells.LastRowIndex
+		          
+		          If gShells.Shells(k).title=found_file(i) And _
+		            gShells.Shells(k).online And _
+		            Wantedshell_name=found_file(i) Then
+		            
+		            shell_index = k
+		            shell_name = found_file(i)
+		            gBEAM.Beams(Beam).egs_Shell_Index = shell_index
+		            gBEAM.Beams(Beam).egs_Shell = shell_name
+		            gBEAM.Beams(Beam).egs_Phsp_link = True
+		            gBEAM.Beams(Beam).egs_Phsp_name = inputfile(i)
+		            gBEAM.Beams(Beam).egs_progress = 100
+		            gBEAM.Beams(Beam).egs_AddPhsp_Finished = True
+		            gBEAM.Beams(Beam).egs_BEAMnrc_started = True
 		            MC_Get_Linac_Properties_for_patientdose(beam)
 		            Return True
-		          end
-		        next
-		      next
-		    end
-		  end
+		          End If
+		        Next
+		      Next
+		    End If
+		  End If
 		  Return False
 		End Function
 	#tag EndMethod
@@ -1833,78 +1910,109 @@ Inherits Thread
 		  //----------------------------------
 		  // Update database
 		  //----------------------------------
-		  dim dr as  DatabaseRecord
-		  dim i,k as Integer
-		  dim JAW,MLC,sql,flec,app,wedge as String
-		  dim beam as RTOG_Beam_Geometry
-		  dim tt,record_found as Boolean
-		  dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		  dim rs as RecordSet
+		  'dim dr as  DatabaseRecord
+		  'dim i,k as Integer
+		  'dim JAW,MLC,sql,flec,app,wedge as String
+		  'dim beam as RTOG_Beam_Geometry
+		  'dim tt,record_found as Boolean
+		  'dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  'dim rs as RecordSet
 		  //----------------------------------
 		  
 		  
-		  db=PhaseSpace
+		  Var db As SQLiteDatabase = PhaseSpace
 		  
-		  if db.Connect Then
-		    dr = new DatabaseRecord
-		    beam=gRTOG.Plan(Plan_Index).Beam(bb)
-		    dr.Column("BeamMode")=gRTOG.Plan(Plan_Index).Beam(bb).beam_mode
-		    dr.Column("FileName")=MC_file_name+str(bb+1)
-		    i=val(gRTOG.Plan(Plan_Index).Beam(bb).Beam_Energy)
-		    dr.Column("BeamEnergy")=str(i)
-		    if gRTOG.Plan(Plan_Index).Beam(bb).beam_mode="FLEC" Then
-		      flec=Format(beam.FLEC.x1,"-#.##")+","+Format(beam.FLEC.x2,"-#.##")+","+Format(beam.FLEC.y1,"-#.##")+","+Format(beam.FLEC.y2,"-#.##")
-		      dr.Column("FLECOpening")=flec
-		    end
+		  If db.Connect Then
+		    Var dr As DatabaseRow
+		    Var beam As RTOG_Beam_Geometry = gRTOG.Plan(Plan_Index).Beam(bb)
+		    dr.Column("BeamMode") = gRTOG.Plan(Plan_Index).Beam(bb).beam_mode
+		    dr.Column("FileName") = MC_file_name+Str(bb+1)
+		    dr.Column("BeamEnergy")=Str( Val(gRTOG.Plan(Plan_Index).Beam(bb).Beam_Energy) )
 		    
-		    App=beam.Aperture_ID
-		    dr.Column("APP")=App
+		    If gRTOG.Plan(Plan_Index).Beam(bb).beam_mode="FLEC" Then
+		      
+		      Var flec as String = Format(beam.FLEC.x1,"-#.##")+"," _
+		      + Format(beam.FLEC.x2,"-#.##") + "," _
+		      + Format(beam.FLEC.y1,"-#.##") + "," _
+		      + Format(beam.FLEC.y2,"-#.##")
+		      
+		      dr.Column("FLECOpening") = flec
+		      
+		    End If
 		    
-		    WEDGE=beam.Wedge_Type+beam.Wedge_Angle+beam.Wedge_Rotation
-		    dr.Column("WEDGE")=wedge
+		    dr.Column("APP")= beam.Aperture_ID
+		    dr.Column("WEDGE") = beam.Wedge_Type+beam.Wedge_Angle+beam.Wedge_Rotation
+		    dr.Column("JawOpening") = Format(beam.Collimator.Fields(0).X1,"-#.##") + "," _
+		    + Format(beam.Collimator.Fields(0).X2,"-#.##") + "," _
+		    + Format(beam.Collimator.Fields(0).Y1,"-#.##") + "," _
+		    + Format(beam.Collimator.Fields(0).Y2,"-#.##")
 		    
-		    jaw=Format(beam.Collimator.Fields(0).X1,"-#.##")+","+Format(beam.Collimator.Fields(0).X2,"-#.##")+","+Format(beam.Collimator.Fields(0).Y1,"-#.##")+","+Format(beam.Collimator.Fields(0).Y2,"-#.##")
-		    dr.Column("JawOpening")=jaw
-		    
-		    if beam.MLC.MLC_Type<>"" Then
+		    If beam.MLC.MLC_Type <> "" Then
+		      
 		      gRTOG.Plan(Plan_Index).Write_McGill_MLC(bb)
-		      mlc=Beam.MLC.MLC_File
-		      dr.Column("MLCOpening")=mlc
-		    end
+		      dr.Column("MLCOpening") = Beam.MLC.MLC_File
+		      
+		    End If
 		    
 		    dr.Column("LinacName")=gRTOG.Plan(Plan_Index).Beam(bb).RT_name
-		    tt=egs_Get_Directory(bb)
-		    if tt Then
-		      dr.Column("Shell")=cc.shell.title
-		    end
 		    
-		    sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
-		    rs=db.SQLSelect(sql)
-		    if rs=Nil Then
+		    If egs_Get_Directory(bb) Then
+		      
+		      dr.Column("Shell")=cc.shell.title
+		      
+		    End
+		    
+		    Var sql as String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		    + "LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
+		    Var rs As RowSet = db.SelectSQL(sql)
+		    
+		    If rs = Nil Then
+		      
 		      Exit
-		    end
-		    record_found=False
-		    While not rs.EOF
-		      if rs.Field("BeamMode").StringValue=dr.Column("BeamMode") and _
-		        rs.Field("FileName").StringValue=dr.Column("FileName") and _
-		        rs.Field("BeamEnergy").IntegerValue=val(dr.Column("BeamEnergy")) and _
-		        rs.Field("FLECOpening").StringValue=dr.Column("FLECOpening") and _
-		        rs.Field("LinacName").StringValue=dr.Column("LinacName") and _
-		        rs.Field("Shell").StringValue=dr.Column("Shell")  and _
-		        rs.Field("JawOpening").StringValue=dr.Column("JawOpening") and _
-		        rs.Field("WEDGE").StringValue=dr.Column("WEDGE") and _
-		        rs.Field("APP").StringValue=dr.Column("APP") and _
-		        rs.Field("MLCOpening").StringValue=dr.Column("MLCOpening")  Then
-		        record_found=True
-		      end
-		      rs.MoveNext
+		      
+		    End If
+		    
+		    Var record_found As Boolean = False
+		    
+		    While Not rs.AfterLastRow
+		      
+		      If rs.Column("BeamMode").StringValue = dr.Column("BeamMode").StringValue And _
+		        rs.Column("FileName").StringValue = dr.Column("FileName").StringValue And _
+		        rs.Column("BeamEnergy").IntegerValue = dr.Column("BeamEnergy").IntegerValue And _
+		        rs.Column("FLECOpening").StringValue = dr.Column("FLECOpening").StringValue And _
+		        rs.Column("LinacName").StringValue = dr.Column("LinacName").StringValue And _
+		        rs.Column("Shell").StringValue = dr.Column("Shell").StringValue  And _
+		        rs.Column("JawOpening").StringValue = dr.Column("JawOpening").StringValue And _
+		        rs.Column("WEDGE").StringValue = dr.Column("WEDGE").StringValue And _
+		        rs.Column("APP").StringValue = dr.Column("APP").StringValue And _
+		        rs.Column("MLCOpening").StringValue = dr.Column("MLCOpening").StringValue  Then
+		        
+		        record_found = True
+		        Exit
+		        
+		      End If 
+		      
+		      rs.MoveToNextRow
+		      
 		    Wend
+		    
 		    rs.Close
-		    if db.Error=False and record_found=False Then
-		      db.InsertRecord "PhaseSpaces", dr
-		      db.Commit
-		    end
-		  end
+		    
+		    If Not record_found Then
+		      
+		      Try
+		        
+		        db.AddRow("PhaseSpaces", dr)
+		        db.CommitTransaction
+		        
+		      Catch error As DatabaseException
+		        
+		        MessageBox("DB Error: " + error.Message)
+		        
+		      End Try
+		      
+		    End If
+		  End If
 		  
 		  db.Close
 		End Sub

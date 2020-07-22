@@ -161,20 +161,20 @@ End
 		  ListBox_BEAMs.ColumnWidths=s
 		  
 		  
-		  ListBox_BEAMs.Heading(0)="Plan Name"
+		  ListBox_BEAMs.HeaderAt(0)="Plan Name"
 		  
 		  
 		  
 		  
 		  
 		  for i=1 to num_col
-		    ListBox_BEAMs.Heading(i)="Beam "+str(i)
+		    ListBox_BEAMs.HeaderAt(i)="Beam "+str(i)
 		  next
 		  
 		  
 		  for i=0 to UBound(gRTOG.Plan)
 		    ListBox_BEAMs.AddRow""
-		    ListBox_BEAMs.Cell(i,0)=gRTOG.Plan(i).Plan_ID
+		    ListBox_BEAMs.CellValueAt(i,0)=gRTOG.Plan(i).Plan_ID
 		    for k=0 to UBound(gRTOG.Plan(i).beam)
 		      if k<num_col-1 Then
 		        ListBox_BEAMs.CellType(i,k+1)=2

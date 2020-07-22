@@ -2511,7 +2511,7 @@ End
 		  Dim i as Integer
 		  
 		  donothing=True
-		  i= Window_BEAM_MainInputs.Listbox_CMs.ListIndex
+		  i= Window_BEAM_MainInputs.Listbox_CMs.SelectedRowIndex
 		  W=Window_BEAM_MainInputs.BEAM.CMs(i).WEDGE
 		  Refresh_window
 		  donothing=False
@@ -2560,12 +2560,12 @@ End
 		  
 		  
 		  Listbox_Coordinates.DeleteAllRows
-		  Listbox_Coordinates.Heading(0)="Point"
-		  Listbox_Coordinates.Heading(1)="Coordinates in the wedge direction"
+		  Listbox_Coordinates.HeaderAt(0)="Point"
+		  Listbox_Coordinates.HeaderAt(1)="Coordinates in the wedge direction"
 		  Listbox_Coordinates.ColumnWidths="20%,80%"
 		  for i=0 to UBound(w.D)
 		    Listbox_Coordinates.AddRow str(i+1)
-		    Listbox_Coordinates.Cell(i,1)= Format(w.D(i),"-#.######")
+		    Listbox_Coordinates.CellValueAt(i,1)= Format(w.D(i),"-#.######")
 		    Listbox_Coordinates.ColumnType(1)=3
 		  next
 		  
@@ -2573,16 +2573,16 @@ End
 		  
 		  
 		  Listbox_Profiles.DeleteAllRows
-		  Listbox_Profiles.Heading(0)="1"
-		  Listbox_Profiles.Heading(1)="2"
-		  Listbox_Profiles.Heading(2)="3"
-		  Listbox_Profiles.Heading(3)="4"
-		  Listbox_Profiles.Heading(4)="5"
-		  Listbox_Profiles.Heading(5)="6"
-		  Listbox_Profiles.Heading(6)="7"
-		  Listbox_Profiles.Heading(7)="8"
-		  Listbox_Profiles.Heading(8)="9"
-		  Listbox_Profiles.Heading(9)="10"
+		  Listbox_Profiles.HeaderAt(0)="1"
+		  Listbox_Profiles.HeaderAt(1)="2"
+		  Listbox_Profiles.HeaderAt(2)="3"
+		  Listbox_Profiles.HeaderAt(3)="4"
+		  Listbox_Profiles.HeaderAt(4)="5"
+		  Listbox_Profiles.HeaderAt(5)="6"
+		  Listbox_Profiles.HeaderAt(6)="7"
+		  Listbox_Profiles.HeaderAt(7)="8"
+		  Listbox_Profiles.HeaderAt(8)="9"
+		  Listbox_Profiles.HeaderAt(9)="10"
 		  
 		  Listbox_Profiles.ColumnType(1)=3
 		  Listbox_Profiles.ColumnType(2)=3
@@ -2597,15 +2597,15 @@ End
 		  
 		  for i=0 to w.NProf-1
 		    Listbox_Profiles.AddRow Format(w.A_Profile(i).A(0),"-#.######")
-		    Listbox_Profiles.Cell(i,1)= Format(w.A_Profile(i).A(1),"-#.######")
-		    Listbox_Profiles.Cell(i,2)= Format(w.A_Profile(i).A(2),"-#.######")
-		    Listbox_Profiles.Cell(i,3)= Format(w.A_Profile(i).A(3),"-#.######")
-		    Listbox_Profiles.Cell(i,4)= Format(w.A_Profile(i).A(4),"-#.######")
-		    Listbox_Profiles.Cell(i,5)= Format(w.A_Profile(i).A(5),"-#.######")
-		    Listbox_Profiles.Cell(i,6)= Format(w.A_Profile(i).A(6),"-#.######")
-		    Listbox_Profiles.Cell(i,7)= Format(w.A_Profile(i).A(7),"-#.######")
-		    Listbox_Profiles.Cell(i,8)= Format(w.A_Profile(i).A(8),"-#.######")
-		    Listbox_Profiles.Cell(i,9)= Format(w.A_Profile(i).A(9),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,1)= Format(w.A_Profile(i).A(1),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,2)= Format(w.A_Profile(i).A(2),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,3)= Format(w.A_Profile(i).A(3),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,4)= Format(w.A_Profile(i).A(4),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,5)= Format(w.A_Profile(i).A(5),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,6)= Format(w.A_Profile(i).A(6),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,7)= Format(w.A_Profile(i).A(7),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,8)= Format(w.A_Profile(i).A(8),"-#.######")
+		    Listbox_Profiles.CellValueAt(i,9)= Format(w.A_Profile(i).A(9),"-#.######")
 		  next
 		  
 		  

@@ -56,28 +56,28 @@ Protected Class Class_DICOM_File
 		  ww=Window_DICOM_View
 		  ww.Listbox_DICOM.DeleteAllRows
 		  ww.Name=file.Name
-		  ww.Listbox_DICOM.Heading(0)="Tag a"
-		  ww.Listbox_DICOM.Heading(1)="Tag b"
-		  ww.Listbox_DICOM.Heading(2)="VR"
-		  ww.Listbox_DICOM.Heading(3)="VM"
-		  ww.Listbox_DICOM.Heading(4)="Info"
-		  ww.Listbox_DICOM.Heading(5)="Value"
-		  ww.Listbox_DICOM.Heading(6)="Byte Position"
-		  ww.Listbox_DICOM.Heading(7)="Value Byte Length"
-		  ww.Listbox_DICOM.Heading(8)="Element Length"
+		  ww.Listbox_DICOM.HeaderAt(0)="Tag a"
+		  ww.Listbox_DICOM.HeaderAt(1)="Tag b"
+		  ww.Listbox_DICOM.HeaderAt(2)="VR"
+		  ww.Listbox_DICOM.HeaderAt(3)="VM"
+		  ww.Listbox_DICOM.HeaderAt(4)="Info"
+		  ww.Listbox_DICOM.HeaderAt(5)="Value"
+		  ww.Listbox_DICOM.HeaderAt(6)="Byte Position"
+		  ww.Listbox_DICOM.HeaderAt(7)="Value Byte Length"
+		  ww.Listbox_DICOM.HeaderAt(8)="Element Length"
 		  
 		  ww.Listbox_DICOM.ColumnWidths="7%,8%,7%,8%,20%,35%,7%,8%,8%"
 		  for i=0 to UBound(Elements)
 		    ww.Listbox_DICOM.AddRow Elements(i).Tag_a
-		    ww.Listbox_DICOM.Cell(i,1)=Elements(i).Tag_b
-		    ww.Listbox_DICOM.Cell(i,2)=Elements(i).VR
-		    ww.Listbox_DICOM.Cell(i,3)=str(Elements(i).VM)
-		    ww.Listbox_DICOM.Cell(i,4)=Elements(i).Info
-		    ww.Listbox_DICOM.Cell(i,5)=Elements(i).Value
+		    ww.Listbox_DICOM.CellValueAt(i,1)=Elements(i).Tag_b
+		    ww.Listbox_DICOM.CellValueAt(i,2)=Elements(i).VR
+		    ww.Listbox_DICOM.CellValueAt(i,3)=str(Elements(i).VM)
+		    ww.Listbox_DICOM.CellValueAt(i,4)=Elements(i).Info
+		    ww.Listbox_DICOM.CellValueAt(i,5)=Elements(i).Value
 		    ww.Listbox_DICOM.CellType(i,5)=3
-		    ww.Listbox_DICOM.Cell(i,6)=str(Elements(i).byte_position)
-		    ww.Listbox_DICOM.Cell(i,7)=str(Elements(i).Value_Length)
-		    ww.Listbox_DICOM.Cell(i,8)=str(Elements(i).Element_Length)
+		    ww.Listbox_DICOM.CellValueAt(i,6)=str(Elements(i).byte_position)
+		    ww.Listbox_DICOM.CellValueAt(i,7)=str(Elements(i).Value_Length)
+		    ww.Listbox_DICOM.CellValueAt(i,8)=str(Elements(i).Element_Length)
 		    
 		  next
 		  ww.Title="DICOM file : "+file.Name
@@ -241,7 +241,7 @@ Protected Class Class_DICOM_File
 		        end if
 		      else
 		        valid = false
-		        //msgBox " is not a valid DICOM file."
+		        //MessageBox " is not a valid DICOM file."
 		        Return False
 		      end if
 		    end if

@@ -1486,7 +1486,7 @@ End
 		    PopupMenu_DVH.addRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
-		  PopupMenu_DVH.ListIndex=0
+		  PopupMenu_DVH.SelectedRowIndex=0
 		End Sub
 	#tag EndEvent
 
@@ -1608,7 +1608,7 @@ End
 		    pp.Label = DVHs.All_DVH(k).Name + " " + DVHs.All_DVH(k).struc_names
 		    
 		    If PopupMenu_DVH.SelectedRowValue = "ALL" Or _
-		       PopupMenu_DVH.SelectedRowValue = DVHs.All_DVH(k).struc_names Then
+		      PopupMenu_DVH.SelectedRowValue = DVHs.All_DVH(k).struc_names Then
 		      
 		      pp.Show=True
 		      
@@ -1683,7 +1683,7 @@ End
 		  '
 		  '
 		  'dvh_dosecount=0
-		  'i=Listbox_Results.ListIndex
+		  'i=Listbox_Results.SelectedRowIndex
 		  'ReDim DVHs.All_DVH(-1)
 		  'dvhsim=0
 		  'for i=0 to Listbox_Results.ListCount
@@ -1693,7 +1693,7 @@ End
 		  'dvh_dosecount=dvh_dosecount+1
 		  '
 		  'dvhsim=dvhsim+1
-		  'temp=Listbox_Results.Cell(i,8)
+		  'temp=Listbox_Results.CellValueAt(i,8)
 		  'splitf=split(temp,"~~~")
 		  'splitf.Remove UBound(splitf)
 		  '
@@ -1703,7 +1703,7 @@ End
 		  'normDVH.Append UBound(DVHs.All_DVH)
 		  'dd.StringFile=splitf(k)
 		  'DVHs.Read_DVH_String(dd)
-		  'dd.Name=Listbox_Results.Cell(i,13)
+		  'dd.Name=Listbox_Results.CellValueAt(i,13)
 		  'dd.DVH_Symbol=dvhsim
 		  'dd.Dose_Name=dd.Name
 		  '
@@ -1739,7 +1739,7 @@ End
 		Sub Load_Inputfile()
 		  Dim i as Integer
 		  
-		  i=Listbox_Results.ListIndex
+		  i=Listbox_Results.SelectedRowIndex
 		  
 		  TextArea_Input.value = ""
 		  TextArea_Output.value = ""
@@ -1747,11 +1747,11 @@ End
 		  
 		  
 		  if i>=0 and i<=Listbox_Results.ListCount Then
-		    TextArea_Input.value = Listbox_Results.Cell(i,5)+Chr(10)+"----Organ & Target Values ------ "+chr(10)+Listbox_Results.Cell(i,9)
-		    TextArea_Output.value = Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
-		    TextArea_Output.value = Listbox_Results.Cell(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.Cell(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.Cell(i,8)
+		    TextArea_Input.value = Listbox_Results.CellValueAt(i,5)+Chr(10)+"----Organ & Target Values ------ "+chr(10)+Listbox_Results.CellValueAt(i,9)
+		    TextArea_Output.value = Listbox_Results.CellValueAt(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.CellValueAt(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.CellValueAt(i,8)
+		    TextArea_Output.value = Listbox_Results.CellValueAt(i,6)+Chr(10)+"----Fluence File------ "+chr(10)+Listbox_Results.CellValueAt(i,7)+Chr(10)+"----DVH File------ "+chr(10)+Listbox_Results.CellValueAt(i,8)
 		    DoNot=True
-		    TextArea_Note.value = Listbox_Results.Cell(i,12)
+		    TextArea_Note.value = Listbox_Results.CellValueAt(i,12)
 		    DoNot=False
 		  end
 		  
@@ -1768,8 +1768,8 @@ End
 		  'Dim ostring as String
 		  '//--------------------
 		  '
-		  'if Listbox_Results.ListIndex>=0 and Listbox_Results.ListIndex<=Listbox_Results.ListCount Then
-		  'ostring=Listbox_Results.Cell(Listbox_Results.ListIndex,9)
+		  'if Listbox_Results.SelectedRowIndex>=0 and Listbox_Results.SelectedRowIndex<=Listbox_Results.ListCount Then
+		  'ostring=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,9)
 		  'gOpt.Read_DV_Contraints_String(Oarray, ostring)
 		  'end
 		End Sub
@@ -1788,9 +1788,9 @@ End
 		  
 		  ReDim IPbeams(-1)
 		  
-		  i=Listbox_Results.ListIndex
+		  i=Listbox_Results.SelectedRowIndex
 		  if i>=0 and i<=Listbox_Results.ListCount Then
-		    PB_Data=Listbox_Results.Cell(i,10)
+		    PB_Data=Listbox_Results.CellValueAt(i,10)
 		    line=Split(PB_Data,chr(10))
 		    ReDim line(UBound(line)-1)
 		    For i=0 to UBound(line)
@@ -1842,7 +1842,7 @@ End
 		  for i=0 to Listbox_PBSum.ListCount-1
 		    for x=1 to Listbox_PBSum.ColumnCount
 		      if Listbox_PBSum.CellCheck(i,x) Then
-		        field.Append Listbox_PBSum.Cell(i,0)
+		        field.Append Listbox_PBSum.CellValueAt(i,0)
 		        pb_rows.Append i
 		        Exit
 		      end
@@ -1851,9 +1851,9 @@ End
 		  for x=0 to UBound(field)
 		    for k=1 to Listbox_PBSum.ColumnCount
 		      if Listbox_PBSum.CellCheck(pb_rows(x),k) Then
-		        temp=Listbox_PBSum.Heading(k)  
+		        temp=Listbox_PBSum.HeaderAt(k)  
 		        for i=0 to UBound(IPbeams)
-		          if field(x)=IPbeams(i).Beam_Description and IPbeams(i).Energy=Listbox_PBSum.Heading(k) Then
+		          if field(x)=IPbeams(i).Beam_Description and IPbeams(i).Energy=Listbox_PBSum.HeaderAt(k) Then
 		            index.Append i
 		            total_MU_Grad=total_MU_Grad+IPbeams(i).MUs_Grad
 		            total_Grad_W=total_Grad_W+IPbeams(i).Weight_Grad
@@ -1896,75 +1896,67 @@ End
 		  //
 		  //
 		  //---------------------------------
-		  Dim i as Integer
-		  Dim sql,icvalue,cvalue,ddate,mertP,infile,outfile,fluenceF,dvhf,organCon,plan,PB_Data,note,label, time as String
-		  Dim rs as RecordSet
-		  Dim bb as Boolean
+		  'Dim i as Integer
+		  'Dim sql,icvalue,cvalue,ddate,mertP,infile,outfile,fluenceF,dvhf,organCon,plan,PB_Data,note,label, time as String
+		  'Dim rs As RecordSet
+		  'Dim bb as Boolean
 		  //---------------------------------
 		  
-		  Listbox_Results.DeleteAllRows
+		  Listbox_Results.RemoveAllRows
 		  Listbox_Results.ColumnCount=14
-		  Listbox_Results.Heading(0)="InitialCostValue"
-		  Listbox_Results.Heading(1)="FinialCostValue"
-		  Listbox_Results.Heading(2)="Date"
-		  Listbox_Results.Heading(3)="MERTProgram"
-		  Listbox_Results.Heading(4)="Time (min)"
-		  Listbox_Results.Heading(5)="InputFile"
-		  Listbox_Results.Heading(6)="OutputFile"
-		  Listbox_Results.Heading(7)="Fluence"
-		  Listbox_Results.Heading(8)="DVHs"
-		  Listbox_Results.Heading(9)="InputConstraints"
-		  Listbox_Results.Heading(10)="PB Data"
-		  Listbox_Results.Heading(11)="Plan"
-		  Listbox_Results.Heading(12)="Note"
-		  Listbox_Results.Heading(13)="Label"
+		  Listbox_Results.HeaderAt(0)="InitialCostValue"
+		  Listbox_Results.HeaderAt(1)="FinialCostValue"
+		  Listbox_Results.HeaderAt(2)="Date"
+		  Listbox_Results.HeaderAt(3)="MERTProgram"
+		  Listbox_Results.HeaderAt(4)="Time (min)"
+		  Listbox_Results.HeaderAt(5)="InputFile"
+		  Listbox_Results.HeaderAt(6)="OutputFile"
+		  Listbox_Results.HeaderAt(7)="Fluence"
+		  Listbox_Results.HeaderAt(8)="DVHs"
+		  Listbox_Results.HeaderAt(9)="InputConstraints"
+		  Listbox_Results.HeaderAt(10)="PB Data"
+		  Listbox_Results.HeaderAt(11)="Plan"
+		  Listbox_Results.HeaderAt(12)="Note"
+		  Listbox_Results.HeaderAt(13)="Label"
 		  
-		  listbox_Results.ColumnWidths="10%,10%,15%,10%,8%,0%,0%,0%,0%,0%,0%,12%,35%,10%"
+		  listbox_Results.ColumnWidths = "10%,10%,15%,10%,8%,0%,0%,0%,0%,0%,0%,12%,35%,10%"
 		  
 		  
-		  sql="select CostValue, Date, MERTProgram, Time, InputFile, OutputFile, Fluence, DVHs, InputConstraints, PB_Data, Plan, Note, Label, InitialScore from Results"
+		  Var sql As String = "select CostValue, Date, MERTProgram, " _
+		  + "Time, InputFile, OutputFile, Fluence, DVHs, InputConstraints, " _
+		  + "PB_Data, Plan, Note, Label, InitialScore from Results"
 		  
-		  if gOpt.results.Connect Then
-		    rs=gOpt.results.SQLSelect(sql)
-		    if rs=nil Then
+		  If gOpt.results.Connect Then
+		    Var rs As RowSet = gOpt.results.SelectSQL(sql)
+		    If rs = Nil Then
 		      Return
-		    end
-		    While not rs.eof
-		      icvalue=rs.Field("InitialScore").StringValue
-		      cvalue=rs.Field("CostValue").StringValue
-		      ddate=rs.Field("Date").StringValue
-		      mertP=rs.Field("MERTProgram").StringValue
-		      time=rs.Field("Time").StringValue
-		      infile=rs.Field("InputFile").StringValue
-		      outfile=rs.Field("OutputFile").StringValue
-		      fluenceF=rs.Field("Fluence").StringValue
-		      dvhf=rs.Field("DVHs").StringValue
-		      organCon=rs.Field("InputConstraints").StringValue
-		      PB_Data=rs.Field("PB_Data").StringValue
-		      Plan=rs.Field("Plan").StringValue
-		      note=rs.Field("Note").StringValue
-		      label=rs.Field("Label").StringValue
 		      
-		      Listbox_Results.AddRow ""
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,0)=icvalue
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,1)=cvalue
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,2)=ddate
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,3) =mertP
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,4) =time
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,5) =infile
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,6)=outfile
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,7)=fluenceF
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,8)=dvhf
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,9)=organCon
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,10)=PB_Data
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,11)=Plan
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,12)=note
-		      Listbox_Results.Cell(Listbox_Results.LastIndex,13)=label
+		    End If
+		    
+		    While Not rs.AfterLastRow
 		      
-		      Listbox_Results.CellType(Listbox_Results.LastIndex,13)=3
-		      Listbox_Results.CellType(Listbox_Results.LastIndex,11)=3
+		      Var icvalue As String = rs.Column("InitialScore").StringValue
+		      Var cvalue As String = rs.Column("CostValue").StringValue
+		      Var ddate As String = rs.Column("Date").StringValue
+		      Var mertP As String = rs.Column("MERTProgram").StringValue
+		      Var time As String = rs.Column("Time").StringValue
+		      Var infile As String = rs.Column("InputFile").StringValue
+		      Var outfile As String = rs.Column("OutputFile").StringValue
+		      Var fluenceF As String = rs.Column("Fluence").StringValue
+		      Var dvhf As String = rs.Column("DVHs").StringValue
+		      Var organCon As String =rs.Column("InputConstraints").StringValue
+		      Var PB_Data As String = rs.Column("PB_Data").StringValue
+		      Var Plan As String = rs.Column("Plan").StringValue
+		      Var note As String = rs.Column("Note").StringValue
+		      Var label As String = rs.Column("Label").StringValue
 		      
-		      rs.MoveNext
+		      Listbox_Results.AddRow( icvalue, cvalue, ddate, mertP, time, _
+		      infile, outfile, fluenceF, dvhf, organCon, PB_Data, Plan, Note, label)
+		      
+		      Listbox_Results.CellTypeAt(Listbox_Results.LastRowIndex,13) = Listbox.CellTypes.TextField
+		      Listbox_Results.CellTypeAt(Listbox_Results.LastRowIndex,11) = Listbox.CellTypes.TextField
+		      
+		      rs.MoveToNextRow
 		    Wend
 		    rs.Close
 		  end
@@ -1985,27 +1977,27 @@ End
 		  
 		  Listbox_DOSE.DeleteAllRows
 		  
-		  Listbox_DOSE.Heading(0)="PB Num"
-		  Listbox_DOSE.Heading(1)="Dose Name"
-		  Listbox_DOSE.Heading(2)="Weight"
-		  Listbox_DOSE.Heading(3)="MU-Weight"
-		  Listbox_DOSE.Heading(4)="Energy"
-		  Listbox_DOSE.Heading(5)="FLEC"
-		  Listbox_DOSE.Heading(6)="Norm"
+		  Listbox_DOSE.HeaderAt(0)="PB Num"
+		  Listbox_DOSE.HeaderAt(1)="Dose Name"
+		  Listbox_DOSE.HeaderAt(2)="Weight"
+		  Listbox_DOSE.HeaderAt(3)="MU-Weight"
+		  Listbox_DOSE.HeaderAt(4)="Energy"
+		  Listbox_DOSE.HeaderAt(5)="FLEC"
+		  Listbox_DOSE.HeaderAt(6)="Norm"
 		  
 		  temp="10%,20%,10%,10%,10%,30%,10%"
 		  Listbox_DOSE.columnwidths=Temp
 		  
 		  for i=0 to UBound(IPbeams)
 		    Listbox_DOSE.AddRow str(i+1)
-		    Listbox_DOSE.Cell(i,1)=IPbeams(i).FIdID_Name 
-		    Listbox_DOSE.Cell(i,2)=Format(IPbeams(i).Weight_Grad,"#.#####")
-		    Listbox_DOSE.Cell(i,3)=Format(IPbeams(i).MUs_Grad,"-#")
+		    Listbox_DOSE.CellValueAt(i,1)=IPbeams(i).FIdID_Name 
+		    Listbox_DOSE.CellValueAt(i,2)=Format(IPbeams(i).Weight_Grad,"#.#####")
+		    Listbox_DOSE.CellValueAt(i,3)=Format(IPbeams(i).MUs_Grad,"-#")
 		    // Energy
-		    Listbox_DOSE.Cell(i,4)=IPbeams(i).Energy
+		    Listbox_DOSE.CellValueAt(i,4)=IPbeams(i).Energy
 		    //Flec open
-		    Listbox_DOSE.Cell(i,5)=Format(IPbeams(i).X1,"-0.0000")+" "+ Format(IPbeams(i).x2,"-0.0000")+" "+ Format(IPbeams(i).y1,"-0.0000")+" "+ Format(IPbeams(i).Y2,"-0.0000")
-		    Listbox_DOSE.Cell(i,6)=Format(IPbeams(i).Norm_Value,"-#.##e")
+		    Listbox_DOSE.CellValueAt(i,5)=Format(IPbeams(i).X1,"-0.0000")+" "+ Format(IPbeams(i).x2,"-0.0000")+" "+ Format(IPbeams(i).y1,"-0.0000")+" "+ Format(IPbeams(i).Y2,"-0.0000")
+		    Listbox_DOSE.CellValueAt(i,6)=Format(IPbeams(i).Norm_Value,"-#.##e")
 		  Next
 		  
 		  
@@ -2028,7 +2020,7 @@ End
 		  
 		  Listbox_PBSum.DeleteAllRows
 		  
-		  Listbox_PBSum.Heading(0)="Field ID"
+		  Listbox_PBSum.HeaderAt(0)="Field ID"
 		  
 		  for i=0 to UBound(IPbeams)
 		    found=False
@@ -2048,13 +2040,13 @@ End
 		  Listbox_PBSum.ColumnCount=UBound(eng)+3
 		  
 		  for i=0 to UBound(eng)
-		    Listbox_PBSum.Heading(i+1)=eng(i)
+		    Listbox_PBSum.HeaderAt(i+1)=eng(i)
 		    Listbox_PBSum.ColumnType(i+1)=2
 		    engw(i)=0.0
 		  Next
 		  rowtotal=i+1
 		  
-		  Listbox_PBSum.Heading(rowtotal)="Total"
+		  Listbox_PBSum.HeaderAt(rowtotal)="Total"
 		  
 		  for i=0 to UBound(IPbeams)
 		    found=False
@@ -2088,9 +2080,9 @@ End
 		          end
 		        end
 		      next
-		      Listbox_PBSum.Cell(i,k+1)=str(num)
+		      Listbox_PBSum.CellValueAt(i,k+1)=str(num)
 		    next
-		    Listbox_PBSum.Cell(i,rowtotal)=str(rtotal)
+		    Listbox_PBSum.CellValueAt(i,rowtotal)=str(rtotal)
 		  next
 		  
 		  // Summarize the rows for number of beamlets
@@ -2098,27 +2090,27 @@ End
 		  for i=1 to Listbox_PBSum.ColumnCount
 		    ctotal=0
 		    for x=0 to Listbox_PBSum.ListCount-1
-		      ctotal=ctotal+val(Listbox_PBSum.Cell(x,i))
+		      ctotal=ctotal+val(Listbox_PBSum.CellValueAt(x,i))
 		    next
-		    Listbox_PBSum.Cell(Listbox_PBSum.ListCount-1,i)=str(ctotal)
+		    Listbox_PBSum.CellValueAt(Listbox_PBSum.ListCount-1,i)=str(ctotal)
 		  Next
 		  
 		  // Summarize the rows for weight of eneries
 		  Listbox_PBSum.AddRow "Total weight"
 		  wtotal=0
 		  for i=0 to UBound(engw)
-		    Listbox_PBSum.Cell(Listbox_PBSum.ListCount-1,i+1)=Format(engw(i),"#.##e")
+		    Listbox_PBSum.CellValueAt(Listbox_PBSum.ListCount-1,i+1)=Format(engw(i),"#.##e")
 		    Listbox_PBSum.CellType(Listbox_PBSum.ListCount-1,i+1)=3
 		    wtotal=engw(i)+wtotal
 		  Next
 		  Listbox_PBSum.CellType(Listbox_PBSum.ListCount-1,i+1)=3
-		  Listbox_PBSum.Cell(Listbox_PBSum.ListCount-1,i+1)=Format(wtotal,"#.##e")
+		  Listbox_PBSum.CellValueAt(Listbox_PBSum.ListCount-1,i+1)=Format(wtotal,"#.##e")
 		  
 		  
 		  // Summarize the rows for weight of eneries fraction %
 		  Listbox_PBSum.AddRow "Total %"
 		  for i=0 to UBound(engw)
-		    Listbox_PBSum.Cell(Listbox_PBSum.ListCount-1,i+1)=Format(100*engw(i)/wtotal,"#.###")
+		    Listbox_PBSum.CellValueAt(Listbox_PBSum.ListCount-1,i+1)=Format(100*engw(i)/wtotal,"#.###")
 		    Listbox_PBSum.CellType(Listbox_PBSum.ListCount-1,i+1)=3
 		  Next
 		  
@@ -2140,7 +2132,7 @@ End
 		    Next
 		    avgFS=avgFS/(UBound(FS_List)+1)
 		    if UBound(FS_List)>-1 Then
-		      Listbox_PBSum.Cell(Listbox_PBSum.ListCount-1,x+1)=Format(FS_List(0),"#.###")+", "+Format(FS_List(UBound(FS_List)),"#.###")+", "+Format(avgFS,"#.###")
+		      Listbox_PBSum.CellValueAt(Listbox_PBSum.ListCount-1,x+1)=Format(FS_List(0),"#.###")+", "+Format(FS_List(UBound(FS_List)),"#.###")+", "+Format(avgFS,"#.###")
 		    end
 		    Listbox_PBSum.CellType(Listbox_PBSum.ListCount-1,x+1)=3
 		    
@@ -2547,14 +2539,14 @@ End
 		  
 		  if DoNot=False Then
 		    
-		    x=Listbox_Results.ListIndex
+		    x=Listbox_Results.SelectedRowIndex
 		    
 		    If rs <> Nil then
 		      if Listbox_Results.SelCount=1 Then
 		        
 		        for i=1 to rs.FieldCount
 		          if rs.IdxField(i).Name="Note" Then
-		            Listbox_Results.Cell(x,12)=me.Text
+		            Listbox_Results.CellValueAt(x,12)=me.Text
 		            rs.Edit
 		            rs.IdxField(i).Value=me.Text
 		            rs.Update
@@ -2612,45 +2604,50 @@ End
 #tag Events Listbox_Results
 	#tag Event
 		Sub Change()
-		  Dim sql as String
-		  Dim found as Boolean
+		  
 		  
 		  Load_Oarray
 		  Load_DVH_Strings
 		  Load_Inputfile
 		  Load_PBs
 		  
-		  found=False
+		  Var found As Boolean = False
 		  
-		  if gOpt.results.Connect Then
-		    sql="select CostValue,Date,MERTProgram,Time,InputFile,OutputFile,Fluence,DVHs,InputConstraints,PB_Data,Plan,Note,Label,InitialScore from Results"
-		    rs=gOpt.results.SQLSelect(sql)
+		  If gOpt.results.Connect Then
 		    
-		    While not rs.EOF
-		      if rs.Field("InitialScore").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,0) and _
-		        rs.Field("CostValue").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,1) and _
-		        rs.Field("Date").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,2) and _
-		        rs.Field("MERTProgram").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,3) and _
-		        rs.Field("Time").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,4) and _
-		        rs.Field("InputFile").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,5) and _
-		        rs.Field("OutputFile").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,6) and _
-		        rs.Field("Fluence").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,7) and _
-		        rs.Field("DVHs").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,8) and _
-		        rs.Field("InputConstraints").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,9) and _
-		        rs.Field("PB_Data").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,10) and _
-		        rs.Field("Plan").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,11) and _
-		        rs.Field("Note").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,12) and _
-		        rs.Field("Label").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,13) Then
+		    Var sql as String = "select CostValue,Date,MERTProgram,Time,InputFile," _
+		    + "OutputFile,Fluence,DVHs,InputConstraints,PB_Data,Plan,Note," _
+		    + "Label,InitialScore from Results"
+		    Var rs As RowSet = gOpt.results.SelectSQL(sql)
+		    
+		    While Not rs.AfterLastRow
+		      
+		      If rs.Column("InitialScore").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,0) And _
+		        rs.Column("CostValue").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,1) and _
+		        rs.Column("Date").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,2) and _
+		        rs.Column("MERTProgram").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,3) and _
+		        rs.Column("Time").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,4) and _
+		        rs.Column("InputFile").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,5) and _
+		        rs.Column("OutputFile").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,6) and _
+		        rs.Column("Fluence").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,7) and _
+		        rs.Column("DVHs").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,8) and _
+		        rs.Column("InputConstraints").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,9) and _
+		        rs.Column("PB_Data").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,10) and _
+		        rs.Column("Plan").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,11) and _
+		        rs.Column("Note").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,12) And _
+		        rs.Column("Label").StringValue=Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,13) Then
 		        found=True
 		        Exit
-		      end
-		      rs.MoveNext
+		        
+		      End If
+		      rs.MoveToNextRow
 		    Wend
-		  end
+		    
+		  End If
 		  
-		  if found=False Then
-		    rs=nil
-		  end
+		  If found = False Then
+		    rs = Nil
+		  End
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -2658,12 +2655,12 @@ End
 		  //----------------------------------
 		  // Update database
 		  //----------------------------------
-		  dim resultd as Integer
-		  dim sql as String
-		  dim dr as  DatabaseRecord
-		  dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		  dim rs as RecordSet
-		  dim i as Integer
+		  'dim resultd as Integer
+		  'dim sql as String
+		  'dim dr as  DatabaseRecord
+		  'dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  'dim rs as RecordSet
+		  'dim i as Integer
 		  //----------------------------------
 		  
 		  
@@ -2674,48 +2671,87 @@ End
 		    
 		  Case  "Delete Record"
 		    
-		    resultd=MsgBox("Do you want to remove this record?",36)
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Delete"
+		    d.Message = "Do you want to remove this record?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
 		    
-		    // Remove RecordSet
-		    if resultd=6 Then
-		      db= new SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		      db=gOpt.results
-		      if db.Connect Then
-		        sql="select CostValue,Date,MERTProgram,Time,InputFile,OutputFile,Fluence,DVHs,InputConstraints,PB_Data,Plan,Note,Label,InitialScore from Results"
-		        rs=db.SQLSelect(sql)
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // usedb= new SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		      Var db As SQLiteDatabase = gOpt.results
+		      
+		      If db.Connect Then
 		        
-		        While not rs.EOF
-		          if rs.Field("InitialScore").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,0) and _
-		            rs.Field("CostValue").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,1) and _
-		            rs.Field("Date").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,2) and _
-		            rs.Field("MERTProgram").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,3) and _
-		            rs.Field("Time").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,4) and _
-		            rs.Field("InputFile").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,5) and _
-		            rs.Field("OutputFile").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,6) and _
-		            rs.Field("Fluence").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,7) and _
-		            rs.Field("DVHs").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,8) and _
-		            rs.Field("InputConstraints").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,9) and _
-		            rs.Field("PB_Data").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,10) and _
-		            rs.Field("Plan").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,11) and _
-		            rs.Field("Note").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,12) and _
-		            rs.Field("Label").StringValue=Listbox_Results.Cell(Listbox_Results.ListIndex,13) Then
+		        Var sql as String = "select CostValue,Date,MERTProgram,Time,InputFile,OutputFile," _
+		        + "Fluence,DVHs,InputConstraints,PB_Data,Plan,Note,Label,InitialScore from Results"
+		        
+		        Var rs As RowSet = db.SelectSQL(sql)
+		        
+		        While Not rs.AfterLastRow
+		          
+		          If rs.Column("InitialScore").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,0) And _
+		            rs.Column("CostValue").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,1) And _
+		            rs.Column("Date").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,2) And _
+		            rs.Column("MERTProgram").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,3) And _
+		            rs.Column("Time").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,4) And _
+		            rs.Column("InputFile").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,5) And _
+		            rs.Column("OutputFile").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,6) And _
+		            rs.Column("Fluence").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,7) And _
+		            rs.Column("DVHs").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,8) And _
+		            rs.Column("InputConstraints").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,9) And _
+		            rs.Column("PB_Data").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,10) And _
+		            rs.Column("Plan").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,11) And _
+		            rs.Column("Note").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,12) And _
+		            rs.Column("Label").StringValue = _
+		            Listbox_Results.CellValueAt(Listbox_Results.SelectedRowIndex,13) Then
 		            
-		            rs.Edit
-		            if rs<> nil Then
-		              rs.DeleteRecord
-		              if db.Error=False Then
-		                db.Commit
-		              end
-		            end
-		          end
-		          rs.MoveNext
+		            rs.EditRow
+		            If rs <> Nil Then
+		              Try
+		                rs.RemoveRow
+		                db.CommitTransaction
+		              Catch error As IOException
+		                
+		                MessageBox(error.Message)
+		                
+		              End Try
+		              
+		            End If
+		            
+		            
+		          End If
+		          rs.MoveToNextRow
 		        Wend
-		      end
+		      End
 		      db.Close
 		      Update_DataBase
-		    end
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
 		    
-		  end
+		  End Select
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -2746,13 +2782,13 @@ End
 		    if column=13 Then
 		      for i=1 to rs.FieldCount
 		        if rs.IdxField(i).Name="Label" Then
-		          rs.IdxField(i).Value =me.Cell(row,column)
+		          rs.IdxField(i).Value =me.CellValueAt(row,column)
 		        end
 		      Next
 		    elseif column=11 Then
 		      for i=1 to rs.FieldCount
 		        if rs.IdxField(i).Name="Plan" Then
-		          rs.IdxField(i).Value =me.Cell(row,column)
+		          rs.IdxField(i).Value =me.CellValueAt(row,column)
 		        end
 		      Next
 		    End if

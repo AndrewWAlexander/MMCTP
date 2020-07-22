@@ -144,11 +144,11 @@ End
 		  Listbox_Scrapers.DeleteAllRows
 		  Listbox_Scrapers.ColumnCount=app.N_APPLICAT+1
 		  
-		  Listbox_Scrapers.Heading(0)="Scraper"
+		  Listbox_Scrapers.HeaderAt(0)="Scraper"
 		  temp="300"
 		  for i=1 to app.N_APPLICAT
 		    temp=temp+", 150"
-		    Listbox_Scrapers.Heading(i)=Str(i)
+		    Listbox_Scrapers.HeaderAt(i)=Str(i)
 		  next
 		  Listbox_Scrapers.ColumnWidths=temp
 		  
@@ -162,13 +162,13 @@ End
 		    Listbox_Scrapers.AddRow "Material"
 		    for i=1 to app.N_APPLICAT
 		      Listbox_Scrapers.ColumnType(i)=3
-		      Listbox_Scrapers.Cell(0,i)=Format(app.ZMIN_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(1,i)=Format(app.ZTHICK_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(2,i)=Format(app.XMIN_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(3,i)=Format(app.WIDTHX_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(4,i)=Format(app.DOSE_ZONE(i-1),"#")
-		      Listbox_Scrapers.Cell(5,i)=Format(app.IREGION_TO_BIT(i-1),"#")
-		      Listbox_Scrapers.Cell(6,i)=app.MED_IN(i-1)
+		      Listbox_Scrapers.CellValueAt(0,i)=Format(app.ZMIN_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(1,i)=Format(app.ZTHICK_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(2,i)=Format(app.XMIN_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(3,i)=Format(app.WIDTHX_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(4,i)=Format(app.DOSE_ZONE(i-1),"#")
+		      Listbox_Scrapers.CellValueAt(5,i)=Format(app.IREGION_TO_BIT(i-1),"#")
+		      Listbox_Scrapers.CellValueAt(6,i)=app.MED_IN(i-1)
 		    next
 		    
 		  elseif app.Ishape=1 Then
@@ -184,15 +184,15 @@ End
 		    
 		    for i=1 to app.N_APPLICAT
 		      Listbox_Scrapers.ColumnType(i)=3
-		      Listbox_Scrapers.Cell(0,i)=Format(app.ZMIN_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(1,i)=Format(app.ZTHICK_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(2,i)=Format(app.XMIN_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(3,i)=Format(app.YMIN_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(4,i)=Format(app.WIDTHX_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(5,i)=Format(app.WIDTHY_APPLICAT(i-1),"-#.###")
-		      Listbox_Scrapers.Cell(6,i)=Format(app.DOSE_ZONE(i-1),"#")
-		      Listbox_Scrapers.Cell(7,i)=Format(app.IREGION_TO_BIT(i-1),"#")
-		      Listbox_Scrapers.Cell(8,i)=app.MED_IN(i-1)
+		      Listbox_Scrapers.CellValueAt(0,i)=Format(app.ZMIN_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(1,i)=Format(app.ZTHICK_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(2,i)=Format(app.XMIN_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(3,i)=Format(app.YMIN_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(4,i)=Format(app.WIDTHX_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(5,i)=Format(app.WIDTHY_APPLICAT(i-1),"-#.###")
+		      Listbox_Scrapers.CellValueAt(6,i)=Format(app.DOSE_ZONE(i-1),"#")
+		      Listbox_Scrapers.CellValueAt(7,i)=Format(app.IREGION_TO_BIT(i-1),"#")
+		      Listbox_Scrapers.CellValueAt(8,i)=app.MED_IN(i-1)
 		    next
 		  end
 		End Sub
@@ -230,57 +230,57 @@ End
 		    if column>=1 Then
 		      if app.Ishape=1 Then // for rect shapes
 		        if row=0 Then
-		          app.ZMIN_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.ZMIN_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=1 Then
-		          app.ZTHICK_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.ZTHICK_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		          
 		        elseif row=2 Then
-		          app.XMIN_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.XMIN_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=3 Then
-		          app.YMIN_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.YMIN_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=4 Then
-		          app.WIDTHX_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.WIDTHX_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=5 Then
-		          app.WIDTHY_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.WIDTHY_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=6 Then
-		          app.DOSE_ZONE(column-1)=val(me.Cell(row,column))
+		          app.DOSE_ZONE(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=7 Then
-		          app.IREGION_TO_BIT(column-1)=val(me.Cell(row,column))
+		          app.IREGION_TO_BIT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=8 Then
-		          app.MED_IN(column-1)=trim(me.Cell(row,column))
+		          app.MED_IN(column-1)=trim(me.CellValueAt(row,column))
 		        end
 		        
 		      elseif app.Ishape=0 Then
 		        // For square shapes
 		        
 		        if row=0 Then
-		          app.ZMIN_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.ZMIN_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=1 Then
-		          app.ZTHICK_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.ZTHICK_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=2 Then
-		          app.XMIN_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.XMIN_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=3 Then
-		          app.WIDTHX_APPLICAT(column-1)=val(me.Cell(row,column))
+		          app.WIDTHX_APPLICAT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=4 Then
-		          app.DOSE_ZONE(column-1)=val(me.Cell(row,column))
+		          app.DOSE_ZONE(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=5 Then
-		          app.IREGION_TO_BIT(column-1)=val(me.Cell(row,column))
+		          app.IREGION_TO_BIT(column-1)=val(me.CellValueAt(row,column))
 		          
 		        elseif row=6 Then
-		          app.MED_IN(column-1)=trim(me.Cell(row,column))
+		          app.MED_IN(column-1)=trim(me.CellValueAt(row,column))
 		        end
 		        
 		        

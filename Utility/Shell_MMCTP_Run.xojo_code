@@ -25,7 +25,7 @@ Inherits Shell
 		  
 		  // Error Check
 		  if ErrorCode=255 Then
-		    MsgBox "Shell Error code : "+s
+		    MessageBox "Shell Error code : "+s
 		    ReDim All(-1)
 		    Return
 		  end
@@ -603,7 +603,7 @@ Inherits Shell
 		  // Error Check
 		  if ErrorCode=255 Then
 		    // Time-out error code
-		    //MsgBox "Shell Error code : "+s
+		    //MessageBox "Shell Error code : "+s
 		    for i=0 to UBound(gShells.Shells)
 		      if gShells.Shells(i).title=all(0).shell.title and all(0).shell.title<>"8CORE" Then
 		        gShells.Shells(i).online=False

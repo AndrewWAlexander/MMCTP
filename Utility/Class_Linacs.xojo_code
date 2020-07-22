@@ -181,7 +181,7 @@ Protected Class Class_Linacs
 		  
 		  if f.Exists=False then
 		    Return
-		    MsgBox "Could not find file : "+f.Name
+		    MessageBox "Could not find file : "+f.Name
 		  end
 		  
 		  

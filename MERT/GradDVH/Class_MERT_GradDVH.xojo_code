@@ -362,7 +362,7 @@ Protected Class Class_MERT_GradDVH
 		  dvh_bin=gOpt.dvh_bin
 		  bb=Write_GradDVH_Input
 		  if bb=False Then
-		    MsgBox "Could not Write input file"
+		    MessageBox "Could not Write input file"
 		    Return
 		  end
 		  
@@ -382,7 +382,7 @@ Protected Class Class_MERT_GradDVH
 		  g=g.Child("GradRun")
 		  ts=g.CreateTextFile
 		  if ts=nil Then
-		    MsgBox "Could not Write GradRun file"
+		    MessageBox "Could not Write GradRun file"
 		    
 		    Return
 		  end

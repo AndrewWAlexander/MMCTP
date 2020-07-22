@@ -245,16 +245,16 @@ End
 		    
 		    Listbox_MLC.ColumnCount=3
 		    
-		    Listbox_MLC.Heading(0)="Leaf #"
-		    Listbox_MLC.Heading(2)="Bank A"
-		    Listbox_MLC.Heading(1)="Bank B"
+		    Listbox_MLC.HeaderAt(0)="Leaf #"
+		    Listbox_MLC.HeaderAt(2)="Bank A"
+		    Listbox_MLC.HeaderAt(1)="Bank B"
 		    
 		    
 		  else
 		    TextField_B.Enabled=False
 		    Listbox_MLC.ColumnCount=2
-		    Listbox_MLC.Heading(0)="Leaf #"
-		    Listbox_MLC.Heading(1)="Bank"
+		    Listbox_MLC.HeaderAt(0)="Leaf #"
+		    Listbox_MLC.HeaderAt(1)="Bank"
 		  end
 		  
 		  
@@ -276,8 +276,8 @@ End
 		    if field_index>-1 and field_index<=UBound(MLC.Fields) Then
 		      for i=mlc.NumberofLeafPairs DownTo 1
 		        Listbox_MLC.AddRow str(i)
-		        Listbox_MLC.Cell(mlc.NumberofLeafPairs-i,2)=Format(mlc.Fields(field_index).Leaf_A(i-1),"-#.###")
-		        Listbox_MLC.Cell(mlc.NumberofLeafPairs-i,1)=Format(mlc.Fields(field_index).Leaf_b(i-1),"-#.###")
+		        Listbox_MLC.CellValueAt(mlc.NumberofLeafPairs-i,2)=Format(mlc.Fields(field_index).Leaf_A(i-1),"-#.###")
+		        Listbox_MLC.CellValueAt(mlc.NumberofLeafPairs-i,1)=Format(mlc.Fields(field_index).Leaf_b(i-1),"-#.###")
 		      Next
 		    end
 		    
@@ -286,7 +286,7 @@ End
 		    if field_index>-1 and field_index<=UBound(MLC.Fields) Then
 		      for i=mlc.NumberofLeafPairs DownTo 1
 		        Listbox_MLC.AddRow str(i)
-		        Listbox_MLC.Cell(mlc.NumberofLeafPairs-i,1)=Format(mlc.Fields(field_index).Leaf_A(i-1),"-#.###")
+		        Listbox_MLC.CellValueAt(mlc.NumberofLeafPairs-i,1)=Format(mlc.Fields(field_index).Leaf_A(i-1),"-#.###")
 		      Next
 		    end
 		  end
@@ -319,15 +319,15 @@ End
 		  if MLC.Model_Type=0 Then // Normal Leafpair MLC
 		    n=mlc.NumberofLeafPairs-1
 		    if column=2 Then
-		      MLC.Fields(field_index).Leaf_A(n-row)=val(me.Cell(row,column))
+		      MLC.Fields(field_index).Leaf_A(n-row)=val(me.CellValueAt(row,column))
 		    elseif column=1 Then
-		      MLC.Fields(field_index).Leaf_b(n-row)=val(me.Cell(row,column))
+		      MLC.Fields(field_index).Leaf_b(n-row)=val(me.CellValueAt(row,column))
 		    end
 		    
 		  else // Binary MLC
 		    
 		    n=mlc.NumberofLeafPairs-1
-		    vv=val(me.Cell(row,column))
+		    vv=val(me.CellValueAt(row,column))
 		    if column=1 Then
 		      if vv<>0 and vv<>1 Then
 		        vv=0
@@ -352,9 +352,9 @@ End
 		  
 		  for i=0 to Listbox_MLC.ListCount
 		    if Listbox_MLC.Selected(i) Then
-		      k=val(Listbox_MLC.Cell(i,0))-1
+		      k=val(Listbox_MLC.CellValueAt(i,0))-1
 		      MLC.Fields(field_index).Leaf_b(k)=val(me.Text)
-		      Listbox_MLC.Cell(i,1)=Format(mlc.Fields(field_index).Leaf_b(k),"-#.###")
+		      Listbox_MLC.CellValueAt(i,1)=Format(mlc.Fields(field_index).Leaf_b(k),"-#.###")
 		    end
 		  next
 		  
@@ -369,7 +369,7 @@ End
 		  
 		  for i=0 to Listbox_MLC.ListCount
 		    if Listbox_MLC.Selected(i) Then
-		      k=val(Listbox_MLC.Cell(i,0))-1
+		      k=val(Listbox_MLC.CellValueAt(i,0))-1
 		      vv=val(me.Text)
 		      
 		      if MLC.Model_Type=1 Then
@@ -379,7 +379,7 @@ End
 		      end
 		      
 		      MLC.Fields(field_index).Leaf_A(k)=vv
-		      Listbox_MLC.Cell(i,2)=Format(mlc.Fields(field_index).Leaf_A(k),"-#.###")
+		      Listbox_MLC.CellValueAt(i,2)=Format(mlc.Fields(field_index).Leaf_A(k),"-#.###")
 		    end
 		  next
 		End Sub

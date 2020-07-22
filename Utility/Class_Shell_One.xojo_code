@@ -24,7 +24,7 @@ Protected Class Class_Shell_One
 		    command="sbatch  "+inputfile+ " -srun"
 		    
 		  Else
-		    MsgBox "Error: No command line for batch = "+batch
+		    MessageBox "Error: No command line for batch = "+batch
 		  End
 		  
 		  Return command

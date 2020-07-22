@@ -746,29 +746,29 @@ End
 		  Listbox_Organ_Constraints.ColumnCount=15
 		  
 		  // DV values
-		  Listbox_Organ_Constraints.Heading(0)="Organ"
-		  Listbox_Organ_Constraints.Heading(1)="Dose Limit (Gy)"
-		  Listbox_Organ_Constraints.Heading(2)="Vol Limit (%)"
-		  Listbox_Organ_Constraints.Heading(3)="Penalty"
+		  Listbox_Organ_Constraints.HeaderAt(0)="Organ"
+		  Listbox_Organ_Constraints.HeaderAt(1)="Dose Limit (Gy)"
+		  Listbox_Organ_Constraints.HeaderAt(2)="Vol Limit (%)"
+		  Listbox_Organ_Constraints.HeaderAt(3)="Penalty"
 		  
 		  //Average Dose
-		  Listbox_Organ_Constraints.Heading(4)="Average Dose Constraint"
-		  Listbox_Organ_Constraints.Heading(5)="Max Avg Dose (Gy)"
-		  Listbox_Organ_Constraints.Heading(6)="Max Avg Dose Pen"
+		  Listbox_Organ_Constraints.HeaderAt(4)="Average Dose Constraint"
+		  Listbox_Organ_Constraints.HeaderAt(5)="Max Avg Dose (Gy)"
+		  Listbox_Organ_Constraints.HeaderAt(6)="Max Avg Dose Pen"
 		  
 		  //Max Dose
-		  Listbox_Organ_Constraints.Heading(7)="Max Dose Constraint"
-		  Listbox_Organ_Constraints.Heading(8)="Max Dose (Gy)"
-		  Listbox_Organ_Constraints.Heading(9)="Max Dose Pen"
+		  Listbox_Organ_Constraints.HeaderAt(7)="Max Dose Constraint"
+		  Listbox_Organ_Constraints.HeaderAt(8)="Max Dose (Gy)"
+		  Listbox_Organ_Constraints.HeaderAt(9)="Max Dose Pen"
 		  
 		  // System Placeholders
-		  Listbox_Organ_Constraints.Heading(10)="Organ Constraints 7"
-		  Listbox_Organ_Constraints.Heading(11)="Index 8"
-		  Listbox_Organ_Constraints.Heading(12)="Constaint Index 9"
+		  Listbox_Organ_Constraints.HeaderAt(10)="Organ Constraints 7"
+		  Listbox_Organ_Constraints.HeaderAt(11)="Index 8"
+		  Listbox_Organ_Constraints.HeaderAt(12)="Constaint Index 9"
 		  
 		  // System Placeholders
-		  Listbox_Organ_Constraints.Heading(13)="Importance"
-		  Listbox_Organ_Constraints.Heading(14)="Overlap Pri."
+		  Listbox_Organ_Constraints.HeaderAt(13)="Importance"
+		  Listbox_Organ_Constraints.HeaderAt(14)="Overlap Pri."
 		  
 		  temp="10%,7%,7%,5%,10%,10%,10%,10%,8%,8%,0%,0%,0%,7%,8%"
 		  Listbox_Organ_Constraints.columnwidths=Temp
@@ -805,7 +805,7 @@ End
 		    Listbox_Organ_Constraints.addfolder ""
 		    temp=NthField(s1,",",i)
 		    // Place the Organ and name
-		    Listbox_Organ_Constraints.cell(i-1,0)=NthField(temp,"%",1)
+		    Listbox_Organ_Constraints.CellValueAt(i-1,0)=NthField(temp,"%",1)
 		    Listbox_Organ_Constraints.CellType(i-1,0)=2
 		    
 		    
@@ -820,8 +820,8 @@ End
 		    if Plan.Structure_Dose(i-1).AvgDose_Use Then
 		      Listbox_Organ_Constraints.CellCheck(i-1,4)=True
 		    end
-		    Listbox_Organ_Constraints.Cell(i-1,5)=Format(Plan.Structure_Dose(i-1).AvgDose,"-#.###")
-		    Listbox_Organ_Constraints.Cell(i-1,6)=Format(Plan.Structure_Dose(i-1).AvgDosePen,"-#.###")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,5)=Format(Plan.Structure_Dose(i-1).AvgDose,"-#.###")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,6)=Format(Plan.Structure_Dose(i-1).AvgDosePen,"-#.###")
 		    
 		    // Max dose contraint info
 		    Listbox_Organ_Constraints.CellType(i-1,7)=2
@@ -830,21 +830,21 @@ End
 		    if Plan.Structure_Dose(i-1).Use_Max_Dose Then
 		      Listbox_Organ_Constraints.CellCheck(i-1,7)=True
 		    end
-		    Listbox_Organ_Constraints.Cell(i-1,8)=Format(Plan.Structure_Dose(i-1).MaxDose,"-#.###")
-		    Listbox_Organ_Constraints.Cell(i-1,9)=Format(Plan.Structure_Dose(i-1).Max_Priority,"-#.###")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,8)=Format(Plan.Structure_Dose(i-1).MaxDose,"-#.###")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,9)=Format(Plan.Structure_Dose(i-1).Max_Priority,"-#.###")
 		    
 		    
 		    //  number
-		    Listbox_Organ_Constraints.cell(i-1,10)=NthField(sub1,";",i)
+		    Listbox_Organ_Constraints.CellValueAt(i-1,10)=NthField(sub1,";",i)
 		    
 		    // Place the Organ index
-		    Listbox_Organ_Constraints.cell(i-1,11)=NthField(temp,"%",2)
+		    Listbox_Organ_Constraints.CellValueAt(i-1,11)=NthField(temp,"%",2)
 		    
 		    // Place the Organ importance and Overlap
 		    Listbox_Organ_Constraints.CellType(i-1,13)=3
 		    Listbox_Organ_Constraints.CellType(i-1,14)=3
-		    Listbox_Organ_Constraints.cell(i-1,13)=Format(Plan.Structure_Dose(i-1).Importance,"#")
-		    Listbox_Organ_Constraints.cell(i-1,14)=Format(Plan.Structure_Dose(i-1).OverlapPriority,"#")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,13)=Format(Plan.Structure_Dose(i-1).Importance,"#")
+		    Listbox_Organ_Constraints.CellValueAt(i-1,14)=Format(Plan.Structure_Dose(i-1).OverlapPriority,"#")
 		    
 		  Next
 		  Listbox_Organ_Constraints.hierarchical=true
@@ -866,12 +866,12 @@ End
 		  '=====================================
 		  
 		  Listbox_Organ_Target.ColumnCount=8
-		  Listbox_Organ_Target.Heading(0)="Target Volume"
-		  Listbox_Organ_Target.Heading(1)="Min Dose (Gy)"
-		  Listbox_Organ_Target.Heading(2)="Min Dose Penalty"
-		  Listbox_Organ_Target.Heading(3)="Norm Vol %"
-		  Listbox_Organ_Target.Heading(4)="Norm Gy"
-		  Listbox_Organ_Target.Heading(5)="Number"
+		  Listbox_Organ_Target.HeaderAt(0)="Target Volume"
+		  Listbox_Organ_Target.HeaderAt(1)="Min Dose (Gy)"
+		  Listbox_Organ_Target.HeaderAt(2)="Min Dose Penalty"
+		  Listbox_Organ_Target.HeaderAt(3)="Norm Vol %"
+		  Listbox_Organ_Target.HeaderAt(4)="Norm Gy"
+		  Listbox_Organ_Target.HeaderAt(5)="Number"
 		  
 		  
 		  temp="25%,18%,18%,17%,17%,5%"
@@ -881,11 +881,11 @@ End
 		  
 		  for i=0 to UBound(Plan.Structure_Dose)
 		    Listbox_Organ_Target.AddRow Plan.Structure_Dose(i).Organ_Name
-		    Listbox_Organ_Target.Cell(i,1)=Format(Plan.Structure_Dose(i).MinDose,"-#.####")
-		    Listbox_Organ_Target.Cell(i,2)=Format(Plan.Structure_Dose(i).Min_Priority,"-#.####")
-		    Listbox_Organ_Target.Cell(i,3)=Format(Plan.Structure_Dose(i).Target_Norm_Volume,"-#.####")
-		    Listbox_Organ_Target.Cell(i,4)=Format(Plan.Structure_Dose(i).Target_Norm_Dose,"-#.####")
-		    Listbox_Organ_Target.Cell(i,5)=Format(i+1,"#")
+		    Listbox_Organ_Target.CellValueAt(i,1)=Format(Plan.Structure_Dose(i).MinDose,"-#.####")
+		    Listbox_Organ_Target.CellValueAt(i,2)=Format(Plan.Structure_Dose(i).Min_Priority,"-#.####")
+		    Listbox_Organ_Target.CellValueAt(i,3)=Format(Plan.Structure_Dose(i).Target_Norm_Volume,"-#.####")
+		    Listbox_Organ_Target.CellValueAt(i,4)=Format(Plan.Structure_Dose(i).Target_Norm_Dose,"-#.####")
+		    Listbox_Organ_Target.CellValueAt(i,5)=Format(i+1,"#")
 		    
 		    Listbox_Organ_Target.CellType(i,0)=2
 		    Listbox_Organ_Target.CellType(i,1)=3
@@ -916,21 +916,21 @@ End
 		  '=====================================
 		  
 		  Listbox_Volumes.ColumnCount=6
-		  Listbox_Volumes.Heading(0)="Organ"
-		  Listbox_Volumes.Heading(1)="Voxel (x,y) resolution"
-		  Listbox_Volumes.Heading(2)="Voxel size x (cm)"
-		  Listbox_Volumes.Heading(3)="Voxel size y (cm)"
-		  Listbox_Volumes.Heading(4)="Number of voxels"
-		  Listbox_Volumes.Heading(5)="Trim cutoff value %"
+		  Listbox_Volumes.HeaderAt(0)="Organ"
+		  Listbox_Volumes.HeaderAt(1)="Voxel (x,y) resolution"
+		  Listbox_Volumes.HeaderAt(2)="Voxel size x (cm)"
+		  Listbox_Volumes.HeaderAt(3)="Voxel size y (cm)"
+		  Listbox_Volumes.HeaderAt(4)="Number of voxels"
+		  Listbox_Volumes.HeaderAt(5)="Trim cutoff value %"
 		  Listbox_Volumes.DeleteAllRows
 		  
 		  for i=0 to UBound(Plan.Structure_Dose)
 		    Listbox_Volumes.AddRow Plan.Structure_Dose(i).Organ_Name
-		    Listbox_Volumes.Cell(i,1)=Format(Plan.Structure_Dose(i).Voxel_REs,"#")
-		    Listbox_Volumes.Cell(i,2)=Format(Plan.Structure_Dose(i).Voxel_Size_x,"-#.####")
-		    Listbox_Volumes.Cell(i,3)=Format(Plan.Structure_Dose(i).Voxel_Size_y,"-#.####")
-		    Listbox_Volumes.Cell(i,4)=Format(Plan.Structure_Dose(i).Num_Points,"#")
-		    Listbox_Volumes.Cell(i,5)=Format(Plan.Structure_Dose(i).CutoffDose,"#.#####")
+		    Listbox_Volumes.CellValueAt(i,1)=Format(Plan.Structure_Dose(i).Voxel_REs,"#")
+		    Listbox_Volumes.CellValueAt(i,2)=Format(Plan.Structure_Dose(i).Voxel_Size_x,"-#.####")
+		    Listbox_Volumes.CellValueAt(i,3)=Format(Plan.Structure_Dose(i).Voxel_Size_y,"-#.####")
+		    Listbox_Volumes.CellValueAt(i,4)=Format(Plan.Structure_Dose(i).Num_Points,"#")
+		    Listbox_Volumes.CellValueAt(i,5)=Format(Plan.Structure_Dose(i).CutoffDose,"#.#####")
 		    Listbox_Volumes.CellType(i,0)=0
 		    Listbox_Volumes.CellType(i,1)=3
 		    Listbox_Volumes.CellType(i,2)=0
@@ -997,12 +997,12 @@ End
 		  old=organ_index
 		  old_d=constraint_index
 		  
-		  if me.ListIndex=-1 Then
+		  if me.SelectedRowIndex=-1 Then
 		    Return
 		  end
 		  
 		  'Find Organ index
-		  s=Listbox_Organ_Constraints.Cell(Listbox_Organ_Constraints.ListIndex,11)
+		  s=Listbox_Organ_Constraints.CellValueAt(Listbox_Organ_Constraints.SelectedRowIndex,11)
 		  if len(s)=0 Then
 		    temp_plan_index=-1
 		  else
@@ -1012,7 +1012,7 @@ End
 		  organ_index=temp_plan_index
 		  
 		  'Find Constraint index
-		  s=Listbox_Organ_Constraints.Cell(Listbox_Organ_Constraints.ListIndex,12)
+		  s=Listbox_Organ_Constraints.CellValueAt(Listbox_Organ_Constraints.SelectedRowIndex,12)
 		  if len(s)=0 Then
 		    constraint_index=-1
 		  else
@@ -1024,7 +1024,7 @@ End
 		Sub CollapseRow(row As Integer)
 		  Dim i,u,NSubRows as Integer
 		  
-		  NSubRows=CountFields(Me.cell(row,10),",")
+		  NSubRows=CountFields(Me.CellValueAt(row,10),",")
 		  u=row+1
 		  For i=row+NSubRows downto u
 		    Me.removerow i
@@ -1058,26 +1058,26 @@ End
 		  if organ_index>-1 and organ_index<=UBound(Plan.Structure_Dose) Then
 		    if constraint_index>-1 and constraint_index<=UBound(Plan.Structure_Dose(organ_index).Constraints) Then
 		      if column=1 Then
-		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).dose=val(me.Cell(row,column))
+		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).dose=val(me.CellValueAt(row,column))
 		      elseif column=2 Then
-		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).volume=val(me.Cell(row,column))
+		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).volume=val(me.CellValueAt(row,column))
 		      elseif column=3 Then
-		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).Priority=val(me.Cell(row,column))
+		        Plan.Structure_Dose(organ_index).Constraints(constraint_index).Priority=val(me.CellValueAt(row,column))
 		      end
 		    end
 		    
 		    if column=5 Then
-		      Plan.Structure_Dose(organ_index).AvgDose=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).AvgDose=val(me.CellValueAt(row,column))
 		    elseif column=6  Then
-		      Plan.Structure_Dose(organ_index).AvgDosePen=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).AvgDosePen=val(me.CellValueAt(row,column))
 		    elseif column=8 Then
-		      Plan.Structure_Dose(organ_index).MaxDose=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).MaxDose=val(me.CellValueAt(row,column))
 		    elseif column=9 Then
-		      Plan.Structure_Dose(organ_index).Max_Priority=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).Max_Priority=val(me.CellValueAt(row,column))
 		    elseif column=13 Then
-		      Plan.Structure_Dose(organ_index).Importance=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).Importance=val(me.CellValueAt(row,column))
 		    elseif column=14 Then
-		      Plan.Structure_Dose(organ_index).OverlapPriority=val(me.Cell(row,column))
+		      Plan.Structure_Dose(organ_index).OverlapPriority=val(me.CellValueAt(row,column))
 		    end
 		  end
 		End Sub
@@ -1087,7 +1087,7 @@ End
 		  Dim i as Integer
 		  
 		  // Get organ index value
-		  i=val(me.Cell(row,11))
+		  i=val(me.CellValueAt(row,11))
 		  
 		  if column=0 and i>-1 and i<= UBound(Plan.Structure_Dose) Then
 		    Plan.Structure_Dose(i).Use_DV_Constraint=me.CellCheck(row,column)
@@ -1140,36 +1140,39 @@ End
 		  //----------------------------
 		  //
 		  //----------------------------
-		  Dim s1,temp as String
-		  Dim i,u, Organindex as Integer
+		  'Dim s1,temp as String
+		  'Dim i,u, Organindex as Integer
 		  //----------------------------
 		  
-		  s1=me.cell(row,10)
-		  u=CountFields(s1,",")
-		  temp=NthField(s1,",",1)
-		  Organindex=val(me.Cell(row,11))
+		  Var s1 As String = Me.CellValueAt(row,10)
+		  Var u As Integer = CountFields(s1,",")
+		  Var temp As String = NthField(s1,",",1)
+		  Var Organindex As Integer = Val(Me.CellValueAt(row,11))
 		  
-		  For i=1 to u
+		  For i As Integer = 1 To u
 		    temp=NthField(s1,",",i)
 		    Me.addrow ""
-		    Me.cell(me.lastIndex,0)=NthField(temp,"%",1)
-		    Me.CellType(me.LastIndex,0)=0
+		    Me.CellValueAt(Me.LastRowIndex,0)=NthField(temp,"%",1)
+		    Me.CellTypeAt(Me.LastRowIndex,0) = Listbox.CellTypes.Default
 		    
 		    
-		    if UBound(Plan.Structure_Dose(Organindex).Constraints)>-1 Then
-		      Me.Cell(me.LastIndex,1)=Format(Plan.Structure_Dose(Organindex).Constraints(i-1).dose,"-###")
-		      Me.Cell(me.LastIndex,2)=Format(Plan.Structure_Dose(Organindex).Constraints(i-1).volume,"-###")
-		      Me.Cell(me.LastIndex,3)=Format(Plan.Structure_Dose(Organindex).Constraints(i-1).Priority,"-###")
+		    If Plan.Structure_Dose(Organindex).Constraints.LastRowIndex > -1 Then
+		      Me.CellValueAt(Me.LastRowIndex,1) = _
+		      Format(Plan.Structure_Dose(Organindex).Constraints(i-1).dose,"-###")
+		      Me.CellValueAt(Me.LastRowIndex,2) = _
+		      Format(Plan.Structure_Dose(Organindex).Constraints(i-1).Volume,"-###")
+		      Me.CellValueAt(Me.LastRowIndex,3) = _
+		      Format(Plan.Structure_Dose(Organindex).Constraints(i-1).Priority,"-###")
 		      
-		      Me.CellType(me.LastIndex,1)=3
-		      Me.CellType(me.LastIndex,2)=3
-		      Me.CellType(me.LastIndex,3)=3
-		    end
+		      Me.CellTypeAt(Me.LastRowIndex,1) = Listbox.CellTypes.TextField
+		      Me.CellTypeAt(Me.LastRowIndex,2) = Listbox.CellTypes.TextField
+		      Me.CellTypeAt(Me.LastRowIndex,3) = Listbox.CellTypes.TextField
+		    End
 		    
 		    // Place Organ index
-		    Me.Cell(me.lastIndex,11)=str(Organindex)
+		    Me.CellValueAt(Me.LastRowIndex,11)=Str(Organindex)
 		    //Place the Constraint index
-		    me.cell(me.LastIndex,12)=str(i-1)
+		    Me.CellValueAt(Me.LastRowIndex,12)=Str(i-1)
 		  Next
 		End Sub
 	#tag EndEvent
@@ -1178,7 +1181,7 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=1 Then
-		    Plan.Structure_Dose(row).Voxel_REs=val(me.Cell(row,column))
+		    Plan.Structure_Dose(row).Voxel_REs=val(me.CellValueAt(row,column))
 		  end
 		End Sub
 	#tag EndEvent
@@ -1207,13 +1210,13 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if row>-1 and row<=UBound(Plan.Structure_Dose) Then
 		    if column=1 Then
-		      Plan.Structure_Dose(row).MinDose=val(me.Cell(row,column))
+		      Plan.Structure_Dose(row).MinDose=val(me.CellValueAt(row,column))
 		    elseif column=2 Then
-		      Plan.Structure_Dose(row).Min_Priority=val(me.Cell(row,column))
+		      Plan.Structure_Dose(row).Min_Priority=val(me.CellValueAt(row,column))
 		    elseif column=3 Then
-		      Plan.Structure_Dose(row).Target_Norm_Volume=val(me.Cell(row,column))
+		      Plan.Structure_Dose(row).Target_Norm_Volume=val(me.CellValueAt(row,column))
 		    elseif column=4  Then
-		      Plan.Structure_Dose(row).Target_Norm_Dose=val(me.Cell(row,column))
+		      Plan.Structure_Dose(row).Target_Norm_Dose=val(me.CellValueAt(row,column))
 		    end
 		  end
 		  

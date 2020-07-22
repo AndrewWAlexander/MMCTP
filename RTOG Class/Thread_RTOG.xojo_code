@@ -379,7 +379,7 @@ Inherits Thread
 		      end
 		    end
 		    if Scan(0).Slice_Thickness=0 Then
-		      MsgBox "DICOM import error: Can not determine image slice thickness"
+		      MessageBox "DICOM import error: Can not determine image slice thickness"
 		    end
 		  end
 		  

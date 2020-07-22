@@ -256,13 +256,13 @@ End
 		  
 		  
 		  Listbox_Pairs.DeleteAllRows
-		  Listbox_Pairs.Heading(0)="Index"
-		  Listbox_Pairs.Heading(1)="Zmin"
-		  Listbox_Pairs.Heading(2)="Zmax"
-		  Listbox_Pairs.Heading(3)="XFP"
-		  Listbox_Pairs.Heading(4)="XBP"
-		  Listbox_Pairs.Heading(5)="XFN"
-		  Listbox_Pairs.Heading(6)="XBN"
+		  Listbox_Pairs.HeaderAt(0)="Index"
+		  Listbox_Pairs.HeaderAt(1)="Zmin"
+		  Listbox_Pairs.HeaderAt(2)="Zmax"
+		  Listbox_Pairs.HeaderAt(3)="XFP"
+		  Listbox_Pairs.HeaderAt(4)="XBP"
+		  Listbox_Pairs.HeaderAt(5)="XFN"
+		  Listbox_Pairs.HeaderAt(6)="XBN"
 		  
 		  
 		  
@@ -271,12 +271,12 @@ End
 		    for i=1 to app.Number_Fields
 		      ffindex=(i-1)*app.ISCM_MAX+Pair_Index
 		      Listbox_Pairs.AddRow Format(app.Index(i-1),"-#.####")
-		      Listbox_Pairs.Cell(i-1,1)= Format(app.DYN_Openings(ffindex).zmin_jaws,"-#.####")
-		      Listbox_Pairs.Cell(i-1,2)= Format(app.DYN_Openings(ffindex).zmax_jaws,"-#.####")
-		      Listbox_Pairs.Cell(i-1,3)= Format(app.DYN_Openings(ffindex).XFP_jaws,"-#.####")
-		      Listbox_Pairs.Cell(i-1,4)= Format(app.DYN_Openings(ffindex).XBP_jaws,"-#.####")
-		      Listbox_Pairs.Cell(i-1,5)= Format(app.DYN_Openings(ffindex).XFN_jaws,"-#.####")
-		      Listbox_Pairs.Cell(i-1,6)= Format(app.DYN_Openings(ffindex).XBN_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,1)= Format(app.DYN_Openings(ffindex).zmin_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,2)= Format(app.DYN_Openings(ffindex).zmax_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,3)= Format(app.DYN_Openings(ffindex).XFP_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,4)= Format(app.DYN_Openings(ffindex).XBP_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,5)= Format(app.DYN_Openings(ffindex).XFN_jaws,"-#.####")
+		      Listbox_Pairs.CellValueAt(i-1,6)= Format(app.DYN_Openings(ffindex).XBN_jaws,"-#.####")
 		    next
 		  end
 		End Sub
@@ -318,42 +318,42 @@ End
 		  'if column>=1 Then
 		  '
 		  'if row=0 Then
-		  'app.XY_Choice(column-1)=(me.Cell(row,column))
+		  'app.XY_Choice(column-1)=(me.CellValueAt(row,column))
 		  '
 		  'elseif row=1 Then
-		  'app.ZMIN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.ZMIN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  '
 		  'elseif row=2 Then
-		  'app.ZMAX_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.ZMAX_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=3 Then
-		  'app.XFP_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XFP_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=4 Then
-		  'app.XBP_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XBP_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=5 Then
-		  'app.XFN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XFN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=6 Then
-		  'app.XBN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XBN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=7 Then
-		  'app.ECUT_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.ECUT_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=8 Then
-		  'app.pCUT_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.pCUT_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=9 Then
-		  'app.Dose_zone_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.Dose_zone_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=10 Then
-		  'app.IREGION_to_bit_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.IREGION_to_bit_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  '
 		  'elseif row=11 Then
-		  'app.Medium_Jaws(column-1)=trim(me.Cell(row,column))
+		  'app.Medium_Jaws(column-1)=trim(me.CellValueAt(row,column))
 		  'end
 		  'end
 		  'end
@@ -363,7 +363,7 @@ End
 #tag Events PopupMenu_Pairs
 	#tag Event
 		Sub Change()
-		  Pair_Index=me.ListIndex
+		  Pair_Index=me.SelectedRowIndex
 		  Refresh_window
 		End Sub
 	#tag EndEvent

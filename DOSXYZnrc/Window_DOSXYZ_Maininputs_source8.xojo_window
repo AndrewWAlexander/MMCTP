@@ -756,16 +756,16 @@ End
 		  PopupMenu_ScoreLastZ.AddRow "no ZLAST"
 		  PopupMenu_ScoreLastZ.AddRow "with ZLAST"
 		  if dosxyz_input.mode=0 Then
-		    PopupMenu_ScoreLastZ.ListIndex=0
+		    PopupMenu_ScoreLastZ.SelectedRowIndex=0
 		  Else
-		    PopupMenu_ScoreLastZ.ListIndex=1
+		    PopupMenu_ScoreLastZ.SelectedRowIndex=1
 		  end
 		  
 		  
 		  PopupMenu_phasespace.DeleteAllRows
 		  PopupMenu_phasespace.AddRow "do not redistribute"
 		  PopupMenu_phasespace.AddRow "redistribute"
-		  PopupMenu_phasespace.ListIndex=dosxyz_input.ISMOOTH
+		  PopupMenu_phasespace.SelectedRowIndex=dosxyz_input.ISMOOTH
 		  
 		  if dosxyz_input.nang>-1 Then
 		    RadioButton_pairs.Value=True
@@ -799,21 +799,21 @@ End
 		    Listbox_Theta.ColumnType(2)=3
 		    
 		    
-		    Listbox_Theta.Heading(0)="Theta (degrees)"
-		    Listbox_Theta.Heading(1)="Phi (degrees)"
-		    Listbox_Theta.Heading(2)="Probability"
+		    Listbox_Theta.HeaderAt(0)="Theta (degrees)"
+		    Listbox_Theta.HeaderAt(1)="Phi (degrees)"
+		    Listbox_Theta.HeaderAt(2)="Probability"
 		    
 		    for i=0 to UBound(dosxyz_input.theta)
 		      Listbox_Theta.AddRow(str(dosxyz_input.theta(i)))
 		      Listbox_Theta.CellType(i,0)=3
 		      
 		      if UBound(dosxyz_input.phi)>=i Then
-		        Listbox_Theta.Cell(i,1)=str(dosxyz_input.phi(i))
+		        Listbox_Theta.CellValueAt(i,1)=str(dosxyz_input.phi(i))
 		      end
 		      Listbox_Theta.CellType(i,1)=3
 		      
 		      if UBound(dosxyz_input.pang)>=i Then
-		        Listbox_Theta.Cell(i,2)=str(dosxyz_input.pang(i))
+		        Listbox_Theta.CellValueAt(i,2)=str(dosxyz_input.pang(i))
 		      end
 		      Listbox_Theta.CellType(i,2)=3
 		    Next
@@ -837,13 +837,13 @@ End
 		    
 		    
 		    
-		    Listbox_Theta.Heading(0)="vary phi"
-		    Listbox_Theta.Heading(1)="vary theta"
-		    Listbox_Theta.Heading(2)="fixed angle"
-		    Listbox_Theta.Heading(3)="min angle"
-		    Listbox_Theta.Heading(4)="max angle"
-		    Listbox_Theta.Heading(5)="number of beams"
-		    Listbox_Theta.Heading(6)="probability"
+		    Listbox_Theta.HeaderAt(0)="vary phi"
+		    Listbox_Theta.HeaderAt(1)="vary theta"
+		    Listbox_Theta.HeaderAt(2)="fixed angle"
+		    Listbox_Theta.HeaderAt(3)="min angle"
+		    Listbox_Theta.HeaderAt(4)="max angle"
+		    Listbox_Theta.HeaderAt(5)="number of beams"
+		    Listbox_Theta.HeaderAt(6)="probability"
 		    
 		    
 		    for i=0 to UBound(dosxyz_input.ivary)
@@ -859,11 +859,11 @@ End
 		      
 		      
 		      
-		      Listbox_Theta.Cell(i,2)=Format(dosxyz_input.angfixed(i),"-#.##")
-		      Listbox_Theta.Cell(i,3)=Format(dosxyz_input.angmin(i),"-#.##")
-		      Listbox_Theta.Cell(i,4)=Format(dosxyz_input.angmax(i),"-#.##")
-		      Listbox_Theta.Cell(i,5)=Format(dosxyz_input.ngang(i),"#")
-		      Listbox_Theta.Cell(i,6)=Format(dosxyz_input.pgang(i),"-#.##")
+		      Listbox_Theta.CellValueAt(i,2)=Format(dosxyz_input.angfixed(i),"-#.##")
+		      Listbox_Theta.CellValueAt(i,3)=Format(dosxyz_input.angmin(i),"-#.##")
+		      Listbox_Theta.CellValueAt(i,4)=Format(dosxyz_input.angmax(i),"-#.##")
+		      Listbox_Theta.CellValueAt(i,5)=Format(dosxyz_input.ngang(i),"#")
+		      Listbox_Theta.CellValueAt(i,6)=Format(dosxyz_input.pgang(i),"-#.##")
 		    Next
 		    
 		    
@@ -916,9 +916,9 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    if me.ListIndex=0 Then
+		    if me.SelectedRowIndex=0 Then
 		      dosxyz_input.mode=0 
-		    Elseif me.ListIndex=1 Then
+		    Elseif me.SelectedRowIndex=1 Then
 		      dosxyz_input.mode=2
 		    end
 		  end
@@ -929,7 +929,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.ISMOOTH= me.ListIndex
+		    dosxyz_input.ISMOOTH= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -975,18 +975,17 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
-		  Dim i as Integer
-		  
 		  Select Case hitItem.Text
 		    
 		  Case "Add row"
-		    if RadioButton_pairs.Value Then
+		    If RadioButton_pairs.Value Then
 		      dosxyz_input.theta.Append 0
 		      dosxyz_input.phi.Append 0
 		      dosxyz_input.pang.Append 1
 		      dosxyz_input.nang=dosxyz_input.nang+1
 		      
-		    else
+		    Else
+		      
 		      dosxyz_input.nang=dosxyz_input.nang-1
 		      dosxyz_input.angfixed.Append 0
 		      dosxyz_input.angmax.Append 0
@@ -995,32 +994,52 @@ End
 		      dosxyz_input.ngang.Append 2
 		      dosxyz_input.ivary.Append 0
 		      
-		      
-		      
-		    end
+		    End
 		    PopListbox
 		    
 		    
 		    
 		  Case "Delete row"
-		    i=MsgBox("Are you sure you want to delete plan "+chr(13)+gRTOG.Plan(Plan_Index).Plan_ID +"?",1,"Warning")
 		    
-		    if RadioButton_pairs.Value Then
-		      dosxyz_input.theta.Remove me.ListIndex
-		      dosxyz_input.phi.Remove me.ListIndex
-		      dosxyz_input.pang.Remove me.ListIndex
-		      dosxyz_input.nang=dosxyz_input.nang-1
-		      
-		    else
-		      dosxyz_input.nang=dosxyz_input.nang+1
-		      dosxyz_input.angfixed.Remove me.ListIndex
-		      dosxyz_input.angmax.Remove me.ListIndex
-		      dosxyz_input.angmin.Remove me.ListIndex
-		      dosxyz_input.pgang.Remove me.ListIndex
-		      dosxyz_input.ngang.Remove me.ListIndex
-		      dosxyz_input.ivary.Remove me.ListIndex
-		    end
-		    PopListbox
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Delete"
+		    d.Message = "Are you sure you want to delete plan " _
+		    + Chr(13) + gRTOG.Plan(Plan_Index).Plan_ID + "?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      If RadioButton_pairs.Value Then
+		        dosxyz_input.theta.Remove Me.SelectedRowIndex
+		        dosxyz_input.phi.Remove Me.SelectedRowIndex
+		        dosxyz_input.pang.Remove Me.SelectedRowIndex
+		        dosxyz_input.nang=dosxyz_input.nang-1
+		        
+		      Else
+		        dosxyz_input.nang=dosxyz_input.nang+1
+		        dosxyz_input.angfixed.Remove Me.SelectedRowIndex
+		        dosxyz_input.angmax.Remove Me.SelectedRowIndex
+		        dosxyz_input.angmin.Remove Me.SelectedRowIndex
+		        dosxyz_input.pgang.Remove Me.SelectedRowIndex
+		        dosxyz_input.ngang.Remove Me.SelectedRowIndex
+		        dosxyz_input.ivary.Remove Me.SelectedRowIndex
+		      End
+		      PopListbox
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    
+		    
+		    
+		    
 		    
 		    
 		    
@@ -1032,9 +1051,9 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if RadioButton_pairs.Value Then
 		    
-		    dosxyz_input.theta(row)=Val(me.Cell(row,0))
-		    dosxyz_input.phi(row)=Val(me.Cell(row,1))
-		    dosxyz_input.pang(row)=Val(me.Cell(row,2))
+		    dosxyz_input.theta(row)=Val(me.CellValueAt(row,0))
+		    dosxyz_input.phi(row)=Val(me.CellValueAt(row,1))
+		    dosxyz_input.pang(row)=Val(me.CellValueAt(row,2))
 		    
 		    
 		    
@@ -1042,11 +1061,11 @@ End
 		    
 		    
 		  else
-		    dosxyz_input.angfixed(row)=Val(me.Cell(row,2))
-		    dosxyz_input.angmax(row)=Val(me.Cell(row,4))
-		    dosxyz_input.angmin(row)=Val(me.Cell(row,3))
-		    dosxyz_input.ngang(row)=Val(me.Cell(row,5))
-		    dosxyz_input.pgang(row)=Val(me.Cell(row,6))
+		    dosxyz_input.angfixed(row)=Val(me.CellValueAt(row,2))
+		    dosxyz_input.angmax(row)=Val(me.CellValueAt(row,4))
+		    dosxyz_input.angmin(row)=Val(me.CellValueAt(row,3))
+		    dosxyz_input.ngang(row)=Val(me.CellValueAt(row,5))
+		    dosxyz_input.pgang(row)=Val(me.CellValueAt(row,6))
 		    
 		    
 		    

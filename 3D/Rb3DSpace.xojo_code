@@ -184,7 +184,7 @@ Protected Class Rb3DSpace
 		  'next
 		  'next
 		  '//find centroid and angle for each vertex and sort by angle
-		  '//MsgBox "count="+str(count)
+		  '//MessageBox "count="+str(count)
 		  'maxrad=0
 		  'for i=0 to ncurve-1
 		  'temp1=0
@@ -303,7 +303,7 @@ Protected Class Rb3DSpace
 		  '//interpolation corresponding radius for ang0
 		  'rad0=(ang0-ang2)/(ang1-ang2)
 		  'if rad0<0 then
-		  '//MsgBox ("problem doiing the interpolation...")
+		  '//MessageBox ("problem doiing the interpolation...")
 		  'exit
 		  'end if
 		  'New_Y_vertices(j+i*Ncpoints)=y_2+rad0*(y_1-y_2)
@@ -354,7 +354,7 @@ Protected Class Rb3DSpace
 		  'next
 		  '//----------
 		  '//starting triangulation...
-		  '//MsgBox ("starting triangulation")
+		  '//MessageBox ("starting triangulation")
 		  '//============
 		  'count=0
 		  'for i=0 to ncurve-2
@@ -423,7 +423,7 @@ Protected Class Rb3DSpace
 		  'count=count+2
 		  'next
 		  'next
-		  '//MsgBox "created "+str(count)+ " triangles"
+		  '//MessageBox "created "+str(count)+ " triangles"
 		  '/// now triangulate the ends of the surface
 		  '//calculate centroid*/
 		  'X_cent=0
@@ -475,7 +475,7 @@ Protected Class Rb3DSpace
 		  'next
 		  '//============================================= have to get here!!!!!!!!!!!!!!!!!!!!!
 		  '
-		  '//MsgBox "there are now "+str(count)+ " triangles"
+		  '//MessageBox "there are now "+str(count)+ " triangles"
 		  '//printf("there are now %d triangles\n",count);
 		  '
 		  '//write triangle data to roi file
@@ -612,7 +612,7 @@ Protected Class Rb3DSpace
 		  'next
 		  'next
 		  'next
-		  'MsgBox "test"
+		  'MessageBox "test"
 		  
 		End Sub
 	#tag EndMethod

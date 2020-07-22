@@ -484,7 +484,7 @@ End
 		  
 		  
 		  if Len(trim(EditField_id.Text))>=9 then
-		    MsgBox "Patient ID is too long!"
+		    MessageBox "Patient ID is too long!"
 		  else
 		    edit_rtog.Patient_Surname=EditField_last.Text
 		    edit_rtog.Patient_Name=EditField_first.Text

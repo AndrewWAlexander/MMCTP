@@ -112,10 +112,10 @@ End
 		  end
 		  
 		  for i=0 to num
-		    ListBox_Dose_OutPut.Heading(i+1)=str(one.FSX(i))
+		    ListBox_Dose_OutPut.HeaderAt(i+1)=str(one.FSX(i))
 		    ListBox_Dose_OutPut.AddRow str(One.FSY(i))
 		    for k=0 to num
-		      ListBox_Dose_OutPut.Cell(i,k+1)=Format(100*One.OutPut(i,k)/norm,"-#.##")
+		      ListBox_Dose_OutPut.CellValueAt(i,k+1)=Format(100*One.OutPut(i,k)/norm,"-#.##")
 		    next
 		  next
 		End Sub
@@ -154,7 +154,7 @@ End
 		    if (column-1)>=0 and (column-1)<=UBound(one.OutPut,2) Then
 		      i=One.OutPut(row,column-1)
 		      e=One.uncertainty(row,column-1)
-		      MsgBox"Output X "+Str(One.FSX(row))+", Y "+str(One.FSY(column-1))+" : "+Format(i,"-#.####e")+", "+Format(e,"-#.####")
+		      MessageBox"Output X "+Str(One.FSX(row))+", Y "+str(One.FSY(column-1))+" : "+Format(i,"-#.####e")+", "+Format(e,"-#.####")
 		    end
 		  end
 		End Function

@@ -326,7 +326,7 @@ Protected Class Class_MERT_NLODVH
 		  'Delete_NLO_files
 		  'bb=Write_NLO_Input
 		  'if bb=False Then
-		  'MsgBox "Could not write NLO input file!"
+		  'MessageBox "Could not write NLO input file!"
 		  'Return
 		  'end
 		  '
@@ -349,7 +349,7 @@ Protected Class Class_MERT_NLODVH
 		  'g=g.Child("NLORun")
 		  'ts=g.CreateTextFile
 		  'if ts=nil Then
-		  'MsgBox "Could not write NLORun file"
+		  'MessageBox "Could not write NLORun file"
 		  'Return
 		  'end
 		  '

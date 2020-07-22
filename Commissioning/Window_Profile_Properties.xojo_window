@@ -1668,44 +1668,44 @@ End
 		  
 		  ListBox_Profiles.DeleteAllRows
 		  ListBox_Profiles.ColumnCount=2
-		  ListBox_Profiles.Heading(0)="Property"
-		  ListBox_Profiles.Heading(1)="Value"
+		  ListBox_Profiles.HeaderAt(0)="Property"
+		  ListBox_Profiles.HeaderAt(1)="Value"
 		  
 		  ListBox_Profiles.AddRow "Number of Points"
-		  ListBox_Profiles.Cell(0,1)=str(UBound(One.Points)+1)
+		  ListBox_Profiles.CellValueAt(0,1)=str(UBound(One.Points)+1)
 		  
 		  ListBox_Profiles.AddRow "Symmetry (%)"
-		  ListBox_Profiles.Cell(1,1)=str(One.Symmetry)
+		  ListBox_Profiles.CellValueAt(1,1)=str(One.Symmetry)
 		  
 		  ListBox_Profiles.AddRow "50% Field Width (cm)"
-		  ListBox_Profiles.Cell(2,1)=str(One.FieldWidth)
+		  ListBox_Profiles.CellValueAt(2,1)=str(One.FieldWidth)
 		  
 		  ListBox_Profiles.AddRow "Flatness (80% of FieldWidth) (%)"
-		  ListBox_Profiles.Cell(3,1)=str(One.Flatness)
+		  ListBox_Profiles.CellValueAt(3,1)=str(One.Flatness)
 		  
 		  ListBox_Profiles.AddRow "Penumbra (20%-80%) (mm)"
-		  ListBox_Profiles.Cell(4,1)=Format(One.Penumbra_a*10,"#.##")+", "+Format(One.Penumbra_b*10,"#.##")
+		  ListBox_Profiles.CellValueAt(4,1)=Format(One.Penumbra_a*10,"#.##")+", "+Format(One.Penumbra_b*10,"#.##")
 		  
 		  ListBox_Profiles.AddRow "Center (cm)"
-		  ListBox_Profiles.Cell(5,1)=Format(One.Centre,"-#.##")
+		  ListBox_Profiles.CellValueAt(5,1)=Format(One.Centre,"-#.##")
 		  
 		  ListBox_Profiles.AddRow "Z max (cm)"
-		  ListBox_Profiles.Cell(6,1)=Format(One.MaxPoint.Z_cm,"-#.##")
+		  ListBox_Profiles.CellValueAt(6,1)=Format(One.MaxPoint.Z_cm,"-#.##")
 		  
 		  ListBox_Profiles.AddRow "D max"
-		  ListBox_Profiles.Cell(7,1)=Format(One.MaxPoint.Value,"-#.##e")
+		  ListBox_Profiles.CellValueAt(7,1)=Format(One.MaxPoint.Value,"-#.##e")
 		  
 		  ListBox_Profiles.AddRow "D 5 cm (%)"
-		  ListBox_Profiles.Cell(8,1)=Format(One.D_5,"-#.##")
+		  ListBox_Profiles.CellValueAt(8,1)=Format(One.D_5,"-#.##")
 		  
 		  ListBox_Profiles.AddRow "D 10 cm (%)"
-		  ListBox_Profiles.Cell(9,1)=Format(One.D_10,"-#.##")
+		  ListBox_Profiles.CellValueAt(9,1)=Format(One.D_10,"-#.##")
 		  
 		  ListBox_Profiles.AddRow "D 15 cm (%)"
-		  ListBox_Profiles.Cell(10,1)=Format(One.D_15,"-#.##")
+		  ListBox_Profiles.CellValueAt(10,1)=Format(One.D_15,"-#.##")
 		  
 		  ListBox_Profiles.AddRow "D 20 cm (%)"
-		  ListBox_Profiles.Cell(11,1)=Format(One.D_20,"-#.##")
+		  ListBox_Profiles.CellValueAt(11,1)=Format(One.D_20,"-#.##")
 		End Sub
 	#tag EndMethod
 
@@ -1722,20 +1722,20 @@ End
 		  
 		  
 		  Listbox_Points.DeleteAllRows
-		  Listbox_Points.Heading(0)="Point #"
-		  Listbox_Points.Heading(1)="Point X"
-		  Listbox_Points.Heading(2)="Point Y"
-		  Listbox_Points.Heading(3)="Point Z"
-		  Listbox_Points.Heading(4)="Dose"
+		  Listbox_Points.HeaderAt(0)="Point #"
+		  Listbox_Points.HeaderAt(1)="Point X"
+		  Listbox_Points.HeaderAt(2)="Point Y"
+		  Listbox_Points.HeaderAt(3)="Point Z"
+		  Listbox_Points.HeaderAt(4)="Dose"
 		  
 		  
 		  
 		  for i=0 to UBound(One.Points)
 		    Listbox_Points.AddRow str(i+1)
-		    Listbox_Points.Cell(i,1)=str(One.Points(i).x_cm)
-		    Listbox_Points.Cell(i,2)=str(One.Points(i).y_cm)
-		    Listbox_Points.Cell(i,3)=str(One.Points(i).z_cm)
-		    Listbox_Points.Cell(i,4)=str(One.Points(i).value)
+		    Listbox_Points.CellValueAt(i,1)=str(One.Points(i).x_cm)
+		    Listbox_Points.CellValueAt(i,2)=str(One.Points(i).y_cm)
+		    Listbox_Points.CellValueAt(i,3)=str(One.Points(i).z_cm)
+		    Listbox_Points.CellValueAt(i,4)=str(One.Points(i).value)
 		  next
 		  
 		  

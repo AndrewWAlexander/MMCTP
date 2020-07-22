@@ -1210,7 +1210,7 @@ End
 		  PopupMenu_BcA.AddRow "PRESTA-I"
 		  for i=0 to PopupMenu_BcA.ListCount-1
 		    if EGSnrc.BcA=PopupMenu_BcA.List(i) Then
-		      PopupMenu_BcA.ListIndex=i
+		      PopupMenu_BcA.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1221,7 +1221,7 @@ End
 		  PopupMenu_EsA.AddRow "PRESTA-I"
 		  for i=0 to PopupMenu_EsA.ListCount-1
 		    if EGSnrc.Electron_Step_Algorithm=PopupMenu_EsA.List(i) Then
-		      PopupMenu_EsA.ListIndex=i
+		      PopupMenu_EsA.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1233,7 +1233,7 @@ End
 		  PopupMenu_Spin.AddRow "On"
 		  for i=0 to PopupMenu_Spin.ListCount-1
 		    if EGSnrc.Spin_effects=PopupMenu_Spin.List(i) Then
-		      PopupMenu_Spin.ListIndex=i
+		      PopupMenu_Spin.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1243,7 +1243,7 @@ End
 		  PopupMenu_Bremsangular.AddRow "KM"
 		  for i=0 to PopupMenu_Bremsangular.ListCount-1
 		    if EGSnrc.Brems_angular_sampling=PopupMenu_Bremsangular.List(i) Then
-		      PopupMenu_Bremsangular.ListIndex=i
+		      PopupMenu_Bremsangular.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1254,7 +1254,7 @@ End
 		  PopupMenu_BremsCrossSections.AddRow "NRC"
 		  for i=0 to PopupMenu_BremsCrossSections.ListCount-1
 		    if EGSnrc.Brems_cross_sections=PopupMenu_BremsCrossSections.List(i) Then
-		      PopupMenu_BremsCrossSections.ListIndex=i
+		      PopupMenu_BremsCrossSections.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1266,7 +1266,7 @@ End
 		  PopupMenu_BoundComptonScattering.AddRow "Off in regions"
 		  for i=0 to PopupMenu_BoundComptonScattering.ListCount-1
 		    if EGSnrc.BoundComptonscattering=PopupMenu_BoundComptonScattering.List(i) Then
-		      PopupMenu_BoundComptonScattering.ListIndex=i
+		      PopupMenu_BoundComptonScattering.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1279,7 +1279,7 @@ End
 		  PopupMenu_Electron_Impact_Ionization.AddRow "Gryzinski"
 		  for i=0 to PopupMenu_Electron_Impact_Ionization.ListCount-1
 		    if EGSnrc.Electronimpactionization=PopupMenu_Electron_Impact_Ionization.List(i) Then
-		      PopupMenu_Electron_Impact_Ionization.ListIndex=i
+		      PopupMenu_Electron_Impact_Ionization.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1293,7 +1293,7 @@ End
 		  PopupMenu_Rayleigh.AddRow "Off in regions"
 		  for i=0 to PopupMenu_Rayleigh.ListCount-1
 		    if EGSnrc.Rayleighscattering=PopupMenu_Rayleigh.List(i) Then
-		      PopupMenu_Rayleigh.ListIndex=i
+		      PopupMenu_Rayleigh.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1304,7 +1304,7 @@ End
 		  PopupMenu_Pairangularsampling.AddRow "KM"
 		  for i=0 to PopupMenu_Pairangularsampling.ListCount-1
 		    if EGSnrc.Pairangularsampling=PopupMenu_Pairangularsampling.List(i) Then
-		      PopupMenu_Pairangularsampling.ListIndex=i
+		      PopupMenu_Pairangularsampling.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1316,7 +1316,7 @@ End
 		  PopupMenu_atomicrelax.AddRow "Off in regions"
 		  for i=0 to PopupMenu_atomicrelax.ListCount-1
 		    if EGSnrc.Atomicrelaxations=PopupMenu_atomicrelax.List(i) Then
-		      PopupMenu_atomicrelax.ListIndex=i
+		      PopupMenu_atomicrelax.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1327,7 +1327,7 @@ End
 		  PopupMenu_Photon_Cross_Sections.AddRow "xcom"
 		  for i=0 to PopupMenu_Photon_Cross_Sections.ListCount-1
 		    if EGSnrc.Photoncrosssections=PopupMenu_Photon_Cross_Sections.List(i) Then
-		      PopupMenu_Photon_Cross_Sections.ListIndex=i
+		      PopupMenu_Photon_Cross_Sections.SelectedRowIndex=i
 		    end
 		  next
 		  
@@ -1338,7 +1338,7 @@ End
 		  PopupMenu_Photoelectron_angular.AddRow "Off in regions"
 		  for i=0 to PopupMenu_Photoelectron_angular.ListCount-1
 		    if EGSnrc.Photoelectronangularsampling=PopupMenu_Photoelectron_angular.List(i) Then
-		      PopupMenu_Photoelectron_angular.ListIndex=i
+		      PopupMenu_Photoelectron_angular.SelectedRowIndex=i
 		    end
 		  next
 		  

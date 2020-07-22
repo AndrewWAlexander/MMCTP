@@ -243,11 +243,11 @@ End
 		  app.which_window_planinfo=True
 		  
 		  MC_Count_Number_Jobs
-		  Listbox_MC_Running.Heading(0)="Shell"
-		  Listbox_MC_Running.Heading(1)="BEAMnrc Jobs"
-		  Listbox_MC_Running.Heading(2)="DOSXYZnrc Jobs"
-		  Listbox_MC_Running.Heading(3)="VMC Jobs"
-		  Listbox_MC_Running.Heading(4)="On-line?"
+		  Listbox_MC_Running.HeaderAt(0)="Shell"
+		  Listbox_MC_Running.HeaderAt(1)="BEAMnrc Jobs"
+		  Listbox_MC_Running.HeaderAt(2)="DOSXYZnrc Jobs"
+		  Listbox_MC_Running.HeaderAt(3)="VMC Jobs"
+		  Listbox_MC_Running.HeaderAt(4)="On-line?"
 		  
 		  MC_Jobs_Open
 		  
@@ -260,8 +260,8 @@ End
 		  else
 		    Window_Plan_Info.Close
 		  End
-		  Listbox_Plan.Heading(0)="Plan Settings"
-		  Listbox_Plan.Heading(1)="Current Status"
+		  Listbox_Plan.HeaderAt(0)="Plan Settings"
+		  Listbox_Plan.HeaderAt(1)="Current Status"
 		  
 		  Listbox_Plan.ColumnType(1)=3
 		  Listbox_Plan.AddRow ( "SOP Instance UID", gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID)
@@ -291,13 +291,13 @@ End
 		    for i=0 to UBound(gShells.Shells)
 		      Listbox_MC_Running.AddRow gShells.Shells(i).title
 		      if gBEAM<> nil Then
-		        Listbox_MC_Running.Cell(i,1)=str(gShells.Shells(i).BeamnrcJobs)
+		        Listbox_MC_Running.CellValueAt(i,1)=str(gShells.Shells(i).BeamnrcJobs)
 		      end
 		      if gDOSXYZ<> nil Then
-		        Listbox_MC_Running.Cell(i,2)=str(gShells.Shells(i).DosxyznrcJobs)
+		        Listbox_MC_Running.CellValueAt(i,2)=str(gShells.Shells(i).DosxyznrcJobs)
 		      end
 		      if gVMC<> nil Then
-		        Listbox_MC_Running.Cell(i,3)=str(gShells.Shells(i).VMCJobs)
+		        Listbox_MC_Running.CellValueAt(i,3)=str(gShells.Shells(i).VMCJobs)
 		      end
 		      Listbox_MC_Running.CellType(i,4)=2
 		      Listbox_MC_Running.CellCheck(i,4)=gShells.Shells(i).online
@@ -343,46 +343,46 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if row=0 Then
-		    gRTOG.Plan(Plan_Index).Plan_Name=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).Plan_Name=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		  elseif row=1 then
-		    gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).DICOM_SOPInstanceUID=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=2 then
 		    SaveChange=True
 		    
-		    gRTOG.Plan(Plan_Index).DICOM_SeriesInstanceUID=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).DICOM_SeriesInstanceUID=Trim(me.CellValueAt(row,column))
 		  elseif row=3 then
-		    gRTOG.Plan(Plan_Index).SeriesDescription=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).SeriesDescription=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=4 then
-		    gRTOG.Plan(Plan_Index).DICOM_SeriesNumber=Val(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).DICOM_SeriesNumber=Val(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=5 then
-		    gRTOG.Plan(Plan_Index).Plan_Date=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).Plan_Date=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=6 then
-		    gRTOG.Plan(Plan_Index).Plan_Time=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).Plan_Time=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=7 then
-		    gRTOG.Plan(Plan_Index).ReviewerName=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).ReviewerName=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=8 then
-		    gRTOG.Plan(Plan_Index).ReviewDate=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).ReviewDate=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=9 then
-		    gRTOG.Plan(Plan_Index).ReviewTime=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).ReviewTime=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  elseif row=10 then
-		    gRTOG.Plan(Plan_Index).ApprovalStatus=Trim(me.Cell(row,column))
+		    gRTOG.Plan(Plan_Index).ApprovalStatus=Trim(me.CellValueAt(row,column))
 		    SaveChange=True
 		    
 		  end

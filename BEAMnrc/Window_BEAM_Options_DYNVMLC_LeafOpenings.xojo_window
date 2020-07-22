@@ -149,10 +149,10 @@ End
 		Sub Open()
 		  Dim i as Integer
 		  
-		  Listbox_Openings.Heading(0)="From leaf"
-		  Listbox_Openings.Heading(1)="to leaf"
-		  Listbox_Openings.Heading(2)="min opening"
-		  Listbox_Openings.Heading(3)="max opening"
+		  Listbox_Openings.HeaderAt(0)="From leaf"
+		  Listbox_Openings.HeaderAt(1)="to leaf"
+		  Listbox_Openings.HeaderAt(2)="min opening"
+		  Listbox_Openings.HeaderAt(3)="max opening"
 		  
 		  DVMLC=Window_BEAM_Options_DYNVMLC.DYNVMLC
 		  
@@ -171,16 +171,16 @@ End
 		Sub Pop_Opening()
 		  Dim i,row as Integer
 		  
-		  findex=PopupMenu_fields.ListIndex
+		  findex=PopupMenu_fields.SelectedRowIndex
 		  Listbox_Openings.DeleteAllRows
 		  
 		  if findex<=UBound(DVMLC.Fields) and findex>-1 Then
 		    row=0
 		    for i=1 to DVMLC.Numleaves
 		      Listbox_Openings.AddRow str(i)
-		      Listbox_Openings.Cell(row,1)=str(i+DVMLC.Fields(findex).leaves(row).Num-1)
-		      Listbox_Openings.Cell(row,2)=Format(DVMLC.Fields(findex).leaves(row).Neg,"-#.#####")
-		      Listbox_Openings.Cell(row,3)=Format(DVMLC.Fields(findex).leaves(row).Pos,"-#.#####")
+		      Listbox_Openings.CellValueAt(row,1)=str(i+DVMLC.Fields(findex).leaves(row).Num-1)
+		      Listbox_Openings.CellValueAt(row,2)=Format(DVMLC.Fields(findex).leaves(row).Neg,"-#.#####")
+		      Listbox_Openings.CellValueAt(row,3)=Format(DVMLC.Fields(findex).leaves(row).Pos,"-#.#####")
 		      i=i+DVMLC.Fields(findex).leaves(row).Num-1
 		      row=row+1
 		      

@@ -7,7 +7,7 @@ Protected Class Class_Structures
 		  Dim other_temp as RTOG_Structure_Slice
 		  Dim pp as RTOG_Structure_Segment
 		  
-		  k=Window_Contouring.PopupMenu_Segments.listIndex
+		  k=Window_Contouring.PopupMenu_Segments.SelectedRowIndex
 		  scan_index=Window_Contouring.slice
 		  
 		  
@@ -119,7 +119,7 @@ Protected Class Class_Structures
 		  Dim s as RTOG_Structure_Segment
 		  
 		  
-		  segment=Window_Contouring.PopupMenu_segments.ListIndex
+		  segment=Window_Contouring.PopupMenu_segments.SelectedRowIndex
 		  
 		  
 		  s= new RTOG_Structure_Segment

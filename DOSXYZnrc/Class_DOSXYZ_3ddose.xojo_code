@@ -345,7 +345,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  end
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  
 		  
 		  Return True
@@ -397,7 +397,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  myMatch = rg.Search
 		  nz = CDbl(myMatch.SubExpressionString(0))
 		  
-		  'MsgBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
+		  'MessageBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
 		  
 		  
 		  // Resize the boundary arrays and the dose array
@@ -542,7 +542,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  PW_Show=false
 		  ts.Close
 		  d2 = new Date
-		  MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  
 		  Return True
 		  
@@ -624,7 +624,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  nz = CDbl(myMatch.SubExpressionString(0))
 		  myMatch = rg.Search    // Searches for the next match in "line"
 		  
-		  //MsgBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
+		  //MessageBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
 		  
 		  
 		  // Resize the boundary arrays and the dose array
@@ -762,7 +762,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  next   // all
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  Return True
 		End Function
 	#tag EndMethod
@@ -1067,7 +1067,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  end
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  Return True
 		End Function
 	#tag EndMethod
@@ -1375,7 +1375,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  end
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  Return True
 		End Function
 	#tag EndMethod
@@ -1667,7 +1667,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  end
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  Return True
 		End Function
 	#tag EndMethod
@@ -1730,7 +1730,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  nz = CDbl(myMatch.SubExpressionString(0))
 		  myMatch = rg.Search    // Searches for the next match in "line"
 		  
-		  //MsgBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
+		  //MessageBox("nx = " + Str(nx) + ", ny = " + Str(ny) + ", nz = " + Str(nz)) 
 		  
 		  
 		  // Resize the boundary arrays and the dose array
@@ -1868,7 +1868,7 @@ Protected Class Class_DOSXYZ_3ddose
 		  next   // all
 		  
 		  d2 = new Date
-		  //MsgBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
+		  //MessageBox "N = " + str(N) + ". Total time..." + Str(d2.TotalSeconds - d1.TotalSeconds ) + " s"
 		  mb = new memoryblock(0)
 		  
 		  Return True

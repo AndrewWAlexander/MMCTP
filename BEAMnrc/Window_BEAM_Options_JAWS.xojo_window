@@ -653,7 +653,7 @@ End
 		  donothing=True
 		  
 		  
-		  i= Window_BEAM_MainInputs.Listbox_CMs.ListIndex
+		  i= Window_BEAM_MainInputs.Listbox_CMs.SelectedRowIndex
 		  
 		  
 		  S=Window_BEAM_MainInputs.BEAM.CMs(i).JAWS

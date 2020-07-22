@@ -140,11 +140,11 @@ End
 		  Listbox_Layers.DeleteAllRows
 		  Listbox_Layers.ColumnCount=app.N_SLABS+1
 		  
-		  Listbox_Layers.Heading(0)="Layer"
+		  Listbox_Layers.HeaderAt(0)="Layer"
 		  temp="300"
 		  for i=1 to app.N_SLABS
 		    temp=temp+", 150"
-		    Listbox_Layers.Heading(i)=Str(i)
+		    Listbox_Layers.HeaderAt(i)=Str(i)
 		  next
 		  Listbox_Layers.ColumnWidths=temp
 		  
@@ -162,13 +162,13 @@ End
 		  
 		  for i=1 to app.N_SLABS
 		    Listbox_Layers.ColumnType(i)=3
-		    Listbox_Layers.Cell(0,i)=Format(app.Zthink(i-1),"-#.###")
-		    Listbox_Layers.Cell(1,i)=Format(app.ECUT(i-1),"-#.###")
-		    Listbox_Layers.Cell(2,i)=Format(app.PCUT(i-1),"-#.###")
-		    Listbox_Layers.Cell(3,i)=Format(app.Dose_Zone(i-1),"#")
-		    Listbox_Layers.Cell(4,i)=Format(app.IRegion_Bit(i-1),"#")
-		    Listbox_Layers.Cell(5,i)=Format(app.Esave(i-1),"-#.###")
-		    Listbox_Layers.Cell(6,i)=app.Medium_In(i-1)
+		    Listbox_Layers.CellValueAt(0,i)=Format(app.Zthink(i-1),"-#.###")
+		    Listbox_Layers.CellValueAt(1,i)=Format(app.ECUT(i-1),"-#.###")
+		    Listbox_Layers.CellValueAt(2,i)=Format(app.PCUT(i-1),"-#.###")
+		    Listbox_Layers.CellValueAt(3,i)=Format(app.Dose_Zone(i-1),"#")
+		    Listbox_Layers.CellValueAt(4,i)=Format(app.IRegion_Bit(i-1),"#")
+		    Listbox_Layers.CellValueAt(5,i)=Format(app.Esave(i-1),"-#.###")
+		    Listbox_Layers.CellValueAt(6,i)=app.Medium_In(i-1)
 		  next
 		  
 		  
@@ -207,26 +207,26 @@ End
 		    if column>=1 Then
 		      
 		      if row=0 Then
-		        app.Zthink(column-1)=val(me.Cell(row,column))
+		        app.Zthink(column-1)=val(me.CellValueAt(row,column))
 		        
 		      elseif row=1 Then
-		        app.ECUT(column-1)=val(me.Cell(row,column))
+		        app.ECUT(column-1)=val(me.CellValueAt(row,column))
 		        
 		        
 		      elseif row=2 Then
-		        app.PCUT(column-1)=val(me.Cell(row,column))
+		        app.PCUT(column-1)=val(me.CellValueAt(row,column))
 		        
 		      elseif row=3 Then
-		        app.Dose_Zone(column-1)=val(me.Cell(row,column))
+		        app.Dose_Zone(column-1)=val(me.CellValueAt(row,column))
 		        
 		      elseif row=4 Then
-		        app.IRegion_Bit(column-1)=val(me.Cell(row,column))
+		        app.IRegion_Bit(column-1)=val(me.CellValueAt(row,column))
 		        
 		      elseif row=5 Then
-		        app.Esave(column-1)=val(me.Cell(row,column))
+		        app.Esave(column-1)=val(me.CellValueAt(row,column))
 		        
 		      elseif row=6 Then
-		        app.Medium_In(column-1)=(me.Cell(row,column))
+		        app.Medium_In(column-1)=(me.CellValueAt(row,column))
 		        
 		        
 		      end

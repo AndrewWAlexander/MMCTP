@@ -3769,41 +3769,108 @@ End
 #tag WindowCode
 	#tag Event
 		Function CancelClose(appQuitting as Boolean) As Boolean
-		  //--------------------------
-		  //
-		  //
-		  //--------------------------
-		  Dim i as Integer
-		  Dim j as Boolean
-		  Dim fname as String
-		  //--------------------------
+		  '//--------------------------
+		  '//
+		  '//
+		  '//--------------------------
+		  ''Dim i as Integer
+		  ''Dim j as Boolean
+		  ''Dim fname as String
+		  '//--------------------------
+		  '
+		  'if UBound(MMCTP_Shell_Refresh.All)<>-1 Then
+		  'MessageBox "Application can not close while SSH REFRESH shell is still running"
+		  'Return True
+		  'elseif  UBound(MMCTP_Shell_Run.All)<>-1 Then
+		  'MessageBox "Application can not close while SSH RUN shell is still running"
+		  'Return True
+		  'elseif  UBound(MMCTP_Download.All)<>-1 Then
+		  'MessageBox "Application can not close while FTP shell is still running"
+		  'Return True
+		  'Elseif Save_Beams=True Then
+		  'i=MessageBox("Save Plan Changes Before Exiting?" ,3)
+		  'if i=6 Then // yes pressed
+		  'app.MMCTP_Save_Plan
+		  'elseif i=7 Then // no pressed
+		  'elseif i=2 Then //Cancell
+		  'Return True
+		  'end
+		  'Elseif Save_Dose=True Then
+		  'i=MessageBox( "Save Dose Distrbution Changes Before Exiting?" ,3)
+		  'if i=6 Then // yes pressed
+		  'App.MMCTP_Save_Dose
+		  'elseif i=7 Then // no pressed
+		  'elseif i=2 Then //Cancell
+		  'Return True
+		  'end
+		  'end
 		  
-		  if UBound(MMCTP_Shell_Refresh.All)<>-1 Then
-		    MsgBox "Application can not close while SSH REFRESH shell is still running"
+		  If MMCTP_Shell_Refresh.All.LastRowIndex <> -1 Then
+		    
+		    MessageBox "Application can not close while SSH REFRESH shell is still running"
 		    Return True
-		  elseif  UBound(MMCTP_Shell_Run.All)<>-1 Then
-		    MsgBox "Application can not close while SSH RUN shell is still running"
+		    
+		  Elseif MMCTP_Shell_Run.All.LastRowIndex <> -1 Then
+		    
+		    MessageBox "Application can not close while SSH RUN shell is still running"
 		    Return True
-		  elseif  UBound(MMCTP_Download.All)<>-1 Then
-		    MsgBox "Application can not close while FTP shell is still running"
+		    
+		  Elseif MMCTP_Download.All.LastRowIndex <> -1 Then
+		    
+		    MessageBox "Application can not close while FTP shell is still running"
 		    Return True
-		  Elseif Save_Beams=True Then
-		    i=MsgBox("Save Plan Changes Before Exiting?" ,3)
-		    if i=6 Then // yes pressed
+		    
+		  Elseif Save_Beams Then
+		    
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Save"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Save"
+		    d.Message = "Save Plan Changes Before Exiting?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // user pressed Save
 		      app.MMCTP_Save_Plan
-		    elseif i=7 Then // no pressed
-		    elseif i=2 Then //Cancell
+		      
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
 		      Return True
-		    end
-		  Elseif Save_Dose=True Then
-		    i=MsgBox( "Save Dose Distrbution Changes Before Exiting?" ,3)
-		    if i=6 Then // yes pressed
+		      
+		    End Select
+		    
+		  Elseif Save_Dose Then
+		    
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Save"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Save"
+		    d.Message = "Save Dose Distrbution Changes Before Exiting?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // user pressed Save
 		      App.MMCTP_Save_Dose
-		    elseif i=7 Then // no pressed
-		    elseif i=2 Then //Cancell
-		      Return True
-		    end
-		  end
+		      
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    
+		  End
 		End Function
 	#tag EndEvent
 
@@ -4109,34 +4176,34 @@ End
 		  
 		  k=plan_index
 		  if col=8 then
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X1=val(ListBox_Beam.Cell(num_beam,8))/2
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X2 =val(ListBox_Beam.Cell(num_beam,8))/2
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X1=val(ListBox_Beam.CellValueAt(num_beam,8))/2
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X2 =val(ListBox_Beam.CellValueAt(num_beam,8))/2
 		    
 		    
 		    
 		  elseif col=11 then
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y1=val(ListBox_Beam.Cell(num_beam,11))/2
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y2=val(ListBox_Beam.Cell(num_beam,11))/2
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y1=val(ListBox_Beam.CellValueAt(num_beam,11))/2
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y2=val(ListBox_Beam.CellValueAt(num_beam,11))/2
 		    
 		  else
-		    gRTOG.Plan(k).beam(num_beam).beam_Description=ListBox_Beam.Cell(num_beam,1)
-		    gRTOG.Plan(k).beam(num_beam).beam_weight= val(ListBox_Beam.Cell(num_beam,3))
+		    gRTOG.Plan(k).beam(num_beam).beam_Description=ListBox_Beam.CellValueAt(num_beam,1)
+		    gRTOG.Plan(k).beam(num_beam).beam_weight= val(ListBox_Beam.CellValueAt(num_beam,3))
 		    
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).collimator_angle=val(ListBox_Beam.Cell(num_beam,5) )
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).gantry_Angle=val(ListBox_Beam.Cell(num_beam,4))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).couch_Angle=val(ListBox_Beam.Cell(num_beam,6) )
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).collimator_angle=val(ListBox_Beam.CellValueAt(num_beam,5) )
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).gantry_Angle=val(ListBox_Beam.CellValueAt(num_beam,4))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).couch_Angle=val(ListBox_Beam.CellValueAt(num_beam,6) )
 		    
 		    
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X1=val(ListBox_Beam.Cell(num_beam,9))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X2 =val(ListBox_Beam.Cell(num_beam,10))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y1=val(ListBox_Beam.Cell(num_beam,12))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y2=val(ListBox_Beam.Cell(num_beam,13))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X1=val(ListBox_Beam.CellValueAt(num_beam,9))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).X2 =val(ListBox_Beam.CellValueAt(num_beam,10))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y1=val(ListBox_Beam.CellValueAt(num_beam,12))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.fields(0).Y2=val(ListBox_Beam.CellValueAt(num_beam,13))
 		    
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.x=val(ListBox_Beam.Cell(num_beam,14))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.y=val(ListBox_Beam.Cell(num_beam,15))
-		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.z=val(ListBox_Beam.Cell(num_beam,16))
-		    gRTOG.Plan(k).beam(num_beam).mu=val(ListBox_Beam.Cell(num_beam,18))
-		    gRTOG.Plan(k).beam(num_beam).ssd=val(ListBox_Beam.Cell(num_beam,17))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.x=val(ListBox_Beam.CellValueAt(num_beam,14))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.y=val(ListBox_Beam.CellValueAt(num_beam,15))
+		    gRTOG.Plan(k).beam(num_beam).Collimator.Fields(0).isocenter.z=val(ListBox_Beam.CellValueAt(num_beam,16))
+		    gRTOG.Plan(k).beam(num_beam).mu=val(ListBox_Beam.CellValueAt(num_beam,18))
+		    gRTOG.Plan(k).beam(num_beam).ssd=val(ListBox_Beam.CellValueAt(num_beam,17))
 		    
 		  end
 		  
@@ -4161,25 +4228,25 @@ End
 		  
 		  ListBox_Beam.DeleteAllRows
 		  ListBox_Beam.ColumnCount=19
-		  ListBox_Beam.Heading(0)="ID"
-		  ListBox_Beam.Heading(1)="Description"
-		  ListBox_Beam.Heading(2)="Machine/Energy"
-		  ListBox_Beam.Heading(3)="Weight"
-		  ListBox_Beam.Heading(4)="Gantry Rtn"
-		  ListBox_Beam.Heading(5)="Coll Rtn"
-		  ListBox_Beam.Heading(6)="Couch Rtn"
-		  ListBox_Beam.Heading(7)="Wedge"
-		  ListBox_Beam.Heading(8)="Field X (cm)"
-		  ListBox_Beam.Heading(9)="X1 (cm)"
-		  ListBox_Beam.Heading(10)="X2 (cm)"
-		  ListBox_Beam.Heading(11)="Field Y (cm)"
-		  ListBox_Beam.Heading(12)="Y1 (cm)"
-		  ListBox_Beam.Heading(13)="Y2 (cm)"
-		  ListBox_Beam.Heading(14)="X (cm)"
-		  ListBox_Beam.Heading(15)="Y (cm)"
-		  ListBox_Beam.Heading(16)="Z (cm)"
-		  ListBox_Beam.Heading(17)="SSD (cm)"
-		  ListBox_Beam.Heading(18)="MU"
+		  ListBox_Beam.HeaderAt(0)="ID"
+		  ListBox_Beam.HeaderAt(1)="Description"
+		  ListBox_Beam.HeaderAt(2)="Machine/Energy"
+		  ListBox_Beam.HeaderAt(3)="Weight"
+		  ListBox_Beam.HeaderAt(4)="Gantry Rtn"
+		  ListBox_Beam.HeaderAt(5)="Coll Rtn"
+		  ListBox_Beam.HeaderAt(6)="Couch Rtn"
+		  ListBox_Beam.HeaderAt(7)="Wedge"
+		  ListBox_Beam.HeaderAt(8)="Field X (cm)"
+		  ListBox_Beam.HeaderAt(9)="X1 (cm)"
+		  ListBox_Beam.HeaderAt(10)="X2 (cm)"
+		  ListBox_Beam.HeaderAt(11)="Field Y (cm)"
+		  ListBox_Beam.HeaderAt(12)="Y1 (cm)"
+		  ListBox_Beam.HeaderAt(13)="Y2 (cm)"
+		  ListBox_Beam.HeaderAt(14)="X (cm)"
+		  ListBox_Beam.HeaderAt(15)="Y (cm)"
+		  ListBox_Beam.HeaderAt(16)="Z (cm)"
+		  ListBox_Beam.HeaderAt(17)="SSD (cm)"
+		  ListBox_Beam.HeaderAt(18)="MU"
 		  
 		  
 		  
@@ -4190,46 +4257,46 @@ End
 		      col=gRTOG.Plan(k).beam(i).collimator.fields(0)
 		      
 		      ListBox_Beam.AddRow Format(gRTOG.Plan(k).beam(i).beam_num,"#")
-		      ListBox_Beam.Cell(i,1) =gRTOG.Plan(k).beam(i).beam_description
+		      ListBox_Beam.CellValueAt(i,1) =gRTOG.Plan(k).beam(i).beam_description
 		      ListBox_Beam.CellType(i,1)=3
-		      ListBox_Beam.Cell(i,2) =gRTOG.Plan(k).beam(i).RT_name +" "+(gRTOG.Plan(k).beam(i).beam_energy )
-		      ListBox_Beam.Cell(i,3) =Format(gRTOG.Plan(k).beam(i).beam_weight,"-#.##")
+		      ListBox_Beam.CellValueAt(i,2) =gRTOG.Plan(k).beam(i).RT_name +" "+(gRTOG.Plan(k).beam(i).beam_energy )
+		      ListBox_Beam.CellValueAt(i,3) =Format(gRTOG.Plan(k).beam(i).beam_weight,"-#.##")
 		      ListBox_Beam.CellType(i,3)=3
-		      ListBox_Beam.Cell(i,4) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).gantry_Angle,"-#.##")
+		      ListBox_Beam.CellValueAt(i,4) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).gantry_Angle,"-#.##")
 		      ListBox_Beam.CellType(i,4)=3
-		      ListBox_Beam.Cell(i,5) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).collimator_angle,"-#.##")
+		      ListBox_Beam.CellValueAt(i,5) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).collimator_angle,"-#.##")
 		      ListBox_Beam.CellType(i,5)=3
-		      ListBox_Beam.Cell(i,6) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).couch_Angle,"-#.##")
+		      ListBox_Beam.CellValueAt(i,6) =Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).couch_Angle,"-#.##")
 		      ListBox_Beam.CellType(i,6)=3
 		      
 		      if gRTOG.Plan(k).Beam(i).Wedge_type ="Dynamic" then
-		        ListBox_Beam.Cell(i,7) =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)+" Dyn"
+		        ListBox_Beam.CellValueAt(i,7) =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)+" Dyn"
 		        
 		      elseif gRTOG.Plan(k).Beam(i).Wedge_type ="Static" then
-		        ListBox_Beam.Cell(i,7) =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)+" Sta"
+		        ListBox_Beam.CellValueAt(i,7) =gRTOG.Plan(k).Beam(i).Wedge_Angle +" "+left(gRTOG.Plan(k).Beam(i).Wedge_Rotation,1)+" Sta"
 		      end
 		      
-		      ListBox_Beam.Cell(i,8)=Format(col.X1+col.x2,"-#.##")
+		      ListBox_Beam.CellValueAt(i,8)=Format(col.X1+col.x2,"-#.##")
 		      ListBox_Beam.CellType(i,8)=3
-		      ListBox_Beam.Cell(i,11)=Format(col.y1+col.y2,"-#.##")
+		      ListBox_Beam.CellValueAt(i,11)=Format(col.y1+col.y2,"-#.##")
 		      ListBox_Beam.CellType(i,11)=3
-		      ListBox_Beam.Cell(i,9)=Format(col.X1,"-#.##")
+		      ListBox_Beam.CellValueAt(i,9)=Format(col.X1,"-#.##")
 		      ListBox_Beam.CellType(i,9)=3
-		      ListBox_Beam.Cell(i,10)=Format(col.x2,"-#.##")
+		      ListBox_Beam.CellValueAt(i,10)=Format(col.x2,"-#.##")
 		      ListBox_Beam.CellType(i,10)=3
-		      ListBox_Beam.Cell(i,12)=Format(col.y1,"-#.##")
+		      ListBox_Beam.CellValueAt(i,12)=Format(col.y1,"-#.##")
 		      ListBox_Beam.CellType(i,12)=3
-		      ListBox_Beam.Cell(i,13)=Format(col.y2,"-#.##")
+		      ListBox_Beam.CellValueAt(i,13)=Format(col.y2,"-#.##")
 		      ListBox_Beam.CellType(i,13)=3
-		      ListBox_Beam.Cell(i,14)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.x,"-#.##")
+		      ListBox_Beam.CellValueAt(i,14)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.x,"-#.##")
 		      ListBox_Beam.CellType(i,14)=3
-		      ListBox_Beam.Cell(i,15)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.y,"-#.##")
+		      ListBox_Beam.CellValueAt(i,15)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.y,"-#.##")
 		      ListBox_Beam.CellType(i,15)=3
-		      ListBox_Beam.Cell(i,16)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.z,"-#.##")
+		      ListBox_Beam.CellValueAt(i,16)=Format(gRTOG.Plan(k).beam(i).Collimator.Fields(0).isocenter.z,"-#.##")
 		      ListBox_Beam.CellType(i,16)=3
-		      ListBox_Beam.Cell(i,17)=Format(gRTOG.Plan(k).beam(i).ssd,"-#.##")
+		      ListBox_Beam.CellValueAt(i,17)=Format(gRTOG.Plan(k).beam(i).ssd,"-#.##")
 		      ListBox_Beam.CellType(i,17)=3
-		      ListBox_Beam.Cell(i,18)=Format(gRTOG.Plan(k).beam(i).MU,"-#.##")
+		      ListBox_Beam.CellValueAt(i,18)=Format(gRTOG.Plan(k).beam(i).MU,"-#.##")
 		      ListBox_Beam.CellType(i,18)=3
 		    next
 		  end
@@ -4280,13 +4347,13 @@ End
 		  
 		  for k=0 to UBound(Dose_distr)
 		    if ListBox_DVH_Graphs.ColumnCount>k  Then
-		      ListBox_DVH_Graphs.Heading(k)=Dose_distr(k) 
+		      ListBox_DVH_Graphs.HeaderAt(k)=Dose_distr(k) 
 		      for x= 0 to UBound(gDVH.All_DVH)
 		        if gDVH.All_DVH(x).Name=Dose_distr(k) then
 		          for i=0 to ubound(grtog.Structures.Structures)
 		            if gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name then
 		              ListBox_DVH_Graphs.CellType(i,k)=2
-		              ListBox_DVH_Graphs.Cell(i,k)=grtog.Structures.Structures(i).Structure_Name 
+		              ListBox_DVH_Graphs.CellValueAt(i,k)=grtog.Structures.Structures(i).Structure_Name 
 		            end
 		          next
 		        end
@@ -4307,7 +4374,7 @@ End
 		  
 		  
 		  ListBox_DVH_Struc.deleteAllRows
-		  ListBox_DVH_Struc.heading(0)="Structure"
+		  ListBox_DVH_Struc.HeaderAt(0)="Structure"
 		  for i=0 to ubound(grtog.Structures.Structures)
 		    ListBox_DVH_Struc.addrow grtog.Structures.Structures(i).Structure_Name
 		    ListBox_DVH_Struc.CellType(i,0)=2
@@ -4350,7 +4417,7 @@ End
 		  end
 		  
 		  if dd=nil Then
-		    MsgBox "Could not create dose plane"
+		    MessageBox "Could not create dose plane"
 		    Return
 		  end
 		  
@@ -4416,11 +4483,11 @@ End
 		  
 		  Listbox_Dose_Values.DeleteAllRows
 		  Listbox_Dose_Values.ColumnCount=5
-		  Listbox_Dose_Values.Heading(0)="Number"
-		  Listbox_Dose_Values.Heading(1)="Dose (Gy)"
-		  Listbox_Dose_Values.Heading(2)="x (cm)"
-		  Listbox_Dose_Values.Heading(3)="y (cm)"
-		  Listbox_Dose_Values.Heading(4)="z (cm)"
+		  Listbox_Dose_Values.HeaderAt(0)="Number"
+		  Listbox_Dose_Values.HeaderAt(1)="Dose (Gy)"
+		  Listbox_Dose_Values.HeaderAt(2)="x (cm)"
+		  Listbox_Dose_Values.HeaderAt(3)="y (cm)"
+		  Listbox_Dose_Values.HeaderAt(4)="z (cm)"
 		  
 		  count=-1
 		  for i = 0 to UBound(Da.Dose_Distribution)
@@ -4439,10 +4506,10 @@ End
 		        if value>=dmin and value<=dmax Then
 		          count=count+1
 		          Listbox_Dose_Values.AddRow Format(count+1,"000000")
-		          Listbox_Dose_Values.Cell(count,1)=Format(value,"-#.###")
-		          Listbox_Dose_Values.Cell(count,2)=Format(x,"-#.###")
-		          Listbox_Dose_Values.Cell(count,3)=Format(y,"-#.###")
-		          Listbox_Dose_Values.Cell(count,4)=Format(z,"-#.###")
+		          Listbox_Dose_Values.CellValueAt(count,1)=Format(value,"-#.###")
+		          Listbox_Dose_Values.CellValueAt(count,2)=Format(x,"-#.###")
+		          Listbox_Dose_Values.CellValueAt(count,3)=Format(y,"-#.###")
+		          Listbox_Dose_Values.CellValueAt(count,4)=Format(z,"-#.###")
 		        end
 		      next'end h
 		    next'end k
@@ -4474,8 +4541,8 @@ End
 		  
 		  dose_paint_index=old
 		  if dose_paint_index>-1 and dose_paint_index<=PopupMenu_Dose_ListStruc.ListCount Then
-		    PopupMenu_Dose_ListStruc.ListIndex=dose_paint_index
-		    PopupMenu_Dose_ListStruc2.ListIndex=dose_paint_index
+		    PopupMenu_Dose_ListStruc.SelectedRowIndex=dose_paint_index
+		    PopupMenu_Dose_ListStruc2.SelectedRowIndex=dose_paint_index
 		    
 		  end
 		  
@@ -4493,25 +4560,25 @@ End
 		  Listbox_DosePoints.ColumnType(1)=3
 		  Listbox_DosePoints.ColumnType(2)=3
 		  Listbox_DosePoints.ColumnType(3)=3
-		  Listbox_DosePoints.Heading(0)="Number"
-		  Listbox_DosePoints.Heading(1)="x (cm)"
-		  Listbox_DosePoints.Heading(2)="y (cm)"
-		  Listbox_DosePoints.Heading(3)="z (cm)"
+		  Listbox_DosePoints.HeaderAt(0)="Number"
+		  Listbox_DosePoints.HeaderAt(1)="x (cm)"
+		  Listbox_DosePoints.HeaderAt(2)="y (cm)"
+		  Listbox_DosePoints.HeaderAt(3)="z (cm)"
 		  
 		  count=0
 		  for i=0 to UBound(gRTOG.Plan)
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      count=count+1
 		      Listbox_DosePoints.ColumnCount=count+4
-		      Listbox_DosePoints.Heading(Listbox_DosePoints.ColumnCount-1)=gRTOG.Plan(i).Dose(k).dose_name
+		      Listbox_DosePoints.HeaderAt(Listbox_DosePoints.ColumnCount-1)=gRTOG.Plan(i).Dose(k).dose_name
 		    Next
 		  Next
 		  
 		  for i=0 to UBound(gRTOG.Points)
 		    Listbox_DosePoints.AddRow Format(i+1,"000")
-		    Listbox_DosePoints.Cell(i,1)=Format(gRTOG.Points(i).X_cm,"-##.##")
-		    Listbox_DosePoints.Cell(i,2)=Format(gRTOG.Points(i).y_cm,"-##.##")
-		    Listbox_DosePoints.Cell(i,3)=Format(gRTOG.Points(i).z_cm,"-##.##")
+		    Listbox_DosePoints.CellValueAt(i,1)=Format(gRTOG.Points(i).X_cm,"-##.##")
+		    Listbox_DosePoints.CellValueAt(i,2)=Format(gRTOG.Points(i).y_cm,"-##.##")
+		    Listbox_DosePoints.CellValueAt(i,3)=Format(gRTOG.Points(i).z_cm,"-##.##")
 		  Next
 		  
 		  
@@ -4560,7 +4627,7 @@ End
 		        end
 		        
 		        count=count+1
-		        Listbox_DosePoints.Cell(m,count+4)=Format(gRTOG.Plan(i).Dose(k).Points(m).value,"-##.####")
+		        Listbox_DosePoints.CellValueAt(m,count+4)=Format(gRTOG.Plan(i).Dose(k).Points(m).value,"-##.####")
 		      Next
 		    Next
 		  Next
@@ -4594,10 +4661,10 @@ End
 		  
 		  
 		  ListBox_Struc.columnwidths="60%,10%,15%,15%"
-		  ListBox_Struc.heading(0)="Structure"
-		  ListBox_Struc.heading(1)=" "
-		  ListBox_Struc.Heading(2)="Fill"
-		  ListBox_Struc.heading(3)="Show"
+		  ListBox_Struc.HeaderAt(0)="Structure"
+		  ListBox_Struc.HeaderAt(1)=" "
+		  ListBox_Struc.HeaderAt(2)="Fill"
+		  ListBox_Struc.HeaderAt(3)="Show"
 		  
 		  ListBox_Struc.deleteAllRows
 		  
@@ -4632,8 +4699,8 @@ End
 		  
 		  
 		  ListBox_MC_Cutout.columnwidths="30%,70%"
-		  ListBox_MC_Cutout.Heading(0)="Calculate Beam"
-		  ListBox_MC_Cutout.Heading(1)="Cutout Progress"
+		  ListBox_MC_Cutout.HeaderAt(0)="Calculate Beam"
+		  ListBox_MC_Cutout.HeaderAt(1)="Cutout Progress"
 		  ListBox_MC_Cutout.DeleteAllRows
 		  
 		  k=plan_index
@@ -4667,7 +4734,7 @@ End
 		  
 		  ListBox_MC_DOS.DeleteAllRows
 		  ListBox_MC_DOS.ColumnCount=UBound(gDOSXYZ.DOSXYZ)+2
-		  ListBox_MC_DOS.Heading(0)="Beam Number"
+		  ListBox_MC_DOS.HeaderAt(0)="Beam Number"
 		  
 		  
 		  length= p.Graphics.StringWidth("Beam Number")+50
@@ -4675,8 +4742,8 @@ End
 		  
 		  
 		  for i =0 to UBound(gDOSXYZ.DOSXYZ)
-		    ListBox_MC_DOS.Heading(i+1)=gDOSXYZ.dosxyz(i).egsphantsettings.name +" ("+Format(gDOSXYZ.DOSXYZ(i).Complete,"#.#")+")"
-		    length= p.Graphics.StringWidth(ListBox_MC_DOS.Heading(i+1))+50
+		    ListBox_MC_DOS.HeaderAt(i+1)=gDOSXYZ.dosxyz(i).egsphantsettings.name +" ("+Format(gDOSXYZ.DOSXYZ(i).Complete,"#.#")+")"
+		    length= p.Graphics.StringWidth(ListBox_MC_DOS.HeaderAt(i+1))+50
 		    if i= UBound(gDOSXYZ.DOSXYZ) Then
 		      temp=temp+str(length)
 		    else
@@ -4712,8 +4779,8 @@ End
 		  
 		  
 		  ListBox_MC_Beam.columnwidths="30%,70%" //These listboxes cause crashes-William Davis
-		  ListBox_MC_Beam.Heading(0)="Calculate Beam"
-		  ListBox_MC_Beam.Heading(1)="BEAMnrc Progress"
+		  ListBox_MC_Beam.HeaderAt(0)="Calculate Beam"
+		  ListBox_MC_Beam.HeaderAt(1)="BEAMnrc Progress"
 		  ListBox_MC_Beam.DeleteAllRows
 		  
 		  k=plan_index
@@ -4739,10 +4806,10 @@ End
 		  
 		  
 		  ListBox_MC_VMC.ColumnCount=UBound(gVMC.vmc)+2
-		  ListBox_MC_vmc.Heading(0)="Beam Number"
+		  ListBox_MC_vmc.HeaderAt(0)="Beam Number"
 		  for i =0 to UBound(gVMC.vmc)
 		    gVMC.VMC(i).Calculate_Complete
-		    ListBox_MC_vmc.Heading(i+1)=gVMC.vmc(i).DMX.dmx_name+" ("+Format(gVMC.vmc(i).Complete,"#.#")+")"
+		    ListBox_MC_vmc.HeaderAt(i+1)=gVMC.vmc(i).DMX.dmx_name+" ("+Format(gVMC.vmc(i).Complete,"#.#")+")"
 		  next
 		  ListBox_MC_vmc.DeleteAllRows
 		  j=plan_index
@@ -4750,7 +4817,7 @@ End
 		    for i =0 to UBound(gRTOG.Plan(j).beam)
 		      ListBox_MC_vmc.AddRow str(i+1)
 		      for k=1 to UBound(gVMC.vmc)+1
-		        ListBox_MC_vmc.Cell(i,k) =Str(gVMC.vmc(k-1).BEAMS(i).progress)+" %"
+		        ListBox_MC_vmc.CellValueAt(i,k) =Str(gVMC.vmc(k-1).BEAMS(i).progress)+" %"
 		        ListBox_MC_VMC.CellCheck(i,k)=gVMC.VMC(k-1).BEAMS(i).calculate
 		        ListBox_MC_vmc.celltype(i,k)=2
 		        ListBox_MC_vmc.CellAlignment(i,k)=2
@@ -4772,8 +4839,8 @@ End
 		  //-------------------------------------
 		  
 		  ListBox_Dose_profiles_Result.DeleteAllRows
-		  ListBox_Dose_profiles_Result.Heading(1)="Point 1"
-		  ListBox_Dose_profiles_Result.Heading(2)="Point 2"
+		  ListBox_Dose_profiles_Result.HeaderAt(1)="Point 1"
+		  ListBox_Dose_profiles_Result.HeaderAt(2)="Point 2"
 		  
 		  
 		  
@@ -4795,13 +4862,13 @@ End
 		    end
 		    ListBox_Dose_profiles_Result.AddRow name(i)
 		    ListBox_Dose_profiles_Result.CellType(i,0)=2
-		    ListBox_Dose_profiles_Result.Cell(i,1)=Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.x_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.y_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.z_cm,"-#.##")
-		    ListBox_Dose_profiles_Result.Cell(i,2)= Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.x_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.y_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.z_cm,"-#.##")
-		    ListBox_Dose_profiles_Result.Cell(i,3)= Format(index(i),"#")
+		    ListBox_Dose_profiles_Result.CellValueAt(i,1)=Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.x_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.y_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointa.z_cm,"-#.##")
+		    ListBox_Dose_profiles_Result.CellValueAt(i,2)= Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.x_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.y_cm,"-#.##")+", "+Format(gRTOG.Profiles.One_Profile(index(i)).Pointb.z_cm,"-#.##")
+		    ListBox_Dose_profiles_Result.CellValueAt(i,3)= Format(index(i),"#")
 		  Next
 		  
 		  ListBox_Dose_profiles_Result.ColumnWidths=str(width*10)+",100,100,0"
-		  ListBox_Dose_profiles_Result.ListIndex=0
+		  ListBox_Dose_profiles_Result.SelectedRowIndex=0
 		End Sub
 	#tag EndMethod
 
@@ -5126,10 +5193,10 @@ End
 		    ListBox_Plan.addfolder ""
 		    temp=NthField(s1,",",i)
 		    // Place the plan number and name
-		    ListBox_Plan.cell(i-1,0)=NthField(temp,"%",1)
-		    ListBox_Plan.cell(i-1,1)=NthField(sub1,";",i)
+		    ListBox_Plan.CellValueAt(i-1,0)=NthField(temp,"%",1)
+		    ListBox_Plan.CellValueAt(i-1,1)=NthField(sub1,";",i)
 		    //Place the plan index
-		    ListBox_Plan.cell(i-1,2)=NthField(temp,"%",2)
+		    ListBox_Plan.CellValueAt(i-1,2)=NthField(temp,"%",2)
 		  Next
 		  
 		  
@@ -5240,12 +5307,12 @@ End
 		Sub CollapseRow(row As Integer)
 		  Dim i,u,NSubRows,ppp_index as Integer
 		  
-		  NSubRows=CountFields(Me.cell(row,1),",")
+		  NSubRows=CountFields(Me.CellValueAt(row,1),",")
 		  u=row+1
 		  For i=row+NSubRows downto u
 		    Me.removerow i
 		  Next
-		  ppp_index=val(me.Cell(me.ListIndex,2))
+		  ppp_index=val(me.CellValueAt(me.SelectedRowIndex,2))
 		  
 		  if ppp_index<=UBound(gRTOG.Plan) Then
 		    Plan_Expanded_Listbox(ppp_index)=False
@@ -5256,30 +5323,30 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub DoubleClick()
-		  Me.expanded(Me.listindex)=Not Me.expanded(Me.listindex)
+		  Me.expanded(Me.SelectedRowIndex)=Not Me.expanded(Me.SelectedRowIndex)
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub ExpandRow(row As Integer)
-		  Dim s1,temp as String
-		  Dim i,u, ppindex as Integer
+		  'Dim s1,temp as String
+		  'Dim i,u, ppindex as Integer
 		  
 		  
-		  s1=me.cell(row,1)
-		  u=CountFields(s1,",")
-		  temp=NthField(s1,",",1)
-		  ppindex=val(me.Cell(row,2))
+		  Var s1 As String = Me.CellValueAt(row,1)
+		  Var u As Integer = CountFields(s1,",")
+		  Var temp As String = NthField(s1,",",1)
+		  Var ppindex As Integer = Val(Me.CellValueAt(row,2))
 		  
-		  For i=1 to u
-		    temp=NthField(s1,",",i)
+		  For i As Integer = 1 To u
+		    temp = NthField(s1,",",i)
 		    Me.addrow ""
-		    Me.cell(me.lastIndex,0)=NthField(temp,"%",1)
+		    Me.CellValueAt(Me.LastRowIndex,0) = NthField(temp,"%",1)
 		    
 		    // Place Plan index
-		    Me.Cell(me.lastIndex,2)=str(ppindex)
+		    Me.CellValueAt(Me.LastRowIndex,2) = Str(ppindex)
 		    
 		    //Place the dose index
-		    me.cell(me.LastIndex,3)=str(i-1)
+		    Me.CellValueAt(Me.LastRowIndex,3) = Str(i-1)
 		    
 		  Next
 		  Plan_Expanded_Listbox(ppindex)=True
@@ -5307,13 +5374,13 @@ End
 		  old=plan_index
 		  old_d=dose_index
 		  
-		  if me.ListIndex=-1 Then
+		  if me.SelectedRowIndex=-1 Then
 		    dose_index=-1
 		    Return
 		  end
 		  
 		  // Find plan index
-		  s=ListBox_Plan.Cell(ListBox_Plan.ListIndex,2)
+		  s=ListBox_Plan.CellValueAt(ListBox_Plan.SelectedRowIndex,2)
 		  if len(s)=0 Then
 		    temp_plan_index=-1
 		  else
@@ -5336,8 +5403,8 @@ End
 		    if temp_plan_index<>Plan_Index Then
 		      //Loop to find old plan index
 		      for i=0 to ListBox_Plan.ListCount-1
-		        if val(ListBox_Plan.Cell(i,2))=old Then
-		          ListBox_Plan.ListIndex=i
+		        if val(ListBox_Plan.CellValueAt(i,2))=old Then
+		          ListBox_Plan.SelectedRowIndex=i
 		          Return
 		        end
 		      next
@@ -5346,7 +5413,7 @@ End
 		  
 		  
 		  'FInd dose index
-		  s=ListBox_Plan.Cell(ListBox_Plan.ListIndex,3)
+		  s=ListBox_Plan.CellValueAt(ListBox_Plan.SelectedRowIndex,3)
 		  if len(s)=0 Then
 		    dose_index=-1
 		  else
@@ -5445,7 +5512,7 @@ End
 	#tag Event
 		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
 		  
-		  if len(me.Cell(row,3))>0 then
+		  if len(me.CellValueAt(row,3))>0 then
 		    g.foreColor=rgb(102,30,31)
 		  else
 		    g.foreColor=rgb(0,0,255)
@@ -5454,56 +5521,167 @@ End
 	#tag EndEvent
 	#tag Event
 		Function KeyDown(Key As String) As Boolean
-		  Dim i as Integer
-		  Dim s as String
+		  ''Dim i as Integer
+		  ''Dim s as String
+		  '
+		  'If Key = Chr(127) Or Key = Chr(8) Then
+		  '
+		  'If dose_index> -1 Then // "Dose Delete"
+		  'If Plan_Index> -1 And Plan_Index <= gRTOG.Plan.LastRowIndex Then
+		  'If dose_index<=UBound(gRTOG.Plan(Plan_Index).Dose) Then
+		  'i=MessageBox("Delete dose : "+gRTOG.Plan(Plan_Index).Dose(dose_index).Dose_name+" ?", 1,"Warning" )
+		  'if i=1 Then
+		  'if gPref.DVH_clean Then
+		  'gDVH.Delete_DVH_Set(gRTOG.Plan(Plan_Index).Dose(dose_index).Dose_name)
+		  'Dose_DVH
+		  'end
+		  'gRTOG.Plan(Plan_Index).Delete_Dose(plan_index, dose_index)
+		  'Window_Treatment.dose_index=-1
+		  'Window_Treatment.window_update_plan
+		  'Window_Treatment.beam_update_beam
+		  'end
+		  'end
+		  'end
+		  '
+		  'else //Plan Delete"
+		  '
+		  'if uBound(MMCTP_Shell_Refresh.All)<>-1 or uBound(MMCTP_Shell_Run.All)<>-1 Then
+		  'MessageBox "Can not delete plan while SSH shell is still running"
+		  'Return True
+		  'end
+		  '
+		  'if  UBound(MMCTP_Download.All)<>-1 Then
+		  'MessageBox "Can not delete plan while FTP shell is still running"
+		  'Return True
+		  'end
+		  '
+		  'i=MessageBox("Are you sure you want to delete Plan "+chr(13)+gRTOG.Plan(Plan_Index).Plan_ID +" "+gRTOG.Plan(Plan_Index).Plan_Name+"?",1,"Warning")
+		  '
+		  'if i=1 Then
+		  'if Plan_Index>-1 and Plan_Index<=UBound(gRTOG.Plan) Then
+		  'gRTOG.Delete_Plan(Plan_Index)
+		  'Plan_Expanded_Listbox.Remove Plan_Index
+		  'Plan_Index=-1
+		  'window_update_plan
+		  'beam_update_beam
+		  'end
+		  'end
+		  '
+		  '
+		  '
+		  'end
+		  'end
 		  
-		  if Key=Chr(127) or Key=Chr(8) Then
+		  
+		  'Dim i as Integer
+		  'Dim s as String
+		  
+		  If Key = Chr(127) Or Key = Chr(8) Then
 		    
-		    if dose_index>-1 Then // "Dose Delete"
-		      if Plan_Index>-1 and Plan_Index<=UBound(gRTOG.Plan) Then
-		        if dose_index<=UBound(gRTOG.Plan(Plan_Index).Dose) Then
-		          i=MsgBox("Delete dose : "+gRTOG.Plan(Plan_Index).Dose(dose_index).Dose_name+" ?", 1,"Warning" )
-		          if i=1 Then
-		            if gPref.DVH_clean Then
+		    If dose_index> -1 Then // "Dose Delete"
+		      
+		      If Plan_Index> -1 And Plan_Index <= gRTOG.Plan.LastRowIndex Then
+		        
+		        If dose_index <= gRTOG.Plan(Plan_Index).Dose.LastRowIndex Then
+		          
+		          Var d As New MessageDialog                  // declare the MessageDialog object
+		          Var b As MessageDialogButton                // for handling the result
+		          d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		          d.ActionButton.Caption = "Save"
+		          d.CancelButton.Visible = True               // show the Cancel button
+		          d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		          d.AlternateActionButton.Caption = "Don't Save"
+		          d.Message = "Delete dose : " _
+		          + gRTOG.Plan(Plan_Index).Dose(dose_index).Dose_name + " ?"
+		          'd.Explanation = "If you don't save, your changes will be lost. "
+		          
+		          b = d.ShowModal                             // display the dialog
+		          Select Case b                               // determine which button was pressed.
+		          Case d.ActionButton
+		            
+		            
+		            If gPref.DVH_clean Then
+		              
 		              gDVH.Delete_DVH_Set(gRTOG.Plan(Plan_Index).Dose(dose_index).Dose_name)
 		              Dose_DVH
-		            end
+		              
+		            End If
+		            
 		            gRTOG.Plan(Plan_Index).Delete_Dose(plan_index, dose_index)
 		            Window_Treatment.dose_index=-1
 		            Window_Treatment.window_update_plan
 		            Window_Treatment.beam_update_beam
-		          end
-		        end
-		      end
+		            
+		          Case d.AlternateActionButton
+		            // user pressed Don't Save
+		          Case d.CancelButton
+		            // user pressed Cancel
+		          End Select
+		          
+		          
+		          
+		          
+		        End If
+		        
+		      End If
 		      
-		    else //Plan Delete"
+		    End If
+		    
+		    
+		  Else //Plan Delete"
+		    
+		    If MMCTP_Shell_Refresh.All.LastRowIndex <> -1 Or _
+		      MMCTP_Shell_Run.All.LastRowIndex <> -1 Then
 		      
-		      if uBound(MMCTP_Shell_Refresh.All)<>-1 or uBound(MMCTP_Shell_Run.All)<>-1 Then
-		        MsgBox "Can not delete plan while SSH shell is still running"
-		        Return True
-		      end
+		      MessageBox "Can not delete plan while SSH shell is still running"
+		      Return True
 		      
-		      if  UBound(MMCTP_Download.All)<>-1 Then
-		        MsgBox "Can not delete plan while FTP shell is still running"
-		        Return True
-		      end
+		    End If
+		    
+		    If  MMCTP_Download.All.LastRowIndex <> -1 Then
 		      
-		      i=MsgBox("Are you sure you want to delete Plan "+chr(13)+gRTOG.Plan(Plan_Index).Plan_ID +" "+gRTOG.Plan(Plan_Index).Plan_Name+"?",1,"Warning")
+		      MessageBox "Can not delete plan while FTP shell is still running"
+		      Return True
 		      
-		      if i=1 Then
-		        if Plan_Index>-1 and Plan_Index<=UBound(gRTOG.Plan) Then
-		          gRTOG.Delete_Plan(Plan_Index)
-		          Plan_Expanded_Listbox.Remove Plan_Index
-		          Plan_Index=-1
-		          window_update_plan
-		          beam_update_beam
-		        end
-		      end
+		    End
+		    
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Delete"
+		    d.Message = "Are you sure you want to delete Plan " _
+		    + Chr(13) + gRTOG.Plan(Plan_Index).Plan_ID + " " _
+		    + gRTOG.Plan(Plan_Index).Plan_Name + "?"
+		    
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // user pressed Save
+		      If Plan_Index > -1 And Plan_Index <= gRTOG.Plan.LastRowIndex Then
+		        
+		        gRTOG.Delete_Plan(Plan_Index)
+		        Plan_Expanded_Listbox.Remove Plan_Index
+		        Plan_Index = -1
+		        window_update_plan
+		        beam_update_beam
+		        
+		      End If
 		      
-		      
-		      
-		    end
-		  end
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    
+		    
+		  End If
+		  
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -5619,7 +5797,7 @@ End
 		    gRTOG.Plan(plan_index).Add_Beam
 		    
 		  Case "Delete Beam"
-		    if ListBox_Beam.ListIndex>-1 and UBound(MMCTP_Shell_Refresh.All) =-1  and UBound(MMCTP_Shell_Run.All) =-1 then
+		    if ListBox_Beam.SelectedRowIndex>-1 and UBound(MMCTP_Shell_Refresh.All) =-1  and UBound(MMCTP_Shell_Run.All) =-1 then
 		      for i=me.ListCount DownTo 0 
 		        if me.Selected(i) Then 
 		          gRTOG.Plan(plan_index).Delete_Beam(i)
@@ -5628,7 +5806,7 @@ End
 		      MC_Save_settings
 		      
 		    elseif  UBound(MMCTP_Shell_Refresh.All) >-1 or  UBound(MMCTP_Shell_Run.All) >-1 Then
-		      MsgBox "Can not delete while shell is active"
+		      MessageBox "Can not delete while shell is active"
 		    end
 		    
 		  Case "Copy Beam"
@@ -5695,7 +5873,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Change()
-		  RTOGBeam_Index=me.ListIndex
+		  RTOGBeam_Index=me.SelectedRowIndex
 		  
 		  if DoNothing=False Then
 		    if app.which_window_3d Then
@@ -5744,13 +5922,13 @@ End
 		      g.ForeColor=RGB(255,0,0)
 		      g.fillrect 0,0, g.width, g.height
 		      if pro= -1 then
-		        me.Cell(row,column) ="Not Started"
+		        me.CellValueAt(row,column) ="Not Started"
 		      elseif pro=100 then
-		        me.Cell(row,1) ="Complete"
+		        me.CellValueAt(row,1) ="Complete"
 		      elseif gBEAM.Beams(row).Beamnrc_error Then
-		        me.Cell(row,1) ="BEAMnrc simulation error"
+		        me.CellValueAt(row,1) ="BEAMnrc simulation error"
 		      else
-		        me.Cell(row,1) =Format(pro,"#.#")+" %"
+		        me.CellValueAt(row,1) =Format(pro,"#.#")+" %"
 		      end
 		      g.ForeColor=RGB(0,255,0)
 		      g.fillrect 0,0, g.width*pro/100, g.height
@@ -5780,7 +5958,7 @@ End
 		  Dim i, k, index as Integer
 		  
 		  
-		  index=me.ListIndex
+		  index=me.SelectedRowIndex
 		  if Plan_Index>=0 and gBEAM.State=4  Then
 		    if index>=0 and index<= UBound(gRTOG.Plan(Plan_Index).Beam) Then
 		      Window_BEAM_Options.Show
@@ -5871,7 +6049,7 @@ End
 		  row=Me.RowFromXY(System.MouseX - Me.Left - Self.Left,System.MouseY - Me.Top - Self.Top)
 		  column=Me.ColumnFromXY(System.MouseX - Me.Left - Self.Left,System.MouseY - Me.Top - Self.Top)
 		  
-		  //MsgBox "You double-clicked in cell "+Str(row)+", "+Str(column)
+		  //MessageBox "You double-clicked in cell "+Str(row)+", "+Str(column)
 		  
 		  
 		  if Plan_Index>=0 Then
@@ -5982,7 +6160,7 @@ End
 		  
 		  for i=Window_Treatment.ListBox_Dose_profiles_Result.ListCount-1 DownTo 0 
 		    if Window_Treatment.ListBox_Dose_profiles_Result.CellCheck(i,0) Then
-		      k=val(ListBox_Dose_profiles_Result.Cell(i,3) )
+		      k=val(ListBox_Dose_profiles_Result.CellValueAt(i,3) )
 		      gRTOG.Profiles.One_Profile.Remove k
 		    end
 		  next
@@ -6164,14 +6342,14 @@ End
 		        
 		        if gDOSXYZ.DOSXYZ(column-1).DOSXYZ_Input(Row).dos_simulation_error=False Then
 		          pro=gDOSXYZ.DOSXYZ(column-1).DOSXYZ_Input(Row).dos_progress
-		          me.Cell(row,column) =Format(pro,"#.##")+" %"
+		          me.CellValueAt(row,column) =Format(pro,"#.##")+" %"
 		          g.ForeColor=RGB(255,0,0)
 		          g.fillrect 0,0, g.width, g.height
 		          g.ForeColor=RGB(0,255,0)
 		          g.fillrect 0,0, Round(g.width*pro/100), g.height
 		          
 		        else
-		          me.Cell(row,column) ="DOSXYZnrc Simulation error !"
+		          me.CellValueAt(row,column) ="DOSXYZnrc Simulation error !"
 		          g.ForeColor=RGB(255,255,0)
 		          g.fillrect 0,0, g.width, g.height
 		          
@@ -6199,10 +6377,10 @@ End
 		  Dim row,column as Integer
 		  //------------------------------------------
 		  
-		  row=me.ListIndex
+		  row=me.SelectedRowIndex
 		  column=Me.User_column
 		  
-		  //MsgBox "You double-clicked in cell row "+Str(row)+", column "+Str(column)
+		  //MessageBox "You double-clicked in cell row "+Str(row)+", column "+Str(column)
 		  
 		  
 		  if column>0 Then
@@ -6276,7 +6454,7 @@ End
 		      
 		      
 		    Case"3ddose to MMCTP"
-		      Beam=me.ListIndex
+		      Beam=me.SelectedRowIndex
 		      
 		      if Plan_Index>=0 Then
 		        gDOSXYZ.dosxyz_AddDose=True
@@ -6416,7 +6594,7 @@ End
 		  Select Case hitItem.Text
 		    
 		  Case "Selecte all column"
-		    sname=me.Heading(DVH_Column)
+		    sname=me.HeaderAt(DVH_Column)
 		    for i=0 to me.ListCount-1
 		      me.CellCheck(i,DVH_Column)=True
 		    Next
@@ -6517,7 +6695,7 @@ End
 		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
-		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
+		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.HeaderAt(k) and _
 		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            gDVH.Delete_DVH(x)
 		            Exit
@@ -6943,13 +7121,13 @@ End
 		      g.ForeColor=RGB(255,0,0)
 		      g.fillrect 0,0, g.width, g.height
 		      if pro= -1 then
-		        me.Cell(row,column) ="Not Started"
+		        me.CellValueAt(row,column) ="Not Started"
 		      elseif pro=100 then
-		        me.Cell(row,1) ="Complete"
+		        me.CellValueAt(row,1) ="Complete"
 		      elseif gCutout.Beams(row).error Then
-		        me.Cell(row,1) ="Cutout simulation error"
+		        me.CellValueAt(row,1) ="Cutout simulation error"
 		      else
-		        me.Cell(row,1) =Format(pro,"#.#")+" %"
+		        me.CellValueAt(row,1) =Format(pro,"#.#")+" %"
 		      end
 		      g.ForeColor=RGB(0,255,0)
 		      g.fillrect 0,0, g.width*pro/100, g.height
@@ -6968,7 +7146,7 @@ End
 		  Dim i, k, index as Integer
 		  
 		  
-		  index=me.ListIndex
+		  index=me.SelectedRowIndex
 		  if Plan_Index>=0 and gCutout.State=4  Then
 		    if index>=0 and index<= UBound(gRTOG.Plan(Plan_Index).Beam) Then
 		      Window_Cutout_Options.Show
@@ -7086,11 +7264,11 @@ End
 		  
 		  
 		  if column=1 Then
-		    gRTOG.Points(row).X_cm=val(me.Cell(row,column))
+		    gRTOG.Points(row).X_cm=val(me.CellValueAt(row,column))
 		  elseif column=2 Then
-		    gRTOG.Points(row).y_cm=val(me.Cell(row,column))
+		    gRTOG.Points(row).y_cm=val(me.CellValueAt(row,column))
 		  elseif column=3 Then
-		    gRTOG.Points(row).z_cm=val(me.Cell(row,column))
+		    gRTOG.Points(row).z_cm=val(me.CellValueAt(row,column))
 		  end
 		  
 		  
@@ -7110,7 +7288,7 @@ End
 #tag Events PopupMenu_Dose_ListStruc2
 	#tag Event
 		Sub Change()
-		  dose_paint_index=me.ListIndex
+		  dose_paint_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -7139,7 +7317,7 @@ End
 		      if RadioButton_Norm_MaxDose.Value Then
 		        Nornum=1/gRTOG.Plan(Plan_Index).Dose(dose_index).dmax
 		      elseif RadioButton_Norm_Struc.Value Then
-		        sindex=PopupMenu_Dose_ListStruc2.ListIndex
+		        sindex=PopupMenu_Dose_ListStruc2.SelectedRowIndex
 		        if sindex>-1 and sindex<=UBound(grtog.Structures.Structures) Then
 		          kk=gDVH.Calculate_DVH(sindex,Plan_Index,dose_index,True)
 		          temp=gRTOG.Plan(Plan_Index).Plan_ID+String_Separate+gRTOG.Plan(Plan_Index).Dose(dose_index).dose_name
@@ -7154,12 +7332,12 @@ End
 		          Next
 		          
 		          if kk=False Then
-		            MsgBox "Error : Can not find DVH "+temp
+		            MessageBox "Error : Can not find DVH "+temp
 		            Return
 		          end
 		          
 		        else
-		          MsgBox "Error : structure selected"
+		          MessageBox "Error : structure selected"
 		          Return
 		        end
 		        
@@ -7167,7 +7345,7 @@ End
 		        if RTOGBeam_Index>-1 and RTOGBeam_Index<=UBound(gRTOG.Plan(Plan_Index).Beam) Then
 		          Nornum=RTOG_Dose_Interpolate(gRTOG.Plan(Plan_Index).Beam(RTOGBeam_Index).Collimator.fields(0).isocenter.x,gRTOG.Plan(Plan_Index).Beam(RTOGBeam_Index).Collimator.fields(0).isocenter.y,gRTOG.Plan(Plan_Index).Beam(RTOGBeam_Index).Collimator.fields(0).isocenter.z, gRTOG.Plan(Plan_Index).Dose(dose_index))
 		        else
-		          MsgBox "Error : no beam selected"
+		          MessageBox "Error : no beam selected"
 		          Return
 		        end
 		      Elseif RadioButton_Nor_DValue.Value Then
@@ -7199,7 +7377,7 @@ End
 		  
 		  value=val(EditField_Dose_SetValue.Text)
 		  
-		  sindex=PopupMenu_Dose_ListStruc.ListIndex
+		  sindex=PopupMenu_Dose_ListStruc.SelectedRowIndex
 		  
 		  
 		  if sindex>=0 and sindex<=UBound(grtog.Structures.Structures) Then
@@ -7311,7 +7489,7 @@ End
 #tag Events PopupMenu_Dose_ListStruc
 	#tag Event
 		Sub Change()
-		  dose_paint_index=me.ListIndex
+		  dose_paint_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents

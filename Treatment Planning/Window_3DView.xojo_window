@@ -27,7 +27,6 @@ Begin Window Window_3DView
    Width           =   745
    Begin Rb3dSpace_MMCTP Canvas_3D
       canvas_scale    =   0.0
-      Enabled         =   True
       Index           =   0
       InitialParent   =   ""
       JAW_Index       =   0
@@ -880,7 +879,6 @@ Begin Window Window_3DView
          Scope           =   0
          TabIndex        =   18
          TabPanelIndex   =   1
-         TabStop         =   "True"
          Top             =   393
          TopLeftColor    =   &c00000000
          Transparent     =   False
@@ -1062,12 +1060,15 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Close()
-		  app.which_window_3d=False
+		  app.which_window_3d = False
 		  
-		  if TargetWindows Then
-		    Task_3DViewer.Enabled=False
-		    MsgBox "The 3D viwer on Windows is not stable, please close MMCTP before opening the 3D viewer again."
-		  end
+		  #If TargetWindows Then
+		    
+		    Task_3DViewer.Enabled = False
+		    MessageBox("The 3D viwer on Windows is not stable, "_
+		     + "please close MMCTP before opening the 3D viewer again.")
+		    
+		  #EndIf
 		End Sub
 	#tag EndEvent
 

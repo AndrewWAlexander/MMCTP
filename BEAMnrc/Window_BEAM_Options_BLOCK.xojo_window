@@ -1460,7 +1460,7 @@ End
 		  donothing=True
 		  
 		  
-		  i= Window_BEAM_MainInputs.Listbox_CMs.ListIndex
+		  i= Window_BEAM_MainInputs.Listbox_CMs.SelectedRowIndex
 		  
 		  
 		  BLOCK=Window_BEAM_MainInputs.BEAM.CMs(i).BLOCK
@@ -1508,9 +1508,9 @@ End
 		    PopupMenu_Subregion.AddRow str(i+1)
 		  next
 		  
-		  PopupMenu_Subregion.ListIndex=0
+		  PopupMenu_Subregion.SelectedRowIndex=0
 		  
-		  i=PopupMenu_Subregion.ListIndex
+		  i=PopupMenu_Subregion.SelectedRowIndex
 		  if i>-1 and i<=UBound(BLOCK.Subregions) Then
 		    EditField_numsubregion_points.value = str(Block.Subregions(i).NSUB_BLOCK)
 		  end
@@ -1573,7 +1573,7 @@ End
 		      end
 		    next
 		    
-		    PopupMenu_Subregion.ListIndex=0
+		    PopupMenu_Subregion.SelectedRowIndex=0
 		    
 		    
 		    
@@ -1595,7 +1595,7 @@ End
 		  Dim i as Integer
 		  
 		  
-		  i=Window_BEAM_Options_BLOCK.PopupMenu_Subregion.ListIndex
+		  i=Window_BEAM_Options_BLOCK.PopupMenu_Subregion.SelectedRowIndex
 		  
 		  if i>-1 and i<=UBound(BLOCK.Subregions) Then
 		    Window_BEAM_Options_BLOCK_Points.Show
@@ -1686,7 +1686,7 @@ End
 		Sub Change()
 		  Dim i as Integer
 		  
-		  i=PopupMenu_Subregion.ListIndex
+		  i=PopupMenu_Subregion.SelectedRowIndex
 		  if i>-1 and i<=UBound(BLOCK.Subregions) Then
 		    EditField_numsubregion_points.value = str(Block.Subregions(i).NSUB_BLOCK)
 		  end
@@ -1700,7 +1700,7 @@ End
 		  
 		  
 		  if donothing=False Then
-		    i=PopupMenu_Subregion.ListIndex
+		    i=PopupMenu_Subregion.SelectedRowIndex
 		    
 		    if i>-1 and i<=UBound(BLOCK.Subregions) Then
 		      Block.Subregions(i).NSUB_BLOCK=val(me.Text)

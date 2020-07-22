@@ -1038,8 +1038,8 @@ End
 
 	#tag Event
 		Sub Open()
-		  ListBox_Isodose.heading(1)="Colour"
-		  ListBox_Isodose.heading(2)="Show"
+		  ListBox_Isodose.HeaderAt(1)="Colour"
+		  ListBox_Isodose.HeaderAt(2)="Show"
 		  EditField_LineThickness.value = str(gvis.Iso.thickness)
 		  EditField_Font.value = (gvis.Iso.FONT)
 		  EditField_Font_Size.value = str(gvis.Iso.FONT_Size)
@@ -1062,7 +1062,7 @@ End
 		  if gvis.Iso.Show_Type=1 then
 		    RadioButton_abs.Value=True
 		    Iso=gVis.Iso.Abs
-		    ListBox_Isodose.heading(0)="Value"
+		    ListBox_Isodose.HeaderAt(0)="Value"
 		    GroupBox_Relative.Enabled=False
 		    
 		    RadioButton_max.Value=False
@@ -1071,7 +1071,7 @@ End
 		  else
 		    GroupBox_Relative.Enabled=True
 		    Iso=gVis.Iso.Relative
-		    ListBox_Isodose.heading(0)="%"
+		    ListBox_Isodose.HeaderAt(0)="%"
 		    RadioButton_Relative.Value=True
 		  end
 		  
@@ -1228,7 +1228,7 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=0 Then
-		    Iso.values(row)=val(me.Cell(row,column))
+		    Iso.values(row)=val(me.CellValueAt(row,column))
 		  end
 		End Sub
 	#tag EndEvent
@@ -1253,7 +1253,7 @@ End
 		  
 		  
 		  initialsize=ListBox_Isodose.listCount
-		  whichone=ListBox_Isodose.listindex
+		  whichone=ListBox_Isodose.SelectedRowIndex
 		  if whichone<0 then
 		    return
 		  end

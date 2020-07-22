@@ -140,11 +140,11 @@ End
 		  Listbox_Pairs.DeleteAllRows
 		  Listbox_Pairs.ColumnCount=app.ISCM_MAX+1
 		  
-		  Listbox_Pairs.Heading(0)="Jaw Variables"
+		  Listbox_Pairs.HeaderAt(0)="Jaw Variables"
 		  temp="400"
 		  for i=1 to app.ISCM_MAX
 		    temp=temp+", 150"
-		    Listbox_Pairs.Heading(i)=Str(i)
+		    Listbox_Pairs.HeaderAt(i)=Str(i)
 		  next
 		  Listbox_Pairs.ColumnWidths=temp
 		  
@@ -167,12 +167,12 @@ End
 		  
 		  for i=1 to app.ISCM_MAX
 		    Listbox_Pairs.ColumnType(i)=3
-		    Listbox_Pairs.Cell(0,i)=app.XY_Choice(i-1)
-		    Listbox_Pairs.Cell(1,i)=Format(app.ECUT_Jaws(i-1),"-#.###")
-		    Listbox_Pairs.Cell(2,i)=Format(app.PCUT_Jaws(i-1),"-#.###")
-		    Listbox_Pairs.Cell(3,i)=Format(app.Dose_zone_Jaws(i-1),"#")
-		    Listbox_Pairs.Cell(4,i)=Format(app.IREGION_to_bit_Jaws(i-1),"#")
-		    Listbox_Pairs.Cell(5,i)=app.Medium_Jaws(i-1)
+		    Listbox_Pairs.CellValueAt(0,i)=app.XY_Choice(i-1)
+		    Listbox_Pairs.CellValueAt(1,i)=Format(app.ECUT_Jaws(i-1),"-#.###")
+		    Listbox_Pairs.CellValueAt(2,i)=Format(app.PCUT_Jaws(i-1),"-#.###")
+		    Listbox_Pairs.CellValueAt(3,i)=Format(app.Dose_zone_Jaws(i-1),"#")
+		    Listbox_Pairs.CellValueAt(4,i)=Format(app.IREGION_to_bit_Jaws(i-1),"#")
+		    Listbox_Pairs.CellValueAt(5,i)=app.Medium_Jaws(i-1)
 		    
 		  next
 		  
@@ -212,42 +212,42 @@ End
 		  'if column>=1 Then
 		  '
 		  'if row=0 Then
-		  'app.XY_Choice(column-1)=(me.Cell(row,column))
+		  'app.XY_Choice(column-1)=(me.CellValueAt(row,column))
 		  '
 		  'elseif row=1 Then
-		  'app.ZMIN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.ZMIN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  '
 		  'elseif row=2 Then
-		  'app.ZMAX_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.ZMAX_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=3 Then
-		  'app.XFP_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XFP_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=4 Then
-		  'app.XBP_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XBP_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=5 Then
-		  'app.XFN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XFN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=6 Then
-		  'app.XBN_JAWS(column-1)=val(me.Cell(row,column))
+		  'app.XBN_JAWS(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=7 Then
-		  'app.ECUT_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.ECUT_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=8 Then
-		  'app.pCUT_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.pCUT_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=9 Then
-		  'app.Dose_zone_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.Dose_zone_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  'elseif row=10 Then
-		  'app.IREGION_to_bit_Jaws(column-1)=val(me.Cell(row,column))
+		  'app.IREGION_to_bit_Jaws(column-1)=val(me.CellValueAt(row,column))
 		  '
 		  '
 		  'elseif row=11 Then
-		  'app.Medium_Jaws(column-1)=trim(me.Cell(row,column))
+		  'app.Medium_Jaws(column-1)=trim(me.CellValueAt(row,column))
 		  'end
 		  'end
 		  'end

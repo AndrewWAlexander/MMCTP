@@ -1635,7 +1635,7 @@ End
 		  EditField_MU_BS.value = Format(dosxyz.DOSXYZ_Input(beam).dos_MU_BS,"-#.###")
 		  
 		  
-		  PopupMenu_Shell.ListIndex=dosxyz.DOSXYZ_Input(beam).dos_Shell_Index
+		  PopupMenu_Shell.SelectedRowIndex=dosxyz.DOSXYZ_Input(beam).dos_Shell_Index
 		  dosxyz.DOSXYZ_Input(beam).dos_Shell=PopupMenu_Shell.Text
 		  
 		  CheckBox_Detected.Value=dosxyz.DOSXYZ_Input(beam).dos_3ddose_detected
@@ -1802,7 +1802,7 @@ End
 		Sub Change()
 		  if do_nothing=False Then
 		    dosxyz.DOSXYZ_Input(beam).dos_Shell = me.text
-		    dosxyz.DOSXYZ_Input(beam).dos_Shell_Index = me.ListIndex
+		    dosxyz.DOSXYZ_Input(beam).dos_Shell_Index = me.SelectedRowIndex
 		    MC_Get_Linac_Properties_for_patientdose(beam)
 		  end
 		End Sub

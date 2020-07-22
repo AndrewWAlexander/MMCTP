@@ -1026,7 +1026,7 @@ Inherits Canvas
 		  
 		  
 		  if dose_data_index<0 then
-		    'MsgBox "Could not find correct Z plane"
+		    'MessageBox "Could not find correct Z plane"
 		    Return
 		  end
 		  

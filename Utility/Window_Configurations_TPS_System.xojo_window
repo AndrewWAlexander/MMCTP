@@ -3159,13 +3159,13 @@ End
 		  //-----------------------------
 		  
 		  Listbox_Stat_DoseatVolume.DeleteAllRows
-		  Listbox_Stat_DoseatVolume.Heading(0)="Dose at Volume (%)"
+		  Listbox_Stat_DoseatVolume.HeaderAt(0)="Dose at Volume (%)"
 		  
-		  Listbox_Stat_DoseatVolumeCC.Heading(0)="Dose at Volume (cc)"
+		  Listbox_Stat_DoseatVolumeCC.HeaderAt(0)="Dose at Volume (cc)"
 		  Listbox_Stat_DoseatVolumeCC.DeleteAllRows
 		  
 		  
-		  Listbox_Stat_VolumeatGY.Heading(0)="Volume at Dose (Gy)"
+		  Listbox_Stat_VolumeatGY.HeaderAt(0)="Volume at Dose (Gy)"
 		  Listbox_Stat_VolumeatGY.DeleteAllRows
 		  
 		  if gDoseStats.MaxDose Then
@@ -3245,8 +3245,8 @@ End
 		  end
 		  
 		  Listbox_DICOM_Tags.DeleteAllRows
-		  Listbox_DICOM_Tags.Heading(0)="Tag"
-		  Listbox_DICOM_Tags.Heading(1)="Value"
+		  Listbox_DICOM_Tags.HeaderAt(0)="Tag"
+		  Listbox_DICOM_Tags.HeaderAt(1)="Value"
 		  Listbox_DICOM_Tags.ColumnType(1)=3
 		  
 		  Listbox_DICOM_Tags.AddRow("Manufacturer",gPref.Manufacturer) 
@@ -3643,8 +3643,8 @@ End
 		    gDoseStats.DoseVolume.append 0
 		    Save_DoseStat=True
 		  Case "Remove"
-		    if me.ListIndex>-1 and me.ListIndex<=UBound(gDoseStats.DoseVolume) Then
-		      gDoseStats.DoseVolume.remove me.ListIndex
+		    if me.SelectedRowIndex>-1 and me.SelectedRowIndex<=UBound(gDoseStats.DoseVolume) Then
+		      gDoseStats.DoseVolume.remove me.SelectedRowIndex
 		    end
 		    
 		    Save_DoseStat=True
@@ -3656,7 +3656,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  gDoseStats.DoseVolume(row)=val(me.Cell(row,column))
+		  gDoseStats.DoseVolume(row)=val(me.CellValueAt(row,column))
 		  Save_DoseStat=True
 		End Sub
 	#tag EndEvent
@@ -3685,8 +3685,8 @@ End
 		    gDoseStats.VolumeDose.append 0
 		    Save_DoseStat=True
 		  Case "Remove"
-		    if me.ListIndex>-1 and me.ListIndex<=UBound(gDoseStats.VolumeDose) Then
-		      gDoseStats.VolumeDose.remove me.ListIndex
+		    if me.SelectedRowIndex>-1 and me.SelectedRowIndex<=UBound(gDoseStats.VolumeDose) Then
+		      gDoseStats.VolumeDose.remove me.SelectedRowIndex
 		    end
 		    
 		    Save_DoseStat=True
@@ -3698,7 +3698,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  gDoseStats.VolumeDose(row)=val(me.Cell(row,column))
+		  gDoseStats.VolumeDose(row)=val(me.CellValueAt(row,column))
 		  Save_DoseStat=True
 		End Sub
 	#tag EndEvent
@@ -3751,8 +3751,8 @@ End
 		    gDoseStats.DoseatVolumecc.append 0
 		    Save_DoseStat=True
 		  Case "Remove"
-		    if me.ListIndex>-1 and me.ListIndex<=UBound(gDoseStats.DoseatVolumecc) Then
-		      gDoseStats.DoseatVolumecc.remove me.ListIndex
+		    if me.SelectedRowIndex>-1 and me.SelectedRowIndex<=UBound(gDoseStats.DoseatVolumecc) Then
+		      gDoseStats.DoseatVolumecc.remove me.SelectedRowIndex
 		    end
 		    
 		    Save_DoseStat=True
@@ -3764,7 +3764,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  gDoseStats.DoseatVolumecc(row)=val(me.Cell(row,column))
+		  gDoseStats.DoseatVolumecc(row)=val(me.CellValueAt(row,column))
 		  Save_DoseStat=True
 		End Sub
 	#tag EndEvent
@@ -3831,13 +3831,13 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if row=0 Then
-		    gPref.Manufacturer=me.Cell(row,column)
+		    gPref.Manufacturer=me.CellValueAt(row,column)
 		    
 		  elseif row=1 Then
-		    gPref.ManufacturerName=me.Cell(row,column)
+		    gPref.ManufacturerName=me.CellValueAt(row,column)
 		    
 		  elseif row=3 Then
-		    gPref.SoftwareVersion=me.Cell(row,column)
+		    gPref.SoftwareVersion=me.CellValueAt(row,column)
 		  end
 		  
 		  gPref.Write_Pref

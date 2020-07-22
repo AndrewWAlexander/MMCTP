@@ -165,11 +165,11 @@ Protected Class Class_Cutout
 		          next
 		          cutOutfile.close
 		        else
-		          MsgBox "coould not open egscutoutdata file"
+		          MessageBox "coould not open egscutoutdata file"
 		        end
 		      else
-		        MsgBox "problem with file name...egscutoutdata file does not exist"
-		        MsgBox "absolute path of egscutoutdata name="+g.NativePath
+		        MessageBox "problem with file name...egscutoutdata file does not exist"
+		        MessageBox "absolute path of egscutoutdata name="+g.NativePath
 		      end
 		      
 		    else
@@ -307,7 +307,7 @@ Protected Class Class_Cutout
 		  end
 		  cutOutfile=f.createTextFile
 		  if cutOutfile=nil then
-		    MsgBox "Could not create cutout file!"
+		    MessageBox "Could not create cutout file!"
 		    Return
 		  end
 		  

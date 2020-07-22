@@ -1089,7 +1089,7 @@ End
 		  
 		  
 		  DVHGraph.Default_Settings
-		  DVH_index=Listbox_Graphs.ListIndex
+		  DVH_index=Listbox_Graphs.SelectedRowIndex
 		  
 		  if Len(TextField_Xmax.Text)>0 Then
 		    DVHGraph.x_Maximum=val(TextField_Xmax.Text)
@@ -1178,7 +1178,7 @@ End
 		    for i=0 to ubound(grtog.Structures.Structures)
 		      if Window_Treatment.ListBox_DVH_Graphs.CellCheck(i,k) then
 		        for x=0 to UBound(gDVH.All_DVH)
-		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.Heading(k) and _
+		          if gDVH.All_DVH(x).Name=Window_Treatment.ListBox_DVH_Graphs.HeaderAt(k) and _
 		            gDVH.All_DVH(x).struc_names=grtog.Structures.Structures(i).Structure_Name Then
 		            temp_DVH=gDVH.All_DVH(x)
 		            DVH.Append temp_DVH
@@ -1196,18 +1196,18 @@ End
 		  DVHGraph.Default_Settings
 		  
 		  Listbox_Graphs.deleteAllRows
-		  Listbox_Graphs.Heading(0)="Name"
-		  Listbox_Graphs.Heading(1)="col"
-		  Listbox_Graphs.Heading(2)="show"
-		  Listbox_Graphs.Heading(3)="mean dose"
-		  Listbox_Graphs.Heading(4)="mean uncer"
-		  Listbox_Graphs.Heading(5)="stdev dose"
-		  Listbox_Graphs.Heading(6)="min dose"
-		  Listbox_Graphs.Heading(7)="max dose"
-		  Listbox_Graphs.Heading(8)="D50"
-		  Listbox_Graphs.Heading(9)="Unit voxel Vol cm^3"
-		  Listbox_Graphs.Heading(10)="Total voxel Vol cm^3"
-		  Listbox_Graphs.Heading(11)="Geo Vol cm^3"
+		  Listbox_Graphs.HeaderAt(0)="Name"
+		  Listbox_Graphs.HeaderAt(1)="col"
+		  Listbox_Graphs.HeaderAt(2)="show"
+		  Listbox_Graphs.HeaderAt(3)="mean dose"
+		  Listbox_Graphs.HeaderAt(4)="mean uncer"
+		  Listbox_Graphs.HeaderAt(5)="stdev dose"
+		  Listbox_Graphs.HeaderAt(6)="min dose"
+		  Listbox_Graphs.HeaderAt(7)="max dose"
+		  Listbox_Graphs.HeaderAt(8)="D50"
+		  Listbox_Graphs.HeaderAt(9)="Unit voxel Vol cm^3"
+		  Listbox_Graphs.HeaderAt(10)="Total voxel Vol cm^3"
+		  Listbox_Graphs.HeaderAt(11)="Geo Vol cm^3"
 		  
 		  Listbox_Graphs.ColumnWidths="25%,5%,5%,10%,10%,10%,10%,10%,10%,10%,10%,10%"
 		  
@@ -1218,64 +1218,64 @@ End
 		    Listbox_Graphs.CellCheck(i,2)=DVHGraph.Profiles.One_Profile(i).Show
 		    
 		    if abs(DVH(i).avgdose)<0.001  Then
-		      Listbox_Graphs.Cell(i,3)=Format(DVH(i).avgdose,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,3)=Format(DVH(i).avgdose,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,3)=Format(DVH(i).avgdose,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,3)=Format(DVH(i).avgdose,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).avg_error)<0.001 Then
-		      Listbox_Graphs.Cell(i,4)=Format(DVH(i).avg_error,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,4)=Format(DVH(i).avg_error,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,4)=Format(DVH(i).avg_error,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,4)=Format(DVH(i).avg_error,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).stdev)<0.01 Then
-		      Listbox_Graphs.Cell(i,5)=Format(DVH(i).stdev,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,5)=Format(DVH(i).stdev,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,5)=Format(DVH(i).stdev,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,5)=Format(DVH(i).stdev,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).mindose)<0.01 Then
-		      Listbox_Graphs.Cell(i,6)=Format(DVH(i).mindose,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,6)=Format(DVH(i).mindose,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,6)=Format(DVH(i).mindose,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,6)=Format(DVH(i).mindose,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).maxdose)<0.001 Then
-		      Listbox_Graphs.Cell(i,7)=Format(DVH(i).maxdose,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,7)=Format(DVH(i).maxdose,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,7)=Format(DVH(i).maxdose,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,7)=Format(DVH(i).maxdose,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).D50)<0.001 Then
-		      Listbox_Graphs.Cell(i,8)=Format(DVH(i).D50,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,8)=Format(DVH(i).D50,"-0.00###e")
 		    else
-		      Listbox_Graphs.Cell(i,8)=Format(DVH(i).D50,"-0.00##")
+		      Listbox_Graphs.CellValueAt(i,8)=Format(DVH(i).D50,"-0.00##")
 		    end
 		    
 		    if abs(DVH(i).pixelvolume)>0.001 Then
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###")
+		      Listbox_Graphs.CellValueAt(i,9)=Format(DVH(i).pixelvolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,9)=Format(DVH(i).pixelvolume,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,9)=Format(DVH(i).pixelvolume,"-0.00###e")
 		    end
 		    
 		    if abs(DVH(i).pixelvolume*DVH(i).NumberofPixels)>0.001 Then
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
+		      Listbox_Graphs.CellValueAt(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,10)=Format(DVH(i).pixelvolume*DVH(i).NumberofPixels,"-0.00###e")
 		    end
 		    
 		    if abs(DVH(i).svolume)>0.001 Then
-		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###")
+		      Listbox_Graphs.CellValueAt(i,11)=Format(DVH(i).svolume,"-0.00###")
 		    else
-		      Listbox_Graphs.Cell(i,11)=Format(DVH(i).svolume,"-0.00###e")
+		      Listbox_Graphs.CellValueAt(i,11)=Format(DVH(i).svolume,"-0.00###e")
 		    end
 		    
 		    
 		    
 		    
 		  next
-		  Listbox_Graphs.listIndex=-1
+		  Listbox_Graphs.SelectedRowIndex=-1
 		  
 		  
 		  
@@ -1504,13 +1504,13 @@ End
 		  //-------------------------------
 		  
 		  
-		  if Listbox_Graphs.ListIndex <>-1 then
-		    j=Listbox_Graphs.ListIndex 
+		  if Listbox_Graphs.SelectedRowIndex <>-1 then
+		    j=Listbox_Graphs.SelectedRowIndex 
 		    if j>-1 and j<=UBound(DVH) Then
 		      gDVH.Export_DVH_Text(DVH(j))
 		    end
 		  else
-		    MsgBox "1st, select a graph"
+		    MessageBox "1st, select a graph"
 		  end
 		End Sub
 	#tag EndEvent

@@ -1826,13 +1826,13 @@ End
 		    PopupMenu_CTModel.AddRow gCT.All_CT(i).Model_name
 		  next
 		  
-		  PopupMenu_CTModel.ListIndex=gDOSXYZ.EGSPhantSettings.CT_model
+		  PopupMenu_CTModel.SelectedRowIndex=gDOSXYZ.EGSPhantSettings.CT_model
 		  
 		  for i=0 to UBound(grtog.Structures.Structures)
 		    PopupMenu_CleanContour.AddRow grtog.Structures.Structures(i).Structure_Name
 		  next
 		  
-		  PopupMenu_CleanContour.ListIndex=gDOSXYZ.EGSPhantSettings.Cleancontour_index
+		  PopupMenu_CleanContour.SelectedRowIndex=gDOSXYZ.EGSPhantSettings.Cleancontour_index
 		  
 		  Checkbox_dosxyz_Clean_Contours.Value=gDOSXYZ.EGSPhantSettings.Cleancontours
 		  
@@ -1844,7 +1844,7 @@ End
 		  next
 		  for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		    if mm=gDOSXYZ.dosxyz_materials(i).Material_Name Then
-		      PopupMenu_MediumOutside.ListIndex=i
+		      PopupMenu_MediumOutside.SelectedRowIndex=i
 		      exit
 		    end
 		  next
@@ -1864,8 +1864,8 @@ End
 		  EditField_egsphantname.value = gDOSXYZ.EGSPhantSettings.Name
 		  EditField_outsidemedium.value = egsphant.media_of_outside
 		  
-		  Listbox_Materials.Heading(0)="Index"
-		  Listbox_Materials.Heading(1)="Material"
+		  Listbox_Materials.HeaderAt(0)="Index"
+		  Listbox_Materials.HeaderAt(1)="Material"
 		  
 		  UpDate_Manual_List
 		  egsphant.Update_MaterialsUD
@@ -1883,12 +1883,12 @@ End
 		  
 		  ListBox_ContourFill.DeleteAllRows
 		  
-		  ListBox_ContourFill.heading(0)="Fill Order Large->Small"
-		  ListBox_ContourFill.heading(1)="Structure Name"
+		  ListBox_ContourFill.HeaderAt(0)="Fill Order Large->Small"
+		  ListBox_ContourFill.HeaderAt(1)="Structure Name"
 		  
-		  ListBox_ContourFill.heading(3)="Material Name"
-		  ListBox_ContourFill.heading(2)="Use this Material and Density else autofill"
-		  ListBox_ContourFill.heading(4)="Density g/cm^3"
+		  ListBox_ContourFill.HeaderAt(3)="Material Name"
+		  ListBox_ContourFill.HeaderAt(2)="Use this Material and Density else autofill"
+		  ListBox_ContourFill.HeaderAt(4)="Density g/cm^3"
 		  
 		  
 		  ListBox_ContourFill.columntype(0)=1
@@ -1901,10 +1901,10 @@ End
 		  for i=0 to ubound(gDOSXYZ.EGSPhantSettings.Contous)
 		    ListBox_ContourFill.addrow str(i+1)
 		    x=gDOSXYZ.EGSPhantSettings.Contous(i).RTOG_Contour_Index
-		    ListBox_ContourFill.Cell(i,1)=grtog.Structures.Structures(x).Structure_Name
-		    ListBox_ContourFill.cell(i,3)=gDOSXYZ.EGSPhantSettings.Contous(i).materials
+		    ListBox_ContourFill.CellValueAt(i,1)=grtog.Structures.Structures(x).Structure_Name
+		    ListBox_ContourFill.CellValueAt(i,3)=gDOSXYZ.EGSPhantSettings.Contous(i).materials
 		    ListBox_ContourFill.CellCheck(i,2)=gDOSXYZ.EGSPhantSettings.Contous(i).Use_Material
-		    ListBox_ContourFill.cell(i,4)=Format(gDOSXYZ.EGSPhantSettings.Contous(i).density,"#.###")
+		    ListBox_ContourFill.CellValueAt(i,4)=Format(gDOSXYZ.EGSPhantSettings.Contous(i).density,"#.###")
 		  next
 		  
 		  
@@ -1918,7 +1918,7 @@ End
 		  Listbox_Materials.DeleteAllRows
 		  for i=0 to UBound(gDOSXYZ.EGSPhantSettings.Materials)
 		    Listbox_Materials.AddRow str(i)
-		    Listbox_Materials.Cell(i,1)=gDOSXYZ.EGSPhantSettings.Materials(i)
+		    Listbox_Materials.CellValueAt(i,1)=gDOSXYZ.EGSPhantSettings.Materials(i)
 		  next
 		End Sub
 	#tag EndMethod
@@ -1930,14 +1930,14 @@ End
 		  
 		  Listbox_Manual.DeleteAllRows
 		  
-		  Listbox_Manual.Heading(0)="Material"
-		  Listbox_Manual.Heading(1)="X from"
-		  Listbox_Manual.Heading(2)="X to"
-		  Listbox_Manual.Heading(3)="Y from"
-		  Listbox_Manual.Heading(4)="Y to"
-		  Listbox_Manual.Heading(5)="Z from"
-		  Listbox_Manual.Heading(6)="Z to"
-		  Listbox_Manual.Heading(7)="Density (g/cc)"
+		  Listbox_Manual.HeaderAt(0)="Material"
+		  Listbox_Manual.HeaderAt(1)="X from"
+		  Listbox_Manual.HeaderAt(2)="X to"
+		  Listbox_Manual.HeaderAt(3)="Y from"
+		  Listbox_Manual.HeaderAt(4)="Y to"
+		  Listbox_Manual.HeaderAt(5)="Z from"
+		  Listbox_Manual.HeaderAt(6)="Z to"
+		  Listbox_Manual.HeaderAt(7)="Density (g/cc)"
 		  
 		  if egsphant.Del_X>0 Then
 		    egsphant.Nx=Round((gDOSXYZ.EGSPhantSettings.X_Max-gDOSXYZ.EGSPhantSettings.X_min)/gDOSXYZ.EGSPhantSettings.Del_X)
@@ -2025,16 +2025,16 @@ End
 		  for i=0 to UBound(egsphant.Voxels)
 		    Listbox_Manual.AddRow egsphant.Voxels(i).Material
 		    
-		    Listbox_Manual.Cell(i,1)=Str(egsphant.Voxels(i).X_From)
-		    Listbox_Manual.Cell(i,2)=Str(egsphant.Voxels(i).X_To)
+		    Listbox_Manual.CellValueAt(i,1)=Str(egsphant.Voxels(i).X_From)
+		    Listbox_Manual.CellValueAt(i,2)=Str(egsphant.Voxels(i).X_To)
 		    
-		    Listbox_Manual.Cell(i,3)=Str(egsphant.Voxels(i).Y_From)
-		    Listbox_Manual.Cell(i,4)=Str(egsphant.Voxels(i).Y_To)
+		    Listbox_Manual.CellValueAt(i,3)=Str(egsphant.Voxels(i).Y_From)
+		    Listbox_Manual.CellValueAt(i,4)=Str(egsphant.Voxels(i).Y_To)
 		    
 		    
-		    Listbox_Manual.Cell(i,5)=Str(egsphant.Voxels(i).Z_From)
-		    Listbox_Manual.Cell(i,6)=Str(egsphant.Voxels(i).Z_To)
-		    Listbox_Manual.Cell(i,7)=Format(egsphant.Voxels(i).density,"-#.######")
+		    Listbox_Manual.CellValueAt(i,5)=Str(egsphant.Voxels(i).Z_From)
+		    Listbox_Manual.CellValueAt(i,6)=Str(egsphant.Voxels(i).Z_To)
+		    Listbox_Manual.CellValueAt(i,7)=Format(egsphant.Voxels(i).density,"-#.######")
 		  next
 		  
 		  
@@ -2060,7 +2060,7 @@ End
 		  
 		  
 		  
-		  if me.ListIndex>-1 then
+		  if me.SelectedRowIndex>-1 then
 		    for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		      MI = New MenuItem
 		      MI.Text = gDOSXYZ.dosxyz_materials(i).Material_Name
@@ -2078,8 +2078,8 @@ End
 		  
 		  for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		    if hitItem.Text = gDOSXYZ.dosxyz_materials(i).Material_Name then
-		      gDOSXYZ.EGSPhantSettings.Contous(me.ListIndex).materials=gDOSXYZ.dosxyz_materials(i).Material_Name
-		      gDOSXYZ.EGSPhantSettings.Contous(me.ListIndex).density=gDOSXYZ.dosxyz_materials(i).Material_Density
+		      gDOSXYZ.EGSPhantSettings.Contous(me.SelectedRowIndex).materials=gDOSXYZ.dosxyz_materials(i).Material_Name
+		      gDOSXYZ.EGSPhantSettings.Contous(me.SelectedRowIndex).density=gDOSXYZ.dosxyz_materials(i).Material_Density
 		      exit
 		    end
 		  next
@@ -2097,9 +2097,9 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if row <= UBound(grtog.Structures.Structures) then
 		    if column=4 Then
-		      gDOSXYZ.EGSPhantSettings.Contous(row).density=val(me.cell(row,4))
+		      gDOSXYZ.EGSPhantSettings.Contous(row).density=val(me.CellValueAt(row,4))
 		    elseif column=3 then
-		      gDOSXYZ.EGSPhantSettings.Contous(row).materials=trim(me.cell(row,3))
+		      gDOSXYZ.EGSPhantSettings.Contous(row).materials=trim(me.CellValueAt(row,3))
 		      
 		      
 		    end
@@ -2122,14 +2122,14 @@ End
 		  Dim i as Integer
 		  Dim cc as Class_DOSXYZ_EGSPhant_Contour
 		  
-		  i=ListBox_ContourFill.ListIndex
+		  i=ListBox_ContourFill.SelectedRowIndex
 		  if i>0 and i<=UBound(gDOSXYZ.EGSPhantSettings.Contous) Then
 		    cc = new Class_DOSXYZ_EGSPhant_Contour
 		    cc=gDOSXYZ.EGSPhantSettings.Contous(i)
 		    gDOSXYZ.EGSPhantSettings.Contous.Remove i
 		    gDOSXYZ.EGSPhantSettings.Contous.Insert i-1, cc
 		    Load_listbox
-		    ListBox_ContourFill.ListIndex=i-1
+		    ListBox_ContourFill.SelectedRowIndex=i-1
 		  end
 		  
 		End Sub
@@ -2139,14 +2139,14 @@ End
 		  Dim i as Integer
 		  Dim cc as Class_DOSXYZ_EGSPhant_Contour
 		  
-		  i=ListBox_ContourFill.ListIndex
+		  i=ListBox_ContourFill.SelectedRowIndex
 		  if i>=0 and i<UBound(gDOSXYZ.EGSPhantSettings.Contous) Then
 		    cc = new Class_DOSXYZ_EGSPhant_Contour
 		    cc=gDOSXYZ.EGSPhantSettings.Contous(i)
 		    gDOSXYZ.EGSPhantSettings.Contous.Remove i
 		    gDOSXYZ.EGSPhantSettings.Contous.Insert i+1, cc
 		    Load_listbox
-		    ListBox_ContourFill.ListIndex=i+1
+		    ListBox_ContourFill.SelectedRowIndex=i+1
 		  end
 		  
 		End Sub
@@ -2162,7 +2162,7 @@ End
 #tag Events PopupMenu_CleanContour
 	#tag Event
 		Sub Change()
-		  gDOSXYZ.EGSPhantSettings.Cleancontour_index=me.ListIndex
+		  gDOSXYZ.EGSPhantSettings.Cleancontour_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2186,7 +2186,7 @@ End
 	#tag Event
 		Sub Change()
 		  gDOSXYZ.EGSPhantSettings.Clean_material=me.Text
-		  EditField_Clean_density.value = str(gDOSXYZ.dosxyz_materials(me.ListIndex).Material_Density)
+		  EditField_Clean_density.value = str(gDOSXYZ.dosxyz_materials(me.SelectedRowIndex).Material_Density)
 		  egsphant.Update_MaterialsUD
 		  Materials_Listbox
 		End Sub
@@ -2226,12 +2226,12 @@ End
 		    for i=0 to UBound(gDOSXYZ.DOSXYZ)
 		      if Len(name)<1 then
 		        find=True
-		        MsgBox "Enter a EGSPhant name"
+		        MessageBox "Enter a EGSPhant name"
 		        Exit
 		      end
 		      if name=gDOSXYZ.dosxyz(i).EGSPhantSettings.name then
 		        overwrite=True
-		        MsgBox "Enter a different EGSPhant name"
+		        MessageBox "Enter a different EGSPhant name"
 		        
 		        Exit
 		      end
@@ -2242,11 +2242,11 @@ End
 		        if RadioButton_CT.Value Then // For CT Phantoms
 		          // Load EGSPhant Setting into EGSPhant Class
 		          if egsphant.Del_X<=0 or egsphant.Del_Z<=0 or egsphant.Del_Y<=0 Then
-		            MsgBox "Enter del values above 0!"
+		            MessageBox "Enter del values above 0!"
 		            Return
 		          end
 		          if egsphant.X_Max<= egsphant.X_min or egsphant.Z_max<=egsphant.z_min or egsphant.y_max<=egsphant.y_min Then
-		            MsgBox "Enter proper max and min values!"
+		            MessageBox "Enter proper max and min values!"
 		            Return
 		          end
 		        end
@@ -2255,7 +2255,7 @@ End
 		      end
 		    end
 		  else
-		    MsgBox "EGSPhant name is too long"
+		    MessageBox "EGSPhant name is too long"
 		  end
 		End Sub
 	#tag EndEvent
@@ -2288,7 +2288,7 @@ End
 		Sub Change()
 		  Dim i as Integer
 		  
-		  i=me.ListIndex
+		  i=me.SelectedRowIndex
 		  gDOSXYZ.EGSPhantSettings.CT_model=i
 		  if i>-1 and i<=UBound(gCT.All_CT) Then
 		    EditField_Pegs4.value = gct.All_CT(i).Pegs_file
@@ -2327,9 +2327,9 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if row<=(UBound(egsphant.Voxels)) Then
 		    if column=0 Then
-		      egsphant.Voxels(row).Material=Trim(me.Cell(row,0))
+		      egsphant.Voxels(row).Material=Trim(me.CellValueAt(row,0))
 		    elseif column=7 Then
-		      egsphant.Voxels(row).density=Val(me.Cell(row,7))
+		      egsphant.Voxels(row).density=Val(me.CellValueAt(row,7))
 		    end
 		    egsphant.Update_MaterialsUD
 		    Materials_Listbox

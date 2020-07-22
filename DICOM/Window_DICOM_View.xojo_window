@@ -148,7 +148,7 @@ End
 		  
 		  out.WriteLine "Tag a,Tag b,VR,VM,Info,Value"
 		  for i=0 to Listbox_DICOM.ListCount-1
-		    out.WriteLine Listbox_DICOM.Cell(i,0)+","+Listbox_DICOM.Cell(i,1)+","+Listbox_DICOM.Cell(i,2)+","+Listbox_DICOM.Cell(i,3)+","+Listbox_DICOM.Cell(i,4)+","+Listbox_DICOM.Cell(i,5)
+		    out.WriteLine Listbox_DICOM.CellValueAt(i,0)+","+Listbox_DICOM.CellValueAt(i,1)+","+Listbox_DICOM.CellValueAt(i,2)+","+Listbox_DICOM.CellValueAt(i,3)+","+Listbox_DICOM.CellValueAt(i,4)+","+Listbox_DICOM.CellValueAt(i,5)
 		  Next
 		  
 		  out.Close

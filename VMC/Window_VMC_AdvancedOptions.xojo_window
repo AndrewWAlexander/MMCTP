@@ -2794,8 +2794,8 @@ End
 		  
 		  DoNothing=True
 		  
-		  Listbox_Irregular.Heading(0)="X"
-		  Listbox_Irregular.Heading(1)="Y"
+		  Listbox_Irregular.HeaderAt(0)="X"
+		  Listbox_Irregular.HeaderAt(1)="Y"
 		  Listbox_Irregular.ColumnType(0)=3
 		  Listbox_Irregular.ColumnType(1)=3
 		  
@@ -2919,15 +2919,15 @@ End
 		  
 		  
 		  if vmc_inputfile.PriCharge=-1 Then
-		    PopupMenu_Charge.ListIndex=0
+		    PopupMenu_Charge.SelectedRowIndex=0
 		  elseif vmc_inputfile.PriCharge=0 Then
-		    PopupMenu_Charge.ListIndex=1
+		    PopupMenu_Charge.SelectedRowIndex=1
 		  elseif vmc_inputfile.PriCharge=2 Then
-		    PopupMenu_Charge.ListIndex=2
+		    PopupMenu_Charge.SelectedRowIndex=2
 		  end
 		  
-		  PopupMenu_Write.ListIndex=vmc_inputfile.Write3dDose+2
-		  PopupMenu_Norm.ListIndex=vmc_inputfile.Normtype_1
+		  PopupMenu_Write.SelectedRowIndex=vmc_inputfile.Write3dDose+2
+		  PopupMenu_Norm.SelectedRowIndex=vmc_inputfile.Normtype_1
 		  
 		  if vmc_inputfile.num_histories<0 Then
 		    RadioButton_stat.Value=True
@@ -2943,43 +2943,43 @@ End
 		  end
 		  
 		  if vmc_inputfile.DEVICETYPE=-3 Then
-		    PopupMenu_DeviceType.ListIndex=0 
+		    PopupMenu_DeviceType.SelectedRowIndex=0 
 		  elseif vmc_inputfile.DEVICETYPE=-2 Then
-		    PopupMenu_DeviceType.ListIndex=1
+		    PopupMenu_DeviceType.SelectedRowIndex=1
 		  elseif vmc_inputfile.DEVICETYPE=0 Then
-		    PopupMenu_DeviceType.ListIndex=2
+		    PopupMenu_DeviceType.SelectedRowIndex=2
 		  elseif vmc_inputfile.DEVICETYPE=1 Then
-		    PopupMenu_DeviceType.ListIndex=3
+		    PopupMenu_DeviceType.SelectedRowIndex=3
 		  elseif vmc_inputfile.DEVICETYPE=2 Then
-		    PopupMenu_DeviceType.ListIndex=4
+		    PopupMenu_DeviceType.SelectedRowIndex=4
 		  elseif vmc_inputfile.DEVICETYPE=3 Then
-		    PopupMenu_DeviceType.ListIndex=5
+		    PopupMenu_DeviceType.SelectedRowIndex=5
 		  elseif vmc_inputfile.DEVICETYPE=10 Then
-		    PopupMenu_DeviceType.ListIndex=6
+		    PopupMenu_DeviceType.SelectedRowIndex=6
 		  elseif vmc_inputfile.DEVICETYPE=100 Then
-		    PopupMenu_DeviceType.ListIndex=7
+		    PopupMenu_DeviceType.SelectedRowIndex=7
 		  elseif vmc_inputfile.DEVICETYPE=101 Then
-		    PopupMenu_DeviceType.ListIndex=8
+		    PopupMenu_DeviceType.SelectedRowIndex=8
 		  elseif vmc_inputfile.DEVICETYPE=110 Then
-		    PopupMenu_DeviceType.ListIndex=9
+		    PopupMenu_DeviceType.SelectedRowIndex=9
 		  elseif vmc_inputfile.DEVICETYPE=200 Then
-		    PopupMenu_DeviceType.ListIndex=10
+		    PopupMenu_DeviceType.SelectedRowIndex=10
 		  elseif vmc_inputfile.DEVICETYPE=2001 Then
-		    PopupMenu_DeviceType.ListIndex=11
+		    PopupMenu_DeviceType.SelectedRowIndex=11
 		  elseif vmc_inputfile.DEVICETYPE=202 Then
-		    PopupMenu_DeviceType.ListIndex=12
+		    PopupMenu_DeviceType.SelectedRowIndex=12
 		  elseif vmc_inputfile.DEVICETYPE=2003 Then
-		    PopupMenu_DeviceType.ListIndex=13
+		    PopupMenu_DeviceType.SelectedRowIndex=13
 		  elseif vmc_inputfile.DEVICETYPE=11 Then // Electron beam head
-		    PopupMenu_DeviceType.ListIndex=14
+		    PopupMenu_DeviceType.SelectedRowIndex=14
 		  elseif vmc_inputfile.DEVICETYPE=111 Then // Photon beam head
-		    PopupMenu_DeviceType.ListIndex=15
+		    PopupMenu_DeviceType.SelectedRowIndex=15
 		  end
 		  
 		  Listbox_Irregular.DeleteAllRows
 		  for i=0 to vmc_inputfile.IRREGULAR_Num-1
 		    Listbox_Irregular.AddRow str(vmc_inputfile.IRREGULAR_X(i))
-		    Listbox_Irregular.Cell(i,1)= str(vmc_inputfile.IRREGULAR_y(i))
+		    Listbox_Irregular.CellValueAt(i,1)= str(vmc_inputfile.IRREGULAR_y(i))
 		  next
 		  
 		  
@@ -3048,7 +3048,7 @@ End
 	#tag Event
 		Sub Change()
 		  if DoNothing=False Then
-		    vmc_inputfile.Write3dDose=PopupMenu_Write.ListIndex-2
+		    vmc_inputfile.Write3dDose=PopupMenu_Write.SelectedRowIndex-2
 		  end
 		End Sub
 	#tag EndEvent
@@ -3057,7 +3057,7 @@ End
 	#tag Event
 		Sub Change()
 		  if DoNothing=False Then
-		    vmc_inputfile.Normtype_1=me.ListIndex
+		    vmc_inputfile.Normtype_1=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -3259,38 +3259,38 @@ End
 		Sub Change()
 		  if DoNothing=False Then
 		    
-		    if PopupMenu_DeviceType.ListIndex=0 Then
+		    if PopupMenu_DeviceType.SelectedRowIndex=0 Then
 		      vmc_inputfile.DEVICETYPE=-3 
-		    elseif PopupMenu_DeviceType.ListIndex=1 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=1 Then
 		      vmc_inputfile.DEVICETYPE=-2
-		    elseif PopupMenu_DeviceType.ListIndex=2 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=2 Then
 		      vmc_inputfile.DEVICETYPE=0
-		    elseif PopupMenu_DeviceType.ListIndex=3 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=3 Then
 		      vmc_inputfile.DEVICETYPE=1
-		    elseif PopupMenu_DeviceType.ListIndex=4 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=4 Then
 		      vmc_inputfile.DEVICETYPE=2 
-		    elseif PopupMenu_DeviceType.ListIndex=5 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=5 Then
 		      vmc_inputfile.DEVICETYPE=3 
-		    elseif PopupMenu_DeviceType.ListIndex=6 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=6 Then
 		      vmc_inputfile.DEVICETYPE=10
-		    elseif PopupMenu_DeviceType.ListIndex=7 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=7 Then
 		      vmc_inputfile.DEVICETYPE=100
-		    elseif PopupMenu_DeviceType.ListIndex=8 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=8 Then
 		      vmc_inputfile.DEVICETYPE=101 
-		    elseif PopupMenu_DeviceType.ListIndex= 9 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex= 9 Then
 		      vmc_inputfile.DEVICETYPE=110 
-		    elseif PopupMenu_DeviceType.ListIndex=10 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=10 Then
 		      vmc_inputfile.DEVICETYPE=200
-		    elseif PopupMenu_DeviceType.ListIndex=11 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=11 Then
 		      vmc_inputfile.DEVICETYPE=2001
-		    elseif PopupMenu_DeviceType.ListIndex=12 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=12 Then
 		      vmc_inputfile.DEVICETYPE=202
-		    elseif PopupMenu_DeviceType.ListIndex=13 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=13 Then
 		      vmc_inputfile.DEVICETYPE=2003
-		    elseif PopupMenu_DeviceType.ListIndex=14 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=14 Then
 		      vmc_inputfile.DEVICETYPE=11
 		      // Beam head electron
-		    elseif PopupMenu_DeviceType.ListIndex=15 Then
+		    elseif PopupMenu_DeviceType.SelectedRowIndex=15 Then
 		      vmc_inputfile.DEVICETYPE=111
 		      // Beam head  photon
 		    end
@@ -3309,9 +3309,9 @@ End
 	#tag Event
 		Sub Change()
 		  if DoNothing=False Then
-		    if me.ListIndex=0 Then
+		    if me.SelectedRowIndex=0 Then
 		      vmc_inputfile.PriCharge=-1
-		    elseif me.ListIndex=1 Then
+		    elseif me.SelectedRowIndex=1 Then
 		      vmc_inputfile.PriCharge=0
 		    else
 		      vmc_inputfile.PriCharge=2
@@ -3389,9 +3389,9 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=0 Then
 		    
-		    vmc_inputfile.IRREGULAR_X(row)=val(me.Cell(row,column))
+		    vmc_inputfile.IRREGULAR_X(row)=val(me.CellValueAt(row,column))
 		  else
-		    vmc_inputfile.IRREGULAR_y(row)=val(me.Cell(row,column))
+		    vmc_inputfile.IRREGULAR_y(row)=val(me.CellValueAt(row,column))
 		    
 		    
 		  end

@@ -202,7 +202,7 @@ End
 		    
 		    
 		  else
-		    MsgBox "Error: Picture is Nil"
+		    MessageBox "Error: Picture is Nil"
 		    
 		  end if
 		End Sub
@@ -259,7 +259,7 @@ End
 		    '
 		    
 		  else
-		    MsgBox "Error: Picture is Nil"
+		    MessageBox "Error: Picture is Nil"
 		    
 		  end if
 		End Sub
@@ -322,7 +322,7 @@ End
 		    '
 		    
 		  else
-		    MsgBox "Error: Picture is Nil"
+		    MessageBox "Error: Picture is Nil"
 		    
 		  end if
 		End Sub

@@ -1493,12 +1493,12 @@ End
 		Sub Open()
 		  app.which_window_BEAM_Phsp=True
 		  pop_beam
-		  ListBox_Phspfiles.Heading(0)="File Number"
-		  ListBox_Phspfiles.Heading(1)="Link File (yes/no)"
-		  ListBox_Phspfiles.Heading(2)="File Name"
-		  ListBox_Phspfiles.Heading(3)="Date"
-		  ListBox_Phspfiles.Heading(4)="Time"
-		  ListBox_Phspfiles.Heading(5)="File Size (Bytes)"
+		  ListBox_Phspfiles.HeaderAt(0)="File Number"
+		  ListBox_Phspfiles.HeaderAt(1)="Link File (yes/no)"
+		  ListBox_Phspfiles.HeaderAt(2)="File Name"
+		  ListBox_Phspfiles.HeaderAt(3)="Date"
+		  ListBox_Phspfiles.HeaderAt(4)="Time"
+		  ListBox_Phspfiles.HeaderAt(5)="File Size (Bytes)"
 		  
 		  ListBox_Phspfiles.ColumnWidths="10%,15%,30%,10%,10%,25%"
 		  
@@ -1519,7 +1519,7 @@ End
 		  for i =0 to ListBox_Phspfiles.ListCount-1
 		    
 		    if ListBox_Phspfiles.CellCheck(i,1) then
-		      copy_file=Trim(ListBox_Phspfiles.Cell(i,2))
+		      copy_file=Trim(ListBox_Phspfiles.CellValueAt(i,2))
 		      gBEAM.Beams(beam_index).egs_Phsp_name=copy_file
 		      gBEAM.Beams(beam_index).egs_Phsp_link=True
 		      gBEAM.Beams(beam_index).egs_BEAMnrc_active_jobs=0
@@ -1660,16 +1660,16 @@ End
 		            Date1=Date1+" - " +one_line(gBEAM.cc.shell.listfiles_dateb-1)
 		          end
 		          
-		          ListBox_Phspfiles.Cell(row,3)=Date1
+		          ListBox_Phspfiles.CellValueAt(row,3)=Date1
 		        end
 		        if (gBEAM.cc.shell.listfiles_time-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_time-1)>-1Then
-		          ListBox_Phspfiles.Cell(row,4)=one_line(gBEAM.cc.shell.listfiles_time-1)
+		          ListBox_Phspfiles.CellValueAt(row,4)=one_line(gBEAM.cc.shell.listfiles_time-1)
 		        end
 		        if (gBEAM.cc.shell.listfiles_column_num-1)<=UBound(one_line) and (gBEAM.cc.shell.listfiles_column_num-1)>-1 Then
 		          test=val(one_line(gBEAM.cc.shell.listfiles_column_num-1))
-		          ListBox_Phspfiles.Cell(row,5)=Format(test,"###,###,###,###")
+		          ListBox_Phspfiles.CellValueAt(row,5)=Format(test,"###,###,###,###")
 		        end
-		        ListBox_Phspfiles.Cell(row,2)=one_line(gBEAM.cc.shell.listfiles_name-1)
+		        ListBox_Phspfiles.CellValueAt(row,2)=one_line(gBEAM.cc.shell.listfiles_name-1)
 		      end
 		    next
 		  end
@@ -1697,62 +1697,62 @@ End
 		  //
 		  //
 		  //---------------------------------
-		  Dim i as Integer
-		  Dim sql,name,eng,opening,linac,shell,mode,jaw,mlc,app,wedge as String
-		  Dim rs as RecordSet
-		  Dim bb as Boolean
+		  'Dim i as Integer
+		  'Dim sql,name,eng,opening,linac,shell,mode,jaw,mlc,app,wedge as String
+		  'Dim rs as RecordSet
+		  'Dim bb as Boolean
 		  //---------------------------------
 		  
-		  Listbox_PhaseSpace.DeleteAllRows
+		  Listbox_PhaseSpace.RemoveAllRows
 		  Listbox_PhaseSpace.ColumnCount=10
-		  Listbox_PhaseSpace.Heading(0)="Mode"
-		  Listbox_PhaseSpace.Heading(1)="File Name"
-		  Listbox_PhaseSpace.Heading(2)="Beam Energy"
-		  Listbox_PhaseSpace.Heading(3)="FLEC Opening (x1,x2,y1,y2)"
-		  Listbox_PhaseSpace.Heading(4)="Linac Name"
-		  Listbox_PhaseSpace.Heading(5)="Shell"
-		  Listbox_PhaseSpace.Heading(6)="Jaw Opening (x1,x2,y1,y2)"
-		  Listbox_PhaseSpace.Heading(7)="WEDGE"
-		  Listbox_PhaseSpace.Heading(8)="APPLICATOR"
-		  Listbox_PhaseSpace.Heading(9)="MLC Opening"
+		  Listbox_PhaseSpace.HeaderAt(0)="Mode"
+		  Listbox_PhaseSpace.HeaderAt(1)="File Name"
+		  Listbox_PhaseSpace.HeaderAt(2)="Beam Energy"
+		  Listbox_PhaseSpace.HeaderAt(3)="FLEC Opening (x1,x2,y1,y2)"
+		  Listbox_PhaseSpace.HeaderAt(4)="Linac Name"
+		  Listbox_PhaseSpace.HeaderAt(5)="Shell"
+		  Listbox_PhaseSpace.HeaderAt(6)="Jaw Opening (x1,x2,y1,y2)"
+		  Listbox_PhaseSpace.HeaderAt(7)="WEDGE"
+		  Listbox_PhaseSpace.HeaderAt(8)="APPLICATOR"
+		  Listbox_PhaseSpace.HeaderAt(9)="MLC Opening"
 		  
 		  Listbox_PhaseSpace.ColumnWidths="10%,20%,10%,20%,20%,10%,20%,10%,10%,50%"
 		  
-		  sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
+		  Var sql as String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		  + "LinacName,Shell,JawOpening,MLCOpening,WEDGE,APP from PhaseSpaces"
 		  
-		  if gBEAM.PhaseSpace.Connect Then
-		    rs=gBEAM.PhaseSpace.SQLSelect(sql)
-		    if rs=nil Then
-		      Return
-		    end
-		    While not rs.eof 
-		      name=rs.Field("FileName").StringValue
-		      eng=rs.Field("BeamEnergy").StringValue
-		      opening=rs.Field("FLECOpening").StringValue
-		      linac=rs.Field("LinacName").StringValue
-		      shell=rs.Field("Shell").StringValue
-		      mode=rs.Field("BeamMode").StringValue
-		      jaw=rs.Field("JawOpening").StringValue
-		      mlc=rs.Field("MLCOpening").StringValue
-		      wedge=rs.Field("WEDGE").StringValue
-		      app=rs.Field("APP").StringValue
+		  If gBEAM.PhaseSpace.Connect Then
+		    
+		    Var rs As RowSet = gBEAM.PhaseSpace.SelectSQL(sql)
+		    
+		    If rs = Nil Then
 		      
-		      if InStr(mode+" "+jaw+" "+name+" "+eng+" "+opening+" "+linac+" "+Shell,EditField_Filter.Text)>0 or EditField_Filter.value = "" Then
-		        Listbox_PhaseSpace.AddRow mode
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,1)=name
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,2)=eng
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,3) =opening
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,4) =linac
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,5)=Shell
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,6)=jaw
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,7)=wedge
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,8)=App
-		        Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.LastIndex,9)=mlc
-		      end
-		      rs.MoveNext
+		      Return
+		      
+		    End
+		    
+		    While Not rs.AfterLastRow
+		       
+		      Var name As String = rs.Column("FileName").StringValue
+		      Var eng As String = rs.Column("BeamEnergy").StringValue
+		      Var opening As String = rs.Column("FLECOpening").StringValue
+		      Var linac As String = rs.Column("LinacName").StringValue
+		      Var shell As String = rs.Column("Shell").StringValue
+		      Var mode As String = rs.Column("BeamMode").StringValue
+		      Var jaw As String = rs.Column("JawOpening").StringValue
+		      Var mlc As String = rs.Column("MLCOpening").StringValue
+		      Var wedge As String = rs.Column("WEDGE").StringValue
+		      Var app As String = rs.Column("APP").StringValue
+		      
+		      If InStr(mode+" "+jaw+" "+name+" "+eng+" "+opening+" "+linac+" "+Shell,EditField_Filter.Text)>0 Or EditField_Filter.value = "" Then
+		        
+		        Listbox_PhaseSpace.AddRow( mode, name, eng, opening, linac, Shell, _
+		        jaw, wedge, App, mlc)
+		      End
+		      rs.MoveToNextRow
 		    Wend
 		    rs.Close
-		  end
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -1832,50 +1832,90 @@ End
 		  //----------------------------------
 		  // Update database
 		  //----------------------------------
-		  dim resultd as Integer
-		  dim sql as String
-		  dim dr as  DatabaseRecord
-		  dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		  dim rs as RecordSet
-		  dim i as Integer
+		  'dim resultd as Integer
+		  'dim sql as String
+		  'dim dr as  DatabaseRecord
+		  'dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  'dim rs as RecordSet
+		  'dim i as Integer
 		  //----------------------------------
 		  
 		  
 		  Select Case hitItem.Text
 		  Case  "Delete Record"
 		    
-		    resultd=MsgBox("Do you want to remove this record?",36)
 		    
-		    // Remove RecordSet
-		    if resultd=6 Then
-		      db= new SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		      db=gBEAM.PhaseSpace
-		      if db.Connect Then
-		        sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell,JawOpening,MLCOpening from PhaseSpaces"
-		        rs=db.SQLSelect(sql)
-		        While not rs.EOF
-		          if rs.Field("BeamMode").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,0) and _
-		            rs.Field("FileName").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,1) and _
-		            rs.Field("BeamEnergy").IntegerValue=val(Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,2)) and _
-		            rs.Field("FLECOpening").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,3) and _
-		            rs.Field("LinacName").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,4) and _
-		            rs.Field("Shell").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,5) and _
-		            rs.Field("JawOpening").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,6) and _
-		            rs.Field("MLCOpening").StringValue=Listbox_PhaseSpace.Cell(Listbox_PhaseSpace.ListIndex,7) Then
-		            if rs<> nil Then
-		              rs.DeleteRecord
-		              if db.Error=False Then
-		                db.Commit
-		              end
-		            end
-		          end
-		          rs.MoveNext
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't delete"
+		    d.Message = "Do you want to delete this record?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      
+		      Var db As SQLiteDatabase = gBEAM.PhaseSpace
+		      If db.Connect Then
+		        Var sql as String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		        + "LinacName,Shell,JawOpening,MLCOpening from PhaseSpaces"
+		        
+		        Var rs As RowSet = db.SelectSQL(sql)
+		        
+		        While Not rs.AfterLastRow
+		          
+		          If rs.Column("BeamMode").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,0) And _
+		            rs.Column("FileName").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,1) And _
+		            rs.Column("BeamEnergy").IntegerValue = _
+		            Val(Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,2)) And _
+		            rs.Column("FLECOpening").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,3) And _
+		            rs.Column("LinacName").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,4) And _
+		            rs.Column("Shell").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,5) And _
+		            rs.Column("JawOpening").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,6) And _
+		            rs.Column("MLCOpening").StringValue = _
+		            Listbox_PhaseSpace.CellValueAt(Listbox_PhaseSpace.SelectedRowIndex,7) Then
+		            
+		            If rs<> Nil Then
+		              Try
+		                
+		                rs.RemoveRow
+		                db.CommitTransaction
+		                
+		              Catch error As IOException
+		                
+		                MessageBox(error.Message)
+		                
+		              End Try
+		            End If
+		          End
+		          rs.MoveToNextRow
 		        Wend
-		      end
-		    end
-		    db.Close
-		    Update_PhaseSpace
-		  end
+		        db.Close
+		        Update_PhaseSpace
+		        
+		        
+		      End If
+		      
+		      
+		      
+		      // user pressed Save
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    
+		  End Select
 		  Return True
 		End Function
 	#tag EndEvent
@@ -1886,53 +1926,55 @@ End
 		  //----------------------------------
 		  // Update database
 		  //----------------------------------
-		  dim dr as  DatabaseRecord
-		  dim f as FolderItem
-		  dim i as Integer
-		  dim ss,sql,r1,r2 as String
-		  dim tt,record_found as Boolean
-		  dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
-		  dim rs as RecordSet
+		  'dim dr as  DatabaseRecord
+		  'dim f as FolderItem
+		  'dim i as Integer
+		  'dim ss,sql,r1,r2 as String
+		  'dim tt,record_found as Boolean
+		  'dim db as SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  'dim rs as RecordSet
 		  //----------------------------------
 		  
-		  r1=EditField_PhSr1.Text
-		  r2=EditField_PhSr2.Text
+		  Var r1 As String = EditField_PhSr1.Text
+		  Var r2 As String = EditField_PhSr2.Text
 		  
 		  
 		  
-		  db= new SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
+		  Var db As New SQLiteDatabase
 		  
-		  f=gPref.BEAMnrc_fi.Child("PhaseSpace.rsd")
-		  db.DatabaseFile=f
+		  db.DatabaseFile = gPref.BEAMnrc_fi.Child("PhaseSpace.rsd") //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
 		  
-		  if db.Connect  Then
-		    dr = new DatabaseRecord
+		  If db.Connect  Then
 		    
-		    sql="select BeamMode,FileName,BeamEnergy,FLECOpening,LinacName,Shell from PhaseSpaces"
-		    rs=db.SQLSelect(sql)
+		    Var dr As New DatabaseRow
 		    
-		    While not rs.EOF
-		      if rs.Field("LinacName").StringValue=r1 Then
-		        rs.Edit
-		        rs.Field("LinacName").StringValue=r2
-		        rs.Update
+		    Var sql As String = "select BeamMode,FileName,BeamEnergy,FLECOpening," _
+		    + "LinacName,Shell from PhaseSpaces"
+		    Var rs As RowSet = db.SelectSQL(sql)
+		    
+		    While Not rs.AfterLastRow
+		      
+		      If rs.Column("LinacName").StringValue = r1 Then
+		        rs.EditRow
+		        rs.Column("LinacName").StringValue = r2
+		        rs.SaveRow
 		        
 		        
-		        //rs.Field("BeamMode").StringValue="FLEC" and _
-		        //rs.Field("BeamEnergy").IntegerValue=val(bb.Beam_Energy) and _
-		        //rs.Field("FLECOpening").StringValue=ss and _
+		        //rs.Column("BeamMode").StringValue="FLEC" and _
+		        //rs.Column("BeamEnergy").IntegerValue=val(bb.Beam_Energy) and _
+		        //rs.Column("FLECOpening").StringValue=ss and _
 		        
-		        //rs.Field("FileName").StringValue+".egsphsp1"
-		        //rs.Field("Shell").StringValue
-		        
-		        
+		        //rs.Column("FileName").StringValue+".egsphsp1"
+		        //rs.Column("Shell").StringValue
 		        
 		        
-		      end
-		      rs.MoveNext
+		        
+		        
+		      End
+		      rs.MoveToNextRow
 		    Wend
 		    rs.Close
-		  end
+		  End
 		  
 		  db.Close
 		  Update_PhaseSpace

@@ -534,18 +534,36 @@ End
 #tag WindowCode
 	#tag Event
 		Function CancelClose(appQuitting as Boolean) As Boolean
-		  Dim i as Integer
 		  
-		  if AddDose.State<>4 Then
+		  If AddDose.State <> 4 Then
 		    
-		    i=MsgBox("Stop adddose process and close window (yes/no)?",4)
-		    if i=6 Then
+		    
+		    Var d As New MessageDialog
+		    Var b As MessageDialogButton
+		    d.Message = "Stop adddose process and close window? "
+		    d.IconType = MessageDialog.IconTypes.Caution
+		    d.ActionButton.Caption = "Yes"
+		    d.CancelButton.Visible = True
+		    d.AlternateActionButton.Visible = False
+		    d.CancelButton.Visible = True
+		    d.CancelButton.Caption = "No"
+		    
+		    b=d.ShowModal
+		    Select Case b
+		    Case d.ActionButton
+		      
 		      AddDose.Kill
 		      Return False
-		    else
+		      
+		    Case d.AlternateActionButton
+		      
+		      
+		    Case d.CancelButton
 		      Return True
-		    end
-		  end
+		      
+		    End Select
+		    
+		  End If
 		End Function
 	#tag EndEvent
 
@@ -572,8 +590,8 @@ End
 		  ListBox_Dose.DeleteAllRows
 		  
 		  ListBox_Dose.ColumnCount=4
-		  ListBox_Dose.Heading(0)="Dose Distribution"
-		  ListBox_Dose.Heading(1)="Add (yes/no)"
+		  ListBox_Dose.HeaderAt(0)="Dose Distribution"
+		  ListBox_Dose.HeaderAt(1)="Add (yes/no)"
 		  ListBox_Dose.ColumnWidths="80%,20%"
 		  row=-1
 		  
@@ -582,8 +600,8 @@ End
 		      row=row+1
 		      ListBox_Dose.AddRow gRTOG.Plan(j).Dose(a).dose_name
 		      ListBox_Dose.CellType(row,1)=2
-		      ListBox_Dose.Cell(row,2)=str(j)
-		      ListBox_Dose.Cell(row,3)=str(a)
+		      ListBox_Dose.CellValueAt(row,2)=str(j)
+		      ListBox_Dose.CellValueAt(row,3)=str(a)
 		    next
 		  next
 		  
@@ -694,8 +712,8 @@ End
 		  
 		  for a=0 to ListBox_Dose.ListCount-1
 		    if ListBox_Dose.CellCheck(a,1) then
-		      AddDose.plan.Append val(ListBox_Dose.Cell(a,2))
-		      AddDose.dosenum.Append val(ListBox_Dose.Cell(a,3))
+		      AddDose.plan.Append val(ListBox_Dose.CellValueAt(a,2))
+		      AddDose.dosenum.Append val(ListBox_Dose.CellValueAt(a,3))
 		    end
 		  next
 		  

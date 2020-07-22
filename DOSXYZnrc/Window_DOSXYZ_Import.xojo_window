@@ -1455,15 +1455,15 @@ End
 #tag Events PopupMenu_x_3ddose
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    EditField_X_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_X+X_off,"-#.#####")
 		    
-		  elseif me.ListIndex=1 Then
+		  elseif me.SelectedRowIndex=1 Then
 		    EditField_X_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_y+X_off,"-#.#####")
 		    
-		  elseif me.ListIndex=2 Then
+		  elseif me.SelectedRowIndex=2 Then
 		    EditField_X_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_z+X_off,"-#.#####")
 		    
@@ -1476,15 +1476,15 @@ End
 		Sub TextChange()
 		  X_off=Val(me.Text)
 		  
-		  if PopupMenu_x_3ddose.ListIndex=0 Then
+		  if PopupMenu_x_3ddose.SelectedRowIndex=0 Then
 		    EditField_X_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_X+X_off,"-#.#####")
 		    
-		  elseif PopupMenu_x_3ddose.ListIndex=1 Then
+		  elseif PopupMenu_x_3ddose.SelectedRowIndex=1 Then
 		    EditField_X_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_y+X_off,"-#.#####")
 		    
-		  elseif PopupMenu_x_3ddose.ListIndex=2 Then
+		  elseif PopupMenu_x_3ddose.SelectedRowIndex=2 Then
 		    EditField_X_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_X_coord.value = Format(dddose.Coord_z+X_off,"-#.#####")
 		    
@@ -1497,15 +1497,15 @@ End
 		Sub TextChange()
 		  Y_off=val(me.Text)
 		  
-		  if PopupMenu_y_3ddose.ListIndex=0 Then
+		  if PopupMenu_y_3ddose.SelectedRowIndex=0 Then
 		    EditField_y_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_y_coord.value = Format(dddose.Coord_X+y_off,"-#.#####")
 		    
-		  elseif PopupMenu_y_3ddose.ListIndex=1 Then
+		  elseif PopupMenu_y_3ddose.SelectedRowIndex=1 Then
 		    EditField_y_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_y_coord.value = Format(dddose.Coord_y+y_off,"-#.#####")
 		    
-		  elseif PopupMenu_y_3ddose.ListIndex=2 Then
+		  elseif PopupMenu_y_3ddose.SelectedRowIndex=2 Then
 		    EditField_y_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_y_coord.value = Format(dddose.Coord_z+y_off,"-#.#####")
 		    
@@ -1516,13 +1516,13 @@ End
 #tag Events PopupMenu_y_3ddose
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    EditField_y_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_Y_coord.value = Format(dddose.Coord_x+Y_off,"-#.###")
-		  elseif me.ListIndex=1 Then
+		  elseif me.SelectedRowIndex=1 Then
 		    EditField_y_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_Y_coord.value = Format(dddose.Coord_y+Y_off,"-#.###")
-		  elseif me.ListIndex=2 Then
+		  elseif me.SelectedRowIndex=2 Then
 		    EditField_y_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_Y_coord.value = Format(dddose.Coord_z+Y_off,"-#.###")
 		  end
@@ -1534,15 +1534,15 @@ End
 		Sub TextChange()
 		  Z_off=val(me.Text)
 		  
-		  if PopupMenu_z_3ddose.ListIndex=0 Then
+		  if PopupMenu_z_3ddose.SelectedRowIndex=0 Then
 		    EditField_z_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_X+z_off,"-#.#####")
 		    
-		  elseif PopupMenu_z_3ddose.ListIndex=1 Then
+		  elseif PopupMenu_z_3ddose.SelectedRowIndex=1 Then
 		    EditField_z_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_y+z_off,"-#.#####")
 		    
-		  elseif PopupMenu_z_3ddose.ListIndex=2 Then
+		  elseif PopupMenu_z_3ddose.SelectedRowIndex=2 Then
 		    EditField_z_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_z+z_off,"-#.#####")
 		    
@@ -1553,15 +1553,15 @@ End
 #tag Events PopupMenu_z_3ddose
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    EditField_z_Grid.value = Format(dddose.dx,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_x+z_off,"-#.###")
 		    
-		  elseif me.ListIndex=1 Then
+		  elseif me.SelectedRowIndex=1 Then
 		    EditField_z_Grid.value = Format(dddose.dy,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_y+z_off,"-#.###")
 		    
-		  elseif me.ListIndex=2 Then
+		  elseif me.SelectedRowIndex=2 Then
 		    EditField_z_Grid.value = Format(dddose.dz,"-#.#####")
 		    EditField_z_coord.value = Format(dddose.Coord_z+z_off,"-#.###")
 		    
@@ -1582,9 +1582,9 @@ End
 		  //------------------------------------
 		  
 		  
-		  if PopupMenu_x_3ddose.ListIndex<>PopupMenu_y_3ddose.ListIndex and _ 
-		    PopupMenu_x_3ddose.ListIndex<>PopupMenu_z_3ddose.ListIndex and _ 
-		    PopupMenu_y_3ddose.ListIndex<>PopupMenu_z_3ddose.ListIndex then
+		  if PopupMenu_x_3ddose.SelectedRowIndex<>PopupMenu_y_3ddose.SelectedRowIndex and _ 
+		    PopupMenu_x_3ddose.SelectedRowIndex<>PopupMenu_z_3ddose.SelectedRowIndex and _ 
+		    PopupMenu_y_3ddose.SelectedRowIndex<>PopupMenu_z_3ddose.SelectedRowIndex then
 		    
 		    norm=100/val(EditField_Dose_Norm.Text)
 		    
@@ -1594,45 +1594,45 @@ End
 		    
 		    
 		    // Determine which is the Z axis
-		    if PopupMenu_z_3ddose.ListIndex=0 Then
+		    if PopupMenu_z_3ddose.SelectedRowIndex=0 Then
 		      mcgill_dose.Size_of_Dimension3=dddose.Nx
 		      mcgill_dose.Depth_Grid=dddose.dx
 		      mcgill_dose.Coord_3_1st_point=dddose.boundaryX(0)+mcgill_dose.Depth_Grid/2+z_off
-		    elseif PopupMenu_z_3ddose.ListIndex=1 Then
+		    elseif PopupMenu_z_3ddose.SelectedRowIndex=1 Then
 		      mcgill_dose.Size_of_Dimension3=dddose.Ny
 		      mcgill_dose.Depth_Grid=dddose.dy
 		      mcgill_dose.Coord_3_1st_point=dddose.boundaryy(0)+mcgill_dose.Depth_Grid/2+z_off
-		    elseif PopupMenu_z_3ddose.ListIndex=2 Then
+		    elseif PopupMenu_z_3ddose.SelectedRowIndex=2 Then
 		      mcgill_dose.Size_of_Dimension3=dddose.Nz
 		      mcgill_dose.Depth_Grid=dddose.dz
 		      mcgill_dose.Coord_3_1st_point=dddose.boundaryz(0)+mcgill_dose.Depth_Grid/2+z_off
 		    end
 		    
 		    // Determine which is the X axis
-		    if PopupMenu_x_3ddose.ListIndex=0 Then
+		    if PopupMenu_x_3ddose.SelectedRowIndex=0 Then
 		      mcgill_dose.Size_of_Dimension1=dddose.Nx
 		      mcgill_dose.Horizontal_Grid=dddose.dx
 		      mcgill_dose.Coord_1_1st_point=dddose.boundaryX(0)+mcgill_dose.Horizontal_Grid/2+x_off
-		    elseif PopupMenu_x_3ddose.ListIndex=1 Then
+		    elseif PopupMenu_x_3ddose.SelectedRowIndex=1 Then
 		      mcgill_dose.Size_of_Dimension1=dddose.Ny
 		      mcgill_dose.Horizontal_Grid=dddose.dy
 		      mcgill_dose.Coord_1_1st_point=dddose.boundaryy(0)+mcgill_dose.Horizontal_Grid/2+x_off
-		    elseif PopupMenu_x_3ddose.ListIndex=2 Then
+		    elseif PopupMenu_x_3ddose.SelectedRowIndex=2 Then
 		      mcgill_dose.Size_of_Dimension1=dddose.Nz
 		      mcgill_dose.Horizontal_Grid=dddose.dz
 		      mcgill_dose.Coord_1_1st_point=dddose.boundaryz(0)+mcgill_dose.Horizontal_Grid/2+x_off
 		    end
 		    
 		    // Determine which is the Y axis
-		    if PopupMenu_y_3ddose.ListIndex=0 Then
+		    if PopupMenu_y_3ddose.SelectedRowIndex=0 Then
 		      mcgill_dose.Size_of_Dimension2=dddose.Nx
 		      mcgill_dose.Vertical_Grid=dddose.dx
 		      mcgill_dose.Coord_2_1st_point=dddose.boundaryX(0)+mcgill_dose.Vertical_Grid/2+y_off
-		    elseif PopupMenu_y_3ddose.ListIndex=1 Then
+		    elseif PopupMenu_y_3ddose.SelectedRowIndex=1 Then
 		      mcgill_dose.Size_of_Dimension2=dddose.Ny
 		      mcgill_dose.Vertical_Grid=dddose.dy
 		      mcgill_dose.Coord_2_1st_point=dddose.boundaryy(0)+mcgill_dose.Vertical_Grid/2+y_off
-		    elseif PopupMenu_y_3ddose.ListIndex=2 Then
+		    elseif PopupMenu_y_3ddose.SelectedRowIndex=2 Then
 		      mcgill_dose.Size_of_Dimension2=dddose.Nz
 		      mcgill_dose.Vertical_Grid=dddose.dz
 		      mcgill_dose.Coord_2_1st_point=dddose.boundaryz(0)+mcgill_dose.Vertical_Grid/2+y_off
@@ -1662,33 +1662,33 @@ End
 		        for j=0 to mcgill_dose.Size_of_Dimension2-1
 		          
 		          // Determine which 3ddose axis is correct
-		          if PopupMenu_z_3ddose.ListIndex=0 Then
-		            if PopupMenu_x_3ddose.ListIndex=1 Then
-		              if PopupMenu_y_3ddose.ListIndex=2 Then
+		          if PopupMenu_z_3ddose.SelectedRowIndex=0 Then
+		            if PopupMenu_x_3ddose.SelectedRowIndex=1 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=2 Then
 		                value=dddose.dose(k,i,j)
 		              end
-		            elseif PopupMenu_x_3ddose.ListIndex=2 Then
-		              if PopupMenu_y_3ddose.ListIndex=1 Then
+		            elseif PopupMenu_x_3ddose.SelectedRowIndex=2 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=1 Then
 		                value=dddose.dose(k,j,i)
 		              end
 		            end
-		          elseif PopupMenu_z_3ddose.ListIndex=1 Then
-		            if PopupMenu_x_3ddose.ListIndex=0 Then
-		              if PopupMenu_y_3ddose.ListIndex=2 Then
+		          elseif PopupMenu_z_3ddose.SelectedRowIndex=1 Then
+		            if PopupMenu_x_3ddose.SelectedRowIndex=0 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=2 Then
 		                value=dddose.dose(i,k,j)
 		              end
-		            elseif PopupMenu_x_3ddose.ListIndex=2 Then
-		              if PopupMenu_y_3ddose.ListIndex=0 Then
+		            elseif PopupMenu_x_3ddose.SelectedRowIndex=2 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=0 Then
 		                value=dddose.dose(j,k,i)
 		              end
 		            end
-		          elseif PopupMenu_z_3ddose.ListIndex=2 Then
-		            if PopupMenu_x_3ddose.ListIndex=0 Then
-		              if PopupMenu_y_3ddose.ListIndex=1 Then
+		          elseif PopupMenu_z_3ddose.SelectedRowIndex=2 Then
+		            if PopupMenu_x_3ddose.SelectedRowIndex=0 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=1 Then
 		                value=dddose.dose(i,j,k)
 		              end
-		            elseif PopupMenu_x_3ddose.ListIndex=1 Then
-		              if PopupMenu_y_3ddose.ListIndex=0 Then
+		            elseif PopupMenu_x_3ddose.SelectedRowIndex=1 Then
+		              if PopupMenu_y_3ddose.SelectedRowIndex=0 Then
 		                value=dddose.dose(j,i,k)
 		              end
 		            end

@@ -238,10 +238,10 @@ End
 		  
 		  
 		  if Window_BEAM_MainInputs.BEAM.IRRLTT>0 Then
-		    PopupMenu1.ListIndex=1
+		    PopupMenu1.SelectedRowIndex=1
 		    
 		  else
-		    PopupMenu1.ListIndex=0
+		    PopupMenu1.SelectedRowIndex=0
 		  end
 		End Sub
 	#tag EndMethod
@@ -264,7 +264,7 @@ End
 #tag Events PushButton1
 	#tag Event
 		Sub Action()
-		  if PopupMenu1.ListIndex=0 Then
+		  if PopupMenu1.SelectedRowIndex=0 Then
 		    
 		    Window_BEAM_MainInputs.BEAM.IRRLTT=0
 		    

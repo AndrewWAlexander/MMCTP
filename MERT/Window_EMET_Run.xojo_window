@@ -8272,11 +8272,11 @@ End
 		  //---------------------------------
 		  
 		  Listbox_Optimization_Results.DeleteAllRows
-		  Listbox_Optimization_Results.Heading(0)="Energy"
-		  Listbox_Optimization_Results.Heading(1)="Gantry"
-		  Listbox_Optimization_Results.Heading(2)="Iso"
-		  Listbox_Optimization_Results.Heading(3)="Mode"
-		  Listbox_Optimization_Results.Heading(4)="Weight"
+		  Listbox_Optimization_Results.HeaderAt(0)="Energy"
+		  Listbox_Optimization_Results.HeaderAt(1)="Gantry"
+		  Listbox_Optimization_Results.HeaderAt(2)="Iso"
+		  Listbox_Optimization_Results.HeaderAt(3)="Mode"
+		  Listbox_Optimization_Results.HeaderAt(4)="Weight"
 		  
 		  line=""
 		  pb_count=0
@@ -8302,25 +8302,25 @@ End
 		                            cc=cc+1
 		                            
 		                            Listbox_Optimization_Results.AddRow gOpt.IPbeams(i).Energy
-		                            Listbox_Optimization_Results.Cell(cc,1)=Format(gOpt.IPbeams(i).Gantry_Angle,"-#.##")
-		                            Listbox_Optimization_Results.Cell(cc,2)=Format(gopt.IPbeams(i).Iso_X,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_Y,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_Z,"-#.##")
-		                            Listbox_Optimization_Results.Cell(cc,3)=gOpt.IPbeams(i).Mode
+		                            Listbox_Optimization_Results.CellValueAt(cc,1)=Format(gOpt.IPbeams(i).Gantry_Angle,"-#.##")
+		                            Listbox_Optimization_Results.CellValueAt(cc,2)=Format(gopt.IPbeams(i).Iso_X,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_Y,"-#.##")+", "+Format(gopt.IPbeams(i).Iso_Z,"-#.##")
+		                            Listbox_Optimization_Results.CellValueAt(cc,3)=gOpt.IPbeams(i).Mode
 		                            
 		                            if RadioButton_Map_Grad_W.Value Then
-		                              Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).Weight_Grad,"-#.###")
+		                              Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).Weight_Grad,"-#.###")
 		                            elseif  RadioButton_MAP_Grad_MU.Value Then
-		                              Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).MUs_Grad,"-#.###")
+		                              Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).MUs_Grad,"-#.###")
 		                            elseif  RadioButton_MAP_SAJAW_W.Value Then
-		                              Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).Weight_JAW,"-#.###")
+		                              Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).Weight_JAW,"-#.###")
 		                            elseif  RadioButton_MAP_SA_W.Value Then
-		                              Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).Weight_SA,"-#.###")
+		                              Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).Weight_SA,"-#.###")
 		                            elseif  RadioButton_MAP_SA_MU.Value Then
-		                              Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).MUs_SA,"-#.###")
+		                              Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).MUs_SA,"-#.###")
 		                            elseif  RadioButton_MAP_NLO.Value Then
 		                              if gOpt.IPbeams(i).Weight_NLO>0.001 Then
-		                                Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).Weight_NLO,"-#.###")
+		                                Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).Weight_NLO,"-#.###")
 		                              else
-		                                Listbox_Optimization_Results.Cell(cc,4)=Format(gOpt.IPbeams(i).Weight_NLO,"-#.###e")
+		                                Listbox_Optimization_Results.CellValueAt(cc,4)=Format(gOpt.IPbeams(i).Weight_NLO,"-#.###e")
 		                              end
 		                            end
 		                            
@@ -8731,26 +8731,26 @@ End
 	#tag Method, Flags = &h0
 		Sub Update_GradDVH_Status()
 		  if gOpt.Grad.Running Then
-		    Listbox_GradDVH_Status.Cell(0,1)="Running"
+		    Listbox_GradDVH_Status.CellValueAt(0,1)="Running"
 		  else
-		    Listbox_GradDVH_Status.Cell(0,1)="Stopped"
+		    Listbox_GradDVH_Status.CellValueAt(0,1)="Stopped"
 		  end
 		  
-		  Listbox_GradDVH_Status.Cell(1,1)=gOpt.Grad.Submit_Date
-		  Listbox_GradDVH_Status.Cell(2,1)=gOpt.Grad.Time
-		  Listbox_GradDVH_Status.Cell(3,1)=Format(gOpt.Grad.Score,"0.000000e")
-		  Listbox_GradDVH_Status.Cell(4,1)=Format(gOpt.Grad.Score_Inti,"0.000000e")
-		  Listbox_GradDVH_Status.Cell(5,1)=Format(gOpt.Grad.Score_Previous,"0.000000e")
-		  Listbox_GradDVH_Status.Cell(6,1)=str(gOpt.Grad.dvh_bin)
-		  Listbox_GradDVH_Status.Cell(7,1)=Format(gOpt.Grad.Iterations,"#")
-		  Listbox_GradDVH_Status.Cell(8,1)=str(gOpt.Grad.stepsize)
-		  Listbox_GradDVH_Status.Cell(9,1)=str(gOpt.Grad.Grow)
-		  Listbox_GradDVH_Status.Cell(10,1)=str(gOpt.Grad.Shrink)
-		  Listbox_GradDVH_Status.Cell(11,1)=str(gOpt.Grad.Min_W)
-		  Listbox_GradDVH_Status.Cell(12,1)=str(gOpt.Grad.Max_W)
+		  Listbox_GradDVH_Status.CellValueAt(1,1)=gOpt.Grad.Submit_Date
+		  Listbox_GradDVH_Status.CellValueAt(2,1)=gOpt.Grad.Time
+		  Listbox_GradDVH_Status.CellValueAt(3,1)=Format(gOpt.Grad.Score,"0.000000e")
+		  Listbox_GradDVH_Status.CellValueAt(4,1)=Format(gOpt.Grad.Score_Inti,"0.000000e")
+		  Listbox_GradDVH_Status.CellValueAt(5,1)=Format(gOpt.Grad.Score_Previous,"0.000000e")
+		  Listbox_GradDVH_Status.CellValueAt(6,1)=str(gOpt.Grad.dvh_bin)
+		  Listbox_GradDVH_Status.CellValueAt(7,1)=Format(gOpt.Grad.Iterations,"#")
+		  Listbox_GradDVH_Status.CellValueAt(8,1)=str(gOpt.Grad.stepsize)
+		  Listbox_GradDVH_Status.CellValueAt(9,1)=str(gOpt.Grad.Grow)
+		  Listbox_GradDVH_Status.CellValueAt(10,1)=str(gOpt.Grad.Shrink)
+		  Listbox_GradDVH_Status.CellValueAt(11,1)=str(gOpt.Grad.Min_W)
+		  Listbox_GradDVH_Status.CellValueAt(12,1)=str(gOpt.Grad.Max_W)
 		  Listbox_GradDVH_Status.CellCheck(13,0)=gOpt.Grad.NormDD
 		  Listbox_GradDVH_Status.CellCheck(14,0)=gOpt.Grad.WriteDose
-		  Listbox_GradDVH_Status.Cell(14,1)=gOpt.Grad.DoseOutputName
+		  Listbox_GradDVH_Status.CellValueAt(14,1)=gOpt.Grad.DoseOutputName
 		  Window_EMET_Run.EditField_Grad_Weight_Value.value = str(gOpt.Grad.Init_Weight)
 		End Sub
 	#tag EndMethod
@@ -8816,48 +8816,48 @@ End
 		      j=j+1
 		      
 		      if i>-1 and i<=UBound(gOpt.IPbeams) and j>=0 and j<=Listbox_DOSE.ListCount Then
-		        Listbox_DOSE.Cell(j,1)=gOpt.IPbeams(i).FIdID_Name 
+		        Listbox_DOSE.CellValueAt(j,1)=gOpt.IPbeams(i).FIdID_Name 
 		        
-		        Listbox_DOSE.Cell(j,2)=Format(gopt.IPbeams(i).Weight_Grad,"#.#####")
-		        Listbox_DOSE.Cell(j,3)=Format(gopt.IPbeams(i).MUs_Grad,"-#")
+		        Listbox_DOSE.CellValueAt(j,2)=Format(gopt.IPbeams(i).Weight_Grad,"#.#####")
+		        Listbox_DOSE.CellValueAt(j,3)=Format(gopt.IPbeams(i).MUs_Grad,"-#")
 		        
-		        Listbox_DOSE.Cell(j,4)=Format(gopt.IPbeams(i).Weight_SA,"#.#####")
-		        Listbox_DOSE.Cell(j,5)=Format(gopt.IPbeams(i).MUs_SA,"-#")
+		        Listbox_DOSE.CellValueAt(j,4)=Format(gopt.IPbeams(i).Weight_SA,"#.#####")
+		        Listbox_DOSE.CellValueAt(j,5)=Format(gopt.IPbeams(i).MUs_SA,"-#")
 		        
-		        Listbox_DOSE.Cell(j,6)=Format(gopt.IPbeams(i).Weight_JAW,"#.#####")
-		        Listbox_DOSE.Cell(j,7)=Format(gopt.IPbeams(i).MUs_Jaw,"-#")
+		        Listbox_DOSE.CellValueAt(j,6)=Format(gopt.IPbeams(i).Weight_JAW,"#.#####")
+		        Listbox_DOSE.CellValueAt(j,7)=Format(gopt.IPbeams(i).MUs_Jaw,"-#")
 		        
-		        Listbox_DOSE.Cell(j,19)=Format(gopt.IPbeams(i).Weight_NLO,"#.#####")
+		        Listbox_DOSE.CellValueAt(j,19)=Format(gopt.IPbeams(i).Weight_NLO,"#.#####")
 		        
 		        // Energy
-		        Listbox_DOSE.Cell(j,8)=gOpt.ipbeams(i).energy
+		        Listbox_DOSE.CellValueAt(j,8)=gOpt.ipbeams(i).energy
 		        
 		        //Opening 
-		        Listbox_DOSE.Cell(j,9)=Format(gopt.IPbeams(i).x1,"-#.##")+", "+Format(gopt.IPbeams(i).x2,"-#.##")+", "+Format(gopt.IPbeams(i).y1,"-#.##")+", "+Format(gopt.IPbeams(i).y2,"-#.##")
+		        Listbox_DOSE.CellValueAt(j,9)=Format(gopt.IPbeams(i).x1,"-#.##")+", "+Format(gopt.IPbeams(i).x2,"-#.##")+", "+Format(gopt.IPbeams(i).y1,"-#.##")+", "+Format(gopt.IPbeams(i).y2,"-#.##")
 		        
-		        Listbox_DOSE.Cell(j,10)=Format(gopt.IPbeams(i).Norm_Value,"-#.##e")
+		        Listbox_DOSE.CellValueAt(j,10)=Format(gopt.IPbeams(i).Norm_Value,"-#.##e")
 		        
 		        Listbox_DOSE.CellType(j,1)=2
 		        if gopt.IPbeams(i).Use Then
 		          Listbox_DOSE.CellCheck(j,1)=True
-		          Listbox_DOSE.Cell(j,0)=Format(gopt.IPbeams(i).PB_Index,"-0000")
+		          Listbox_DOSE.CellValueAt(j,0)=Format(gopt.IPbeams(i).PB_Index,"-0000")
 		        end
 		        
 		        // Pencil beam index Number
-		        Listbox_DOSE.cell(j,11)=str(gopt.IPbeams(i).PB_Index)
+		        Listbox_DOSE.CellValueAt(j,11)=str(gopt.IPbeams(i).PB_Index)
 		        
 		        // Place the opt.Beam Index
-		        Listbox_DOSE.cell(j,12)=str(i)
-		        Listbox_DOSE.Cell(j,13)=Format(gopt.IPbeams(i).RTOG_Beam,"-0000")
-		        Listbox_DOSE.Cell(j,14)=Format(gopt.IPbeams(i).Gantry_Angle,"-#.##")
-		        Listbox_DOSE.Cell(j,15)=Format(gopt.IPbeams(i).Iso_X,"-#.##")
-		        Listbox_DOSE.Cell(j,16)=Format(gopt.IPbeams(i).Iso_Y,"-#.##")
-		        Listbox_DOSE.Cell(j,17)=Format(gopt.IPbeams(i).Iso_z,"-#.##")
-		        Listbox_DOSE.Cell(j,18)=gopt.IPbeams(i).Mode
+		        Listbox_DOSE.CellValueAt(j,12)=str(i)
+		        Listbox_DOSE.CellValueAt(j,13)=Format(gopt.IPbeams(i).RTOG_Beam,"-0000")
+		        Listbox_DOSE.CellValueAt(j,14)=Format(gopt.IPbeams(i).Gantry_Angle,"-#.##")
+		        Listbox_DOSE.CellValueAt(j,15)=Format(gopt.IPbeams(i).Iso_X,"-#.##")
+		        Listbox_DOSE.CellValueAt(j,16)=Format(gopt.IPbeams(i).Iso_Y,"-#.##")
+		        Listbox_DOSE.CellValueAt(j,17)=Format(gopt.IPbeams(i).Iso_z,"-#.##")
+		        Listbox_DOSE.CellValueAt(j,18)=gopt.IPbeams(i).Mode
 		        
 		        // Update dose volume stats for each ROI and Target volume
 		        for k=0 to UBound(gOpt.IPbeams(i).VolumeStats)
-		          Listbox_DOSE.Cell(j,20+k)=Format(gopt.IPbeams(i).VolumeStats(k).minDose,"-#.##")+", "+Format(gopt.IPbeams(i).VolumeStats(k).maxDose,"-#.##")+", "+Format(gopt.IPbeams(i).VolumeStats(k).AvgDose,"-#.##")
+		          Listbox_DOSE.CellValueAt(j,20+k)=Format(gopt.IPbeams(i).VolumeStats(k).minDose,"-#.##")+", "+Format(gopt.IPbeams(i).VolumeStats(k).maxDose,"-#.##")+", "+Format(gopt.IPbeams(i).VolumeStats(k).AvgDose,"-#.##")
 		        Next
 		      end
 		    end
@@ -8878,12 +8878,12 @@ End
 		  
 		  
 		  Listbox_Score.ColumnCount=6
-		  Listbox_Score.Heading(0)="Organ"
-		  Listbox_Score.Heading(1)="Parameters"
-		  Listbox_Score.Heading(2)="GradDVH Value"
-		  Listbox_Score.Heading(3)="SADVH Value"
-		  Listbox_Score.Heading(4)="NLO Value"
-		  Listbox_Score.Heading(5)="DJAW Value"
+		  Listbox_Score.HeaderAt(0)="Organ"
+		  Listbox_Score.HeaderAt(1)="Parameters"
+		  Listbox_Score.HeaderAt(2)="GradDVH Value"
+		  Listbox_Score.HeaderAt(3)="SADVH Value"
+		  Listbox_Score.HeaderAt(4)="NLO Value"
+		  Listbox_Score.HeaderAt(5)="DJAW Value"
 		  Listbox_Score.DeleteAllRows
 		  
 		  if gOpt.Grad.GradOArray=nil or gOpt.SA.SAOArray=nil or gOpt.NLO.s=nil or gOpt.JAW.S=nil  Then
@@ -8896,10 +8896,10 @@ End
 		  rrindex=rrindex+1
 		  // Current score
 		  Listbox_Score.AddRow "Total Score"
-		  Listbox_Score.Cell(rrindex,2)=Format(gOpt.Grad.Score,"-#.###e")
-		  Listbox_Score.Cell(rrindex,3)=Format(gOpt.SA.Score,"-#.###e")
-		  Listbox_Score.Cell(rrindex,4)=Format(gOpt.NLO.Score,"-#.###e")
-		  Listbox_Score.Cell(rrindex,5)=Format(gOpt.JAW.Score,"-#.###e")
+		  Listbox_Score.CellValueAt(rrindex,2)=Format(gOpt.Grad.Score,"-#.###e")
+		  Listbox_Score.CellValueAt(rrindex,3)=Format(gOpt.SA.Score,"-#.###e")
+		  Listbox_Score.CellValueAt(rrindex,4)=Format(gOpt.NLO.Score,"-#.###e")
+		  Listbox_Score.CellValueAt(rrindex,5)=Format(gOpt.JAW.Score,"-#.###e")
 		  
 		  
 		  
@@ -8961,40 +8961,40 @@ End
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Wanted minimum dose"
+		        Listbox_Score.CellValueAt(rrindex,1)="Wanted minimum dose"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Actual minimum dose"
+		        Listbox_Score.CellValueAt(rrindex,1)="Actual minimum dose"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Minimum dose score"
+		        Listbox_Score.CellValueAt(rrindex,1)="Minimum dose score"
 		        
 		        
 		        if InStr(ssvalue,"GR")>0 Then
 		          temp=NthField(ssvalue,"GR",2)
-		          Listbox_Score.Cell(rrindex-2,2)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,2)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,2)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,2)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,2)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,2)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"SA")>0 Then
 		          temp=NthField(ssvalue,"SA",2)
-		          Listbox_Score.Cell(rrindex-2,3)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,3)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,3)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,3)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,3)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,3)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"NL")>0 Then
 		          temp=NthField(ssvalue,"NL",2)
-		          Listbox_Score.Cell(rrindex-2,4)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,4)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,4)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,4)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,4)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,4)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"DJ")>0 Then
 		          temp=NthField(ssvalue,"DJ",2)
-		          Listbox_Score.Cell(rrindex-2,5)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,5)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,5)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,5)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,5)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,5)=NthField(temp,",",2)
 		          
 		        end
 		        
@@ -9054,40 +9054,40 @@ End
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Wanted maximum dose"
+		        Listbox_Score.CellValueAt(rrindex,1)="Wanted maximum dose"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Actual maximum dose"
+		        Listbox_Score.CellValueAt(rrindex,1)="Actual maximum dose"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Maximum dose score"
+		        Listbox_Score.CellValueAt(rrindex,1)="Maximum dose score"
 		        
 		        
 		        if InStr(ssvalue,"GR")>0 Then
 		          temp=NthField(ssvalue,"GR",2)
-		          Listbox_Score.Cell(rrindex-2,2)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,2)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,2)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,2)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,2)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,2)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"SA")>0 Then
 		          temp=NthField(ssvalue,"SA",2)
-		          Listbox_Score.Cell(rrindex-2,3)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,3)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,3)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,3)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,3)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,3)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"NL")>0 Then
 		          temp=NthField(ssvalue,"NL",2)
-		          Listbox_Score.Cell(rrindex-2,4)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,4)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,4)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,4)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,4)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,4)=NthField(temp,",",2)
 		        end
 		        if InStr(ssvalue,"DJ")>0 Then
 		          temp=NthField(ssvalue,"DJ",2)
-		          Listbox_Score.Cell(rrindex-2,5)=d.Key(k)
-		          Listbox_Score.Cell(rrindex-1,5)=NthField(temp,",",1)
-		          Listbox_Score.Cell(rrindex,5)=NthField(temp,",",2)
+		          Listbox_Score.CellValueAt(rrindex-2,5)=d.Key(k)
+		          Listbox_Score.CellValueAt(rrindex-1,5)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex,5)=NthField(temp,",",2)
 		          
 		        end
 		        
@@ -9155,40 +9155,40 @@ End
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Dose"
+		        Listbox_Score.CellValueAt(rrindex,1)="Dose"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Volume"
+		        Listbox_Score.CellValueAt(rrindex,1)="Volume"
 		        
 		        rrindex=rrindex+1
 		        Listbox_Score.AddRow grtog.Structures.Structures(i).Structure_Name
-		        Listbox_Score.Cell(rrindex,1)="Actual score"
+		        Listbox_Score.CellValueAt(rrindex,1)="Actual score"
 		        
 		        
 		        if InStr(ssvalue,"GR")>0 Then
 		          temp=NthField(ssvalue,"GR",2)
-		          Listbox_Score.Cell(rrindex-2,2)=NthField(NthField(d.Key(k),"D",2),"V",1)
-		          Listbox_Score.Cell(rrindex-1,2)=NthField(d.Key(k),"<",2)
-		          Listbox_Score.Cell(rrindex,2)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex-2,2)=NthField(NthField(d.Key(k),"D",2),"V",1)
+		          Listbox_Score.CellValueAt(rrindex-1,2)=NthField(d.Key(k),"<",2)
+		          Listbox_Score.CellValueAt(rrindex,2)=NthField(temp,",",1)
 		        end
 		        if InStr(ssvalue,"SA")>0 Then
 		          temp=NthField(ssvalue,"SA",2)
-		          Listbox_Score.Cell(rrindex-2,3)=NthField(NthField(d.Key(k),"D",2),"V",1)
-		          Listbox_Score.Cell(rrindex-1,3)=NthField(d.Key(k),"<",2)
-		          Listbox_Score.Cell(rrindex,3)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex-2,3)=NthField(NthField(d.Key(k),"D",2),"V",1)
+		          Listbox_Score.CellValueAt(rrindex-1,3)=NthField(d.Key(k),"<",2)
+		          Listbox_Score.CellValueAt(rrindex,3)=NthField(temp,",",1)
 		        end
 		        if InStr(ssvalue,"NL")>0 Then
 		          temp=NthField(ssvalue,"NL",2)
-		          Listbox_Score.Cell(rrindex-2,4)=NthField(NthField(d.Key(k),"D",2),"V",1)
-		          Listbox_Score.Cell(rrindex-1,4)=NthField(d.Key(k),"<",2)
-		          Listbox_Score.Cell(rrindex,4)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex-2,4)=NthField(NthField(d.Key(k),"D",2),"V",1)
+		          Listbox_Score.CellValueAt(rrindex-1,4)=NthField(d.Key(k),"<",2)
+		          Listbox_Score.CellValueAt(rrindex,4)=NthField(temp,",",1)
 		        end
 		        if InStr(ssvalue,"DJ")>0 Then
 		          temp=NthField(ssvalue,"DJ",2)
-		          Listbox_Score.Cell(rrindex-2,5)=NthField(NthField(d.Key(k),"D",2),"V",1)
-		          Listbox_Score.Cell(rrindex-1,5)=NthField(d.Key(k),"<",2)
-		          Listbox_Score.Cell(rrindex,5)=NthField(temp,",",1)
+		          Listbox_Score.CellValueAt(rrindex-2,5)=NthField(NthField(d.Key(k),"D",2),"V",1)
+		          Listbox_Score.CellValueAt(rrindex-1,5)=NthField(d.Key(k),"<",2)
+		          Listbox_Score.CellValueAt(rrindex,5)=NthField(temp,",",1)
 		        end
 		      Next
 		    end
@@ -9200,24 +9200,24 @@ End
 		Sub Update_NLO_Status()
 		  
 		  if gOpt.NLO.Running Then
-		    Listbox_NLO_Status.Cell(0,1)="Running"
+		    Listbox_NLO_Status.CellValueAt(0,1)="Running"
 		  else
-		    Listbox_NLO_Status.Cell(0,1)="Stopped"
+		    Listbox_NLO_Status.CellValueAt(0,1)="Stopped"
 		  end
 		  
-		  Listbox_NLO_Status.Cell(1,1)=gOpt.NLO.Submit_Date
-		  Listbox_NLO_Status.Cell(2,1)=gOpt.NLO.Time
-		  Listbox_NLO_Status.Cell(3,1)=Format(gOpt.NLO.Score,"0.000000e")
-		  Listbox_NLO_Status.Cell(4,1)=Format(gOpt.NLO.Score_Initial,"0.000000e")
-		  Listbox_NLO_Status.Cell(5,1)=Format(gOpt.NLO.Score_Previous,"0.000000e")
+		  Listbox_NLO_Status.CellValueAt(1,1)=gOpt.NLO.Submit_Date
+		  Listbox_NLO_Status.CellValueAt(2,1)=gOpt.NLO.Time
+		  Listbox_NLO_Status.CellValueAt(3,1)=Format(gOpt.NLO.Score,"0.000000e")
+		  Listbox_NLO_Status.CellValueAt(4,1)=Format(gOpt.NLO.Score_Initial,"0.000000e")
+		  Listbox_NLO_Status.CellValueAt(5,1)=Format(gOpt.NLO.Score_Previous,"0.000000e")
 		  
-		  Listbox_NLO_Status.Cell(6,1)=str(gOpt.NLO.dvh_bin)
-		  Listbox_NLO_Status.Cell(7,1)=Format(gOpt.NLO.Iterations,"#")
-		  Listbox_NLO_Status.Cell(8,1)=str(gOpt.NLO.Min_W)
-		  Listbox_NLO_Status.Cell(9,1)=str(gOpt.NLO.Max_W)
+		  Listbox_NLO_Status.CellValueAt(6,1)=str(gOpt.NLO.dvh_bin)
+		  Listbox_NLO_Status.CellValueAt(7,1)=Format(gOpt.NLO.Iterations,"#")
+		  Listbox_NLO_Status.CellValueAt(8,1)=str(gOpt.NLO.Min_W)
+		  Listbox_NLO_Status.CellValueAt(9,1)=str(gOpt.NLO.Max_W)
 		  Listbox_NLO_Status.CellCheck(10,0)=gOpt.NLO.NormDD
 		  Listbox_NLO_Status.CellCheck(11,0)=gOpt.NLO.WriteDose
-		  Listbox_NLO_Status.Cell(11,1)=gOpt.NLO.OutputName
+		  Listbox_NLO_Status.CellValueAt(11,1)=gOpt.NLO.OutputName
 		  
 		  
 		  
@@ -9286,7 +9286,7 @@ End
 		    pp.Colour=grtog.Structures.Structures(i).scolor
 		    DVHGraph.Profiles.One_Profile.Append pp
 		  next
-		  PopupMenu_DVH.listIndex=0
+		  PopupMenu_DVH.SelectedRowIndex=0
 		  
 		  
 		  //------------------------------Beam Settings--------------------------------
@@ -9297,30 +9297,30 @@ End
 		  Next
 		  temp="10%,30%,10%,10%,10%,10%,10%,10%,10%,20%,10%,0%,0%,10%,10%,10%,10%,10%,10%,10%"
 		  Listbox_DOSE.columnwidths=Temp+temp2
-		  Listbox_DOSE.Heading(0)="PB Num"
-		  Listbox_DOSE.Heading(1)="Doses and PB"
-		  Listbox_DOSE.Heading(2)="GradDVH"
+		  Listbox_DOSE.HeaderAt(0)="PB Num"
+		  Listbox_DOSE.HeaderAt(1)="Doses and PB"
+		  Listbox_DOSE.HeaderAt(2)="GradDVH"
 		  Listbox_DOSE.ColumnType(2)=3
-		  Listbox_DOSE.Heading(3)="MU-Grad"
-		  Listbox_DOSE.Heading(4)="SADVH"
-		  Listbox_DOSE.Heading(5)="MU-SA"
-		  Listbox_DOSE.Heading(6)="JAWDVH"
-		  Listbox_DOSE.Heading(7)="MU-JAW"
-		  Listbox_DOSE.Heading(8)="Energy"
-		  Listbox_DOSE.Heading(9)="Opening"
-		  Listbox_DOSE.Heading(10)="Norm"
-		  Listbox_DOSE.Heading(11)="Pencil beam index"
-		  Listbox_DOSE.Heading(12)="opt.Beam Index"
-		  Listbox_DOSE.Heading(13)="Beam #"
-		  Listbox_DOSE.Heading(14)="Gantry"
-		  Listbox_DOSE.Heading(15)="Iso X"
-		  Listbox_DOSE.Heading(16)="Iso Y"
-		  Listbox_DOSE.Heading(17)="Iso Z"
-		  Listbox_DOSE.Heading(18)="Mode"
-		  Listbox_DOSE.Heading(19)="NLO"
+		  Listbox_DOSE.HeaderAt(3)="MU-Grad"
+		  Listbox_DOSE.HeaderAt(4)="SADVH"
+		  Listbox_DOSE.HeaderAt(5)="MU-SA"
+		  Listbox_DOSE.HeaderAt(6)="JAWDVH"
+		  Listbox_DOSE.HeaderAt(7)="MU-JAW"
+		  Listbox_DOSE.HeaderAt(8)="Energy"
+		  Listbox_DOSE.HeaderAt(9)="Opening"
+		  Listbox_DOSE.HeaderAt(10)="Norm"
+		  Listbox_DOSE.HeaderAt(11)="Pencil beam index"
+		  Listbox_DOSE.HeaderAt(12)="opt.Beam Index"
+		  Listbox_DOSE.HeaderAt(13)="Beam #"
+		  Listbox_DOSE.HeaderAt(14)="Gantry"
+		  Listbox_DOSE.HeaderAt(15)="Iso X"
+		  Listbox_DOSE.HeaderAt(16)="Iso Y"
+		  Listbox_DOSE.HeaderAt(17)="Iso Z"
+		  Listbox_DOSE.HeaderAt(18)="Mode"
+		  Listbox_DOSE.HeaderAt(19)="NLO"
 		  
 		  for i=0 to UBound(gOpt.Plan.Structure_Dose)
-		    Listbox_DOSE.Heading(19+(i+1))=gOpt.Plan.Structure_Dose(i).Organ_Name
+		    Listbox_DOSE.HeaderAt(19+(i+1))=gOpt.Plan.Structure_Dose(i).Organ_Name
 		  next
 		  
 		  //-----------------------------------------------------
@@ -9437,7 +9437,7 @@ End
 		    PopupMenu_Beam_EGSPhant.AddRow DMXName(i)
 		  Next
 		  
-		  PopupMenu_Beam_EGSPhant.ListIndex=0
+		  PopupMenu_Beam_EGSPhant.SelectedRowIndex=0
 		  
 		  //---------------------------------DVH Settings--------------------------------
 		  DVH_Default_SettingsGraphs
@@ -9775,8 +9775,8 @@ End
 #tag Events Listbox_GradDVH_Status
 	#tag Event
 		Sub Open()
-		  me.Heading(0)="Metric"
-		  me.Heading(1)="Results"
+		  me.HeaderAt(0)="Metric"
+		  me.HeaderAt(1)="Results"
 		  
 		  me.AddRow "Status"
 		  me.AddRow "Time submitted"
@@ -9807,7 +9807,7 @@ End
 		  
 		  me.AddRow "Normalize dose distributions"
 		  me.CellType(13,0)=2
-		  me.Cell(13,1)="Yes/No"
+		  me.CellValueAt(13,1)="Yes/No"
 		  
 		  
 		  me.AddRow "Sum final dose distributions label"
@@ -9820,13 +9820,13 @@ End
 		  Dim i as Boolean
 		  
 		  
-		  gOpt.Grad.Iterations=val(me.Cell(7,1))
-		  gOpt.Grad.stepsize=val(me.Cell(8,1))
-		  gOpt.Grad.Grow=val(me.Cell(9,1))
-		  gOpt.Grad.Shrink=val(me.Cell(10,1))
-		  gOpt.Grad.Min_W=val(me.Cell(11,1))
-		  gOpt.Grad.Max_W=val(me.Cell(12,1))
-		  gOpt.Grad.DoseOutputName=Trim(me.Cell(14,1))
+		  gOpt.Grad.Iterations=val(me.CellValueAt(7,1))
+		  gOpt.Grad.stepsize=val(me.CellValueAt(8,1))
+		  gOpt.Grad.Grow=val(me.CellValueAt(9,1))
+		  gOpt.Grad.Shrink=val(me.CellValueAt(10,1))
+		  gOpt.Grad.Min_W=val(me.CellValueAt(11,1))
+		  gOpt.Grad.Max_W=val(me.CellValueAt(12,1))
+		  gOpt.Grad.DoseOutputName=Trim(me.CellValueAt(14,1))
 		  i=gOpt.Grad.Write_GradDVH_Input
 		  
 		  
@@ -9900,9 +9900,9 @@ End
 		  'Dim i as Integer
 		  'Dim DVH as Class_DVH_One
 		  '
-		  'if PopupMenu_DVH.text<>"ALL" and  me.ListIndex >-1 then
-		  'DVHGraph.Interactive_index=me.ListIndex-1
-		  'DVH_index=me.ListIndex-1
+		  'if PopupMenu_DVH.text<>"ALL" and  me.SelectedRowIndex >-1 then
+		  'DVHGraph.Interactive_index=me.SelectedRowIndex-1
+		  'DVH_index=me.SelectedRowIndex-1
 		  'DVHGraph.Interactive=True
 		  'DVH=gopt.Oarray.organ(DVH_index).DVH
 		  'StaticText_DVH_Stat.value = "Max dose : "+Format(dvh.maxdose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Min dose : "+Format(dvh.mindose,"-#.#####e")+" "+dvh.Dose_Units+" "+"Avg dose : "+Format(dvh.avgdose,"-#.#####e")+" "+dvh.Dose_Units
@@ -10127,14 +10127,14 @@ End
 		Sub CellAction(row As Integer, column As Integer)
 		  Dim beamindex,i as Integer
 		  
-		  beamindex=val(me.Cell(row,12))
+		  beamindex=val(me.CellValueAt(row,12))
 		  if beamindex>-1 and beamindex<= UBound(gopt.IPbeams) Then
 		    if column=1 Then
 		      gopt.IPbeams(beamindex).Use=me.CellCheck(row,column)
 		      Update_PB_Use
 		    ElseIf column=2 Then
 		      // Update Grad weights
-		      gopt.IPbeams(beamindex).Weight_Grad=Val(me.Cell(row,column))
+		      gopt.IPbeams(beamindex).Weight_Grad=Val(me.CellValueAt(row,column))
 		    end
 		  end
 		End Sub
@@ -10164,13 +10164,13 @@ End
 		  Case "Check Dose"
 		    For i=0 to me.ListCount
 		      if me.Selected(i) Then
-		        do_index=val(me.cell(i,12))
+		        do_index=val(me.CellValueAt(i,12))
 		        gOpt.IPbeams(do_index).Use=True
 		      end
 		    Next
 		  Case "Uncheck Dose"
 		    if me.Selected(i) Then
-		      do_index=val(me.cell(i,12))
+		      do_index=val(me.CellValueAt(i,12))
 		      gOpt.IPbeams(do_index).Use=False
 		    end
 		  end
@@ -10217,8 +10217,8 @@ End
 #tag Events Listbox_NLO_Status
 	#tag Event
 		Sub Open()
-		  me.Heading(0)="Metric"
-		  me.Heading(1)="Results"
+		  me.HeaderAt(0)="Metric"
+		  me.HeaderAt(1)="Results"
 		  
 		  me.AddRow "Status"
 		  me.AddRow "Time submitted"
@@ -10240,7 +10240,7 @@ End
 		  
 		  me.AddRow "Normalize dose distributions"
 		  me.CellType(10,0)=2
-		  me.Cell(10,1)="Yes/No"
+		  me.CellValueAt(10,1)="Yes/No"
 		  
 		  
 		  me.AddRow "Sum final dose distributions label"
@@ -10265,10 +10265,10 @@ End
 		  Dim i as Boolean
 		  
 		  
-		  gOpt.NLO.Iterations=val(me.Cell(7,1))
-		  gOpt.NLO.Min_W=val(me.Cell(8,1))
-		  gOpt.NLO.Max_W=val(me.Cell(9,1))
-		  gOpt.NLO.OutputName=Trim(me.Cell(10,1))
+		  gOpt.NLO.Iterations=val(me.CellValueAt(7,1))
+		  gOpt.NLO.Min_W=val(me.CellValueAt(8,1))
+		  gOpt.NLO.Max_W=val(me.CellValueAt(9,1))
+		  gOpt.NLO.OutputName=Trim(me.CellValueAt(10,1))
 		  i=gOpt.nlo.Write_NLO_Input
 		  
 		  

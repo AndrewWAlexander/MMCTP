@@ -124,7 +124,7 @@ Protected Class RTOG_Beam_Geometry
 		  
 		  
 		  if ((StartPos<-20) or (StartPos>10) or (EndPos<-20) or (EndPos>10)) Then
-		    MsgBox("Try again, Jaw Positions exceed limits (-20;10)")
+		    MessageBox("Try again, Jaw Positions exceed limits (-20;10)")
 		    Return
 		  end
 		  

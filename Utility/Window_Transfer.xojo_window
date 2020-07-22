@@ -492,9 +492,9 @@ End
 		  
 		  Window_Transfer.ListBox_import.columncount=3
 		  Window_Transfer.ListBox_import.columnwidths="32.5%,32.5% , 35%,"
-		  Window_Transfer.ListBox_import.heading(0)= "Last"
-		  Window_Transfer.ListBox_import.heading(1)= "First"
-		  Window_Transfer.ListBox_import.heading(2)= "Patient ID"
+		  Window_Transfer.ListBox_import.HeaderAt(0)= "Last"
+		  Window_Transfer.ListBox_import.HeaderAt(1)= "First"
+		  Window_Transfer.ListBox_import.HeaderAt(2)= "Patient ID"
 		  
 		  
 		  PW_Title="Scanning CADPLAN folder..."
@@ -521,9 +521,9 @@ End
 		      
 		      //show in the listbox the ID and patient name
 		      ListBox_import.addrow NthField(patientname,"^",1)'1st name
-		      ListBox_import.cell(thisrow,1)=NthField(patientname,"^",2)'last name
-		      ListBox_import.cell(thisrow,2) = left(ID,7)
-		      ListBox_import.cell(thisrow,3) = ID
+		      ListBox_import.CellValueAt(thisrow,1)=NthField(patientname,"^",2)'last name
+		      ListBox_import.CellValueAt(thisrow,2) = left(ID,7)
+		      ListBox_import.CellValueAt(thisrow,3) = ID
 		      
 		      
 		      
@@ -544,13 +544,13 @@ End
 		  Window_Transfer.ListBox_import.DeleteAllRows
 		  Window_Transfer.ListBox_import.columncount=2
 		  Window_Transfer.ListBox_import.columnwidths="65%,35%,"
-		  Window_Transfer.ListBox_import.heading(0)= "Patient name"
-		  Window_Transfer.ListBox_import.heading(1)= "Patient ID"
+		  Window_Transfer.ListBox_import.HeaderAt(0)= "Patient name"
+		  Window_Transfer.ListBox_import.HeaderAt(1)= "Patient ID"
 		  
 		  
 		  for i=0 to UBound(DICOM_P)
 		    Window_Transfer.ListBox_import.AddRow NthField(DICOM_P(i),"%%",1)
-		    Window_Transfer.ListBox_import.Cell(i,1) =NthField(DICOM_P(i),"%%",2)
+		    Window_Transfer.ListBox_import.CellValueAt(i,1) =NthField(DICOM_P(i),"%%",2)
 		  Next
 		  
 		  UpdateDICOM=False
@@ -619,8 +619,8 @@ End
 		  u=CountFields(name_id,",")
 		  For i=1 to u
 		    ListBox_Mcgill.addfolder ""
-		    ListBox_Mcgill.cell(i-1,1)=NthField(datasets,";",i)
-		    ListBox_Mcgill.cell(i-1,0)=NthField(NthField(name_id,",",i),String_Separate,1) +" "+NthField(NthField(name_id,",",i),String_Separate,2)+ " " +NthField(NthField(name_id,",",i),String_Separate,3)
+		    ListBox_Mcgill.CellValueAt(i-1,1)=NthField(datasets,";",i)
+		    ListBox_Mcgill.CellValueAt(i-1,0)=NthField(NthField(name_id,",",i),String_Separate,1) +" "+NthField(NthField(name_id,",",i),String_Separate,2)+ " " +NthField(NthField(name_id,",",i),String_Separate,3)
 		  Next
 		  ListBox_Mcgill.ColumnCount=1
 		  ListBox_Mcgill.hierarchical=true
@@ -645,8 +645,8 @@ End
 		  g=gPref.rtogfi
 		  Window_Transfer.ListBox_import.columncount=2
 		  Window_Transfer.ListBox_import.columnwidths="50%,50%,"
-		  Window_Transfer.ListBox_import.heading(0)= "Last Name"
-		  Window_Transfer.ListBox_import.heading(1)= "First Name"
+		  Window_Transfer.ListBox_import.HeaderAt(0)= "Last Name"
+		  Window_Transfer.ListBox_import.HeaderAt(1)= "First Name"
 		  
 		  row=-1
 		  for i = 1 to g.count
@@ -659,7 +659,7 @@ End
 		          row=row+1
 		          temp2=Trim(NthField(Temp,":=",2))
 		          Window_Transfer.ListBox_import.addrow Trim(NthField(temp2,",",1))
-		          Window_Transfer.ListBox_import.cell(row,1)= Trim(NthField(temp2,",",2))
+		          Window_Transfer.ListBox_import.CellValueAt(row,1)= Trim(NthField(temp2,",",2))
 		          exit
 		        end
 		      wend
@@ -724,23 +724,24 @@ End
 #tag Events ListBox_Mcgill
 	#tag Event
 		Sub DoubleClick()
-		  Me.expanded(Me.listindex)=Not Me.expanded(Me.listindex)
+		  Me.expanded(Me.SelectedRowIndex)=Not Me.expanded(Me.SelectedRowIndex)
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub ExpandRow(row As Integer)
-		  Dim s1 as String
-		  Dim i,u as Integer
-		  Dim b as Boolean
-		  Dim g as Graphics
+		  'Dim s1 as String
+		  'Dim i,u as Integer
+		  'Dim b as Boolean
+		  'Dim g as Graphics
 		  
-		  s1=me.cell(row,1)
-		  u=CountFields(s1,",")
+		  Var s1 As String = Me.CellValueAt(row,1)
+		  Var u As Integer = CountFields(s1,",")
 		  
 		  
-		  For i=1 to u
+		  For i As Integer = 1 To u
+		    
 		    Me.addrow ""
-		    Me.cell(me.lastIndex,0)=NthField(s1,",",i)
+		    Me.CellValueAt(Me.LastRowIndex,0) = NthField(s1,",",i)
 		    
 		  Next
 		End Sub
@@ -749,7 +750,7 @@ End
 		Sub CollapseRow(row As Integer)
 		  Dim i,j,u,NSubRows as Integer
 		  
-		  NSubRows=CountFields(Me.cell(row,1),",")
+		  NSubRows=CountFields(Me.CellValueAt(row,1),",")
 		  u=row+1
 		  
 		  For i=row+NSubRows downto u
@@ -900,8 +901,8 @@ End
 		      DICOM = New Thread_DICOM_Object
 		      DICOM.File= New Class_DICOM_File
 		      
-		      Var id_string As String = ListBox_import.cell(ListBox_import.SelectedRowIndex, 1)
-		      Var fname As String = ListBox_import.cell(ListBox_import.SelectedRowIndex, 0)
+		      Var id_string As String = ListBox_import.CellValueAt(ListBox_import.SelectedRowIndex, 1)
+		      Var fname As String = ListBox_import.CellValueAt(ListBox_import.SelectedRowIndex, 0)
 		      DICOM.Import_ID = id_string
 		      DICOM.Import_Name = fname
 		      Dicom.TaskNum = 1

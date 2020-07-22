@@ -1263,12 +1263,12 @@ End
 		  
 		  
 		  
-		  Listbox_MC_DOSMat.Heading(0)="Material"
-		  Listbox_MC_DOSMat.Heading(1)="Density"
+		  Listbox_MC_DOSMat.HeaderAt(0)="Material"
+		  Listbox_MC_DOSMat.HeaderAt(1)="Density"
 		  
 		  if gDOSXYZ<> nil Then
 		    Listbox_MC_DOS_Egsphant.DeleteAllRows
-		    Listbox_MC_DOS_Egsphant.Heading(0)="Properties"
+		    Listbox_MC_DOS_Egsphant.HeaderAt(0)="Properties"
 		    Listbox_MC_DOS_Egsphant.AddRow "EGSPhant Name"
 		    Listbox_MC_DOS_Egsphant.AddRow "CT Ramp Index"
 		    Listbox_MC_DOS_Egsphant.AddRow "Outside Material"
@@ -1341,25 +1341,25 @@ End
 		  ss="33%"
 		  Listbox_MC_DOS_Egsphant.ColumnCount=UBound(gDOSXYZ.Auto_EGSPhantSettings)+2
 		  for i=0 to UBound(gDOSXYZ.Auto_EGSPhantSettings)
-		    Listbox_MC_DOS_Egsphant.Cell(0,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Name
+		    Listbox_MC_DOS_Egsphant.CellValueAt(0,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Name
 		    Listbox_MC_DOS_Egsphant.CellType(0,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(1,i+1)= str(gDOSXYZ.Auto_EGSPhantSettings(i).CT_model+1)
+		    Listbox_MC_DOS_Egsphant.CellValueAt(1,i+1)= str(gDOSXYZ.Auto_EGSPhantSettings(i).CT_model+1)
 		    Listbox_MC_DOS_Egsphant.CellType(1,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(2,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Clean_material
+		    Listbox_MC_DOS_Egsphant.CellValueAt(2,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Clean_material
 		    Listbox_MC_DOS_Egsphant.CellType(2,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(3,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Cleancontour_Name
+		    Listbox_MC_DOS_Egsphant.CellValueAt(3,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Cleancontour_Name
 		    Listbox_MC_DOS_Egsphant.CellType(3,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(4,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_X,"-#.####")
+		    Listbox_MC_DOS_Egsphant.CellValueAt(4,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_X,"-#.####")
 		    Listbox_MC_DOS_Egsphant.CellType(4,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(5,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_Y,"-#.####")
+		    Listbox_MC_DOS_Egsphant.CellValueAt(5,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_Y,"-#.####")
 		    Listbox_MC_DOS_Egsphant.CellType(5,i+1)=3
 		    
-		    Listbox_MC_DOS_Egsphant.Cell(6,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_Z,"-#.####")
+		    Listbox_MC_DOS_Egsphant.CellValueAt(6,i+1)= Format(gDOSXYZ.Auto_EGSPhantSettings(i).Del_Z,"-#.####")
 		    Listbox_MC_DOS_Egsphant.CellType(6,i+1)=3
 		    
 		    Listbox_MC_DOS_Egsphant.CellCheck(7,i+1)= gDOSXYZ.Auto_EGSPhantSettings(i).Auto_Make
@@ -1380,7 +1380,7 @@ End
 		  
 		  for i=0 to UBound(gDOSXYZ.dosxyz_materials)
 		    Listbox_MC_DOSMat.AddRow gDOSXYZ.dosxyz_materials(i).Material_Name
-		    Listbox_MC_DOSMat.Cell(i,1) =str(gDOSXYZ.dosxyz_materials(i).Material_Density)
+		    Listbox_MC_DOSMat.CellValueAt(i,1) =str(gDOSXYZ.dosxyz_materials(i).Material_Density)
 		    
 		    if i>0 Then
 		      Listbox_MC_DOSMat.CellType(i,0)=3
@@ -1527,22 +1527,22 @@ End
 		    if column-1>=0 and column-1<=UBound(gDOSXYZ.Auto_EGSPhantSettings) Then
 		      
 		      if row=0 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Name=Trim(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Name=Trim(me.CellValueAt(row,column))
 		      elseif row=1 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).CT_model=val(me.Cell(row,column))-1
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).CT_model=val(me.CellValueAt(row,column))-1
 		        
 		      elseif row=2 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Clean_material=Trim(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Clean_material=Trim(me.CellValueAt(row,column))
 		        
 		      elseif row=3 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Cleancontour_Name=Trim(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Cleancontour_Name=Trim(me.CellValueAt(row,column))
 		        
 		      elseif row=4 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_X=val(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_X=val(me.CellValueAt(row,column))
 		      elseif row=5 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_y=val(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_y=val(me.CellValueAt(row,column))
 		      elseif row=6 Then
-		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_z=val(me.Cell(row,column))
+		        gDOSXYZ.Auto_EGSPhantSettings(column-1).Del_z=val(me.CellValueAt(row,column))
 		      end
 		      
 		      
@@ -1723,9 +1723,9 @@ End
 		    
 		    if row>=0 and row<=UBound(gDOSXYZ.dosxyz_materials) Then
 		      if column=0 Then
-		        gDOSXYZ.dosxyz_materials(row).Material_Name=Trim(me.Cell(row,column))
+		        gDOSXYZ.dosxyz_materials(row).Material_Name=Trim(me.CellValueAt(row,column))
 		      elseif column=1 Then
-		        gDOSXYZ.dosxyz_materials(row).Material_Density=val(me.Cell(row,column))
+		        gDOSXYZ.dosxyz_materials(row).Material_Density=val(me.CellValueAt(row,column))
 		      end
 		      
 		      gDOSXYZ.dosxyz_Writematerials
@@ -1764,7 +1764,7 @@ End
 		    
 		  Case "Delete row"
 		    
-		    i=me.ListIndex
+		    i=me.SelectedRowIndex
 		    if i>0 Then
 		      if me.Selected(i) Then
 		        gDOSXYZ.dosxyz_materials.Remove i

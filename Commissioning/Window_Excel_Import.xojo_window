@@ -451,10 +451,10 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  ListBox1.Heading(0)="Poistion X"
-		  ListBox1.Heading(1)="Poistion Y"
-		  ListBox1.Heading(2)="Poistion Z"
-		  ListBox1.Heading(3)="Dose"
+		  ListBox1.HeaderAt(0)="Poistion X"
+		  ListBox1.HeaderAt(1)="Poistion Y"
+		  ListBox1.HeaderAt(2)="Poistion Z"
+		  ListBox1.HeaderAt(3)="Dose"
 		  
 		End Sub
 	#tag EndEvent
@@ -467,39 +467,39 @@ End
 		  
 		  for i=0 to UBound(x_cm)
 		    if ListBox1.ListCount-1>=i Then
-		      Listbox1.Cell(i,0)=x_cm(i)
+		      Listbox1.CellValueAt(i,0)=x_cm(i)
 		    else
 		      Listbox1.AddRow x_cm(i)
 		    end
 		  next
 		  for i=i to ListBox1.ListCount-1
-		    Listbox1.Cell(i,0)=""
+		    Listbox1.CellValueAt(i,0)=""
 		  next
 		  
 		  
 		  
 		  for i=0 to UBound(y_cm)
 		    if ListBox1.ListCount-1>=i Then
-		      Listbox1.Cell(i,1)=y_cm(i)
+		      Listbox1.CellValueAt(i,1)=y_cm(i)
 		    else
 		      Listbox1.AddRow y_cm(i)
 		    end
 		  next
 		  for i=i to ListBox1.ListCount-1
-		    Listbox1.Cell(i,1)=""
+		    Listbox1.CellValueAt(i,1)=""
 		  next
 		  
 		  
 		  
 		  for i=0 to UBound(z_cm)
 		    if ListBox1.ListCount-1>=i Then
-		      Listbox1.Cell(i,2)=z_cm(i)
+		      Listbox1.CellValueAt(i,2)=z_cm(i)
 		    else
 		      Listbox1.AddRow z_cm(i)
 		    end
 		  next
 		  for i=i to ListBox1.ListCount-1
-		    Listbox1.Cell(i,2)=""
+		    Listbox1.CellValueAt(i,2)=""
 		  next
 		  
 		  
@@ -510,20 +510,20 @@ End
 		  
 		  for i=0 to UBound(dose)
 		    if ListBox1.ListCount-1>=i Then
-		      Listbox1.Cell(i,3)=dose(i)
+		      Listbox1.CellValueAt(i,3)=dose(i)
 		    else
 		      Listbox1.AddRow ""
-		      Listbox1.Cell(i,3)=dose(i)
+		      Listbox1.CellValueAt(i,3)=dose(i)
 		    end
 		  next
 		  
 		  
 		  for i=i to ListBox1.ListCount-1
-		    Listbox1.Cell(i,3)=""
+		    Listbox1.CellValueAt(i,3)=""
 		  next
 		  
 		  for i= ListBox1.ListCount-1 downto 0
-		    if Listbox1.Cell(i,0)="" and Listbox1.Cell(i,1)="" and Listbox1.Cell(i,2)="" and Listbox1.Cell(i,3)="" Then
+		    if Listbox1.CellValueAt(i,0)="" and Listbox1.CellValueAt(i,1)="" and Listbox1.CellValueAt(i,2)="" and Listbox1.CellValueAt(i,3)="" Then
 		      Listbox1.RemoveRow i
 		    end
 		    
@@ -592,10 +592,10 @@ End
 		  
 		  for i =0 to ListBox1.ListCount-1
 		    pps=new Class_Points
-		    pps.X_cm=Val(ListBox1.Cell(i,0))
-		    pps.Y_cm=Val(ListBox1.Cell(i,1))
-		    pps.z_cm=Val(ListBox1.Cell(i,2))
-		    pps.Value=Val(ListBox1.Cell(i,3))
+		    pps.X_cm=Val(ListBox1.CellValueAt(i,0))
+		    pps.Y_cm=Val(ListBox1.CellValueAt(i,1))
+		    pps.z_cm=Val(ListBox1.CellValueAt(i,2))
+		    pps.Value=Val(ListBox1.CellValueAt(i,3))
 		    pp.Points.Append pps
 		  next
 		  
@@ -612,7 +612,7 @@ End
 		  
 		  
 		  Exception err as NilObjectException
-		    MsgBox "Error within Excel data import."
+		    MessageBox "Error within Excel data import."
 		End Sub
 	#tag EndEvent
 #tag EndEvents

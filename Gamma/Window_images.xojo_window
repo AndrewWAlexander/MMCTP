@@ -630,7 +630,7 @@ End
 		    'else
 		    'g.ForeColor = RGB(0,0,0)
 		    'g.FillRect(0,0,g.width,g.height)
-		    'MsgBox("No Picture Loaded")
+		    'MessageBox("No Picture Loaded")
 		    
 		    
 		  end if
@@ -651,7 +651,7 @@ End
 		    'else
 		    'g.ForeColor = RGB(0,0,0)
 		    'g.FillRect(0,0,g.width,g.height)
-		    'MsgBox("No Picture Loaded")
+		    'MessageBox("No Picture Loaded")
 		    
 		    
 		  end if
@@ -889,7 +889,7 @@ End
 		        
 		      else
 		        
-		        MsgBox("Please insert missing parameters")
+		        MessageBox("Please insert missing parameters")
 		        
 		        
 		      end if
@@ -906,7 +906,7 @@ End
 		    
 		  else 
 		    
-		    MsgBox("Please add images or dose distributions")
+		    MessageBox("Please add images or dose distributions")
 		    
 		  end if
 		  

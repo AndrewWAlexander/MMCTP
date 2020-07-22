@@ -1188,8 +1188,8 @@ End
 		  Display.graphics.penWidth=1
 		  Display.graphics.penheight=1
 		  
-		  Listbox_Materials.Heading(0)="Material"
-		  Listbox_Materials.Heading(1)="Colour"
+		  Listbox_Materials.HeaderAt(0)="Material"
+		  Listbox_Materials.HeaderAt(1)="Colour"
 		  
 		  
 		  for i=0 to UBound(Egsphant.Materials)

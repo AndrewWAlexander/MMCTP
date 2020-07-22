@@ -148,11 +148,11 @@ Inherits Application
 	#tag Event
 		Function UnhandledException(error As RuntimeException) As Boolean
 		  If error IsA OutOfBoundsException Then
-		    MsgBox("An OutOfBounds Exception has occurred")
+		    MessageBox("An OutOfBounds Exception has occurred")
 		  Elseif error IsA OutOfMemoryException Then
-		    MsgBox("An OutOf Memory Exception has occurred")
+		    MessageBox("An OutOf Memory Exception has occurred")
 		  Else
-		    MsgBox("An error has occured : "+error.Reason)
+		    MessageBox("An error has occured : "+error.Reason)
 		  End
 		End Function
 	#tag EndEvent
@@ -556,7 +556,7 @@ Inherits Application
 			
 			else
 			PW_Show=false
-			MsgBox "Unable to import file "+f.Name+" as RTDose" 
+			MessageBox "Unable to import file "+f.Name+" as RTDose" 
 			Return yy
 			
 			end
@@ -605,7 +605,7 @@ Inherits Application
 			
 			else
 			PW_Show=false
-			MsgBox "Unable to import file "+f.Name+" as RT Plan" 
+			MessageBox "Unable to import file "+f.Name+" as RT Plan" 
 			Return yy
 			end
 		End Function
@@ -1373,7 +1373,7 @@ Inherits Application
 		    
 		  Else
 		    
-		    MsgBox "Error, could not find User folder"+Chr(13)+"Goodbye"
+		    MessageBox "Error, could not find User folder"+Chr(13)+"Goodbye"
 		    Quit
 		    
 		  End

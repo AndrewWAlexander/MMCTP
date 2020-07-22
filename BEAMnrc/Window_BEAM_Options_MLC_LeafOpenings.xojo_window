@@ -117,10 +117,10 @@ End
 		Sub Open()
 		  Dim i as Integer
 		  
-		  Listbox_Openings.Heading(0)="From leaf"
-		  Listbox_Openings.Heading(1)="to leaf"
-		  Listbox_Openings.Heading(2)="min opening"
-		  Listbox_Openings.Heading(3)="max opening"
+		  Listbox_Openings.HeaderAt(0)="From leaf"
+		  Listbox_Openings.HeaderAt(1)="to leaf"
+		  Listbox_Openings.HeaderAt(2)="min opening"
+		  Listbox_Openings.HeaderAt(3)="max opening"
 		  
 		  
 		  //Listbox_Openings.ColumnType(0)=3
@@ -147,9 +147,9 @@ End
 		  row=0
 		  for i=1 to MLC.Num_leaf
 		    Listbox_Openings.AddRow str(i)
-		    Listbox_Openings.Cell(row,1)=str(i+MLC.Field(row).Num-1)
-		    Listbox_Openings.Cell(row,2)=Format(MLC.Field(row).Neg,"-#.#####")
-		    Listbox_Openings.Cell(row,3)=Format(MLC.Field(row).Pos,"-#.#####")
+		    Listbox_Openings.CellValueAt(row,1)=str(i+MLC.Field(row).Num-1)
+		    Listbox_Openings.CellValueAt(row,2)=Format(MLC.Field(row).Neg,"-#.#####")
+		    Listbox_Openings.CellValueAt(row,3)=Format(MLC.Field(row).Pos,"-#.#####")
 		    i=i+MLC.Field(row).Num-1
 		    row=row+1
 		  next
@@ -175,10 +175,10 @@ End
 		    
 		  elseif column=2 Then
 		    
-		    MLC.Field(row).Neg=val(me.Cell(row,column))
+		    MLC.Field(row).Neg=val(me.CellValueAt(row,column))
 		    
 		  Elseif column=3 Then
-		    MLC.Field(row).Pos=val(me.Cell(row,column))
+		    MLC.Field(row).Pos=val(me.CellValueAt(row,column))
 		    
 		  end
 		End Sub

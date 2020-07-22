@@ -1006,9 +1006,9 @@ End
 		  
 		  Update_Dictionary_Keys
 		  
-		  Listbox_Data_A.Heading(0)="Algorithm"
-		  Listbox_Data_E.Heading(0)="Energy"
-		  Listbox_Data_U.Heading(0)="Unit"
+		  Listbox_Data_A.HeaderAt(0)="Algorithm"
+		  Listbox_Data_E.HeaderAt(0)="Energy"
+		  Listbox_Data_U.HeaderAt(0)="Unit"
 		  
 		  
 		  for i=0 to Dic_Algorithm.Count-1
@@ -1027,8 +1027,8 @@ End
 		  Next
 		  
 		  Listbox_Test.DeleteAllRows
-		  Listbox_Test.Heading(0)="Area"
-		  Listbox_Test.Heading(1)="Tolerance"
+		  Listbox_Test.HeaderAt(0)="Area"
+		  Listbox_Test.HeaderAt(1)="Tolerance"
 		  
 		  Listbox_Test.AddRow("Central beam axis data, high dose, small gradient","2%")
 		  Listbox_Test.AddRow("Build-up, penumbra region of profiles, high dose, large gradient","2 mm")
@@ -1127,8 +1127,8 @@ End
 		  //-----------------------------------------
 		  
 		  kk=CheckBox_abs.Value
-		  ppa=Profiles(PopupMenu_Measured.ListIndex)
-		  ppb=Profiles(PopupMenu_Calculated.ListIndex)
+		  ppa=Profiles(PopupMenu_Measured.SelectedRowIndex)
+		  ppb=Profiles(PopupMenu_Calculated.SelectedRowIndex)
 		  
 		  pp=Gamma_1D(delD,dta,ppa,ppb)
 		  EditField_GammaPass.value = Format(pp.Gamma_Value,"#.#")
@@ -1188,9 +1188,9 @@ End
 		    
 		    if Listbox_Data_A.CellCheck(i,0) Then
 		      if al_1="" Then
-		        al_1=Listbox_Data_A.Cell(i,0)
+		        al_1=Listbox_Data_A.CellValueAt(i,0)
 		      elseif al_1<>"" Then
-		        al_2=Listbox_Data_A.Cell(i,0)
+		        al_2=Listbox_Data_A.CellValueAt(i,0)
 		      end
 		    end
 		  Next
@@ -1201,16 +1201,16 @@ End
 		  
 		  for i =0 to Listbox_Data_E.ListCount-1
 		    if Listbox_Data_E.CellCheck(i,0) Then
-		      if ee.HasKey(Listbox_Data_E.Cell(i,0))= False Then
-		        ee.Value(Listbox_Data_E.Cell(i,0))=1
+		      if ee.HasKey(Listbox_Data_E.CellValueAt(i,0))= False Then
+		        ee.Value(Listbox_Data_E.CellValueAt(i,0))=1
 		      end
 		    end
 		  Next
 		  
 		  for i =0 to Listbox_Data_U.ListCount-1
 		    if Listbox_Data_U.CellCheck(i,0) Then
-		      if uu.HasKey(Listbox_Data_U.Cell(i,0))= False Then
-		        uu.Value(Listbox_Data_U.Cell(i,0))=1
+		      if uu.HasKey(Listbox_Data_U.CellValueAt(i,0))= False Then
+		        uu.Value(Listbox_Data_U.CellValueAt(i,0))=1
 		      end
 		    end
 		  Next
@@ -1271,14 +1271,14 @@ End
 		  
 		  
 		  Listbox_Results.DeleteAllRows
-		  Listbox_Results.Heading(0)="Profile"
-		  Listbox_Results.Heading(1)="FS"
-		  Listbox_Results.Heading(2)="Depth"
-		  Listbox_Results.Heading(3)="Mean Difference"
-		  Listbox_Results.Heading(4)="Mean DTA"
-		  Listbox_Results.Heading(5)="SD"
-		  Listbox_Results.Heading(6)="Max Difference"
-		  Listbox_Results.Heading(7)="Min Difference"
+		  Listbox_Results.HeaderAt(0)="Profile"
+		  Listbox_Results.HeaderAt(1)="FS"
+		  Listbox_Results.HeaderAt(2)="Depth"
+		  Listbox_Results.HeaderAt(3)="Mean Difference"
+		  Listbox_Results.HeaderAt(4)="Mean DTA"
+		  Listbox_Results.HeaderAt(5)="SD"
+		  Listbox_Results.HeaderAt(6)="Max Difference"
+		  Listbox_Results.HeaderAt(7)="Min Difference"
 		  
 		  
 		  for i=0 to UBound(list_fs)

@@ -275,9 +275,9 @@ Inherits Thread
 		  
 		  
 		  Exception e As TypeMismatchException
-		    MsgBox("Tried to retype an object!")
+		    MessageBox("Tried to retype an object!")
 		  Exception e As NilObjectException
-		    MsgBox("Tried to access a Nil object!")
+		    MessageBox("Tried to access a Nil object!")
 		    
 		End Sub
 	#tag EndMethod

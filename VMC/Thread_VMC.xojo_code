@@ -345,36 +345,62 @@ Inherits Thread
 		  // Delete One DMX file
 		  //
 		  //-----------------------------------------------------
-		  Dim f as FolderItem
-		  Dim i as Integer
+		  'Dim f as FolderItem
+		  'Dim i as Integer
 		  //-----------------------------------------------------
 		  
 		  
-		  if k>=0 and k<=UBound(VMC) Then
-		    i=MsgBox("Are you sure you want to delete the DMX file "+chr(13)+VMC(k).DMX.dmx_name +"?",1,"Warning")
-		    if i<>1 Then
+		  If k >= 0 And k <= VMC.LastRowIndex Then
+		    
+		    Var d As New MessageDialog
+		    Var b As MessageDialogButton
+		    d.Message = "Are you sure you want to delete the DMX file " _
+		    + Chr(13) + VMC(k).DMX.dmx_name + "?"
+		    d.IconType = MessageDialog.IconTypes.Caution
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True
+		    d.AlternateActionButton.Visible = True
+		    d.AlternateActionButton.Caption = "Don't delete"
+		    d.CancelButton.Visible = False
+		    d.CancelButton.Caption = "Cancel"
+		    
+		    b=d.ShowModal
+		    
+		    Select Case b
+		    Case d.ActionButton
+		      
+		      Var f As FolderItem = gRTOG.Path.Child("McGill_RT")
+		      f=f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".dmx")
+		      If f.Exists Then
+		        f.Delete
+		      End
+		      
+		      f = gRTOG.Path.Child("McGill_RT")
+		      f = f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".hed")
+		      If f.Exists Then
+		        f.Delete
+		      End
+		      
+		      f = gRTOG.Path.Child("McGill_RT")
+		      f = f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".txt")
+		      If f.Exists Then
+		        f.Delete
+		      End
+		      
+		      vmc.Remove( k )
+		      
+		    Case d.AlternateActionButton
+		      
 		      Return
-		    end
+		      
+		    Case d.CancelButton
+		      
+		      Return
+		      
+		    End Select
 		    
-		    f=gRTOG.Path.Child("McGill_RT")
-		    f=f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".dmx")
-		    if f.Exists Then
-		      f.Delete
-		    end
 		    
-		    f=gRTOG.Path.Child("McGill_RT")
-		    f=f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".hed")
-		    if f.Exists Then
-		      f.Delete
-		    end
 		    
-		    f=gRTOG.Path.Child("McGill_RT")
-		    f=f.Child(gRTOG.Patient_ID+gRTOG.StudyID+gRTOG.SeriesNumber+"_"+vmc(k).dmx.dmx_name+".txt")
-		    if f.Exists Then
-		      f.Delete
-		    end
-		    
-		    vmc.Remove k
 		  end
 		  
 		  MC_Save_settings

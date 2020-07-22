@@ -416,9 +416,9 @@ End
 		  
 		  
 		  f=gPref.mcgillfi
-		  index=Window_OpenPatient.ListBox_Mcgill.ListIndex
-		  name=Window_OpenPatient.ListBox_Mcgill.Cell(index,0)
-		  pindex=val(Window_OpenPatient.ListBox_Mcgill.Cell(index,4))
+		  index=Window_OpenPatient.ListBox_Mcgill.SelectedRowIndex
+		  name=Window_OpenPatient.ListBox_Mcgill.CellValueAt(index,0)
+		  pindex=val(Window_OpenPatient.ListBox_Mcgill.CellValueAt(index,4))
 		  pname=NthField(Row_Header,",",pindex)
 		  
 		  
@@ -449,9 +449,9 @@ End
 		  filter=Trim(EditField_Filter.Text)
 		  
 		  ListBox_Mcgill.DeleteAllRows
-		  ListBox_Mcgill.Heading(0)="Forename"
-		  ListBox_Mcgill.Heading(1)="Surname"
-		  ListBox_Mcgill.Heading(2)="ID number"
+		  ListBox_Mcgill.HeaderAt(0)="Forename"
+		  ListBox_Mcgill.HeaderAt(1)="Surname"
+		  ListBox_Mcgill.HeaderAt(2)="ID number"
 		  ListBox_Mcgill.columnwidths="34%,33%,33%"
 		  
 		  ret=gPref.Read_mcgill
@@ -475,10 +475,10 @@ End
 		      if InStr(text,Filter)>0 or len(Filter)=0 Then
 		        count=count+1
 		        ListBox_Mcgill.addfolder ""
-		        ListBox_Mcgill.cell(count,4)=NthField(dataset,";",i)
-		        ListBox_Mcgill.cell(count,0)=fname
-		        ListBox_Mcgill.cell(count,1)=lname
-		        ListBox_Mcgill.cell(count,2)=id
+		        ListBox_Mcgill.CellValueAt(count,4)=NthField(dataset,";",i)
+		        ListBox_Mcgill.CellValueAt(count,0)=fname
+		        ListBox_Mcgill.CellValueAt(count,1)=lname
+		        ListBox_Mcgill.CellValueAt(count,2)=id
 		      end
 		    end if
 		  Next
@@ -502,7 +502,7 @@ End
 		Sub CollapseRow(row As Integer)
 		  Dim i,u,NSubRows as Integer
 		  
-		  NSubRows=CountFields(Me.cell(row,1),",")
+		  NSubRows=CountFields(Me.CellValueAt(row,1),",")
 		  u=row+1
 		  
 		  For i=row+NSubRows downto u
@@ -512,26 +512,26 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub DoubleClick()
-		  Me.expanded(Me.listindex)=Not Me.expanded(Me.listindex)
+		  Me.expanded(Me.SelectedRowIndex)=Not Me.expanded(Me.SelectedRowIndex)
 		  
 		  Open_Patient
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub ExpandRow(row As Integer)
-		  Dim s1,temp as String
-		  Dim i,u as Integer
+		  'Dim s1,temp As String
+		  'Dim i,u as Integer
 		  
 		  
-		  s1=me.cell(row,4)
-		  u=CountFields(s1,",")
+		  Var s1 As String = Me.CellValueAt(row,4)
+		  Var u As Integer = CountFields(s1,",")
 		  
 		  
-		  For i=1 to u
+		  For i As Integer = 1 To u
 		    Me.addrow ""
-		    temp=NthField(s1,",",i)
-		    Me.cell(me.lastIndex,0)=NthField(temp,"%%",1)
-		    Me.cell(me.lastIndex,4)=NthField(temp,"%%",2)
+		    Var temp As String = NthField(s1,",",i)
+		    Me.CellValueAt(Me.LastRowIndex,0)=NthField(temp,"%%",1)
+		    Me.CellValueAt(Me.LastRowIndex,4)=NthField(temp,"%%",2)
 		  Next
 		End Sub
 	#tag EndEvent

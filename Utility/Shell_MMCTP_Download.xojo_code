@@ -24,7 +24,7 @@ Inherits Shell
 		  
 		  // Error Check
 		  if ErrorCode=255 Then
-		    MsgBox "Shell Error code : "+s
+		    MessageBox "Shell Error code : "+s
 		    ReDim All(-1)
 		    Return
 		  end
@@ -161,7 +161,7 @@ Inherits Shell
 		      pscp=gShells.pscp+"\pscp.exe"
 		      f=new FolderItem (pscp)
 		      if f.Exists=False Then
-		        MsgBox "pscp not found at : "+pscp
+		        MessageBox "pscp not found at : "+pscp
 		        close
 		        Kill_All
 		        Return

@@ -2170,7 +2170,7 @@ End
 		  donothing=True
 		  
 		  
-		  i= Window_BEAM_MainInputs.Listbox_CMs.ListIndex
+		  i= Window_BEAM_MainInputs.Listbox_CMs.SelectedRowIndex
 		  
 		  
 		  DYNVMLC=Window_BEAM_MainInputs.BEAM.CMs(i).DYNVMLC
@@ -2241,11 +2241,11 @@ End
 		  
 		  
 		  if DYNVMLC.Endtype=0 Then
-		    PopupMenu_Leaftype.ListIndex=0
+		    PopupMenu_Leaftype.SelectedRowIndex=0
 		    StaticText_Radius.value = "Radius of leaf ends"
 		    EditField_Zfocus_and_Radiusleafend.value = Format(DYNVMLC.Leafradius,"-#.#####")
 		  elseif DYNVMLC.Endtype=1 Then
-		    PopupMenu_Leaftype.ListIndex=1
+		    PopupMenu_Leaftype.SelectedRowIndex=1
 		    StaticText_Radius.value = "Zfocus of leaf ends"
 		    EditField_Zfocus_and_Radiusleafend.value = Format(DYNVMLC.zfocus_ends,"-#.#####")
 		  end
@@ -2391,7 +2391,7 @@ End
 		Sub Change()
 		  
 		  if donothing=False Then
-		    DYNVMLC.Endtype=me.ListIndex
+		    DYNVMLC.Endtype=me.SelectedRowIndex
 		    
 		    Refresh_window
 		    

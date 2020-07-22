@@ -458,7 +458,7 @@ End
 		  
 		  Refresh_window
 		  
-		  PopupMenu_ScoringPlan.ListIndex=0
+		  PopupMenu_ScoringPlan.SelectedRowIndex=0
 		End Sub
 	#tag EndEvent
 
@@ -470,7 +470,7 @@ End
 		  DoStuff=False
 		  
 		  
-		  PopupMenu_zonetype.ListIndex=BEAM.NSC(NSC_Index).MZONE_TYPE
+		  PopupMenu_zonetype.SelectedRowIndex=BEAM.NSC(NSC_Index).MZONE_TYPE
 		  EditField_scor_cmnum.value = str(BEAM.NSC(NSC_Index).IPLANE_to_CM)
 		  
 		  
@@ -489,22 +489,22 @@ End
 		  Listbox_ZOnes.DeleteAllRows
 		  Listbox_ZOnes.ColumnCount=2
 		  
-		  Listbox_ZOnes.Heading(0)="Zone"
+		  Listbox_ZOnes.HeaderAt(0)="Zone"
 		  Listbox_ZOnes.ColumnType(1)=3
 		  
 		  if  BEAM.NSC(NSC_Index).MZONE_TYPE=1 Then
 		    Listbox_ZOnes.ColumnCount=2
-		    Listbox_ZOnes.Heading(1)="Halfwidth"
+		    Listbox_ZOnes.HeaderAt(1)="Halfwidth"
 		  elseif BEAM.NSC(NSC_Index).MZONE_TYPE=0 Then
 		    Listbox_ZOnes.ColumnCount=2
-		    Listbox_ZOnes.Heading(1)="Radius"
+		    Listbox_ZOnes.HeaderAt(1)="Radius"
 		    
 		  else
 		    Listbox_ZOnes.ColumnCount=4
-		    Listbox_ZOnes.Heading(0)="direction"
-		    Listbox_ZOnes.Heading(1)="min"
-		    Listbox_ZOnes.Heading(2)="max"
-		    Listbox_ZOnes.Heading(3)="no of zones"
+		    Listbox_ZOnes.HeaderAt(0)="direction"
+		    Listbox_ZOnes.HeaderAt(1)="min"
+		    Listbox_ZOnes.HeaderAt(2)="max"
+		    Listbox_ZOnes.HeaderAt(3)="no of zones"
 		    Listbox_ZOnes.ColumnType(1)=3
 		    Listbox_ZOnes.ColumnType(2)=3
 		    Listbox_ZOnes.ColumnType(3)=3
@@ -512,13 +512,13 @@ End
 		    
 		    Listbox_ZOnes.AddRow "X"
 		    Listbox_ZOnes.AddRow "Y"
-		    Listbox_ZOnes.Cell(0,1)=str(Beam.NSC(NSC_Index).XMIN_ZOne)
-		    Listbox_ZOnes.Cell(0,2)=str(Beam.NSC(NSC_Index).XMAX_Zone)
-		    Listbox_ZOnes.Cell(0,3)=str(Beam.NSC(NSC_Index).NX_Zone)
+		    Listbox_ZOnes.CellValueAt(0,1)=str(Beam.NSC(NSC_Index).XMIN_ZOne)
+		    Listbox_ZOnes.CellValueAt(0,2)=str(Beam.NSC(NSC_Index).XMAX_Zone)
+		    Listbox_ZOnes.CellValueAt(0,3)=str(Beam.NSC(NSC_Index).NX_Zone)
 		    
-		    Listbox_ZOnes.Cell(1,1)=str(Beam.NSC(NSC_Index).yMIN_ZOne)
-		    Listbox_ZOnes.Cell(1,2)=str(Beam.NSC(NSC_Index).yMAX_Zone)
-		    Listbox_ZOnes.Cell(1,3)=str(Beam.NSC(NSC_Index).NY_Zone)
+		    Listbox_ZOnes.CellValueAt(1,1)=str(Beam.NSC(NSC_Index).yMIN_ZOne)
+		    Listbox_ZOnes.CellValueAt(1,2)=str(Beam.NSC(NSC_Index).yMAX_Zone)
+		    Listbox_ZOnes.CellValueAt(1,3)=str(Beam.NSC(NSC_Index).NY_Zone)
 		    
 		    
 		    
@@ -530,7 +530,7 @@ End
 		  
 		  for i=0 to BEAM.NSC(NSC_Index).NSC_ZONES-1
 		    Listbox_ZOnes.AddRow str(i+1)
-		    Listbox_ZOnes.Cell(i,1)=Format(Beam.NSC(NSC_Index).RSCORE_ZONE(i),"-0.0##")
+		    Listbox_ZOnes.CellValueAt(i,1)=Format(Beam.NSC(NSC_Index).RSCORE_ZONE(i),"-0.0##")
 		  next
 		End Sub
 	#tag EndMethod
@@ -563,7 +563,7 @@ End
 #tag Events PopupMenu_ScoringPlan
 	#tag Event
 		Sub Change()
-		  NSC_Index=me.ListIndex
+		  NSC_Index=me.SelectedRowIndex
 		  Refresh_window
 		End Sub
 	#tag EndEvent
@@ -572,7 +572,7 @@ End
 	#tag Event
 		Sub Change()
 		  if DoStuff Then
-		    BEAM.NSC(NSC_Index).MZONE_TYPE=me.ListIndex
+		    BEAM.NSC(NSC_Index).MZONE_TYPE=me.SelectedRowIndex
 		    Update_Listbox
 		  end
 		End Sub
@@ -604,17 +604,17 @@ End
 		  if Beam.NSC(NSC_Index).MZONE_TYPE=2 Then
 		    
 		    if row=0 Then
-		      Beam.NSC(NSC_Index).XMIN_ZOne=val(Listbox_ZOnes.Cell(0,1))
-		      Beam.NSC(NSC_Index).XMAX_Zone=val(Listbox_ZOnes.Cell(0,2))
-		      Beam.NSC(NSC_Index).NX_Zone=val(Listbox_ZOnes.Cell(0,3))
+		      Beam.NSC(NSC_Index).XMIN_ZOne=val(Listbox_ZOnes.CellValueAt(0,1))
+		      Beam.NSC(NSC_Index).XMAX_Zone=val(Listbox_ZOnes.CellValueAt(0,2))
+		      Beam.NSC(NSC_Index).NX_Zone=val(Listbox_ZOnes.CellValueAt(0,3))
 		    else
-		      Beam.NSC(NSC_Index).yMIN_ZOne=val(Listbox_ZOnes.Cell(1,1))
-		      Beam.NSC(NSC_Index).yMAX_Zone=val(Listbox_ZOnes.Cell(1,2))
-		      Beam.NSC(NSC_Index).NY_Zone=val(Listbox_ZOnes.Cell(1,3))
+		      Beam.NSC(NSC_Index).yMIN_ZOne=val(Listbox_ZOnes.CellValueAt(1,1))
+		      Beam.NSC(NSC_Index).yMAX_Zone=val(Listbox_ZOnes.CellValueAt(1,2))
+		      Beam.NSC(NSC_Index).NY_Zone=val(Listbox_ZOnes.CellValueAt(1,3))
 		    end
 		  ELSE
 		    if column=1 Then
-		      Beam.NSC(NSC_Index).RSCORE_ZONE(row)=val(me.Cell(row,column))
+		      Beam.NSC(NSC_Index).RSCORE_ZONE(row)=val(me.CellValueAt(row,column))
 		    end
 		  END
 		  

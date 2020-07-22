@@ -1428,7 +1428,7 @@ End
 		  Main_Refresh=True
 		  
 		  if Plan_Index>=0 Then
-		    beam_num=Window_Treatment.ListBox_MC_Beam.ListIndex
+		    beam_num=Window_Treatment.ListBox_MC_Beam.SelectedRowIndex
 		    if beam_num >= 0 and beam_num<= UBound(gRTOG.Plan(Plan_Index).Beam) Then
 		      
 		    else
@@ -1499,11 +1499,11 @@ End
 		  UpdateWindow=False
 		  for i = 0 to PopupMenu_JobType.ListCount-1
 		    if PopupMenu_JobType.List(i)= gBEAM.Beams(beam_num).egs_queue then
-		      PopupMenu_JobType.ListIndex = i
+		      PopupMenu_JobType.SelectedRowIndex = i
 		    end if
 		  next i
 		  
-		  PopupMenu_Shell.ListIndex=gBEAM.Beams(beam_num).egs_Shell_Index
+		  PopupMenu_Shell.SelectedRowIndex=gBEAM.Beams(beam_num).egs_Shell_Index
 		  EditField_testrun.value = Format(gBEAM.Beams(beam_num).Num_test_hist,"#")
 		  
 		  CheckBox_Simulation_Start.Caption="Started "+gBEAM.Beams(beam_num).egs_Start_Time+" active jobs : "+str(gBEAM.Beams(beam_num).egs_BEAMnrc_active_jobs)
@@ -1567,7 +1567,7 @@ End
 		  
 		  Exception err
 		    If err IsA OutOfBoundsException then
-		      MsgBox "OutOfBoundsException in Refresh Window method"
+		      MessageBox "OutOfBoundsException in Refresh Window method"
 		    end if
 		End Sub
 	#tag EndMethod
@@ -1707,7 +1707,7 @@ End
 		Sub Change()
 		  if Main_Refresh=False Then
 		    gBEAM.Beams(beam_num).egs_Shell = me.text
-		    gBEAM.Beams(beam_num).egs_Shell_Index = me.ListIndex
+		    gBEAM.Beams(beam_num).egs_Shell_Index = me.SelectedRowIndex
 		    MC_Get_Linac_Properties_for_patientdose(beam_num)
 		  end
 		End Sub

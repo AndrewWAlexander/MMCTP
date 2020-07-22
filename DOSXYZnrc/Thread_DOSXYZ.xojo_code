@@ -156,7 +156,7 @@ Inherits Thread
 		    
 		    // Determine if Beams have been selected
 		    if UBound(egsphants)=-1 Then
-		      MsgBox "No Beams Selected"
+		      MessageBox "No Beams Selected"
 		      Return
 		    end
 		    
@@ -521,100 +521,145 @@ Inherits Thread
 		  //-----------------------------
 		  //
 		  //-----------------------------
-		  Dim f as FolderItem
-		  Dim i,k,m,l as Integer
-		  Dim temp,dosename as String
+		  'Dim f as FolderItem
+		  'Dim i,k,m,l as Integer
+		  'Dim temp,dosename as String
 		  //-----------------------------
 		  
-		  if eindex>-1 and eindex<=UBound(gDOSXYZ.DOSXYZ) Then
-		    
-		    i=MsgBox("Are you sure you want to delete the EGSPhant file "+chr(13)+gDOSXYZ.DOSXYZ(eindex).EGSPhantSettings.name +"?",1,"Warning")
-		    
-		    if i<>1 Then
-		      Return
-		    end
-		    k=eindex
-		    f=gRTOG.Path.Child("McGill_RT")
-		    
-		    f=f.Child(gRTOG.Patient_ID+"_"+gRTOG.StudyID+grtog.seriesnumber+"_"+DOSXYZ(k).EGSPhantSettings.name+".egsphant")
-		    if f.Exists Then
-		      f.Delete
-		    end
-		    
-		    f=gRTOG.Path.Child("McGill_RT")
-		    
-		    f=f.Child(gRTOG.Patient_ID+"_"+gRTOG.StudyID+grtog.seriesnumber+"_"+DOSXYZ(k).EGSPhantSettings.name+".egsphanthed")
-		    if f.Exists Then
-		      f.Delete
-		    end
-		    
-		    f=gRTOG.Path.Child("McGill_RT")
-		    
-		    f=f.Child(gRTOG.Patient_ID+"_"+gRTOG.StudyID+grtog.seriesnumber+"_"+DOSXYZ(k).EGSPhantSettings.name+".default")
-		    if f.Exists Then
-		      f.Delete
-		    end
+		  If eindex >- 1 And eindex <= gDOSXYZ.DOSXYZ.LastRowIndex Then
 		    
 		    
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Delete"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Delete"
+		    d.Message = "Are you sure you want to delete the EGSPhant file " _
+		    + Chr(13) + gDOSXYZ.DOSXYZ(eindex).EGSPhantSettings.name +"?"
 		    
+		    'd.Explanation = "If you don't save, your changes will be lost. "
 		    
-		    for m= 0 to UBound(gRTOG.Plan)
-		      f=gRTOG.Plan(m).Path
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // user pressek=eindex
+		      Var k As Integer = eindex 
+		      Var f As FolderItem = gRTOG.Path.Child("McGill_RT").Child(gRTOG.Patient_ID _
+		      + "_" + gRTOG.StudyID+grtog.seriesnumber _
+		      + "_" + DOSXYZ(k).EGSPhantSettings.name+".egsphant")
 		      
-		      f=f.Child("DOSXYZ_"+DOSXYZ(k).EGSPhantSettings.name+".txt")
-		      if f.Exists Then
+		      If f.Exists Then
+		        
 		        f.Delete
-		      end
+		        
+		      End If
 		      
-		      for l=0 to UBound(gRTOG.Plan(m).Beam)
-		        temp=str(m+1)
-		        
-		        While Len(Temp)<3
-		          Temp="0"+Temp
-		        Wend
-		        
-		        temp=gRTOG.Patient_ID+"_"+gRTOG.StudyID+gRTOG.SeriesNumber+"_p"+Temp+str(l)+"_"+DOSXYZ(k).EGSPhantSettings.name
-		        
-		        f=gRTOG.Plan(m).Path
-		        f=f.Child(temp+".egsinp")
-		        if f.Exists Then
-		          f.Delete
-		        end
-		        
-		        f=gRTOG.Plan(m).Path
-		        f=f.Child(temp+".3ddose")
-		        if f.Exists Then
-		          f.Delete
-		        end
-		        
-		        f=gRTOG.Plan(m).Path
-		        f=f.Child(temp+".egslst")
-		        if f.Exists Then
-		          f.Delete
-		        end
-		        
-		        
-		      next
+		      f = Nil
+		      f = gRTOG.Path.Child("McGill_RT").Child(gRTOG.Patient_ID _
+		      + "_" + gRTOG.StudyID+grtog.seriesnumber _
+		      + "_" + DOSXYZ(k).EGSPhantSettings.name + ".egsphanthed")
 		      
-		    next
+		      If f.Exists Then
+		        
+		        f.Delete
+		        
+		      End If
+		      
+		      f = Nil
+		      f = gRTOG.Path.Child("McGill_RT").Child(gRTOG.Patient_ID _
+		      + "_" + gRTOG.StudyID+grtog.seriesnumber _
+		      + "_" + DOSXYZ(k).EGSPhantSettings.name+".default")
+		      
+		      If f.Exists Then
+		        
+		        f.Delete
+		        
+		      End If
+		      
+		      For m As Integer = 0 To gRTOG.Plan.LastRowIndex
+		        f = Nil
+		        f = gRTOG.Plan(m).Path.Child("DOSXYZ_"+DOSXYZ(k).EGSPhantSettings.name+".txt")
+		        
+		        If f.Exists Then
+		          
+		          f.Delete
+		          
+		        End If
+		        
+		        For l As Integer =0 To gRTOG.Plan(m).Beam.LastRowIndex
+		          
+		          Var Temp As String = Str(m+1)
+		          
+		          While temp.Length < 3
+		            
+		            Temp="0"+Temp
+		            
+		          Wend
+		          
+		          Temp = gRTOG.Patient_ID _
+		          + "_" + gRTOG.StudyID+gRTOG.SeriesNumber _
+		          + "_p" +Temp+Str(l)+"_"+DOSXYZ(k).EGSPhantSettings.name
+		          
+		          f = Nil
+		          f = gRTOG.Plan(m).Path.Child(temp+".egsinp")
+		          
+		          If f.Exists Then
+		            
+		            f.Delete
+		            
+		          End If
+		          
+		          f = Nil
+		          f = gRTOG.Plan(m).Path.Child(temp+".3ddose")
+		          
+		          If f.Exists Then
+		            
+		            f.Delete
+		            
+		          End If
+		          
+		          f = Nil
+		          f = gRTOG.Plan(m).Path.Child(temp+".egslst")
+		          
+		          If f.Exists Then
+		            
+		            f.Delete
+		            
+		          End If
+		          
+		          
+		          
+		        Next
+		        
+		      Next
+		      
+		      
+		      
+		      
+		      If gPref.DVH_clean Then
+		        // 
+		        // Find a name for this dose distribution, assume it is the default one
+		        // 
+		        Var dosename As String = "DOS-"+DOSXYZ(k).EGSPhantSettings.name+"- Total"
+		        gDVH.Delete_DVH_Set(dosename)
+		        Window_Treatment.Dose_DVH
+		      End
+		      
+		      
+		      DOSXYZ.Remove( k )
+		      'Window_Treatment.MC_dosxyz_beam_progress
+		      Window_Treatment.MC_dosxyz_beam_progress
+		      
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
 		    
 		    
-		    
-		    
-		    if gPref.DVH_clean Then
-		      // 
-		      // Find a name for this dose distribution, assume it is the default one
-		      // 
-		      dosename="DOS-"+DOSXYZ(k).EGSPhantSettings.name+"- Total"
-		      gDVH.Delete_DVH_Set(dosename)
-		      Window_Treatment.Dose_DVH
-		    end
-		    
-		    
-		    DOSXYZ.Remove k
-		    Window_Treatment.MC_dosxyz_beam_progress
-		    
-		  end
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -1000,7 +1045,7 @@ Inherits Thread
 		      
 		      dd.Read_DOSXYZ
 		      gDOSXYZ.DOSXYZ.Append dd
-		      //MsgBox "About to run gdosxyz"
+		      //MessageBox "About to run gdosxyz"
 		      gDOSXYZ.dosxyz_run_egsphant_CT=True
 		      gDOSXYZ.dosxyz_run_egsphant_index=UBound(DOSXYZ)
 		      if gDOSXYZ.State=4 Then
@@ -1138,7 +1183,7 @@ Inherits Thread
 		    // finished egsphant header
 		    
 		    '=========================Make Phantom
-		    //MsgBox "Make Phantom"
+		    //MessageBox "Make Phantom"
 		    if ee.nz<=0 Then
 		      Errors.append "Error Making EGSPhant file" //Changed to Errors.append by William Davis to avoid crash due to exception
 		      
@@ -1295,7 +1340,7 @@ Inherits Thread
 		  // finished egsphant header
 		  
 		  '=========================Make Phantom
-		  //MsgBox "Make Phantom"
+		  //MessageBox "Make Phantom"
 		  if ee.nz<=0 Then
 		    Return
 		  end
@@ -1812,7 +1857,7 @@ Inherits Thread
 		  
 		  f=f.Child(MC_file_name+name+"_"+DOSXYZ(egsphant_index).egsphantsettings.name+".3ddose")
 		  if f.Exists=False Then
-		    MsgBox "Could not find file : "+f.Name
+		    MessageBox "Could not find file : "+f.Name
 		    PW_Show=false
 		    Return
 		  end
@@ -1971,7 +2016,7 @@ Inherits Thread
 		  
 		  f=f.Child(MC_file_name+name+"_"+DOSXYZ(egsphant_index).egsphantsettings.name+".3ddose")
 		  if f.Exists=False Then
-		    MsgBox "Could not find file : "+f.Name
+		    MessageBox "Could not find file : "+f.Name
 		    PW_Show=false
 		    Return
 		  end
@@ -3169,7 +3214,7 @@ Inherits Thread
 		        end
 		      next
 		      if found=False Then
-		        MsgBox "Run Test run could not find a shell to run on"
+		        MessageBox "Run Test run could not find a shell to run on"
 		        Return
 		      end
 		    end

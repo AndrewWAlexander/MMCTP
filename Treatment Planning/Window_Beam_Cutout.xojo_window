@@ -768,15 +768,44 @@ End
 #tag Events BevelButton_erase
 	#tag Event
 		Sub Action()
-		  Dim i as Integer
+		  'Dim i As Integer
+		  '
+		  'if ubound(cutout.Pair)>=0 and BevelButton_penbutton.value=false then
+		  'i=MessageBox("Delete cutout shape ?", 1,"Warning" )
+		  'if i=1 Then
+		  'redim cutout.Pair(-1)
+		  'end
+		  'me.Value=False
+		  'end
+		  '
+		  'Canvas_digitizer.refresh(False)
 		  
-		  if ubound(cutout.Pair)>=0 and BevelButton_penbutton.value=false then
-		    i=MsgBox("Delete cutout shape ?", 1,"Warning" )
-		    if i=1 Then
-		      redim cutout.Pair(-1)
-		    end
-		    me.Value=False
-		  end
+		  
+		  If cutout.Pair.LastRowIndex >= 0 And BevelButton_penbutton.value=False Then
+		    
+		    Var d As New MessageDialog                  // declare the MessageDialog object
+		    Var b As MessageDialogButton                // for handling the result
+		    d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		    d.ActionButton.Caption = "Save"
+		    d.CancelButton.Visible = True               // show the Cancel button
+		    d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		    d.AlternateActionButton.Caption = "Don't Save"
+		    d.Message = "Delete cutout shape ?"
+		    'd.Explanation = "If you don't save, your changes will be lost. "
+		    
+		    b = d.ShowModal                             // display the dialog
+		    Select Case b                               // determine which button was pressed.
+		    Case d.ActionButton
+		      // user pressed Save
+		      cutout.Pair.ResizeTo(-1)
+		      
+		    Case d.AlternateActionButton
+		      // user pressed Don't Save
+		    Case d.CancelButton
+		      // user pressed Cancel
+		    End Select
+		    Me.Value = False
+		  End
 		  
 		  Canvas_digitizer.refresh(False)
 		  

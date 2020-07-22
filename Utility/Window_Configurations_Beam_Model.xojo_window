@@ -2654,11 +2654,11 @@ End
 		  
 		  for i =0 to UBound(Linac.Applicator)
 		    Listbox_Linac_applicators.AddRow str(i+1)
-		    Listbox_Linac_applicators.Cell(i,1)= Linac.Applicator(i)
+		    Listbox_Linac_applicators.CellValueAt(i,1)= Linac.Applicator(i)
 		    Listbox_Linac_applicators.CellType(i,1)=3
-		    Listbox_Linac_applicators.Cell(i,2)= Linac.BEAMnrcApplicatorCM(i)
+		    Listbox_Linac_applicators.CellValueAt(i,2)= Linac.BEAMnrcApplicatorCM(i)
 		    Listbox_Linac_applicators.CellType(i,2)=3
-		    Listbox_Linac_applicators.Cell(i,3)= Linac.BEAMnrcApplicatorLabel(i)
+		    Listbox_Linac_applicators.CellValueAt(i,3)= Linac.BEAMnrcApplicatorLabel(i)
 		    Listbox_Linac_applicators.CellType(i,3)=3
 		  next
 		End Sub
@@ -2676,8 +2676,8 @@ End
 		  
 		  DoNothing=True
 		  
-		  old_mode=PopupMenu_Linac_Mode_Top.ListIndex
-		  old_linac_mode=PopupMenu_Linac_Mode.ListIndex
+		  old_mode=PopupMenu_Linac_Mode_Top.SelectedRowIndex
+		  old_linac_mode=PopupMenu_Linac_Mode.SelectedRowIndex
 		  
 		  PopupMenu_Linac_Mode.DeleteAllRows
 		  PopupMenu_Linac_Mode_Top.DeleteAllRows
@@ -2698,12 +2698,12 @@ End
 		  DoNothing=False
 		  if Linac_Mode_Change=False Then
 		    if old_mode>-1 and old_mode<=PopupMenu_Linac_Mode_Top.ListCount Then
-		      PopupMenu_Linac_Mode_Top.ListIndex=old_mode
+		      PopupMenu_Linac_Mode_Top.SelectedRowIndex=old_mode
 		    else
-		      PopupMenu_Linac_Mode_Top.ListIndex=0
+		      PopupMenu_Linac_Mode_Top.SelectedRowIndex=0
 		    end
 		  else
-		    PopupMenu_Linac_Mode_Top.ListIndex=old_linac_mode
+		    PopupMenu_Linac_Mode_Top.SelectedRowIndex=old_linac_mode
 		    
 		  end
 		End Sub
@@ -2723,7 +2723,7 @@ End
 		  DoNothing=True
 		  
 		  old_name=PopupMenu_Linac_Energy.Text
-		  old_index=PopupMenu_Linac_Energy.ListIndex
+		  old_index=PopupMenu_Linac_Energy.SelectedRowIndex
 		  
 		  PopupMenu_Linac_Energy.DeleteAllRows
 		  
@@ -2740,13 +2740,13 @@ End
 		  if Linac_Energy_Change=False Then
 		    for i = 1 to PopupMenu_Linac_Energy.ListCount
 		      if PopupMenu_Linac_Energy.List(i-1)=old_name Then
-		        PopupMenu_Linac_Energy.ListIndex=i-1
+		        PopupMenu_Linac_Energy.SelectedRowIndex=i-1
 		        Return
 		      end
 		    next
-		    PopupMenu_Linac_Energy.ListIndex=0
+		    PopupMenu_Linac_Energy.SelectedRowIndex=0
 		  else
-		    PopupMenu_Linac_Energy.ListIndex=old_index
+		    PopupMenu_Linac_Energy.SelectedRowIndex=old_index
 		  end
 		End Sub
 	#tag EndMethod
@@ -2777,7 +2777,7 @@ End
 		  
 		  
 		  old_name=PopupMenu_Linac_Name.Text
-		  old_index=PopupMenu_Linac_Name.ListIndex
+		  old_index=PopupMenu_Linac_Name.SelectedRowIndex
 		  
 		  PopupMenu_Linac_Name.DeleteAllRows
 		  
@@ -2804,14 +2804,14 @@ End
 		  if Name_Change=False Then
 		    for i = 1 to PopupMenu_Linac_Name.ListCount
 		      if PopupMenu_Linac_Name.List(i-1)=old_name Then
-		        PopupMenu_Linac_Name.ListIndex=i-1
+		        PopupMenu_Linac_Name.SelectedRowIndex=i-1
 		        Return
 		      end
 		    next
-		    PopupMenu_Linac_Name.ListIndex=0
+		    PopupMenu_Linac_Name.SelectedRowIndex=0
 		    
 		  else
-		    PopupMenu_Linac_Name.ListIndex=old_index
+		    PopupMenu_Linac_Name.SelectedRowIndex=old_index
 		    
 		  end
 		End Sub
@@ -2841,20 +2841,20 @@ End
 		  ListBox_Linacs_MC.ColumnType(4)=3
 		  
 		  
-		  ListBox_Linacs_MC.Heading(0)="Shell"
-		  ListBox_Linacs_MC.Heading(1)="BEAMnrc folder name"
-		  ListBox_Linacs_MC.Heading(2)="DOSXYZnrc dose value"
-		  ListBox_Linacs_MC.Heading(3)="VMC dose value"
-		  ListBox_Linacs_MC.Heading(4)="BEAMnrc phsp file name"
+		  ListBox_Linacs_MC.HeaderAt(0)="Shell"
+		  ListBox_Linacs_MC.HeaderAt(1)="BEAMnrc folder name"
+		  ListBox_Linacs_MC.HeaderAt(2)="DOSXYZnrc dose value"
+		  ListBox_Linacs_MC.HeaderAt(3)="VMC dose value"
+		  ListBox_Linacs_MC.HeaderAt(4)="BEAMnrc phsp file name"
 		  ListBox_Linacs_MC.ColumnWidths="20%,20%,20%,20%,20%"
 		  
 		  if Linac<> Nil Then
 		    for i=0 to UBound(Linac.MC_BEAMnrc_path)
 		      ListBox_Linacs_MC.AddRow  gShells.Shells(i).title
-		      ListBox_Linacs_MC.Cell(i,1) = Linac.MC_BEAMnrc_path(i)
-		      ListBox_Linacs_MC.Cell(i,2)=Format(Linac.MC_dosxyz_dose(i),"-#.######e")
-		      ListBox_Linacs_MC.Cell(i,3)=Format(Linac.MC_VMC_dose(i),"-#.######e")
-		      ListBox_Linacs_MC.Cell(i,4)=Linac.MC_BEAMnrc_phsp_file(i)
+		      ListBox_Linacs_MC.CellValueAt(i,1) = Linac.MC_BEAMnrc_path(i)
+		      ListBox_Linacs_MC.CellValueAt(i,2)=Format(Linac.MC_dosxyz_dose(i),"-#.######e")
+		      ListBox_Linacs_MC.CellValueAt(i,3)=Format(Linac.MC_VMC_dose(i),"-#.######e")
+		      ListBox_Linacs_MC.CellValueAt(i,4)=Linac.MC_BEAMnrc_phsp_file(i)
 		      
 		    Next
 		    
@@ -2868,7 +2868,7 @@ End
 		    
 		    for i=1 to PopupMenu_Linac_Mode.ListCount
 		      if Linac.Mode=PopupMenu_Linac_Mode.List(i-1) Then
-		        PopupMenu_Linac_Mode.ListIndex=i-1
+		        PopupMenu_Linac_Mode.SelectedRowIndex=i-1
 		        exit for i
 		      end
 		    next
@@ -2908,12 +2908,12 @@ End
 		    for i=0 to UBound(gLinacs.All_MLCs)
 		      PopupMenu_Linac_MLC.AddRow gLinacs.All_MLCs(i).MLC_Name
 		    next
-		    PopupMenu_Linac_MLC.ListIndex=0
+		    PopupMenu_Linac_MLC.SelectedRowIndex=0
 		    
 		    if Linac.MLC.MLC_Use=1 Then
 		      for i=0 to UBound(gLinacs.All_MLCs)
 		        if Linac.MLC.MLC_Name=gLinacs.All_MLCs(i).MLC_Name Then
-		          PopupMenu_Linac_MLC.ListIndex=i+1
+		          PopupMenu_Linac_MLC.SelectedRowIndex=i+1
 		          exit
 		        end
 		      next
@@ -2922,17 +2922,17 @@ End
 		    
 		    
 		    Listbox_Linac_applicators.DeleteAllRows
-		    Listbox_Linac_applicators.Heading(0)="Number"
-		    Listbox_Linac_applicators.Heading(1)="Size #x#"
-		    Listbox_Linac_applicators.Heading(2)="BEAMnrc CM name"
-		    Listbox_Linac_applicators.Heading(3)="BEAMnrc CM label"
+		    Listbox_Linac_applicators.HeaderAt(0)="Number"
+		    Listbox_Linac_applicators.HeaderAt(1)="Size #x#"
+		    Listbox_Linac_applicators.HeaderAt(2)="BEAMnrc CM name"
+		    Listbox_Linac_applicators.HeaderAt(3)="BEAMnrc CM label"
 		    
 		    EditField_Linac_App.value = str(UBound(Linac.Applicator)+1)
 		    Linac_Applicator
 		    
 		    EditField_Linac_Num_Wedge.value = str(UBound(Linac.Wedges)+1)
 		    Linac_Pop_PhotonWedges
-		    PopupMenu_Linac_Wedge.ListIndex=0
+		    PopupMenu_Linac_Wedge.SelectedRowIndex=0
 		  end
 		  
 		  DoNothing=False
@@ -2952,8 +2952,8 @@ End
 		  
 		  DoNothing=True
 		  PopupMenu_Linac_Wedge.DeleteAllRows
-		  Listbox_Linac_Wedge.Heading(0)="Index"
-		  Listbox_Linac_Wedge.Heading(1)="Orientation"
+		  Listbox_Linac_Wedge.HeaderAt(0)="Index"
+		  Listbox_Linac_Wedge.HeaderAt(1)="Orientation"
 		  for i =0 to UBound(Linac.Wedges)
 		    PopupMenu_Linac_Wedge.AddRow str(i+1)+" - "+Linac.Wedges(i).Angle
 		  next
@@ -2965,13 +2965,13 @@ End
 		Sub Linac_Pop_PhotonWedgesOri()
 		  Dim i,w as Integer
 		  
-		  i=PopupMenu_Linac_Wedge.ListIndex
+		  i=PopupMenu_Linac_Wedge.SelectedRowIndex
 		  Listbox_Linac_Wedge.DeleteAllRows
 		  
 		  if i>=0 and i<=UBound(Linac.Wedges) Then
 		    for w =0 to UBound(Linac.Wedges(i).Rotations)
 		      Listbox_Linac_Wedge.AddRow str(w+1)
-		      Listbox_Linac_Wedge.Cell(w,1)= Linac.Wedges(i).Rotations(w)
+		      Listbox_Linac_Wedge.CellValueAt(w,1)= Linac.Wedges(i).Rotations(w)
 		      Listbox_Linac_Wedge.CellType(w,1)= 3
 		      
 		    next
@@ -2986,11 +2986,11 @@ End
 		  
 		  DoNothing=True
 		  Listbox_MLC.DeleteAllRows
-		  Listbox_MLC.Heading(0)="Bounds"
-		  Listbox_MLC.Heading(1)="Value (cm)"
+		  Listbox_MLC.HeaderAt(0)="Bounds"
+		  Listbox_MLC.HeaderAt(1)="Value (cm)"
 		  
 		  MLC= new Class_Linacs_MLC
-		  oldi=PopupMenu_MLC_All.ListIndex
+		  oldi=PopupMenu_MLC_All.SelectedRowIndex
 		  
 		  PopupMenu_MLC_All.DeleteAllRows
 		  for i =0 to UBound(gLinacs.All_MLCs)
@@ -3000,9 +3000,9 @@ End
 		  DoNothing=False
 		  
 		  if oldi>-1 and oldi<=UBound(gLinacs.All_MLCs) Then
-		    PopupMenu_MLC_All.ListIndex=oldi
+		    PopupMenu_MLC_All.SelectedRowIndex=oldi
 		  elseif PopupMenu_MLC_All.ListCount>=0 Then
-		    PopupMenu_MLC_All.ListIndex=0
+		    PopupMenu_MLC_All.SelectedRowIndex=0
 		  end
 		  
 		End Sub
@@ -3019,7 +3019,7 @@ End
 		  if MLC.Type=0 Then
 		    for i=0 to UBound(mlc.Boundaries)
 		      Listbox_MLC.AddRow str(i+1)
-		      Listbox_MLC.Cell(i,1)=str(mlc.Boundaries(i))
+		      Listbox_MLC.CellValueAt(i,1)=str(mlc.Boundaries(i))
 		      Listbox_MLC.CellType(i,1)=3
 		    next
 		    
@@ -3028,7 +3028,7 @@ End
 		    
 		    for i=0 to UBound(mlc.Boundaries)
 		      Listbox_MLC.AddRow str(i+1)
-		      Listbox_MLC.Cell(i,1)=str(mlc.Boundaries(i))
+		      Listbox_MLC.CellValueAt(i,1)=str(mlc.Boundaries(i))
 		      Listbox_MLC.CellType(i,1)=3
 		    next
 		    
@@ -3162,17 +3162,17 @@ End
 		  end
 		  
 		  if column=1 Then
-		    Linac.MC_BEAMnrc_path(row)=me.Cell(row,1)
+		    Linac.MC_BEAMnrc_path(row)=me.CellValueAt(row,1)
 		    
 		  elseif column=2 Then
-		    Linac.MC_dosxyz_dose(row)=val(me.Cell(row,2))
+		    Linac.MC_dosxyz_dose(row)=val(me.CellValueAt(row,2))
 		    
 		    
 		  elseif column=3 Then
-		    Linac.MC_VMC_dose(row)=val(me.Cell(row,3))
+		    Linac.MC_VMC_dose(row)=val(me.CellValueAt(row,3))
 		    
 		  elseif column=4 Then
-		    Linac.MC_BEAMnrc_phsp_file(row)=Trim(me.Cell(row,4))
+		    Linac.MC_BEAMnrc_phsp_file(row)=Trim(me.CellValueAt(row,4))
 		    
 		    
 		  end
@@ -3252,7 +3252,7 @@ End
 		        end
 		      Next
 		      Linac_Pop_PhotonWedges
-		      PopupMenu_Linac_Wedge.ListIndex=0
+		      PopupMenu_Linac_Wedge.SelectedRowIndex=0
 		    end
 		    save_linac=True
 		  end
@@ -3263,10 +3263,10 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  Dim i as Integer
-		  i=PopupMenu_Linac_Wedge.ListIndex
+		  i=PopupMenu_Linac_Wedge.SelectedRowIndex
 		  
 		  if i>=0 and i<=UBound(Linac.Wedges) Then
-		    Linac.Wedges(i).Rotations(row)=Trim(me.Cell(row,column))
+		    Linac.Wedges(i).Rotations(row)=Trim(me.CellValueAt(row,column))
 		    save_linac=True
 		  end
 		End Sub
@@ -3280,11 +3280,11 @@ End
 		  
 		  if DoNothing=False Then
 		    Linac_Wedge_Edit=True
-		    i=PopupMenu_Linac_Wedge.ListIndex
+		    i=PopupMenu_Linac_Wedge.SelectedRowIndex
 		    if i>=0 and i<=UBound(Linac.Wedges) Then
 		      Linac.Wedges(i).Angle=Trim(me.Text)
 		      Linac_Pop_PhotonWedges
-		      PopupMenu_Linac_Wedge.ListIndex=i
+		      PopupMenu_Linac_Wedge.SelectedRowIndex=i
 		    end
 		    Linac_Wedge_Edit=False
 		    save_linac=True
@@ -3298,7 +3298,7 @@ End
 		  Dim w,i as Integer
 		  
 		  
-		  w=me.ListIndex
+		  w=me.SelectedRowIndex
 		  if w>=0 and w<=UBound(Linac.Wedges) Then
 		    EditField_Linac_Wedge_Orientations.value = str(UBound(Linac.Wedges(w).Rotations)+1)
 		    if Linac_Wedge_Edit=False Then
@@ -3316,7 +3316,7 @@ End
 		  
 		  if DoNothing=False Then
 		    kk=val(me.Text)
-		    i=PopupMenu_Linac_Wedge.ListIndex
+		    i=PopupMenu_Linac_Wedge.SelectedRowIndex
 		    
 		    if i>=0 and i<= UBound(Linac.Wedges) Then
 		      ReDim Linac.Wedges(i).Rotations(kk-1)
@@ -3356,11 +3356,11 @@ End
 		  if i>=0 and i<=UBound(Linac.Applicator) Then
 		    
 		    if column=1 Then
-		      Linac.Applicator(i)=Trim(me.Cell(row,column))
+		      Linac.Applicator(i)=Trim(me.CellValueAt(row,column))
 		    elseif column=2 Then
-		      Linac.BEAMnrcApplicatorCM(i)=Trim(me.Cell(row,column))
+		      Linac.BEAMnrcApplicatorCM(i)=Trim(me.CellValueAt(row,column))
 		    elseif column=3 Then
-		      Linac.BEAMnrcApplicatorLabel(i)=Trim(me.Cell(row,column))
+		      Linac.BEAMnrcApplicatorLabel(i)=Trim(me.CellValueAt(row,column))
 		    end
 		  end
 		End Sub
@@ -3395,7 +3395,7 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=1 Then
-		    mlc.Boundaries(row)=val(me.Cell(row,column))
+		    mlc.Boundaries(row)=val(me.CellValueAt(row,column))
 		  end
 		End Sub
 	#tag EndEvent
@@ -3487,7 +3487,7 @@ End
 		Sub Change()
 		  Dim i as Integer
 		  
-		  i=me.ListIndex
+		  i=me.SelectedRowIndex
 		  if DoNothing=False Then
 		    if i>-1 and i<=UBound(gLinacs.All_MLCs) Then
 		      MLC=gLinacs.All_MLCs(i)
@@ -3517,7 +3517,7 @@ End
 		Sub Action()
 		  Dim i as Integer
 		  
-		  i=PopupMenu_MLC_All.ListIndex
+		  i=PopupMenu_MLC_All.SelectedRowIndex
 		  
 		  if i>=0 and i<=UBound(gLinacs.All_MLCs) Then
 		    gLinacs.All_MLCs.Remove (i)
@@ -3533,7 +3533,7 @@ End
 		Sub Change()
 		  Dim i as Integer
 		  
-		  i=me.ListIndex-1
+		  i=me.SelectedRowIndex-1
 		  if DoNothing=False Then
 		    if i>-1 and i<=UBound(gLinacs.All_MLCs) Then
 		      Linac.MLC.MLC_Name=gLinacs.All_MLCs(i).MLC_Name

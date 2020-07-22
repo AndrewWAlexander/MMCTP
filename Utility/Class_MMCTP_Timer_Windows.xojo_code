@@ -17,7 +17,7 @@ Inherits Timer
 		      ss=ss+Errors(0)+chr(13)
 		      Errors.Remove(0)
 		    Wend
-		    MsgBox ss
+		    MessageBox ss
 		  end
 		  
 		  
@@ -29,7 +29,7 @@ Inherits Timer
 		      ss=ss+App.Error_Msg(0)+chr(13)
 		      App.Error_Msg.Remove(0)
 		    Wend
-		    MsgBox ss
+		    MessageBox ss
 		  end
 		  
 		  

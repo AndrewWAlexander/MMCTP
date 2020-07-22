@@ -2417,7 +2417,7 @@ Inherits Thread
 		          d_value =file.thismemblock.ushort(vv)
 		        end
 		      else
-		        MsgBox "Could not readin DICOM Dose voxels, error with 16 bit voxels"
+		        MessageBox "Could not readin DICOM Dose voxels, error with 16 bit voxels"
 		        Return False
 		      end
 		      
@@ -2430,7 +2430,7 @@ Inherits Thread
 		          d_value =file.thismemblock.UInt32Value(vv)
 		        end
 		      else
-		        MsgBox "Could not readin DICOM Dose voxels, error with 32 bit voxels"
+		        MessageBox "Could not readin DICOM Dose voxels, error with 32 bit voxels"
 		        Return False
 		      end
 		    end if

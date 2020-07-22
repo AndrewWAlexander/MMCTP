@@ -814,14 +814,14 @@ End
 		  for i=0 to PopupMenu_CM.ListCount
 		    num=Val(PopupMenu_CM.List(i))
 		    if num=BremSplit.ICMDBS Then
-		      PopupMenu_CM.ListIndex=i
+		      PopupMenu_CM.SelectedRowIndex=i
 		      Exit
 		    end
 		  next
 		  
 		  
 		  PopupMenu_e_splitting_plane_no.DeleteAllRows
-		  if PopupMenu_CM.ListIndex>0 Then
+		  if PopupMenu_CM.SelectedRowIndex>0 Then
 		    PopupMenu_e_splitting_plane_no.AddRow str(1)+" "+Format(BremSplit.CMs(BremSplit.ICMDBS-1).FLATFILT.z_min,"-#.#####")
 		    znum=BremSplit.CMs(BremSplit.ICMDBS-1).FLATFILT.z_min
 		    for i =0 to UBound(BremSplit.CMs(BremSplit.ICMDBS-1).FLATFILT.layers)
@@ -831,7 +831,7 @@ End
 		  end
 		  
 		  if BremSplit.ZPLANEDBS<=PopupMenu_e_splitting_plane_no.ListCount and BremSplit.ZPLANEDBS>0 Then
-		    PopupMenu_e_splitting_plane_no.ListIndex=BremSplit.ZPLANEDBS-1
+		    PopupMenu_e_splitting_plane_no.SelectedRowIndex=BremSplit.ZPLANEDBS-1
 		  end
 		  
 		  
@@ -966,7 +966,7 @@ End
 #tag Events PopupMenu_e_splitting_plane_no
 	#tag Event
 		Sub Change()
-		  BremSplit.ZPLANEDBS=me.ListIndex+1
+		  BremSplit.ZPLANEDBS=me.SelectedRowIndex+1
 		End Sub
 	#tag EndEvent
 #tag EndEvents

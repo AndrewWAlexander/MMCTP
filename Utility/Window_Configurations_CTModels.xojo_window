@@ -541,11 +541,11 @@ End
 		  PopupMenu_CT_Model.SelectedRowIndex = 0
 		  
 		  
-		  Listbox_CT_Materials.Heading(0)="Material"
-		  Listbox_CT_Materials.Heading(1)="HU Low"
-		  Listbox_CT_Materials.Heading(2)="HU High"
-		  Listbox_CT_Materials.Heading(3)="Density Low (g/cc)"
-		  Listbox_CT_Materials.Heading(4)="Density High (g/cc)"
+		  Listbox_CT_Materials.HeaderAt(0)="Material"
+		  Listbox_CT_Materials.HeaderAt(1)="HU Low"
+		  Listbox_CT_Materials.HeaderAt(2)="HU High"
+		  Listbox_CT_Materials.HeaderAt(3)="Density Low (g/cc)"
+		  Listbox_CT_Materials.HeaderAt(4)="Density High (g/cc)"
 		  
 		  
 		  DoNothing=False
@@ -716,9 +716,9 @@ End
 		  end
 		  Name_Change=True
 		  CT_Model.Model_name=me.Text
-		  i=PopupMenu_CT_Model.ListIndex
+		  i=PopupMenu_CT_Model.SelectedRowIndex
 		  CT_Open
-		  PopupMenu_CT_Model.ListIndex=i
+		  PopupMenu_CT_Model.SelectedRowIndex=i
 		  Name_Change=False
 		  Save_Model=True
 		End Sub
@@ -812,7 +812,7 @@ End
 		Sub Action()
 		  DIm i as Integer
 		  
-		  i=PopupMenu_CT_Model.ListIndex
+		  i=PopupMenu_CT_Model.SelectedRowIndex
 		  
 		  if i>=0 and i<=UBound(gCT.All_CT) Then
 		    gCT.All_CT.Remove i

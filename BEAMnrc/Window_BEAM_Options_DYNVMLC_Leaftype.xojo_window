@@ -183,10 +183,10 @@ End
 		  DVMLC=Window_BEAM_Options_DYNVMLC.DYNVMLC
 		  
 		  
-		  Listbox_Type.Heading(0)="Start Leaf"
-		  Listbox_Type.Heading(1)="End Leaf"
-		  Listbox_Type.Heading(2)="FULL leaves"
-		  Listbox_Type.Heading(3)="TARGET/ISOCENTER Pair"
+		  Listbox_Type.HeaderAt(0)="Start Leaf"
+		  Listbox_Type.HeaderAt(1)="End Leaf"
+		  Listbox_Type.HeaderAt(2)="FULL leaves"
+		  Listbox_Type.HeaderAt(3)="TARGET/ISOCENTER Pair"
 		  Listbox_Type.ColumnWidths="20%,20%,20%,40%"
 		  
 		  RefreshList
@@ -207,7 +207,7 @@ End
 		  num=1
 		  for i=0 to DVMLC.NGROUP_DYNVMLC-1
 		    Listbox_Type.AddRow str(num)
-		    Listbox_Type.Cell(i,1)=Format(DVMLC.Groups(i).Numleaves+num-1,"#")
+		    Listbox_Type.CellValueAt(i,1)=Format(DVMLC.Groups(i).Numleaves+num-1,"#")
 		    num=DVMLC.Groups(i).Numleaves+num
 		    if DVMLC.Groups(i).Leaftype=1 Then
 		      Listbox_Type.CellCheck(i,2)=True

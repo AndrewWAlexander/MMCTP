@@ -1475,19 +1475,19 @@ End
 		  
 		  
 		  Listbox_Points.DeleteAllRows
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  if k>-1 and k<=UBound(data.Graphs) Then
-		    Listbox_Points.Heading(0)="Point #"
-		    Listbox_Points.Heading(1)="Point X"
-		    Listbox_Points.Heading(2)="Point Y"
-		    Listbox_Points.Heading(3)="Point Z"
-		    Listbox_Points.Heading(4)="Dose"
+		    Listbox_Points.HeaderAt(0)="Point #"
+		    Listbox_Points.HeaderAt(1)="Point X"
+		    Listbox_Points.HeaderAt(2)="Point Y"
+		    Listbox_Points.HeaderAt(3)="Point Z"
+		    Listbox_Points.HeaderAt(4)="Dose"
 		    for i=0 to UBound(Data.Graphs(k).Points)
 		      Listbox_Points.AddRow str(i+1)
-		      Listbox_Points.Cell(i,1)=str(data.Graphs(k).Points(i).x_cm)
-		      Listbox_Points.Cell(i,2)=str(data.Graphs(k).Points(i).y_cm)
-		      Listbox_Points.Cell(i,3)=str(data.Graphs(k).Points(i).z_cm)
-		      Listbox_Points.Cell(i,4)=str(data.Graphs(k).Points(i).value)
+		      Listbox_Points.CellValueAt(i,1)=str(data.Graphs(k).Points(i).x_cm)
+		      Listbox_Points.CellValueAt(i,2)=str(data.Graphs(k).Points(i).y_cm)
+		      Listbox_Points.CellValueAt(i,3)=str(data.Graphs(k).Points(i).z_cm)
+		      Listbox_Points.CellValueAt(i,4)=str(data.Graphs(k).Points(i).value)
 		    next
 		    EditField_Date.value = data.exportingdate
 		    EditField_Depth.value = str(data.Graphs(k).DPTH)
@@ -1629,7 +1629,7 @@ End
 #tag Events PushButton_Import
 	#tag Event
 		Sub Action()
-		  data_Import(PopupMenu_list.ListIndex)
+		  data_Import(PopupMenu_list.SelectedRowIndex)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

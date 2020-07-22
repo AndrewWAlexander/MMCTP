@@ -973,8 +973,8 @@ End
 		  Listbox_DoseA.DeleteAllRows
 		  Listbox_DoseB.DeleteAllRows
 		  
-		  Listbox_DoseA.Heading(0)="Reference Dose Distribution"
-		  Listbox_DoseB.Heading(0)="Evaluation Dose Distribution"
+		  Listbox_DoseA.HeaderAt(0)="Reference Dose Distribution"
+		  Listbox_DoseB.HeaderAt(0)="Evaluation Dose Distribution"
 		  
 		  
 		  for i=0 to UBound(gRTOG.Plan)
@@ -1012,7 +1012,7 @@ End
 		    
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      
-		      if Listbox_DoseA.cell(Listbox_DoseA.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseA.CellValueAt(Listbox_DoseA.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_a=i
 		        doseindex_a=k
 		        
@@ -1164,7 +1164,7 @@ End
 		    
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      
-		      if Listbox_DoseB.cell(Listbox_DoseB.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseB.CellValueAt(Listbox_DoseB.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_b=i
 		        doseindex_b=k
 		        
@@ -1331,13 +1331,13 @@ End
 		    
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      
-		      if Listbox_DoseA.cell(Listbox_DoseA.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseA.CellValueAt(Listbox_DoseA.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_a=i
 		        doseindex_a=k
 		        flagtestA=true
 		      end
 		      
-		      if Listbox_DoseB.Cell(Listbox_DoseB.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseB.CellValueAt(Listbox_DoseB.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_b=i
 		        doseindex_b=k
 		        flagtestB=true
@@ -1667,7 +1667,7 @@ End
 		        
 		      else
 		        
-		        MsgBox("Please insert missing parameters")
+		        MessageBox("Please insert missing parameters")
 		        
 		        
 		      end if
@@ -1677,7 +1677,7 @@ End
 		      
 		    else
 		      
-		      MsgBox("Please choose either gamma or dose difference calculation.")
+		      MessageBox("Please choose either gamma or dose difference calculation.")
 		      
 		      
 		    end if
@@ -1686,7 +1686,7 @@ End
 		    
 		  else
 		    
-		    MsgBox("Please choose two dose distributions")
+		    MessageBox("Please choose two dose distributions")
 		    
 		  end if
 		  
@@ -1817,7 +1817,7 @@ End
 		    
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      
-		      if Listbox_DoseA.cell(Listbox_DoseA.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseA.CellValueAt(Listbox_DoseA.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_a=i
 		        doseindex_a=k
 		        
@@ -1851,7 +1851,7 @@ End
 		  If Keyboard.AsyncKeyDown(124) and CanvasA_Flag then
 		    //do something with the right arrow key...
 		    
-		    MsgBox("right")
+		    MessageBox("right")
 		    
 		    if slice_numberA<gRTOG.Plan(planindex_a).dose(doseindex_a).Size_of_Dimension3 then
 		      slice_numberA=slice_numberA+1
@@ -1918,7 +1918,7 @@ End
 		    
 		    for k=0 to UBound(gRTOG.Plan(i).Dose)
 		      
-		      if Listbox_DoseB.cell(Listbox_DoseA.ListIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
+		      if Listbox_DoseB.CellValueAt(Listbox_DoseA.SelectedRowIndex,0)=gRTOG.Plan(i).Dose(k).dose_name Then
 		        planindex_b=i
 		        doseindex_b=k
 		        

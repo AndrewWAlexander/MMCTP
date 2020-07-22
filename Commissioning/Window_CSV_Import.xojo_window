@@ -1385,7 +1385,7 @@ End
 		Sub Pop_Info()
 		  Dim k,i as Integer
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  
 		  
 		  
@@ -1396,18 +1396,18 @@ End
 		    gg=CSV.Graphs(k)
 		    Listbox_Points.DeleteAllRows
 		    
-		    Listbox_Points.Heading(0)="Point"
-		    Listbox_Points.Heading(1)="X"
-		    Listbox_Points.Heading(2)="Y"
-		    Listbox_Points.Heading(3)="Z"
-		    Listbox_Points.Heading(4)="Value"
+		    Listbox_Points.HeaderAt(0)="Point"
+		    Listbox_Points.HeaderAt(1)="X"
+		    Listbox_Points.HeaderAt(2)="Y"
+		    Listbox_Points.HeaderAt(3)="Z"
+		    Listbox_Points.HeaderAt(4)="Value"
 		    
 		    for i=0 to UBound(CSV.Graphs(k).Points)
 		      Listbox_Points.AddRow str(i+1)
-		      Listbox_Points.Cell(i,1)=str(gg.Points(i).x_cm)
-		      Listbox_Points.Cell(i,2)=str(gg.Points(i).y_cm)
-		      Listbox_Points.Cell(i,3)=str(gg.Points(i).z_cm)
-		      Listbox_Points.Cell(i,4)=str(gg.Points(i).value)
+		      Listbox_Points.CellValueAt(i,1)=str(gg.Points(i).x_cm)
+		      Listbox_Points.CellValueAt(i,2)=str(gg.Points(i).y_cm)
+		      Listbox_Points.CellValueAt(i,3)=str(gg.Points(i).z_cm)
+		      Listbox_Points.CellValueAt(i,4)=str(gg.Points(i).value)
 		    next
 		    
 		    EditField_Date.value = gg.Date
@@ -1496,7 +1496,7 @@ End
 		  Dim k as Integer
 		  
 		  
-		  k=PopupMenu_list.ListIndex
+		  k=PopupMenu_list.SelectedRowIndex
 		  CSV_Import(k)
 		  if app.which_window_Commission Then
 		    Window_Commisssioning.Update_Profile

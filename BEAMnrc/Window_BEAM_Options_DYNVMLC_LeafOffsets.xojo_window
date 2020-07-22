@@ -122,9 +122,9 @@ End
 		  Dim correctedleaf,correctedleafB, offset, offsetB,z_MLC,iso as Double
 		  //----------------------------
 		  
-		  Listbox_Openings.Heading(0)="From Pos (cm)"
-		  Listbox_Openings.Heading(1)="Offset (cm) at MLC plane for bank A"
-		  Listbox_Openings.Heading(2)="Offset (cm) at MLC plane for bank B"
+		  Listbox_Openings.HeaderAt(0)="From Pos (cm)"
+		  Listbox_Openings.HeaderAt(1)="Offset (cm) at MLC plane for bank A"
+		  Listbox_Openings.HeaderAt(2)="Offset (cm) at MLC plane for bank B"
 		  
 		  
 		  DVMLC=Window_BEAM_Options_DYNVMLC.DYNVMLC
@@ -140,8 +140,8 @@ End
 		    offset=correctedleaf-i*z_MLC/iso
 		    correctedleafB=gBEAM.Beams(findex).egs_Input_CM_MLC_RoundedLeaf(i,z_MLC,DVMLC.Leafradius,iso,1)
 		    offsetB=-1*(i*z_MLC/iso-correctedleafB)
-		    Listbox_Openings.Cell(i+20,1)=Format(offset,"-#.#####")
-		    Listbox_Openings.Cell(i+20,2)=Format(offsetB,"-#.#####")
+		    Listbox_Openings.CellValueAt(i+20,1)=Format(offset,"-#.#####")
+		    Listbox_Openings.CellValueAt(i+20,2)=Format(offsetB,"-#.#####")
 		  next
 		  
 		  

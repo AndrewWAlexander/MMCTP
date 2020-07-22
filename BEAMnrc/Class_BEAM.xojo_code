@@ -578,7 +578,7 @@ Protected Class Class_BEAM
 		    RMAx_cm=Zmax_lowest*TAN(ACOS(Zmax_lowest/(R_arc+real_thick))+36.8/180*3.1416)
 		    
 		    if InStr(Str(RMAx_cm),"nan")>0 or RMAx_cm<=0 Then
-		      MsgBox "RMAX Value in DYNVMLC is below zero! for file "+Inputfile.title
+		      MessageBox "RMAX Value in DYNVMLC is below zero! for file "+Inputfile.title
 		    end
 		    
 		    
@@ -988,7 +988,7 @@ Protected Class Class_BEAM
 		  'Normal_or_Overtravel_2=0
 		  'end
 		  'if((leaf_a>=leaf_b) and (leaf_a <> 0.0) and (leaf_b <>0.0)) then
-		  ''MsgBox("leaves colliding! ... exiting ...")
+		  ''MessageBox("leaves colliding! ... exiting ...")
 		  'end
 		  'leaf_a=egs_Input_CM_DYNVMLC_leaveset(leaf_a,Normal_or_Overtravel_1,z_MLC,leaf_radius,z_field)
 		  'leaf_b=egs_Input_CM_DYNVMLC_leaveset(leaf_b,Normal_or_Overtravel_2,z_MLC,leaf_radius,z_field)
@@ -1031,69 +1031,79 @@ Protected Class Class_BEAM
 		  // Turki M and A. Alexander (2015)  
 		  // 
 		  //===================================================
-		  Dim mlc as Class_MLC
-		  Dim i,j,inum_fields,inum_leaves as Integer
-		  Dim leaf_a, leaf_b as Single
-		  Dim midpoint as Double
+		  'Dim mlc as Class_MLC
+		  'Dim i,j,inum_fields,inum_leaves as Integer
+		  'Dim leaf_a, leaf_b as Single
+		  'Dim midpoint as Double
 		  //===================================================
 		  
-		  MLC = new Class_MLC
-		  MLC = gRTOG.Plan(Plan_Index).Beam(beam_number).mlc
-		  CM.MLCE.Title_CM="MMCTP updated MLCE CM within method egs_Input_CM_MLCE"
-		  midpoint=(cm.MLCE.zmin+cm.MLCE.zmax)/2
+		  Var MLC As Class_MLC = gRTOG.Plan(Plan_Index).Beam(beam_number).mlc
+		  CM.MLCE.Title_CM = "MMCTP updated MLCE CM within method egs_Input_CM_MLCE"
+		  Var midpoint As Double = (cm.MLCE.zmin+cm.MLCE.zmax)/2
+		  https://docs.xojo.com/DatabaseRow
 		  
-		  
-		  if MLC.NumberofFields=0 or UBound(MLC.Fields)<0 Then //load default setting
+		  If MLC.NumberofFields = 0 Or MLC.Fields.LastRowIndex < 0 Then //load default setting
 		    // 0 mode for static fields
-		    CM.MLCE.mode=0
-		    cm.MLCE.nfield=1
-		    ReDim cm.MLCE.Field(cm.MLCE.nfield-1)
-		    cm.MLCE.Field(0)=new Class_BEAM_CM_MLC_Leaf_Opening
-		    CM.MLCE.Field(0).Neg=-20.3
-		    CM.MLCE.Field(0).Pos=20.3
-		    CM.MLCE.Field(0).Num=cm.MLCE.Num_leaf
+		    CM.MLCE.mode = 0
+		    CM.MLCE.nfield = 1
+		    CM.MLCE.Field.ResizeTo(cm.MLCE.nfield-1)
+		    CM.MLCE.Field(0) = New Class_BEAM_CM_MLC_Leaf_Opening
+		    CM.MLCE.Field(0).Neg = -20.3
+		    CM.MLCE.Field(0).Pos = 20.3
+		    CM.MLCE.Field(0).Num = cm.MLCE.Num_leaf
 		    
-		  else // If we have an MLC file
+		  Else // If we have an MLC file
 		    
-		    if InStr(MLC.MLC_Type,"Static")>0   Then
+		    If InStr(MLC.MLC_Type,"Static")>0   Then
 		      CM.MLCE.MODE=0
-		    elseif InStr(MLC.MLC_Type,"Step")>0 Then
+		    Elseif InStr(MLC.MLC_Type,"Step")>0 Then
 		      CM.MLCE.MODE=2
-		    elseif InStr(MLC.MLC_Type,"Dynamic")>0 Then
+		    Elseif InStr(MLC.MLC_Type,"Dynamic")>0 Then
+		      
 		      CM.MLCE.MODE=1
-		    end
+		    End If
 		    
-		    inum_fields=MLC.NumberofFields
-		    inum_leaves=mlc.NumberofLeafPairs
-		    ReDim cm.MLCE.Index(inum_fields-1)
-		    ReDim cm.MLCE.Field(inum_fields*MLC.NumberofLeafPairs-1)
+		    Var inum_fields As Integer = MLC.NumberofFields
+		    Var inum_leaves As Integer = mlc.NumberofLeafPairs
+		    CM.MLCE.Index.ResizeTo(inum_fields-1)
+		    CM.MLCE.Field.ResizeTo( inum_fields*MLC.NumberofLeafPairs - 1)
 		    
-		    for i=0 to UBound(cm.MLCE.Field)
-		      cm.MLCE.Field(i)=new Class_BEAM_CM_MLC_Leaf_Opening
-		    next
+		    For i As Integer = 0 To CM.MLCE.Field.LastRowIndex
+		      
+		      CM.MLCE.Field(i) = New Class_BEAM_CM_MLC_Leaf_Opening
+		      
+		    Next
 		    
-		    if (inum_fields-1)<>UBound(MLC.Fields) Then
+		    If (inum_fields-1) <> MLC.Fields.LastRowIndex Then
+		      
 		      gBEAM.egs_msg.append "Error within MLCE2BEAM : number of fields does not match UBound of fields"
 		      Return
-		    end
+		      
+		    End If
 		    
-		    for i=1 to inum_fields
+		    For i As Integer = 1 To inum_fields
 		      // Update index of field
-		      cm.MLCE.Index(i-1)=MLC.Fields(i-1).Indexnum
-		      for j=0 to inum_leaves-1
-		        cm.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j)=new Class_BEAM_CM_MLC_Leaf_Opening
-		        leaf_a=egs_Input_CM_MLC_RoundedLeaf(MLC.Fields(i-1).Leaf_A(j),midpoint, cm.SYNCMLCE.leafradius,cm.SYNCMLCE.ssd,0)
-		        leaf_b=egs_Input_CM_MLC_RoundedLeaf((-1*MLC.Fields(i-1).Leaf_B(j)), midpoint,cm.SYNCMLCE.leafradius,cm.SYNCMLCE.ssd,1)
+		      CM.MLCE.Index(i-1)=MLC.Fields(i-1).Indexnum
+		      For j As Integer = 0 To inum_leaves-1
 		        
-		        if ((leaf_a<-leaf_b) and (leaf_a <> 0.0) and (leaf_b <>0.0)) then
+		        CM.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j) = New Class_BEAM_CM_MLC_Leaf_Opening
+		        Var leaf_a As Single = egs_Input_CM_MLC_RoundedLeaf(MLC.Fields(i-1).Leaf_A(j),midpoint, _
+		        CM.SYNCMLCE.leafradius,cm.SYNCMLCE.ssd,0)
+		        Var leaf_b As Single = egs_Input_CM_MLC_RoundedLeaf((-1*MLC.Fields(i-1).Leaf_B(j)), _
+		        midpoint,cm.SYNCMLCE.leafradius,cm.SYNCMLCE.ssd,1)
+		        
+		        If ((leaf_a<-leaf_b) And (leaf_a <> 0.0) And (leaf_b <>0.0)) Then
+		          
 		          gBEAM.egs_msg.append "Error Leaves colliding in MLCE! ..."
-		        end
-		        cm.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).pos=leaf_a
-		        cm.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).neg=leaf_b
-		        cm.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).num=1
-		      next
-		    next
-		  end
+		          
+		        End If
+		        CM.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).pos = leaf_a
+		        CM.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).neg = leaf_b
+		        CM.MLCE.Field((i-1)*MLC.NumberofLeafPairs+j).num = 1 
+		        
+		      Next
+		    Next
+		  End If 
 		End Sub
 	#tag EndMethod
 
@@ -1284,7 +1294,7 @@ Protected Class Class_BEAM
 		  RMAx_cm=Zmax_lowest*TAN(ACOS(Zmax_lowest/(R_arc+real_thick))+36.8/180*3.1416)
 		  
 		  if InStr(Str(RMAx_cm),"nan")>0 or RMAx_cm<=0 Then
-		    MsgBox "RMAX Value in DYNVMLC is below zero! for file "+Inputfile.title
+		    MessageBox "RMAX Value in DYNVMLC is below zero! for file "+Inputfile.title
 		  end
 		  
 		  
@@ -1305,7 +1315,7 @@ Protected Class Class_BEAM
 		  
 		  
 		  for j=0 to inum_leaves-1
-		    BEAMMLC.Field(j)=new Class_BEAM_CM_MLC_Leaf_Opening
+		    BEAMMLC.Field(j)=New Class_BEAM_CM_MLC_Leaf_Opening
 		    BEAMMLC.Field(j).pos=zmin/100*MLC.Fields(i-1).Leaf_B(j)
 		    BEAMMLC.Field(j).neg=-zmin/100*MLC.Fields(i-1).Leaf_A(j)
 		    BEAMMLC.Field(j).num=1
@@ -1735,7 +1745,7 @@ Protected Class Class_BEAM
 		      'cm.text(i-1)=wedge_text(i)
 		      'next
 		    else
-		      MsgBox "Error in CM Static Wedge! Could not find wedge file "+f.Name
+		      MessageBox "Error in CM Static Wedge! Could not find wedge file "+f.Name
 		    end
 		    
 		  else
@@ -2029,7 +2039,7 @@ Protected Class Class_BEAM
 		  try
 		    beam_input_file=gPref.BEAMnrc_fi.child(inputfile)
 		  Catch err As NilObjectException
-		    //MsgBox("The path is invalid!")
+		    //MessageBox("The path is invalid!")
 		    
 		  end try
 		  
@@ -2060,7 +2070,7 @@ Protected Class Class_BEAM
 		  Return good
 		  
 		  Exception err as UnsupportedFormatException
-		    //MsgBox err.message+" Error No.: "+Str(err.ErrorNumber)
+		    //MessageBox err.message+" Error No.: "+Str(err.ErrorNumber)
 		End Function
 	#tag EndMethod
 

@@ -1269,7 +1269,7 @@ End
 		  Canvas_Graph.Profiles=new Class_Profiles_All
 		  for i=0 to ListBox_Dose_profiles.ListCount-1
 		    if ListBox_Dose_profiles.CellCheck(i,0) Then
-		      j=val(ListBox_Dose_profiles.Cell(i,Index_gProfile_Index))
+		      j=val(ListBox_Dose_profiles.CellValueAt(i,Index_gProfile_Index))
 		      pp=new Class_Profile_One
 		      pp=gProfiles.One_Profile(j)
 		      pp.Show=True
@@ -1391,26 +1391,26 @@ End
 		  ListBox_Dose_profiles.ColumnCount=i
 		  ListBox_Dose_profiles.ColumnWidths="5%,10%,8%,8%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%"
 		  
-		  ListBox_Dose_profiles.Heading(0)="Profile"
-		  ListBox_Dose_profiles.Heading(Index_Label)="Label"
-		  ListBox_Dose_profiles.Heading(Index_Type)="Profile Type"
-		  ListBox_Dose_profiles.Heading(Index_Energy)="Energy"
-		  ListBox_Dose_profiles.Heading(Index_SSD)="SSD (cm)"
-		  ListBox_Dose_profiles.Heading(Index_FieldSize)="Field Size x,y (cm)"
-		  ListBox_Dose_profiles.Heading(Index_Addon)="Add-on"
-		  ListBox_Dose_profiles.Heading(Index_Algor)="Algorithm"
-		  ListBox_Dose_profiles.Heading(Index_Pointa)="Point 1"
-		  ListBox_Dose_profiles.Heading(Index_Pointb)="Point 2"
-		  ListBox_Dose_profiles.Heading(Index_Norm_Value)="Norm Value"
-		  ListBox_Dose_profiles.Heading(Index_Colour)="Colour"
-		  ListBox_Dose_profiles.Heading(Index_Maxvalue)="Max Value"
-		  ListBox_Dose_profiles.Heading(Index_Norm)="Normalize"
-		  ListBox_Dose_profiles.Heading(Index_Norm_Value)="Norm Value"
-		  ListBox_Dose_profiles.Heading(Index_Show_Points)="Show Points"
-		  ListBox_Dose_profiles.Heading(Index_Show_Line)="Show Line"
-		  ListBox_Dose_profiles.Heading(Index_gProfile_Index)="gProfileIndex"
-		  ListBox_Dose_profiles.Heading(Index_Unit)="Machine"
-		  ListBox_Dose_profiles.Heading(Index_Depth)="Depth (cm)"
+		  ListBox_Dose_profiles.HeaderAt(0)="Profile"
+		  ListBox_Dose_profiles.HeaderAt(Index_Label)="Label"
+		  ListBox_Dose_profiles.HeaderAt(Index_Type)="Profile Type"
+		  ListBox_Dose_profiles.HeaderAt(Index_Energy)="Energy"
+		  ListBox_Dose_profiles.HeaderAt(Index_SSD)="SSD (cm)"
+		  ListBox_Dose_profiles.HeaderAt(Index_FieldSize)="Field Size x,y (cm)"
+		  ListBox_Dose_profiles.HeaderAt(Index_Addon)="Add-on"
+		  ListBox_Dose_profiles.HeaderAt(Index_Algor)="Algorithm"
+		  ListBox_Dose_profiles.HeaderAt(Index_Pointa)="Point 1"
+		  ListBox_Dose_profiles.HeaderAt(Index_Pointb)="Point 2"
+		  ListBox_Dose_profiles.HeaderAt(Index_Norm_Value)="Norm Value"
+		  ListBox_Dose_profiles.HeaderAt(Index_Colour)="Colour"
+		  ListBox_Dose_profiles.HeaderAt(Index_Maxvalue)="Max Value"
+		  ListBox_Dose_profiles.HeaderAt(Index_Norm)="Normalize"
+		  ListBox_Dose_profiles.HeaderAt(Index_Norm_Value)="Norm Value"
+		  ListBox_Dose_profiles.HeaderAt(Index_Show_Points)="Show Points"
+		  ListBox_Dose_profiles.HeaderAt(Index_Show_Line)="Show Line"
+		  ListBox_Dose_profiles.HeaderAt(Index_gProfile_Index)="gProfileIndex"
+		  ListBox_Dose_profiles.HeaderAt(Index_Unit)="Machine"
+		  ListBox_Dose_profiles.HeaderAt(Index_Depth)="Depth (cm)"
 		  
 		  ListBox_Dose_profiles.ColumnType(Index_Norm)=2
 		  ListBox_Dose_profiles.ColumnType(Index_Norm_Value)=3
@@ -1483,14 +1483,14 @@ End
 		    pp=gProfiles.One_Profile(i)
 		    if pp.Show_Commissioning Then
 		      ListBox_Dose_profiles.AddRow Str(listrow+1)
-		      ListBox_Dose_profiles.Cell(listrow,Index_Label)=gProfiles.One_Profile(i).Label
-		      ListBox_Dose_profiles.Cell(listrow,Index_Energy)=gProfiles.Get_String_Energy(gProfiles.One_Profile(i))
-		      ListBox_Dose_profiles.Cell(listrow,Index_FieldSize)=gProfiles.Get_String_FS(gProfiles.One_Profile(i))
-		      ListBox_Dose_profiles.Cell(listrow,Index_SSD)=Get_String_SSD(gProfiles.One_Profile(i))
-		      ListBox_Dose_profiles.Cell(listrow,Index_Algor)=gProfiles.One_Profile(i).Algorithm
-		      ListBox_Dose_profiles.Cell(listrow,Index_Unit)=gProfiles.One_Profile(i).Linac
-		      ListBox_Dose_profiles.Cell(listrow,Index_Depth)=Get_String_Depth(gProfiles.One_Profile(i))
-		      ListBox_Dose_profiles.Cell(listrow,Index_Addon)=gProfiles.One_Profile(i).AddOn
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Label)=gProfiles.One_Profile(i).Label
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Energy)=gProfiles.Get_String_Energy(gProfiles.One_Profile(i))
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_FieldSize)=gProfiles.Get_String_FS(gProfiles.One_Profile(i))
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_SSD)=Get_String_SSD(gProfiles.One_Profile(i))
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Algor)=gProfiles.One_Profile(i).Algorithm
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Unit)=gProfiles.One_Profile(i).Linac
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Depth)=Get_String_Depth(gProfiles.One_Profile(i))
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Addon)=gProfiles.One_Profile(i).AddOn
 		      
 		      // 0 = User
 		      // 1 = PDD
@@ -1510,21 +1510,21 @@ End
 		        gProfiles.One_Profile(i).Update_Profile
 		      end
 		      
-		      ListBox_Dose_profiles.Cell(listrow,Index_Type)=ss
-		      ListBox_Dose_profiles.Cell(listrow,Index_Pointa)=Format(gProfiles.One_Profile(i).Pointa.x_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointa.y_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointa.z_cm,"-#.##")
-		      ListBox_Dose_profiles.Cell(listrow,Index_Pointb)= Format(gProfiles.One_Profile(i).Pointb.x_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointb.y_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointb.z_cm,"-#.##")
-		      ListBox_Dose_profiles.Cell(listrow,Index_Maxvalue)=Format(gProfiles.One_Profile(i).MaxPoint.value, "-#.#####e")
-		      ListBox_Dose_profiles.Cell(listrow,Index_Norm_Value)=Format(gProfiles.One_Profile(i).Normalize_value, "-#.#####e")
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Type)=ss
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Pointa)=Format(gProfiles.One_Profile(i).Pointa.x_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointa.y_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointa.z_cm,"-#.##")
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Pointb)= Format(gProfiles.One_Profile(i).Pointb.x_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointb.y_cm,"-#.##")+", "+Format(gProfiles.One_Profile(i).Pointb.z_cm,"-#.##")
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Maxvalue)=Format(gProfiles.One_Profile(i).MaxPoint.value, "-#.#####e")
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_Norm_Value)=Format(gProfiles.One_Profile(i).Normalize_value, "-#.#####e")
 		      if gProfiles.One_Profile(i).Norm Then
 		        ListBox_Dose_profiles.CellCheck(listrow,Index_Norm)=True
 		      end
 		      ListBox_Dose_profiles.CellCheck(listrow,Index_Show_Points)=gProfiles.One_Profile(i).Show_Marker
 		      ListBox_Dose_profiles.CellCheck(listrow,Index_Show_Line)=gProfiles.One_Profile(i).show_line
-		      ListBox_Dose_profiles.Cell(listrow,Index_gProfile_Index)= Format(i,"#")
+		      ListBox_Dose_profiles.CellValueAt(listrow,Index_gProfile_Index)= Format(i,"#")
 		      listrow=listrow+1
 		    end
 		  Next
-		  ListBox_Dose_profiles.ListIndex=0
+		  ListBox_Dose_profiles.SelectedRowIndex=0
 		End Sub
 	#tag EndMethod
 
@@ -1542,17 +1542,17 @@ End
 		  
 		  ListBox_Dose_OutPut.DeleteAllRows
 		  ListBox_Dose_OutPut.ColumnCount=11
-		  ListBox_Dose_OutPut.Heading(0)="Linac"
-		  ListBox_Dose_OutPut.Heading(1)="Energy"
-		  ListBox_Dose_OutPut.Heading(2)="Algorithm"
-		  ListBox_Dose_OutPut.Heading(3)="Mode"
-		  ListBox_Dose_OutPut.Heading(4)="Detector Depth"
-		  ListBox_Dose_OutPut.Heading(5)="SSD"
-		  ListBox_Dose_OutPut.Heading(6)="Label"
-		  ListBox_Dose_OutPut.Heading(7)="Add-On"
-		  ListBox_Dose_OutPut.Heading(8)="Date"
-		  ListBox_Dose_OutPut.Heading(9)="Normalization"
-		  ListBox_Dose_OutPut.Heading(10)="Calculation Shell"
+		  ListBox_Dose_OutPut.HeaderAt(0)="Linac"
+		  ListBox_Dose_OutPut.HeaderAt(1)="Energy"
+		  ListBox_Dose_OutPut.HeaderAt(2)="Algorithm"
+		  ListBox_Dose_OutPut.HeaderAt(3)="Mode"
+		  ListBox_Dose_OutPut.HeaderAt(4)="Detector Depth"
+		  ListBox_Dose_OutPut.HeaderAt(5)="SSD"
+		  ListBox_Dose_OutPut.HeaderAt(6)="Label"
+		  ListBox_Dose_OutPut.HeaderAt(7)="Add-On"
+		  ListBox_Dose_OutPut.HeaderAt(8)="Date"
+		  ListBox_Dose_OutPut.HeaderAt(9)="Normalization"
+		  ListBox_Dose_OutPut.HeaderAt(10)="Calculation Shell"
 		  
 		  ListBox_Dose_OutPut.ColumnType(0)=3
 		  ListBox_Dose_OutPut.ColumnType(1)=3
@@ -1568,16 +1568,16 @@ End
 		  
 		  for i=0 to UBound(gOutput.One)
 		    ListBox_Dose_OutPut.AddRow gOutput.One(i).Machine
-		    ListBox_Dose_OutPut.Cell(i,1)= gOutput.One(i).energy
-		    ListBox_Dose_OutPut.Cell(i,2)= gOutput.One(i).Algorithm
-		    ListBox_Dose_OutPut.Cell(i,3)= gOutput.One(i).Mode
-		    ListBox_Dose_OutPut.Cell(i,4)= Format(gOutput.One(i).Detectordepthsurface,"-#.#####")
-		    ListBox_Dose_OutPut.Cell(i,5)= Format(gOutput.One(i).SSD,"-#.###")
-		    ListBox_Dose_OutPut.Cell(i,6)= gOutput.One(i).Data_Label
-		    ListBox_Dose_OutPut.Cell(i,7)= gOutput.One(i).Add_On
-		    ListBox_Dose_OutPut.Cell(i,8)= gOutput.One(i).Date
-		    ListBox_Dose_OutPut.Cell(i,9)= Format(gOutput.One(i).Normalization,"-#.#####e")
-		    ListBox_Dose_OutPut.Cell(i,10)= gOutput.One(i).Calculation_Machine
+		    ListBox_Dose_OutPut.CellValueAt(i,1)= gOutput.One(i).energy
+		    ListBox_Dose_OutPut.CellValueAt(i,2)= gOutput.One(i).Algorithm
+		    ListBox_Dose_OutPut.CellValueAt(i,3)= gOutput.One(i).Mode
+		    ListBox_Dose_OutPut.CellValueAt(i,4)= Format(gOutput.One(i).Detectordepthsurface,"-#.#####")
+		    ListBox_Dose_OutPut.CellValueAt(i,5)= Format(gOutput.One(i).SSD,"-#.###")
+		    ListBox_Dose_OutPut.CellValueAt(i,6)= gOutput.One(i).Data_Label
+		    ListBox_Dose_OutPut.CellValueAt(i,7)= gOutput.One(i).Add_On
+		    ListBox_Dose_OutPut.CellValueAt(i,8)= gOutput.One(i).Date
+		    ListBox_Dose_OutPut.CellValueAt(i,9)= Format(gOutput.One(i).Normalization,"-#.#####e")
+		    ListBox_Dose_OutPut.CellValueAt(i,10)= gOutput.One(i).Calculation_Machine
 		  next
 		End Sub
 	#tag EndMethod
@@ -1774,7 +1774,7 @@ End
 		  end if
 		  
 		  if me.ColumnCount>=10 and column=Index_Colour and row>=0 and row<=(me.ListCount-1)Then
-		    pindex=val(me.Cell(row,Index_gProfile_Index))
+		    pindex=val(me.CellValueAt(row,Index_gProfile_Index))
 		    if pindex>=0 and pindex<=UBound(gProfiles.One_Profile) Then
 		      g.ForeColor=gProfiles.One_Profile(pindex).Colour
 		      g.FillRect 0,0,g.Width,g.Height
@@ -1797,40 +1797,40 @@ End
 		  Dim tts as Boolean
 		  //-------------------------
 		  
-		  pindex=val(me.Cell(row,Index_gProfile_Index))
+		  pindex=val(me.CellValueAt(row,Index_gProfile_Index))
 		  if column=Index_Norm Then // Normalize Profile
 		    gProfiles.One_Profile(pindex).Norm=me.CellCheck(row,column)
 		    
 		  elseif column=Index_Norm_Value Then // Normalize Value
-		    if me.Cell(row,column)="max" Then
+		    if me.CellValueAt(row,column)="max" Then
 		      // Use max value
-		      gProfiles.One_Profile(pindex).Normalize_value=val(me.Cell(row,Index_Maxvalue))
+		      gProfiles.One_Profile(pindex).Normalize_value=val(me.CellValueAt(row,Index_Maxvalue))
 		      
-		    elseif InStr(me.Cell(row,column),"=")>0 Then 
+		    elseif InStr(me.CellValueAt(row,column),"=")>0 Then 
 		      // Interpolate new value
-		      ff=me.Cell(row,column)
+		      ff=me.CellValueAt(row,column)
 		      gg=val(NthField(ff,"=",2))
 		      
-		      if InStr(me.Cell(row,column),"z=")>0 Then //Normalize at z=?
+		      if InStr(me.CellValueAt(row,column),"z=")>0 Then //Normalize at z=?
 		        z=gg
 		        x=gProfiles.One_Profile(pindex).Pointa.x_cm
 		        y=gProfiles.One_Profile(pindex).Pointa.y_cm
-		      elseif InStr(me.Cell(row,column),"x=")>0 Then //Normalize at x=?
+		      elseif InStr(me.CellValueAt(row,column),"x=")>0 Then //Normalize at x=?
 		        x=gg
 		        z=gProfiles.One_Profile(pindex).Pointa.z_cm
 		        y=gProfiles.One_Profile(pindex).Pointa.y_cm
-		      elseif InStr(me.Cell(row,column),"y=")>0 Then //Normalize at y=?
+		      elseif InStr(me.CellValueAt(row,column),"y=")>0 Then //Normalize at y=?
 		        y=gg
 		        x=gProfiles.One_Profile(pindex).Pointa.x_cm
 		        z=gProfiles.One_Profile(pindex).Pointa.z_cm
 		      end
 		      gProfiles.One_Profile(pindex).Normalize_value=gProfiles.One_Profile(pindex).Get_Value_at_Point(x,y,z,true)
 		      
-		    elseif val(me.Cell(row,column))<>0 Then
+		    elseif val(me.CellValueAt(row,column))<>0 Then
 		      // Use user defined value
-		      gProfiles.One_Profile(pindex).Normalize_value=val(me.Cell(row,column))
+		      gProfiles.One_Profile(pindex).Normalize_value=val(me.CellValueAt(row,column))
 		    end
-		    me.Cell(row,column)=Format(gProfiles.One_Profile(pindex).Normalize_value,"-#.###e")
+		    me.CellValueAt(row,column)=Format(gProfiles.One_Profile(pindex).Normalize_value,"-#.###e")
 		    
 		  elseif column=Index_Show_Points Then // Show Marker Profile
 		    tts=me.CellCheck(row,column)
@@ -1858,7 +1858,7 @@ End
 		  
 		  Results_Mouse_Column=column
 		  
-		  pindex=val(me.Cell(row,Index_gProfile_Index))
+		  pindex=val(me.CellValueAt(row,Index_gProfile_Index))
 		  
 		  if column=Index_Colour and row>=0 and pindex<=UBound(gProfiles.One_Profile) Then
 		    c= gProfiles.One_Profile(pindex).Colour//choose the default color shown in color picker
@@ -2029,7 +2029,7 @@ End
 		  Dim i as Integer
 		  Dim ww as Window_OutPut
 		  
-		  i=me.ListIndex
+		  i=me.SelectedRowIndex
 		  
 		  if i>=0 and i<=(UBound(gOutput.One)) Then
 		    ww = new Window_OutPut
@@ -2046,33 +2046,33 @@ End
 		  
 		  
 		  if column=0 Then
-		    gOutput.One(row).Machine=me.Cell(row,column)
+		    gOutput.One(row).Machine=me.CellValueAt(row,column)
 		  elseif column=1 Then
-		    gOutput.One(row).energy=Trim(me.Cell(row,column))
+		    gOutput.One(row).energy=Trim(me.CellValueAt(row,column))
 		  elseif column=2 Then
-		    gOutput.One(row).Algorithm=me.Cell(row,column)
+		    gOutput.One(row).Algorithm=me.CellValueAt(row,column)
 		  elseif column=3 Then
-		    gOutput.One(row).Mode=me.Cell(row,column)
+		    gOutput.One(row).Mode=me.CellValueAt(row,column)
 		  elseif column=4 Then
-		    gOutput.One(row).Detectordepthsurface=val(me.Cell(row,column))
+		    gOutput.One(row).Detectordepthsurface=val(me.CellValueAt(row,column))
 		  elseif column=5 Then
-		    gOutput.One(row).SSD=val(me.Cell(row,column))
+		    gOutput.One(row).SSD=val(me.CellValueAt(row,column))
 		  elseif column=6 Then
-		    gOutput.One(row).Data_Label=(me.Cell(row,column))
+		    gOutput.One(row).Data_Label=(me.CellValueAt(row,column))
 		    
 		  elseif column=7 Then
-		    gOutput.One(row).Add_On=(me.Cell(row,column))
+		    gOutput.One(row).Add_On=(me.CellValueAt(row,column))
 		    
 		  elseif column=8 Then
-		    gOutput.One(row).Date=(me.Cell(row,column))
+		    gOutput.One(row).Date=(me.CellValueAt(row,column))
 		    
 		    
 		    
 		  elseif column=9 Then
-		    gOutput.One(row).Normalization=val(me.Cell(row,column))
+		    gOutput.One(row).Normalization=val(me.CellValueAt(row,column))
 		    
 		  elseif column=10 Then
-		    gOutput.One(row).Calculation_Machine=(me.Cell(row,column))
+		    gOutput.One(row).Calculation_Machine=(me.CellValueAt(row,column))
 		    
 		  end
 		  
@@ -2133,7 +2133,7 @@ End
 		  
 		  for i=ListBox_Dose_Profiles.ListCount-1 DownTo 0
 		    if ListBox_Dose_profiles.CellCheck(i,0) Then
-		      k=val(ListBox_Dose_Profiles.Cell(i,Index_gProfile_Index) )
+		      k=val(ListBox_Dose_Profiles.CellValueAt(i,Index_gProfile_Index) )
 		      gProfiles.One_Profile.Remove k
 		    end
 		  next
@@ -2150,7 +2150,7 @@ End
 		  p_index=-1
 		  for i =0 to Window_Commisssioning.ListBox_Dose_Profiles.ListCount-1
 		    if Window_Commisssioning.ListBox_Dose_Profiles.CellCheck(i,0) Then
-		      p_index=val(Window_Commisssioning.ListBox_Dose_Profiles.Cell(i,Index_gProfile_Index))
+		      p_index=val(Window_Commisssioning.ListBox_Dose_Profiles.CellValueAt(i,Index_gProfile_Index))
 		      Window_Profile_Properties.Show
 		      Window_Profile_Properties.One=gProfiles.One_Profile(p_index)
 		      Window_Profile_Properties.Open_Pro
@@ -2170,7 +2170,7 @@ End
 		  Dim k,i as Integer
 		  
 		  
-		  k=ListBox_Dose_OutPut.ListIndex
+		  k=ListBox_Dose_OutPut.SelectedRowIndex
 		  
 		  if k>-1 and k<=UBound(gOutput.One) Then
 		    gOutput.One.Remove k
@@ -2197,8 +2197,8 @@ End
 		  next
 		  
 		  if i>-1 Then
-		    Canvas_Graph.Analysis.PopupMenu_Calculated.ListIndex=0
-		    Canvas_Graph.Analysis.PopupMenu_Measured.ListIndex=1
+		    Canvas_Graph.Analysis.PopupMenu_Calculated.SelectedRowIndex=0
+		    Canvas_Graph.Analysis.PopupMenu_Measured.SelectedRowIndex=1
 		  end
 		  
 		  Canvas_Graph.Analysis.Show
@@ -2286,7 +2286,7 @@ End
 		  
 		  
 		  
-		  Canvas_Graph.xyz_index=me.ListIndex
+		  Canvas_Graph.xyz_index=me.SelectedRowIndex
 		  
 		  
 		  
@@ -2354,22 +2354,22 @@ End
 		    
 		    if Canvas_Graph.Interactive_index>=0 and Canvas_Graph.Interactive_index<=UBound(Canvas_Graph.Profiles.One_Profile) Then
 		      
-		      if PopupMenu_XAxis.ListIndex=0 Then
+		      if PopupMenu_XAxis.SelectedRowIndex=0 Then
 		        x=Val(gg)
 		        y=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Y_at_X(x)
 		        z=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Z_at_X(x)
 		        
-		      elseif PopupMenu_XAxis.ListIndex=1 Then
+		      elseif PopupMenu_XAxis.SelectedRowIndex=1 Then
 		        y=Val(gg)
 		        x=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_X_at_Y(y)
 		        z=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Z_at_Y(y)
 		        
-		      elseif PopupMenu_XAxis.ListIndex=2 Then
+		      elseif PopupMenu_XAxis.SelectedRowIndex=2 Then
 		        z=Val((gg))
 		        x=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_X_at_Z(z)
 		        y=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Y_at_Z(x)
 		        
-		      elseif PopupMenu_XAxis.ListIndex=3 Then
+		      elseif PopupMenu_XAxis.SelectedRowIndex=3 Then
 		        pp=Canvas_Graph.Profiles.One_Profile(Canvas_Graph.Interactive_index).Get_Point_at_Distance(val(gg))
 		        x=pp.X_cm
 		        y=pp.Y_cm
@@ -2391,7 +2391,7 @@ End
 		  end
 		  
 		  Catch err As NilObjectException
-		    MsgBox("Nil Object Error within Window Commissioning")
+		    MessageBox("Nil Object Error within Window Commissioning")
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -119,7 +119,7 @@ End
 		  
 		  donothing=True
 		  
-		  i=Window_BEAM_Options_BLOCK.PopupMenu_Subregion.ListIndex
+		  i=Window_BEAM_Options_BLOCK.PopupMenu_Subregion.SelectedRowIndex
 		  
 		  App=Window_BEAM_Options_BLOCK.BLOCK.Subregions(i)
 		  
@@ -141,9 +141,9 @@ End
 		  Listbox_Points.DeleteAllRows
 		  
 		  
-		  Listbox_Points.Heading(0)="Point"
-		  Listbox_Points.Heading(1)="X"
-		  Listbox_Points.Heading(2)="Y"
+		  Listbox_Points.HeaderAt(0)="Point"
+		  Listbox_Points.HeaderAt(1)="X"
+		  Listbox_Points.HeaderAt(2)="Y"
 		  
 		  Listbox_Points.ColumnType(1)=3
 		  Listbox_Points.ColumnType(2)=3
@@ -156,8 +156,8 @@ End
 		  
 		  for i=1 to app.NSUB_BLOCK
 		    Listbox_Points.AddRow str(i)
-		    Listbox_Points.Cell(i-1,1)=Format(app.XHI_POINT_BLOCK(i-1),"-#.###")
-		    Listbox_Points.Cell(i-1,2)=Format(app.yHI_POINT_BLOCK(i-1),"-#.###")
+		    Listbox_Points.CellValueAt(i-1,1)=Format(app.XHI_POINT_BLOCK(i-1),"-#.###")
+		    Listbox_Points.CellValueAt(i-1,2)=Format(app.yHI_POINT_BLOCK(i-1),"-#.###")
 		  next
 		  
 		  
@@ -193,8 +193,8 @@ End
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if donothing=False Then
 		    if column=1 or column=2 Then
-		      app.XHI_POINT_BLOCK(row)=val(me.Cell(row,1))
-		      app.yHI_POINT_BLOCK(row)=val(me.Cell(row,2))
+		      app.XHI_POINT_BLOCK(row)=val(me.CellValueAt(row,1))
+		      app.yHI_POINT_BLOCK(row)=val(me.CellValueAt(row,2))
 		    end
 		  end
 		End Sub

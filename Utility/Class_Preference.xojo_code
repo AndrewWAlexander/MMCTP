@@ -6,7 +6,7 @@ Protected Class Class_Preference
 		  // FIND config folder, reset all folder paths
 		  //
 		  // Alexander 2011
-		  // Update MsgBox for confi folder
+		  // Update MessageBox for confi folder
 		  //-------------------
 		  Dim fi as FolderItem
 		  Dim eb as Boolean
@@ -30,7 +30,7 @@ Protected Class Class_Preference
 		  if fi.Exists Then
 		    Config_fi=fi
 		  else // Could not find Configurations folder
-		    //MsgBox("MMCTP not installed. Application could not find folder : "+fi.Name+chr(13)+"At location : "+fi.ShellPath)
+		    //MessageBox("MMCTP not installed. Application could not find folder : "+fi.Name+chr(13)+"At location : "+fi.ShellPath)
 		    //Quit
 		  end
 		  
@@ -45,7 +45,7 @@ Protected Class Class_Preference
 		  // FIND MMCTP Main folder
 		  //
 		  // A Alexander 2012
-		  // Update MsgBox for main folder location
+		  // Update MessageBox for main folder location
 		  //-------------------------------------------------
 		  Var fi,b,c As FolderItem
 		  //---------------------------------------------------
@@ -58,7 +58,7 @@ Protected Class Class_Preference
 		    
 		    If b= Nil Then
 		      
-		      MsgBox("MMCTP not installed. The folder called 'McGill Medical Physics' was not found within applications folder " +fi.name+ ". Nil object returned.")
+		      MessageBox("MMCTP not installed. The folder called 'McGill Medical Physics' was not found within applications folder " +fi.name+ ". Nil object returned.")
 		      Quit
 		      
 		    Else
@@ -67,7 +67,7 @@ Protected Class Class_Preference
 		      
 		      If c=Nil Then
 		        
-		        MsgBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +b.name+ ". Nil object returned.")
+		        MessageBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +b.name+ ". Nil object returned.")
 		        Quit
 		        
 		      Else
@@ -93,20 +93,20 @@ Protected Class Class_Preference
 		    
 		  #Else
 		    
-		    MsgBox("OS not determined!")
+		    MessageBox("OS not determined!")
 		    Quit
 		    
 		  #EndIf
 		  
 		  If b=Nil Then
-		    MsgBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +fi.name+ ". Nil object returned.")
+		    MessageBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +fi.name+ ". Nil object returned.")
 		    Quit
 		    
 		  End
 		  
 		  If b.Exists=False Then
 		    
-		    MsgBox("MMCTP not installed, app folder at location "+b.ShellPath+" does not exist")
+		    MessageBox("MMCTP not installed, app folder at location "+b.ShellPath+" does not exist")
 		    Quit
 		    
 		  Else

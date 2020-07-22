@@ -24,7 +24,7 @@ Inherits Shell
 		  
 		  // Error Check
 		  if ErrorCode=255 Then
-		    MsgBox "Shell Error code : "+s
+		    MessageBox "Shell Error code : "+s
 		    ReDim All(-1)
 		    Return
 		  end
@@ -218,7 +218,7 @@ Inherits Shell
 		      plink=gShells.plink+"\plink.exe"
 		      f=new FolderItem (plink)
 		      if f.Exists=False Then
-		        MsgBox "plink not found at : "+plink
+		        MessageBox "plink not found at : "+plink
 		        close
 		        Kill_All
 		        Return
@@ -227,7 +227,7 @@ Inherits Shell
 		      pscp=gShells.pscp+"\pscp.exe"
 		      f=new FolderItem (pscp)
 		      if f.Exists=False Then
-		        MsgBox "pscp not found at : "+pscp
+		        MessageBox "pscp not found at : "+pscp
 		        close
 		        Kill_All
 		        Return
@@ -436,7 +436,7 @@ Inherits Shell
 		  // Error Check
 		  if ErrorCode=255 Then
 		    // Time-out error code
-		    //MsgBox "Shell Error code : "+s
+		    //MessageBox "Shell Error code : "+s
 		    for i=0 to UBound(gShells.Shells)
 		      if gShells.Shells(i).title=all(0).shell.title and all(0).shell.title<>"8CORE" Then
 		        gShells.Shells(i).online=False

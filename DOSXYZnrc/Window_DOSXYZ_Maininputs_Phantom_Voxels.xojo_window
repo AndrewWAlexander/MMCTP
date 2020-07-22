@@ -1202,15 +1202,15 @@ End
 		  Dim s,min as Single
 		  Dim i as Integer
 		  
-		  Listbox_Voxels.Heading(0)="Width"
-		  Listbox_Voxels.Heading(1)="Number in group"
+		  Listbox_Voxels.HeaderAt(0)="Width"
+		  Listbox_Voxels.HeaderAt(1)="Number in group"
 		  Listbox_Voxels.DeleteAllRows
 		  
 		  
 		  if Z_Pro Then
 		    for i=1 to abs(dosxyz_input.kMAX)
 		      Listbox_Voxels.AddRow str(dosxyz_input.kMAX_Group(i-1))
-		      Listbox_Voxels.Cell(i-1,1) =str(dosxyz_input.KMAX_Group_Num(i-1))
+		      Listbox_Voxels.CellValueAt(i-1,1) =str(dosxyz_input.KMAX_Group_Num(i-1))
 		      Listbox_Voxels.CellType(i-1,0) =3
 		      Listbox_Voxels.CellType(i-1,1) =3
 		    next
@@ -1230,7 +1230,7 @@ End
 		  elseif x_Pro Then
 		    for i=1 to abs(dosxyz_input.iMAX)
 		      Listbox_Voxels.AddRow str(dosxyz_input.iMAX_Group(i-1))
-		      Listbox_Voxels.Cell(i-1,1) =str(dosxyz_input.iMAX_Group_Num(i-1))
+		      Listbox_Voxels.CellValueAt(i-1,1) =str(dosxyz_input.iMAX_Group_Num(i-1))
 		      Listbox_Voxels.CellType(i-1,0) =3
 		      Listbox_Voxels.CellType(i-1,1) =3
 		    next
@@ -1244,7 +1244,7 @@ End
 		  elseif y_Pro Then
 		    for i=1 to abs(dosxyz_input.jMAX)
 		      Listbox_Voxels.AddRow str(dosxyz_input.jMAX_Group(i-1))
-		      Listbox_Voxels.Cell(i-1,1) =str(dosxyz_input.jMAX_Group_Num(i-1))
+		      Listbox_Voxels.CellValueAt(i-1,1) =str(dosxyz_input.jMAX_Group_Num(i-1))
 		      Listbox_Voxels.CellType(i-1,0) =3
 		      Listbox_Voxels.CellType(i-1,1) =3
 		    next
@@ -1441,21 +1441,21 @@ End
 		  if column=0 Then
 		    
 		    if X_Pro Then
-		      dosxyz_input.iMAX_Group(row)=val(me.Cell(row,column))
+		      dosxyz_input.iMAX_Group(row)=val(me.CellValueAt(row,column))
 		    elseif Y_Pro Then
-		      dosxyz_input.jMAX_Group(row)=val(me.Cell(row,column))
+		      dosxyz_input.jMAX_Group(row)=val(me.CellValueAt(row,column))
 		    elseif Z_Pro Then
-		      dosxyz_input.KMAX_Group(row)=val(me.Cell(row,column))
+		      dosxyz_input.KMAX_Group(row)=val(me.CellValueAt(row,column))
 		    end
 		    
 		    
 		  elseif column=1 Then
 		    if X_Pro Then
-		      dosxyz_input.iMAX_Group_Num(row)=val(me.Cell(row,column))
+		      dosxyz_input.iMAX_Group_Num(row)=val(me.CellValueAt(row,column))
 		    elseif Y_Pro Then
-		      dosxyz_input.jMAX_Group_Num(row)=val(me.Cell(row,column))
+		      dosxyz_input.jMAX_Group_Num(row)=val(me.CellValueAt(row,column))
 		    elseif Z_Pro Then
-		      dosxyz_input.KMAX_Group_Num(row)=val(me.Cell(row,column))
+		      dosxyz_input.KMAX_Group_Num(row)=val(me.CellValueAt(row,column))
 		    end
 		  end
 		  

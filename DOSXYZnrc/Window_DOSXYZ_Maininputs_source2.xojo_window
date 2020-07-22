@@ -1025,16 +1025,16 @@ End
 		  PopupMenu_ScoreLastZ.AddRow "no ZLAST"
 		  PopupMenu_ScoreLastZ.AddRow "with ZLAST"
 		  if dosxyz_input.mode=0 Then
-		    PopupMenu_ScoreLastZ.ListIndex=0
+		    PopupMenu_ScoreLastZ.SelectedRowIndex=0
 		  Else
-		    PopupMenu_ScoreLastZ.ListIndex=1
+		    PopupMenu_ScoreLastZ.SelectedRowIndex=1
 		  end
 		  
 		  
 		  PopupMenu_phasespace.DeleteAllRows
 		  PopupMenu_phasespace.AddRow "do not redistribute"
 		  PopupMenu_phasespace.AddRow "redistribute"
-		  PopupMenu_phasespace.ListIndex=dosxyz_input.ISMOOTH
+		  PopupMenu_phasespace.SelectedRowIndex=dosxyz_input.ISMOOTH
 		  
 		  
 		  
@@ -1066,9 +1066,9 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    if me.ListIndex=0 Then
+		    if me.SelectedRowIndex=0 Then
 		      dosxyz_input.mode=0 
-		    Elseif me.ListIndex=1 Then
+		    Elseif me.SelectedRowIndex=1 Then
 		      dosxyz_input.mode=2
 		    end
 		  end
@@ -1079,7 +1079,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.ISMOOTH= me.ListIndex
+		    dosxyz_input.ISMOOTH= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent

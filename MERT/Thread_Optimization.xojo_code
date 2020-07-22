@@ -650,7 +650,7 @@ Inherits Thread
 		    next
 		    ts.Close
 		  else
-		    MsgBox "Could not write Fields.dat!"
+		    MessageBox "Could not write Fields.dat!"
 		  end
 		  
 		End Sub

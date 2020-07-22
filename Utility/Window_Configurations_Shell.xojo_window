@@ -4040,7 +4040,7 @@ End
 		    PopupMenu_Shell.AddRow gShells.shells(i).title
 		  Next
 		  PopupMenu_Shell.AddRow "Add new Shell"
-		  PopupMenu_Shell.ListIndex=0
+		  PopupMenu_Shell.SelectedRowIndex=0
 		  
 		  PopupMenu_Batch.DeleteAllRows
 		  PopupMenu_Batch.AddRow "at"
@@ -4118,7 +4118,7 @@ End
 		  If ss.batch="at" Then 
 		    
 		    PopupMenu_Batch.SelectedRowIndex = 0
-		     
+		    
 		  Elseif ss.batch="nqs" Then
 		    
 		    PopupMenu_Batch.SelectedRowIndex=1
@@ -4278,7 +4278,7 @@ End
 		Sub Action()
 		  DIm i as Integer
 		  
-		  i=PopupMenu_Shell.ListIndex
+		  i=PopupMenu_Shell.SelectedRowIndex
 		  
 		  if i>=0 and i<=UBound(gShells.Shells) Then
 		    gShells.Shells.Remove i
@@ -4331,9 +4331,9 @@ End
 		  end
 		  Name_Change=True
 		  ss.title=me.Text
-		  i=PopupMenu_Shell.ListIndex
+		  i=PopupMenu_Shell.SelectedRowIndex
 		  Login_Open
-		  PopupMenu_Shell.ListIndex=i
+		  PopupMenu_Shell.SelectedRowIndex=i
 		  Name_Change=False
 		  Save_Login=True
 		  
@@ -4625,14 +4625,14 @@ End
 		  f=gPref.Settings_fi
 		  f=f.Child("MMCTP-FTP-Test")
 		  if f= Nil Then
-		    MsgBox("Error 1: Could not create FTP test file")
+		    MessageBox("Error 1: Could not create FTP test file")
 		    Return
 		  end
 		  
 		  
 		  ts=f.CreateTextFile
 		  if ts=nil Then
-		    MsgBox("Error 2: Could not create FTP test file")
+		    MessageBox("Error 2: Could not create FTP test file")
 		    Return
 		  end
 		  
@@ -4677,7 +4677,7 @@ End
 		  end
 		  
 		  if Name_Change=False Then
-		    i=me.ListIndex
+		    i=me.SelectedRowIndex
 		    if i>=0 and i<= UBound(ss.Queue) Then
 		      EditField_QueueName.value = ss.Queue(i)
 		      EditField_QueueName1.value = Str(ss.QueueTime(i))
@@ -4693,12 +4693,12 @@ End
 		  Dim i as Integer
 		  
 		  if DoNothing=False Then
-		    i=PopupMenu_Shell_Queue.ListIndex
+		    i=PopupMenu_Shell_Queue.SelectedRowIndex
 		    if i>=0 and i<= UBound(ss.Queue) Then
 		      Name_Change=True
 		      ss.Queue(i)=me.Text
 		      Login_Popup
-		      PopupMenu_Shell_Queue.ListIndex=i
+		      PopupMenu_Shell_Queue.SelectedRowIndex=i
 		      Name_Change=False
 		      Save_Login=True
 		    end
@@ -4773,12 +4773,12 @@ End
 		  Dim i as Integer
 		  
 		  if DoNothing=False Then
-		    i=PopupMenu_Shell_Queue.ListIndex
+		    i=PopupMenu_Shell_Queue.SelectedRowIndex
 		    if i>=0 and i<= UBound(ss.Queue) Then
 		      Name_Change=True
 		      ss.QueueTime(i)=val(me.Text)
 		      Login_Popup
-		      PopupMenu_Shell_Queue.ListIndex=i
+		      PopupMenu_Shell_Queue.SelectedRowIndex=i
 		      Name_Change=False
 		      Save_Login=True
 		    end

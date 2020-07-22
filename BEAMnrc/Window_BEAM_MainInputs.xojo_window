@@ -2050,25 +2050,25 @@ End
 		  
 		  
 		  if BEAM.ISOURC=0 Then
-		    PopupMenu_Source_Number.ListIndex=0
+		    PopupMenu_Source_Number.SelectedRowIndex=0
 		  elseif BEAM.ISOURC=1 Then
-		    PopupMenu_Source_Number.ListIndex=1
+		    PopupMenu_Source_Number.SelectedRowIndex=1
 		  elseif BEAM.ISOURC=3 Then
-		    PopupMenu_Source_Number.ListIndex=2
+		    PopupMenu_Source_Number.SelectedRowIndex=2
 		  elseif BEAM.ISOURC=19 Then
-		    PopupMenu_Source_Number.ListIndex=11
+		    PopupMenu_Source_Number.SelectedRowIndex=11
 		  elseif BEAM.ISOURC=21 Then
-		    PopupMenu_Source_Number.ListIndex=12
+		    PopupMenu_Source_Number.SelectedRowIndex=12
 		  end
 		  
 		  
 		  
 		  if BEAM.IBRSPL=2 Then
-		    PopupMenu_Brem_sp.ListIndex=3
+		    PopupMenu_Brem_sp.SelectedRowIndex=3
 		  elseif BEAM.IBRSPL=29 Then
-		    PopupMenu_Brem_sp.ListIndex=2
+		    PopupMenu_Brem_sp.SelectedRowIndex=2
 		  else
-		    PopupMenu_Brem_sp.ListIndex=BEAM.IBRSPL
+		    PopupMenu_Brem_sp.SelectedRowIndex=BEAM.IBRSPL
 		  end
 		  
 		  
@@ -2077,7 +2077,7 @@ End
 		  PopupMenu_Runoptions.AddRow "restart"
 		  PopupMenu_Runoptions.AddRow "analyze previous"
 		  PopupMenu_Runoptions.AddRow "analyze parellel"
-		  PopupMenu_Runoptions.ListIndex=BEAM.IRESTART
+		  PopupMenu_Runoptions.SelectedRowIndex=BEAM.IRESTART
 		  
 		  
 		  
@@ -2091,7 +2091,7 @@ End
 		  end
 		  
 		  if i<PopupMenu_Erangerejection.ListCount Then
-		    PopupMenu_Erangerejection.ListIndex=i
+		    PopupMenu_Erangerejection.SelectedRowIndex=i
 		  end
 		  
 		  
@@ -2106,19 +2106,19 @@ End
 		  PopupMenu_IQIN.AddRow "phase-space"
 		  
 		  if BEAM.IQIN=-1 Then
-		    PopupMenu_IQIN.ListIndex=0
+		    PopupMenu_IQIN.SelectedRowIndex=0
 		  elseif BEAM.IQIN=0 Then
-		    PopupMenu_IQIN.ListIndex=1
+		    PopupMenu_IQIN.SelectedRowIndex=1
 		  elseif BEAM.IQIN=1 Then
-		    PopupMenu_IQIN.ListIndex=2
+		    PopupMenu_IQIN.SelectedRowIndex=2
 		  else
-		    PopupMenu_IQIN.ListIndex=3
+		    PopupMenu_IQIN.SelectedRowIndex=3
 		  end
 		  
 		  
 		  
 		  
-		  PopupMenu_ScoreLastZ.ListIndex= BEAM.IZLAST
+		  PopupMenu_ScoreLastZ.SelectedRowIndex= BEAM.IZLAST
 		  
 		  
 		  
@@ -2126,7 +2126,7 @@ End
 		  PopupMenu_ScoreLastZ.AddRow "no"
 		  PopupMenu_ScoreLastZ.AddRow "last interaction"
 		  PopupMenu_ScoreLastZ.AddRow "x,y,z of last interaction"
-		  PopupMenu_ScoreLastZ.ListIndex= BEAM.IZLAST
+		  PopupMenu_ScoreLastZ.SelectedRowIndex= BEAM.IZLAST
 		  
 		  
 		  PopupMenu_IWatch.DeleteAllRows
@@ -2135,7 +2135,7 @@ End
 		  PopupMenu_IWatch.AddRow "show each sep"
 		  PopupMenu_IWatch.AddRow "for EGS_Windows"
 		  PopupMenu_IWatch.AddRow "Special"
-		  PopupMenu_IWatch.ListIndex= BEAM.IWATCH
+		  PopupMenu_IWatch.SelectedRowIndex= BEAM.IWATCH
 		  
 		  PopupMenu_OutputOptions.DeleteAllRows
 		  PopupMenu_OutputOptions.AddRow "phase-space output at each scoring plane"
@@ -2143,20 +2143,20 @@ End
 		  PopupMenu_OutputOptions.AddRow "no phase-space output but do data analysis"
 		  PopupMenu_OutputOptions.AddRow "phase-space output up to 100 k particle and do data analysis"
 		  PopupMenu_OutputOptions.AddRow "IAEA phase-space"
-		  PopupMenu_OutputOptions.ListIndex= BEAM.IO_OPT
+		  PopupMenu_OutputOptions.SelectedRowIndex= BEAM.IO_OPT
 		  
 		  
 		  PopupMenu_Latch.DeleteAllRows
 		  PopupMenu_Latch.AddRow "non-inherited latch"
 		  PopupMenu_Latch.AddRow "inherited latch - set by passage"
 		  PopupMenu_Latch.AddRow "inherited latch - set by interactions"
-		  PopupMenu_Latch.ListIndex= BEAM.LATCH_OPTION-1
+		  PopupMenu_Latch.SelectedRowIndex= BEAM.LATCH_OPTION-1
 		  
 		  
 		  PopupMenu_StoreDataArray.DeleteAllRows
 		  PopupMenu_StoreDataArray.AddRow "yes"
 		  PopupMenu_StoreDataArray.AddRow "no"
-		  PopupMenu_StoreDataArray.ListIndex= BEAM.IDAT
+		  PopupMenu_StoreDataArray.SelectedRowIndex= BEAM.IDAT
 		  
 		  
 		  PopupMenu_Split.DeleteAllRows
@@ -2164,7 +2164,7 @@ End
 		  for i=0 to UBound(BEAM.CMs)
 		    PopupMenu_Split.AddRow str(i+1)
 		  next
-		  PopupMenu_Split.ListIndex= BEAM.ICM_SPLIT
+		  PopupMenu_Split.SelectedRowIndex= BEAM.ICM_SPLIT
 		  
 		  
 		  PopupMenu_RNG_seed.DeleteAllRows
@@ -2172,9 +2172,9 @@ End
 		  PopupMenu_RNG_seed.AddRow "store RNG at start of each batch"
 		  PopupMenu_RNG_seed.AddRow "store RNG at start of each history"
 		  if BEAM.ISTORE=-1 Then
-		    popupMenu_RNG_seed.ListIndex=0
+		    popupMenu_RNG_seed.SelectedRowIndex=0
 		  else
-		    PopupMenu_RNG_seed.ListIndex= BEAM.ISTORE+1
+		    PopupMenu_RNG_seed.SelectedRowIndex= BEAM.ISTORE+1
 		  end
 		  
 		  
@@ -2182,7 +2182,7 @@ End
 		  PopupMenu_iforce.DeleteAllRows
 		  PopupMenu_iforce.AddRow "off"
 		  PopupMenu_iforce.AddRow "on"
-		  PopupMenu_iforce.ListIndex= BEAM.IFORCE
+		  PopupMenu_iforce.SelectedRowIndex= BEAM.IFORCE
 		  
 		  
 		  // Update Scoring Planes
@@ -2191,7 +2191,7 @@ End
 		  for i=0 to UBound(BEAM.CMs)
 		    PopupMenu_ScoringPlanes.AddRow str(i+1)
 		  next
-		  PopupMenu_ScoringPlanes.ListIndex=BEAM.NSC_PLANES
+		  PopupMenu_ScoringPlanes.SelectedRowIndex=BEAM.NSC_PLANES
 		  
 		  
 		  popupbrem=True
@@ -2211,17 +2211,17 @@ End
 		  
 		  // Pop CM listbox
 		  Listbox_CMs.DeleteAllRows
-		  Listbox_CMs.Heading(0)="CM number"
-		  Listbox_CMs.Heading(1)="CM title"
-		  Listbox_CMs.Heading(2)="Identifier"
+		  Listbox_CMs.HeaderAt(0)="CM number"
+		  Listbox_CMs.HeaderAt(1)="CM title"
+		  Listbox_CMs.HeaderAt(2)="Identifier"
 		  
 		  Listbox_CMs.ColumnWidths="20%,40%,40%"
 		  
 		  
 		  for i=0 to UBound(BEAM.CMs)
 		    Listbox_CMs.AddRow str(i+1)
-		    Listbox_CMs.Cell(i,1)=BEAM.CMs(i).CM_Names
-		    Listbox_CMs.Cell(i,2)=BEAM.CMs(i).CM_Identifier
+		    Listbox_CMs.CellValueAt(i,1)=BEAM.CMs(i).CM_Names
+		    Listbox_CMs.CellValueAt(i,2)=BEAM.CMs(i).CM_Identifier
 		  next
 		  
 		  
@@ -2251,12 +2251,12 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    if me.ListIndex=0 Then
+		    if me.SelectedRowIndex=0 Then
 		      Beam.IBRSPL = 0
-		    elseif me.ListIndex=1 Then
+		    elseif me.SelectedRowIndex=1 Then
 		      Beam.IBRSPL = 1
 		      Window_BEAM_Options_BremSplitUniform.Show
-		    elseif me.ListIndex=3 Then
+		    elseif me.SelectedRowIndex=3 Then
 		      BEAM.IBRSPL=2
 		      Window_BEAM_Options_DirecBremPhoto.Show
 		    end
@@ -2266,7 +2266,7 @@ End
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  
-		  me.ListIndex=-1
+		  me.SelectedRowIndex=-1
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -2291,7 +2291,7 @@ End
 		  Dim i as Integer
 		  
 		  if popupbrem Then
-		    i= me.ListIndex
+		    i= me.SelectedRowIndex
 		    
 		    if BEAM.range_rejection<0 Then
 		      Beam.range_rejection =-1*i
@@ -2356,7 +2356,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    Beam.IRESTART = me.ListIndex
+		    Beam.IRESTART = me.SelectedRowIndex
 		    
 		    
 		  end
@@ -2376,24 +2376,24 @@ End
 		  
 		  if popupbrem Then
 		    
-		    if PopupMenu_Source_Number.ListIndex=0  Then
+		    if PopupMenu_Source_Number.SelectedRowIndex=0  Then
 		      BEAM.ISOURC=0
 		      Window_BEAM_Options_source0.Show
 		      
-		    elseif  PopupMenu_Source_Number.ListIndex=1 Then
+		    elseif  PopupMenu_Source_Number.SelectedRowIndex=1 Then
 		      BEAM.ISOURC=1
 		      Window_BEAM_Options_source1.Show
 		      
-		    elseif  PopupMenu_Source_Number.ListIndex=2 Then
+		    elseif  PopupMenu_Source_Number.SelectedRowIndex=2 Then
 		      BEAM.ISOURC=3
 		      Window_BEAM_Options_source3.Show
 		      
 		      
-		    elseif PopupMenu_Source_Number.ListIndex=11Then
+		    elseif PopupMenu_Source_Number.SelectedRowIndex=11Then
 		      BEAM.ISOURC=19  
 		      Window_BEAM_Options_source19.Show
 		      
-		    elseif PopupMenu_Source_Number.ListIndex=12 Then
+		    elseif PopupMenu_Source_Number.SelectedRowIndex=12 Then
 		      BEAM.ISOURC=21
 		      Window_BEAM_Options_source21.Show
 		      
@@ -2403,7 +2403,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  PopupMenu_Source_Number.ListIndex=-1
+		  PopupMenu_Source_Number.SelectedRowIndex=-1
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -2411,7 +2411,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.IZLAST= me.ListIndex
+		    BEAM.IZLAST= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2420,7 +2420,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.IWATCH= me.ListIndex
+		    BEAM.IWATCH= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2429,7 +2429,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.IO_OPT= me.ListIndex
+		    BEAM.IO_OPT= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2439,11 +2439,11 @@ End
 		Sub Change()
 		  if popupbrem Then
 		    
-		    if me.ListIndex=0   Then
+		    if me.SelectedRowIndex=0   Then
 		      BEAM.IQIN=-1
-		    elseif  me.ListIndex=1 Then
+		    elseif  me.SelectedRowIndex=1 Then
 		      BEAM.IQIN=0
-		    elseif me.ListIndex=2 Then
+		    elseif me.SelectedRowIndex=2 Then
 		      BEAM.IQIN=1
 		    else
 		      BEAM.IQIN=55
@@ -2456,7 +2456,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.ISTORE= me.ListIndex-1
+		    BEAM.ISTORE= me.SelectedRowIndex-1
 		  end
 		End Sub
 	#tag EndEvent
@@ -2472,7 +2472,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.IDAT= me.ListIndex
+		    BEAM.IDAT= me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2481,7 +2481,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.LATCH_OPTION= me.ListIndex+1
+		    BEAM.LATCH_OPTION= me.SelectedRowIndex+1
 		  end
 		End Sub
 	#tag EndEvent
@@ -2497,7 +2497,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    BEAM.ICM_SPLIT=me.ListIndex
+		    BEAM.ICM_SPLIT=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2506,7 +2506,7 @@ End
 	#tag Event
 		Sub Change()
 		  if popupbrem Then
-		    Beam.IFORCE = me.ListIndex
+		    Beam.IFORCE = me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2514,46 +2514,70 @@ End
 #tag Events PushButton_Save
 	#tag Event
 		Sub Action()
-		  Dim fs as FolderItem
-		  Dim file_name,temp_Name as String
-		  Dim jj as Boolean
-		  Dim i as Integer
+		  'Dim fs as FolderItem
+		  'Dim file_name,temp_Name as String
+		  'Dim jj as Boolean
+		  'Dim i as Integer
 		  
-		  i=MsgBox( "Overwrite existing template input file?" ,1)
 		  
-		  if i=1 Then
+		  Var d As New MessageDialog                  // declare the MessageDialog object
+		  Var b As MessageDialogButton                // for handling the result
+		  d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		  d.ActionButton.Caption = "Yes"
+		  d.CancelButton.Visible = True               // show the Cancel button
+		  d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		  d.AlternateActionButton.Caption = "No"
+		  d.Message = "Overwrite existing template input file?"
+		  'd.Explanation = "If you don't save, your changes will be lost. "
+		  
+		  b = d.ShowModal                             // display the dialog
+		  Select Case b                               // determine which button was pressed.
+		  Case d.ActionButton
+		    // user pressed Save
 		    
-		    jj=gBEAM.Beams(Window_BEAM_Options.beam_num).Write_Inputfile("")
+		    Var jj As Boolean = gBEAM.Beams(Window_BEAM_Options.beam_num).Write_Inputfile("")
 		    
-		    file_name=MC_file_name+Str(Window_BEAM_Options.beam_num+1)+".egsinp"
+		    Var file_name As String = MC_file_name+Str(Window_BEAM_Options.beam_num+1)+".egsinp"
 		    
-		    temp_Name=gBEAM.Beams(Window_BEAM_Options.beam_num).Get_Template_Inputfile_Name
+		    Var temp_Name As String = gBEAM.Beams(Window_BEAM_Options.beam_num).Get_Template_Inputfile_Name
 		    
-		    if jj Then
+		    If jj Then
 		      
-		      fs= new FolderItem
-		      fs=gPref.BEAMnrc_fi.Child(temp_Name)
-		      if fs.Exists Then
-		        fs.Delete
-		      end
+		      Var f As FolderItem = gPref.BEAMnrc_fi.Child(temp_Name)
 		      
-		      fs= new FolderItem
-		      fs=gRTOG.Plan(Plan_Index).Path.Child(temp_Name)
-		      if fs.Exists Then
-		        fs.Delete
-		      end
-		      
-		      fs= new FolderItem
-		      fs=gRTOG.Plan(Plan_Index).Path
-		      fs=fs.Child(file_name)
-		      fs.Name=temp_Name
+		      If f.Exists Then
+		        
+		        f.Remove
+		        
+		      End If
 		      
 		      
-		      if fs.Exists Then
-		        fs.MoveFileTo gPref.BEAMnrc_fi
-		      end
-		    end
-		  end
+		      f = Nil
+		      f = gRTOG.Plan(Plan_Index).Path.Child(temp_Name)
+		      
+		      If f.Exists Then
+		        
+		        f.Remove
+		        
+		      End If
+		      
+		      f = Nil
+		      f = gRTOG.Plan(Plan_Index).Path.Child(file_name)
+		      f.Name = temp_Name
+		      
+		      
+		      If f.Exists Then
+		        
+		        f.MoveTo( gPref.BEAMnrc_fi )
+		        
+		      End If
+		      
+		    End If
+		  Case d.AlternateActionButton
+		    // user pressed Don't Save
+		  Case d.CancelButton
+		    // user pressed Cancel
+		  End Select
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2581,7 +2605,7 @@ End
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
 		  popupbrem=False
 		  
-		  me.ListIndex=-1
+		  me.SelectedRowIndex=-1
 		  popupbrem=True
 		End Function
 	#tag EndEvent
@@ -2591,7 +2615,7 @@ End
 		Sub Change()
 		  Dim k,i as Integer
 		  
-		  i=me.ListIndex
+		  i=me.SelectedRowIndex
 		  EditField_CM.value = ""
 		  
 		  if i>=0 and i<= UBound(BEAM.CMs) Then
@@ -2616,7 +2640,7 @@ End
 		Sub Action()
 		  Dim i as Integer
 		  
-		  i= Listbox_CMs.ListIndex
+		  i= Listbox_CMs.SelectedRowIndex
 		  
 		  if i>-1 and i<=UBound(BEAM.CMs) Then
 		    if BEAM.CMs(i).CM_Names="APPLICAT" Then

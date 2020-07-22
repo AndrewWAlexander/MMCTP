@@ -4309,7 +4309,7 @@ End
 		    wo_match=False
 		    for i=0 to PopupMenu_Wedge_Dynamic_Or.ListCount-1
 		      if wedge_rot=PopupMenu_Wedge_Dynamic_Or.list(i) then
-		        PopupMenu_Wedge_Dynamic_Or.ListIndex=i
+		        PopupMenu_Wedge_Dynamic_Or.SelectedRowIndex=i
 		        wo_match=True
 		        Exit
 		      end
@@ -4330,7 +4330,7 @@ End
 		    w_match=False
 		    for i=0 to PopupMenu_Wedge_static_Ang.ListCount-1
 		      if wedge=PopupMenu_Wedge_static_Ang.list(i) then
-		        PopupMenu_Wedge_static_Ang.ListIndex=i
+		        PopupMenu_Wedge_static_Ang.SelectedRowIndex=i
 		        w_match=True
 		        Exit
 		      end
@@ -4340,7 +4340,7 @@ End
 		    wo_match=False
 		    for i=0 to PopupMenu_Wedge_static_Or.ListCount-1
 		      if wedge_rot=PopupMenu_Wedge_static_Or.list(i) then
-		        PopupMenu_Wedge_static_Or.ListIndex=i
+		        PopupMenu_Wedge_static_Or.SelectedRowIndex=i
 		        wo_match=True
 		        Exit
 		      end
@@ -4371,7 +4371,7 @@ End
 		  
 		  for i=0 to PopupMenu_Wedge_Dynamic_Or.ListCount-1
 		    if PopupMenu_Wedge_Dynamic_Or.List(i)=beam.Wedge_Rotation Then
-		      PopupMenu_Wedge_Dynamic_Or.ListIndex=i
+		      PopupMenu_Wedge_Dynamic_Or.SelectedRowIndex=i
 		      Exit
 		    end
 		  Next
@@ -4461,7 +4461,7 @@ End
 		  
 		  for j=0 to PopupMenu_BMod.ListCount-1
 		    if beam_mode = PopupMenu_BMod.list(j) then
-		      PopupMenu_BMod.ListIndex=j
+		      PopupMenu_BMod.SelectedRowIndex=j
 		    end
 		  next
 		  General_pop_linac_name
@@ -4474,12 +4474,12 @@ End
 		  for i =0 to PopupMenu_E_RT.ListCount-1
 		    temp=PopupMenu_E_RT.list(i)
 		    if name=PopupMenu_E_RT.list(i) then
-		      PopupMenu_E_RT.ListIndex=i
+		      PopupMenu_E_RT.SelectedRowIndex=i
 		      n_match=True
 		      General_pop_beam_energy
 		      for j=0 to PopupMenu_E_BE.ListCount-1
 		        if energy=PopupMenu_E_BE.list(j) then
-		          PopupMenu_E_BE.ListIndex=j
+		          PopupMenu_E_BE.SelectedRowIndex=j
 		          e_match=True
 		          
 		          PopupMenu_E_BA.Enabled=True
@@ -4487,7 +4487,7 @@ End
 		          // Accessories tab
 		          for k=0 to PopupMenu_E_BA.ListCount-1
 		            if app=PopupMenu_E_BA.List(k) then
-		              PopupMenu_E_BA.ListIndex=k
+		              PopupMenu_E_BA.SelectedRowIndex=k
 		              Exit
 		            end
 		          next
@@ -4498,10 +4498,10 @@ End
 		  next
 		  
 		  if n_match=False then
-		    PopupMenu_E_RT.ListIndex=0
+		    PopupMenu_E_RT.SelectedRowIndex=0
 		  end
 		  if e_match=false then
-		    PopupMenu_E_BE.ListIndex=0
+		    PopupMenu_E_BE.SelectedRowIndex=0
 		  end
 		  '==============END Linac and energy set===========
 		  
@@ -4680,7 +4680,7 @@ End
 		  
 		  
 		  
-		  PopupMenu_Beam.ListIndex=j
+		  PopupMenu_Beam.SelectedRowIndex=j
 		  
 		  
 		  General_populate
@@ -4994,7 +4994,7 @@ End
 		    if gRTOG.Plan(Plan_Index).Read_McGill_MLC(beam_index,f) Then
 		      gRTOG.Plan(Plan_Index).Write_McGill_MLC(beam_index)
 		    Else
-		      MsgBox "Problem with "+f.Name
+		      MessageBox "Problem with "+f.Name
 		    end
 		    Accessories_MLC_info
 		    Canvas_MLC.Refresh
@@ -5174,7 +5174,7 @@ End
 	#tag Event
 		Function KeyDown(Key As String) As Boolean
 		  if val(me.text)<0.001 or val(me.text)>2.0 then
-		    MsgBox "cut out thickness has to be between 0.001 and 2.0 cm"
+		    MessageBox "cut out thickness has to be between 0.001 and 2.0 cm"
 		    me.value = "1.5"
 		    me.refresh
 		  end if
@@ -5545,9 +5545,9 @@ End
 #tag Events PopupMenu_Beam
 	#tag Event
 		Sub Change()
-		  beam = gRTOG.Plan(Plan_Index).beam(PopupMenu_Beam.ListIndex)
+		  beam = gRTOG.Plan(Plan_Index).beam(PopupMenu_Beam.SelectedRowIndex)
 		  
-		  beam_index=PopupMenu_Beam.ListIndex
+		  beam_index=PopupMenu_Beam.SelectedRowIndex
 		  
 		  if TabPanel.Value=0 then
 		    General_populate

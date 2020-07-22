@@ -6521,9 +6521,9 @@ End
 		  ReDim Iso_Values.values(-1)
 		  ReDim Iso_Values.each_show(-1)
 		  
-		  Listbox_Depths.Heading(0)="Depth (cm)"
+		  Listbox_Depths.HeaderAt(0)="Depth (cm)"
 		  Listbox_Depths.ColumnType(0)=3
-		  Listbox_Depths.Heading(1)="Colour"
+		  Listbox_Depths.HeaderAt(1)="Colour"
 		  Listbox_Depths.DeleteAllRows
 		  
 		  
@@ -7052,13 +7052,13 @@ End
 		    
 		    // Get Target contour
 		    if UBound(file.Segments)>0 Then
-		      MsgBox "Error! More than one target segment at slice "+str(i+1)
+		      MessageBox "Error! More than one target segment at slice "+str(i+1)
 		      Return
 		    end
 		    
 		    // Get external contour
 		    if  UBound(file_ex.segments)>0 Then
-		      MsgBox "Error! More than one external segment at slice "+str(i+1)
+		      MessageBox "Error! More than one external segment at slice "+str(i+1)
 		      Return
 		    end
 		  next
@@ -7794,8 +7794,8 @@ End
 		          temp_beam.FLEC.y1=flec_a.y1
 		          temp_beam.FLEC.y2=flec_a.y2
 		          
-		          temp_beam.RT_name= ListBox_Linac_Energies.Cell(i,0)
-		          temp_beam.Beam_Energy= ListBox_Linac_Energies.Cell(i,1)
+		          temp_beam.RT_name= ListBox_Linac_Energies.CellValueAt(i,0)
+		          temp_beam.Beam_Energy= ListBox_Linac_Energies.CellValueAt(i,1)
 		          temp_beam.Beam_Mode="FLEC"
 		          temp_beam.Nominal_Isocenter=100
 		          temp_beam.Beam_Num=UBound(gRTOG.Plan(Plan_Index).Beam)+2
@@ -7863,8 +7863,8 @@ End
 		  
 		  for i=0 to ListBox_Linac_Energies.ListCount-1
 		    if ListBox_Linac_Energies.CellCheck(i,2)=True then
-		      rt_eng.Append ListBox_Linac_Energies.Cell(i,1)
-		      rt_name.Append ListBox_Linac_Energies.Cell(i,0)
+		      rt_eng.Append ListBox_Linac_Energies.CellValueAt(i,1)
+		      rt_name.Append ListBox_Linac_Energies.CellValueAt(i,0)
 		    end
 		  Next
 		  
@@ -7876,7 +7876,7 @@ End
 		      beami.Append i
 		    Next
 		  else
-		    beami.Append PopupMenu_FLEC_Beam.ListIndex
+		    beami.Append PopupMenu_FLEC_Beam.SelectedRowIndex
 		  end
 		  
 		  if CheckBox_FLEC_Batch_ARC.Value Then
@@ -7977,9 +7977,9 @@ End
 		  '======FLEC Populate=====
 		  ListBox_Linac_Energies.DeleteAllRows
 		  ListBox_Linac_Energies.ColumnWidths="33%,33%,33%"
-		  ListBox_Linac_Energies.heading(0)="Linac"
-		  ListBox_Linac_Energies.heading(1)="Energy"
-		  ListBox_Linac_Energies.heading(2)="yes/no"
+		  ListBox_Linac_Energies.HeaderAt(0)="Linac"
+		  ListBox_Linac_Energies.HeaderAt(1)="Energy"
+		  ListBox_Linac_Energies.HeaderAt(2)="yes/no"
 		  ListBox_Linac_Energies.ColumnType(2)=2
 		  
 		  j=-1
@@ -7987,7 +7987,7 @@ End
 		    if "FLEC"=gLinacs.all_linacs(x).Mode then
 		      j=j+1
 		      ListBox_Linac_Energies.AddRow gLinacs.all_linacs(x).RT_name
-		      ListBox_Linac_Energies.Cell(j,1)=gLinacs.all_linacs(x).Energy
+		      ListBox_Linac_Energies.CellValueAt(j,1)=gLinacs.all_linacs(x).Energy
 		    end
 		  next
 		  
@@ -8020,7 +8020,7 @@ End
 		  Dim model_beam as RTOG_Beam_Geometry
 		  //------------------------------------------
 		  
-		  ffindex=Listbox_Depths_Results.ListIndex
+		  ffindex=Listbox_Depths_Results.SelectedRowIndex
 		  
 		  
 		  if RadioButton_Depth_1.Value Then
@@ -8071,11 +8071,11 @@ End
 		            gRTOG.Plan(Plan_Index).Add_Beam
 		            k=UBound(gRTOG.Plan(Plan_Index).Beam)
 		            bb=gRTOG.Plan(Plan_Index).Beam(k)
-		            bb.RT_name= ListBox_Linac_Energies.Cell(o,0)
-		            bb.Beam_Energy= ListBox_Linac_Energies.Cell(o,1)
+		            bb.RT_name= ListBox_Linac_Energies.CellValueAt(o,0)
+		            bb.Beam_Energy= ListBox_Linac_Energies.CellValueAt(o,1)
 		            bb.Beam_Mode="FLEC"
 		            bb.Aperture_ID=Beam.Aperture_ID
-		            m=Listbox_Depths_Results.ListIndex
+		            m=Listbox_Depths_Results.SelectedRowIndex
 		            bb.Collimator.Fields(0).Gantry_Angle=Depth_Fields.All(m).Gantry
 		            bb.Collimator.Fields(0).isocenter.X=Depth_Fields.All(m).isox
 		            bb.Collimator.Fields(0).isocenter.y=Depth_Fields.All(m).isoy
@@ -8095,7 +8095,7 @@ End
 		    
 		  else
 		    
-		    m=Listbox_Depths_Results.ListIndex
+		    m=Listbox_Depths_Results.SelectedRowIndex
 		    
 		    for i=0 to UBound(Depth_Fields.All(m).Rect_Depth_Fields)
 		      for o=0 to ListBox_Linac_Energies.ListCount-1
@@ -8103,8 +8103,8 @@ End
 		          gRTOG.Plan(Plan_Index).Add_Beam
 		          k=UBound(gRTOG.Plan(Plan_Index).Beam)
 		          bb=gRTOG.Plan(Plan_Index).Beam(k)
-		          bb.RT_name= ListBox_Linac_Energies.Cell(o,0)
-		          bb.Beam_Energy= ListBox_Linac_Energies.Cell(o,1)
+		          bb.RT_name= ListBox_Linac_Energies.CellValueAt(o,0)
+		          bb.Beam_Energy= ListBox_Linac_Energies.CellValueAt(o,1)
 		          bb.Beam_Mode="FLEC"
 		          bb.Aperture_ID=Beam.Aperture_ID
 		          bb.Collimator.Fields(0).Gantry_Angle=Depth_Fields.All(m).Gantry
@@ -8141,8 +8141,8 @@ End
 		      PopupMenu_Depth_Beam.AddRow "Beam ("+str(j+1)+") - "+gRTOG.Plan(Plan_Index).Beam(j).RT_Name+", "+gRTOG.Plan(Plan_Index).Beam(j).beam_energy
 		      PopupMenu_FLEC_Beam.AddRow "Beam ("+str(j+1)+") - "+gRTOG.Plan(Plan_Index).Beam(j).RT_Name+", "+gRTOG.Plan(Plan_Index).Beam(j).beam_energy
 		    next
-		    PopupMenu_Depth_Beam.ListIndex=0
-		    PopupMenu_FLEC_Beam.ListIndex=0
+		    PopupMenu_Depth_Beam.SelectedRowIndex=0
+		    PopupMenu_FLEC_Beam.SelectedRowIndex=0
 		  end
 		  
 		  
@@ -8159,57 +8159,57 @@ End
 		  me.SetFocus
 		  Canvas_Projection.Refresh
 		  
-		  i=Listbox_Map.ListIndex
+		  i=Listbox_Map.SelectedRowIndex
 		  projection_index=i
 		  
 		  Listbox_Map.DeleteAllRows
 		  Listbox_Map.ColumnCount=15
 		  Listbox_Map.ColumnWidths="10%,20%,20%,20%,20%,20%,20%,20%,20%,20%,20%,20%,20%,20%,20%"
 		  
-		  Listbox_Map.Heading(0)="Number"
+		  Listbox_Map.HeaderAt(0)="Number"
 		  
-		  Listbox_Map.Heading(1)="Angle Score"
+		  Listbox_Map.HeaderAt(1)="Angle Score"
 		  
-		  Listbox_Map.Heading(2)="Target Z/Y Width"
-		  Listbox_Map.Heading(3)="Target X Width"
-		  Listbox_Map.Heading(4)="Distance from CM to Body"
+		  Listbox_Map.HeaderAt(2)="Target Z/Y Width"
+		  Listbox_Map.HeaderAt(3)="Target X Width"
+		  Listbox_Map.HeaderAt(4)="Distance from CM to Body"
 		  
-		  Listbox_Map.Heading(5)="Iso X"
-		  Listbox_Map.Heading(6)="Iso Y"
-		  Listbox_Map.Heading(7)="Iso Z"
+		  Listbox_Map.HeaderAt(5)="Iso X"
+		  Listbox_Map.HeaderAt(6)="Iso Y"
+		  Listbox_Map.HeaderAt(7)="Iso Z"
 		  
-		  Listbox_Map.Heading(8)="T above"
-		  Listbox_Map.Heading(9)="T below"
+		  Listbox_Map.HeaderAt(8)="T above"
+		  Listbox_Map.HeaderAt(9)="T below"
 		  
-		  Listbox_Map.Heading(10)="FX1"
-		  Listbox_Map.Heading(11)="FX2"
-		  Listbox_Map.Heading(12)="FY1"
-		  Listbox_Map.Heading(13)="FY2"
+		  Listbox_Map.HeaderAt(10)="FX1"
+		  Listbox_Map.HeaderAt(11)="FX2"
+		  Listbox_Map.HeaderAt(12)="FY1"
+		  Listbox_Map.HeaderAt(13)="FY2"
 		  
-		  Listbox_Map.Heading(14)="Gantry Angle"
+		  Listbox_Map.HeaderAt(14)="Gantry Angle"
 		  
 		  
 		  for i=0 to UBound(Projections)
 		    Listbox_Map.AddRow str(i+1)
 		    
-		    Listbox_Map.Cell(i,1)=Format(projections(i).weight_Z_Field_Size*projections(i).weight_center*Projections(i).weight_distance*Projections(i).weight_X_Field_Size/100000000,"#.###")
-		    Listbox_Map.Cell(i,2)=Format(projections(i).Max_Z_Field_Opening,"#.###")
-		    Listbox_Map.Cell(i,3)=Format(projections(i).Max_X_Field_Width,"#.###")
-		    Listbox_Map.Cell(i,4)=Format(projections(i).External_Distance,"#.###")
+		    Listbox_Map.CellValueAt(i,1)=Format(projections(i).weight_Z_Field_Size*projections(i).weight_center*Projections(i).weight_distance*Projections(i).weight_X_Field_Size/100000000,"#.###")
+		    Listbox_Map.CellValueAt(i,2)=Format(projections(i).Max_Z_Field_Opening,"#.###")
+		    Listbox_Map.CellValueAt(i,3)=Format(projections(i).Max_X_Field_Width,"#.###")
+		    Listbox_Map.CellValueAt(i,4)=Format(projections(i).External_Distance,"#.###")
 		    
-		    Listbox_Map.Cell(i,5)=Format(projections(i).iso_x,"-#.##")
-		    Listbox_Map.Cell(i,6)=Format(projections(i).iso_y,"-#.##")
-		    Listbox_Map.Cell(i,7)=Format(projections(i).iso_Z,"-#.##")
+		    Listbox_Map.CellValueAt(i,5)=Format(projections(i).iso_x,"-#.##")
+		    Listbox_Map.CellValueAt(i,6)=Format(projections(i).iso_y,"-#.##")
+		    Listbox_Map.CellValueAt(i,7)=Format(projections(i).iso_Z,"-#.##")
 		    
-		    Listbox_Map.Cell(i,8)=Format(projections(i).Target_Z_Pluse,"-#.##")
-		    Listbox_Map.Cell(i,9)=Format(projections(i).Target_Z_Minus,"-#.##")
+		    Listbox_Map.CellValueAt(i,8)=Format(projections(i).Target_Z_Pluse,"-#.##")
+		    Listbox_Map.CellValueAt(i,9)=Format(projections(i).Target_Z_Minus,"-#.##")
 		    
-		    Listbox_Map.Cell(i,10)=Format(projections(i).Max_x1,"-#.##")
-		    Listbox_Map.Cell(i,11)=Format(projections(i).Max_x2,"-#.##")
-		    Listbox_Map.Cell(i,12)=Format(projections(i).Max_y1,"-#.##")
-		    Listbox_Map.Cell(i,13)=Format(projections(i).Max_y2,"-#.##")
+		    Listbox_Map.CellValueAt(i,10)=Format(projections(i).Max_x1,"-#.##")
+		    Listbox_Map.CellValueAt(i,11)=Format(projections(i).Max_x2,"-#.##")
+		    Listbox_Map.CellValueAt(i,12)=Format(projections(i).Max_y1,"-#.##")
+		    Listbox_Map.CellValueAt(i,13)=Format(projections(i).Max_y2,"-#.##")
 		    
-		    Listbox_Map.Cell(i,14)=Format(projections(i).Gantry_Angle,"-000.##")
+		    Listbox_Map.CellValueAt(i,14)=Format(projections(i).Gantry_Angle,"-000.##")
 		    
 		    
 		  Next
@@ -8222,21 +8222,21 @@ End
 		  
 		  Listbox_Depths_Results.DeleteAllRows
 		  Listbox_Depths_Results.ColumnCount=6
-		  Listbox_Depths_Results.Heading(0)="Num"
-		  Listbox_Depths_Results.Heading(1)="Min Depth (cm)"
-		  Listbox_Depths_Results.Heading(2)="Max Depth (cm)"
-		  Listbox_Depths_Results.Heading(3)="Avg Depth (cm)"
-		  Listbox_Depths_Results.Heading(4)="Res X (cm)"
-		  Listbox_Depths_Results.Heading(5)="Res Y (cm)"
+		  Listbox_Depths_Results.HeaderAt(0)="Num"
+		  Listbox_Depths_Results.HeaderAt(1)="Min Depth (cm)"
+		  Listbox_Depths_Results.HeaderAt(2)="Max Depth (cm)"
+		  Listbox_Depths_Results.HeaderAt(3)="Avg Depth (cm)"
+		  Listbox_Depths_Results.HeaderAt(4)="Res X (cm)"
+		  Listbox_Depths_Results.HeaderAt(5)="Res Y (cm)"
 		  
 		  
 		  for  i=0 to UBound(Depth_Fields.All)  
 		    Listbox_Depths_Results.AddRow str(i+1)
-		    Listbox_Depths_Results.Cell(i,1)=Format(Depth_Fields.All(i).MinDistalDepth,"-#.###")
-		    Listbox_Depths_Results.Cell(i,2)=Format(Depth_Fields.All(i).MaxDistalDepth,"-#.###")
-		    Listbox_Depths_Results.Cell(i,3)=Format(Depth_Fields.All(i).AvgDistDepth,"-#.###")
-		    Listbox_Depths_Results.Cell(i,4)=Format(Depth_Fields.All(i).Del_x,"-#.###")
-		    Listbox_Depths_Results.Cell(i,5)=Format(Depth_Fields.All(i).Del_Y,"-#.###")
+		    Listbox_Depths_Results.CellValueAt(i,1)=Format(Depth_Fields.All(i).MinDistalDepth,"-#.###")
+		    Listbox_Depths_Results.CellValueAt(i,2)=Format(Depth_Fields.All(i).MaxDistalDepth,"-#.###")
+		    Listbox_Depths_Results.CellValueAt(i,3)=Format(Depth_Fields.All(i).AvgDistDepth,"-#.###")
+		    Listbox_Depths_Results.CellValueAt(i,4)=Format(Depth_Fields.All(i).Del_x,"-#.###")
+		    Listbox_Depths_Results.CellValueAt(i,5)=Format(Depth_Fields.All(i).Del_Y,"-#.###")
 		  Next
 		End Sub
 	#tag EndMethod
@@ -8307,9 +8307,9 @@ End
 		      target_index=i
 		    end
 		  next
-		  PopupMenu_SC_Target.ListIndex=target_index
-		  PopupMenu_Target.ListIndex=target_index
-		  PopupMenu_External.ListIndex=external_index
+		  PopupMenu_SC_Target.SelectedRowIndex=target_index
+		  PopupMenu_Target.SelectedRowIndex=target_index
+		  PopupMenu_External.SelectedRowIndex=external_index
 		  EditField_Angle_nx.value = str(nx)
 		  
 		  
@@ -8676,7 +8676,7 @@ End
 #tag Events PopupMenu_SC_Target
 	#tag Event
 		Sub Change()
-		  target_index=me.ListIndex
+		  target_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8690,7 +8690,7 @@ End
 #tag Events PopupMenu_SC_External
 	#tag Event
 		Sub Change()
-		  external_index=me.ListIndex
+		  external_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8768,8 +8768,8 @@ End
 #tag Events PopupMenu_Depth_Beam
 	#tag Event
 		Sub Change()
-		  if me.ListIndex>-1 Then
-		    Beam=gRTOG.Plan(Plan_Index).Beam(me.ListIndex)
+		  if me.SelectedRowIndex>-1 Then
+		    Beam=gRTOG.Plan(Plan_Index).Beam(me.SelectedRowIndex)
 		    StaticText_Depth_OneBeam.value = "Isocenter X,Y,Z : ("+Format(Beam.Collimator.Fields(0).isocenter.X,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.y,"-#.###")+", "+Format(Beam.Collimator.Fields(0).isocenter.z,"-#.###")+")"
 		    StaticText_Depth_OneBeam.value = StaticText_Depth_OneBeam.Text+chr(10)+"Gantry angle : "+Format(Beam.Collimator.Fields(0).Gantry_Angle,"-#.###")
 		    
@@ -8820,7 +8820,7 @@ End
 		  if column=0 Then
 		    if row>-1 and row<=UBound(Iso_Values.values) Then
 		      
-		      Iso_Values.values(row)=Val(me.Cell(row,column))
+		      Iso_Values.values(row)=Val(me.CellValueAt(row,column))
 		      
 		    end
 		  end
@@ -8854,7 +8854,7 @@ End
 		    
 		    
 		  Case "Remove Depth"
-		    i=me.ListIndex
+		    i=me.SelectedRowIndex
 		    if i>=0 and i<=UBound(Iso_Values.values) Then
 		      Iso_Values.values.Remove i
 		      Iso_Values.colours.Remove i
@@ -8968,8 +8968,8 @@ End
 #tag Events PopupMenu_FLEC_Beam
 	#tag Event
 		Sub Change()
-		  if me.ListIndex>-1 Then
-		    Beam=gRTOG.Plan(Plan_Index).Beam(me.ListIndex)
+		  if me.SelectedRowIndex>-1 Then
+		    Beam=gRTOG.Plan(Plan_Index).Beam(me.SelectedRowIndex)
 		    FLEC=Beam.FLEC
 		    FLEC_Populate_Beam
 		  end
@@ -9009,8 +9009,8 @@ End
 		    startnum=val(EditField_Photon_Copy1.Text)-1
 		    finnum=val(EditField_Photon_Copy2.Text)-1
 		  else
-		    startnum=PopupMenu_Photon_Beam.ListIndex
-		    finnum=PopupMenu_Photon_Beam.ListIndex
+		    startnum=PopupMenu_Photon_Beam.SelectedRowIndex
+		    finnum=PopupMenu_Photon_Beam.SelectedRowIndex
 		  end
 		  
 		  dely=val(TextField_Photon_dely.Text)
@@ -9020,7 +9020,7 @@ End
 		  delx=val(TextField_Photon_delX.Text)
 		  xmin=val(TextField_Photon_xmin.Text)
 		  xmax=val(TextField_Photon_Xmax.Text)
-		  beam_index=PopupMenu_Photon_Beam.ListIndex
+		  beam_index=PopupMenu_Photon_Beam.SelectedRowIndex
 		  
 		  
 		  if CheckBox_Photon_Arc_Batch.Value Then
@@ -9160,14 +9160,14 @@ End
 #tag Events PopupMenu_Target
 	#tag Event
 		Sub Change()
-		  target_index=me.ListIndex
+		  target_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events PopupMenu_External
 	#tag Event
 		Sub Change()
-		  external_index=me.ListIndex
+		  external_index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9241,10 +9241,10 @@ End
 		  Dim lbindex as Integer
 		  Dim realindex as Integer
 		  
-		  lbindex=me.ListIndex
+		  lbindex=me.SelectedRowIndex
 		  
 		  if lbindex>-1 And lbindex<=UBound(Projections) Then
-		    realindex=val(Listbox_Map.Cell(lbindex,0))-1
+		    realindex=val(Listbox_Map.CellValueAt(lbindex,0))-1
 		    projection_index=realindex
 		  end
 		  
@@ -9331,7 +9331,7 @@ End
 		  
 		  f=f.Parent
 		  
-		  i=Listbox_Depths_Results.ListIndex
+		  i=Listbox_Depths_Results.SelectedRowIndex
 		  
 		  
 		  if i>=0 and i<=UBound(Depth_Fields.All)  then
@@ -9407,7 +9407,7 @@ End
 		  'del_x=val(TextField_X.Text)
 		  'del_y=val(TextField_y.Text)
 		  '
-		  'i=Listbox_Depths_Results.ListIndex
+		  'i=Listbox_Depths_Results.SelectedRowIndex
 		  'g.UseOldRenderer=True
 		  '
 		  'if i>=0 and i<=UBound(Depth_Fields.All)  then
@@ -9521,7 +9521,7 @@ End
 		  'del_x=val(TextField_X.Text)
 		  'del_y=val(TextField_y.Text)
 		  '
-		  'i=Listbox_Depths_Results.ListIndex
+		  'i=Listbox_Depths_Results.SelectedRowIndex
 		  '
 		  '
 		  'if i>=0 and i<=UBound(Depth_Fields.All)  then

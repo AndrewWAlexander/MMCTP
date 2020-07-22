@@ -1302,7 +1302,7 @@ End
 		  next
 		  
 		  
-		  PopupMenu_CleanContour.ListIndex=DMX.Cleancontour
+		  PopupMenu_CleanContour.SelectedRowIndex=DMX.Cleancontour
 		  
 		  Checkbox_dosxyz_Clean1.Value=DMX.Cleancontours
 		  
@@ -1332,10 +1332,10 @@ End
 		  
 		  ListBox_Fill.DeleteAllRows
 		  
-		  ListBox_Fill.heading(0)="Fill Order Large->Small"
-		  ListBox_Fill.heading(1)="Structure Name"
-		  ListBox_Fill.heading(2)="Use this Density else autofill"
-		  ListBox_Fill.heading(3)="Density g/cm^3"
+		  ListBox_Fill.HeaderAt(0)="Fill Order Large->Small"
+		  ListBox_Fill.HeaderAt(1)="Structure Name"
+		  ListBox_Fill.HeaderAt(2)="Use this Density else autofill"
+		  ListBox_Fill.HeaderAt(3)="Density g/cm^3"
 		  
 		  
 		  ListBox_Fill.columntype(0)=1
@@ -1347,9 +1347,9 @@ End
 		  for i=0 to UBound(gVMC.DMXSettings.Contours)
 		    ListBox_Fill.addrow str(i+1)
 		    x=gVMC.DMXSettings.Contours(i).RTOG_Contour_Index
-		    ListBox_Fill.Cell(i,1)=grtog.Structures.Structures(x).Structure_Name
+		    ListBox_Fill.CellValueAt(i,1)=grtog.Structures.Structures(x).Structure_Name
 		    ListBox_Fill.CellCheck(i,2)=gVMC.DMXSettings.Contours(i).use_density
-		    ListBox_Fill.cell(i,3)=Format(gVMC.DMXSettings.Contours(i).density,"#.###")
+		    ListBox_Fill.CellValueAt(i,3)=Format(gVMC.DMXSettings.Contours(i).density,"#.###")
 		  next
 		  
 		  
@@ -1376,7 +1376,7 @@ End
 		    
 		    
 		    if column=3 Then
-		      dmx.Contours(row).density=val(ListBox_Fill.cell(row,3))
+		      dmx.Contours(row).density=val(ListBox_Fill.CellValueAt(row,3))
 		      
 		    end
 		  end
@@ -1403,14 +1403,14 @@ End
 		  Dim i as Integer
 		  Dim cc as Class_VMC_DMX_Contour
 		  
-		  i=ListBox_Fill.ListIndex
+		  i=ListBox_Fill.SelectedRowIndex
 		  if i>0 and i<=UBound(gVMC.DMXSettings.Contours) Then
 		    cc = new Class_VMC_DMX_Contour
 		    cc=dmx.Contours(i)
 		    dmx.Contours.Remove i
 		    dmx.Contours.Insert i-1, cc
 		    Load_listbox
-		    ListBox_Fill.ListIndex=i-1
+		    ListBox_Fill.SelectedRowIndex=i-1
 		  end
 		  
 		End Sub
@@ -1420,14 +1420,14 @@ End
 		  Dim i as Integer
 		  Dim cc as Class_VMC_DMX_Contour
 		  
-		  i=ListBox_Fill.ListIndex
+		  i=ListBox_Fill.SelectedRowIndex
 		  if i>=0 and i<UBound(gVMC.DMXSettings.Contours) Then
 		    cc = new Class_VMC_DMX_Contour
 		    cc=DMX.Contours(i)
 		    dmx.Contours.Remove i
 		    dmx.Contours.Insert i+1, cc
 		    Load_listbox
-		    ListBox_Fill.ListIndex=i+1
+		    ListBox_Fill.SelectedRowIndex=i+1
 		  end
 		  
 		End Sub
@@ -1459,13 +1459,13 @@ End
 		      for i=0 to UBound(gVMC.vmc)
 		        if Len(name)<1 then
 		          find=True
-		          MsgBox "Enter a DMX name"
+		          MessageBox "Enter a DMX name"
 		          Exit
 		        end
 		        
 		        if name=gVMC.vmc(i).DMX.dmx_name then
 		          overwrite=True
-		          MsgBox "Enter another DMX name"
+		          MessageBox "Enter another DMX name"
 		          Exit
 		        end
 		      next
@@ -1482,7 +1482,7 @@ End
 		      
 		      
 		    else
-		      MsgBox "DMX name is too long"
+		      MessageBox "DMX name is too long"
 		    end
 		  end
 		End Sub
@@ -1491,7 +1491,7 @@ End
 #tag Events PopupMenu_CleanContour
 	#tag Event
 		Sub Change()
-		  DMX.Cleancontour=me.ListIndex
+		  DMX.Cleancontour=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents

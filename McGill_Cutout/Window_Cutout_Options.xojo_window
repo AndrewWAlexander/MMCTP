@@ -2021,7 +2021,7 @@ End
 		  
 		  
 		  if Plan_Index>=0 Then
-		    beam_index=Window_Treatment.ListBox_MC_Cutout.ListIndex
+		    beam_index=Window_Treatment.ListBox_MC_Cutout.SelectedRowIndex
 		    if beam_index >= 0 and beam_index<= UBound(gRTOG.Plan(Plan_Index).Beam) Then
 		      
 		    else
@@ -2059,7 +2059,7 @@ End
 		      list_index=i
 		    end
 		  next
-		  PopupMenu_cutout_mat.ListIndex=list_index
+		  PopupMenu_cutout_mat.SelectedRowIndex=list_index
 		  '===================
 		  
 		  PopupMenu_Gap_Material.DeleteAllRows
@@ -2070,7 +2070,7 @@ End
 		      list_index=i
 		    end
 		  next
-		  PopupMenu_Gap_Material.ListIndex=list_index
+		  PopupMenu_Gap_Material.SelectedRowIndex=list_index
 		  
 		  //EditField_cutout_thick.value = str(Cutout.CutOutThickness)
 		  
@@ -2084,15 +2084,15 @@ End
 		      list_index=i
 		    end
 		  next
-		  PopupMenu_phantom_mat.ListIndex=list_index
+		  PopupMenu_phantom_mat.SelectedRowIndex=list_index
 		  '===================
 		  PopupMenu_Backscatter.DeleteAllRows
 		  PopupMenu_Backscatter.AddRow "No"
 		  PopupMenu_Backscatter.AddRow "Yes"
 		  if Cutout.BackscatterType=0 then
-		    PopupMenu_Backscatter.ListIndex=0
+		    PopupMenu_Backscatter.SelectedRowIndex=0
 		  else
-		    PopupMenu_Backscatter.ListIndex=1
+		    PopupMenu_Backscatter.SelectedRowIndex=1
 		  end
 		  '===================
 		  
@@ -2100,7 +2100,7 @@ End
 		  EditField_jobs.value = Format(Cutout.jobs,"#")
 		  EditField_pegs.value = Cutout.pegsfile
 		  EditField_CutoutThickness.value = Format(Cutout.CutOutThickness,"-#.####")
-		  PopupMenu_Shell.ListIndex=Cutout.Shell_Index
+		  PopupMenu_Shell.SelectedRowIndex=Cutout.Shell_Index
 		  EditField_ECUT.value = Format(Cutout.ECUT,"-#.####")
 		  EditField_PCUT.value = Format(Cutout.PCUT,"-#.####")
 		  EditField_airgapthickness.value = Format(Cutout.GapThickness,"-#.####")
@@ -2246,7 +2246,7 @@ End
 #tag Events PopupMenu_Backscatter
 	#tag Event
 		Sub Change()
-		  Cutout.BackscatterType=me.ListIndex
+		  Cutout.BackscatterType=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2303,7 +2303,7 @@ End
 #tag Events PopupMenu_Shell
 	#tag Event
 		Sub Change()
-		  Cutout.shell_index = me.ListIndex
+		  Cutout.shell_index = me.SelectedRowIndex
 		  
 		End Sub
 	#tag EndEvent

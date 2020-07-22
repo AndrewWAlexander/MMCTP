@@ -898,7 +898,7 @@ End
 		  cw=Canvas.width
 		  ch=Canvas.Height
 		  
-		  Segment=PopupMenu_Segments.listIndex
+		  Segment=PopupMenu_Segments.SelectedRowIndex
 		  
 		  buffer_offx=round((cw-gvis.nx*scale)/2+0.5*gvis.scale_width)-Pan_X
 		  buffer_offy=round((ch-gvis.ny*scale)/2+0.5*gvis.scale_height)-Pan_Y
@@ -1111,13 +1111,13 @@ End
 		Sub Pop_listbox()
 		  Dim i as integer
 		  ListBox_Struc.columnwidths="25%,15%,15%,15%,15%,15%,25%"
-		  ListBox_Struc.heading(0)="Name"
-		  ListBox_Struc.heading(1)="Colour"
-		  ListBox_Struc.heading(2)="Fill"
-		  ListBox_Struc.heading(3)="Show"
-		  ListBox_Struc.heading(4)="Density Override"
-		  ListBox_Struc.heading(5)="Density Value (g/cc)"
-		  ListBox_Struc.heading(6)="Type"
+		  ListBox_Struc.HeaderAt(0)="Name"
+		  ListBox_Struc.HeaderAt(1)="Colour"
+		  ListBox_Struc.HeaderAt(2)="Fill"
+		  ListBox_Struc.HeaderAt(3)="Show"
+		  ListBox_Struc.HeaderAt(4)="Density Override"
+		  ListBox_Struc.HeaderAt(5)="Density Value (g/cc)"
+		  ListBox_Struc.HeaderAt(6)="Type"
 		  
 		  
 		  
@@ -1136,10 +1136,10 @@ End
 		    ListBox_Struc.celltype(i,4)=2
 		    ListBox_Struc.CellCheck(i,4)=grtog.Structures.Structures(i).ElectronDensityOverride
 		    
-		    ListBox_Struc.Cell(i,5)= Format(grtog.Structures.Structures(i).ElectronDensity,"-0.00##")
+		    ListBox_Struc.CellValueAt(i,5)= Format(grtog.Structures.Structures(i).ElectronDensity,"-0.00##")
 		    ListBox_Struc.celltype(i,5)=3
 		    
-		    ListBox_Struc.Cell(i,6)= grtog.Structures.Structures(i).StructureType
+		    ListBox_Struc.CellValueAt(i,6)= grtog.Structures.Structures(i).StructureType
 		    ListBox_Struc.celltype(i,6)=3
 		    
 		  next
@@ -1158,7 +1158,7 @@ End
 		  //----------------------------------
 		  
 		  
-		  start=PopupMenu_Segments.ListIndex
+		  start=PopupMenu_Segments.SelectedRowIndex
 		  PopupMenu_Segments.deleteAllRows
 		  if gpoly <> nil then //Tanner: This is necessary to avoid the nil exception as gpoly doesn't always exist for every case where Pop_Segments is called
 		    if gpoly.Struct.Structure_Data(slice) <> nil then
@@ -1171,9 +1171,9 @@ End
 		        Options=1
 		      end
 		      if PopupMenu_Segments.ListCount >= start and start <>-1 Then
-		        PopupMenu_Segments.ListIndex=start
+		        PopupMenu_Segments.SelectedRowIndex=start
 		      else
-		        PopupMenu_Segments.ListIndex=0
+		        PopupMenu_Segments.SelectedRowIndex=0
 		      end
 		    end
 		  end
@@ -1225,7 +1225,7 @@ End
 		  
 		  // Paint the points of the contour which is selected
 		  if BevelButton_edit.Value then
-		    gpoly.Paint_Poly(g,slice,PopupMenu_segments.ListIndex,g.Width,g.Height,Pan_X,Pan_Y,scale)
+		    gpoly.Paint_Poly(g,slice,PopupMenu_segments.SelectedRowIndex,g.Width,g.Height,Pan_X,Pan_Y,scale)
 		    g.ForeColor=RGB(255,0,0)
 		    g.DrawRect ROI_min_X,ROI_min_Y,ROI_width,ROI_height
 		  end
@@ -1496,7 +1496,7 @@ End
 		    
 		  else
 		    
-		    Segment=PopupMenu_Segments.listIndex
+		    Segment=PopupMenu_Segments.SelectedRowIndex
 		    
 		    buffer_offx=round((cw-gvis.nx*scale)/2+0.5*gvis.scale_width)-Pan_X
 		    buffer_offy=round((ch-gvis.ny*scale)/2+0.5*gvis.scale_height)-Pan_Y
@@ -1523,7 +1523,7 @@ End
 		    
 		    if bevelButton_Edit.value=true then
 		      gPoly.scan_index =Slice
-		      Segment=PopupMenu_segments.listIndex
+		      Segment=PopupMenu_segments.SelectedRowIndex
 		      if Segment>=0 then
 		        
 		        if options = 1 then ' "Add Point" then
@@ -1628,7 +1628,7 @@ End
 		  ch=Canvas.Height
 		  
 		  
-		  Segment=PopupMenu_Segments.listIndex
+		  Segment=PopupMenu_Segments.SelectedRowIndex
 		  
 		  buffer_offx=round((cw-gvis.nx*scale)/2+0.5*gvis.scale_width)-Pan_X
 		  buffer_offy=round((ch-gvis.ny*scale)/2+0.5*gvis.scale_height)-Pan_Y
@@ -1795,7 +1795,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Change()
-		  if ListBox_Struc.ListIndex=-1 then
+		  if ListBox_Struc.SelectedRowIndex=-1 then
 		    BevelButton_edit.Enabled=False
 		  end
 		  
@@ -1823,27 +1823,45 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
-		  Dim StructureNum,i as Integer
+		  //Dim StructureNum,i as Integer
 		  
 		  
 		  Select Case hitItem.Text
 		    
 		  Case "Add New Structure"
+		    
 		    gRTOG.Add_Structure
 		    
 		  Case "Delete Structure"
-		    StructureNum=me.ListIndex
 		    
-		    
-		    if StructureNum>-1 and StructureNum<=UBound(grtog.Structures.Structures) Then
+		    If Me.SelectedRowIndex > -1 And _
+		      Me.SelectedRowIndex <= grtog.Structures.Structures.LastRowIndex Then
 		      
-		      i=MsgBox("Are you sure you want to delete Structure "+chr(13)+grtog.Structures.Structures(StructureNum).Structure_Name+" ?",1,"Warning")
+		      Var d As New MessageDialog                  // declare the MessageDialog object
+		      Var b As MessageDialogButton                // for handling the result
+		      d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		      d.ActionButton.Caption = "Delete"
+		      d.CancelButton.Visible = False               // show the Cancel button
+		      d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		      d.AlternateActionButton.Caption = "Don't Delete"
+		      d.Message = "Are you sure you want To delete Structure " _
+		      + Chr(13) + grtog.Structures.Structures(Me.SelectedRowIndex).Structure_Name + " ?"
 		      
-		      if i=1 Then
-		        gRTOG.Delete_Structure(StructureNum)
+		      b = d.ShowModal                             // display the dialog
+		      
+		      Select Case b                               // determine which button was pressed.
+		      Case d.ActionButton
+		        
+		        gRTOG.Delete_Structure(Me.SelectedRowIndex)
 		        Window_Contouring.Pop_listbox
-		      end
-		    end
+		        
+		      Case d.AlternateActionButton
+		        // user pressed Don't Save
+		      Case d.CancelButton
+		        // user pressed Cancel
+		      End Select
+		      
+		    End
 		    
 		  End Select
 		  gvis.Structure_colour
@@ -1855,9 +1873,9 @@ End
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
 		  if column=0 then
-		    grtog.Structures.Structures(row).Structure_Name=ListBox_Struc.Cell(row,column)
+		    grtog.Structures.Structures(row).Structure_Name=ListBox_Struc.CellValueAt(row,column)
 		  elseif column=5 Then
-		    grtog.Structures.Structures(row).ElectronDensity=val(me.Cell(row,column))
+		    grtog.Structures.Structures(row).ElectronDensity=val(me.CellValueAt(row,column))
 		  end
 		End Sub
 	#tag EndEvent
@@ -1874,9 +1892,9 @@ End
 		  
 		  if bevelButton_Edit.value =true then
 		    gpoly=new Class_Structures
-		    if ListBox_Struc.ListIndex>-1 Then
-		      gpoly.Load(ListBox_Struc.ListIndex)
-		      Edit_Contour_Index=ListBox_Struc.ListIndex
+		    if ListBox_Struc.SelectedRowIndex>-1 Then
+		      gpoly.Load(ListBox_Struc.SelectedRowIndex)
+		      Edit_Contour_Index=ListBox_Struc.SelectedRowIndex
 		      //CheckBox_Structures.Enabled=False //Tanner
 		      //ListBox_Struc.enabled=false //Tanner
 		      PopupMenu_segments.Enabled=true
@@ -1958,10 +1976,10 @@ End
 		    temp = new RTOG_Structure_Segment
 		    gpoly.Struct.Structure_Data(slice).segments.append Temp
 		    Pop_Segments
-		    Window_Contouring.PopupMenu_Segments.listIndex=i
+		    Window_Contouring.PopupMenu_Segments.SelectedRowIndex=i
 		    
 		  case  "Delete Segment"
-		    i=Window_Contouring.PopupMenu_Segments.listIndex
+		    i=Window_Contouring.PopupMenu_Segments.SelectedRowIndex
 		    if i>-1 then
 		      gpoly.Struct.Structure_Data(slice).segments.remove i
 		      Pop_Segments

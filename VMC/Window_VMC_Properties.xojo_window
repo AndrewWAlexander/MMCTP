@@ -1353,7 +1353,7 @@ End
 		  EditField_caldose.value = Format(vmc_inputfile.dose,"#.#######e")
 		  EditField_dw.value = Format(vmc_inputfile.dose_to_water,"#.#######")
 		  EditField_queue.value = vmc_inputfile.queue
-		  PopupMenu_Shell.ListIndex=vmc_inputfile.Shell_Index
+		  PopupMenu_Shell.SelectedRowIndex=vmc_inputfile.Shell_Index
 		  CheckBox_Auto_Shell.Value=vmc_inputfile.auto_shell
 		  StaticText_Uncertainty.value = "Uncertainty region d > 50%  (%) : "+Format(vmc_inputfile.uncertainty,"#.###")
 		  StaticText_CPUTime.value = "Total CPU Time : "+Calculate_Real_Time
@@ -1442,7 +1442,7 @@ End
 #tag Events PopupMenu_Shell
 	#tag Event
 		Sub Change()
-		  vmc_inputfile.Shell_Index=me.ListIndex
+		  vmc_inputfile.Shell_Index=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents

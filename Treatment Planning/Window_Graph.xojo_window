@@ -574,7 +574,7 @@ End
 		  
 		  for i=0 to Window_Treatment.ListBox_Dose_profiles_Result.ListCount-1
 		    if Window_Treatment.ListBox_Dose_profiles_Result.CellCheck(i,0) Then
-		      j=val(Window_Treatment.ListBox_Dose_profiles_Result.Cell(i,3))
+		      j=val(Window_Treatment.ListBox_Dose_profiles_Result.CellValueAt(i,3))
 		      pp=new Class_Profile_One
 		      pp=gRTOG.Profiles.One_Profile(j)
 		      pp.Show=True
@@ -645,17 +645,17 @@ End
 		  ListBox_Profiles.DeleteAllRows
 		  ListBox_Profiles.ColumnCount=7
 		  ListBox_Profiles.ColumnWidths="20%,10%,20%,10%,20%,10%,10%,"
-		  ListBox_Profiles.Heading(0)="Profile"
-		  ListBox_Profiles.Heading(1)="Colour"
-		  ListBox_Profiles.Heading(2)="Max Value"
-		  ListBox_Profiles.Heading(3)="Normalize"
+		  ListBox_Profiles.HeaderAt(0)="Profile"
+		  ListBox_Profiles.HeaderAt(1)="Colour"
+		  ListBox_Profiles.HeaderAt(2)="Max Value"
+		  ListBox_Profiles.HeaderAt(3)="Normalize"
 		  ListBox_Profiles.ColumnType(3)=2
-		  ListBox_Profiles.Heading(4)="Norm Value"
+		  ListBox_Profiles.HeaderAt(4)="Norm Value"
 		  ListBox_Profiles.ColumnType(4)=3
 		  
-		  ListBox_Profiles.Heading(5)="Show Points"
+		  ListBox_Profiles.HeaderAt(5)="Show Points"
 		  ListBox_Profiles.ColumnType(5)=2
-		  ListBox_Profiles.Heading(6)="Show"
+		  ListBox_Profiles.HeaderAt(6)="Show"
 		  ListBox_Profiles.ColumnType(6)=2
 		  
 		  
@@ -673,8 +673,8 @@ End
 		        gg=Canvas_Graph.Profiles.One_Profile(i).Points(k).value
 		      end
 		    next
-		    ListBox_Profiles.Cell(i,2)=Format(gg, "-#.#####e")
-		    ListBox_Profiles.Cell(i,4)=Format(Canvas_Graph.Profiles.One_Profile(i).Normalize_value, "-#.#####e")
+		    ListBox_Profiles.CellValueAt(i,2)=Format(gg, "-#.#####e")
+		    ListBox_Profiles.CellValueAt(i,4)=Format(Canvas_Graph.Profiles.One_Profile(i).Normalize_value, "-#.#####e")
 		    
 		    if Canvas_Graph.Profiles.One_Profile(i).Normalize_value<>1 Then
 		      Canvas_Graph.Profiles.One_Profile(i).Norm=True
@@ -714,9 +714,9 @@ End
 #tag Events Canvas_Graph
 	#tag Event
 		Sub GotFocus()
-		  if ListBox_Profiles.ListIndex>-1 and ListBox_Profiles.ListIndex<=UBound(Canvas_Graph.Profiles.One_Profile) Then
+		  if ListBox_Profiles.SelectedRowIndex>-1 and ListBox_Profiles.SelectedRowIndex<=UBound(Canvas_Graph.Profiles.One_Profile) Then
 		    Canvas_Graph.Interactive=True
-		    Canvas_Graph.Interactive_index=ListBox_Profiles.ListIndex
+		    Canvas_Graph.Interactive_index=ListBox_Profiles.SelectedRowIndex
 		  else
 		    Canvas_Graph.Interactive=False
 		  end
@@ -788,27 +788,27 @@ End
 		    
 		  elseif column=4 Then
 		    // Normalize Value
-		    if me.Cell(row,4)="max" Then
-		      Canvas_Graph.Profiles.One_Profile(row).Normalize_value=val(me.Cell(row,2))
+		    if me.CellValueAt(row,4)="max" Then
+		      Canvas_Graph.Profiles.One_Profile(row).Normalize_value=val(me.CellValueAt(row,2))
 		      
-		    elseif InStr(me.Cell(row,4),"=")>0 Then
-		      ff=me.Cell(row,4)
+		    elseif InStr(me.CellValueAt(row,4),"=")>0 Then
+		      ff=me.CellValueAt(row,4)
 		      gg=val(NthField(ff,"=",2))
 		      x=0
 		      y=0
 		      z=0
 		      
-		      if InStr(me.Cell(row,4),"z=")>0 Then //Normalize at z=?
+		      if InStr(me.CellValueAt(row,4),"z=")>0 Then //Normalize at z=?
 		        z=gg
-		      elseif InStr(me.Cell(row,4),"x=")>0 Then //Normalize at x=?
+		      elseif InStr(me.CellValueAt(row,4),"x=")>0 Then //Normalize at x=?
 		        x=gg
-		      elseif InStr(me.Cell(row,4),"y=")>0 Then //Normalize at y=?
+		      elseif InStr(me.CellValueAt(row,4),"y=")>0 Then //Normalize at y=?
 		        y=gg
 		      end
 		      Canvas_Graph.Profiles.One_Profile(row).Normalize_value=Canvas_Graph.Profiles.One_Profile(row).Get_Value_at_Point(x,y,z,true)
 		      
-		    elseif val(me.Cell(row,4))<>0 Then
-		      Canvas_Graph.Profiles.One_Profile(row).Normalize_value=val(me.Cell(row,4))
+		    elseif val(me.CellValueAt(row,4))<>0 Then
+		      Canvas_Graph.Profiles.One_Profile(row).Normalize_value=val(me.CellValueAt(row,4))
 		      
 		    end
 		    

@@ -305,7 +305,7 @@ Protected Class Class_DOSXYZ
 		  end
 		  
 		  if f.Exists=False Then
-		    MsgBox "Could not find file : "+f.Name+chr(13) +"Under : "+f.ShellPath
+		    MessageBox "Could not find file : "+f.Name+chr(13) +"Under : "+f.ShellPath
 		    Return False
 		  end
 		  
@@ -762,7 +762,7 @@ Protected Class Class_DOSXYZ
 		  
 		  if ts=nil Then
 		    Return
-		    MsgBox "Could not create file : "+g.Name
+		    MessageBox "Could not create file : "+g.Name
 		  end
 		  
 		  

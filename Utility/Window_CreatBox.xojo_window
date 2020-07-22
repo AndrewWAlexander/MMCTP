@@ -1373,8 +1373,8 @@ End
 		Sub Open()
 		  Listbox_Gradient.DeleteAllRows
 		  
-		  Listbox_Gradient.Heading(0)= "Parameter"
-		  Listbox_Gradient.Heading(1)= "Value"
+		  Listbox_Gradient.HeaderAt(0)= "Parameter"
+		  Listbox_Gradient.HeaderAt(1)= "Value"
 		  
 		  Listbox_Gradient.ColumnType(1)=3
 		  Listbox_Gradient.AddRow "Initial HU value","-1000"
@@ -1498,9 +1498,9 @@ End
 		        Image.voxel.Append hu
 		      next
 		    else
-		      hu_s=val(Listbox_Gradient.Cell(0,1))
-		      hu_del=val(Listbox_Gradient.Cell(2,1))
-		      v_del=val(Listbox_Gradient.Cell(1,1))
+		      hu_s=val(Listbox_Gradient.CellValueAt(0,1))
+		      hu_del=val(Listbox_Gradient.CellValueAt(2,1))
+		      v_del=val(Listbox_Gradient.CellValueAt(1,1))
 		      hu=hu_s
 		      for j=1 to ny
 		        if  (j mod v_del) =0 Then

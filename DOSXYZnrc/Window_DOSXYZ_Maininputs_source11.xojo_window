@@ -1152,7 +1152,7 @@ End
 		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=2"
 		  PopupMenu_LatchBitFilter.AddRow "I BIT FILTER=3"
 		  
-		  PopupMenu_LatchBitFilter.ListIndex=dosxyz_input.I_bit_filter
+		  PopupMenu_LatchBitFilter.SelectedRowIndex=dosxyz_input.I_bit_filter
 		End Sub
 	#tag EndEvent
 
@@ -1277,7 +1277,7 @@ End
 #tag Events PopupMenu_LatchBitFilter
 	#tag Event
 		Sub Change()
-		  dosxyz_input.I_bit_filter=me.ListIndex
+		  dosxyz_input.I_bit_filter=me.SelectedRowIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents

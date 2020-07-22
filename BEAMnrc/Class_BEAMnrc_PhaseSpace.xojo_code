@@ -35,7 +35,7 @@ Protected Class Class_BEAMnrc_PhaseSpace
 		  bs.position=0
 		  //mb.stringValue(0,mb.size)=bs.read(bs.Length)
 		  'else
-		  'MsgBox "MB not big enough"
+		  'MessageBox "MB not big enough"
 		  'Return
 		  
 		  //end

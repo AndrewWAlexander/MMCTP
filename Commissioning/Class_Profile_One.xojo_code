@@ -11,7 +11,7 @@ Protected Class Class_Profile_One
 		  
 		  
 		  if a=nil or b=nil Then
-		    MsgBox "Error within Distance function"
+		    MessageBox "Error within Distance function"
 		    Return -1
 		  end
 		  
@@ -126,7 +126,7 @@ Protected Class Class_Profile_One
 		  
 		  
 		  Catch err As NilObjectException
-		    MsgBox("Nil Object Error within Get Field Width")
+		    MessageBox("Nil Object Error within Get Field Width")
 		    
 		End Sub
 	#tag EndMethod
@@ -190,7 +190,7 @@ Protected Class Class_Profile_One
 		  
 		  
 		  Catch err As NilObjectException
-		    MsgBox("Error within Get Flatness")
+		    MessageBox("Error within Get Flatness")
 		End Sub
 	#tag EndMethod
 
@@ -309,7 +309,7 @@ Protected Class Class_Profile_One
 		  
 		  
 		  Exception errs As NilObjectException
-		    MsgBox("Nil Object Error within Class Profile One - Get Point")
+		    MessageBox("Nil Object Error within Class Profile One - Get Point")
 		    
 		    
 		    
@@ -423,7 +423,7 @@ Protected Class Class_Profile_One
 		  'Wend
 		  '
 		  'sym=sym/count
-		  'ListBox_Profiles.Cell(0,1)=str(sym)
+		  'ListBox_Profiles.CellValueAt(0,1)=str(sym)
 		  '
 		  'x_value=dx
 		  'count=0

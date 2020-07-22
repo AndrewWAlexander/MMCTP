@@ -1853,57 +1853,57 @@ End
 		  
 		  
 		  if dosxyz_input.isource=1 Then
-		    PopupMenu_source.ListIndex=0
+		    PopupMenu_source.SelectedRowIndex=0
 		    
 		  elseif dosxyz_input.isource=2 Then
-		    PopupMenu_source.ListIndex=1
+		    PopupMenu_source.SelectedRowIndex=1
 		    
 		  elseif dosxyz_input.isource=3 Then
-		    PopupMenu_source.ListIndex=2
+		    PopupMenu_source.SelectedRowIndex=2
 		    
 		  elseif dosxyz_input.isource=8 Then
-		    PopupMenu_source.ListIndex=3
+		    PopupMenu_source.SelectedRowIndex=3
 		    
 		  elseif dosxyz_input.isource=9 Then
-		    PopupMenu_source.ListIndex=4
+		    PopupMenu_source.SelectedRowIndex=4
 		  elseif dosxyz_input.isource=10 Then
-		    PopupMenu_source.ListIndex=5
+		    PopupMenu_source.SelectedRowIndex=5
 		    
 		  elseif dosxyz_input.isource=11 Then
-		    PopupMenu_source.ListIndex=6
+		    PopupMenu_source.SelectedRowIndex=6
 		  elseif dosxyz_input.isource=20 Then
-		    PopupMenu_source.ListIndex=7
+		    PopupMenu_source.SelectedRowIndex=7
 		  elseif dosxyz_input.isource=21 Then
-		    PopupMenu_source.ListIndex=8
+		    PopupMenu_source.SelectedRowIndex=8
 		    
 		  end
 		  
-		  PopupMenu_Idat.ListIndex=dosxyz_input.IDAT
+		  PopupMenu_Idat.SelectedRowIndex=dosxyz_input.IDAT
 		  
 		  
-		  PopupMenu_RunOptions.ListIndex=dosxyz_input.IRESTART
+		  PopupMenu_RunOptions.SelectedRowIndex=dosxyz_input.IRESTART
 		  
 		  if dosxyz_input.IQIN=-1 Then
-		    PopupMenu_incident_part.ListIndex=0
+		    PopupMenu_incident_part.SelectedRowIndex=0
 		  Elseif dosxyz_input.IQIN=0 Then
-		    PopupMenu_incident_part.ListIndex=1
+		    PopupMenu_incident_part.SelectedRowIndex=1
 		  Elseif dosxyz_input.IQIN=1 Then
-		    PopupMenu_incident_part.ListIndex=2
+		    PopupMenu_incident_part.SelectedRowIndex=2
 		  Elseif dosxyz_input.IQIN=2 Then
-		    PopupMenu_incident_part.ListIndex=3
+		    PopupMenu_incident_part.SelectedRowIndex=3
 		  end
 		  
 		  
-		  PopupMenu_howfar.ListIndex=dosxyz_input.ihowfarless
+		  PopupMenu_howfar.SelectedRowIndex=dosxyz_input.ihowfarless
 		  
 		  if dosxyz_input.Max20=0 Then
-		    PopupMenu_Print20Dose.ListIndex=0
+		    PopupMenu_Print20Dose.SelectedRowIndex=0
 		  else
-		    PopupMenu_Print20Dose.ListIndex=1
+		    PopupMenu_Print20Dose.SelectedRowIndex=1
 		  end
 		  
 		  
-		  PopupMenu_rangeR.ListIndex= dosxyz_input.IREJECT
+		  PopupMenu_rangeR.SelectedRowIndex= dosxyz_input.IREJECT
 		  
 		  
 		  if dosxyz_input.dos_Non_CT=false Then
@@ -1918,7 +1918,7 @@ End
 		    CheckBox_auto_mmctp.Value=False
 		  end
 		  
-		  PopupMenu_mediumthickness.ListIndex=dosxyz_input.dflag
+		  PopupMenu_mediumthickness.SelectedRowIndex=dosxyz_input.dflag
 		  
 		  EditField_title.value = dosxyz_input.TITLE
 		  EditField_nrcycl.value = Format(dosxyz_input.NRCYCL,"#")
@@ -1946,9 +1946,9 @@ End
 		  end
 		  
 		  if dosxyz_input.medsur>=0 and dosxyz_input.medsur<=PopupMenu_mediumoutside.ListCount Then
-		    PopupMenu_mediumoutside.ListIndex=dosxyz_input.medsur
+		    PopupMenu_mediumoutside.SelectedRowIndex=dosxyz_input.medsur
 		  else
-		    PopupMenu_mediumoutside.ListIndex=0
+		    PopupMenu_mediumoutside.SelectedRowIndex=0
 		  end
 		  do_nothing=False
 		  
@@ -1988,9 +1988,9 @@ End
 #tag Events PopupMenu_Print20Dose
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    dosxyz_input.Max20=0
-		  elseif me.ListIndex=1  Then
+		  elseif me.SelectedRowIndex=1  Then
 		    dosxyz_input.Max20=1
 		  end
 		  
@@ -2041,13 +2041,13 @@ End
 #tag Events PopupMenu_incident_part
 	#tag Event
 		Sub Change()
-		  if me.ListIndex=0 Then
+		  if me.SelectedRowIndex=0 Then
 		    dosxyz_input.IQIN=-1
-		  elseif me.ListIndex=1  Then
+		  elseif me.SelectedRowIndex=1  Then
 		    dosxyz_input.IQIN=0
-		  elseif me.ListIndex=2 Then
+		  elseif me.SelectedRowIndex=2 Then
 		    dosxyz_input.IQIN=1
-		  elseif me.ListIndex=3 Then
+		  elseif me.SelectedRowIndex=3 Then
 		    dosxyz_input.IQIN=2
 		  end
 		  
@@ -2064,44 +2064,44 @@ End
 		Sub Change()
 		  
 		  if do_nothing=False Then
-		    if me.ListIndex=0 then
+		    if me.SelectedRowIndex=0 then
 		      dosxyz_input.isource=1
 		      Window_DOSXYZ_Maininputs_source1.Show
 		      
 		      
-		    ElseIf me.ListIndex=1 Then
+		    ElseIf me.SelectedRowIndex=1 Then
 		      //PopupMenu_source.value = "2 - Full phase-space source file" Then
 		      dosxyz_input.isource=2
 		      Window_DOSXYZ_Maininputs_source2.Show
 		      
 		      
-		    ElseIf me.ListIndex=2 Then
+		    ElseIf me.SelectedRowIndex=2 Then
 		      //PopupMenu_source.value = "3 - Point source from front" Then
 		      dosxyz_input.isource=3
 		      Window_DOSXYZ_Maininputs_source3.Show
 		      
-		    ElseIf me.ListIndex=3 Then
+		    ElseIf me.SelectedRowIndex=3 Then
 		      //PopupMenu_source.value = "3 - Point source from front" Then
 		      dosxyz_input.isource=8
 		      Window_DOSXYZ_Maininputs_source8.Show
 		      
-		    elseif me.ListIndex=4 Then
+		    elseif me.SelectedRowIndex=4 Then
 		      dosxyz_input.isource=9
 		      Window_DOSXYZ_Maininputs_source9.Show
 		      
-		    elseif me.ListIndex=5 Then
+		    elseif me.SelectedRowIndex=5 Then
 		      dosxyz_input.isource=10
 		      Window_DOSXYZ_Maininputs_source10.Show
 		      
-		    elseif me.ListIndex=6 Then
+		    elseif me.SelectedRowIndex=6 Then
 		      dosxyz_input.isource=11
 		      Window_DOSXYZ_Maininputs_source11.Show
 		      
-		    elseif me.ListIndex=7 Then //20 - Simulation through moving MLC with multiple variable settins"
+		    elseif me.SelectedRowIndex=7 Then //20 - Simulation through moving MLC with multiple variable settins"
 		      dosxyz_input.isource=20
 		      Window_DOSXYZ_Maininputs_source20.Show
 		      
-		    elseif me.ListIndex=8 Then // "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
+		    elseif me.SelectedRowIndex=8 Then // "21 - BEAM treatment head simulation through moving MLC with multiple variable settings"
 		      dosxyz_input.isource=21
 		      Window_DOSXYZ_Maininputs_source21.Show
 		      
@@ -2111,7 +2111,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  me.ListIndex=-1
+		  me.SelectedRowIndex=-1
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -2209,7 +2209,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.IREJECT=me.ListIndex
+		    dosxyz_input.IREJECT=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2218,7 +2218,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.medsur=me.ListIndex
+		    dosxyz_input.medsur=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2227,7 +2227,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.dflag=me.ListIndex
+		    dosxyz_input.dflag=me.SelectedRowIndex
 		    Window_DOSXYZ_Maininputs_Thickness.Show
 		  end
 		End Sub
@@ -2237,7 +2237,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.IRESTART=me.ListIndex
+		    dosxyz_input.IRESTART=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent
@@ -2246,7 +2246,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.ihowfarless=me.ListIndex
+		    dosxyz_input.ihowfarless=me.SelectedRowIndex
 		    
 		  end
 		End Sub
@@ -2264,48 +2264,76 @@ End
 		Sub Action()
 		  //--------------------------
 		  //
+		  '//--------------------------
+		  'Dim fs as FolderItem
+		  'Dim temp_Name,file_name,name as String
+		  'Dim i as Integer
+		  'Dim bb as Boolean
 		  //--------------------------
-		  Dim fs as FolderItem
-		  Dim temp_Name,file_name,name as String
-		  Dim i as Integer
-		  Dim bb as Boolean
-		  //--------------------------
+		  Var d As New MessageDialog                  // declare the MessageDialog object
+		  Var b As MessageDialogButton                // for handling the result
+		  d.Icon = MessageDialog.GraphicCaution       // display warning icon
+		  d.ActionButton.Caption = "Yes"
+		  d.CancelButton.Visible = True               // show the Cancel button
+		  d.AlternateActionButton.Visible = True      // show the "Don't Save" button
+		  d.AlternateActionButton.Caption = "No"
+		  d.Message = "Overwrite existing template input file?"
+		  'd.Explanation = "If you don't save, your changes will be lost. "
 		  
-		  i=MsgBox( "Overwrite existing template input file?" ,1)
-		  
-		  if i =1 Then
-		    i=Window_DOSXYZ_Properties.beam
-		    bb=gDOSXYZ.dosxyz_Input_file(egsphant_index,Window_DOSXYZ_Properties.beam)
-		    name=str(i+1)
-		    While Len(name)<3
-		      name="0"+name
+		  b = d.ShowModal                             // display the dialog
+		  Select Case b                               // determine which button was pressed.
+		  Case d.ActionButton
+		    
+		    Var bb As Boolean = gDOSXYZ.dosxyz_Input_file(egsphant_index,Window_DOSXYZ_Properties.beam)
+		    Var name As String = Str(Window_DOSXYZ_Properties.beam + 1)
+		    
+		    While name.Length < 3
+		      
+		      name = "0" + name
+		      
 		    Wend
-		    file_name=MC_file_name+name+"_"+gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.name +".egsinp"
-		    temp_Name=gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.name+".default"
 		    
-		    fs= new FolderItem
-		    fs=gRTOG.path.Child("McGill_RT")
-		    fs=fs.Child(temp_Name)
-		    if fs.Exists Then
-		      fs.Delete
-		    end
+		    Var file_name As String = MC_file_name+name _
+		    + "_" + gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.name _
+		    + ".egsinp"
+		    Var temp_Name As String = gDOSXYZ.DOSXYZ(egsphant_index).EGSPhantSettings.name _
+		    + ".default"
 		    
-		    fs= new FolderItem
-		    fs=gRTOG.Plan(Plan_Index).Path.Child(temp_Name)
-		    if fs.Exists Then
-		      fs.Delete
-		    end
+		    Var f As FolderItem = gRTOG.path.Child("McGill_RT").Child(temp_Name)
 		    
-		    fs= new FolderItem
-		    fs=gRTOG.Plan(Plan_Index).Path
-		    fs=fs.Child(file_name)
-		    fs.Name=temp_Name
+		    If f.Exists Then
+		      
+		      f.Delete
+		      
+		    End If
+		    
+		    f = Nil
+		    f = gRTOG.Plan(Plan_Index).Path.Child(temp_Name)
+		    
+		    If f.Exists Then
+		      
+		      f.Delete
+		      
+		    End If
+		    
+		    f= Nil
+		    f = gRTOG.Plan(Plan_Index).Path.Child(file_name)
+		    f.Name=temp_Name
 		    
 		    
-		    if fs.Exists Then
-		      fs.MoveFileTo gRTOG.path.Child("McGill_RT")
-		    end
-		  end
+		    If f.Exists Then
+		      
+		      f.MoveTo( gRTOG.path.Child("McGill_RT") )
+		      
+		      
+		    End If
+		    
+		  Case d.AlternateActionButton
+		    // user pressed Don't Save
+		  Case d.CancelButton
+		    // user pressed Cancel
+		  End Select
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2346,7 +2374,7 @@ End
 	#tag Event
 		Sub Change()
 		  if do_nothing=False Then
-		    dosxyz_input.IDAT=me.ListIndex
+		    dosxyz_input.IDAT=me.SelectedRowIndex
 		  end
 		End Sub
 	#tag EndEvent

@@ -41,7 +41,7 @@ Inherits Shell
 		  'next
 		  '
 		  'if old_beam_index<0 or old_beam_index>UBound(gRTOG.Plan(Plan_Index).Beam) Then
-		  'MsgBox "Error within DAO Jaw program. Cannot matched index of beam to exisiting beam within gopt.IPbeams"
+		  'MessageBox "Error within DAO Jaw program. Cannot matched index of beam to exisiting beam within gopt.IPbeams"
 		  'Break
 		  'end
 		  '

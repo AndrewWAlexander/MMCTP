@@ -120,11 +120,11 @@ Protected Class InternetSession
 		  raise r
 		  
 		  Exception err as TypeMismatchException
-		    MsgBox "Tried to retype an object! "+r.Message
+		    MessageBox "Tried to retype an object! "+r.Message
 		  Exception err as NilObjectException
-		    MsgBox "Tried to access a Nil object! "+r.Message
+		    MessageBox "Tried to access a Nil object! "+r.Message
 		  Exception err as RuntimeException  // NOT RECOMMENDED
-		    MsgBox "Another exception "+r.Message
+		    MessageBox "Another exception "+r.Message
 		    
 		    
 		    

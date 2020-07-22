@@ -1012,28 +1012,28 @@ End
 		  
 		  for i=0 to (dosxyz_input.nset-1)
 		    Listbox_Points.AddRow
-		    Listbox_Points.Cell(i,0)=Format(dosxyz_input.isox(i),"-#.####")
-		    Listbox_Points.Cell(i,1)=Format(dosxyz_input.isoy(i),"-#.####")
-		    Listbox_Points.Cell(i,2)=Format(dosxyz_input.isoz(i),"-#.####")
-		    Listbox_Points.Cell(i,3)=Format(dosxyz_input.theta(i),"-#.####")
-		    Listbox_Points.Cell(i,4)=Format(dosxyz_input.phi(i),"-#.####")
-		    Listbox_Points.Cell(i,5)=Format(dosxyz_input.phicol(i),"-#.####")
-		    Listbox_Points.Cell(i,6)=Format(dosxyz_input.dsources(i),"#.###")
-		    Listbox_Points.Cell(i,7)=Format(dosxyz_input.muIndex(i),"#.#####")
+		    Listbox_Points.CellValueAt(i,0)=Format(dosxyz_input.isox(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,1)=Format(dosxyz_input.isoy(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,2)=Format(dosxyz_input.isoz(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,3)=Format(dosxyz_input.theta(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,4)=Format(dosxyz_input.phi(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,5)=Format(dosxyz_input.phicol(i),"-#.####")
+		    Listbox_Points.CellValueAt(i,6)=Format(dosxyz_input.dsources(i),"#.###")
+		    Listbox_Points.CellValueAt(i,7)=Format(dosxyz_input.muIndex(i),"#.#####")
 		  Next
 		  
 		  
 		  Listbox_Points.HasHeading=True
 		  
 		  Listbox_Points.HasHeading=True
-		  Listbox_Points.heading(0)="Iso X"
-		  Listbox_Points.heading(1)="Iso Y"
-		  Listbox_Points.heading(2)="Iso Z"
-		  Listbox_Points.heading(3)="Theta"
-		  Listbox_Points.heading(4)="Phi"
-		  Listbox_Points.heading(5)="Phicol"
-		  Listbox_Points.heading(6)="D-Source"
-		  Listbox_Points.heading(7)="MU Index"
+		  Listbox_Points.HeaderAt(0)="Iso X"
+		  Listbox_Points.HeaderAt(1)="Iso Y"
+		  Listbox_Points.HeaderAt(2)="Iso Z"
+		  Listbox_Points.HeaderAt(3)="Theta"
+		  Listbox_Points.HeaderAt(4)="Phi"
+		  Listbox_Points.HeaderAt(5)="Phicol"
+		  Listbox_Points.HeaderAt(6)="D-Source"
+		  Listbox_Points.HeaderAt(7)="MU Index"
 		  
 		End Sub
 	#tag EndMethod
@@ -1101,14 +1101,14 @@ End
 #tag Events Listbox_Points
 	#tag Event
 		Sub CellTextChange(row as Integer, column as Integer)
-		  dosxyz_input.isox(row) =val( Listbox_Points.Cell(row,0))
-		  dosxyz_input.isoy(row) =val( Listbox_Points.Cell(row,1))
-		  dosxyz_input.isoz(row) = val(Listbox_Points.Cell(row,2))
-		  dosxyz_input.theta(row) = val(Listbox_Points.Cell(row,3))
-		  dosxyz_input.phi(row) = val(Listbox_Points.Cell(row,4))
-		  dosxyz_input.phicol(row) = val(Listbox_Points.Cell(row,5))
-		  dosxyz_input.dsources(row) =val( Listbox_Points.Cell(row,6))
-		  dosxyz_input.muIndex(row) = val(Listbox_Points.Cell(row,7))
+		  dosxyz_input.isox(row) =val( Listbox_Points.CellValueAt(row,0))
+		  dosxyz_input.isoy(row) =val( Listbox_Points.CellValueAt(row,1))
+		  dosxyz_input.isoz(row) = val(Listbox_Points.CellValueAt(row,2))
+		  dosxyz_input.theta(row) = val(Listbox_Points.CellValueAt(row,3))
+		  dosxyz_input.phi(row) = val(Listbox_Points.CellValueAt(row,4))
+		  dosxyz_input.phicol(row) = val(Listbox_Points.CellValueAt(row,5))
+		  dosxyz_input.dsources(row) =val( Listbox_Points.CellValueAt(row,6))
+		  dosxyz_input.muIndex(row) = val(Listbox_Points.CellValueAt(row,7))
 		End Sub
 	#tag EndEvent
 #tag EndEvents
