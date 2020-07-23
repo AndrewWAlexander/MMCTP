@@ -456,7 +456,7 @@ Inherits Thread
 		      temp=str(bindex+1)
 		      temp=MC_file_name+temp+"_w"+str(i+1)+".egsphsp1"
 		      cc.command= "rm -f -r  "+temp
-		      MMCTP_Shell_Refresh.All.Append cc
+		      MMCTP_Shell_Refresh.All.AddRow( cc )
 		    end
 		  Next
 		End Sub
@@ -1119,7 +1119,7 @@ Inherits Thread
 		  cc.beam_num=beam
 		  cc.egs_addphsp_check=True
 		  cc.inpfilename=MC_file_name+str(Beam+1)
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		  
@@ -1148,7 +1148,7 @@ Inherits Thread
 		  cc.beam_num=Window_BEAM_Phsp_Information.beam_index
 		  cc.command=cc.shell.listfiles +" *.egsphsp* *.1.IAEAphsp"
 		  cc.egs_phsp_list=True
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -1335,7 +1335,7 @@ Inherits Thread
 		  cc.egs_Read_Phsp_Properties=True
 		  cc.beam_num=beam
 		  cc.inpfilename=inpfilename
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		End Sub
@@ -1378,7 +1378,7 @@ Inherits Thread
 		      cc.egs_refresh=True
 		      cc.beam_num=beam
 		      cc.inpfilename=inpfilename
-		      MMCTP_Shell_Refresh.All.Append cc
+		      MMCTP_Shell_Refresh.All.AddRow( cc )
 		      
 		    end
 		  end
@@ -1415,7 +1415,7 @@ Inherits Thread
 		      cc.command= "tail " + cc.inpfilename
 		      cc.egs_refresh_log=True
 		      cc.beam_num=beam
-		      MMCTP_Shell_Refresh.All.Append cc
+		      MMCTP_Shell_Refresh.All.AddRow( cc )
 		    next
 		  else
 		    // For one running job
@@ -1426,7 +1426,7 @@ Inherits Thread
 		    cc.command= "tail " + cc.inpfilename
 		    cc.egs_refresh_log=True
 		    cc.beam_num=beam
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		  end
 		End Sub
 	#tag EndMethod
@@ -1481,7 +1481,7 @@ Inherits Thread
 		    cc.command=cc.shell.listfiles +" egsrun*"+cc.inpfilename+"*"
 		    cc.egs_refresh_egsrun=True
 		    cc.beam_num=beam
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		  end
 		End Sub
 	#tag EndMethod
@@ -1500,7 +1500,7 @@ Inherits Thread
 		  name=MC_file_name+str(beam+1)+"_w*"
 		  hh=egs_Get_Directory(Beam)
 		  cc.command= "rm -f "+name
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		End Sub
 	#tag EndMethod
@@ -1657,19 +1657,19 @@ Inherits Thread
 		  cc.FTP_Remote_Path=cc.dir+"/"+f.Name
 		  cc.beam_num=Beam
 		  cc.egs_beamdp=True
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		  // Change mode to exe 
 		  good=egs_Get_Directory(beam)
 		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		  //and execute
 		  good=egs_Get_Directory(beam)
 		  cc.command="./"+f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		  // Read beam dp file
@@ -1677,12 +1677,12 @@ Inherits Thread
 		  cc.command="tail -25  beamdp_temp"
 		  cc.egs_beamdp=True
 		  cc.beam_num=beam
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  // Remove beamdp file
 		  good=egs_Get_Directory(beam)
 		  cc.command="rm -f beamdp_*"
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		End Sub
 	#tag EndMethod
 

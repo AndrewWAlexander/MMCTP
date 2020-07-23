@@ -2459,7 +2459,7 @@ Protected Class Class_BEAM
 		          i=j-1
 		          exit
 		        else
-		          cm.text.Append temp
+		          cm.text.AddRow( temp )
 		        end
 		      next
 		      

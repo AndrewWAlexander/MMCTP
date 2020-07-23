@@ -162,49 +162,49 @@ Protected Class Class_BEAM_CM_WEDGE
 		  
 		  
 		  temp=Format(RMAX_CM,"-#.####")+", RMAX"
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  cm.text.Append Title_CM
 		  
 		  //STATUS_$WEDGE, FRONT_$WEDGE, BACK_$WEDGE (3I5)
 		  //"I>                            wedge status (in=1, out=0), front and back
 		  //"I>                            plate (yes=1, no=0)
 		  temp=Format(Status,"#")+", "+Format(Front,"#")+", "+Format(Back,"#")+","
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  
 		  temp=Format(Zmin,"-#.####")
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  
 		  if Front=1 Then
 		    temp=Format(DFront,"-#.#####")+", "+Format(TFront,"-#.#####")
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(ECutFront,"-#.#####")+", "+Format(PcutFront,"-#.#####")+", "+Format(DoseZoneFront,"#")+", "+Format(Iregion_to_bit_Front,"#")+", "+Format(ESaveIn_Front,"-0.0####")+", ECUT,PCUT etc"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    cm.text.Append Medium_In_Front
 		  end
 		  
 		  if Status=1 Then
 		    temp=Format(WDir,"#")+", "+Format(WOr,"#")+", "+Format(WPos1,"-#.#####")+", "+Format(WPos2,"-#.#####")+", WDIR,WOR,WPOS(2) general wedge data"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(ECutAir,"-#.#####")+", "+Format(PcutAir,"-#.#####")+", "+Format(DoseZoneAir,"#")+", "+Format(Iregion_to_bit_Air,"#")+", interior of CM wedge (assumed AIR)"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(NProf,"#")+", "+Format(NPoint,"#")+", NPROF and NPOINTS for wedge geometry"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(D(0),"-#.#####")+", "+Format(D(1),"-#.#####")+", "+Format(D(2),"-#.#####")+", "+Format(D(3),"-#.#####")+", "+Format(D(4),"-#.#####")+", "+Format(D(5),"-#.#####")+", "+Format(D(6),"-#.#####")+", "+Format(D(7),"-#.#####")+", "+Format(D(8),"-#.#####")+", "+Format(D(9),"-#.#####")
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    for i=1 to NProf
 		      temp=Format(A_Profile(i-1).A(0),"-#.#####")+", "+Format(A_Profile(i-1).A(1),"-#.#####")+", "+Format(A_Profile(i-1).A(2),"-#.#####")+", "+Format(A_Profile(i-1).A(3),"-#.#####")+", "+Format(A_Profile(i-1).A(4),"-#.#####")+", "+Format(A_Profile(i-1).A(5),"-#.#####")+", "+Format(A_Profile(i-1).A(6),"-#.#####")+", "+Format(A_Profile(i-1).A(7),"-#.#####")+", "+Format(A_Profile(i-1).A(8),"-#.#####")+", "+Format(A_Profile(i-1).A(9),"-#.#####")
-		      cm.text.Append temp
+		      cm.text.AddRow( temp )
 		    next
 		    temp=Format(ECutWedge,"-0.0####")+","+Format(PcutWedge,"-0.0####")+","+Format(DoseZoneWedge,"#")+","+Format(Iregion_to_bit_Wedge,"#")+","+Format(ESaveIn_Wedge,"-0.0####")+",         ECUT, PCUT for wedge"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    cm.text.Append Medium_In_Wedge
 		  end
 		  
 		  if Back=1 Then
 		    temp=Format(DBack,"-#.#####")+", "+Format(TBack,"-#.#####")
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(ECutBack,"-#.#####")+", "+Format(PcutBack,"-#.#####")+", "+Format(DoseZoneBack,"#")+", "+Format(Iregion_to_bit_back,"#")+", "+Format(ESaveIn_Back,"-#.#####")+",         ECUT,PCUT Back Plate"
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    cm.text.Append Medium_In_Back
 		  end
 		End Sub

@@ -459,7 +459,6 @@ Begin Window Window_Prescription
          Scope           =   0
          TabIndex        =   7
          TabPanelIndex   =   1
-         TabStop         =   "True"
          Top             =   695
          Transparent     =   False
          Value           =   0.0

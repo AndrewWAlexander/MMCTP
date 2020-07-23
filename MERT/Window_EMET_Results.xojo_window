@@ -1699,7 +1699,7 @@ End
 		  '
 		  'for k=0 to UBound(splitf)
 		  'dd=new Class_DVH_One
-		  'DVHs.All_DVH.Append dd
+		  'DVHs.All_DVH.AddRow( dd )
 		  'normDVH.Append UBound(DVHs.All_DVH)
 		  'dd.StringFile=splitf(k)
 		  'DVHs.Read_DVH_String(dd)

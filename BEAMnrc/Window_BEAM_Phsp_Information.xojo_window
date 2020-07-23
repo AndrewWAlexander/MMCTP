@@ -1702,7 +1702,7 @@ End
 		        ListBox_Phspfiles.CellTypeAt(row,1) = Listbox.CellTypes.CheckBox
 		        
 		        If (gBEAM.cc.shell.listfiles_dateA-1)  <= one_line.LastRowIndex And _
-		           (gBEAM.cc.shell.listfiles_dateA-1) >= 0 Then
+		          (gBEAM.cc.shell.listfiles_dateA-1) >= 0 Then
 		          
 		          Var Date1 As String = one_line(gBEAM.cc.shell.listfiles_dateA-1)
 		          

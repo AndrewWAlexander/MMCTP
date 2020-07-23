@@ -1780,29 +1780,31 @@ Inherits Thread
 
 	#tag Method, Flags = &h0
 		Sub Delete_Plan(num as integer)
-		  Dim f,g  as FolderItem
-		  Dim i ,count as integer
+		  'Dim f,g  As FolderItem
+		  'Dim i ,count as integer
 		  
 		  
 		  
-		  f=Plan(num).Path
-		  Plan.Remove num
+		  Var f As FolderItem = Plan(num).Path
+		  Plan.RemoveRowAt( num )
 		  
-		  if f<>Nil Then
-		    if f.Exists Then
-		      for i=f.Count DownTo 1
-		        //Must remove all files to delete folder
-		        g=f.Item(i)
-		        if g<>Nil Then
-		          if g.Exists Then
-		            g.Delete
-		          end
-		        end
-		      Next
-		      //now delete FolderI
-		      f.Delete
-		    end
-		  end
+		  If f <> Nil And f.Exists And f.IsFolder Then
+		    
+		    For i As Integer = f.Count DownTo 1
+		      //Must remove all files to delete folder
+		      Var g As FolderItem = f.Item(i)
+		      If g<>Nil Then
+		        
+		        If g.Exists Then
+		          
+		          g.Remove
+		          
+		        End If
+		      End If 
+		    Next
+		    //now delete FolderI
+		    f.Remove
+		  End If
 		  
 		  
 		End Sub
@@ -1810,31 +1812,36 @@ Inherits Thread
 
 	#tag Method, Flags = &h0
 		Sub Delete_Structure(num as integer)
-		  Dim i as Integer
-		  Dim f as FolderItem
+		  'Dim i as Integer
+		  'Dim f as FolderItem
 		  
 		  
 		  
 		  
-		  grtog.Structures.Structures.Remove num
+		  grtog.Structures.Structures.RemoveRowAt( num )
 		  
-		  gvis.contour_fill.Remove num
-		  gvis.contour_show.Remove num
+		  gvis.contour_fill.RemoveRowAt( num )
+		  gvis.contour_show.RemoveRowAt( num )
 		  
-		  f=gRTOG.path
-		  f=f.Child("McGill_RT")
-		  
-		  
-		  for i=1 to f.Count
-		    if InStr(f.Item(i).Name,".struct")>0 Then
-		      f.Item(i).Delete
-		    end
-		  next
+		  Var f As Folderitem = gRTOG.path.Child("McGill_RT")
 		  
 		  
-		  for i=0 to UBound(grtog.Structures.Structures)
+		  For i As Integer = 1 To f.Count
+		    
+		    If f.ChildAt(i).Name.IndexOf(".struct") > 0 Then
+		      
+		      f.ChildAt(i).Remove
+		      
+		    End If
+		    
+		  Next
+		  
+		  
+		  For i As Integer = 0 To grtog.Structures.Structures.LastRowIndex
+		    
 		    Write_McGill_Structures(grtog.Structures.Structures(i),f,i)
-		  next
+		    
+		  Next
 		  
 		  
 		  

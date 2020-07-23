@@ -86,31 +86,31 @@ Protected Class Class_BEAM_CM_JAWS
 		  ReDim cm.text(-1)
 		  
 		  temp=Format(cm.JAWS.RMAX_CM,"-#.###")+", RMAX"
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  
 		  cm.text.Append cm.JAWS.Title_CM
 		  
 		  temp=Format(cm.JAWS.ISCM_MAX,"#")+", # PAIRED BARS OR JAWS"
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  
 		  for i=1 to cm.JAWS.ISCM_MAX
 		    temp=cm.JAWS.XY_Choice(i-1)
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=Format(cm.JAWS.ZMIN_JAWS(i-1),"-#.####")+",    "+Format(cm.JAWS.ZMAX_JAWS(i-1),"-#.####")+",    "_
 		    +Format(cm.JAWS.XFP_JAWS(i-1),"-#.####")+",    "+Format(cm.JAWS.XBP_JAWS(i-1),"-#.####")+",    "+_
 		    Format(cm.JAWS.XFN_JAWS(i-1),"-#.####")+",    "+Format(cm.JAWS.XBN_JAWS(i-1),"-#.####")
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		  next
 		  
 		  temp=Format(cm.JAWS.ECUT_Openings ,"-#.####")+", "+Format(cm.JAWS.PCUT_Openings,"-#.###") +", "+Format(cm.JAWS.Dose_zone_opening,"#") +", "+Format(cm.JAWS.Iregion_opening,"#")
-		  cm.text.Append temp
+		  cm.text.AddRow( temp )
 		  
 		  
 		  for i=1 to cm.JAWS.ISCM_MAX
 		    temp=Format(cm.JAWS.ECUT_Jaws(i-1) ,"-#.####")+", "+Format(cm.JAWS.PCUT_Jaws(i-1),"-#.###") +", "+Format(cm.JAWS.Dose_zone_Jaws(i-1),"#") +", "+Format(cm.JAWS.Iregion_Jaws(1-1),"#")
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		    temp=cm.JAWS.Medium_Jaws(i-1)
-		    cm.text.Append temp
+		    cm.text.AddRow( temp )
 		  next
 		  
 		End Sub

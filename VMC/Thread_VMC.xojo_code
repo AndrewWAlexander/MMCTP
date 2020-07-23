@@ -1489,7 +1489,7 @@ Inherits Thread
 		    cc.vmc_dmx_index=a
 		    cc.beam_num=i
 		    cc.inpfilename=s
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		  end
 		End Sub
 	#tag EndMethod
@@ -1523,7 +1523,7 @@ Inherits Thread
 		    cc.dir=VMC_dir
 		    cc.vmc_refresh_pro=True
 		    cc.inpfilename=s
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		  end
 		  
 		  gTimer_Refresh.Period=1

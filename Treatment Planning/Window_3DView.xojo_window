@@ -880,7 +880,7 @@ Begin Window Window_3DView
          Scope           =   0
          TabIndex        =   18
          TabPanelIndex   =   1
-         TabStop         =   True
+         TabStop         =   "True"
          Top             =   393
          TopLeftColor    =   &c00000000
          Transparent     =   False

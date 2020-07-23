@@ -425,7 +425,7 @@ Inherits Thread
 		  cc.beam_num=Beam
 		  cc.command="tail "+input_file
 		  cc.cutout_refresh=True
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		  
 		  

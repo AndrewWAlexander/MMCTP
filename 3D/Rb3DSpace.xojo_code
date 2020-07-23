@@ -1121,7 +1121,7 @@ Protected Class Rb3DSpace
 		  'if f.Exists Then
 		  'modelcode = f.OpenAsBinaryFile(false).Read(f.Length)
 		  'Object_axisX.AddShapeFromString modelcode
-		  'Objects.Append Object_axisx
+		  'Objects.Addrow( Object_axisx )
 		  'end
 		  'end
 		  '

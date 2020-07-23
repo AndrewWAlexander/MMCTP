@@ -2963,7 +2963,7 @@ Inherits Thread
 		    cc.dos_egsphant_index=egsphant_index
 		    cc.beam_num=beam
 		    cc.dos_refresh=True
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		    
 		  elseif DOSXYZ(egsphant_index).DOSXYZ_Input(beam).dos_progress<>100 and DOSXYZ(egsphant_index).DOSXYZ_Input(beam).dos_jobs=1 Then
 		    dosxyz_Refresh_One(egsphant_index,beam)
@@ -3015,7 +3015,7 @@ Inherits Thread
 		  cc.dos_egsphant_index=egsphant_index
 		  cc.beam_num=beam
 		  cc.dos_refresh_3ddose=True
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		End Sub
 	#tag EndMethod
 
@@ -3065,7 +3065,7 @@ Inherits Thread
 		    cc.dos_egsphant_index=egsphant_index
 		    cc.beam_num=beam
 		    cc.dos_refresh_One=True
-		    MMCTP_Shell_Refresh.All.Append cc
+		    MMCTP_Shell_Refresh.All.AddRow( cc )
 		    
 		    
 		  end
@@ -3094,7 +3094,7 @@ Inherits Thread
 		  inpfilename=MC_file_name+name+"_"+DOSXYZ(egsphant_index).EGSPhantSettings.name+"_w*"
 		  hh=dosxyz_get_shell_Variables(egsphant_index,Beam)
 		  cc.command="rm -f "+inpfilename
-		  MMCTP_Shell_Refresh.All.Append cc
+		  MMCTP_Shell_Refresh.All.AddRow( cc )
 		  
 		End Sub
 	#tag EndMethod

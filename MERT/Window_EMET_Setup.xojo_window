@@ -7315,8 +7315,8 @@ End
 		  'pstrip.Graphics.DrawPicture(ff.Rotated_Slices(ff.nz-1-a),0,-y)
 		  'Normal.Graphics.DrawPicture pstrip,0,a
 		  'next
-		  'ff.Coronal_Slices.Append Normal
-		  'ff.Coronal_Depths.Append ((y-nx/2)*ff.del_x+100)
+		  'ff.Coronal_Slices.AddRow( Normal )
+		  'ff.Coronal_Depths.AddRow( (y-nx/2)*ff.del_x+100)
 		  'next
 		  '
 		  
