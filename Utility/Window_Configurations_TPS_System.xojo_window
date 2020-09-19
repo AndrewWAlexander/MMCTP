@@ -663,7 +663,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   2
@@ -708,7 +707,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   10
          TabPanelIndex   =   2
@@ -753,7 +751,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   11
          TabPanelIndex   =   2
@@ -798,7 +795,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   12
          TabPanelIndex   =   2
@@ -843,7 +839,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   13
          TabPanelIndex   =   2
@@ -967,7 +962,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   16
          TabPanelIndex   =   2
@@ -1091,7 +1085,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   19
          TabPanelIndex   =   2
@@ -1215,7 +1208,6 @@ Begin Window Window_Configurations_TPS_System
          LockLeft        =   False
          LockRight       =   True
          LockTop         =   True
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   22
          TabPanelIndex   =   2

@@ -3346,6 +3346,12 @@ Inherits Thread
 		    Return
 		  end
 		  
+		  
+		  if  Instr(f.ShellPath," ")> 0 Then
+		    Errors.Append "Spaces found within file path of DOSXYZnrc input file, MMCTP may not transfer files with spaces within their path." +chr(13)+"Remove spaces from folder paths."+chr(13)+f.ShellPath
+		  end
+		  
+		  
 		  // Path
 		  path=f.ShellPath
 		  good=dosxyz_get_shell_Variables(egsphant_index,beam)

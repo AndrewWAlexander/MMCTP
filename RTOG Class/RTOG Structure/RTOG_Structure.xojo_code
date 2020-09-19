@@ -16,6 +16,10 @@ Protected Class RTOG_Structure
 		  '========================================
 		  
 		  
+		  if UBound(gRTOG.Scan)<0 Then
+		    Return // return is images have not been loaded
+		  end
+		  
 		  
 		  if gPref.DVH_Calc_Grid=1 Then // Detemine dose grid size
 		    needupdate=False

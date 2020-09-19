@@ -1942,6 +1942,11 @@ Inherits Thread
 		    cc.FTP_Now=True
 		    cc.FTP_Put_file=True
 		    cc.FTP_Local_Path=path_egsinp
+		    
+		    if  Instr(path_egsinp," ")> 0 Then
+		      Errors.Append "Spaces found within file path of BEAMnrc input file, MMCTP may not transfer files with spaces within their path." +chr(13)+"Remove spaces from folder paths."+chr(13)+path_egsinp
+		    end
+		    
 		    cc.FTP_Remote_Path=cc.dir+egsinp.Name
 		    cc.command="put "+path_egsinp+"  "+cc.FTP_Remote_Path
 		    cc.FTP_Files= egsinp

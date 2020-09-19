@@ -20,7 +20,7 @@ Protected Class Class_Shell_One
 		  elseif batch="moab" Then
 		    command="msub -V "+inputfile
 		    
-		  elseif batch="SLURM" Then
+		  elseif batch="slurm" Then
 		    command="sbatch  "+inputfile+ " -srun"
 		    
 		  else
