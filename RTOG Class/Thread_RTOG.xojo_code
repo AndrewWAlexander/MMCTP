@@ -4631,10 +4631,15 @@ Inherits Thread
 		      write_McGill_CT_Scan(f,i)
 		    next
 		    
-		    PW_Progress_Max=ubound(Structures.Structures)+1
-		    for i=0 to ubound(Structures.Structures)
-		      write_mcGill_Structures(Structures.Structures(i),f,i)
-		    next
+		    
+		    
+		    if Not(Structures = nil) then
+		      
+		      PW_Progress_Max=ubound(Structures.Structures)+1
+		      for i=0 to ubound(Structures.Structures)
+		        write_mcGill_Structures(Structures.Structures(i),f,i)
+		      next
+		    end
 		    
 		  end
 		  
