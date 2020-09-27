@@ -3215,7 +3215,7 @@ Inherits Thread
 		            elseif file.Elements(i).tag_a="300A" and file.Elements(i).tag_b="0114"  then // Nominal Beam energy
 		              
 		              temp=file.Elements(i).value
-		              CPS.NominalBeamEnergy=val(Temp)
+		              CPS.NominalBeamEnergy=trim(Temp)
 		              
 		              
 		            elseif file.Elements(i).tag_a="300A" and file.Elements(i).tag_b="0115"  then // Dose rate
@@ -6240,7 +6240,7 @@ Inherits Thread
 		            ee= new Class_DICOM_Element
 		            ee.Tag_a="300A"
 		            ee.Tag_b="0114"
-		            ee.Value=Format(cps.NominalBeamEnergy,"0.0")
+		            ee.Value=cps.NominalBeamEnergy
 		            File.Elements.Append ee
 		            cc=ee.Update  
 		            

@@ -1247,7 +1247,7 @@ Inherits Thread
 		          
 		          if k=0 Then
 		            cps.ControlPointIndex=0
-		            cps.NominalBeamEnergy=val(gRTOG.Plan(planidex).Beam(i).Beam_Energy)
+		            cps.NominalBeamEnergy=gRTOG.Plan(planidex).Beam(i).Beam_Energy
 		            
 		            
 		            BLDPS=new Class_DICOM_Plan_BeamLimitingDevicePositionSequence
@@ -1331,7 +1331,7 @@ Inherits Thread
 		          cps = new Class_DICOM_Plan_ControlPointSequence
 		          bs.ControlPointSequence.Append cps
 		          cps.ControlPointIndex=k
-		          cps.NominalBeamEnergy=val(gRTOG.Plan(planidex).Beam(i).Beam_Energy)
+		          cps.NominalBeamEnergy=gRTOG.Plan(planidex).Beam(i).Beam_Energy
 		          
 		          if k=0 Then
 		            BLDPS=new Class_DICOM_Plan_BeamLimitingDevicePositionSequence

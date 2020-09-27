@@ -37,7 +37,7 @@ Protected Class Class_DICOM_Plan_ControlPointSequence
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		NominalBeamEnergy As single
+		NominalBeamEnergy As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
