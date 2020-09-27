@@ -50,7 +50,7 @@ Protected Class Class_Preference
 		  Dim fi,b,c as FolderItem
 		  //---------------------------------------------------
 		  
-		  if  TargetWindows Then
+		  #if  TargetWindows Then
 		    fi=SpecialFolder.Applications
 		    b=fi.child("McGill Medical Physics")
 		    if b= nil Then
@@ -65,16 +65,22 @@ Protected Class Class_Preference
 		        Return c
 		      end
 		    end
-		  elseif TargetMacOS Then
+		  #elseif TargetMacOS Then
+		    
 		    fi=SpecialFolder.Applications
+		     if fi =Nil then // added for MacOS 10.15 version
+		      fi=new FolderItem("/Applications")
+		    end
+		    
 		    b=fi.child("MMCTP")
-		  elseif TargetLinux Then
+		  #elseif TargetLinux Then
 		    fi=SpecialFolder.UserLibrary //2011 Linux UPDATE for MMCTP Install area
 		    b=fi.child("MMCTP")
-		  else
+		  #else
 		    MsgBox("OS not determined!")
 		    Quit
-		  end
+		  #endif
+		  
 		  
 		  if b=nil Then
 		    MsgBox("MMCTP not installed. The folder called MMCTP was not found within applications folder " +fi.name+ ". Nil object returned.")
