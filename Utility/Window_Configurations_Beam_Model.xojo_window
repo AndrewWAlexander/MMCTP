@@ -53,7 +53,7 @@ Begin Window Window_Configurations_Beam_Model
       Top             =   77
       Transparent     =   False
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   888
       Begin GroupBox GroupBox_Linac_MC
@@ -1643,7 +1643,6 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   2
             TabPanelIndex   =   2
@@ -1688,7 +1687,6 @@ Begin Window Window_Configurations_Beam_Model
             LockLeft        =   False
             LockRight       =   False
             LockTop         =   False
-            MenuValue       =   "0"
             Scope           =   0
             TabIndex        =   3
             TabPanelIndex   =   2

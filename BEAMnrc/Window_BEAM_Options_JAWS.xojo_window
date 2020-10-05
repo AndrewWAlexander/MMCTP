@@ -269,7 +269,7 @@ Begin Window Window_BEAM_Options_JAWS
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   395
+      Width           =   269
    End
    Begin PushButton PushButton_Close
       AutoDeactivate  =   True
@@ -336,7 +336,7 @@ Begin Window Window_BEAM_Options_JAWS
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   395
+      Width           =   269
    End
    Begin Label StaticText12
       AutoDeactivate  =   True
@@ -371,7 +371,7 @@ Begin Window Window_BEAM_Options_JAWS
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   401
+      Width           =   269
    End
    Begin PushButton PushButton_LAYERS
       AutoDeactivate  =   True
@@ -482,7 +482,7 @@ Begin Window Window_BEAM_Options_JAWS
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   395
+      Width           =   291
    End
    Begin Label StaticText13
       AutoDeactivate  =   True
@@ -640,7 +640,7 @@ Begin Window Window_BEAM_Options_JAWS
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   395
+      Width           =   290
    End
 End
 #tag EndWindow
