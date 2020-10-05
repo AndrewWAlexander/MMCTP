@@ -954,20 +954,26 @@ Protected Class Class_BEAM
 		      //Block_spacing=0.04
 		      //Hole_Spacing=0.005
 		      
-		      Block_spacing=1
-		      Hole_Spacing=0.1
+		      Block_spacing=0.1
+		      Hole_Spacing=0.01
 		      //gap=0.2
 		      gap=1
 		      
+		      
+		      number_of_open=1
+		      number_of_closed=Round(Block_spacing/Hole_Spacing)
+		      
+		      
 		      period=Block_spacing+Hole_Spacing
 		      periods=round(CM.MLC.TWIDTH_MLC/period)
-		      
-		      
-		      number_of_open=5
-		      number_of_closed=15
-		      
-		      Width_of_each_leaf=CM.MLC.TWIDTH_MLC/inum_leaves
 		      CM.MLC.Num_leaf=periods*(number_of_open+number_of_closed)
+		      If CM.MLC.Num_leaf Mod 2 = 0 Then
+		      else
+		        periods=periods+1
+		        CM.MLC.Num_leaf=periods*(number_of_open+number_of_closed)
+		      end
+		      
+		      Width_of_each_leaf=CM.MLC.TWIDTH_MLC/CM.MLC.Num_leaf
 		      
 		      
 		      ReDim cm.MLC.Field(periods*2-1)
