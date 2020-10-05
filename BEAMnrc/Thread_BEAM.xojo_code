@@ -139,59 +139,64 @@ Inherits Thread
 		  // Assume there are no longer any jobs running
 		  gBEAM.Beams(beam).egs_BEAMnrc_active_jobs=0
 		  
-		  if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
-		    i_iaea="1"
-		  else
-		    i_iaea="0"
-		  end
-		  istart="1"
-		  iscore="1"
 		  
-		  file_extension=".egsphsp1"
-		  
-		  //remove any old phsp files, addphsp and delete w files and addphsp log
-		  line= "rm -f "+temp+file_extension+transfer_endline+_
-		  "addphsp "+temp+ " "+temp+" "+Format(gBEAM.beams(beam).egs_jobs,"#")+ " "+istart+" "+iscore+" "+i_iaea+" > "+temp+".addphsptxt"
-		  
-		  //Looks to me like this is the section that runs Addphsp.  In Shell Refresh, there's no evidence that this section ever happens.
-		  //Is this actually being sent to the command line?  Well, obviously it's not, but is the command to make it do so here?
-		  //Alternatively, could it just run the executable?
-		  //Observations by William Davis
-		  f=gRTOG.Plan(Plan_Index).Path
-		  f=f.Child("j"+MC_file_name+str(Beam+1)+".addphsp")
-		  ts=f.CreateTextFile
-		  if ts=nil Then
-		    Return
-		  end
-		  ts.Write line
-		  ts.Close
-		  
-		  path=f.ShellPath
-		  // FTP addphsp line to cluster
-		  good=egs_get_directory(Beam)
-		  cc.command="put "+path+" "+cc.dir+"/"+f.Name
-		  cc.FTP_Now=True
-		  cc.egs_addphsp1=True
-		  cc.FTP_Files=f
-		  cc.beam_num=Beam
-		  cc.FTP_Put_file=True
-		  cc.FTP_Local_Path=path
-		  cc.FTP_Remote_Path=cc.dir+"/"+f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
-		  
-		  // Change mode to exe and execute
-		  good=egs_get_directory(Beam)
-		  cc.command="chmod u+x " +f.Name
-		  MMCTP_Shell_Refresh.All.Append cc
-		  
-		  // determine how to submit job to batch
-		  good=egs_get_directory(Beam)
-		  egs_jobq=MC_Autoqueue(10, cc.shell)
-		  command=cc.shell.Queue_Submit(egs_jobq, f.Name)
-		  cc.command=command
-		  cc.egs_addphsp1=True
-		  cc.inpfilename=MC_file_name+str(Beam+1)
-		  MMCTP_Shell_Refresh.All.Append cc
+		  // Loop for all scoring planes
+		  for i=0 to gBEAM.Beams(beam).Inputfile.NSC_PLANES-1
+		    
+		    if gBEAM.Beams(beam).Inputfile.IO_OPT=4 Then
+		      i_iaea="1"
+		    else
+		      i_iaea="0"
+		    end
+		    istart="1"
+		    iscore=Format(i+1,"#")
+		    
+		    file_extension=".egsphsp"+iscore
+		    
+		    //remove any old phsp files, addphsp and delete w files and addphsp log
+		    line= "rm -f "+temp+file_extension+transfer_endline+_
+		    "addphsp "+temp+ " "+temp+" "+Format(gBEAM.beams(beam).egs_jobs,"#")+ " "+istart+" "+iscore+" "+i_iaea+" > "+temp+".addphsptxt"+iscore
+		    
+		    //Looks to me like this is the section that runs Addphsp.  In Shell Refresh, there's no evidence that this section ever happens.
+		    //Is this actually being sent to the command line?  Well, obviously it's not, but is the command to make it do so here?
+		    //Alternatively, could it just run the executable?
+		    //Observations by William Davis
+		    f=gRTOG.Plan(Plan_Index).Path
+		    f=f.Child("j"+MC_file_name+str(Beam+1)+".addphsp"+iscore)
+		    ts=f.CreateTextFile
+		    if ts=nil Then
+		      Return
+		    end
+		    ts.Write line
+		    ts.Close
+		    
+		    path=f.ShellPath
+		    // FTP addphsp line to cluster
+		    good=egs_get_directory(Beam)
+		    cc.command="put "+path+" "+cc.dir+"/"+f.Name
+		    cc.FTP_Now=True
+		    cc.egs_addphsp1=True
+		    cc.FTP_Files=f
+		    cc.beam_num=Beam
+		    cc.FTP_Put_file=True
+		    cc.FTP_Local_Path=path
+		    cc.FTP_Remote_Path=cc.dir+"/"+f.Name
+		    MMCTP_Shell_Refresh.All.Append cc
+		    
+		    // Change mode to exe and execute
+		    good=egs_get_directory(Beam)
+		    cc.command="chmod u+x " +f.Name
+		    MMCTP_Shell_Refresh.All.Append cc
+		    
+		    // determine how to submit job to batch
+		    good=egs_get_directory(Beam)
+		    egs_jobq=MC_Autoqueue(10, cc.shell)
+		    command=cc.shell.Queue_Submit(egs_jobq, f.Name)
+		    cc.command=command
+		    cc.egs_addphsp1=True
+		    cc.inpfilename=MC_file_name+str(Beam+1)
+		    MMCTP_Shell_Refresh.All.Append cc
+		  Next
 		End Sub
 	#tag EndMethod
 
@@ -1031,7 +1036,7 @@ Inherits Thread
 		  
 		  good=egs_get_directory(Beam)
 		  temp=str(beam+1)
-		  temp=MC_file_name+temp+".addphsptxt" //Changed to include the "j" by William Davis; "j" subsequently removed, since it belongs in egs_AddPhSp
+		  temp=MC_file_name+temp+".addphsptxt1" //Changed to include the "j" by William Davis; "j" subsequently removed, since it belongs in egs_AddPhSp
 		  cc.command= "tail " + temp
 		  cc.beam_num=beam
 		  cc.egs_addphsp_check=True
