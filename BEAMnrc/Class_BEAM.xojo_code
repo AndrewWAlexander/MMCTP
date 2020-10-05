@@ -844,6 +844,28 @@ Protected Class Class_BEAM
 		    
 		    
 		    
+		  elseif  type=3 Then // Other Jaws
+		    
+		    for i=1 to cm.JAWS.ISCM_MAX
+		      if cm.JAWS.XY_Choice(i-1)="Y" Then
+		        zytop=cm.JAWS.ZMIN_JAWS(i-1)
+		        zybot=cm.JAWS.ZMAX_JAWS(i-1)
+		        cm.JAWS.XFP_JAWS(i-1)=y2
+		        cm.JAWS.XBP_JAWS(i-1)=y2
+		        cm.JAWS.XFN_JAWS(i-1)=y1
+		        cm.JAWS.XBN_JAWS(i-1)=y1
+		      elseif  cm.JAWS.XY_Choice(i-1)="X" Then
+		        zxtop=cm.JAWS.ZMIN_JAWS(i-1)
+		        zxbot=cm.JAWS.ZMAX_JAWS(i-1)
+		        cm.JAWS.XFP_JAWS(i-1)=x2
+		        cm.JAWS.XBP_JAWS(i-1)=x2
+		        cm.JAWS.XFN_JAWS(i-1)=x1
+		        cm.JAWS.XBN_JAWS(i-1)=x1
+		      end
+		    next
+		    
+		    
+		    
 		    
 		    
 		  elseif  type=1 or type=5 Then // Varian Jaws
@@ -884,135 +906,170 @@ Protected Class Class_BEAM
 
 	#tag Method, Flags = &h0
 		Sub egs_Input_CM_MLC(cm as Class_Beam_Inputfile_CMs)
-		  '//===================================================
-		  '// MLC sequence to BEAMnrc		
-		  '// program to retrieve MLC and 
-		  '// put it into mlc file for sampling by BEAMnrc. 
-		  '// Initial leaf positions will be written to a *.egsinp file.                                                        
-		  '// 
-		  '// Authors
-		  '// E.Heath and J.Seuntjens (June 2004)                        
-		  '// A. Alexander (2009)  
-		  '// 
-		  '//===================================================
-		  'Dim leaf_radius, z_field,  gap,z_MLC,abut_gap,zmin,zthick,leafnumber(-1,1),leaf_a,leaf_b,index as Single
-		  'Dim mlcts as TextInputStream
-		  'Dim one_line,treatment_type,num_fields,num_leaves,mlc_read,allfield(-1),temp,whole,mlc_string  as String
-		  'Dim i,j,inum_fields,inum_leaves,offset,Normal_or_Overtravel_1,Normal_or_Overtravel_2,filtype,index_CM  as Integer
-		  'Dim MLC as Class_MLC
-		  '//===================================================
-		  '
-		  'zmin=CM.MLC.ZMIN
-		  'zthick=CM.MLC.zthick
-		  'leaf_radius =CM.MLC.zfocus_ends
-		  'z_field   = 100.0
-		  'gap  = CM.MLC.Leafgap
-		  'inum_leaves=CM.DYNVMLC.Numleaves
-		  'z_MLC=zmin+zthick/2
-		  'abut_gap = gap*z_field/z_MLC/2.0
-		  '//---------------------------------------------
-		  '
-		  '
-		  'MLC = new Class_MLC
-		  'MLC = gRTOG.Plan(Plan_Index).Beam(beam_number).mlc
-		  '
-		  '
-		  'if MLC.NumberofFields=0 or UBound(MLC.Fields)<0 Then //load default setting
-		  '// input leaf sequence for completely retracted MLC ---> Gabriela
-		  '// 0 mode for static fields
-		  'CM.DYNVMLC.MODE_DYNVMLC=0
-		  'ReDim cm.DYNVMLC.Fields(0)
-		  'cm.DYNVMLC.Fields(0)=new Class_BEAM_CM_DYNVMLC_Fields
-		  'ReDim cm.DYNVMLC.Fields(0).leaves(inum_leaves-1)
-		  '
-		  'for i=1 to inum_leaves
-		  'cm.DYNVMLC.Fields(0).leaves(i-1)=new Class_BEAM_CM_DYNVMLC_Leaf_Opening
-		  'CM.dynvmlc.Fields(0).leaves(i-1).Neg=-20.3
-		  'CM.dynvmlc.Fields(0).leaves(i-1).Pos=20.3
-		  'CM.dynvmlc.Fields(0).leaves(i-1).Num= 1
-		  'next
-		  '
-		  '
-		  '
-		  ' // We have an MLC field
-		  '
-		  '
-		  '
-		  'else // If we have an MLC file
-		  '
-		  'if InStr(MLC.MLC_Type,"Static")>0   Then
-		  'CM.DYNVMLC.MODE_DYNVMLC=0
-		  'elseif InStr(MLC.MLC_Type,"Step")>0 Then
-		  'CM.DYNVMLC.MODE_DYNVMLC=2
-		  'elseif InStr(MLC.MLC_Type,"Dynamic")>0 Then
-		  'CM.DYNVMLC.MODE_DYNVMLC=1
-		  'end
-		  '
-		  'cm.DYNVMLC.MLC_File_Name=MC_file_name+str(beam_number+1)+".mlc"
-		  'one_line=gShells.Shells(egs_Shell_Index).egsnrc_folder_path
-		  'cm.DYNVMLC.MLC_File_Path=one_line+"/"+egs_BEAMnrc_dir+"/"+cm.DYNVMLC.MLC_File_Name
-		  '
-		  'inum_fields=MLC.NumberofFields
-		  '
-		  'ReDim cm.DYNVMLC.Fields(inum_fields-1)
-		  'for i=1 to inum_fields
-		  'cm.DYNVMLC.Fields(i-1)=new Class_BEAM_CM_DYNVMLC_Fields
-		  'ReDim cm.DYNVMLC.Fields(i-1).leaves(inum_leaves-1)
-		  'next
-		  '
-		  'if (inum_fields-1)<>UBound(MLC.Fields) Then
-		  'gBEAM.egs_msg.append "Error within MLC2BEAM : number of fields does not match UBound of fields"
-		  'Return
-		  'end
-		  '
-		  'for i =1 to inum_fields
-		  '// Write Index of field
-		  'cm.DYNVMLC.Fields(i-1).Index=MLC.Fields(i-1).Indexnum
-		  'for j=0 to inum_leaves-1
-		  'cm.DYNVMLC.Fields(i-1).leaves(j)=new Class_BEAM_CM_DYNVMLC_Leaf_Opening
-		  'leaf_a=MLC.Fields(i-1).Leaf_A(j)
-		  'leaf_b=MLC.Fields(i-1).Leaf_B(j)
-		  'if (leaf_a =leaf_b) and leaf_a <>0.0 then
-		  'leaf_a=leaf_a+abut_gap
-		  'leaf_b=leaf_b+abut_gap
-		  'end
-		  'leaf_a=leaf_a*(-1)
-		  'if (leaf_a<=0.0) then
-		  'Normal_or_Overtravel_1=0
-		  'else
-		  'Normal_or_Overtravel_1=1
-		  'end
-		  'if(leaf_b<=0.0) then
-		  'Normal_or_Overtravel_2=1
-		  'else
-		  'Normal_or_Overtravel_2=0
-		  'end
-		  'if((leaf_a>=leaf_b) and (leaf_a <> 0.0) and (leaf_b <>0.0)) then
-		  ''MsgBox("leaves colliding! ... exiting ...")
-		  'end
-		  'leaf_a=egs_Input_CM_DYNVMLC_leaveset(leaf_a,Normal_or_Overtravel_1,z_MLC,leaf_radius,z_field)
-		  'leaf_b=egs_Input_CM_DYNVMLC_leaveset(leaf_b,Normal_or_Overtravel_2,z_MLC,leaf_radius,z_field)
-		  'if (leaf_b<>0.0) then
-		  'leaf_b=leaf_b-leaf_radius
-		  'end
-		  'if (leaf_a<>0.0) then
-		  'leaf_a=leaf_a+leaf_radius
-		  'end
-		  'if (leaf_a = 0.0) then
-		  'leaf_a = -gap/2.0
-		  'end
-		  'if (leaf_b = 0.0) then
-		  'leaf_b = gap/2.0
-		  'end
-		  'cm.DYNVMLC.Fields(i-1).leaves(j).pos=-leaf_a
-		  'cm.DYNVMLC.Fields(i-1).leaves(j).neg=-leaf_b
-		  'cm.DYNVMLC.Fields(i-1).leaves(j).num=1
-		  'next
-		  '
-		  '
-		  'next
-		  'end
-		  '
+		  //===================================================
+		  // MLC sequence to BEAMnrc		
+		  // program to retrieve MLC and 
+		  // put it into mlc file for sampling by BEAMnrc. 
+		  // Initial leaf positions will be written to a *.egsinp file.                                                        
+		  // 
+		  // Authors
+		  // E.Heath and J.Seuntjens (June 2004)                        
+		  // A. Alexander (2009)  
+		  // 
+		  //===================================================
+		  Dim leaf_radius, z_field,  gap,z_MLC,abut_gap,zmin,zthick,leafnumber(-1,1),leaf_a,leaf_b,index,Width_of_each_leaf,Block_spacing,Hole_Spacing, period as Single
+		  Dim mlcts as TextInputStream
+		  Dim one_line,treatment_type,num_fields,num_leaves,mlc_read,allfield(-1),temp,whole,mlc_string  as String
+		  Dim i,j,k,inum_fields,inum_leaves,offset,Normal_or_Overtravel_1,Normal_or_Overtravel_2,filtype,index_CM,periods,number_of_open,number_of_closed  as Integer
+		  Dim MLC as Class_MLC
+		  //===================================================
+		  
+		  zmin=CM.MLC.ZMIN
+		  zthick=CM.MLC.zthick
+		  leaf_radius =CM.MLC.zfocus_ends
+		  z_field   = 100.0
+		  inum_leaves=CM.MLC.Num_leaf
+		  z_MLC=zmin+zthick/2
+		  abut_gap = gap*z_field/z_MLC/2.0
+		  //---------------------------------------------
+		  
+		  
+		  MLC = new Class_MLC
+		  MLC = gRTOG.Plan(Plan_Index).Beam(beam_number).mlc
+		  
+		  
+		  if MLC.NumberofFields=0 or UBound(MLC.Fields)<0 Then //load default setting
+		    ReDim cm.MLC.Field(inum_leaves-1)
+		    
+		    for i=1 to inum_leaves
+		      cm.MLC.Field(i-1)=new Class_BEAM_CM_MLC_Leaf_Opening
+		      CM.MLC.Field(i-1).Neg=-20.3
+		      CM.MLC.Field(i-1).Pos=20.3
+		      CM.MLC.Field(i-1).Num= 1
+		    next
+		    
+		    
+		    if cm.CM_Identifier="MSC"  then
+		      
+		      //Block_spacing=0.04
+		      //Hole_Spacing=0.005
+		      
+		      Block_spacing=1
+		      Hole_Spacing=0.1
+		      //gap=0.2
+		      gap=1
+		      
+		      period=Block_spacing+Hole_Spacing
+		      periods=round(CM.MLC.TWIDTH_MLC/period)
+		      
+		      
+		      number_of_open=5
+		      number_of_closed=15
+		      
+		      Width_of_each_leaf=CM.MLC.TWIDTH_MLC/inum_leaves
+		      CM.MLC.Num_leaf=periods*(number_of_open+number_of_closed)
+		      
+		      
+		      ReDim cm.MLC.Field(periods*2-1)
+		      k=0
+		      // Geometry for MSC
+		      for i=1 to periods
+		        cm.MLC.Field(k)=new Class_BEAM_CM_MLC_Leaf_Opening
+		        CM.MLC.Field(k).Neg=-7
+		        CM.MLC.Field(k).Pos=-7
+		        CM.MLC.Field(k).Num= number_of_closed
+		        k=k+1
+		        
+		        cm.MLC.Field(k)=new Class_BEAM_CM_MLC_Leaf_Opening
+		        CM.MLC.Field(k).Neg=-1*gap
+		        CM.MLC.Field(k).Pos=gap
+		        CM.MLC.Field(k).Num= number_of_open
+		        k=k+1
+		      next
+		      
+		    end
+		    
+		    
+		    
+		    // We have an MLC field
+		    
+		    
+		    
+		  else // If we have an MLC file
+		    
+		    'if InStr(MLC.MLC_Type,"Static")>0   Then
+		    'CM.MLC..MODE_DYNVMLC=0
+		    'elseif InStr(MLC.MLC_Type,"Step")>0 Then
+		    'CM.DYNVMLC.MODE_DYNVMLC=2
+		    'elseif InStr(MLC.MLC_Type,"Dynamic")>0 Then
+		    'CM.DYNVMLC.MODE_DYNVMLC=1
+		    'end
+		    '
+		    'cm.DYNVMLC.MLC_File_Name=MC_file_name+str(beam_number+1)+".mlc"
+		    'one_line=gShells.Shells(egs_Shell_Index).egsnrc_folder_path
+		    'cm.DYNVMLC.MLC_File_Path=one_line+"/"+egs_BEAMnrc_dir+"/"+cm.DYNVMLC.MLC_File_Name
+		    '
+		    'inum_fields=MLC.NumberofFields
+		    '
+		    'ReDim cm.DYNVMLC.Fields(inum_fields-1)
+		    'for i=1 to inum_fields
+		    'cm.DYNVMLC.Fields(i-1)=new Class_BEAM_CM_DYNVMLC_Fields
+		    'ReDim cm.DYNVMLC.Fields(i-1).leaves(inum_leaves-1)
+		    'next
+		    '
+		    'if (inum_fields-1)<>UBound(MLC.Fields) Then
+		    'gBEAM.egs_msg.append "Error within MLC2BEAM : number of fields does not match UBound of fields"
+		    'Return
+		    'end
+		    '
+		    'for i =1 to inum_fields
+		    '// Write Index of field
+		    'cm.DYNVMLC.Fields(i-1).Index=MLC.Fields(i-1).Indexnum
+		    'for j=0 to inum_leaves-1
+		    'cm.DYNVMLC.Fields(i-1).leaves(j)=new Class_BEAM_CM_DYNVMLC_Leaf_Opening
+		    'leaf_a=MLC.Fields(i-1).Leaf_A(j)
+		    'leaf_b=MLC.Fields(i-1).Leaf_B(j)
+		    'if (leaf_a =leaf_b) and leaf_a <>0.0 then
+		    'leaf_a=leaf_a+abut_gap
+		    'leaf_b=leaf_b+abut_gap
+		    'end
+		    'leaf_a=leaf_a*(-1)
+		    'if (leaf_a<=0.0) then
+		    'Normal_or_Overtravel_1=0
+		    'else
+		    'Normal_or_Overtravel_1=1
+		    'end
+		    'if(leaf_b<=0.0) then
+		    'Normal_or_Overtravel_2=1
+		    'else
+		    'Normal_or_Overtravel_2=0
+		    'end
+		    'if((leaf_a>=leaf_b) and (leaf_a <> 0.0) and (leaf_b <>0.0)) then
+		    ''MsgBox("leaves colliding! ... exiting ...")
+		    'end
+		    '//leaf_a=egs_Input_CM_DYNVMLC_leaveset(leaf_a,Normal_or_Overtravel_1,z_MLC,leaf_radius,z_field)
+		    '//leaf_b=egs_Input_CM_DYNVMLC_leaveset(leaf_b,Normal_or_Overtravel_2,z_MLC,leaf_radius,z_field)
+		    'if (leaf_b<>0.0) then
+		    'leaf_b=leaf_b-leaf_radius
+		    'end
+		    'if (leaf_a<>0.0) then
+		    'leaf_a=leaf_a+leaf_radius
+		    'end
+		    'if (leaf_a = 0.0) then
+		    'leaf_a = -gap/2.0
+		    'end
+		    'if (leaf_b = 0.0) then
+		    'leaf_b = gap/2.0
+		    'end
+		    'cm.DYNVMLC.Fields(i-1).leaves(j).pos=-leaf_a
+		    'cm.DYNVMLC.Fields(i-1).leaves(j).neg=-leaf_b
+		    'cm.DYNVMLC.Fields(i-1).leaves(j).num=1
+		    'next
+		    
+		    
+		    //next
+		  end
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -1177,6 +1234,14 @@ Protected Class Class_BEAM
 
 	#tag Method, Flags = &h0
 		Sub egs_Input_CM_MLCQ(cm as Class_Beam_Inputfile_CMs)
+		  //===================================================
+		  // MLCQ sequence to BEAMnrc for MSC
+		  // 
+		  // Authors
+		  // A. Alexander (2020)  
+		  // 
+		  //===================================================
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -2303,37 +2368,40 @@ Protected Class Class_BEAM
 		        Inputfile.NSC(k)=new Class_BEAM_Inputfile_NSC_Planes
 		        Inputfile.NSC(k).IPLANE_to_CM=Val(NthField(temp," ",2+k))
 		      next
-		      for k=0 to Inputfile.NSC_PLANES-1
-		        i=i+1+k
-		        temp=wholefile(i)
-		        Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
-		        Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
-		        if  Inputfile.NSC(k).NSC_ZONES>0 Then
-		          
-		          if  Inputfile.NSC(k).MZONE_TYPE=2 Then // For Grids
-		            i=i+1+k
-		            temp=wholefile(i)
-		            Inputfile.NSC(k).XMIN_ZOne=val(NthField(temp,",",1))
-		            Inputfile.NSC(k).XMAX_Zone=val(NthField(temp,",",2))
-		            Inputfile.NSC(k).YMin_Zone=val(NthField(temp,",",3))
-		            Inputfile.NSC(k).YMAX_Zone=val(NthField(temp,",",4))
-		            Inputfile.NSC(k).NX_Zone=val(NthField(temp,",",5))
-		            Inputfile.NSC(k).NY_Zone=val(NthField(temp,",",6))
-		            
-		            
-		            
-		          else //Square and anular
-		            ReDim Inputfile.NSC(k).RSCORE_ZONE( Inputfile.NSC(k).NSC_ZONES-1)
-		            i=i+1+k
-		            temp=wholefile(i)
-		            for j=0 to  Inputfile.NSC(k).NSC_ZONES-1
-		              temp2=NthField(temp,",",j+1)
-		              Inputfile.NSC(k).RSCORE_ZONE(j)=val(temp2)
-		            next
-		          end
-		        end
-		      next
 		      
+		      if Inputfile.NSC_PLANES>-1 then
+		        
+		        for k=0 to Inputfile.NSC_PLANES-1
+		          i=i+1
+		          temp=wholefile(i)
+		          Inputfile.NSC(k).NSC_ZONES=Val(NthField(temp," ",1))
+		          Inputfile.NSC(k).MZONE_TYPE=Val(NthField(temp," ",2))
+		          if  Inputfile.NSC(k).NSC_ZONES>0 Then
+		            i=i+1
+		            temp=wholefile(i)
+		            
+		            if  Inputfile.NSC(k).MZONE_TYPE=2 Then // For Grids
+		              
+		              Inputfile.NSC(k).XMIN_ZOne=val(NthField(temp,",",1))
+		              Inputfile.NSC(k).XMAX_Zone=val(NthField(temp,",",2))
+		              Inputfile.NSC(k).YMin_Zone=val(NthField(temp,",",3))
+		              Inputfile.NSC(k).YMAX_Zone=val(NthField(temp,",",4))
+		              Inputfile.NSC(k).NX_Zone=val(NthField(temp,",",5))
+		              Inputfile.NSC(k).NY_Zone=val(NthField(temp,",",6))
+		              
+		              
+		              
+		            else //Square and anular
+		              ReDim Inputfile.NSC(k).RSCORE_ZONE( Inputfile.NSC(k).NSC_ZONES-1)
+		              
+		              for j=0 to  Inputfile.NSC(k).NSC_ZONES-1
+		                temp2=NthField(temp,",",j+1)
+		                Inputfile.NSC(k).RSCORE_ZONE(j)=val(temp2)
+		              next
+		            end
+		          end
+		        next
+		      end
 		      
 		      
 		      
@@ -2579,7 +2647,7 @@ Protected Class Class_BEAM
 		      Inputfile.CMs(i).SLABS.write(Inputfile.CMs(i))
 		      
 		    elseif Inputfile.CMs(i).CM_Names="MLC" Then
-		      if gLinacs.All_Linacs(egs_linac_index).Type=1 then
+		      if gLinacs.All_Linacs(egs_linac_index).Type=1 or  gLinacs.All_Linacs(egs_linac_index).Type=3 then
 		        egs_Input_CM_MLC(Inputfile.CMs(i))
 		      elseif gLinacs.All_Linacs(egs_linac_index).Type=2 then
 		        egs_Input_CM_MLC_MLC2BEAM_Siemens(Inputfile.CMs(i))
