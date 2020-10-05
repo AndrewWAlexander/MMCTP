@@ -1951,7 +1951,6 @@ Begin Window Window_BEAM_MainInputs
          LockLeft        =   False
          LockRight       =   False
          LockTop         =   False
-         MenuValue       =   "0"
          Scope           =   0
          TabIndex        =   2
          TabPanelIndex   =   0
@@ -2188,7 +2187,7 @@ End
 		  // Update Scoring Planes
 		  PopupMenu_ScoringPlanes.DeleteAllRows
 		  PopupMenu_ScoringPlanes.AddRow "0"
-		  for i=0 to UBound(BEAM.CMs)
+		  for i=0 to 2
 		    PopupMenu_ScoringPlanes.AddRow str(i+1)
 		  next
 		  PopupMenu_ScoringPlanes.ListIndex=BEAM.NSC_PLANES
