@@ -504,9 +504,12 @@ Inherits Thread
 		  
 		  // Updated for DOSXYZnrc isource 20 phsp file runs 2017
 		  //-------------------------------------------------
-		  dim i,x as integer
-		  dim name,energy,mode,temp as String
+		  dim i,k,x as integer
+		  dim name,energy,mode,temp,applicatorId as String
 		  //-------------------------------------------------
+		  
+		  
+		  
 		  
 		  if Plan_Index<0 or Plan_Index>UBound(gRTOG.Plan) Then
 		    Return False
@@ -516,6 +519,9 @@ Inherits Thread
 		    Return False
 		  end
 		  
+		  Beams(beam).egs_BEAMnrc_App_CM=""
+		  Beams(beam).egs_BEAMnrc_App_Id=""
+		  
 		  if Beams(beam).Beamnrc_error Then
 		    Return False
 		  end
@@ -523,12 +529,15 @@ Inherits Thread
 		  name=gRTOG.Plan(Plan_Index).beam(beam).rt_name
 		  energy=gRTOG.Plan(Plan_Index).Beam(beam).beam_energy
 		  mode=gRTOG.Plan(Plan_Index).Beam(beam).beam_mode
+		  applicatorId=gRTOG.Plan(Plan_Index).Beam(beam).Aperture_ID
 		  
 		  if beam> UBound(Beams) or beam< 0 Then
 		    Return False
 		  end
 		  
 		  Beams(beam).egs_linac_index=-1
+		  
+		  
 		  
 		  // Update the Linac link
 		  for i=0 to UBound(gLinacs.All_Linacs)
@@ -545,6 +554,15 @@ Inherits Thread
 		    Beams(beam).Beamnrc_error=True
 		    Return False
 		  end
+		  
+		  //Update the Applicator CM labels
+		  for k=0 to UBound(gLinacs.All_Linacs(i).Applicator)
+		    if applicatorId=gLinacs.All_Linacs(i).Applicator(k) Then
+		      Beams(beam).egs_BEAMnrc_App_CM=gLinacs.All_Linacs(i).BEAMnrcApplicatorCM(k)
+		      Beams(beam).egs_BEAMnrc_App_Id=gLinacs.All_Linacs(i).BEAMnrcApplicatorLabel(k)
+		    end
+		  next
+		  
 		  
 		  if Beams(beam).egs_Shell_Index>-1 and Beams(beam).egs_Shell_Index<=UBound(gShells.Shells) Then
 		    cc = new Class_MMCTP_Commands
@@ -601,7 +619,7 @@ Inherits Thread
 	#tag Method, Flags = &h0
 		Sub egs_Initialize()
 		  //----------------------------------
-		  //
+		  // Method to read the phasespace database
 		  //
 		  //----------------------------------
 		  Dim i as integer
@@ -619,7 +637,21 @@ Inherits Thread
 		  
 		  
 		  f=gPref.BEAMnrc_fi
+		  if f=nil Then
+		    Return
+		  elseif f.Exists=False Then
+		    Errors.Append "Error, BEAMnrc input folder does not exist"
+		    Return
+		  end
+		  
+		  
 		  f=f.Child("PhaseSpace.rsd")
+		  if f=nil Then
+		    Errors.Append "Warning, phaseSpace.rsd file not found within BEAMnrc input folder"
+		    Return
+		  end
+		  
+		  
 		  PhaseSpace=new SQLiteDatabase //Changed to "SQLiteDatabase by William Davis after REAQLSQPDatabase was found to have  been deprecated
 		  PhaseSpace.DatabaseFile=f
 		  if f.Exists Then

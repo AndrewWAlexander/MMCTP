@@ -1,79 +1,6 @@
 #tag Class
 Protected Class Class_BEAM
 	#tag Method, Flags = &h0
-		Sub egs_Input_CM_APPLICAT(CM as Class_Beam_Inputfile_CMs)
-		  //--------------------------------------------
-		  // Write CM Applicator
-		  // 
-		  //
-		  //--------------------------------------------
-		  Dim i ,k,j as integer
-		  Dim temp as String
-		  Dim bb as Boolean
-		  //--------------------------------------------
-		  
-		  
-		  bb=egs_Input_CM_APPLICAT_Upload(CM)
-		  
-		  cm.APPLICAT.Write(cm.text)
-		  
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function egs_Input_CM_APPLICAT_Upload(CM as Class_Beam_Inputfile_CMs) As boolean
-		  //--------------------------------------------
-		  // Method to find the right Electron Applicator  CM
-		  // 
-		  //
-		  //--------------------------------------------
-		  Dim temp,text(-1),app_id as String
-		  Dim f as FolderItem
-		  Dim ts as TextInputStream
-		  Dim un,mac,win as Integer
-		  //--------------------------------------------
-		  app_id=gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID
-		  
-		  
-		  if app_id<>"" Then
-		    app_id="APP-"+app_id
-		    
-		    f=gPref.BEAMnrc_fi
-		    f=f.Child(app_id+".egsinp")
-		    if f.Exists =False Then
-		      gBEAM.egs_msg.append "Error in CM Applicator ! Could not find file : "+f.Name
-		      Return False
-		    end
-		    
-		    ts=f.OpenAsTextFile
-		    temp=ts.ReadAll
-		    ts.Close
-		    
-		    un=CountFields(temp,EndOfLine.UNIX)
-		    mac=CountFields(temp,EndOfLine.Macintosh)
-		    win=CountFields(temp,EndOfLine.Windows)
-		    
-		    if mac>un Then
-		      text=Split(temp,EndOfLine.Macintosh)
-		    elseif Win>un Then
-		      text=Split(temp,EndOfLine.Windows)
-		    else
-		      text=Split(temp,EndOfLine.UNIX)
-		    end
-		    
-		    
-		    
-		    cm.APPLICAT.Read(text)
-		    
-		  end
-		  
-		  Return True
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function egs_Input_CM_ARCCHM(CM as Class_Beam_Inputfile_CMs) As boolean
 		  //--------------------------------------------
 		  // Method to find the right ARCCHM Applicator  CM
@@ -951,53 +878,8 @@ Protected Class Class_BEAM
 		    
 		    if cm.CM_Identifier="MSC"  then
 		      
-		      //Block_spacing=0.04
-		      //Hole_Spacing=0.005
-		      
-		      Block_spacing=0.1
-		      Hole_Spacing=0.01
-		      //gap=0.2
-		      gap=1
-		      
-		      
-		      number_of_open=1
-		      number_of_closed=Round(Block_spacing/Hole_Spacing)
-		      
-		      
-		      period=Block_spacing+Hole_Spacing
-		      periods=round(CM.MLC.TWIDTH_MLC/period)
-		      CM.MLC.Num_leaf=periods*(number_of_open+number_of_closed)
-		      If CM.MLC.Num_leaf Mod 2 = 0 Then
-		      else
-		        periods=periods+1
-		        CM.MLC.Num_leaf=periods*(number_of_open+number_of_closed)
-		      end
-		      
-		      Width_of_each_leaf=CM.MLC.TWIDTH_MLC/CM.MLC.Num_leaf
-		      
-		      
-		      ReDim cm.MLC.Field(periods*2-1)
-		      k=0
-		      // Geometry for MSC
-		      for i=1 to periods
-		        cm.MLC.Field(k)=new Class_BEAM_CM_MLC_Leaf_Opening
-		        CM.MLC.Field(k).Neg=-7
-		        CM.MLC.Field(k).Pos=-7
-		        CM.MLC.Field(k).Num= number_of_closed
-		        k=k+1
-		        
-		        cm.MLC.Field(k)=new Class_BEAM_CM_MLC_Leaf_Opening
-		        CM.MLC.Field(k).Neg=-1*gap
-		        CM.MLC.Field(k).Pos=gap
-		        CM.MLC.Field(k).Num= number_of_open
-		        k=k+1
-		      next
 		      
 		    end
-		    
-		    
-		    
-		    // We have an MLC field
 		    
 		    
 		    
@@ -1415,6 +1297,88 @@ Protected Class Class_BEAM
 		  end
 		  return(correctleaf)
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub egs_Input_CM_REPLACE(nameoffile as string, index as Integer)
+		  //--------------------------------------------
+		  // Method to replace the current CM text with a preset default
+		  // 
+		  //
+		  //--------------------------------------------
+		  Dim temp,texts(-1),app_id as String
+		  Dim f as FolderItem
+		  Dim ts as TextInputStream
+		  Dim un,mac,win,j,i as Integer
+		  Dim cm as Class_Beam_Inputfile_CMs
+		  
+		  //--------------------------------------------
+		  app_id=gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID
+		  
+		  
+		  
+		  app_id="APP-"+nameoffile
+		  
+		  f=gPref.BEAMnrc_fi
+		  f=f.Child(app_id+".egsinp")
+		  if f.Exists =False Then
+		    gBEAM.egs_msg.append "Error in CM replace ! Could not find file : "+f.Name
+		    Return 
+		  end
+		  
+		  ts=f.OpenAsTextFile
+		  temp=ts.ReadAll
+		  ts.Close
+		  
+		  un=CountFields(temp,EndOfLine.UNIX)
+		  mac=CountFields(temp,EndOfLine.Macintosh)
+		  win=CountFields(temp,EndOfLine.Windows)
+		  
+		  if mac>un Then
+		    texts=Split(temp,EndOfLine.Macintosh)
+		  elseif Win>un Then
+		    texts=Split(temp,EndOfLine.Windows)
+		  else
+		    texts=Split(temp,EndOfLine.UNIX)
+		  end
+		  
+		  
+		  
+		  
+		  //Start of CMs 
+		  if UBound(texts)<1 Then
+		    Errors.append "Something is wrong with the format of "+f.Name
+		  else
+		    temp=texts(0)
+		    if InStr(temp,"start of CM")>0 Then
+		      cm =new Class_Beam_Inputfile_CMs
+		      //cm.Title=trim(Temp)
+		      
+		      While InStr(temp,"*")>0 
+		        Temp=Replace(Temp,"*","")
+		      Wend
+		      Temp=Trim(Temp)
+		      
+		      cm.CM_Names=Trim(NthField(Temp," ",4))
+		      cm.CM_Identifier=Trim(NthField(Temp," ",7))
+		      texts.Remove 0
+		      
+		      if CM.CM_Names="APPLICAT " Then
+		        CM.APPLICAT=new Class_BEAM_CM_APPLICAT
+		        cm.APPLICAT.Read(texts)
+		        Inputfile.CMs(index).APPLICAT=CM.APPLICAT
+		        Inputfile.CMs(index).APPLICAT.Write(Inputfile.CMs(index).text)
+		        
+		      ElseIf CM.CM_Names="MLC" Then //---------------------------------------------------------------
+		        CM.MLC=new Class_BEAM_CM_MLC
+		        CM.MLC.read(texts,CM.CM_Identifier)
+		        Inputfile.CMs(index).MLC=CM.MLC
+		        Inputfile.CMs(index).MLC.Write_String(Inputfile.CMs(index))
+		      end
+		    end
+		  end
+		  Return 
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -2635,7 +2599,7 @@ Protected Class Class_BEAM
 		      egs_Input_CM_Wedge(Inputfile.CMs(i))
 		      
 		    elseif Inputfile.CMs(i).CM_Names="APPLICAT" then
-		      egs_Input_CM_APPLICAT(Inputfile.CMs(i))
+		      Inputfile.CMs(i).APPLICAT.Write(Inputfile.CMs(i).text)
 		      
 		    elseif Inputfile.CMs(i).CM_Names="DYNJAWS" or  Inputfile.CMs(i).CM_Names="SYNCJAWS" Then
 		      egs_Input_CM_DYNJAWS(Inputfile.CMs(i).DYNJAWS,bversion)
@@ -2682,6 +2646,16 @@ Protected Class Class_BEAM
 		      end
 		      Inputfile.CMs(i).PYRAMIDS.Write(Inputfile.CMs(i))
 		    end
+		    
+		    
+		    //Check for inserts, or Applicators or add on collimators
+		    if len(gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID)>0 Then
+		      if Inputfile.CMs(i).CM_Names=egs_BEAMnrc_App_CM and  Inputfile.CMs(i).CM_Identifier=egs_BEAMnrc_App_Id  Then
+		        egs_Input_CM_REPLACE(gRTOG.Plan(Plan_Index).Beam(beam_number).Aperture_ID,i)
+		      end
+		    end
+		    
+		    
 		    
 		    
 		    temp="*********** start of CM "+Inputfile.CMs(i).CM_Names+" with identifier "+Inputfile.CMs(i).CM_Identifier+"  ***********"
@@ -2776,6 +2750,20 @@ Protected Class Class_BEAM
 			number of active jobs
 		#tag EndNote
 		egs_BEAMnrc_active_jobs As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			beamnrc folder within egs home
+		#tag EndNote
+		egs_BEAMnrc_App_CM As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			beamnrc folder within egs home
+		#tag EndNote
+		egs_BEAMnrc_App_Id As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -3283,6 +3271,22 @@ Protected Class Class_BEAM
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="egs_BEAMnrc_App_CM"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="egs_BEAMnrc_App_Id"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
