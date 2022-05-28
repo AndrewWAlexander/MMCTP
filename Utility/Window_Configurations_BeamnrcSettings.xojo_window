@@ -824,6 +824,7 @@ Begin Window Window_Configurations_BeamnrcSettings
       Top             =   20
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   411

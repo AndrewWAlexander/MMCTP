@@ -3618,7 +3618,8 @@ Inherits Thread
 		      
 		    elseif file.Elements(i).tag_a="3006" and file.Elements(i).tag_b="0010"  then // Referneced Frame of Reference Sequene
 		      for i=i to UBound(file.Elements)
-		        //temp=file.Elements(i).tag_a+",  "+file.Elements(i).tag_b+",  "+file.Elements(i).value
+		        temp=file.Elements(i).tag_a+",  "+file.Elements(i).tag_b+",  "+file.Elements(i).value
+		        
 		        if InStr(file.Elements(i).value,"END OF SEQUENCE")>0 Then
 		          exit
 		          

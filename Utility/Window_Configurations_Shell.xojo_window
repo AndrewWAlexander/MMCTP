@@ -241,6 +241,7 @@ Begin Window Window_Configurations_Shell
          Top             =   125
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   894
@@ -3562,6 +3563,7 @@ Begin Window Window_Configurations_Shell
             Top             =   318
             Transparent     =   False
             Underline       =   False
+            UnicodeMode     =   0
             UseFocusRing    =   True
             Visible         =   True
             Width           =   1034
@@ -3972,6 +3974,7 @@ Begin Window Window_Configurations_Shell
             Top             =   258
             Transparent     =   False
             Underline       =   False
+            UnicodeMode     =   0
             UseFocusRing    =   True
             Visible         =   True
             Width           =   1049

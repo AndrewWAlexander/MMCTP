@@ -209,6 +209,7 @@ Begin Window Window_BEAM_Options
          Top             =   75
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   631

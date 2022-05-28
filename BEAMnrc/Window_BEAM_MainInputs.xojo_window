@@ -1918,6 +1918,7 @@ Begin Window Window_BEAM_MainInputs
          Top             =   443
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   605

@@ -1221,6 +1221,7 @@ Begin Window Window_DOSXYZ_Properties
          Top             =   84
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   494

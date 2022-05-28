@@ -200,6 +200,7 @@ Begin Window Window_EMET_Run
          Top             =   54
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   576
@@ -392,6 +393,7 @@ Begin Window Window_EMET_Run
          Top             =   49
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   672
@@ -1643,6 +1645,7 @@ Begin Window Window_EMET_Run
          Top             =   278
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   939
@@ -6173,6 +6176,7 @@ Begin Window Window_EMET_Run
          Top             =   68
          Transparent     =   False
          Underline       =   False
+         UnicodeMode     =   0
          UseFocusRing    =   True
          Visible         =   True
          Width           =   618

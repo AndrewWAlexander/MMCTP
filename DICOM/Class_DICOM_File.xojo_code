@@ -262,8 +262,9 @@ Protected Class Class_DICOM_File
 		  //
 		  //==============================
 		  Dim i, j as integer
-		  Dim ss,len_sa,len_sb as Int16
+		  Dim ss,len_sa,len_sb,temp as Int16
 		  Dim tt as Boolean
+		  Dim stemp as String
 		  //===============================
 		  
 		  
@@ -272,41 +273,22 @@ Protected Class Class_DICOM_File
 		    
 		    for i=UBound(sq_length) DownTo 0 // Determine if we are in sequeneces
 		      if UBound(sq_length)>-1 Then // If we are within sequences
-		        if sq_length(UBound(sq_length)) <> &hffffffff then // if the length has been specified
+		        temp=sq_length(UBound(sq_length))
+		        if sq_length(UBound(sq_length)) <> &hffffffff and temp <>-1 then // if the length has been specified, chekc to see if 
 		          if bytePos >= sq(UBound(sq_length)) + sq_length(UBound(sq_length)) Then
 		            // loop until the new position is equal to the beginning of the sequence plus the length of the sequence
 		            One_Element= new Class_DICOM_Element
-		            Elements.Append One_Element
-		            One_Element.Value= "END OF SEQUENCE"
+		            One_Element.Tag_a="FFFE"  
+		            One_Element.Tag_b="E0DD"
+		            One_Element.Value="END OF SEQUENCE"
 		            One_Element.VM=(numSequence)
+		            One_Element.byte_position=bytePos
+		            
+		            Elements.Append One_Element
 		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
 		            sq_length.Remove UBound(sq_length)
 		            sq.Remove UBound(sq)
-		            One_Element.byte_position=bytePos
 		          end
-		          
-		        else // If length is not specified
-		          //for bytePos=bytePos to thismemblock.Size -2
-		          
-		          len_sa=thismemblock.short(bytePos)
-		          len_sb=thismemblock.short(bytePos+2)
-		          
-		          // If the length is unspecified
-		          if (len_sa= &hfffffffe and len_sb = &hffffe0dd) Then
-		            // or _
-		            //len_sa = &hfffe and len_sb = &he0dd  then // if the length is unspecified
-		            One_Element= new Class_DICOM_Element
-		            Elements.Append One_Element
-		            One_Element.Value= "END OF SEQUENCE"
-		            One_Element.VM=(numSequence)
-		            numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
-		            bytePos = bytePos + 8
-		            sq_length.Remove UBound(sq_length)
-		            sq.Remove UBound(sq)
-		            One_Element.byte_position=bytePos
-		            //Exit for bytePos
-		          end
-		          //next
 		        end if
 		      end
 		    next
@@ -447,6 +429,20 @@ Protected Class Class_DICOM_File
 		    // -------------------------------------------->  this group and element denotes the end of a item in a sequence
 		    One_Element.VM=numSequence
 		    One_Element.Value = "End of Item"
+		    
+		    
+		    
+		  elseif One_Element.Tag_a="FFFE"  and One_Element.Tag_b="E0DD"    Then
+		    // -------------------------------------------->  this group and element denotes the end of a sequence
+		    One_Element.VM=numSequence
+		    One_Element.Value = "END OF SEQUENCE" //, Sequence Delimitation Item" 
+		    numSequence = numSequence - 1 // this variable keeps track of the number of sequences the program is currently in (since you can have sequences inside sequences)
+		    sq_length.Remove UBound(sq_length)
+		    sq.Remove UBound(sq)
+		    
+		    
+		    
+		    
 		    
 		  elseif One_Element.VR = "FL" or One_Element.VR = "FD" then
 		    One_Element.Value = "VR not handled"
@@ -599,7 +595,7 @@ Protected Class Class_DICOM_File
 		  
 		  
 		  One_Element.Element_Length=0
-		  if One_Element.Tag_a="FFFE"  and ( One_Element.Tag_b="E000" or One_Element.Tag_b="E00D") Then
+		  if One_Element.Tag_a="FFFE"  and ( One_Element.Tag_b="E000" or One_Element.Tag_b="E00D" or One_Element.Tag_b="E0DD") Then
 		    'There are three special SQ related Data Elements that are not ruled by the VR encoding rules conveyed by the Transfer Syntax
 		    One_Element.Value_length = thismemblock.long(bytePos) // this is the length of this item
 		    bytePos = bytePos + 4

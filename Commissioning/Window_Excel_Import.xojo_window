@@ -70,6 +70,7 @@ Begin Window Window_Excel_Import
       Top             =   81
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   100
@@ -154,6 +155,7 @@ Begin Window Window_Excel_Import
       Top             =   81
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   193
@@ -322,6 +324,7 @@ Begin Window Window_Excel_Import
       Top             =   81
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   100
@@ -406,6 +409,7 @@ Begin Window Window_Excel_Import
       Top             =   81
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   100

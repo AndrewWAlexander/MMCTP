@@ -70,6 +70,7 @@ Begin Window Window_Licence
       Top             =   187
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   0
       UseFocusRing    =   True
       Visible         =   True
       Width           =   565
